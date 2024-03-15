@@ -9,14 +9,14 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <PackageId>com.beneficialstrategies.iso20022.2024.02.09</PackageId>
+    <PackageId>beneficialstrategies.iso20022</PackageId>
     <PackageDescription>The entirety of the ISO20022 message domain model. 2,665 B2B financial messages structured as immutable records based on the ISO20022 standard.</PackageDescription>
-    <Version>0.1.2-alpha</Version>
+    <Version>0.2.0-alpha</Version>
     <Authors>Jeff Ward,Beneficial Strategies</Authors>
     <Company>BeneficialStrategies.com</Company>
     <RepositoryUrl>https://github.com/jefforyamos/Iso20022Library</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageReleaseNotes>Intellisense enabled in package contents.</PackageReleaseNotes>
+    <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)/release-notes.txt"))</PackageReleaseNotes>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <DebugType>embedded</DebugType>
     <PackageReadmeFile>README.md</PackageReadmeFile>

@@ -1,0 +1,9 @@
+0.1.3-alpha
+    Removed outer documents since they did not truly represent entities in the domain model.
+    Added release notes.
+    Upddated Copyright at top of generated code.
+
+0.2.0-alpha
+    Values with unspecified multiplicity now are collections.
+    Changed package id to beneficialstrategies.iso20022.
+
