@@ -7,3 +7,6 @@
     Values with unspecified multiplicity now are collections.
     Changed package id to beneficialstrategies.iso20022.
 
+0.2.1-alpha
+    Mixed casing on package id.
+
