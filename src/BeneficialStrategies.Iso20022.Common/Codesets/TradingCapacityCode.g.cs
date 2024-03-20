@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YqqBBtp-Ed-ak6NoX_4Aeg_-1705783512")]
 [Description(@"Specifies the role of a trading party in a transaction.")]
-[Derivations(typeof(TradingCapacity7Code),typeof(TradingCapacity5Code),typeof(TradingCapacity6Code),typeof(TradingCapacity3Code),typeof(TradingCapacity8Code),typeof(TradingCapacity4Code))]
+[Derivations(typeof(TradingCapacity3Code),typeof(TradingCapacity4Code),typeof(TradingCapacity6Code),typeof(TradingCapacity5Code),typeof(TradingCapacity7Code),typeof(TradingCapacity8Code))]
 public enum TradingCapacityCode
 {
     /// <summary>

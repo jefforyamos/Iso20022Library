@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_KT7Xp31DEeCF8NjrBemJWQ_-1645762165")]
 [Description(@"Final result of the processed terminal management action.")]
-[Derivations(typeof(TerminalManagementActionResult3Code),typeof(TerminalManagementActionResult5Code),typeof(TerminalManagementActionResult2Code),typeof(TerminalManagementActionResult4Code),typeof(TerminalManagementActionResult1Code))]
+[Derivations(typeof(TerminalManagementActionResult4Code),typeof(TerminalManagementActionResult5Code),typeof(TerminalManagementActionResult1Code),typeof(TerminalManagementActionResult3Code),typeof(TerminalManagementActionResult2Code))]
 public enum TerminalManagementActionResultCode
 {
     /// <summary>

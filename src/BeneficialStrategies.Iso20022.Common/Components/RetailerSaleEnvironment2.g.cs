@@ -82,13 +82,12 @@ public partial record RetailerSaleEnvironment2
     [DataMember(Name="MinAmtToDlvr")]
     #endif
     [IsoXmlTag("MinAmtToDlvr")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumAmountToDeliver { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; init; } 
     #else
-    public System.Decimal? MinimumAmountToDeliver { get; set; } 
+    public ImpliedCurrencyAndAmount? MinimumAmountToDeliver { get; set; } 
     #endif
     
     /// <summary>
@@ -100,13 +99,12 @@ public partial record RetailerSaleEnvironment2
     [DataMember(Name="MaxCshBckAmt")]
     #endif
     [IsoXmlTag("MaxCshBckAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumCashBackAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumCashBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumCashBackAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumCashBackAmount { get; init; } 
     #else
-    public System.Decimal? MaximumCashBackAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumCashBackAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -118,13 +116,12 @@ public partial record RetailerSaleEnvironment2
     [DataMember(Name="MinSpltAmt")]
     #endif
     [IsoXmlTag("MinSpltAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MinimumSplitAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumSplitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumSplitAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumSplitAmount { get; init; } 
     #else
-    public System.Decimal? MinimumSplitAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MinimumSplitAmount { get; set; } 
     #endif
     
     /// <summary>

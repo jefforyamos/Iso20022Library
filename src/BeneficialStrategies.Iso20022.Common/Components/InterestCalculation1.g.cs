@@ -39,7 +39,7 @@ public partial record InterestCalculation1
     /// Constructs a InterestCalculation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public InterestCalculation1( System.DateOnly reqCalculationDate,System.Decimal reqEffectivePrincipalAmount,System.Decimal reqEffectiveRate,System.Decimal reqAccruedInterestAmount )
+    public InterestCalculation1( System.DateOnly reqCalculationDate,ActiveCurrencyAndAmount reqEffectivePrincipalAmount,System.Decimal reqEffectiveRate,ActiveCurrencyAndAmount reqAccruedInterestAmount )
     {
         CalculationDate = reqCalculationDate;
         EffectivePrincipalAmount = reqEffectivePrincipalAmount;
@@ -78,15 +78,14 @@ public partial record InterestCalculation1
     [DataMember(Name="FctvPrncplAmt")]
     #endif
     [IsoXmlTag("FctvPrncplAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal EffectivePrincipalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal EffectivePrincipalAmount { get; init; } 
+    public ActiveCurrencyAndAmount EffectivePrincipalAmount { get; init; } 
     #else
-    public System.Decimal EffectivePrincipalAmount { get; set; } 
+    public ActiveCurrencyAndAmount EffectivePrincipalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -98,13 +97,12 @@ public partial record InterestCalculation1
     [DataMember(Name="PrncplAmt")]
     #endif
     [IsoXmlTag("PrncplAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PrincipalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? PrincipalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PrincipalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? PrincipalAmount { get; init; } 
     #else
-    public System.Decimal? PrincipalAmount { get; set; } 
+    public ActiveCurrencyAndAmount? PrincipalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -116,13 +114,12 @@ public partial record InterestCalculation1
     [DataMember(Name="MvmntAmt")]
     #endif
     [IsoXmlTag("MvmntAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MovementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MovementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MovementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MovementAmount { get; init; } 
     #else
-    public System.Decimal? MovementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MovementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -207,15 +204,14 @@ public partial record InterestCalculation1
     [DataMember(Name="AcrdIntrstAmt")]
     #endif
     [IsoXmlTag("AcrdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AccruedInterestAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AccruedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #else
-    public System.Decimal AccruedInterestAmount { get; set; } 
+    public ActiveCurrencyAndAmount AccruedInterestAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -227,13 +223,12 @@ public partial record InterestCalculation1
     [DataMember(Name="AggtdIntrstAmt")]
     #endif
     [IsoXmlTag("AggtdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AggregatedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     #else
-    public System.Decimal? AggregatedInterestAmount { get; set; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; set; } 
     #endif
     
     

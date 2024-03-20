@@ -65,13 +65,12 @@ public partial record ATMTransactionAmounts6
     [DataMember(Name="MaxPssblAmt")]
     #endif
     [IsoXmlTag("MaxPssblAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumPossibleAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumPossibleAmount { get; init; } 
     #else
-    public System.Decimal? MaximumPossibleAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumPossibleAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -83,13 +82,12 @@ public partial record ATMTransactionAmounts6
     [DataMember(Name="MinPssblAmt")]
     #endif
     [IsoXmlTag("MinPssblAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumPossibleAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumPossibleAmount { get; init; } 
     #else
-    public System.Decimal? MinimumPossibleAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MinimumPossibleAmount { get; set; } 
     #endif
     
     /// <summary>

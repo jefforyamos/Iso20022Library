@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aKUc9Np-Ed-ak6NoX_4Aeg_1549809096")]
 [Description(@"Specifies the priority level of an event.")]
-[Derivations(typeof(Priority1Code),typeof(Priority4Code),typeof(Priority2Code),typeof(Priority5Code),typeof(Priority3Code))]
+[Derivations(typeof(Priority1Code),typeof(Priority3Code),typeof(Priority4Code),typeof(Priority2Code),typeof(Priority5Code))]
 public enum PriorityCode
 {
     /// <summary>

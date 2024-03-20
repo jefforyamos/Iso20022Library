@@ -269,13 +269,12 @@ public partial record SaleContext3
     [DataMember(Name="RmngAmt")]
     #endif
     [IsoXmlTag("RmngAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? RemainingAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? RemainingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RemainingAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? RemainingAmount { get; init; } 
     #else
-    public System.Decimal? RemainingAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? RemainingAmount { get; set; } 
     #endif
     
     /// <summary>

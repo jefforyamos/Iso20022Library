@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZfQtyNp-Ed-ak6NoX_4Aeg_99789863")]
 [Description(@"Cash settlement date is not recognised or is invalid.")]
-[Derivations(typeof(RejectedStatusReason7Code),typeof(RejectedStatusReason4Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason6Code),typeof(RejectedStatusReason9Code),typeof(CancellationRejectedReason1Code),typeof(TransferRejectedStatusReason1Code),typeof(RejectedStatusReason10Code),typeof(MessageRejectedReason1Code),typeof(TransferRejectedStatusReason2Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason5Code),typeof(RejectedStatusReason11Code),typeof(RejectedStatusReason13Code),typeof(RejectedStatusReason8Code))]
+[Derivations(typeof(RejectedStatusReason5Code),typeof(RejectedStatusReason6Code),typeof(RejectedStatusReason11Code),typeof(RejectedStatusReason13Code),typeof(TransferRejectedStatusReason2Code),typeof(MessageRejectedReason1Code),typeof(CancellationRejectedReason1Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason7Code),typeof(TransferRejectedStatusReason1Code),typeof(RejectedStatusReason9Code),typeof(RejectedStatusReason8Code),typeof(RejectedStatusReason10Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason4Code))]
 public enum RejectedStatusReasonCode
 {
     /// <summary>

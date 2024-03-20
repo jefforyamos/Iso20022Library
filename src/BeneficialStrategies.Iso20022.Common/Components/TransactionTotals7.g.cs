@@ -39,7 +39,7 @@ public partial record TransactionTotals7
     /// Constructs a TransactionTotals7 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TransactionTotals7( TypeTransactionTotals2Code reqType,System.UInt64 reqTotalNumber,System.Decimal reqCumulativeAmount )
+    public TransactionTotals7( TypeTransactionTotals2Code reqType,System.UInt64 reqTotalNumber,ImpliedCurrencyAndAmount reqCumulativeAmount )
     {
         Type = reqType;
         TotalNumber = reqTotalNumber;
@@ -151,15 +151,14 @@ public partial record TransactionTotals7
     [DataMember(Name="CmltvAmt")]
     #endif
     [IsoXmlTag("CmltvAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CumulativeAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CumulativeAmount { get; init; } 
+    public ImpliedCurrencyAndAmount CumulativeAmount { get; init; } 
     #else
-    public System.Decimal CumulativeAmount { get; set; } 
+    public ImpliedCurrencyAndAmount CumulativeAmount { get; set; } 
     #endif
     
     

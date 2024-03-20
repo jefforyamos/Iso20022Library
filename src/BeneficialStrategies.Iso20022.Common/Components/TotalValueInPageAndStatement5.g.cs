@@ -48,13 +48,12 @@ public partial record TotalValueInPageAndStatement5
     [DataMember(Name="TtlXpsrValOfPg")]
     #endif
     [IsoXmlTag("TtlXpsrValOfPg")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalExposureValueOfPage { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; init; } 
     #else
-    public System.Decimal? TotalExposureValueOfPage { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalExposureValueOfPage { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record TotalValueInPageAndStatement5
     [DataMember(Name="TtlCollHeldValOfPg")]
     #endif
     [IsoXmlTag("TtlCollHeldValOfPg")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalCollateralHeldValueOfPage { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; init; } 
     #else
-    public System.Decimal? TotalCollateralHeldValueOfPage { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCollateralHeldValueOfPage { get; set; } 
     #endif
     
     

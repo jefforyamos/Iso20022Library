@@ -39,7 +39,7 @@ public partial record PaymentTransactionInformation2
     /// Constructs a PaymentTransactionInformation2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public PaymentTransactionInformation2( System.Decimal reqReturnedInterbankSettlementAmount )
+    public PaymentTransactionInformation2( CurrencyAndAmount reqReturnedInterbankSettlementAmount )
     {
         ReturnedInterbankSettlementAmount = reqReturnedInterbankSettlementAmount;
     }
@@ -148,13 +148,12 @@ public partial record PaymentTransactionInformation2
     [DataMember(Name="OrgnlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -166,15 +165,14 @@ public partial record PaymentTransactionInformation2
     [DataMember(Name="RtrdIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("RtrdIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
+    public required CurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ReturnedInterbankSettlementAmount { get; init; } 
+    public required CurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ReturnedInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal ReturnedInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount ReturnedInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -204,13 +202,12 @@ public partial record PaymentTransactionInformation2
     [DataMember(Name="RtrdInstdAmt")]
     #endif
     [IsoXmlTag("RtrdInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
+    public CurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReturnedInstructedAmount { get; init; } 
+    public CurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     #else
-    public System.Decimal? ReturnedInstructedAmount { get; set; } 
+    public CurrencyAndAmount? ReturnedInstructedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -240,13 +237,12 @@ public partial record PaymentTransactionInformation2
     [DataMember(Name="CompstnAmt")]
     #endif
     [IsoXmlTag("CompstnAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CompensationAmount { get; init; } 
+    public CurrencyAndAmount? CompensationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CompensationAmount { get; init; } 
+    public CurrencyAndAmount? CompensationAmount { get; init; } 
     #else
-    public System.Decimal? CompensationAmount { get; set; } 
+    public CurrencyAndAmount? CompensationAmount { get; set; } 
     #endif
     
     /// <summary>

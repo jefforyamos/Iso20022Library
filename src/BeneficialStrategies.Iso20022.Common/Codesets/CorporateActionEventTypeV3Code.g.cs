@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bI6MJdp-Ed-ak6NoX_4Aeg_-1371447915")]
 [Description(@"Specifies the corporate action event type.")]
-[Derivations(typeof(CorporateActionEventType9Code),typeof(CorporateActionEventType7Code),typeof(CorporateActionEventType8Code),typeof(CorporateActionEventType2Code),typeof(CorporateActionEventType6Code))]
+[Derivations(typeof(CorporateActionEventType7Code),typeof(CorporateActionEventType9Code),typeof(CorporateActionEventType8Code),typeof(CorporateActionEventType6Code),typeof(CorporateActionEventType2Code))]
 public enum CorporateActionEventTypeV3Code
 {
     /// <summary>

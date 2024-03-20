@@ -84,13 +84,12 @@ public partial record AmountAndDirection32
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? Amount { get; init; } 
+    public ActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public ActiveCurrencyAndAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public ActiveCurrencyAndAmount? Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -119,13 +118,12 @@ public partial record AmountAndDirection32
     [DataMember(Name="OrgnlCcyAndOrdrdAmt")]
     #endif
     [IsoXmlTag("OrgnlCcyAndOrdrdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; set; } 
     #endif
     
     /// <summary>

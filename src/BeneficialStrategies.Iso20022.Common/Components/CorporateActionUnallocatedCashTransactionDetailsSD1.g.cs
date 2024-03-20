@@ -75,13 +75,12 @@ public partial record CorporateActionUnallocatedCashTransactionDetailsSD1
     [DataMember(Name="TxAmt")]
     #endif
     [IsoXmlTag("TxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TransactionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     #else
-    public System.Decimal? TransactionAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TransactionAmount { get; set; } 
     #endif
     
     /// <summary>

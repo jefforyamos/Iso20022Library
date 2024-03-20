@@ -241,13 +241,12 @@ public partial record UnitPrice15
     [DataMember(Name="TaxblIncmPerShr")]
     #endif
     [IsoXmlTag("TaxblIncmPerShr")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerShare { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerShare { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; set; } 
     #endif
     
     /// <summary>
@@ -295,13 +294,12 @@ public partial record UnitPrice15
     [DataMember(Name="TaxblIncmPerDvdd")]
     #endif
     [IsoXmlTag("TaxblIncmPerDvdd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerDividend { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerDividend { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? TaxableIncomePerDividend { get; set; } 
     #endif
     
     /// <summary>

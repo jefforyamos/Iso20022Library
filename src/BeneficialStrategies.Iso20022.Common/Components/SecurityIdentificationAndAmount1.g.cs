@@ -39,7 +39,7 @@ public partial record SecurityIdentificationAndAmount1
     /// Constructs a SecurityIdentificationAndAmount1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public SecurityIdentificationAndAmount1( System.String reqIdentification,System.Decimal reqMarketValue,ProductType7Code reqFinancialInstrumentType )
+    public SecurityIdentificationAndAmount1( System.String reqIdentification,ActiveCurrencyAnd24Amount reqMarketValue,ProductType7Code reqFinancialInstrumentType )
     {
         Identification = reqIdentification;
         MarketValue = reqMarketValue;
@@ -77,15 +77,14 @@ public partial record SecurityIdentificationAndAmount1
     [DataMember(Name="MktVal")]
     #endif
     [IsoXmlTag("MktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd24Amount MarketValue { get; init; } 
+    public required ActiveCurrencyAnd24Amount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MarketValue { get; init; } 
+    public required ActiveCurrencyAnd24Amount MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MarketValue { get; init; } 
+    public ActiveCurrencyAnd24Amount MarketValue { get; init; } 
     #else
-    public System.Decimal MarketValue { get; set; } 
+    public ActiveCurrencyAnd24Amount MarketValue { get; set; } 
     #endif
     
     /// <summary>

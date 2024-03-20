@@ -39,7 +39,7 @@ public partial record TransactionTotals5
     /// Constructs a TransactionTotals5 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TransactionTotals5( System.Decimal reqAmount,System.UInt64 reqNumber,System.Decimal reqChargeBackAmount,System.UInt64 reqChargeBackNumber,System.Decimal reqReversalAmount,System.UInt64 reqReversalNumber )
+    public TransactionTotals5( ImpliedCurrencyAndAmount reqAmount,System.UInt64 reqNumber,ImpliedCurrencyAndAmount reqChargeBackAmount,System.UInt64 reqChargeBackNumber,ImpliedCurrencyAndAmount reqReversalAmount,System.UInt64 reqReversalNumber )
     {
         Amount = reqAmount;
         Number = reqNumber;
@@ -60,15 +60,14 @@ public partial record TransactionTotals5
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount Amount { get; init; } 
+    public required ImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ImpliedCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ImpliedCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ImpliedCurrencyAndAmount Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -100,15 +99,14 @@ public partial record TransactionTotals5
     [DataMember(Name="ChrgBckAmt")]
     #endif
     [IsoXmlTag("ChrgBckAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ChargeBackAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ChargeBackAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ChargeBackAmount { get; init; } 
     #else
-    public System.Decimal ChargeBackAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ChargeBackAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -140,15 +138,14 @@ public partial record TransactionTotals5
     [DataMember(Name="RvslAmt")]
     #endif
     [IsoXmlTag("RvslAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ReversalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ReversalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ReversalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ReversalAmount { get; init; } 
     #else
-    public System.Decimal ReversalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ReversalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -180,13 +177,12 @@ public partial record TransactionTotals5
     [DataMember(Name="FeeAmts")]
     #endif
     [IsoXmlTag("FeeAmts")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
+    public ImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FeeAmounts { get; init; } 
+    public ImpliedCurrencyAndAmount? FeeAmounts { get; init; } 
     #else
-    public System.Decimal? FeeAmounts { get; set; } 
+    public ImpliedCurrencyAndAmount? FeeAmounts { get; set; } 
     #endif
     
     

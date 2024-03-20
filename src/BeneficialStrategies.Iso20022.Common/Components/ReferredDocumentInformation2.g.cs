@@ -102,13 +102,12 @@ public partial record ReferredDocumentInformation2
     [DataMember(Name="DocAmt")]
     #endif
     [IsoXmlTag("DocAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? DocumentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DocumentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DocumentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DocumentAmount { get; init; } 
     #else
-    public System.Decimal? DocumentAmount { get; set; } 
+    public ActiveCurrencyAndAmount? DocumentAmount { get; set; } 
     #endif
     
     

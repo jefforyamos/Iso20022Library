@@ -92,13 +92,12 @@ public partial record Fee2
     [DataMember(Name="StdAmt")]
     #endif
     [IsoXmlTag("StdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; init; } 
     #else
-    public System.Decimal? StandardAmount { get; set; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -145,13 +144,12 @@ public partial record Fee2
     [DataMember(Name="ApldAmt")]
     #endif
     [IsoXmlTag("ApldAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AppliedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AppliedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AppliedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AppliedAmount { get; init; } 
     #else
-    public System.Decimal? AppliedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? AppliedAmount { get; set; } 
     #endif
     
     /// <summary>

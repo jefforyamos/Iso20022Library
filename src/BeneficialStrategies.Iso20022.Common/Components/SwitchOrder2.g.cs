@@ -114,13 +114,12 @@ public partial record SwitchOrder2
     [DataMember(Name="TtlRedAmt")]
     #endif
     [IsoXmlTag("TtlRedAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRedemptionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     #else
-    public System.Decimal? TotalRedemptionAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalRedemptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -132,13 +131,12 @@ public partial record SwitchOrder2
     [DataMember(Name="TtlSbcptAmt")]
     #endif
     [IsoXmlTag("TtlSbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalSubscriptionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? TotalSubscriptionAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalSubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -168,13 +166,12 @@ public partial record SwitchOrder2
     [DataMember(Name="AddtlCshIn")]
     #endif
     [IsoXmlTag("AddtlCshIn")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AdditionalCashIn { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; init; } 
     #else
-    public System.Decimal? AdditionalCashIn { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? AdditionalCashIn { get; set; } 
     #endif
     
     /// <summary>
@@ -186,13 +183,12 @@ public partial record SwitchOrder2
     [DataMember(Name="RsltgCshOut")]
     #endif
     [IsoXmlTag("RsltgCshOut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ResultingCashOut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; init; } 
     #else
-    public System.Decimal? ResultingCashOut { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ResultingCashOut { get; set; } 
     #endif
     
     /// <summary>

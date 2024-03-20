@@ -137,13 +137,12 @@ public partial record RequestedModification
     [DataMember(Name="IntrBkSttldAmt")]
     #endif
     [IsoXmlTag("IntrBkSttldAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? InterbankSettledAmount { get; init; } 
+    public CurrencyAndAmount? InterbankSettledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InterbankSettledAmount { get; init; } 
+    public CurrencyAndAmount? InterbankSettledAmount { get; init; } 
     #else
-    public System.Decimal? InterbankSettledAmount { get; set; } 
+    public CurrencyAndAmount? InterbankSettledAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZLby19p-Ed-ak6NoX_4Aeg_336259131")]
 [Description(@"Specifies the date of settlement, in coded form.")]
-[Derivations(typeof(SettlementDate3Code),typeof(SettlementDate2Code),typeof(SettlementDate1Code),typeof(SettlementDate4Code),typeof(SettlementDate5Code),typeof(SettlementDate6Code))]
+[Derivations(typeof(SettlementDate5Code),typeof(SettlementDate6Code),typeof(SettlementDate4Code),typeof(SettlementDate1Code),typeof(SettlementDate2Code),typeof(SettlementDate3Code))]
 public enum SettlementDateCode
 {
     /// <summary>

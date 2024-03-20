@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_T4nIoIqJEeSRT5rEzcAHEw")]
 [Description(@"Type of command performed by an ATM.")]
-[Derivations(typeof(ATMCommand4Code),typeof(ATMCommand5Code),typeof(ATMCommand3Code),typeof(ATMCommand6Code),typeof(ATMCommand1Code),typeof(ATMCommand2Code))]
+[Derivations(typeof(ATMCommand3Code),typeof(ATMCommand4Code),typeof(ATMCommand1Code),typeof(ATMCommand5Code),typeof(ATMCommand2Code),typeof(ATMCommand6Code))]
 public enum ATMCommandCode
 {
     /// <summary>

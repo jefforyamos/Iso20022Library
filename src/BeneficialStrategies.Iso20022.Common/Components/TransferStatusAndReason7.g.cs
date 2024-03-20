@@ -241,13 +241,12 @@ public partial record TransferStatusAndReason7
     [DataMember(Name="AvrgPric")]
     #endif
     [IsoXmlTag("AvrgPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #else
-    public System.Decimal? AveragePrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; set; } 
     #endif
     
     /// <summary>
@@ -276,13 +275,12 @@ public partial record TransferStatusAndReason7
     [DataMember(Name="TtlTrfVal")]
     #endif
     [IsoXmlTag("TtlTrfVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalTransferValue { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; init; } 
     #else
-    public System.Decimal? TotalTransferValue { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalTransferValue { get; set; } 
     #endif
     
     /// <summary>

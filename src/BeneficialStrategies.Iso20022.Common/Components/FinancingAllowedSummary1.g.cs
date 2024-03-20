@@ -39,7 +39,7 @@ public partial record FinancingAllowedSummary1
     /// Constructs a FinancingAllowedSummary1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public FinancingAllowedSummary1( System.UInt64 reqFinancedItemNumber,System.Decimal reqTotalAcceptedItemsAmount,System.Decimal reqTotalFinancedAmount )
+    public FinancingAllowedSummary1( System.UInt64 reqFinancedItemNumber,ActiveCurrencyAndAmount reqTotalAcceptedItemsAmount,ActiveCurrencyAndAmount reqTotalFinancedAmount )
     {
         FinancedItemNumber = reqFinancedItemNumber;
         TotalAcceptedItemsAmount = reqTotalAcceptedItemsAmount;
@@ -77,15 +77,14 @@ public partial record FinancingAllowedSummary1
     [DataMember(Name="TtlAccptdItmsAmt")]
     #endif
     [IsoXmlTag("TtlAccptdItmsAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAcceptedItemsAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAcceptedItemsAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; init; } 
     #else
-    public System.Decimal TotalAcceptedItemsAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalAcceptedItemsAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -115,15 +114,14 @@ public partial record FinancingAllowedSummary1
     [DataMember(Name="TtlFincdAmt")]
     #endif
     [IsoXmlTag("TtlFincdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalFinancedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalFinancedAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalFinancedAmount { get; init; } 
     #else
-    public System.Decimal TotalFinancedAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalFinancedAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record CardTransactionAmount5
     /// Constructs a CardTransactionAmount5 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CardTransactionAmount5( System.Decimal reqTotalAmount )
+    public CardTransactionAmount5( CurrencyAndAmount reqTotalAmount )
     {
         TotalAmount = reqTotalAmount;
     }
@@ -56,15 +56,14 @@ public partial record CardTransactionAmount5
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount TotalAmount { get; init; } 
+    public required CurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAmount { get; init; } 
+    public required CurrencyAndAmount TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAmount { get; init; } 
+    public CurrencyAndAmount TotalAmount { get; init; } 
     #else
-    public System.Decimal TotalAmount { get; set; } 
+    public CurrencyAndAmount TotalAmount { get; set; } 
     #endif
     
     /// <summary>

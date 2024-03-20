@@ -39,7 +39,7 @@ public partial record InvoiceTotals1
     /// Constructs a InvoiceTotals1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public InvoiceTotals1( System.Decimal reqTotalTaxableAmount,System.Decimal reqTotalTaxAmount,System.Decimal reqTotalInvoiceAmount,System.DateOnly reqPaymentDueDate )
+    public InvoiceTotals1( ActiveCurrencyAndAmount reqTotalTaxableAmount,ActiveCurrencyAndAmount reqTotalTaxAmount,ActiveCurrencyAndAmount reqTotalInvoiceAmount,System.DateOnly reqPaymentDueDate )
     {
         TotalTaxableAmount = reqTotalTaxableAmount;
         TotalTaxAmount = reqTotalTaxAmount;
@@ -58,15 +58,14 @@ public partial record InvoiceTotals1
     [DataMember(Name="TtlTaxblAmt")]
     #endif
     [IsoXmlTag("TtlTaxblAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalTaxableAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTaxableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalTaxableAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalTaxableAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalTaxableAmount { get; init; } 
     #else
-    public System.Decimal TotalTaxableAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalTaxableAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -78,15 +77,14 @@ public partial record InvoiceTotals1
     [DataMember(Name="TtlTaxAmt")]
     #endif
     [IsoXmlTag("TtlTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalTaxAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTaxAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalTaxAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalTaxAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalTaxAmount { get; init; } 
     #else
-    public System.Decimal TotalTaxAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -115,15 +113,14 @@ public partial record InvoiceTotals1
     [DataMember(Name="TtlInvcAmt")]
     #endif
     [IsoXmlTag("TtlInvcAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalInvoiceAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalInvoiceAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #else
-    public System.Decimal TotalInvoiceAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalInvoiceAmount { get; set; } 
     #endif
     
     /// <summary>

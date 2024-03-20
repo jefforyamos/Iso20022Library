@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a3ed5tp-Ed-ak6NoX_4Aeg_-1826678245")]
 [Description(@"Specifies the nature, or use, of the cash account.")]
-[Derivations(typeof(CashAccountType3Code),typeof(CashAccountType1Code),typeof(CashAccountType5Code),typeof(CashAccountType2Code),typeof(CashAccountType4Code))]
+[Derivations(typeof(CashAccountType1Code),typeof(CashAccountType4Code),typeof(CashAccountType3Code),typeof(CashAccountType2Code),typeof(CashAccountType5Code))]
 public enum CashAccountTypeCode
 {
     /// <summary>

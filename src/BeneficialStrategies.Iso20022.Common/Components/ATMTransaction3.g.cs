@@ -114,13 +114,12 @@ public partial record ATMTransaction3
     [DataMember(Name="BndlPresntdAmt")]
     #endif
     [IsoXmlTag("BndlPresntdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? BundlePresentedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? BundlePresentedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BundlePresentedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? BundlePresentedAmount { get; init; } 
     #else
-    public System.Decimal? BundlePresentedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? BundlePresentedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -259,13 +258,12 @@ public partial record ATMTransaction3
     [DataMember(Name="TtlAuthrsdAmt")]
     #endif
     [IsoXmlTag("TtlAuthrsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalAuthorisedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAuthorisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAuthorisedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAuthorisedAmount { get; init; } 
     #else
-    public System.Decimal? TotalAuthorisedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalAuthorisedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -277,13 +275,12 @@ public partial record ATMTransaction3
     [DataMember(Name="TtlReqdAmt")]
     #endif
     [IsoXmlTag("TtlReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #else
-    public System.Decimal? TotalRequestedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; set; } 
     #endif
     
     /// <summary>

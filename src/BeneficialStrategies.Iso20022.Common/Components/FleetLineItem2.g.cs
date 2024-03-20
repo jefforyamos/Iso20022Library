@@ -184,13 +184,12 @@ public partial record FleetLineItem2
     [DataMember(Name="TtlAmtExclgTax")]
     #endif
     [IsoXmlTag("TtlAmtExclgTax")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountExcludingTax { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; init; } 
     #else
-    public System.Decimal? TotalAmountExcludingTax { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalAmountExcludingTax { get; set; } 
     #endif
     
     /// <summary>
@@ -202,13 +201,12 @@ public partial record FleetLineItem2
     [DataMember(Name="TtlAmtInclgTax")]
     #endif
     [IsoXmlTag("TtlAmtInclgTax")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountIncludingTax { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; init; } 
     #else
-    public System.Decimal? TotalAmountIncludingTax { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalAmountIncludingTax { get; set; } 
     #endif
     
     

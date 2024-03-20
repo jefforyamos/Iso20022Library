@@ -39,7 +39,7 @@ public partial record InterestAmount1
     /// Constructs a InterestAmount1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public InterestAmount1( InterestRequestSequence1Code reqInterestRequestSequence,DatePeriodDetails reqInterestPeriod,System.Decimal reqAccruedInterestAmount,System.DateOnly reqValueDate,InterestMethod1Code reqInterestMethod,CollateralPurpose1Choice_ reqCollateralPurpose,CollateralBalance1 reqClosingCollateralBalance )
+    public InterestAmount1( InterestRequestSequence1Code reqInterestRequestSequence,DatePeriodDetails reqInterestPeriod,ActiveCurrencyAndAmount reqAccruedInterestAmount,System.DateOnly reqValueDate,InterestMethod1Code reqInterestMethod,CollateralPurpose1Choice_ reqCollateralPurpose,CollateralBalance1 reqClosingCollateralBalance )
     {
         InterestRequestSequence = reqInterestRequestSequence;
         InterestPeriod = reqInterestPeriod;
@@ -99,15 +99,14 @@ public partial record InterestAmount1
     [DataMember(Name="AcrdIntrstAmt")]
     #endif
     [IsoXmlTag("AcrdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AccruedInterestAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AccruedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount AccruedInterestAmount { get; init; } 
     #else
-    public System.Decimal AccruedInterestAmount { get; set; } 
+    public ActiveCurrencyAndAmount AccruedInterestAmount { get; set; } 
     #endif
     
     /// <summary>

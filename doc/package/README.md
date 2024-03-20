@@ -5,9 +5,23 @@ This project contains a .NET implementation of containers for 2,665 different ty
 ## Thank you
 
 You are about to download an implementation of the entire domain model for the [ISO20022](https://iso20022.org) standard.
-By design, serialization is **not included** in this library.
+By design, serialization is **not included** in this library. Given the complexity and vastness of this library, that is alone is the appropriate scope.
+
 The purpose of this library, by itself, is to simply present a faithful rendering of the data in memory in a .NET application.
 There are follow-on projects that do the serialization, validation, etc.  However, this is the bedrock that must be laid first.
+
+Great attention has been put on certain details:
+- It is packaged in a way that your *intellisense* or compatible tech in your build tool should have access to source code.
+- You should see commenting on all types giving your analysis information on how each class or setting should be used.
+- We go back three versions in .NET core.  
+- New features like "required" properties are utilized so the compiler helps you construct valid Iso20022 messages.
+- Great effort was made to support records and value-equivilency throughout.
+- Where the multiplicity of a property was unapparent, we defaulted to a collection.
+
+Known limitations:
+- Digital signatures not yet supported.
+- External content not yet supported.
+- External schema not yet supported.
 
 For more information about the project, see [the repository](https://github.com/jefforyamos/Iso20022Library).
 
@@ -84,6 +98,7 @@ var myMessage = new Beneficial.pain.CustomerCreditTransferInitiationV11
             },
         },
         CreditTransferTransactionInformation =
+        [
             new()
             {
                 PaymentIdentification = new ()
@@ -155,7 +170,8 @@ var myMessage = new Beneficial.pain.CustomerCreditTransferInitiationV11
                 },
                 // LOTS more stuff you can add at this level
             },
-            // LOTS more you can add at this level
+            // Add additional transactions here
+        ]
     },
     // Optionally add Supplementary data at this level
 };

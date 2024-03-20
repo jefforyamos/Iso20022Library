@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZyoVs9p-Ed-ak6NoX_4Aeg_-359397827")]
 [Description(@"Specifies the entitled party.")]
-[Derivations(typeof(PartyType4Code),typeof(PartyType12Code),typeof(PartyType21Code),typeof(PartyType7Code),typeof(PartyType15Code),typeof(PartyType5Code),typeof(PartyType17Code),typeof(PartyType11Code),typeof(PartyType6Code),typeof(PartyType33Code),typeof(PartyType32Code),typeof(PartyType25Code),typeof(PartyType14Code),typeof(PartyType9Code),typeof(PartyType20Code),typeof(PartyType22Code),typeof(PartyType28Code),typeof(PartyType23Code),typeof(PartyType18Code),typeof(PartyType1Code),typeof(PartyType13Code),typeof(PartyType19Code),typeof(PartyType3Code),typeof(PartyType10Code),typeof(PartyType26Code),typeof(PartyType2Code),typeof(PartyType16Code))]
+[Derivations(typeof(PartyType11Code),typeof(PartyType3Code),typeof(PartyType19Code),typeof(PartyType2Code),typeof(PartyType4Code),typeof(PartyType28Code),typeof(PartyType10Code),typeof(PartyType17Code),typeof(PartyType16Code),typeof(PartyType26Code),typeof(PartyType22Code),typeof(PartyType1Code),typeof(PartyType7Code),typeof(PartyType20Code),typeof(PartyType6Code),typeof(PartyType5Code),typeof(PartyType23Code),typeof(PartyType9Code),typeof(PartyType12Code),typeof(PartyType18Code),typeof(PartyType15Code),typeof(PartyType21Code),typeof(PartyType33Code),typeof(PartyType25Code),typeof(PartyType32Code),typeof(PartyType14Code),typeof(PartyType13Code))]
 public enum PartyTypeCode
 {
     /// <summary>

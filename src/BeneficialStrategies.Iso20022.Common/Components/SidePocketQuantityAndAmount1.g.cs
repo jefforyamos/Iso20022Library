@@ -65,13 +65,12 @@ public partial record SidePocketQuantityAndAmount1
     [DataMember(Name="OrdrdAmt")]
     #endif
     [IsoXmlTag("OrdrdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? OrderedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OrderedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OrderedAmount { get; init; } 
     #else
-    public System.Decimal? OrderedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? OrderedAmount { get; set; } 
     #endif
     
     /// <summary>

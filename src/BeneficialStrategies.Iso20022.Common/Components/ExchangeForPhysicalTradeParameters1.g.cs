@@ -66,13 +66,12 @@ public partial record ExchangeForPhysicalTradeParameters1
     [DataMember(Name="FairVal")]
     #endif
     [IsoXmlTag("FairVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? FairValue { get; init; } 
+    public ActiveCurrencyAndAmount? FairValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FairValue { get; init; } 
+    public ActiveCurrencyAndAmount? FairValue { get; init; } 
     #else
-    public System.Decimal? FairValue { get; set; } 
+    public ActiveCurrencyAndAmount? FairValue { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +83,12 @@ public partial record ExchangeForPhysicalTradeParameters1
     [DataMember(Name="ValForFutrs")]
     #endif
     [IsoXmlTag("ValForFutrs")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ValueForFutures { get; init; } 
+    public ActiveCurrencyAndAmount? ValueForFutures { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ValueForFutures { get; init; } 
+    public ActiveCurrencyAndAmount? ValueForFutures { get; init; } 
     #else
-    public System.Decimal? ValueForFutures { get; set; } 
+    public ActiveCurrencyAndAmount? ValueForFutures { get; set; } 
     #endif
     
     

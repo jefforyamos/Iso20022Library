@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat70Choice
         /// Constructs a AmountPricePerFinancialInstrumentQuantity instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public AmountPricePerFinancialInstrumentQuantity( AmountPriceType1Code reqAmountPriceType,System.Decimal reqPriceValue,FinancialInstrumentQuantity36Choice_ reqFinancialInstrumentQuantity )
+        public AmountPricePerFinancialInstrumentQuantity( AmountPriceType1Code reqAmountPriceType,RestrictedFINActiveCurrencyAnd13DecimalAmount reqPriceValue,FinancialInstrumentQuantity36Choice_ reqFinancialInstrumentQuantity )
         {
             AmountPriceType = reqAmountPriceType;
             PriceValue = reqPriceValue;
@@ -81,15 +81,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PriceFormat70Choice
         [DataMember(Name="PricVal")]
         #endif
         [IsoXmlTag("PricVal")]
-        [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoRestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
+        public required RestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal PriceValue { get; init; } 
+        public required RestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal PriceValue { get; init; } 
+        public RestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; init; } 
         #else
-        public System.Decimal PriceValue { get; set; } 
+        public RestrictedFINActiveCurrencyAnd13DecimalAmount PriceValue { get; set; } 
         #endif
         
         /// <summary>

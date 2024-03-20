@@ -228,13 +228,12 @@ public partial record SubscriptionMultipleOrder3
     [DataMember(Name="TtlSttlmAmt")]
     #endif
     [IsoXmlTag("TtlSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalSettlementAmount { get; init; } 
     #else
-    public System.Decimal? TotalSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

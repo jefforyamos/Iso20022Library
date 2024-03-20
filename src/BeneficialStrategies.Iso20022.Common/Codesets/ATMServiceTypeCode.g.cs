@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bItp4IogEeSirOZJBRz_nA")]
 [Description(@"Describes the type of transaction available for a customer on an ATM.")]
-[Derivations(typeof(ATMServiceType3Code),typeof(ATMServiceType8Code),typeof(ATMServiceType7Code),typeof(ATMServiceType9Code),typeof(ATMServiceType4Code),typeof(ATMServiceType1Code),typeof(ATMServiceType6Code),typeof(ATMServiceType2Code),typeof(ATMServiceType5Code),typeof(ATMServiceType10Code))]
+[Derivations(typeof(ATMServiceType10Code),typeof(ATMServiceType2Code),typeof(ATMServiceType7Code),typeof(ATMServiceType6Code),typeof(ATMServiceType8Code),typeof(ATMServiceType1Code),typeof(ATMServiceType5Code),typeof(ATMServiceType4Code),typeof(ATMServiceType3Code),typeof(ATMServiceType9Code))]
 public enum ATMServiceTypeCode
 {
     /// <summary>

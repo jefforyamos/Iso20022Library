@@ -106,13 +106,12 @@ public partial record PaymentTransaction64
     [DataMember(Name="OrgnlInstdAmt")]
     #endif
     [IsoXmlTag("OrgnlInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInstructedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -125,13 +124,12 @@ public partial record PaymentTransaction64
     [DataMember(Name="RvsdInstdAmt")]
     #endif
     [IsoXmlTag("RvsdInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReversedInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     #else
-    public System.Decimal? ReversedInstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReversedInstructedAmount { get; set; } 
     #endif
     
     /// <summary>

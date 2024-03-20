@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YgFIuNp-Ed-ak6NoX_4Aeg_-740656164")]
 [Description(@"Specifies the status of an instruction.")]
-[Derivations(typeof(Status8Code),typeof(Status1Code),typeof(Status4Code),typeof(Status7Code),typeof(Status6Code),typeof(Status2Code),typeof(Status5Code),typeof(Status3Code))]
+[Derivations(typeof(Status7Code),typeof(Status2Code),typeof(Status6Code),typeof(Status8Code),typeof(Status5Code),typeof(Status3Code),typeof(Status4Code),typeof(Status1Code))]
 public enum StatusCode
 {
     /// <summary>

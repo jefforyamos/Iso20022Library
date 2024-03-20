@@ -39,7 +39,7 @@ public partial record IncomeStatement1
     /// Constructs a IncomeStatement1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public IncomeStatement1( System.Decimal reqClearingFees,System.Decimal reqOtherOperatingRevenue,System.Decimal reqOperatingExpenses,AmountAndDirection102 reqOperatingProfitOrLoss,System.Decimal reqNetInterestIncome,System.Decimal reqOtherNonOperatingRevenue,System.Decimal reqNonOperatingExpenses,AmountAndDirection102 reqPreTaxProfitOrLoss,AmountAndDirection102 reqPostTaxProfitOrLoss )
+    public IncomeStatement1( ActiveCurrencyAndAmount reqClearingFees,ActiveCurrencyAndAmount reqOtherOperatingRevenue,ActiveCurrencyAndAmount reqOperatingExpenses,AmountAndDirection102 reqOperatingProfitOrLoss,ActiveCurrencyAndAmount reqNetInterestIncome,ActiveCurrencyAndAmount reqOtherNonOperatingRevenue,ActiveCurrencyAndAmount reqNonOperatingExpenses,AmountAndDirection102 reqPreTaxProfitOrLoss,AmountAndDirection102 reqPostTaxProfitOrLoss )
     {
         ClearingFees = reqClearingFees;
         OtherOperatingRevenue = reqOtherOperatingRevenue;
@@ -63,15 +63,14 @@ public partial record IncomeStatement1
     [DataMember(Name="ClrFees")]
     #endif
     [IsoXmlTag("ClrFees")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ClearingFees { get; init; } 
+    public required ActiveCurrencyAndAmount ClearingFees { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ClearingFees { get; init; } 
+    public required ActiveCurrencyAndAmount ClearingFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ClearingFees { get; init; } 
+    public ActiveCurrencyAndAmount ClearingFees { get; init; } 
     #else
-    public System.Decimal ClearingFees { get; set; } 
+    public ActiveCurrencyAndAmount ClearingFees { get; set; } 
     #endif
     
     /// <summary>
@@ -83,15 +82,14 @@ public partial record IncomeStatement1
     [DataMember(Name="OthrOprgRvn")]
     #endif
     [IsoXmlTag("OthrOprgRvn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
+    public required ActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OtherOperatingRevenue { get; init; } 
+    public required ActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OtherOperatingRevenue { get; init; } 
+    public ActiveCurrencyAndAmount OtherOperatingRevenue { get; init; } 
     #else
-    public System.Decimal OtherOperatingRevenue { get; set; } 
+    public ActiveCurrencyAndAmount OtherOperatingRevenue { get; set; } 
     #endif
     
     /// <summary>
@@ -103,15 +101,14 @@ public partial record IncomeStatement1
     [DataMember(Name="OprgExpnss")]
     #endif
     [IsoXmlTag("OprgExpnss")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OperatingExpenses { get; init; } 
+    public required ActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OperatingExpenses { get; init; } 
+    public required ActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OperatingExpenses { get; init; } 
+    public ActiveCurrencyAndAmount OperatingExpenses { get; init; } 
     #else
-    public System.Decimal OperatingExpenses { get; set; } 
+    public ActiveCurrencyAndAmount OperatingExpenses { get; set; } 
     #endif
     
     /// <summary>
@@ -142,15 +139,14 @@ public partial record IncomeStatement1
     [DataMember(Name="NetIntrstIncm")]
     #endif
     [IsoXmlTag("NetIntrstIncm")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount NetInterestIncome { get; init; } 
+    public required ActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NetInterestIncome { get; init; } 
+    public required ActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NetInterestIncome { get; init; } 
+    public ActiveCurrencyAndAmount NetInterestIncome { get; init; } 
     #else
-    public System.Decimal NetInterestIncome { get; set; } 
+    public ActiveCurrencyAndAmount NetInterestIncome { get; set; } 
     #endif
     
     /// <summary>
@@ -162,15 +158,14 @@ public partial record IncomeStatement1
     [DataMember(Name="OthrNonOprgRvn")]
     #endif
     [IsoXmlTag("OthrNonOprgRvn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
+    public required ActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OtherNonOperatingRevenue { get; init; } 
+    public required ActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OtherNonOperatingRevenue { get; init; } 
+    public ActiveCurrencyAndAmount OtherNonOperatingRevenue { get; init; } 
     #else
-    public System.Decimal OtherNonOperatingRevenue { get; set; } 
+    public ActiveCurrencyAndAmount OtherNonOperatingRevenue { get; set; } 
     #endif
     
     /// <summary>
@@ -182,15 +177,14 @@ public partial record IncomeStatement1
     [DataMember(Name="NonOprgExpnss")]
     #endif
     [IsoXmlTag("NonOprgExpnss")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
+    public required ActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NonOperatingExpenses { get; init; } 
+    public required ActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NonOperatingExpenses { get; init; } 
+    public ActiveCurrencyAndAmount NonOperatingExpenses { get; init; } 
     #else
-    public System.Decimal NonOperatingExpenses { get; set; } 
+    public ActiveCurrencyAndAmount NonOperatingExpenses { get; set; } 
     #endif
     
     /// <summary>

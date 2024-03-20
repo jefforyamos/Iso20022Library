@@ -156,13 +156,12 @@ public partial record InvoiceSummary1
     [DataMember(Name="FrghtAmt")]
     #endif
     [IsoXmlTag("FrghtAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FreightAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FreightAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FreightAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FreightAmount { get; init; } 
     #else
-    public System.Decimal? FreightAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FreightAmount { get; set; } 
     #endif
     
     /// <summary>

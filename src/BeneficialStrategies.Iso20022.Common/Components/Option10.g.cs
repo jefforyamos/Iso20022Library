@@ -39,7 +39,7 @@ public partial record Option10
     /// Constructs a Option10 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Option10( DataType1Code reqData,DerivativeExerciseStatus1Code reqExerciseStatus,OptionStyle2Code reqExerciseStyle,OptionType1Code reqOptionType,System.String reqDerivativeOptionIdentification,OptionPayoutType1Code reqOptionPayoutType,AgreedRate3 reqValuationRate,AgreedRate3 reqStrikePrice,System.Decimal reqVolatilityMargin,System.Decimal reqRiskAmount,System.DateTime reqExpiryDateAndTime,System.String reqExpiryLocation,SettlementDateCode reqSettlementType,AmountsAndValueDate4 reqOptionAmounts,PremiumAmount3 reqPremium,SettlementType1Code reqSettlementAmountType,System.String reqAdditionalOptionInformation )
+    public Option10( DataType1Code reqData,DerivativeExerciseStatus1Code reqExerciseStatus,OptionStyle2Code reqExerciseStyle,OptionType1Code reqOptionType,System.String reqDerivativeOptionIdentification,OptionPayoutType1Code reqOptionPayoutType,AgreedRate3 reqValuationRate,AgreedRate3 reqStrikePrice,System.Decimal reqVolatilityMargin,ActiveCurrencyAndAmount reqRiskAmount,System.DateTime reqExpiryDateAndTime,System.String reqExpiryLocation,SettlementDateCode reqSettlementType,AmountsAndValueDate4 reqOptionAmounts,PremiumAmount3 reqPremium,SettlementType1Code reqSettlementAmountType,System.String reqAdditionalOptionInformation )
     {
         Data = reqData;
         ExerciseStatus = reqExerciseStatus;
@@ -245,15 +245,14 @@ public partial record Option10
     [DataMember(Name="RskAmt")]
     #endif
     [IsoXmlTag("RskAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RiskAmount { get; init; } 
+    public ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #else
-    public System.Decimal RiskAmount { get; set; } 
+    public ActiveCurrencyAndAmount RiskAmount { get; set; } 
     #endif
     
     /// <summary>

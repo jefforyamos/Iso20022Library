@@ -39,7 +39,7 @@ public partial record AssetHolding1
     /// Constructs a AssetHolding1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AssetHolding1( System.Decimal reqPostHaircutValue,AssetHolding1Choice_ reqAssetType,CollateralAccountType3Code reqCollateralRequirement )
+    public AssetHolding1( ActiveCurrencyAnd24Amount reqPostHaircutValue,AssetHolding1Choice_ reqAssetType,CollateralAccountType3Code reqCollateralRequirement )
     {
         PostHaircutValue = reqPostHaircutValue;
         AssetType = reqAssetType;
@@ -57,15 +57,14 @@ public partial record AssetHolding1
     [DataMember(Name="PstHrcutVal")]
     #endif
     [IsoXmlTag("PstHrcutVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
+    public required ActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PostHaircutValue { get; init; } 
+    public required ActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PostHaircutValue { get; init; } 
+    public ActiveCurrencyAnd24Amount PostHaircutValue { get; init; } 
     #else
-    public System.Decimal PostHaircutValue { get; set; } 
+    public ActiveCurrencyAnd24Amount PostHaircutValue { get; set; } 
     #endif
     
     /// <summary>

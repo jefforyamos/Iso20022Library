@@ -39,7 +39,7 @@ public partial record LiquidityAndStatistics1
     /// Constructs a LiquidityAndStatistics1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public LiquidityAndStatistics1( System.String reqGrossIndicator,LiquidityIndicatorType1Code reqIndicatorType,System.Decimal reqWeightedAverageLiquidity,System.Decimal reqOutMainCountryIndex )
+    public LiquidityAndStatistics1( System.String reqGrossIndicator,LiquidityIndicatorType1Code reqIndicatorType,System.Decimal reqWeightedAverageLiquidity,ActiveCurrencyAndAmount reqOutMainCountryIndex )
     {
         GrossIndicator = reqGrossIndicator;
         IndicatorType = reqIndicatorType;
@@ -117,15 +117,14 @@ public partial record LiquidityAndStatistics1
     [DataMember(Name="OutMainCtryIndx")]
     #endif
     [IsoXmlTag("OutMainCtryIndx")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
+    public required ActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OutMainCountryIndex { get; init; } 
+    public required ActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OutMainCountryIndex { get; init; } 
+    public ActiveCurrencyAndAmount OutMainCountryIndex { get; init; } 
     #else
-    public System.Decimal OutMainCountryIndex { get; set; } 
+    public ActiveCurrencyAndAmount OutMainCountryIndex { get; set; } 
     #endif
     
     /// <summary>
@@ -155,13 +154,12 @@ public partial record LiquidityAndStatistics1
     [DataMember(Name="SdVal1")]
     #endif
     [IsoXmlTag("SdVal1")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? SideValue1 { get; init; } 
+    public ActiveCurrencyAndAmount? SideValue1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SideValue1 { get; init; } 
+    public ActiveCurrencyAndAmount? SideValue1 { get; init; } 
     #else
-    public System.Decimal? SideValue1 { get; set; } 
+    public ActiveCurrencyAndAmount? SideValue1 { get; set; } 
     #endif
     
     /// <summary>
@@ -173,13 +171,12 @@ public partial record LiquidityAndStatistics1
     [DataMember(Name="SdVal2")]
     #endif
     [IsoXmlTag("SdVal2")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? SideValue2 { get; init; } 
+    public ActiveCurrencyAndAmount? SideValue2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SideValue2 { get; init; } 
+    public ActiveCurrencyAndAmount? SideValue2 { get; init; } 
     #else
-    public System.Decimal? SideValue2 { get; set; } 
+    public ActiveCurrencyAndAmount? SideValue2 { get; set; } 
     #endif
     
     

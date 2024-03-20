@@ -39,7 +39,7 @@ public partial record SubscriptionExecution4
     /// Constructs a SubscriptionExecution4 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public SubscriptionExecution4( System.String reqOrderReference,System.String reqDealReference,FinancialInstrument6 reqFinancialInstrumentDetails,FinancialInstrumentQuantity1 reqUnitsNumber,System.Decimal reqNetAmount,DateAndDateTimeChoice_ reqTradeDateTime,UnitPrice5 reqPriceDetails,System.String reqPartiallyExecutedIndicator,System.String reqCumDividendIndicator,System.String reqPhysicalDeliveryIndicator )
+    public SubscriptionExecution4( System.String reqOrderReference,System.String reqDealReference,FinancialInstrument6 reqFinancialInstrumentDetails,FinancialInstrumentQuantity1 reqUnitsNumber,ActiveCurrencyAndAmount reqNetAmount,DateAndDateTimeChoice_ reqTradeDateTime,UnitPrice5 reqPriceDetails,System.String reqPartiallyExecutedIndicator,System.String reqCumDividendIndicator,System.String reqPhysicalDeliveryIndicator )
     {
         OrderReference = reqOrderReference;
         DealReference = reqDealReference;
@@ -178,15 +178,14 @@ public partial record SubscriptionExecution4
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount NetAmount { get; init; } 
+    public required ActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NetAmount { get; init; } 
+    public required ActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount NetAmount { get; init; } 
     #else
-    public System.Decimal NetAmount { get; set; } 
+    public ActiveCurrencyAndAmount NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -198,13 +197,12 @@ public partial record SubscriptionExecution4
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #else
-    public System.Decimal? GrossAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -522,13 +520,12 @@ public partial record SubscriptionExecution4
     [DataMember(Name="Rfnd")]
     #endif
     [IsoXmlTag("Rfnd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? Refund { get; init; } 
+    public ActiveCurrencyAndAmount? Refund { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Refund { get; init; } 
+    public ActiveCurrencyAndAmount? Refund { get; init; } 
     #else
-    public System.Decimal? Refund { get; set; } 
+    public ActiveCurrencyAndAmount? Refund { get; set; } 
     #endif
     
     /// <summary>
@@ -540,13 +537,12 @@ public partial record SubscriptionExecution4
     [DataMember(Name="SbcptIntrst")]
     #endif
     [IsoXmlTag("SbcptIntrst")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? SubscriptionInterest { get; init; } 
+    public ActiveCurrencyAndAmount? SubscriptionInterest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubscriptionInterest { get; init; } 
+    public ActiveCurrencyAndAmount? SubscriptionInterest { get; init; } 
     #else
-    public System.Decimal? SubscriptionInterest { get; set; } 
+    public ActiveCurrencyAndAmount? SubscriptionInterest { get; set; } 
     #endif
     
     /// <summary>

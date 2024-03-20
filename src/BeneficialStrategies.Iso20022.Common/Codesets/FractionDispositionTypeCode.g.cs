@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_arsrs9p-Ed-ak6NoX_4Aeg_1799265079")]
 [Description(@"Indicates that fractional value should be retained; no rounding.")]
-[Derivations(typeof(FractionDispositionType7Code),typeof(FractionDispositionType1Code),typeof(FractionDispositionType4Code),typeof(FractionDispositionType12Code),typeof(FractionDispositionType5Code),typeof(FractionDispositionType3Code),typeof(FractionDispositionType6Code),typeof(FractionDispositionType2Code))]
+[Derivations(typeof(FractionDispositionType1Code),typeof(FractionDispositionType12Code),typeof(FractionDispositionType4Code),typeof(FractionDispositionType6Code),typeof(FractionDispositionType5Code),typeof(FractionDispositionType2Code),typeof(FractionDispositionType3Code),typeof(FractionDispositionType7Code))]
 public enum FractionDispositionTypeCode
 {
     /// <summary>

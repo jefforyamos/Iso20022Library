@@ -39,7 +39,7 @@ public partial record AccountLimits1
     /// Constructs a AccountLimits1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AccountLimits1( System.String reqLimitType,System.Decimal reqLimitAmount )
+    public AccountLimits1( System.String reqLimitType,ActiveCurrencyAndAmount reqLimitAmount )
     {
         LimitType = reqLimitType;
         LimitAmount = reqLimitAmount;
@@ -77,15 +77,14 @@ public partial record AccountLimits1
     [DataMember(Name="LmtAmt")]
     #endif
     [IsoXmlTag("LmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount LimitAmount { get; init; } 
+    public required ActiveCurrencyAndAmount LimitAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LimitAmount { get; init; } 
+    public required ActiveCurrencyAndAmount LimitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LimitAmount { get; init; } 
+    public ActiveCurrencyAndAmount LimitAmount { get; init; } 
     #else
-    public System.Decimal LimitAmount { get; set; } 
+    public ActiveCurrencyAndAmount LimitAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -97,13 +96,12 @@ public partial record AccountLimits1
     [DataMember(Name="LmtUtlstnAmt")]
     #endif
     [IsoXmlTag("LmtUtlstnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LimitUtilisationAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LimitUtilisationAmount { get; init; } 
     #else
-    public System.Decimal? LimitUtilisationAmount { get; set; } 
+    public ActiveCurrencyAndAmount? LimitUtilisationAmount { get; set; } 
     #endif
     
     /// <summary>

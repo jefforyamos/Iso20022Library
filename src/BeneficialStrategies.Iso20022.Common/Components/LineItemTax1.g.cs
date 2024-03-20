@@ -48,13 +48,12 @@ public partial record LineItemTax1
     [DataMember(Name="ClctdAmt")]
     #endif
     [IsoXmlTag("ClctdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
+    public CurrencyAndAmount? CalculatedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CalculatedAmount { get; init; } 
+    public CurrencyAndAmount? CalculatedAmount { get; init; } 
     #else
-    public System.Decimal? CalculatedAmount { get; set; } 
+    public CurrencyAndAmount? CalculatedAmount { get; set; } 
     #endif
     
     /// <summary>

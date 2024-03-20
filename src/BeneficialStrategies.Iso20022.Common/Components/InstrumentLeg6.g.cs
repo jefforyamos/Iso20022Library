@@ -39,7 +39,7 @@ public partial record InstrumentLeg6
     /// Constructs a InstrumentLeg6 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public InstrumentLeg6( Side1Code reqLegSide,SettlementDateCode reqLegSettlementType,System.DateTime reqLegSettlementDate,System.Decimal reqLegLastPrice,string reqLegSettlementCurrency,System.Decimal reqLegOrderQuantity,System.UInt64 reqLegForwardPoints,System.Decimal reqLegCalculatedCounterpartyCurrencyLastQuantity,System.Decimal reqLegRiskAmount,AgreedRate3 reqLegValuationRate,System.DateOnly reqLegValueDate,string reqLegCurrency,System.String reqLegSymbol,SecurityIdentification18 reqLegSecurityIdentification )
+    public InstrumentLeg6( Side1Code reqLegSide,SettlementDateCode reqLegSettlementType,System.DateTime reqLegSettlementDate,ActiveCurrencyAnd13DecimalAmount reqLegLastPrice,string reqLegSettlementCurrency,CurrencyAndAmount reqLegOrderQuantity,System.UInt64 reqLegForwardPoints,CurrencyAndAmount reqLegCalculatedCounterpartyCurrencyLastQuantity,ActiveCurrencyAndAmount reqLegRiskAmount,AgreedRate3 reqLegValuationRate,System.DateOnly reqLegValueDate,string reqLegCurrency,System.String reqLegSymbol,SecurityIdentification18 reqLegSecurityIdentification )
     {
         LegSide = reqLegSide;
         LegSettlementType = reqLegSettlementType;
@@ -126,15 +126,14 @@ public partial record InstrumentLeg6
     [DataMember(Name="LegLastPric")]
     #endif
     [IsoXmlTag("LegLastPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LegLastPrice { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LegLastPrice { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount LegLastPrice { get; init; } 
     #else
-    public System.Decimal LegLastPrice { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount LegLastPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -165,15 +164,14 @@ public partial record InstrumentLeg6
     [DataMember(Name="LegOrdrQty")]
     #endif
     [IsoXmlTag("LegOrdrQty")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount LegOrderQuantity { get; init; } 
+    public required CurrencyAndAmount LegOrderQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LegOrderQuantity { get; init; } 
+    public required CurrencyAndAmount LegOrderQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LegOrderQuantity { get; init; } 
+    public CurrencyAndAmount LegOrderQuantity { get; init; } 
     #else
-    public System.Decimal LegOrderQuantity { get; set; } 
+    public CurrencyAndAmount LegOrderQuantity { get; set; } 
     #endif
     
     /// <summary>
@@ -205,15 +203,14 @@ public partial record InstrumentLeg6
     [DataMember(Name="LegClctdCtrPtyCcyLastQty")]
     #endif
     [IsoXmlTag("LegClctdCtrPtyCcyLastQty")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required CurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required CurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public CurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #else
-    public System.Decimal LegCalculatedCounterpartyCurrencyLastQuantity { get; set; } 
+    public CurrencyAndAmount LegCalculatedCounterpartyCurrencyLastQuantity { get; set; } 
     #endif
     
     /// <summary>
@@ -225,15 +222,14 @@ public partial record InstrumentLeg6
     [DataMember(Name="LegRskAmt")]
     #endif
     [IsoXmlTag("LegRskAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount LegRiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount LegRiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LegRiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount LegRiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LegRiskAmount { get; init; } 
+    public ActiveCurrencyAndAmount LegRiskAmount { get; init; } 
     #else
-    public System.Decimal LegRiskAmount { get; set; } 
+    public ActiveCurrencyAndAmount LegRiskAmount { get; set; } 
     #endif
     
     /// <summary>

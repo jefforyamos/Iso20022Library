@@ -168,13 +168,12 @@ public partial record GroupHeader34
     [DataMember(Name="TtlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("TtlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalInterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? TotalInterbankSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

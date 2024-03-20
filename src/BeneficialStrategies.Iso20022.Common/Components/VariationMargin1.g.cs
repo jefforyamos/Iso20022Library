@@ -39,7 +39,7 @@ public partial record VariationMargin1
     /// Constructs a VariationMargin1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public VariationMargin1( System.Decimal reqThresholdAmount,System.Decimal reqMinimumTransferAmount,System.Decimal reqRoundingAmount,RoundingMethod1Code reqRoundingMethod )
+    public VariationMargin1( ActiveCurrencyAndAmount reqThresholdAmount,ActiveCurrencyAndAmount reqMinimumTransferAmount,ActiveCurrencyAndAmount reqRoundingAmount,RoundingMethod1Code reqRoundingMethod )
     {
         ThresholdAmount = reqThresholdAmount;
         MinimumTransferAmount = reqMinimumTransferAmount;
@@ -58,15 +58,14 @@ public partial record VariationMargin1
     [DataMember(Name="ThrshldAmt")]
     #endif
     [IsoXmlTag("ThrshldAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ThresholdAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ThresholdAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ThresholdAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ThresholdAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ThresholdAmount { get; init; } 
+    public ActiveCurrencyAndAmount ThresholdAmount { get; init; } 
     #else
-    public System.Decimal ThresholdAmount { get; set; } 
+    public ActiveCurrencyAndAmount ThresholdAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -95,15 +94,14 @@ public partial record VariationMargin1
     [DataMember(Name="MinTrfAmt")]
     #endif
     [IsoXmlTag("MinTrfAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MinimumTransferAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MinimumTransferAmount { get; init; } 
+    public ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
     #else
-    public System.Decimal MinimumTransferAmount { get; set; } 
+    public ActiveCurrencyAndAmount MinimumTransferAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -115,15 +113,14 @@ public partial record VariationMargin1
     [DataMember(Name="RndgAmt")]
     #endif
     [IsoXmlTag("RndgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RoundingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RoundingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RoundingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RoundingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RoundingAmount { get; init; } 
+    public ActiveCurrencyAndAmount RoundingAmount { get; init; } 
     #else
-    public System.Decimal RoundingAmount { get; set; } 
+    public ActiveCurrencyAndAmount RoundingAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction3Choice
         /// Constructs a Interbank instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public Interbank( System.Decimal reqOriginalInterbankSettlementAmount,System.DateOnly reqOriginalInterbankSettlementDate )
+        public Interbank( ActiveOrHistoricCurrencyAndAmount reqOriginalInterbankSettlementAmount,System.DateOnly reqOriginalInterbankSettlementDate )
         {
             OriginalInterbankSettlementAmount = reqOriginalInterbankSettlementAmount;
             OriginalInterbankSettlementDate = reqOriginalInterbankSettlementDate;
@@ -135,15 +135,14 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingTransaction3Choice
         [DataMember(Name="OrgnlIntrBkSttlmAmt")]
         #endif
         [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal OriginalInterbankSettlementAmount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal OriginalInterbankSettlementAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; init; } 
         #else
-        public System.Decimal OriginalInterbankSettlementAmount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount OriginalInterbankSettlementAmount { get; set; } 
         #endif
         
         /// <summary>

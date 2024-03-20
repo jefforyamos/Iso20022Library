@@ -118,13 +118,12 @@ public partial record FutureOrOptionDetails3
     [DataMember(Name="MinSz")]
     #endif
     [IsoXmlTag("MinSz")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumSize { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumSize { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSize { get; init; } 
     #else
-    public System.Decimal? MinimumSize { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumSize { get; set; } 
     #endif
     
     /// <summary>

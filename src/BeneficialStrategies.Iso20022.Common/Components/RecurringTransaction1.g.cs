@@ -137,13 +137,12 @@ public partial record RecurringTransaction1
     [DataMember(Name="IntrstChrgs")]
     #endif
     [IsoXmlTag("IntrstChrgs")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? InterestCharges { get; init; } 
+    public ImpliedCurrencyAndAmount? InterestCharges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InterestCharges { get; init; } 
+    public ImpliedCurrencyAndAmount? InterestCharges { get; init; } 
     #else
-    public System.Decimal? InterestCharges { get; set; } 
+    public ImpliedCurrencyAndAmount? InterestCharges { get; set; } 
     #endif
     
     

@@ -48,13 +48,12 @@ public partial record LoyaltyRebates1
     [DataMember(Name="TtlRbt")]
     #endif
     [IsoXmlTag("TtlRbt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalRebate { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRebate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRebate { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRebate { get; init; } 
     #else
-    public System.Decimal? TotalRebate { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalRebate { get; set; } 
     #endif
     
     /// <summary>

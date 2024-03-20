@@ -156,13 +156,12 @@ public partial record LodgingLineItem1
     [DataMember(Name="UnitAmt")]
     #endif
     [IsoXmlTag("UnitAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? UnitAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnitAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitAmount { get; init; } 
     #else
-    public System.Decimal? UnitAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? UnitAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -192,13 +191,12 @@ public partial record LodgingLineItem1
     [DataMember(Name="SubTtlAmt")]
     #endif
     [IsoXmlTag("SubTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? SubTotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubTotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubTotalAmount { get; init; } 
     #else
-    public System.Decimal? SubTotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? SubTotalAmount { get; set; } 
     #endif
     
     /// <summary>

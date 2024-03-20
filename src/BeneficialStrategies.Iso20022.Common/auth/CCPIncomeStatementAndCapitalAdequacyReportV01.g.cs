@@ -73,7 +73,7 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     /// Constructs a CCPIncomeStatementAndCapitalAdequacyReportV01 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CCPIncomeStatementAndCapitalAdequacyReportV01( IncomeStatement1 reqIncomeStatement,CapitalRequirement1 reqCapitalRequirements,System.Decimal reqTotalCapital,System.Decimal reqLiquidFinancialResources,HypotheticalCapitalMeasure1 reqHypotheticalCapitalMeasure )
+    public CCPIncomeStatementAndCapitalAdequacyReportV01( IncomeStatement1 reqIncomeStatement,CapitalRequirement1 reqCapitalRequirements,ActiveCurrencyAndAmount reqTotalCapital,ActiveCurrencyAndAmount reqLiquidFinancialResources,HypotheticalCapitalMeasure1 reqHypotheticalCapitalMeasure )
     {
         IncomeStatement = reqIncomeStatement;
         CapitalRequirements = reqCapitalRequirements;
@@ -131,15 +131,14 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="TtlCptl")]
     #endif
     [IsoXmlTag("TtlCptl")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalCapital { get; init; } 
+    public required ActiveCurrencyAndAmount TotalCapital { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalCapital { get; init; } 
+    public required ActiveCurrencyAndAmount TotalCapital { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalCapital { get; init; } 
+    public ActiveCurrencyAndAmount TotalCapital { get; init; } 
     #else
-    public System.Decimal TotalCapital { get; set; } 
+    public ActiveCurrencyAndAmount TotalCapital { get; set; } 
     #endif
     
     /// <summary>
@@ -151,15 +150,14 @@ public partial record CCPIncomeStatementAndCapitalAdequacyReportV01 : IOuterReco
     [DataMember(Name="LqdFinRsrcs")]
     #endif
     [IsoXmlTag("LqdFinRsrcs")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount LiquidFinancialResources { get; init; } 
+    public required ActiveCurrencyAndAmount LiquidFinancialResources { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LiquidFinancialResources { get; init; } 
+    public required ActiveCurrencyAndAmount LiquidFinancialResources { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LiquidFinancialResources { get; init; } 
+    public ActiveCurrencyAndAmount LiquidFinancialResources { get; init; } 
     #else
-    public System.Decimal LiquidFinancialResources { get; set; } 
+    public ActiveCurrencyAndAmount LiquidFinancialResources { get; set; } 
     #endif
     
     /// <summary>

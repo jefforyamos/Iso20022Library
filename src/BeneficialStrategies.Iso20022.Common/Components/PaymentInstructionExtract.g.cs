@@ -86,13 +86,12 @@ public partial record PaymentInstructionExtract
     [DataMember(Name="CcyAmt")]
     #endif
     [IsoXmlTag("CcyAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CurrencyAmount { get; init; } 
+    public CurrencyAndAmount? CurrencyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrencyAmount { get; init; } 
+    public CurrencyAndAmount? CurrencyAmount { get; init; } 
     #else
-    public System.Decimal? CurrencyAmount { get; set; } 
+    public CurrencyAndAmount? CurrencyAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -84,13 +84,12 @@ public partial record TaxCalculationInformation6
     [DataMember(Name="TaxblAmt")]
     #endif
     [IsoXmlTag("TaxblAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; init; } 
     #else
-    public System.Decimal? TaxableAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxableAmount { get; set; } 
     #endif
     
     

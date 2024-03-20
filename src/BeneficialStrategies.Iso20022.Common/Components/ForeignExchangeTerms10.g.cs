@@ -57,13 +57,12 @@ public partial record ForeignExchangeTerms10
     [DataMember(Name="ToAmt")]
     #endif
     [IsoXmlTag("ToAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ToAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; init; } 
     #else
-    public System.Decimal? ToAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ToAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -75,13 +74,12 @@ public partial record ForeignExchangeTerms10
     [DataMember(Name="FrAmt")]
     #endif
     [IsoXmlTag("FrAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? FromAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FromAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FromAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FromAmount { get; init; } 
     #else
-    public System.Decimal? FromAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? FromAmount { get; set; } 
     #endif
     
     /// <summary>

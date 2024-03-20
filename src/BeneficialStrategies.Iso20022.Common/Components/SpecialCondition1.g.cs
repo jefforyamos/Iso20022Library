@@ -39,7 +39,7 @@ public partial record SpecialCondition1
     /// Constructs a SpecialCondition1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public SpecialCondition1( System.Decimal reqIncomingAmount,System.Decimal reqOutgoingAmount )
+    public SpecialCondition1( ActiveCurrencyAndAmount reqIncomingAmount,ActiveCurrencyAndAmount reqOutgoingAmount )
     {
         IncomingAmount = reqIncomingAmount;
         OutgoingAmount = reqOutgoingAmount;
@@ -56,15 +56,14 @@ public partial record SpecialCondition1
     [DataMember(Name="IncmgAmt")]
     #endif
     [IsoXmlTag("IncmgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount IncomingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount IncomingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal IncomingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount IncomingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal IncomingAmount { get; init; } 
+    public ActiveCurrencyAndAmount IncomingAmount { get; init; } 
     #else
-    public System.Decimal IncomingAmount { get; set; } 
+    public ActiveCurrencyAndAmount IncomingAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -76,15 +75,14 @@ public partial record SpecialCondition1
     [DataMember(Name="OutgngAmt")]
     #endif
     [IsoXmlTag("OutgngAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OutgoingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OutgoingAmount { get; init; } 
+    public required ActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OutgoingAmount { get; init; } 
+    public ActiveCurrencyAndAmount OutgoingAmount { get; init; } 
     #else
-    public System.Decimal OutgoingAmount { get; set; } 
+    public ActiveCurrencyAndAmount OutgoingAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -96,13 +94,12 @@ public partial record SpecialCondition1
     [DataMember(Name="IncmgAmtToOthrAcct")]
     #endif
     [IsoXmlTag("IncmgAmtToOthrAcct")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
+    public ActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncomingAmountToOtherAccount { get; init; } 
+    public ActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; init; } 
     #else
-    public System.Decimal? IncomingAmountToOtherAccount { get; set; } 
+    public ActiveCurrencyAndAmount? IncomingAmountToOtherAccount { get; set; } 
     #endif
     
     /// <summary>
@@ -114,13 +111,12 @@ public partial record SpecialCondition1
     [DataMember(Name="PmtFrOthrAcct")]
     #endif
     [IsoXmlTag("PmtFrOthrAcct")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
+    public ActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PaymentFromOtherAccount { get; init; } 
+    public ActiveCurrencyAndAmount? PaymentFromOtherAccount { get; init; } 
     #else
-    public System.Decimal? PaymentFromOtherAccount { get; set; } 
+    public ActiveCurrencyAndAmount? PaymentFromOtherAccount { get; set; } 
     #endif
     
     

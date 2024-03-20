@@ -39,7 +39,7 @@ public partial record LineItem8
     /// Constructs a LineItem8 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public LineItem8( System.Decimal reqOrderedLineItemsTotalAmount,System.Decimal reqAcceptedLineItemsTotalAmount,System.Decimal reqOutstandingLineItemsTotalAmount,System.Decimal reqPendingLineItemsTotalAmount,System.Decimal reqOrderedTotalNetAmount,System.Decimal reqAcceptedTotalNetAmount,System.Decimal reqOutstandingTotalNetAmount,System.Decimal reqPendingTotalNetAmount )
+    public LineItem8( CurrencyAndAmount reqOrderedLineItemsTotalAmount,CurrencyAndAmount reqAcceptedLineItemsTotalAmount,CurrencyAndAmount reqOutstandingLineItemsTotalAmount,CurrencyAndAmount reqPendingLineItemsTotalAmount,CurrencyAndAmount reqOrderedTotalNetAmount,CurrencyAndAmount reqAcceptedTotalNetAmount,CurrencyAndAmount reqOutstandingTotalNetAmount,CurrencyAndAmount reqPendingTotalNetAmount )
     {
         OrderedLineItemsTotalAmount = reqOrderedLineItemsTotalAmount;
         AcceptedLineItemsTotalAmount = reqAcceptedLineItemsTotalAmount;
@@ -74,15 +74,14 @@ public partial record LineItem8
     [DataMember(Name="OrdrdLineItmsTtlAmt")]
     #endif
     [IsoXmlTag("OrdrdLineItmsTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OrderedLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OrderedLineItemsTotalAmount { get; init; } 
+    public CurrencyAndAmount OrderedLineItemsTotalAmount { get; init; } 
     #else
-    public System.Decimal OrderedLineItemsTotalAmount { get; set; } 
+    public CurrencyAndAmount OrderedLineItemsTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -94,15 +93,14 @@ public partial record LineItem8
     [DataMember(Name="AccptdLineItmsTtlAmt")]
     #endif
     [IsoXmlTag("AccptdLineItmsTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AcceptedLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AcceptedLineItemsTotalAmount { get; init; } 
+    public CurrencyAndAmount AcceptedLineItemsTotalAmount { get; init; } 
     #else
-    public System.Decimal AcceptedLineItemsTotalAmount { get; set; } 
+    public CurrencyAndAmount AcceptedLineItemsTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -114,15 +112,14 @@ public partial record LineItem8
     [DataMember(Name="OutsdngLineItmsTtlAmt")]
     #endif
     [IsoXmlTag("OutsdngLineItmsTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OutstandingLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OutstandingLineItemsTotalAmount { get; init; } 
+    public CurrencyAndAmount OutstandingLineItemsTotalAmount { get; init; } 
     #else
-    public System.Decimal OutstandingLineItemsTotalAmount { get; set; } 
+    public CurrencyAndAmount OutstandingLineItemsTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -134,15 +131,14 @@ public partial record LineItem8
     [DataMember(Name="PdgLineItmsTtlAmt")]
     #endif
     [IsoXmlTag("PdgLineItmsTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PendingLineItemsTotalAmount { get; init; } 
+    public required CurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PendingLineItemsTotalAmount { get; init; } 
+    public CurrencyAndAmount PendingLineItemsTotalAmount { get; init; } 
     #else
-    public System.Decimal PendingLineItemsTotalAmount { get; set; } 
+    public CurrencyAndAmount PendingLineItemsTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -154,15 +150,14 @@ public partial record LineItem8
     [DataMember(Name="OrdrdTtlNetAmt")]
     #endif
     [IsoXmlTag("OrdrdTtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount OrderedTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount OrderedTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OrderedTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount OrderedTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OrderedTotalNetAmount { get; init; } 
+    public CurrencyAndAmount OrderedTotalNetAmount { get; init; } 
     #else
-    public System.Decimal OrderedTotalNetAmount { get; set; } 
+    public CurrencyAndAmount OrderedTotalNetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -174,15 +169,14 @@ public partial record LineItem8
     [DataMember(Name="AccptdTtlNetAmt")]
     #endif
     [IsoXmlTag("AccptdTtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AcceptedTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AcceptedTotalNetAmount { get; init; } 
+    public CurrencyAndAmount AcceptedTotalNetAmount { get; init; } 
     #else
-    public System.Decimal AcceptedTotalNetAmount { get; set; } 
+    public CurrencyAndAmount AcceptedTotalNetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -194,15 +188,14 @@ public partial record LineItem8
     [DataMember(Name="OutsdngTtlNetAmt")]
     #endif
     [IsoXmlTag("OutsdngTtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OutstandingTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OutstandingTotalNetAmount { get; init; } 
+    public CurrencyAndAmount OutstandingTotalNetAmount { get; init; } 
     #else
-    public System.Decimal OutstandingTotalNetAmount { get; set; } 
+    public CurrencyAndAmount OutstandingTotalNetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -214,15 +207,14 @@ public partial record LineItem8
     [DataMember(Name="PdgTtlNetAmt")]
     #endif
     [IsoXmlTag("PdgTtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount PendingTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount PendingTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PendingTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount PendingTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PendingTotalNetAmount { get; init; } 
+    public CurrencyAndAmount PendingTotalNetAmount { get; init; } 
     #else
-    public System.Decimal PendingTotalNetAmount { get; set; } 
+    public CurrencyAndAmount PendingTotalNetAmount { get; set; } 
     #endif
     
     

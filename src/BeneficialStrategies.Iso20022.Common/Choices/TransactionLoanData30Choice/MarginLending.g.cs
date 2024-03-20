@@ -158,13 +158,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData30Choice
         [DataMember(Name="OutsdngMrgnLnAmt")]
         #endif
         [IsoXmlTag("OutsdngMrgnLnAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? OutstandingMarginLoanAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
         #else
-        public System.Decimal? OutstandingMarginLoanAmount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -176,13 +175,12 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionLoanData30Choice
         [DataMember(Name="ShrtMktValAmt")]
         #endif
         [IsoXmlTag("ShrtMktValAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? ShortMarketValueAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
         #else
-        public System.Decimal? ShortMarketValueAmount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; set; } 
         #endif
         
         /// <summary>

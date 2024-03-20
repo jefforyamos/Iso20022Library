@@ -523,13 +523,12 @@ public partial record PaymentEvent7
     [DataMember(Name="InstdAmt")]
     #endif
     [IsoXmlTag("InstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #else
-    public System.Decimal? InstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -541,13 +540,12 @@ public partial record PaymentEvent7
     [DataMember(Name="ConfdAmt")]
     #endif
     [IsoXmlTag("ConfdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ConfirmedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; init; } 
     #else
-    public System.Decimal? ConfirmedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ConfirmedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -559,13 +557,12 @@ public partial record PaymentEvent7
     [DataMember(Name="IntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("IntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? InterbankSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? InterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -612,13 +609,12 @@ public partial record PaymentEvent7
     [DataMember(Name="ChrgAmt")]
     #endif
     [IsoXmlTag("ChrgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargeAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     #else
-    public System.Decimal? ChargeAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; set; } 
     #endif
     
     /// <summary>

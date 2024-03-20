@@ -48,13 +48,12 @@ public partial record OriginalAmountDetails1
     [DataMember(Name="ActlAmt")]
     #endif
     [IsoXmlTag("ActlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ActualAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ActualAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ActualAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ActualAmount { get; init; } 
     #else
-    public System.Decimal? ActualAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? ActualAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record OriginalAmountDetails1
     [DataMember(Name="MinAmt")]
     #endif
     [IsoXmlTag("MinAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAmount { get; init; } 
     #else
-    public System.Decimal? MinimumAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MinimumAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record OriginalAmountDetails1
     [DataMember(Name="MaxAmt")]
     #endif
     [IsoXmlTag("MaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     #else
-    public System.Decimal? MaximumAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; set; } 
     #endif
     
     

@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YytJwtp-Ed-ak6NoX_4Aeg_850953552")]
 [Description(@"Specifies the type of price and information about the price.")]
-[Derivations(typeof(TypeOfPrice12Code),typeof(TypeOfPrice11Code),typeof(TypeOfPrice17Code),typeof(TypeOfPrice2Code),typeof(TypeOfPrice10Code),typeof(TypeOfPrice6Code),typeof(TypeOfPrice15Code),typeof(TypeOfPrice16Code),typeof(TypeOfPrice7Code),typeof(TypeOfPrice30Code),typeof(TypeOfPrice5Code),typeof(TypeOfPrice3Code),typeof(TypeOfPrice9Code),typeof(TypeOfPrice13Code),typeof(TypeOfPrice1Code),typeof(TypeOfPrice14Code),typeof(TypeOfPrice8Code))]
+[Derivations(typeof(TypeOfPrice2Code),typeof(TypeOfPrice14Code),typeof(TypeOfPrice15Code),typeof(TypeOfPrice9Code),typeof(TypeOfPrice7Code),typeof(TypeOfPrice17Code),typeof(TypeOfPrice13Code),typeof(TypeOfPrice5Code),typeof(TypeOfPrice3Code),typeof(TypeOfPrice10Code),typeof(TypeOfPrice11Code),typeof(TypeOfPrice1Code),typeof(TypeOfPrice8Code),typeof(TypeOfPrice30Code),typeof(TypeOfPrice16Code),typeof(TypeOfPrice12Code),typeof(TypeOfPrice6Code))]
 public enum TypeOfPriceCode
 {
     /// <summary>

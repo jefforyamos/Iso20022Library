@@ -75,13 +75,12 @@ public partial record Tax32
     [DataMember(Name="InftvAmt")]
     #endif
     [IsoXmlTag("InftvAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? InformativeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? InformativeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InformativeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? InformativeAmount { get; init; } 
     #else
-    public System.Decimal? InformativeAmount { get; set; } 
+    public ActiveCurrencyAndAmount? InformativeAmount { get; set; } 
     #endif
     
     /// <summary>

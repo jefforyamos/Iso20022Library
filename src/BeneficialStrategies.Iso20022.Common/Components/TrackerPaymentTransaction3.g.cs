@@ -145,13 +145,12 @@ public partial record TrackerPaymentTransaction3
     [DataMember(Name="IntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("IntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InterbankSettlementAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? InterbankSettlementAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

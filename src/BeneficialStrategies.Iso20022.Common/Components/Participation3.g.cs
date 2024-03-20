@@ -84,13 +84,12 @@ public partial record Participation3
     [DataMember(Name="TtlNbOfSctiesOutsdng")]
     #endif
     [IsoXmlTag("TtlNbOfSctiesOutsdng")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public ActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public ActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #else
-    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; set; } 
+    public ActiveCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; set; } 
     #endif
     
     /// <summary>

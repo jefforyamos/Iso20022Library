@@ -39,7 +39,7 @@ public partial record Margin2
     /// Constructs a Margin2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Margin2( System.Decimal reqTotalMarginAmount,VariationMargin2 reqVariationMargin,Amount2 reqInitialMargin )
+    public Margin2( ActiveCurrencyAndAmount reqTotalMarginAmount,VariationMargin2 reqVariationMargin,Amount2 reqInitialMargin )
     {
         TotalMarginAmount = reqTotalMarginAmount;
         VariationMargin = reqVariationMargin;
@@ -91,15 +91,14 @@ public partial record Margin2
     [DataMember(Name="TtlMrgnAmt")]
     #endif
     [IsoXmlTag("TtlMrgnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalMarginAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalMarginAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalMarginAmount { get; init; } 
     #else
-    public System.Decimal TotalMarginAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalMarginAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -149,13 +148,12 @@ public partial record Margin2
     [DataMember(Name="IncrCvrg")]
     #endif
     [IsoXmlTag("IncrCvrg")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncreaseCoverage { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverage { get; init; } 
     #else
-    public System.Decimal? IncreaseCoverage { get; set; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverage { get; set; } 
     #endif
     
     /// <summary>
@@ -167,13 +165,12 @@ public partial record Margin2
     [DataMember(Name="MinRqrmntDpst")]
     #endif
     [IsoXmlTag("MinRqrmntDpst")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumRequirementDeposit { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     #else
-    public System.Decimal? MinimumRequirementDeposit { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; set; } 
     #endif
     
     /// <summary>

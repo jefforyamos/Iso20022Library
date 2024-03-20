@@ -61,13 +61,12 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuredCollateral2Choice
         [DataMember(Name="NmnlAmt")]
         #endif
         [IsoXmlTag("NmnlAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? NominalAmount { get; init; } 
+        public ActiveCurrencyAndAmount? NominalAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? NominalAmount { get; init; } 
+        public ActiveCurrencyAndAmount? NominalAmount { get; init; } 
         #else
-        public System.Decimal? NominalAmount { get; set; } 
+        public ActiveCurrencyAndAmount? NominalAmount { get; set; } 
         #endif
         
         /// <summary>

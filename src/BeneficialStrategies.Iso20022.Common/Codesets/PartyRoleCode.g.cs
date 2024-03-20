@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZxlM1tp-Ed-ak6NoX_4Aeg_492772100")]
 [Description(@"Specifies the role of the party in the transaction.")]
-[Derivations(typeof(InvestmentFundRole3Code),typeof(PaymentRole1Code),typeof(InvestmentFundRole5Code),typeof(InvestmentFundRole4Code),typeof(InvestmentFundRole2Code),typeof(PartyRole2Code),typeof(InvestmentFundRole6Code),typeof(PartyRole3Code),typeof(InvestmentFundRole7Code),typeof(InternalPartyRole1Code),typeof(PartyRole1Code),typeof(InvestmentFundRole1Code),typeof(InvestmentFundRole8Code))]
+[Derivations(typeof(InvestmentFundRole1Code),typeof(InvestmentFundRole2Code),typeof(InvestmentFundRole4Code),typeof(PaymentRole1Code),typeof(InvestmentFundRole3Code),typeof(PartyRole1Code),typeof(InvestmentFundRole5Code),typeof(PartyRole2Code),typeof(InvestmentFundRole8Code),typeof(InvestmentFundRole6Code),typeof(InvestmentFundRole7Code),typeof(InternalPartyRole1Code),typeof(PartyRole3Code))]
 public enum PartyRoleCode
 {
     /// <summary>

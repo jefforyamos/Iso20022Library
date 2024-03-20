@@ -39,7 +39,7 @@ public partial record ReportLine1
     /// Constructs a ReportLine1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ReportLine1( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,System.Decimal reqPurchaseOrderTotalNetAmount,System.Decimal reqAccumulatedNetAmount )
+    public ReportLine1( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,CurrencyAndAmount reqPurchaseOrderTotalNetAmount,CurrencyAndAmount reqAccumulatedNetAmount )
     {
         TransactionIdentification = reqTransactionIdentification;
         TransactionStatus = reqTransactionStatus;
@@ -118,15 +118,14 @@ public partial record ReportLine1
     [DataMember(Name="PurchsOrdrTtlNetAmt")]
     #endif
     [IsoXmlTag("PurchsOrdrTtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount PurchaseOrderTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount PurchaseOrderTotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PurchaseOrderTotalNetAmount { get; init; } 
+    public required CurrencyAndAmount PurchaseOrderTotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PurchaseOrderTotalNetAmount { get; init; } 
+    public CurrencyAndAmount PurchaseOrderTotalNetAmount { get; init; } 
     #else
-    public System.Decimal PurchaseOrderTotalNetAmount { get; set; } 
+    public CurrencyAndAmount PurchaseOrderTotalNetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -138,15 +137,14 @@ public partial record ReportLine1
     [DataMember(Name="AcmltdNetAmt")]
     #endif
     [IsoXmlTag("AcmltdNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount AccumulatedNetAmount { get; init; } 
+    public required CurrencyAndAmount AccumulatedNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AccumulatedNetAmount { get; init; } 
+    public required CurrencyAndAmount AccumulatedNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AccumulatedNetAmount { get; init; } 
+    public CurrencyAndAmount AccumulatedNetAmount { get; init; } 
     #else
-    public System.Decimal AccumulatedNetAmount { get; set; } 
+    public CurrencyAndAmount AccumulatedNetAmount { get; set; } 
     #endif
     
     

@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_KTocs31DEeCF8NjrBemJWQ_1816233839")]
 [Description(@"Types of terminal management action to be performed by a point of interaction.")]
-[Derivations(typeof(TerminalManagementAction5Code),typeof(TerminalManagementAction4Code),typeof(TerminalManagementAction2Code),typeof(TerminalManagementAction3Code),typeof(TerminalManagementAction1Code))]
+[Derivations(typeof(TerminalManagementAction4Code),typeof(TerminalManagementAction1Code),typeof(TerminalManagementAction2Code),typeof(TerminalManagementAction3Code),typeof(TerminalManagementAction5Code))]
 public enum TerminalManagementActionCode
 {
     /// <summary>

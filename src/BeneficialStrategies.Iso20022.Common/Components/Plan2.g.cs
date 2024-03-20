@@ -210,13 +210,12 @@ public partial record Plan2
     [DataMember(Name="FrstAmt")]
     #endif
     [IsoXmlTag("FrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FirstAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #else
-    public System.Decimal? FirstAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -228,13 +227,12 @@ public partial record Plan2
     [DataMember(Name="NrmlPmtAmt")]
     #endif
     [IsoXmlTag("NrmlPmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? NormalPaymentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NormalPaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NormalPaymentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NormalPaymentAmount { get; init; } 
     #else
-    public System.Decimal? NormalPaymentAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? NormalPaymentAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -315,13 +313,12 @@ public partial record Plan2
     [DataMember(Name="GrdTtlAmt")]
     #endif
     [IsoXmlTag("GrdTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrandTotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? GrandTotalAmount { get; init; } 
     #else
-    public System.Decimal? GrandTotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? GrandTotalAmount { get; set; } 
     #endif
     
     /// <summary>

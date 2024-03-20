@@ -39,7 +39,7 @@ public partial record RepurchaseAgreement2
     /// Constructs a RepurchaseAgreement2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public RepurchaseAgreement2( System.DateOnly reqMaturityDate,System.Decimal reqSecondLegPrice,System.Decimal reqCollateralMarketValue,System.String reqCounterparty,RepurchaseAgreementType3Choice_ reqRepurchaseAgreementType )
+    public RepurchaseAgreement2( System.DateOnly reqMaturityDate,ActiveCurrencyAndAmount reqSecondLegPrice,ActiveCurrencyAndAmount reqCollateralMarketValue,System.String reqCounterparty,RepurchaseAgreementType3Choice_ reqRepurchaseAgreementType )
     {
         MaturityDate = reqMaturityDate;
         SecondLegPrice = reqSecondLegPrice;
@@ -79,15 +79,14 @@ public partial record RepurchaseAgreement2
     [DataMember(Name="ScndLegPric")]
     #endif
     [IsoXmlTag("ScndLegPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount SecondLegPrice { get; init; } 
+    public required ActiveCurrencyAndAmount SecondLegPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal SecondLegPrice { get; init; } 
+    public required ActiveCurrencyAndAmount SecondLegPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal SecondLegPrice { get; init; } 
+    public ActiveCurrencyAndAmount SecondLegPrice { get; init; } 
     #else
-    public System.Decimal SecondLegPrice { get; set; } 
+    public ActiveCurrencyAndAmount SecondLegPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -99,15 +98,14 @@ public partial record RepurchaseAgreement2
     [DataMember(Name="CollMktVal")]
     #endif
     [IsoXmlTag("CollMktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CollateralMarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CollateralMarketValue { get; init; } 
+    public ActiveCurrencyAndAmount CollateralMarketValue { get; init; } 
     #else
-    public System.Decimal CollateralMarketValue { get; set; } 
+    public ActiveCurrencyAndAmount CollateralMarketValue { get; set; } 
     #endif
     
     /// <summary>

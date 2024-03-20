@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity55Choice
         /// Constructs a OriginalAndCurrentFaceAmount instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public OriginalAndCurrentFaceAmount( System.Decimal reqFaceAmount,System.Decimal reqAmortisedValue )
+        public OriginalAndCurrentFaceAmount( RestrictedFINImpliedCurrencyAndAmount reqFaceAmount,RestrictedFINImpliedCurrencyAndAmount reqAmortisedValue )
         {
             FaceAmount = reqFaceAmount;
             AmortisedValue = reqAmortisedValue;
@@ -61,15 +61,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity55Choice
         [DataMember(Name="FaceAmt")]
         #endif
         [IsoXmlTag("FaceAmt")]
-        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
+        public required RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal FaceAmount { get; init; } 
+        public required RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal FaceAmount { get; init; } 
+        public RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #else
-        public System.Decimal FaceAmount { get; set; } 
+        public RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -81,15 +80,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity55Choice
         [DataMember(Name="AmtsdVal")]
         #endif
         [IsoXmlTag("AmtsdVal")]
-        [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
+        public required RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal AmortisedValue { get; init; } 
+        public required RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal AmortisedValue { get; init; } 
+        public RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #else
-        public System.Decimal AmortisedValue { get; set; } 
+        public RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; set; } 
         #endif
         
         

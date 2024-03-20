@@ -127,13 +127,12 @@ public partial record AggregateBalancePerSafekeepingPlace3
     [DataMember(Name="HldgVal")]
     #endif
     [IsoXmlTag("HldgVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? HoldingValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? HoldingValue { get; init; } 
     #else
-    public System.Decimal? HoldingValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? HoldingValue { get; set; } 
     #endif
     
     /// <summary>
@@ -145,13 +144,12 @@ public partial record AggregateBalancePerSafekeepingPlace3
     [DataMember(Name="PrvsHldgVal")]
     #endif
     [IsoXmlTag("PrvsHldgVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? PreviousHoldingValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousHoldingValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviousHoldingValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousHoldingValue { get; init; } 
     #else
-    public System.Decimal? PreviousHoldingValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousHoldingValue { get; set; } 
     #endif
     
     /// <summary>
@@ -163,13 +161,12 @@ public partial record AggregateBalancePerSafekeepingPlace3
     [DataMember(Name="AcrdIntrstAmt")]
     #endif
     [IsoXmlTag("AcrdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AccruedInterestAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #else
-    public System.Decimal? AccruedInterestAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterestAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -199,13 +196,12 @@ public partial record AggregateBalancePerSafekeepingPlace3
     [DataMember(Name="BookVal")]
     #endif
     [IsoXmlTag("BookVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BookValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? BookValue { get; init; } 
     #else
-    public System.Decimal? BookValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? BookValue { get; set; } 
     #endif
     
     /// <summary>

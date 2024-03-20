@@ -39,7 +39,7 @@ public partial record FailedMovement1
     /// Constructs a FailedMovement1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public FailedMovement1( System.Decimal reqCashAmount,UnitOrFaceAmount1Choice_ reqSecuritiesQuantity,FailedSettlementReason1FormatChoice_ reqReason )
+    public FailedMovement1( ActiveCurrencyAndAmount reqCashAmount,UnitOrFaceAmount1Choice_ reqSecuritiesQuantity,FailedSettlementReason1FormatChoice_ reqReason )
     {
         CashAmount = reqCashAmount;
         SecuritiesQuantity = reqSecuritiesQuantity;
@@ -57,15 +57,14 @@ public partial record FailedMovement1
     [DataMember(Name="CshAmt")]
     #endif
     [IsoXmlTag("CshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CashAmount { get; init; } 
+    public required ActiveCurrencyAndAmount CashAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CashAmount { get; init; } 
+    public required ActiveCurrencyAndAmount CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CashAmount { get; init; } 
+    public ActiveCurrencyAndAmount CashAmount { get; init; } 
     #else
-    public System.Decimal CashAmount { get; set; } 
+    public ActiveCurrencyAndAmount CashAmount { get; set; } 
     #endif
     
     /// <summary>

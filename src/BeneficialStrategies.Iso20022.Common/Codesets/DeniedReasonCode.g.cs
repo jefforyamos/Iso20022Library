@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_avkfGdp-Ed-ak6NoX_4Aeg_-135680371")]
 [Description(@"Specifies the denied reason.")]
-[Derivations(typeof(DeniedReason5Code),typeof(DeniedReason3Code),typeof(DeniedReason1Code),typeof(DeniedReason2Code),typeof(DeniedReason4Code))]
+[Derivations(typeof(DeniedReason3Code),typeof(DeniedReason4Code),typeof(DeniedReason2Code),typeof(DeniedReason5Code),typeof(DeniedReason1Code))]
 public enum DeniedReasonCode
 {
     /// <summary>

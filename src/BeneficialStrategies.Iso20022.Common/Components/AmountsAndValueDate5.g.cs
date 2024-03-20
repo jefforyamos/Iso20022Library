@@ -39,7 +39,7 @@ public partial record AmountsAndValueDate5
     /// Constructs a AmountsAndValueDate5 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AmountsAndValueDate5( System.Decimal reqCallAmount,System.Decimal reqPutAmount )
+    public AmountsAndValueDate5( ActiveOrHistoricCurrencyAndAmount reqCallAmount,ActiveOrHistoricCurrencyAndAmount reqPutAmount )
     {
         CallAmount = reqCallAmount;
         PutAmount = reqPutAmount;
@@ -56,15 +56,14 @@ public partial record AmountsAndValueDate5
     [DataMember(Name="CallAmt")]
     #endif
     [IsoXmlTag("CallAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CallAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CallAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount CallAmount { get; init; } 
     #else
-    public System.Decimal CallAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount CallAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -76,15 +75,14 @@ public partial record AmountsAndValueDate5
     [DataMember(Name="PutAmt")]
     #endif
     [IsoXmlTag("PutAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PutAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PutAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount PutAmount { get; init; } 
     #else
-    public System.Decimal PutAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount PutAmount { get; set; } 
     #endif
     
     /// <summary>

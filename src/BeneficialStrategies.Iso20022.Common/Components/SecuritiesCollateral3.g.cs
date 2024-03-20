@@ -166,13 +166,12 @@ public partial record SecuritiesCollateral3
     [DataMember(Name="MktVal")]
     #endif
     [IsoXmlTag("MktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarketValue { get; init; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; init; } 
     #else
-    public System.Decimal? MarketValue { get; set; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; set; } 
     #endif
     
     /// <summary>
@@ -202,13 +201,12 @@ public partial record SecuritiesCollateral3
     [DataMember(Name="CollVal")]
     #endif
     [IsoXmlTag("CollVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CollateralValue { get; init; } 
+    public ActiveCurrencyAndAmount? CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CollateralValue { get; init; } 
+    public ActiveCurrencyAndAmount? CollateralValue { get; init; } 
     #else
-    public System.Decimal? CollateralValue { get; set; } 
+    public ActiveCurrencyAndAmount? CollateralValue { get; set; } 
     #endif
     
     /// <summary>

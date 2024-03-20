@@ -166,13 +166,12 @@ public partial record ATMTransaction2
     [DataMember(Name="TtlReqdAmt")]
     #endif
     [IsoXmlTag("TtlReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #else
-    public System.Decimal? TotalRequestedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; set; } 
     #endif
     
     /// <summary>

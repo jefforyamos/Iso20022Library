@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice
         /// Constructs a SegregatedIndependentAmountMargin instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public SegregatedIndependentAmountMargin( System.Decimal reqMinimumTransferAmount )
+        public SegregatedIndependentAmountMargin( ActiveCurrencyAndAmount reqMinimumTransferAmount )
         {
             MinimumTransferAmount = reqMinimumTransferAmount;
         }
@@ -60,15 +60,14 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice
         [DataMember(Name="MinTrfAmt")]
         #endif
         [IsoXmlTag("MinTrfAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
+        public required ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal MinimumTransferAmount { get; init; } 
+        public required ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal MinimumTransferAmount { get; init; } 
+        public ActiveCurrencyAndAmount MinimumTransferAmount { get; init; } 
         #else
-        public System.Decimal MinimumTransferAmount { get; set; } 
+        public ActiveCurrencyAndAmount MinimumTransferAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -80,13 +79,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginTerms1Choice
         [DataMember(Name="RndgAmt")]
         #endif
         [IsoXmlTag("RndgAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? RoundingAmount { get; init; } 
+        public ActiveCurrencyAndAmount? RoundingAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? RoundingAmount { get; init; } 
+        public ActiveCurrencyAndAmount? RoundingAmount { get; init; } 
         #else
-        public System.Decimal? RoundingAmount { get; set; } 
+        public ActiveCurrencyAndAmount? RoundingAmount { get; set; } 
         #endif
         
         /// <summary>

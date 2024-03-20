@@ -103,13 +103,12 @@ public partial record StatementResolutionEntry1
     [DataMember(Name="CrrctdAmt")]
     #endif
     [IsoXmlTag("CrrctdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? CorrectedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CorrectedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CorrectedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CorrectedAmount { get; init; } 
     #else
-    public System.Decimal? CorrectedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? CorrectedAmount { get; set; } 
     #endif
     
     /// <summary>

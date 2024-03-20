@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZDsMEdp-Ed-ak6NoX_4Aeg_29532225")]
 [Description(@"Specifies the nature of the securities or investment fund balance.")]
-[Derivations(typeof(SecuritiesBalanceType5Code),typeof(SecuritiesBalanceType11Code),typeof(SecuritiesBalanceType12Code),typeof(SecuritiesBalanceType13Code),typeof(SecuritiesBalanceType7Code),typeof(SecuritiesBalanceType8Code))]
+[Derivations(typeof(SecuritiesBalanceType5Code),typeof(SecuritiesBalanceType11Code),typeof(SecuritiesBalanceType13Code),typeof(SecuritiesBalanceType12Code),typeof(SecuritiesBalanceType7Code),typeof(SecuritiesBalanceType8Code))]
 public enum SecuritiesBalanceTypeV2Code
 {
     /// <summary>

@@ -39,7 +39,7 @@ public partial record OriginalAndCurrentQuantities7
     /// Constructs a OriginalAndCurrentQuantities7 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public OriginalAndCurrentQuantities7( ShortLong1Code reqShortLongPosition,System.Decimal reqFaceAmount,System.Decimal reqAmortisedValue )
+    public OriginalAndCurrentQuantities7( ShortLong1Code reqShortLongPosition,RestrictedFINImpliedCurrencyAndAmount reqFaceAmount,RestrictedFINImpliedCurrencyAndAmount reqAmortisedValue )
     {
         ShortLongPosition = reqShortLongPosition;
         FaceAmount = reqFaceAmount;
@@ -76,15 +76,14 @@ public partial record OriginalAndCurrentQuantities7
     [DataMember(Name="FaceAmt")]
     #endif
     [IsoXmlTag("FaceAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoRestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
+    public required RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal FaceAmount { get; init; } 
+    public required RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal FaceAmount { get; init; } 
+    public RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; init; } 
     #else
-    public System.Decimal FaceAmount { get; set; } 
+    public RestrictedFINImpliedCurrencyAndAmount FaceAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -96,15 +95,14 @@ public partial record OriginalAndCurrentQuantities7
     [DataMember(Name="AmtsdVal")]
     #endif
     [IsoXmlTag("AmtsdVal")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoRestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
+    public required RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AmortisedValue { get; init; } 
+    public required RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AmortisedValue { get; init; } 
+    public RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; init; } 
     #else
-    public System.Decimal AmortisedValue { get; set; } 
+    public RestrictedFINImpliedCurrencyAndAmount AmortisedValue { get; set; } 
     #endif
     
     

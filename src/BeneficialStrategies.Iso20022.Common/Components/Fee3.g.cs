@@ -65,13 +65,12 @@ public partial record Fee3
     [DataMember(Name="RprdStdAmt")]
     #endif
     [IsoXmlTag("RprdStdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? RepairedStandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedStandardAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RepairedStandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedStandardAmount { get; init; } 
     #else
-    public System.Decimal? RepairedStandardAmount { get; set; } 
+    public ActiveCurrencyAndAmount? RepairedStandardAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -101,13 +100,12 @@ public partial record Fee3
     [DataMember(Name="RprdDscntAmt")]
     #endif
     [IsoXmlTag("RprdDscntAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? RepairedDiscountAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedDiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RepairedDiscountAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedDiscountAmount { get; init; } 
     #else
-    public System.Decimal? RepairedDiscountAmount { get; set; } 
+    public ActiveCurrencyAndAmount? RepairedDiscountAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -137,13 +135,12 @@ public partial record Fee3
     [DataMember(Name="RprdReqdAmt")]
     #endif
     [IsoXmlTag("RprdReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? RepairedRequestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RepairedRequestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RepairedRequestedAmount { get; init; } 
     #else
-    public System.Decimal? RepairedRequestedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? RepairedRequestedAmount { get; set; } 
     #endif
     
     /// <summary>

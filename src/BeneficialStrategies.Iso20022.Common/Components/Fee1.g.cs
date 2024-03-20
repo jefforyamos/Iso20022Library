@@ -91,13 +91,12 @@ public partial record Fee1
     [DataMember(Name="StdAmt")]
     #endif
     [IsoXmlTag("StdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? StandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StandardAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; init; } 
     #else
-    public System.Decimal? StandardAmount { get; set; } 
+    public ActiveCurrencyAndAmount? StandardAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -144,13 +143,12 @@ public partial record Fee1
     [DataMember(Name="ReqdAmt")]
     #endif
     [IsoXmlTag("ReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? RequestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RequestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RequestedAmount { get; init; } 
     #else
-    public System.Decimal? RequestedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? RequestedAmount { get; set; } 
     #endif
     
     /// <summary>

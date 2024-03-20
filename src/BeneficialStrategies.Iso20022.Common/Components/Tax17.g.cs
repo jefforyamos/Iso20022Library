@@ -97,10 +97,9 @@ public partial record Tax17
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     [MinLength(0)]
     [MaxLength(7)]
-    public SimpleValueList<System.Decimal> Amount { get; init; } = new SimpleValueList<System.Decimal>(){};
+    public ValueList<ActiveOrHistoricCurrencyAnd13DecimalAmount> Amount { get; init; } = new ValueList<ActiveOrHistoricCurrencyAnd13DecimalAmount>(){};
     
     /// <summary>
     /// Rate used to calculate the tax.

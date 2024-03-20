@@ -39,7 +39,7 @@ public partial record Adjustment5
     /// Constructs a Adjustment5 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Adjustment5( AdjustmentDirection1Code reqDirection,System.Decimal reqAmount )
+    public Adjustment5( AdjustmentDirection1Code reqDirection,ActiveCurrencyAndAmount reqAmount )
     {
         Direction = reqDirection;
         Amount = reqAmount;
@@ -75,15 +75,14 @@ public partial record Adjustment5
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    public required ActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ActiveCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ActiveCurrencyAndAmount Amount { get; set; } 
     #endif
     
     

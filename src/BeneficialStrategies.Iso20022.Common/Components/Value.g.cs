@@ -39,7 +39,7 @@ public partial record Value
     /// Constructs a Value instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Value( System.Decimal reqBaseCurrencyItem )
+    public Value( ActiveOrHistoricCurrencyAndAmount reqBaseCurrencyItem )
     {
         BaseCurrencyItem = reqBaseCurrencyItem;
     }
@@ -55,15 +55,14 @@ public partial record Value
     [DataMember(Name="BaseCcyItm")]
     #endif
     [IsoXmlTag("BaseCcyItm")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal BaseCurrencyItem { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal BaseCurrencyItem { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; init; } 
     #else
-    public System.Decimal BaseCurrencyItem { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount BaseCurrencyItem { get; set; } 
     #endif
     
     /// <summary>
@@ -75,8 +74,7 @@ public partial record Value
     [DataMember(Name="AltrnCcyItm")]
     #endif
     [IsoXmlTag("AltrnCcyItm")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
-    public SimpleValueList<System.Decimal> AlternateCurrencyItem { get; init; } = new SimpleValueList<System.Decimal>(){}; // Warning: Don't know multiplicity.
+    public ValueList<ActiveOrHistoricCurrencyAndAmount> AlternateCurrencyItem { get; init; } = new ValueList<ActiveOrHistoricCurrencyAndAmount>(){}; // Warning: Don't know multiplicity.
     // ID for the above is _SVDJ09p-Ed-ak6NoX_4Aeg_249291013
     
     

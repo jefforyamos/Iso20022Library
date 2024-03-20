@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bpZDBtp-Ed-ak6NoX_4Aeg_423330067")]
 [Description(@"Specifies additional information about the processed instruction.")]
-[Derivations(typeof(AcknowledgementReason1Code),typeof(AcknowledgementReason3Code),typeof(AcknowledgementReason8Code),typeof(AcknowledgementReason9Code),typeof(AcknowledgementReason10Code),typeof(AcknowledgementReason4Code),typeof(AcknowledgementReason7Code),typeof(AcknowledgementReason2Code),typeof(AcknowledgementReason6Code),typeof(AcknowledgementReason5Code))]
+[Derivations(typeof(AcknowledgementReason5Code),typeof(AcknowledgementReason6Code),typeof(AcknowledgementReason2Code),typeof(AcknowledgementReason4Code),typeof(AcknowledgementReason3Code),typeof(AcknowledgementReason8Code),typeof(AcknowledgementReason10Code),typeof(AcknowledgementReason7Code),typeof(AcknowledgementReason9Code),typeof(AcknowledgementReason1Code))]
 public enum AcknowledgementReasonCode
 {
     /// <summary>

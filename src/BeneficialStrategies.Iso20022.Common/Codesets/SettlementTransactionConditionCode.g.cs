@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZNhdh9p-Ed-ak6NoX_4Aeg_885272360")]
 [Description(@"Collateral position is available for other purposes (for example, onwards delivery).")]
-[Derivations(typeof(SettlementTransactionCondition5Code),typeof(SettlementTransactionCondition2Code),typeof(SettlementTransactionCondition8Code),typeof(SettlementTransactionCondition14Code),typeof(SettlementTransactionCondition11Code),typeof(SettlementTransactionCondition10Code),typeof(SettlementTransactionCondition13Code),typeof(SettlementTransactionCondition12Code),typeof(SettlementTransactionCondition4Code),typeof(SettlementTransactionCondition3Code),typeof(SettlementTransactionCondition6Code))]
+[Derivations(typeof(SettlementTransactionCondition8Code),typeof(SettlementTransactionCondition6Code),typeof(SettlementTransactionCondition11Code),typeof(SettlementTransactionCondition13Code),typeof(SettlementTransactionCondition10Code),typeof(SettlementTransactionCondition4Code),typeof(SettlementTransactionCondition12Code),typeof(SettlementTransactionCondition14Code),typeof(SettlementTransactionCondition3Code),typeof(SettlementTransactionCondition5Code),typeof(SettlementTransactionCondition2Code))]
 public enum SettlementTransactionConditionCode
 {
     /// <summary>

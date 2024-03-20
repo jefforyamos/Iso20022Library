@@ -76,13 +76,12 @@ public partial record CorporateActionSD4
     [DataMember(Name="NewParVal")]
     #endif
     [IsoXmlTag("NewParVal")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? NewParValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? NewParValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NewParValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? NewParValue { get; init; } 
     #else
-    public System.Decimal? NewParValue { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? NewParValue { get; set; } 
     #endif
     
     /// <summary>
@@ -94,13 +93,12 @@ public partial record CorporateActionSD4
     [DataMember(Name="OdParVal")]
     #endif
     [IsoXmlTag("OdParVal")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? OldParValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? OldParValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OldParValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? OldParValue { get; init; } 
     #else
-    public System.Decimal? OldParValue { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? OldParValue { get; set; } 
     #endif
     
     /// <summary>

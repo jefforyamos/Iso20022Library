@@ -76,13 +76,12 @@ public partial record CollateralSubstitutionResponse1
     [DataMember(Name="AccptdAmt")]
     #endif
     [IsoXmlTag("AccptdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AcceptedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AcceptedAmount { get; init; } 
     #else
-    public System.Decimal? AcceptedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? AcceptedAmount { get; set; } 
     #endif
     
     

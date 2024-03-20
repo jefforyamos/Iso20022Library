@@ -188,13 +188,12 @@ public partial record GroupHeader6
     [DataMember(Name="TtlRtrdIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("TtlRtrdIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TotalReturnedInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? TotalReturnedInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalReturnedInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? TotalReturnedInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? TotalReturnedInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount? TotalReturnedInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

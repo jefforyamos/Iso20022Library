@@ -65,13 +65,12 @@ public partial record GeneralInvestment1
     [DataMember(Name="CurInvstmtAmt")]
     #endif
     [IsoXmlTag("CurInvstmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentInvestmentAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #else
-    public System.Decimal? CurrentInvestmentAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; set; } 
     #endif
     
     /// <summary>

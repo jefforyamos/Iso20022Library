@@ -39,7 +39,7 @@ public partial record ConcentrationAccount1
     /// Constructs a ConcentrationAccount1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ConcentrationAccount1( Flows1 reqInFlow,Flows1 reqOutFlow,AmountAndDirection102 reqEndOfDay,System.Decimal reqPeakCredit,System.Decimal reqPeakDebit,System.String reqLatePaymentConfirmation )
+    public ConcentrationAccount1( Flows1 reqInFlow,Flows1 reqOutFlow,AmountAndDirection102 reqEndOfDay,ActiveCurrencyAndAmount reqPeakCredit,ActiveCurrencyAndAmount reqPeakDebit,System.String reqLatePaymentConfirmation )
     {
         InFlow = reqInFlow;
         OutFlow = reqOutFlow;
@@ -117,15 +117,14 @@ public partial record ConcentrationAccount1
     [DataMember(Name="PeakCdt")]
     #endif
     [IsoXmlTag("PeakCdt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount PeakCredit { get; init; } 
+    public required ActiveCurrencyAndAmount PeakCredit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PeakCredit { get; init; } 
+    public required ActiveCurrencyAndAmount PeakCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PeakCredit { get; init; } 
+    public ActiveCurrencyAndAmount PeakCredit { get; init; } 
     #else
-    public System.Decimal PeakCredit { get; set; } 
+    public ActiveCurrencyAndAmount PeakCredit { get; set; } 
     #endif
     
     /// <summary>
@@ -137,15 +136,14 @@ public partial record ConcentrationAccount1
     [DataMember(Name="PeakDbt")]
     #endif
     [IsoXmlTag("PeakDbt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount PeakDebit { get; init; } 
+    public required ActiveCurrencyAndAmount PeakDebit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PeakDebit { get; init; } 
+    public required ActiveCurrencyAndAmount PeakDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PeakDebit { get; init; } 
+    public ActiveCurrencyAndAmount PeakDebit { get; init; } 
     #else
-    public System.Decimal PeakDebit { get; set; } 
+    public ActiveCurrencyAndAmount PeakDebit { get; set; } 
     #endif
     
     /// <summary>

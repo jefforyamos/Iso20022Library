@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aXbr6Np-Ed-ak6NoX_4Aeg_86377106")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction.")]
-[Derivations(typeof(Instruction5Code),typeof(Instruction4Code),typeof(PartialInstruction3Code),typeof(Instruction1Code),typeof(Instruction3Code))]
+[Derivations(typeof(Instruction4Code),typeof(Instruction3Code),typeof(Instruction5Code),typeof(Instruction1Code),typeof(PartialInstruction3Code))]
 public enum InstructionCode
 {
     /// <summary>

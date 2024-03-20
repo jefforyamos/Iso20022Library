@@ -39,7 +39,7 @@ public partial record CollateralSubstitution8
     /// Constructs a CollateralSubstitution8 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralSubstitution8( CollateralSubstitutionSequence1Code reqCollateralSubstitutionSequence,System.Decimal reqSubstitutionRequirement,CollateralSubstitutionType1Code reqCollateralSubstitutionType )
+    public CollateralSubstitution8( CollateralSubstitutionSequence1Code reqCollateralSubstitutionSequence,ActiveCurrencyAndAmount reqSubstitutionRequirement,CollateralSubstitutionType1Code reqCollateralSubstitutionType )
     {
         CollateralSubstitutionSequence = reqCollateralSubstitutionSequence;
         SubstitutionRequirement = reqSubstitutionRequirement;
@@ -76,15 +76,14 @@ public partial record CollateralSubstitution8
     [DataMember(Name="SbstitnRqrmnt")]
     #endif
     [IsoXmlTag("SbstitnRqrmnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
+    public required ActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal SubstitutionRequirement { get; init; } 
+    public required ActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal SubstitutionRequirement { get; init; } 
+    public ActiveCurrencyAndAmount SubstitutionRequirement { get; init; } 
     #else
-    public System.Decimal SubstitutionRequirement { get; set; } 
+    public ActiveCurrencyAndAmount SubstitutionRequirement { get; set; } 
     #endif
     
     /// <summary>

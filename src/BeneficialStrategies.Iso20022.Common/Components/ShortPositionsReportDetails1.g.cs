@@ -39,7 +39,7 @@ public partial record ShortPositionsReportDetails1
     /// Constructs a ShortPositionsReportDetails1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ShortPositionsReportDetails1( BranchAndFinancialInstitutionIdentification5 reqParticipantIdentification,CashAccount24 reqParticipantAccount,System.Decimal reqShortPositionAmount )
+    public ShortPositionsReportDetails1( BranchAndFinancialInstitutionIdentification5 reqParticipantIdentification,CashAccount24 reqParticipantAccount,ActiveCurrencyAndAmount reqShortPositionAmount )
     {
         ParticipantIdentification = reqParticipantIdentification;
         ParticipantAccount = reqParticipantAccount;
@@ -95,15 +95,14 @@ public partial record ShortPositionsReportDetails1
     [DataMember(Name="ShrtPosAmt")]
     #endif
     [IsoXmlTag("ShrtPosAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ShortPositionAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ShortPositionAmount { get; init; } 
+    public ActiveCurrencyAndAmount ShortPositionAmount { get; init; } 
     #else
-    public System.Decimal ShortPositionAmount { get; set; } 
+    public ActiveCurrencyAndAmount ShortPositionAmount { get; set; } 
     #endif
     
     

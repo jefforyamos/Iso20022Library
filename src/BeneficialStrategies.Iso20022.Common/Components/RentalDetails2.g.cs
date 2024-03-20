@@ -154,13 +154,12 @@ public partial record RentalDetails2
     [DataMember(Name="TmPrdRate")]
     #endif
     [IsoXmlTag("TmPrdRate")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
+    public ImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TimePeriodRate { get; init; } 
+    public ImpliedCurrencyAndAmount? TimePeriodRate { get; init; } 
     #else
-    public System.Decimal? TimePeriodRate { get; set; } 
+    public ImpliedCurrencyAndAmount? TimePeriodRate { get; set; } 
     #endif
     
     /// <summary>

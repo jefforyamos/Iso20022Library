@@ -53,13 +53,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice
         [DataMember(Name="DlvrMrgnAmt")]
         #endif
         [IsoXmlTag("DlvrMrgnAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
+        public ActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? DeliverMarginAmount { get; init; } 
+        public ActiveCurrencyAndAmount? DeliverMarginAmount { get; init; } 
         #else
-        public System.Decimal? DeliverMarginAmount { get; set; } 
+        public ActiveCurrencyAndAmount? DeliverMarginAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -71,13 +70,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginRequirement1Choice
         [DataMember(Name="RtrMrgnAmt")]
         #endif
         [IsoXmlTag("RtrMrgnAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
+        public ActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? ReturnMarginAmount { get; init; } 
+        public ActiveCurrencyAndAmount? ReturnMarginAmount { get; init; } 
         #else
-        public System.Decimal? ReturnMarginAmount { get; set; } 
+        public ActiveCurrencyAndAmount? ReturnMarginAmount { get; set; } 
         #endif
         
         

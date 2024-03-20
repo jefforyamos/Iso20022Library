@@ -55,13 +55,12 @@ public partial record ATMCassetteCounters3
     [DataMember(Name="UnitVal")]
     #endif
     [IsoXmlTag("UnitVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnitValue { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; init; } 
     #else
-    public System.Decimal? UnitValue { get; set; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; set; } 
     #endif
     
     /// <summary>
@@ -127,13 +126,12 @@ public partial record ATMCassetteCounters3
     [DataMember(Name="CurAmt")]
     #endif
     [IsoXmlTag("CurAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     #else
-    public System.Decimal? CurrentAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; set; } 
     #endif
     
     /// <summary>

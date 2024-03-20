@@ -39,7 +39,7 @@ public partial record CurrencyFactors1
     /// Constructs a CurrencyFactors1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CurrencyFactors1( string reqCurrency,System.Decimal reqShortPositionLimit,System.Decimal reqMinimumPayInAmount,System.Decimal reqVolatilityMargin )
+    public CurrencyFactors1( string reqCurrency,ImpliedCurrencyAndAmount reqShortPositionLimit,ImpliedCurrencyAndAmount reqMinimumPayInAmount,System.Decimal reqVolatilityMargin )
     {
         Currency = reqCurrency;
         ShortPositionLimit = reqShortPositionLimit;
@@ -77,15 +77,14 @@ public partial record CurrencyFactors1
     [DataMember(Name="ShrtPosLmt")]
     #endif
     [IsoXmlTag("ShrtPosLmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
+    public required ImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ShortPositionLimit { get; init; } 
+    public required ImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ShortPositionLimit { get; init; } 
+    public ImpliedCurrencyAndAmount ShortPositionLimit { get; init; } 
     #else
-    public System.Decimal ShortPositionLimit { get; set; } 
+    public ImpliedCurrencyAndAmount ShortPositionLimit { get; set; } 
     #endif
     
     /// <summary>
@@ -97,15 +96,14 @@ public partial record CurrencyFactors1
     [DataMember(Name="MinPayInAmt")]
     #endif
     [IsoXmlTag("MinPayInAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MinimumPayInAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MinimumPayInAmount { get; init; } 
+    public ImpliedCurrencyAndAmount MinimumPayInAmount { get; init; } 
     #else
-    public System.Decimal MinimumPayInAmount { get; set; } 
+    public ImpliedCurrencyAndAmount MinimumPayInAmount { get; set; } 
     #endif
     
     /// <summary>

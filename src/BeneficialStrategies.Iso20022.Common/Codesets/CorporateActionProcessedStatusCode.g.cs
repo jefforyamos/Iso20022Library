@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bR2Fs9p-Ed-ak6NoX_4Aeg_-1178553458")]
 [Description(@"Specifies the processing status of a corporate action transaction.")]
-[Derivations(typeof(ProcessedStatus6Code),typeof(ProcessedStatus2Code),typeof(ProcessedStatus5Code),typeof(ProcessedStatus4Code),typeof(ProcessedStatus3Code),typeof(ProcessedStatus1Code))]
+[Derivations(typeof(ProcessedStatus4Code),typeof(ProcessedStatus6Code),typeof(ProcessedStatus3Code),typeof(ProcessedStatus5Code),typeof(ProcessedStatus1Code),typeof(ProcessedStatus2Code))]
 public enum CorporateActionProcessedStatusCode
 {
     /// <summary>

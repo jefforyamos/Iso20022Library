@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType4Choice
         /// Constructs a EquivalentAmount instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public EquivalentAmount( System.Decimal reqAmount,string reqCurrencyOfTransfer )
+        public EquivalentAmount( ActiveOrHistoricCurrencyAndAmount reqAmount,string reqCurrencyOfTransfer )
         {
             Amount = reqAmount;
             CurrencyOfTransfer = reqCurrencyOfTransfer;
@@ -61,15 +61,14 @@ namespace BeneficialStrategies.Iso20022.Choices.AmountType4Choice
         [DataMember(Name="Amt")]
         #endif
         [IsoXmlTag("Amt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Amount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Amount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
         #else
-        public System.Decimal Amount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount Amount { get; set; } 
         #endif
         
         /// <summary>

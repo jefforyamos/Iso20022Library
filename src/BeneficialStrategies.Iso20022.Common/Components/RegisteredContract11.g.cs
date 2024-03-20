@@ -304,13 +304,12 @@ public partial record RegisteredContract11
     [DataMember(Name="LnPrncplAmt")]
     #endif
     [IsoXmlTag("LnPrncplAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? LoanPrincipalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LoanPrincipalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LoanPrincipalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LoanPrincipalAmount { get; init; } 
     #else
-    public System.Decimal? LoanPrincipalAmount { get; set; } 
+    public ActiveCurrencyAndAmount? LoanPrincipalAmount { get; set; } 
     #endif
     
     /// <summary>

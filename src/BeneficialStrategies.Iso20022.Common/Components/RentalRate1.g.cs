@@ -84,13 +84,12 @@ public partial record RentalRate1
     [DataMember(Name="Rate")]
     #endif
     [IsoXmlTag("Rate")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? Rate { get; init; } 
+    public ImpliedCurrencyAndAmount? Rate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Rate { get; init; } 
+    public ImpliedCurrencyAndAmount? Rate { get; init; } 
     #else
-    public System.Decimal? Rate { get; set; } 
+    public ImpliedCurrencyAndAmount? Rate { get; set; } 
     #endif
     
     /// <summary>

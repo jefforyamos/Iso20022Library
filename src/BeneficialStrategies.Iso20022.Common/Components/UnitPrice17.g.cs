@@ -94,13 +94,12 @@ public partial record UnitPrice17
     [DataMember(Name="TaxblIncmPerShr")]
     #endif
     [IsoXmlTag("TaxblIncmPerShr")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerShare { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerShare { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? TaxableIncomePerShare { get; set; } 
     #endif
     
     /// <summary>

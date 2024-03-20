@@ -138,13 +138,12 @@ public partial record GeneralInformation8
     [DataMember(Name="BrkrsComssn")]
     #endif
     [IsoXmlTag("BrkrsComssn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? BrokersCommission { get; init; } 
+    public ActiveCurrencyAndAmount? BrokersCommission { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BrokersCommission { get; init; } 
+    public ActiveCurrencyAndAmount? BrokersCommission { get; init; } 
     #else
-    public System.Decimal? BrokersCommission { get; set; } 
+    public ActiveCurrencyAndAmount? BrokersCommission { get; set; } 
     #endif
     
     /// <summary>

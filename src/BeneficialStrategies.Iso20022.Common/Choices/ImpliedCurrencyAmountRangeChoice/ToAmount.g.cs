@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
         /// Constructs a ToAmount instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public ToAmount( System.Decimal reqBoundaryAmount,System.String reqIncluded )
+        public ToAmount( ImpliedCurrencyAndAmount reqBoundaryAmount,System.String reqIncluded )
         {
             BoundaryAmount = reqBoundaryAmount;
             Included = reqIncluded;
@@ -61,15 +61,14 @@ namespace BeneficialStrategies.Iso20022.Choices.ImpliedCurrencyAmountRangeChoice
         [DataMember(Name="BdryAmt")]
         #endif
         [IsoXmlTag("BdryAmt")]
-        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal BoundaryAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal BoundaryAmount { get; init; } 
+        public ImpliedCurrencyAndAmount BoundaryAmount { get; init; } 
         #else
-        public System.Decimal BoundaryAmount { get; set; } 
+        public ImpliedCurrencyAndAmount BoundaryAmount { get; set; } 
         #endif
         
         /// <summary>

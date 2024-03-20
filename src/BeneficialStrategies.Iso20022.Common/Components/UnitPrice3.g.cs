@@ -111,13 +111,12 @@ public partial record UnitPrice3
     [DataMember(Name="AcrdIntrstNAV")]
     #endif
     [IsoXmlTag("AcrdIntrstNAV")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? AccruedInterestNAV { get; init; } 
+    public CurrencyAndAmount? AccruedInterestNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AccruedInterestNAV { get; init; } 
+    public CurrencyAndAmount? AccruedInterestNAV { get; init; } 
     #else
-    public System.Decimal? AccruedInterestNAV { get; set; } 
+    public CurrencyAndAmount? AccruedInterestNAV { get; set; } 
     #endif
     
     /// <summary>
@@ -147,13 +146,12 @@ public partial record UnitPrice3
     [DataMember(Name="TaxblIncmPerShr")]
     #endif
     [IsoXmlTag("TaxblIncmPerShr")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TaxableIncomePerShare { get; init; } 
+    public CurrencyAndAmount? TaxableIncomePerShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerShare { get; init; } 
+    public CurrencyAndAmount? TaxableIncomePerShare { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerShare { get; set; } 
+    public CurrencyAndAmount? TaxableIncomePerShare { get; set; } 
     #endif
     
     

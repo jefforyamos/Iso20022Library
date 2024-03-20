@@ -39,7 +39,7 @@ public partial record PriceInformation10
     /// Constructs a PriceInformation10 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public PriceInformation10( System.Decimal reqCurrentPrice,TypeOfPrice27Choice_ reqType )
+    public PriceInformation10( ActiveOrHistoricCurrencyAnd13DecimalAmount reqCurrentPrice,TypeOfPrice27Choice_ reqType )
     {
         CurrentPrice = reqCurrentPrice;
         Type = reqType;
@@ -56,15 +56,14 @@ public partial record PriceInformation10
     [DataMember(Name="CurPric")]
     #endif
     [IsoXmlTag("CurPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CurrentPrice { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CurrentPrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; init; } 
     #else
-    public System.Decimal CurrentPrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount CurrentPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -95,13 +94,12 @@ public partial record PriceInformation10
     [DataMember(Name="PrvsPric")]
     #endif
     [IsoXmlTag("PrvsPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviousPrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; init; } 
     #else
-    public System.Decimal? PreviousPrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? PreviousPrice { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record AmountAndDirection106
     /// Constructs a AmountAndDirection106 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AmountAndDirection106( System.Decimal reqAmount )
+    public AmountAndDirection106( ActiveOrHistoricCurrencyAnd19DecimalAmount reqAmount )
     {
         Amount = reqAmount;
     }
@@ -55,15 +55,14 @@ public partial record AmountAndDirection106
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAnd19DecimalAmount Amount { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd19DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd19DecimalAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount Amount { get; set; } 
     #endif
     
     /// <summary>

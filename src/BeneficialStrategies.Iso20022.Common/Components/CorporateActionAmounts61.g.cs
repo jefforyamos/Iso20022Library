@@ -48,13 +48,12 @@ public partial record CorporateActionAmounts61
     [DataMember(Name="WhldgTaxAmt")]
     #endif
     [IsoXmlTag("WhldgTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record CorporateActionAmounts61
     [DataMember(Name="ScndLvlTaxAmt")]
     #endif
     [IsoXmlTag("ScndLvlTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SecondLevelTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SecondLevelTaxAmount { get; init; } 
     #else
-    public System.Decimal? SecondLevelTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? SecondLevelTaxAmount { get; set; } 
     #endif
     
     

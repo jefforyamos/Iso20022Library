@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aczUGNp-Ed-ak6NoX_4Aeg_-1474043592")]
 [Description(@"Specifies the type of transaction.")]
-[Derivations(typeof(InvestmentFundTransactionOutType4Code),typeof(InvestmentFundTransactionType1Code),typeof(InvestmentFundTransactionOutType1Code),typeof(TransactionType2Code),typeof(InvestmentFundTransactionInType1Code),typeof(TransactionType1Code),typeof(InvestmentFundTransactionInType3Code))]
+[Derivations(typeof(InvestmentFundTransactionOutType1Code),typeof(InvestmentFundTransactionOutType4Code),typeof(TransactionType1Code),typeof(TransactionType2Code),typeof(InvestmentFundTransactionType1Code),typeof(InvestmentFundTransactionInType3Code),typeof(InvestmentFundTransactionInType1Code))]
 public enum InvestmentFundTransactionTypeCode
 {
     /// <summary>

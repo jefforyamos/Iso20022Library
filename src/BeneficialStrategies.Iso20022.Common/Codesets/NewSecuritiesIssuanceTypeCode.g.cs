@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_WghhgBHzEeKKuerhIbkpig")]
 [Description(@"Specifies the type of securities proceeds; whether they are newly issued or not, defeased or non-defeased.")]
-[Derivations(typeof(NewSecuritiesIssuanceType6Code),typeof(NewSecuritiesIssuanceType4Code),typeof(NewSecuritiesIssuanceType2Code),typeof(NewSecuritiesIssuanceType1Code),typeof(NewSecuritiesIssuanceType5Code),typeof(NewSecuritiesIssuanceType3Code))]
+[Derivations(typeof(NewSecuritiesIssuanceType5Code),typeof(NewSecuritiesIssuanceType6Code),typeof(NewSecuritiesIssuanceType4Code),typeof(NewSecuritiesIssuanceType3Code),typeof(NewSecuritiesIssuanceType1Code),typeof(NewSecuritiesIssuanceType2Code))]
 public enum NewSecuritiesIssuanceTypeCode
 {
     /// <summary>

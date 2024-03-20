@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a0VqU9p-Ed-ak6NoX_4Aeg_453220269")]
 [Description(@"Specifies the cancellation status.")]
-[Derivations(typeof(CancellationStatus6Code),typeof(CancellationStatus5Code),typeof(CancellationStatus2Code),typeof(CancellationStatus1Code),typeof(CancellationStatus3Code),typeof(CancellationStatus4Code))]
+[Derivations(typeof(CancellationStatus5Code),typeof(CancellationStatus4Code),typeof(CancellationStatus6Code),typeof(CancellationStatus1Code),typeof(CancellationStatus2Code),typeof(CancellationStatus3Code))]
 public enum CancellationStatusCode
 {
     /// <summary>

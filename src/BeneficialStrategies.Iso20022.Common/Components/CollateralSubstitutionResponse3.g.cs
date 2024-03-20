@@ -39,7 +39,7 @@ public partial record CollateralSubstitutionResponse3
     /// Constructs a CollateralSubstitutionResponse3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralSubstitutionResponse3( System.String reqCollateralSubstitutionRequestIdentification,System.Decimal reqRejectedAmount,RejectionReason68Code reqRejectionReason )
+    public CollateralSubstitutionResponse3( System.String reqCollateralSubstitutionRequestIdentification,ActiveCurrencyAndAmount reqRejectedAmount,RejectionReason68Code reqRejectionReason )
     {
         CollateralSubstitutionRequestIdentification = reqCollateralSubstitutionRequestIdentification;
         RejectedAmount = reqRejectedAmount;
@@ -78,15 +78,14 @@ public partial record CollateralSubstitutionResponse3
     [DataMember(Name="RjctdAmt")]
     #endif
     [IsoXmlTag("RjctdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RejectedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RejectedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RejectedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RejectedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RejectedAmount { get; init; } 
+    public ActiveCurrencyAndAmount RejectedAmount { get; init; } 
     #else
-    public System.Decimal RejectedAmount { get; set; } 
+    public ActiveCurrencyAndAmount RejectedAmount { get; set; } 
     #endif
     
     /// <summary>

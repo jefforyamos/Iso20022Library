@@ -55,13 +55,12 @@ public partial record TradeSettlement1
     [DataMember(Name="DuePyblAmt")]
     #endif
     [IsoXmlTag("DuePyblAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? DuePayableAmount { get; init; } 
+    public CurrencyAndAmount? DuePayableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DuePayableAmount { get; init; } 
+    public CurrencyAndAmount? DuePayableAmount { get; init; } 
     #else
-    public System.Decimal? DuePayableAmount { get; set; } 
+    public CurrencyAndAmount? DuePayableAmount { get; set; } 
     #endif
     
     /// <summary>

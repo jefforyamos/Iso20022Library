@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZXgf89p-Ed-ak6NoX_4Aeg_973159431")]
 [Description(@"Quantity is unknown by the sender or has not been established.")]
-[Derivations(typeof(Quantity3Code),typeof(Quantity1Code),typeof(Quantity5Code),typeof(Quantity4Code),typeof(Quantity2Code))]
+[Derivations(typeof(Quantity2Code),typeof(Quantity4Code),typeof(Quantity5Code),typeof(Quantity3Code),typeof(Quantity1Code))]
 public enum QuantityCode
 {
     /// <summary>

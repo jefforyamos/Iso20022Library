@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_l0Ao8Hu8EeSLmfFG0DG7zQ")]
 [Description(@"Type of administrative service.")]
-[Derivations(typeof(CardServiceType1Code),typeof(CardServiceType5Code),typeof(CardServiceType2Code),typeof(CardServiceType4Code),typeof(CardServiceType3Code))]
+[Derivations(typeof(CardServiceType2Code),typeof(CardServiceType4Code),typeof(CardServiceType3Code),typeof(CardServiceType1Code),typeof(CardServiceType5Code))]
 public enum CardServiceTypeCode
 {
     /// <summary>

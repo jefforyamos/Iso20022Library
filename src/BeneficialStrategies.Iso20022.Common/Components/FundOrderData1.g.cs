@@ -99,13 +99,12 @@ public partial record FundOrderData1
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -117,13 +116,12 @@ public partial record FundOrderData1
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     #else
-    public System.Decimal? GrossAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -153,13 +151,12 @@ public partial record FundOrderData1
     [DataMember(Name="SttlmAmt")]
     #endif
     [IsoXmlTag("SttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #else
-    public System.Decimal? SettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -74,13 +74,12 @@ public partial record CollateralTransactionAmountBreakdown2
     [DataMember(Name="TxAmt")]
     #endif
     [IsoXmlTag("TxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TransactionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; init; } 
     #else
-    public System.Decimal? TransactionAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TransactionAmount { get; set; } 
     #endif
     
     /// <summary>

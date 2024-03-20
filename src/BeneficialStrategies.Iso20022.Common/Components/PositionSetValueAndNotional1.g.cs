@@ -48,13 +48,12 @@ public partial record PositionSetValueAndNotional1
     [DataMember(Name="Ntnl")]
     #endif
     [IsoXmlTag("Ntnl")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20Amount? Notional { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Notional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Notional { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Notional { get; init; } 
     #else
-    public System.Decimal? Notional { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Notional { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record PositionSetValueAndNotional1
     [DataMember(Name="Val")]
     #endif
     [IsoXmlTag("Val")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20Amount? Value { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Value { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Value { get; init; } 
     #else
-    public System.Decimal? Value { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Value { get; set; } 
     #endif
     
     

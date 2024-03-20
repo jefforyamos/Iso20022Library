@@ -39,7 +39,7 @@ public partial record Amount2
     /// Constructs a Amount2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Amount2( System.Decimal reqReportingAmount )
+    public Amount2( ImpliedCurrencyAndAmount reqReportingAmount )
     {
         ReportingAmount = reqReportingAmount;
     }
@@ -55,13 +55,12 @@ public partial record Amount2
     [DataMember(Name="OrgnlCcyAmt")]
     #endif
     [IsoXmlTag("OrgnlCcyAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? OriginalCurrencyAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OriginalCurrencyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCurrencyAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OriginalCurrencyAmount { get; init; } 
     #else
-    public System.Decimal? OriginalCurrencyAmount { get; set; } 
+    public ActiveCurrencyAndAmount? OriginalCurrencyAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -73,15 +72,14 @@ public partial record Amount2
     [DataMember(Name="RptgAmt")]
     #endif
     [IsoXmlTag("RptgAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ReportingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ReportingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ReportingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ReportingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ReportingAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ReportingAmount { get; init; } 
     #else
-    public System.Decimal ReportingAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ReportingAmount { get; set; } 
     #endif
     
     

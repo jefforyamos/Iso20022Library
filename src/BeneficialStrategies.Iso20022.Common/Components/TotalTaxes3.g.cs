@@ -48,13 +48,12 @@ public partial record TotalTaxes3
     [DataMember(Name="TtlAmtOfTaxs")]
     #endif
     [IsoXmlTag("TtlAmtOfTaxs")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountOfTaxes { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; init; } 
     #else
-    public System.Decimal? TotalAmountOfTaxes { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfTaxes { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record TotalTaxes3
     [DataMember(Name="TaxblIncmPerDvdd")]
     #endif
     [IsoXmlTag("TaxblIncmPerDvdd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerDividend { get; init; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerDividend { get; set; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; set; } 
     #endif
     
     /// <summary>

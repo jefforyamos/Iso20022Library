@@ -134,13 +134,12 @@ public partial record DirectDebitInstructionDetails1
     [DataMember(Name="LastColltnCcyAmt")]
     #endif
     [IsoXmlTag("LastColltnCcyAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? LastCollectionCurrencyAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LastCollectionCurrencyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LastCollectionCurrencyAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LastCollectionCurrencyAmount { get; init; } 
     #else
-    public System.Decimal? LastCollectionCurrencyAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? LastCollectionCurrencyAmount { get; set; } 
     #endif
     
     /// <summary>

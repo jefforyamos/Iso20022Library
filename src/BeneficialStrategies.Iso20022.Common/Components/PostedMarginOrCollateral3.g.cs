@@ -49,13 +49,12 @@ public partial record PostedMarginOrCollateral3
     [DataMember(Name="InitlMrgnPstd")]
     #endif
     [IsoXmlTag("InitlMrgnPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? InitialMarginPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginPosted { get; init; } 
     #else
-    public System.Decimal? InitialMarginPosted { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginPosted { get; set; } 
     #endif
     
     /// <summary>
@@ -68,13 +67,12 @@ public partial record PostedMarginOrCollateral3
     [DataMember(Name="VartnMrgnPstd")]
     #endif
     [IsoXmlTag("VartnMrgnPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? VariationMarginPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginPosted { get; init; } 
     #else
-    public System.Decimal? VariationMarginPosted { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginPosted { get; set; } 
     #endif
     
     /// <summary>
@@ -86,13 +84,12 @@ public partial record PostedMarginOrCollateral3
     [DataMember(Name="XcssCollPstd")]
     #endif
     [IsoXmlTag("XcssCollPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ExcessCollateralPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExcessCollateralPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralPosted { get; init; } 
     #else
-    public System.Decimal? ExcessCollateralPosted { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralPosted { get; set; } 
     #endif
     
     

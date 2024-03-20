@@ -146,13 +146,12 @@ public partial record Commission25
     [DataMember(Name="TtlVATAmt")]
     #endif
     [IsoXmlTag("TtlVATAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalVATAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalVATAmount { get; init; } 
     #else
-    public System.Decimal? TotalVATAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalVATAmount { get; set; } 
     #endif
     
     /// <summary>

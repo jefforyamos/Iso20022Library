@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_hlqYENt5EeiXqq0XHEoNUA")]
 [Description(@"List of services and functions available in ISO20022 Retail messages.")]
-[Derivations(typeof(RetailerService4Code),typeof(RetailerService7Code),typeof(RetailerService5Code),typeof(RetailerService1Code),typeof(RetailerService2Code),typeof(RetailerService8Code),typeof(RetailerService3Code),typeof(RetailerService9Code),typeof(RetailerService6Code))]
+[Derivations(typeof(RetailerService9Code),typeof(RetailerService4Code),typeof(RetailerService3Code),typeof(RetailerService5Code),typeof(RetailerService6Code),typeof(RetailerService1Code),typeof(RetailerService7Code),typeof(RetailerService2Code),typeof(RetailerService8Code))]
 public enum RetailerServiceCode
 {
     /// <summary>

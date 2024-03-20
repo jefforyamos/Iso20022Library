@@ -205,13 +205,12 @@ public partial record OptionTransactionSD5
     [DataMember(Name="EntitldAmt")]
     #endif
     [IsoXmlTag("EntitldAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EntitledAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #else
-    public System.Decimal? EntitledAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -257,13 +256,12 @@ public partial record OptionTransactionSD5
     [DataMember(Name="SbcptAmt")]
     #endif
     [IsoXmlTag("SbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? SubscriptionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubscriptionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? SubscriptionAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? SubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -275,13 +273,12 @@ public partial record OptionTransactionSD5
     [DataMember(Name="OvrsbcptAmt")]
     #endif
     [IsoXmlTag("OvrsbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? OversubscriptionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? OversubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OversubscriptionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? OversubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? OversubscriptionAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? OversubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -293,13 +290,12 @@ public partial record OptionTransactionSD5
     [DataMember(Name="CshInLieuOfShr")]
     #endif
     [IsoXmlTag("CshInLieuOfShr")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashInLieuOfShare { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
     #else
-    public System.Decimal? CashInLieuOfShare { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; set; } 
     #endif
     
     /// <summary>

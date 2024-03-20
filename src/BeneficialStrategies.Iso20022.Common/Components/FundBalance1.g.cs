@@ -82,13 +82,12 @@ public partial record FundBalance1
     [DataMember(Name="TtlCshFrUnitOrdrs")]
     #endif
     [IsoXmlTag("TtlCshFrUnitOrdrs")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalCashFromUnitOrders { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; init; } 
     #else
-    public System.Decimal? TotalCashFromUnitOrders { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromUnitOrders { get; set; } 
     #endif
     
     /// <summary>
@@ -100,13 +99,12 @@ public partial record FundBalance1
     [DataMember(Name="TtlCshFrCshOrdrs")]
     #endif
     [IsoXmlTag("TtlCshFrCshOrdrs")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalCashFromCashOrders { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; init; } 
     #else
-    public System.Decimal? TotalCashFromCashOrders { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalCashFromCashOrders { get; set; } 
     #endif
     
     

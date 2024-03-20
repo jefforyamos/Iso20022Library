@@ -91,13 +91,12 @@ public partial record SyndicatedLoan1
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? Amount { get; init; } 
+    public ActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public ActiveCurrencyAndAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public ActiveCurrencyAndAmount? Amount { get; set; } 
     #endif
     
     /// <summary>

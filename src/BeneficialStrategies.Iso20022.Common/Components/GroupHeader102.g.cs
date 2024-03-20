@@ -136,13 +136,12 @@ public partial record GroupHeader102
     [DataMember(Name="TtlChrgsAmt")]
     #endif
     [IsoXmlTag("TtlChrgsAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalChargesAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalChargesAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalChargesAmount { get; init; } 
     #else
-    public System.Decimal? TotalChargesAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalChargesAmount { get; set; } 
     #endif
     
     

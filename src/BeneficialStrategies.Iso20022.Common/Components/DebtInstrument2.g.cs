@@ -39,7 +39,7 @@ public partial record DebtInstrument2
     /// Constructs a DebtInstrument2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DebtInstrument2( System.Decimal reqTotalIssuedNominalAmount,System.Decimal reqNominalValuePerUnit,InterestRate6Choice_ reqInterestRate )
+    public DebtInstrument2( ActiveOrHistoricCurrencyAndAmount reqTotalIssuedNominalAmount,ActiveOrHistoricCurrencyAndAmount reqNominalValuePerUnit,InterestRate6Choice_ reqInterestRate )
     {
         TotalIssuedNominalAmount = reqTotalIssuedNominalAmount;
         NominalValuePerUnit = reqNominalValuePerUnit;
@@ -57,15 +57,14 @@ public partial record DebtInstrument2
     [DataMember(Name="TtlIssdNmnlAmt")]
     #endif
     [IsoXmlTag("TtlIssdNmnlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalIssuedNominalAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalIssuedNominalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; init; } 
     #else
-    public System.Decimal TotalIssuedNominalAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount TotalIssuedNominalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -95,15 +94,14 @@ public partial record DebtInstrument2
     [DataMember(Name="NmnlValPerUnit")]
     #endif
     [IsoXmlTag("NmnlValPerUnit")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NominalValuePerUnit { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NominalValuePerUnit { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; init; } 
     #else
-    public System.Decimal NominalValuePerUnit { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount NominalValuePerUnit { get; set; } 
     #endif
     
     /// <summary>

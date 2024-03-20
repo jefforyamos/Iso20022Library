@@ -48,13 +48,12 @@ public partial record TotalFeesAndTaxes40
     [DataMember(Name="TtlOvrhdApld")]
     #endif
     [IsoXmlTag("TtlOvrhdApld")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalOverheadApplied { get; init; } 
+    public ActiveCurrencyAndAmount? TotalOverheadApplied { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalOverheadApplied { get; init; } 
+    public ActiveCurrencyAndAmount? TotalOverheadApplied { get; init; } 
     #else
-    public System.Decimal? TotalOverheadApplied { get; set; } 
+    public ActiveCurrencyAndAmount? TotalOverheadApplied { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record TotalFeesAndTaxes40
     [DataMember(Name="TtlFees")]
     #endif
     [IsoXmlTag("TtlFees")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalFees { get; init; } 
+    public ActiveCurrencyAndAmount? TotalFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalFees { get; init; } 
+    public ActiveCurrencyAndAmount? TotalFees { get; init; } 
     #else
-    public System.Decimal? TotalFees { get; set; } 
+    public ActiveCurrencyAndAmount? TotalFees { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record TotalFeesAndTaxes40
     [DataMember(Name="TtlTaxs")]
     #endif
     [IsoXmlTag("TtlTaxs")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalTaxes { get; init; } 
+    public ActiveCurrencyAndAmount? TotalTaxes { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalTaxes { get; init; } 
+    public ActiveCurrencyAndAmount? TotalTaxes { get; init; } 
     #else
-    public System.Decimal? TotalTaxes { get; set; } 
+    public ActiveCurrencyAndAmount? TotalTaxes { get; set; } 
     #endif
     
     /// <summary>

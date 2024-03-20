@@ -208,13 +208,12 @@ public partial record TransparencyDataReport11
     [DataMember(Name="IssncSz")]
     #endif
     [IsoXmlTag("IssncSz")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? IssuanceSize { get; init; } 
+    public ActiveCurrencyAndAmount? IssuanceSize { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IssuanceSize { get; init; } 
+    public ActiveCurrencyAndAmount? IssuanceSize { get; init; } 
     #else
-    public System.Decimal? IssuanceSize { get; set; } 
+    public ActiveCurrencyAndAmount? IssuanceSize { get; set; } 
     #endif
     
     /// <summary>
@@ -227,13 +226,12 @@ public partial record TransparencyDataReport11
     [DataMember(Name="InstrmPric")]
     #endif
     [IsoXmlTag("InstrmPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InstrumentPrice { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; init; } 
     #else
-    public System.Decimal? InstrumentPrice { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? InstrumentPrice { get; set; } 
     #endif
     
     

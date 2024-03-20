@@ -48,13 +48,12 @@ public partial record TransactionInterest4
     [DataMember(Name="TtlIntrstAndTaxAmt")]
     #endif
     [IsoXmlTag("TtlIntrstAndTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalInterestAndTaxAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; init; } 
     #else
-    public System.Decimal? TotalInterestAndTaxAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalInterestAndTaxAmount { get; set; } 
     #endif
     
     /// <summary>

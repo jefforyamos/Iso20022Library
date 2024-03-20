@@ -39,7 +39,7 @@ public partial record RateTypeAndAmountAndStatus24
     /// Constructs a RateTypeAndAmountAndStatus24 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public RateTypeAndAmountAndStatus24( RateType33Choice_ reqRateType,System.Decimal reqAmount )
+    public RateTypeAndAmountAndStatus24( RateType33Choice_ reqRateType,ActiveCurrencyAnd13DecimalAmount reqAmount )
     {
         RateType = reqRateType;
         Amount = reqAmount;
@@ -75,15 +75,14 @@ public partial record RateTypeAndAmountAndStatus24
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount Amount { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record LongPaymentIdentification3
     /// Constructs a LongPaymentIdentification3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public LongPaymentIdentification3( System.Decimal reqInterbankSettlementAmount,System.DateOnly reqInterbankSettlementDate,BranchAndFinancialInstitutionIdentification6 reqInstructingAgent,BranchAndFinancialInstitutionIdentification6 reqInstructedAgent )
+    public LongPaymentIdentification3( ImpliedCurrencyAndAmount reqInterbankSettlementAmount,System.DateOnly reqInterbankSettlementDate,BranchAndFinancialInstitutionIdentification6 reqInstructingAgent,BranchAndFinancialInstitutionIdentification6 reqInstructedAgent )
     {
         InterbankSettlementAmount = reqInterbankSettlementAmount;
         InterbankSettlementDate = reqInterbankSettlementDate;
@@ -95,15 +95,14 @@ public partial record LongPaymentIdentification3
     [DataMember(Name="IntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("IntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal InterbankSettlementAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal InterbankSettlementAmount { get; init; } 
+    public ImpliedCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal InterbankSettlementAmount { get; set; } 
+    public ImpliedCurrencyAndAmount InterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

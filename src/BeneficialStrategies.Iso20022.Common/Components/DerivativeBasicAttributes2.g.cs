@@ -39,7 +39,7 @@ public partial record DerivativeBasicAttributes2
     /// Constructs a DerivativeBasicAttributes2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DerivativeBasicAttributes2( System.Decimal reqNotionalCurrencyAndAmount )
+    public DerivativeBasicAttributes2( RestrictedFINActiveOrHistoricCurrencyAndAmount reqNotionalCurrencyAndAmount )
     {
         NotionalCurrencyAndAmount = reqNotionalCurrencyAndAmount;
     }
@@ -55,15 +55,14 @@ public partial record DerivativeBasicAttributes2
     [DataMember(Name="NtnlCcyAndAmt")]
     #endif
     [IsoXmlTag("NtnlCcyAndAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoRestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NotionalCurrencyAndAmount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NotionalCurrencyAndAmount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; init; } 
     #else
-    public System.Decimal NotionalCurrencyAndAmount { get; set; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount NotionalCurrencyAndAmount { get; set; } 
     #endif
     
     /// <summary>

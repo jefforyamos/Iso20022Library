@@ -118,13 +118,12 @@ public partial record TemporaryServices2
     [DataMember(Name="DscntAmt")]
     #endif
     [IsoXmlTag("DscntAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DiscountAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? DiscountAmount { get; init; } 
     #else
-    public System.Decimal? DiscountAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? DiscountAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -189,13 +188,12 @@ public partial record TemporaryServices2
     [DataMember(Name="SbttlAmt")]
     #endif
     [IsoXmlTag("SbttlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubtotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubtotalAmount { get; init; } 
     #else
-    public System.Decimal? SubtotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? SubtotalAmount { get; set; } 
     #endif
     
     /// <summary>

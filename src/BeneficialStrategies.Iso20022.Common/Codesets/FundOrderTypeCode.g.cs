@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_atVqdtp-Ed-ak6NoX_4Aeg_267040757")]
 [Description(@"Specifies the category of the investment fund order.")]
-[Derivations(typeof(FundOrderType3Code),typeof(FundOrderType8Code),typeof(FundOrderType7Code),typeof(FundOrderType1Code),typeof(FundOrderType5Code),typeof(HedgeFundOrderType2Code),typeof(FundOrderType10Code),typeof(FundOrderType2Code),typeof(HedgeFundOrderType1Code),typeof(FundOrderType4Code),typeof(FundOrderType6Code))]
+[Derivations(typeof(FundOrderType6Code),typeof(FundOrderType7Code),typeof(FundOrderType1Code),typeof(HedgeFundOrderType1Code),typeof(FundOrderType3Code),typeof(FundOrderType4Code),typeof(FundOrderType8Code),typeof(FundOrderType10Code),typeof(HedgeFundOrderType2Code),typeof(FundOrderType5Code),typeof(FundOrderType2Code))]
 public enum FundOrderTypeCode
 {
     /// <summary>

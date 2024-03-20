@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice
         /// Constructs a Proprietary instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public Proprietary( System.String reqType,System.Decimal reqPrice )
+        public Proprietary( System.String reqType,CurrencyAndAmount reqPrice )
         {
             Type = reqType;
             Price = reqPrice;
@@ -82,15 +82,14 @@ namespace BeneficialStrategies.Iso20022.Choices.TransactionPrice1Choice
         [DataMember(Name="Pric")]
         #endif
         [IsoXmlTag("Pric")]
-        [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoCurrencyAndAmount Price { get; init; } 
+        public required CurrencyAndAmount Price { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Price { get; init; } 
+        public required CurrencyAndAmount Price { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Price { get; init; } 
+        public CurrencyAndAmount Price { get; init; } 
         #else
-        public System.Decimal Price { get; set; } 
+        public CurrencyAndAmount Price { get; set; } 
         #endif
         
         

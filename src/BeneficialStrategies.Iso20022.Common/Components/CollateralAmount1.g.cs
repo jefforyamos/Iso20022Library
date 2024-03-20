@@ -39,7 +39,7 @@ public partial record CollateralAmount1
     /// Constructs a CollateralAmount1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralAmount1( System.Decimal reqCollateralAmount,System.Decimal reqReportedCurrencyAndAmount,System.Decimal reqMarketValueAmount )
+    public CollateralAmount1( ActiveCurrencyAndAmount reqCollateralAmount,ActiveCurrencyAndAmount reqReportedCurrencyAndAmount,ActiveCurrencyAndAmount reqMarketValueAmount )
     {
         CollateralAmount = reqCollateralAmount;
         ReportedCurrencyAndAmount = reqReportedCurrencyAndAmount;
@@ -57,15 +57,14 @@ public partial record CollateralAmount1
     [DataMember(Name="CollAmt")]
     #endif
     [IsoXmlTag("CollAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CollateralAmount { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CollateralAmount { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CollateralAmount { get; init; } 
+    public ActiveCurrencyAndAmount CollateralAmount { get; init; } 
     #else
-    public System.Decimal CollateralAmount { get; set; } 
+    public ActiveCurrencyAndAmount CollateralAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -77,15 +76,14 @@ public partial record CollateralAmount1
     [DataMember(Name="RptdCcyAndAmt")]
     #endif
     [IsoXmlTag("RptdCcyAndAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ReportedCurrencyAndAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ReportedCurrencyAndAmount { get; init; } 
+    public ActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; init; } 
     #else
-    public System.Decimal ReportedCurrencyAndAmount { get; set; } 
+    public ActiveCurrencyAndAmount ReportedCurrencyAndAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -97,15 +95,14 @@ public partial record CollateralAmount1
     [DataMember(Name="MktValAmt")]
     #endif
     [IsoXmlTag("MktValAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MarketValueAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MarketValueAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MarketValueAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MarketValueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MarketValueAmount { get; init; } 
+    public ActiveCurrencyAndAmount MarketValueAmount { get; init; } 
     #else
-    public System.Decimal MarketValueAmount { get; set; } 
+    public ActiveCurrencyAndAmount MarketValueAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -117,13 +114,12 @@ public partial record CollateralAmount1
     [DataMember(Name="AcrdIntrstAmt")]
     #endif
     [IsoXmlTag("AcrdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AccruedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #else
-    public System.Decimal? AccruedInterestAmount { get; set; } 
+    public ActiveCurrencyAndAmount? AccruedInterestAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -135,13 +131,12 @@ public partial record CollateralAmount1
     [DataMember(Name="FeesAndComssns")]
     #endif
     [IsoXmlTag("FeesAndComssns")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? FeesAndCommissions { get; init; } 
+    public ActiveCurrencyAndAmount? FeesAndCommissions { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FeesAndCommissions { get; init; } 
+    public ActiveCurrencyAndAmount? FeesAndCommissions { get; init; } 
     #else
-    public System.Decimal? FeesAndCommissions { get; set; } 
+    public ActiveCurrencyAndAmount? FeesAndCommissions { get; set; } 
     #endif
     
     

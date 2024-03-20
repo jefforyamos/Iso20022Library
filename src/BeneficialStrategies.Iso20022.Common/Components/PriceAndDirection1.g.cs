@@ -39,7 +39,7 @@ public partial record PriceAndDirection1
     /// Constructs a PriceAndDirection1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public PriceAndDirection1( System.Decimal reqValue )
+    public PriceAndDirection1( ActiveOrHistoricCurrencyAnd13DecimalAmount reqValue )
     {
         Value = reqValue;
     }
@@ -55,15 +55,14 @@ public partial record PriceAndDirection1
     [DataMember(Name="Val")]
     #endif
     [IsoXmlTag("Val")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Value { get; init; } 
+    public required ActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Value { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; init; } 
     #else
-    public System.Decimal Value { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount Value { get; set; } 
     #endif
     
     /// <summary>

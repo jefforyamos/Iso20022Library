@@ -84,13 +84,12 @@ public partial record UnitOfMeasure1
     [DataMember(Name="NbOfUnits")]
     #endif
     [IsoXmlTag("NbOfUnits")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? NumberOfUnits { get; init; } 
+    public ImpliedCurrencyAndAmount? NumberOfUnits { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NumberOfUnits { get; init; } 
+    public ImpliedCurrencyAndAmount? NumberOfUnits { get; init; } 
     #else
-    public System.Decimal? NumberOfUnits { get; set; } 
+    public ImpliedCurrencyAndAmount? NumberOfUnits { get; set; } 
     #endif
     
     

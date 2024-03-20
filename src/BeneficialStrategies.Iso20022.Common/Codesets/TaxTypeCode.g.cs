@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Yk2T89p-Ed-ak6NoX_4Aeg_1366299042")]
 [Description(@"Specifies the type of tax.")]
-[Derivations(typeof(TaxType17Code),typeof(TaxType4Code),typeof(TaxType16Code),typeof(TaxType12Code),typeof(TaxType13Code),typeof(TaxType10Code),typeof(TaxType9Code),typeof(TaxType3Code),typeof(TaxType6Code),typeof(TaxType15Code),typeof(TaxType7Code),typeof(TaxType2Code),typeof(TaxType14Code),typeof(TaxType5Code),typeof(TaxType11Code))]
+[Derivations(typeof(TaxType16Code),typeof(TaxType13Code),typeof(TaxType14Code),typeof(TaxType6Code),typeof(TaxType2Code),typeof(TaxType7Code),typeof(TaxType15Code),typeof(TaxType11Code),typeof(TaxType3Code),typeof(TaxType4Code),typeof(TaxType17Code),typeof(TaxType12Code),typeof(TaxType9Code),typeof(TaxType10Code),typeof(TaxType5Code))]
 public enum TaxTypeCode
 {
     /// <summary>

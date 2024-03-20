@@ -144,13 +144,12 @@ public partial record CustomerAccount4
     [DataMember(Name="MnthlyPmtVal")]
     #endif
     [IsoXmlTag("MnthlyPmtVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
+    public ImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MonthlyPaymentValue { get; init; } 
+    public ImpliedCurrencyAndAmount? MonthlyPaymentValue { get; init; } 
     #else
-    public System.Decimal? MonthlyPaymentValue { get; set; } 
+    public ImpliedCurrencyAndAmount? MonthlyPaymentValue { get; set; } 
     #endif
     
     /// <summary>
@@ -162,13 +161,12 @@ public partial record CustomerAccount4
     [DataMember(Name="MnthlyRcvdVal")]
     #endif
     [IsoXmlTag("MnthlyRcvdVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MonthlyReceivedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? MonthlyReceivedValue { get; init; } 
     #else
-    public System.Decimal? MonthlyReceivedValue { get; set; } 
+    public ImpliedCurrencyAndAmount? MonthlyReceivedValue { get; set; } 
     #endif
     
     /// <summary>
@@ -198,13 +196,12 @@ public partial record CustomerAccount4
     [DataMember(Name="AvrgBal")]
     #endif
     [IsoXmlTag("AvrgBal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AverageBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? AverageBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AverageBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? AverageBalance { get; init; } 
     #else
-    public System.Decimal? AverageBalance { get; set; } 
+    public ImpliedCurrencyAndAmount? AverageBalance { get; set; } 
     #endif
     
     /// <summary>
@@ -235,13 +232,12 @@ public partial record CustomerAccount4
     [DataMember(Name="FlrNtfctnAmt")]
     #endif
     [IsoXmlTag("FlrNtfctnAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FloorNotificationAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FloorNotificationAmount { get; init; } 
     #else
-    public System.Decimal? FloorNotificationAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FloorNotificationAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -253,13 +249,12 @@ public partial record CustomerAccount4
     [DataMember(Name="ClngNtfctnAmt")]
     #endif
     [IsoXmlTag("ClngNtfctnAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CeilingNotificationAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CeilingNotificationAmount { get; init; } 
     #else
-    public System.Decimal? CeilingNotificationAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? CeilingNotificationAmount { get; set; } 
     #endif
     
     /// <summary>

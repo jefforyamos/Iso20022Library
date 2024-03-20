@@ -8,7 +8,7 @@ generator : "RepositoryDocScopeStatementGenerator"
 # Beneficial Strategies Implementation Scope
 
 This document is to give you an idea of the scope of implementation of this library.
-Considering that it employs some 17,666 constituent data structures in additon to it's 2,665 ISO messages, the library is rather vast.
+Considering that it employs some 17,645 constituent data structures in additon to it's 2,665 ISO messages, the library is rather vast.
 
 ## ISO 20022 Messages Implemented - 2,665
 
@@ -65,7 +65,7 @@ To facilitate this, the supporting implementation includes the following impleme
 | Codesets supplied externally that may change independently           | 86        
 | Message components that are used to compose complex content          | 12,653   
 | Business components used as building blocks across messages          | 783
-| Simple types that are used for text, dates, etc, usually constrained | 358
+| Simple types that are used for text, dates, etc, usually constrained | 337
 | Types relating to external schema.                                   | 6
 | Types relating to user-defined content.                              | 6
         

@@ -48,13 +48,12 @@ public partial record ReturnInformation1
     [DataMember(Name="RtrdIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("RtrdIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? ReturnedInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? ReturnedInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReturnedInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? ReturnedInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? ReturnedInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount? ReturnedInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record CollateralMovement10
     /// Constructs a CollateralMovement10 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralMovement10( System.Decimal reqAgreedAmount )
+    public CollateralMovement10( ActiveCurrencyAndAmount reqAgreedAmount )
     {
         AgreedAmount = reqAgreedAmount;
     }
@@ -55,15 +55,14 @@ public partial record CollateralMovement10
     [DataMember(Name="AgrdAmt")]
     #endif
     [IsoXmlTag("AgrdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AgreedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AgreedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AgreedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AgreedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AgreedAmount { get; init; } 
+    public ActiveCurrencyAndAmount AgreedAmount { get; init; } 
     #else
-    public System.Decimal AgreedAmount { get; set; } 
+    public ActiveCurrencyAndAmount AgreedAmount { get; set; } 
     #endif
     
     /// <summary>

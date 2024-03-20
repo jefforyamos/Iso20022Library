@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZPArRNp-Ed-ak6NoX_4Aeg_336257608")]
 [Description(@"Side taken by a party on an order.")]
-[Derivations(typeof(OrderDriverCode),typeof(Side3Code),typeof(IOISideTypeCode),typeof(Side1Code),typeof(Side5Code))]
+[Derivations(typeof(Side3Code),typeof(Side1Code),typeof(Side5Code),typeof(OrderDriverCode),typeof(IOISideTypeCode))]
 public enum SideCode
 {
     /// <summary>

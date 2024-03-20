@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_WjGtkBvUEeWeg9zOuV6DZQ")]
 [Description(@"Specifies special purpose codes.")]
-[Derivations(typeof(NotReported1Code),typeof(NoReasonCode),typeof(NotAvailable1Code),typeof(AnyMIC1Code),typeof(SpecialPurpose2Code),typeof(NotApplicable1Code))]
+[Derivations(typeof(NotAvailable1Code),typeof(AnyMIC1Code),typeof(NoReasonCode),typeof(NotApplicable1Code),typeof(NotReported1Code),typeof(SpecialPurpose2Code))]
 public enum SpecialPurposeCode
 {
     /// <summary>

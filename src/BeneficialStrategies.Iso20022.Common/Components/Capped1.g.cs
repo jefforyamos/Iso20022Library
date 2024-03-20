@@ -66,13 +66,12 @@ public partial record Capped1
     [DataMember(Name="IncmLmtCurPrd")]
     #endif
     [IsoXmlTag("IncmLmtCurPrd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? IncomeLimitCurrentPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitCurrentPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncomeLimitCurrentPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitCurrentPeriod { get; init; } 
     #else
-    public System.Decimal? IncomeLimitCurrentPeriod { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitCurrentPeriod { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +83,12 @@ public partial record Capped1
     [DataMember(Name="IncmCurPrd")]
     #endif
     [IsoXmlTag("IncmCurPrd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? IncomeCurrentPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeCurrentPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncomeCurrentPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeCurrentPeriod { get; init; } 
     #else
-    public System.Decimal? IncomeCurrentPeriod { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeCurrentPeriod { get; set; } 
     #endif
     
     /// <summary>
@@ -102,13 +100,12 @@ public partial record Capped1
     [DataMember(Name="IncmLmtNxtPrd")]
     #endif
     [IsoXmlTag("IncmLmtNxtPrd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? IncomeLimitNextPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitNextPeriod { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncomeLimitNextPeriod { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitNextPeriod { get; init; } 
     #else
-    public System.Decimal? IncomeLimitNextPeriod { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? IncomeLimitNextPeriod { get; set; } 
     #endif
     
     /// <summary>

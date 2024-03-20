@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YvRbQ9p-Ed-ak6NoX_4Aeg_-141526851")]
 [Description(@"Specifies the transfer or settlement instruction status.")]
-[Derivations(typeof(TransferStatus6Code),typeof(TransferStatus4Code),typeof(TransferStatus3Code),typeof(TransferStatus1Code),typeof(TransferStatus2Code))]
+[Derivations(typeof(TransferStatus6Code),typeof(TransferStatus3Code),typeof(TransferStatus4Code),typeof(TransferStatus2Code),typeof(TransferStatus1Code))]
 public enum TransferStatusCode
 {
     /// <summary>

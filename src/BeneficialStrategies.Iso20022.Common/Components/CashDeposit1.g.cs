@@ -39,7 +39,7 @@ public partial record CashDeposit1
     /// Constructs a CashDeposit1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CashDeposit1( System.Decimal reqNoteDenomination,System.String reqNumberOfNotes,System.Decimal reqAmount )
+    public CashDeposit1( ActiveCurrencyAndAmount reqNoteDenomination,System.String reqNumberOfNotes,ActiveCurrencyAndAmount reqAmount )
     {
         NoteDenomination = reqNoteDenomination;
         NumberOfNotes = reqNumberOfNotes;
@@ -57,15 +57,14 @@ public partial record CashDeposit1
     [DataMember(Name="NoteDnmtn")]
     #endif
     [IsoXmlTag("NoteDnmtn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount NoteDenomination { get; init; } 
+    public required ActiveCurrencyAndAmount NoteDenomination { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NoteDenomination { get; init; } 
+    public required ActiveCurrencyAndAmount NoteDenomination { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NoteDenomination { get; init; } 
+    public ActiveCurrencyAndAmount NoteDenomination { get; init; } 
     #else
-    public System.Decimal NoteDenomination { get; set; } 
+    public ActiveCurrencyAndAmount NoteDenomination { get; set; } 
     #endif
     
     /// <summary>
@@ -97,15 +96,14 @@ public partial record CashDeposit1
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+    public required ActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ActiveCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ActiveCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ActiveCurrencyAndAmount Amount { get; set; } 
     #endif
     
     

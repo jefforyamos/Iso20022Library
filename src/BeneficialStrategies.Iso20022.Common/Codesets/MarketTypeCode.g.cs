@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aUwLU9p-Ed-ak6NoX_4Aeg_1124995296")]
 [Description(@"Specifies the type of place where a trade was executed, a price was sourced from, an instrument is listed.")]
-[Derivations(typeof(MarketType2Code),typeof(MarketType5Code),typeof(MarketType1Code),typeof(MarketType3Code),typeof(MarketType6Code),typeof(MarketType4Code),typeof(MarketType8Code))]
+[Derivations(typeof(MarketType2Code),typeof(MarketType4Code),typeof(MarketType5Code),typeof(MarketType1Code),typeof(MarketType3Code),typeof(MarketType8Code),typeof(MarketType6Code))]
 public enum MarketTypeCode
 {
     /// <summary>

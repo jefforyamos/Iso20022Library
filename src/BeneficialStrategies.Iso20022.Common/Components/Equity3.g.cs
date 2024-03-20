@@ -92,13 +92,12 @@ public partial record Equity3
     [DataMember(Name="NonPdAmt")]
     #endif
     [IsoXmlTag("NonPdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NonPaidAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NonPaidAmount { get; init; } 
     #else
-    public System.Decimal? NonPaidAmount { get; set; } 
+    public ActiveCurrencyAndAmount? NonPaidAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -110,13 +109,12 @@ public partial record Equity3
     [DataMember(Name="ParVal")]
     #endif
     [IsoXmlTag("ParVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ParValue { get; init; } 
+    public ActiveCurrencyAndAmount? ParValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ParValue { get; init; } 
+    public ActiveCurrencyAndAmount? ParValue { get; init; } 
     #else
-    public System.Decimal? ParValue { get; set; } 
+    public ActiveCurrencyAndAmount? ParValue { get; set; } 
     #endif
     
     /// <summary>

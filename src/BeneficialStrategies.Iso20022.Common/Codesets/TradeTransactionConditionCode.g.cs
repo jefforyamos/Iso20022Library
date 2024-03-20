@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YpT9Mtp-Ed-ak6NoX_4Aeg_-1512742367")]
 [Description(@"Indicates the conditions under which the order/trade is to be/was executed.")]
-[Derivations(typeof(TradeTransactionCondition1Code),typeof(TradeTransactionCondition5Code),typeof(TradeTransactionCondition3Code),typeof(TradeTransactionCondition2Code),typeof(TradeTransactionCondition4Code))]
+[Derivations(typeof(TradeTransactionCondition5Code),typeof(TradeTransactionCondition2Code),typeof(TradeTransactionCondition3Code),typeof(TradeTransactionCondition1Code),typeof(TradeTransactionCondition4Code))]
 public enum TradeTransactionConditionCode
 {
     /// <summary>

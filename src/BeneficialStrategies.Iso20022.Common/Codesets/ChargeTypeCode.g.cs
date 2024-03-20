@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a9lF6dp-Ed-ak6NoX_4Aeg_1571365550")]
 [Description(@"Type of service for which a charge is asked or paid.")]
-[Derivations(typeof(ChargeType12Code),typeof(ChargeType13Code),typeof(ChargeType15Code),typeof(ChargeType17Code),typeof(ChargeType4Code),typeof(ChargeType10Code),typeof(ChargeType6Code),typeof(ChargeType9Code),typeof(ChargeType11Code),typeof(ChargeType16Code),typeof(ChargeType8Code),typeof(ChargeType7Code),typeof(ChargeType1Code),typeof(ChargeType14Code))]
+[Derivations(typeof(ChargeType8Code),typeof(ChargeType14Code),typeof(ChargeType4Code),typeof(ChargeType1Code),typeof(ChargeType10Code),typeof(ChargeType11Code),typeof(ChargeType15Code),typeof(ChargeType17Code),typeof(ChargeType13Code),typeof(ChargeType6Code),typeof(ChargeType16Code),typeof(ChargeType12Code),typeof(ChargeType7Code),typeof(ChargeType9Code))]
 public enum ChargeTypeCode
 {
     /// <summary>

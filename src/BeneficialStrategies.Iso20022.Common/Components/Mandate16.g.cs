@@ -167,13 +167,12 @@ public partial record Mandate16
     [DataMember(Name="FrstColltnAmt")]
     #endif
     [IsoXmlTag("FrstColltnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FirstCollectionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; init; } 
     #else
-    public System.Decimal? FirstCollectionAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? FirstCollectionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -185,13 +184,12 @@ public partial record Mandate16
     [DataMember(Name="ColltnAmt")]
     #endif
     [IsoXmlTag("ColltnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CollectionAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; init; } 
     #else
-    public System.Decimal? CollectionAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? CollectionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -203,13 +201,12 @@ public partial record Mandate16
     [DataMember(Name="MaxAmt")]
     #endif
     [IsoXmlTag("MaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; init; } 
     #else
-    public System.Decimal? MaximumAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? MaximumAmount { get; set; } 
     #endif
     
     /// <summary>

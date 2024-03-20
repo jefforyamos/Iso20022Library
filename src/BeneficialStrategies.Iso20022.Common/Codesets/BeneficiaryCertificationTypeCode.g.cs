@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_beD8xtp-Ed-ak6NoX_4Aeg_-2069893638")]
 [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-[Derivations(typeof(BeneficiaryCertificationType4Code),typeof(BeneficiaryCertificationType2Code),typeof(BeneficiaryCertificationType1Code),typeof(BeneficiaryCertificationType3Code),typeof(BeneficiaryCertificationType5Code))]
+[Derivations(typeof(BeneficiaryCertificationType2Code),typeof(BeneficiaryCertificationType5Code),typeof(BeneficiaryCertificationType4Code),typeof(BeneficiaryCertificationType1Code),typeof(BeneficiaryCertificationType3Code))]
 public enum BeneficiaryCertificationTypeCode
 {
     /// <summary>

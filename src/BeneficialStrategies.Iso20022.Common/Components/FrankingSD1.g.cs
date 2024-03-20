@@ -165,13 +165,12 @@ public partial record FrankingSD1
     [DataMember(Name="FrnkdAmtPerScty")]
     #endif
     [IsoXmlTag("FrnkdAmtPerScty")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FrankedAmountPerSecurity { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; init; } 
     #else
-    public System.Decimal? FrankedAmountPerSecurity { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FrankedAmountPerSecurity { get; set; } 
     #endif
     
     /// <summary>
@@ -183,13 +182,12 @@ public partial record FrankingSD1
     [DataMember(Name="UfrnkdAmtPerScty")]
     #endif
     [IsoXmlTag("UfrnkdAmtPerScty")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnfrankedAmountPerSecurity { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; init; } 
     #else
-    public System.Decimal? UnfrankedAmountPerSecurity { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? UnfrankedAmountPerSecurity { get; set; } 
     #endif
     
     /// <summary>
@@ -201,13 +199,12 @@ public partial record FrankingSD1
     [DataMember(Name="CndtFrgnIncmAmt")]
     #endif
     [IsoXmlTag("CndtFrgnIncmAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ConduitForeignIncomeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; init; } 
     #else
-    public System.Decimal? ConduitForeignIncomeAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? ConduitForeignIncomeAmount { get; set; } 
     #endif
     
     

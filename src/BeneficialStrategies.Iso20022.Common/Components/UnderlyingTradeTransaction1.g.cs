@@ -129,13 +129,12 @@ public partial record UnderlyingTradeTransaction1
     [DataMember(Name="TxAmt")]
     #endif
     [IsoXmlTag("TxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TransactionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TransactionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TransactionAmount { get; init; } 
     #else
-    public System.Decimal? TransactionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TransactionAmount { get; set; } 
     #endif
     
     /// <summary>

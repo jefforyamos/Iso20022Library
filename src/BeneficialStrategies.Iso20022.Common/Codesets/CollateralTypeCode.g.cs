@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a_0hldp-Ed-ak6NoX_4Aeg_591395154")]
 [Description(@"Specifies the type of collateral.")]
-[Derivations(typeof(CollateralType1Code),typeof(CollateralType6Code),typeof(CollateralType8Code),typeof(CollateralType2Code),typeof(CollateralType3Code))]
+[Derivations(typeof(CollateralType3Code),typeof(CollateralType2Code),typeof(CollateralType6Code),typeof(CollateralType1Code),typeof(CollateralType8Code))]
 public enum CollateralTypeCode
 {
     /// <summary>

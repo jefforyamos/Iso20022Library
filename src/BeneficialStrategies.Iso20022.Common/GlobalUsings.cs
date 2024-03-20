@@ -6,3 +6,4 @@ global using System.Runtime.Serialization;
 global using System.Xml.Serialization;
 global using BeneficialStrategies.Iso20022.Framework;
 global using BeneficialStrategies.Iso20022.Codesets;
+global using BeneficialStrategies.Iso20022.Amounts;

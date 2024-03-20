@@ -164,13 +164,12 @@ public partial record StoredValueData5
     [DataMember(Name="ItmAmt")]
     #endif
     [IsoXmlTag("ItmAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ItemAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ItemAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ItemAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ItemAmount { get; init; } 
     #else
-    public System.Decimal? ItemAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? ItemAmount { get; set; } 
     #endif
     
     /// <summary>

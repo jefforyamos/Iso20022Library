@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZZvUldp-Ed-ak6NoX_4Aeg_233339087")]
 [Description(@"Any and all rate is sought.")]
-[Derivations(typeof(RateValueType6Code),typeof(RateType10Code),typeof(RateValueType7Code),typeof(RateType9Code),typeof(RateType13Code),typeof(RateValueType2Code),typeof(RateType2Code),typeof(RateType12Code),typeof(RateType3Code),typeof(RateType8Code),typeof(RateType5Code))]
+[Derivations(typeof(RateValueType6Code),typeof(RateValueType7Code),typeof(RateType10Code),typeof(RateType13Code),typeof(RateType8Code),typeof(RateType9Code),typeof(RateType3Code),typeof(RateValueType2Code),typeof(RateType12Code),typeof(RateType5Code),typeof(RateType2Code))]
 public enum RateTypeCode
 {
     /// <summary>

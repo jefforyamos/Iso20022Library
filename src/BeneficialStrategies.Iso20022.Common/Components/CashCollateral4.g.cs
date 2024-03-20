@@ -39,7 +39,7 @@ public partial record CashCollateral4
     /// Constructs a CashCollateral4 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CashCollateral4( System.Decimal reqCollateralValue )
+    public CashCollateral4( ActiveCurrencyAndAmount reqCollateralValue )
     {
         CollateralValue = reqCollateralValue;
     }
@@ -74,13 +74,12 @@ public partial record CashCollateral4
     [DataMember(Name="DpstAmt")]
     #endif
     [IsoXmlTag("DpstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? DepositAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DepositAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DepositAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DepositAmount { get; init; } 
     #else
-    public System.Decimal? DepositAmount { get; set; } 
+    public ActiveCurrencyAndAmount? DepositAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -109,13 +108,12 @@ public partial record CashCollateral4
     [DataMember(Name="BlckdAmt")]
     #endif
     [IsoXmlTag("BlckdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? BlockedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? BlockedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BlockedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? BlockedAmount { get; init; } 
     #else
-    public System.Decimal? BlockedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? BlockedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -181,15 +179,14 @@ public partial record CashCollateral4
     [DataMember(Name="CollVal")]
     #endif
     [IsoXmlTag("CollVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CollateralValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CollateralValue { get; init; } 
+    public ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #else
-    public System.Decimal CollateralValue { get; set; } 
+    public ActiveCurrencyAndAmount CollateralValue { get; set; } 
     #endif
     
     /// <summary>

@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aYLSwdp-Ed-ak6NoX_4Aeg_-433562560")]
 [Description(@"Specifies the status of an instruction.")]
-[Derivations(typeof(InstructionProcessingStatus1Code),typeof(IntraPositionTransactionProcessingStatus1Code),typeof(SettlementConditionModificationProcessingStatus1Code),typeof(TransactionProcessingStatus4Code),typeof(TransactionProcessingStatus2Code),typeof(TransactionProcessingStatus1Code),typeof(TransactionProcessingStatus3Code))]
+[Derivations(typeof(SettlementConditionModificationProcessingStatus1Code),typeof(IntraPositionTransactionProcessingStatus1Code),typeof(TransactionProcessingStatus2Code),typeof(TransactionProcessingStatus3Code),typeof(TransactionProcessingStatus1Code),typeof(TransactionProcessingStatus4Code),typeof(InstructionProcessingStatus1Code))]
 public enum InstructionProcessingStatusCode
 {
     /// <summary>

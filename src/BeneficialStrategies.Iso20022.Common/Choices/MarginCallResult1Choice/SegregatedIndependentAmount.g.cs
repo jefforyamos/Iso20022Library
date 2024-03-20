@@ -53,13 +53,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult1Choice
         [DataMember(Name="DueToPtyA")]
         #endif
         [IsoXmlTag("DueToPtyA")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? DueToPartyA { get; init; } 
+        public ActiveCurrencyAndAmount? DueToPartyA { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? DueToPartyA { get; init; } 
+        public ActiveCurrencyAndAmount? DueToPartyA { get; init; } 
         #else
-        public System.Decimal? DueToPartyA { get; set; } 
+        public ActiveCurrencyAndAmount? DueToPartyA { get; set; } 
         #endif
         
         /// <summary>
@@ -71,13 +70,12 @@ namespace BeneficialStrategies.Iso20022.Choices.MarginCallResult1Choice
         [DataMember(Name="DueToPtyB")]
         #endif
         [IsoXmlTag("DueToPtyB")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? DueToPartyB { get; init; } 
+        public ActiveCurrencyAndAmount? DueToPartyB { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? DueToPartyB { get; init; } 
+        public ActiveCurrencyAndAmount? DueToPartyB { get; init; } 
         #else
-        public System.Decimal? DueToPartyB { get; set; } 
+        public ActiveCurrencyAndAmount? DueToPartyB { get; set; } 
         #endif
         
         /// <summary>

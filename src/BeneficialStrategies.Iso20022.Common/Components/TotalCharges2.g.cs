@@ -48,13 +48,12 @@ public partial record TotalCharges2
     [DataMember(Name="TtlAmtOfChrgs")]
     #endif
     [IsoXmlTag("TtlAmtOfChrgs")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountOfCharges { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; init; } 
     #else
-    public System.Decimal? TotalAmountOfCharges { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountOfCharges { get; set; } 
     #endif
     
     /// <summary>

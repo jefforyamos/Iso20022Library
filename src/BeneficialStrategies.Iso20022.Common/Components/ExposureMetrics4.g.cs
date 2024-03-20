@@ -65,13 +65,12 @@ public partial record ExposureMetrics4
     [DataMember(Name="LnVal")]
     #endif
     [IsoXmlTag("LnVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LoanValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     #else
-    public System.Decimal? LoanValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; set; } 
     #endif
     
     /// <summary>
@@ -100,13 +99,12 @@ public partial record ExposureMetrics4
     [DataMember(Name="OutsdngMrgnLnAmt")]
     #endif
     [IsoXmlTag("OutsdngMrgnLnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OutstandingMarginLoanAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; init; } 
     #else
-    public System.Decimal? OutstandingMarginLoanAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OutstandingMarginLoanAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -118,13 +116,12 @@ public partial record ExposureMetrics4
     [DataMember(Name="ShrtMktValAmt")]
     #endif
     [IsoXmlTag("ShrtMktValAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ShortMarketValueAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; init; } 
     #else
-    public System.Decimal? ShortMarketValueAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ShortMarketValueAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -136,13 +133,12 @@ public partial record ExposureMetrics4
     [DataMember(Name="MrgnLn")]
     #endif
     [IsoXmlTag("MrgnLn")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? MarginLoan { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarginLoan { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarginLoan { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarginLoan { get; init; } 
     #else
-    public System.Decimal? MarginLoan { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarginLoan { get; set; } 
     #endif
     
     /// <summary>

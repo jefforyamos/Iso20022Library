@@ -125,13 +125,12 @@ public partial record MarginCalculation2
     [DataMember(Name="MinRqrmntDpst")]
     #endif
     [IsoXmlTag("MinRqrmntDpst")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumRequirementDeposit { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; init; } 
     #else
-    public System.Decimal? MinimumRequirementDeposit { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumRequirementDeposit { get; set; } 
     #endif
     
     /// <summary>

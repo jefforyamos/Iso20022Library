@@ -39,7 +39,7 @@ public partial record ReportLine7
     /// Constructs a ReportLine7 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ReportLine7( System.String reqTransactionIdentification,DocumentIdentification7 reqPurchaseOrderReference,System.Decimal reqNetAmount )
+    public ReportLine7( System.String reqTransactionIdentification,DocumentIdentification7 reqPurchaseOrderReference,CurrencyAndAmount reqNetAmount )
     {
         TransactionIdentification = reqTransactionIdentification;
         PurchaseOrderReference = reqPurchaseOrderReference;
@@ -114,15 +114,14 @@ public partial record ReportLine7
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount NetAmount { get; init; } 
+    public required CurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NetAmount { get; init; } 
+    public required CurrencyAndAmount NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NetAmount { get; init; } 
+    public CurrencyAndAmount NetAmount { get; init; } 
     #else
-    public System.Decimal NetAmount { get; set; } 
+    public CurrencyAndAmount NetAmount { get; set; } 
     #endif
     
     

@@ -155,13 +155,12 @@ public partial record GroupHeader2
     [DataMember(Name="TtlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("TtlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? TotalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? TotalInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount? TotalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -119,13 +119,12 @@ public partial record SupportingDocumentEntry2
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -137,13 +136,12 @@ public partial record SupportingDocumentEntry2
     [DataMember(Name="TtlAmtAftrShipmnt")]
     #endif
     [IsoXmlTag("TtlAmtAftrShipmnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalAmountAfterShipment { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountAfterShipment { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipment { get; init; } 
     #else
-    public System.Decimal? TotalAmountAfterShipment { get; set; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipment { get; set; } 
     #endif
     
     /// <summary>
@@ -155,13 +153,12 @@ public partial record SupportingDocumentEntry2
     [DataMember(Name="TtlAmtInCtrctCcy")]
     #endif
     [IsoXmlTag("TtlAmtInCtrctCcy")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; init; } 
     #else
-    public System.Decimal? TotalAmountInContractCurrency { get; set; } 
+    public ActiveCurrencyAndAmount? TotalAmountInContractCurrency { get; set; } 
     #endif
     
     /// <summary>
@@ -173,13 +170,12 @@ public partial record SupportingDocumentEntry2
     [DataMember(Name="TtlAmtAftrShipmntInCtrctCcy")]
     #endif
     [IsoXmlTag("TtlAmtAftrShipmntInCtrctCcy")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountAfterShipmentInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; init; } 
     #else
-    public System.Decimal? TotalAmountAfterShipmentInContractCurrency { get; set; } 
+    public ActiveCurrencyAndAmount? TotalAmountAfterShipmentInContractCurrency { get; set; } 
     #endif
     
     /// <summary>

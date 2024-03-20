@@ -39,7 +39,7 @@ public partial record ArrestedFunds1
     /// Constructs a ArrestedFunds1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ArrestedFunds1( System.Decimal reqRemainingUnpaidAmount )
+    public ArrestedFunds1( ActiveCurrencyAndAmount reqRemainingUnpaidAmount )
     {
         RemainingUnpaidAmount = reqRemainingUnpaidAmount;
     }
@@ -74,13 +74,12 @@ public partial record ArrestedFunds1
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -92,15 +91,14 @@ public partial record ArrestedFunds1
     [DataMember(Name="RmngUnpdAmt")]
     #endif
     [IsoXmlTag("RmngUnpdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RemainingUnpaidAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RemainingUnpaidAmount { get; init; } 
+    public ActiveCurrencyAndAmount RemainingUnpaidAmount { get; init; } 
     #else
-    public System.Decimal RemainingUnpaidAmount { get; set; } 
+    public ActiveCurrencyAndAmount RemainingUnpaidAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -112,13 +110,12 @@ public partial record ArrestedFunds1
     [DataMember(Name="ArrstdAmt")]
     #endif
     [IsoXmlTag("ArrstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ArrestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ArrestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ArrestedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ArrestedAmount { get; init; } 
     #else
-    public System.Decimal? ArrestedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? ArrestedAmount { get; set; } 
     #endif
     
     

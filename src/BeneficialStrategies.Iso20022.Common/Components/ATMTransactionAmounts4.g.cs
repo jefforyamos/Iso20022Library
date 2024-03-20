@@ -66,13 +66,12 @@ public partial record ATMTransactionAmounts4
     [DataMember(Name="AvlblAmt")]
     #endif
     [IsoXmlTag("AvlblAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AvailableAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AvailableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AvailableAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AvailableAmount { get; init; } 
     #else
-    public System.Decimal? AvailableAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? AvailableAmount { get; set; } 
     #endif
     
     /// <summary>

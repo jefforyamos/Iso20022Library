@@ -39,7 +39,7 @@ public partial record Position1
     /// Constructs a Position1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Position1( System.String reqProductIdentification,System.Decimal reqGrossNotional,AmountAndDirection102 reqNetNotional,System.Decimal reqGrossMarketValue )
+    public Position1( System.String reqProductIdentification,ActiveCurrencyAnd24Amount reqGrossNotional,AmountAndDirection102 reqNetNotional,ActiveCurrencyAndAmount reqGrossMarketValue )
     {
         ProductIdentification = reqProductIdentification;
         GrossNotional = reqGrossNotional;
@@ -96,15 +96,14 @@ public partial record Position1
     [DataMember(Name="GrssNtnl")]
     #endif
     [IsoXmlTag("GrssNtnl")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd24Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd24Amount GrossNotional { get; init; } 
+    public required ActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal GrossNotional { get; init; } 
+    public required ActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal GrossNotional { get; init; } 
+    public ActiveCurrencyAnd24Amount GrossNotional { get; init; } 
     #else
-    public System.Decimal GrossNotional { get; set; } 
+    public ActiveCurrencyAnd24Amount GrossNotional { get; set; } 
     #endif
     
     /// <summary>
@@ -135,13 +134,12 @@ public partial record Position1
     [DataMember(Name="GrssDltaEqvtVal")]
     #endif
     [IsoXmlTag("GrssDltaEqvtVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
+    public ActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossDeltaEquivalentValue { get; init; } 
+    public ActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; init; } 
     #else
-    public System.Decimal? GrossDeltaEquivalentValue { get; set; } 
+    public ActiveCurrencyAndAmount? GrossDeltaEquivalentValue { get; set; } 
     #endif
     
     /// <summary>
@@ -206,15 +204,14 @@ public partial record Position1
     [DataMember(Name="GrssMktVal")]
     #endif
     [IsoXmlTag("GrssMktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount GrossMarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal GrossMarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal GrossMarketValue { get; init; } 
+    public ActiveCurrencyAndAmount GrossMarketValue { get; init; } 
     #else
-    public System.Decimal GrossMarketValue { get; set; } 
+    public ActiveCurrencyAndAmount GrossMarketValue { get; set; } 
     #endif
     
     

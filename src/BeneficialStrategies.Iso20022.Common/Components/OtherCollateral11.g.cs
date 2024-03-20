@@ -39,7 +39,7 @@ public partial record OtherCollateral11
     /// Constructs a OtherCollateral11 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public OtherCollateral11( System.Decimal reqCollateralValue )
+    public OtherCollateral11( ActiveCurrencyAndAmount reqCollateralValue )
     {
         CollateralValue = reqCollateralValue;
     }
@@ -112,13 +112,12 @@ public partial record OtherCollateral11
     [DataMember(Name="LttrOfCdtAmt")]
     #endif
     [IsoXmlTag("LttrOfCdtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LetterOfCreditAmount { get; init; } 
+    public ActiveCurrencyAndAmount? LetterOfCreditAmount { get; init; } 
     #else
-    public System.Decimal? LetterOfCreditAmount { get; set; } 
+    public ActiveCurrencyAndAmount? LetterOfCreditAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -130,13 +129,12 @@ public partial record OtherCollateral11
     [DataMember(Name="GrntAmt")]
     #endif
     [IsoXmlTag("GrntAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GuaranteeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GuaranteeAmount { get; init; } 
     #else
-    public System.Decimal? GuaranteeAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GuaranteeAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -270,13 +268,12 @@ public partial record OtherCollateral11
     [DataMember(Name="MktVal")]
     #endif
     [IsoXmlTag("MktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MarketValue { get; init; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarketValue { get; init; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; init; } 
     #else
-    public System.Decimal? MarketValue { get; set; } 
+    public ActiveCurrencyAndAmount? MarketValue { get; set; } 
     #endif
     
     /// <summary>
@@ -306,15 +303,14 @@ public partial record OtherCollateral11
     [DataMember(Name="CollVal")]
     #endif
     [IsoXmlTag("CollVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CollateralValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CollateralValue { get; init; } 
+    public required ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CollateralValue { get; init; } 
+    public ActiveCurrencyAndAmount CollateralValue { get; init; } 
     #else
-    public System.Decimal CollateralValue { get; set; } 
+    public ActiveCurrencyAndAmount CollateralValue { get; set; } 
     #endif
     
     /// <summary>

@@ -104,13 +104,12 @@ public partial record ShippingData2
     [DataMember(Name="IncntivAmt")]
     #endif
     [IsoXmlTag("IncntivAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? IncentiveAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? IncentiveAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncentiveAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? IncentiveAmount { get; init; } 
     #else
-    public System.Decimal? IncentiveAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? IncentiveAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -122,13 +121,12 @@ public partial record ShippingData2
     [DataMember(Name="MiscExpnss")]
     #endif
     [IsoXmlTag("MiscExpnss")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MiscellaneousExpenses { get; init; } 
+    public ImpliedCurrencyAndAmount? MiscellaneousExpenses { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MiscellaneousExpenses { get; init; } 
+    public ImpliedCurrencyAndAmount? MiscellaneousExpenses { get; init; } 
     #else
-    public System.Decimal? MiscellaneousExpenses { get; set; } 
+    public ImpliedCurrencyAndAmount? MiscellaneousExpenses { get; set; } 
     #endif
     
     /// <summary>
@@ -158,13 +156,12 @@ public partial record ShippingData2
     [DataMember(Name="InsrncAmt")]
     #endif
     [IsoXmlTag("InsrncAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InsuranceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #else
-    public System.Decimal? InsuranceAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -176,13 +173,12 @@ public partial record ShippingData2
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>

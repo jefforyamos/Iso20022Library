@@ -85,13 +85,12 @@ public partial record TaxType
     [DataMember(Name="TaxblBaseAmt")]
     #endif
     [IsoXmlTag("TaxblBaseAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TaxableBaseAmount { get; init; } 
+    public CurrencyAndAmount? TaxableBaseAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableBaseAmount { get; init; } 
+    public CurrencyAndAmount? TaxableBaseAmount { get; init; } 
     #else
-    public System.Decimal? TaxableBaseAmount { get; set; } 
+    public CurrencyAndAmount? TaxableBaseAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -103,13 +102,12 @@ public partial record TaxType
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? Amount { get; init; } 
+    public CurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public CurrencyAndAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public CurrencyAndAmount? Amount { get; set; } 
     #endif
     
     

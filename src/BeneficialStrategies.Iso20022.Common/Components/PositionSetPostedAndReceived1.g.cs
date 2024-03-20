@@ -49,13 +49,12 @@ public partial record PositionSetPostedAndReceived1
     [DataMember(Name="Pstd")]
     #endif
     [IsoXmlTag("Pstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Posted { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Posted { get; init; } 
     #else
-    public System.Decimal? Posted { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Posted { get; set; } 
     #endif
     
     /// <summary>
@@ -68,13 +67,12 @@ public partial record PositionSetPostedAndReceived1
     [DataMember(Name="Rcvd")]
     #endif
     [IsoXmlTag("Rcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Received { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Received { get; init; } 
     #else
-    public System.Decimal? Received { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20Amount? Received { get; set; } 
     #endif
     
     

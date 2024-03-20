@@ -68,13 +68,12 @@ public partial record TaxSD1
     [DataMember(Name="FrgnTaxCdtAmt")]
     #endif
     [IsoXmlTag("FrgnTaxCdtAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ForeignTaxCreditAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; init; } 
     #else
-    public System.Decimal? ForeignTaxCreditAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignTaxCreditAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -104,13 +103,12 @@ public partial record TaxSD1
     [DataMember(Name="FrgnSrcAmt")]
     #endif
     [IsoXmlTag("FrgnSrcAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ForeignSourceAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; init; } 
     #else
-    public System.Decimal? ForeignSourceAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ForeignSourceAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -157,13 +155,12 @@ public partial record TaxSD1
     [DataMember(Name="TaxAdvntgAmt")]
     #endif
     [IsoXmlTag("TaxAdvntgAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxAdvantageAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; init; } 
     #else
-    public System.Decimal? TaxAdvantageAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxAdvantageAmount { get; set; } 
     #endif
     
     /// <summary>

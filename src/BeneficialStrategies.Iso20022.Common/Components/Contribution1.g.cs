@@ -39,7 +39,7 @@ public partial record Contribution1
     /// Constructs a Contribution1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Contribution1( System.Decimal reqRequiredAmount )
+    public Contribution1( ActiveCurrencyAndAmount reqRequiredAmount )
     {
         RequiredAmount = reqRequiredAmount;
     }
@@ -72,15 +72,14 @@ public partial record Contribution1
     [DataMember(Name="ReqrdAmt")]
     #endif
     [IsoXmlTag("ReqrdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RequiredAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RequiredAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RequiredAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RequiredAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RequiredAmount { get; init; } 
+    public ActiveCurrencyAndAmount RequiredAmount { get; init; } 
     #else
-    public System.Decimal RequiredAmount { get; set; } 
+    public ActiveCurrencyAndAmount RequiredAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -92,13 +91,12 @@ public partial record Contribution1
     [DataMember(Name="IncrCvrgAmt")]
     #endif
     [IsoXmlTag("IncrCvrgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncreaseCoverageAmount { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     #else
-    public System.Decimal? IncreaseCoverageAmount { get; set; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record CardPaymentTransactionDetails21
     /// Constructs a CardPaymentTransactionDetails21 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CardPaymentTransactionDetails21( string reqCurrency,System.Decimal reqTotalAmount )
+    public CardPaymentTransactionDetails21( string reqCurrency,ImpliedCurrencyAndAmount reqTotalAmount )
     {
         Currency = reqCurrency;
         TotalAmount = reqTotalAmount;
@@ -75,15 +75,14 @@ public partial record CardPaymentTransactionDetails21
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount TotalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount TotalAmount { get; init; } 
     #else
-    public System.Decimal TotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount TotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -129,13 +128,12 @@ public partial record CardPaymentTransactionDetails21
     [DataMember(Name="ReqdAmt")]
     #endif
     [IsoXmlTag("ReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? RequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? RequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? RequestedAmount { get; init; } 
     #else
-    public System.Decimal? RequestedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? RequestedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -147,13 +145,12 @@ public partial record CardPaymentTransactionDetails21
     [DataMember(Name="AuthrsdAmt")]
     #endif
     [IsoXmlTag("AuthrsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AuthorisedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AuthorisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AuthorisedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AuthorisedAmount { get; init; } 
     #else
-    public System.Decimal? AuthorisedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? AuthorisedAmount { get; set; } 
     #endif
     
     /// <summary>

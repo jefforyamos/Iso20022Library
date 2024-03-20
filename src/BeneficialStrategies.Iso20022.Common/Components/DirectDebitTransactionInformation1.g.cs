@@ -39,7 +39,7 @@ public partial record DirectDebitTransactionInformation1
     /// Constructs a DirectDebitTransactionInformation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DirectDebitTransactionInformation1( PaymentIdentification1 reqPaymentIdentification,System.Decimal reqInstructedAmount,BranchAndFinancialInstitutionIdentification3 reqDebtorAgent,PartyIdentification8 reqDebtor,CashAccount7 reqDebtorAccount )
+    public DirectDebitTransactionInformation1( PaymentIdentification1 reqPaymentIdentification,CurrencyAndAmount reqInstructedAmount,BranchAndFinancialInstitutionIdentification3 reqDebtorAgent,PartyIdentification8 reqDebtor,CashAccount7 reqDebtorAccount )
     {
         PaymentIdentification = reqPaymentIdentification;
         InstructedAmount = reqInstructedAmount;
@@ -95,15 +95,14 @@ public partial record DirectDebitTransactionInformation1
     [DataMember(Name="InstdAmt")]
     #endif
     [IsoXmlTag("InstdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount InstructedAmount { get; init; } 
+    public required CurrencyAndAmount InstructedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal InstructedAmount { get; init; } 
+    public required CurrencyAndAmount InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal InstructedAmount { get; init; } 
+    public CurrencyAndAmount InstructedAmount { get; init; } 
     #else
-    public System.Decimal InstructedAmount { get; set; } 
+    public CurrencyAndAmount InstructedAmount { get; set; } 
     #endif
     
     /// <summary>

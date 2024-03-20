@@ -39,7 +39,7 @@ public partial record VolumeCapReport2
     /// Constructs a VolumeCapReport2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public VolumeCapReport2( System.String reqIdentification,string reqCurrency,System.Decimal reqTotalTradingVolume,System.Decimal reqTotalReferencePriceTradingVolume,System.Decimal reqTotalNegotiatedTransactionsTradingVolume )
+    public VolumeCapReport2( System.String reqIdentification,string reqCurrency,ImpliedCurrencyAndAmount reqTotalTradingVolume,ImpliedCurrencyAndAmount reqTotalReferencePriceTradingVolume,ImpliedCurrencyAndAmount reqTotalNegotiatedTransactionsTradingVolume )
     {
         Identification = reqIdentification;
         Currency = reqCurrency;
@@ -119,15 +119,14 @@ public partial record VolumeCapReport2
     [DataMember(Name="TtlTradgVol")]
     #endif
     [IsoXmlTag("TtlTradgVol")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalTradingVolume { get; init; } 
+    public ImpliedCurrencyAndAmount TotalTradingVolume { get; init; } 
     #else
-    public System.Decimal TotalTradingVolume { get; set; } 
+    public ImpliedCurrencyAndAmount TotalTradingVolume { get; set; } 
     #endif
     
     /// <summary>
@@ -139,15 +138,14 @@ public partial record VolumeCapReport2
     [DataMember(Name="TtlRefPricTradgVol")]
     #endif
     [IsoXmlTag("TtlRefPricTradgVol")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalReferencePriceTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalReferencePriceTradingVolume { get; init; } 
+    public ImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; init; } 
     #else
-    public System.Decimal TotalReferencePriceTradingVolume { get; set; } 
+    public ImpliedCurrencyAndAmount TotalReferencePriceTradingVolume { get; set; } 
     #endif
     
     /// <summary>
@@ -159,15 +157,14 @@ public partial record VolumeCapReport2
     [DataMember(Name="TtlNgtdTxsTradgVol")]
     #endif
     [IsoXmlTag("TtlNgtdTxsTradgVol")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalNegotiatedTransactionsTradingVolume { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalNegotiatedTransactionsTradingVolume { get; init; } 
+    public ImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; init; } 
     #else
-    public System.Decimal TotalNegotiatedTransactionsTradingVolume { get; set; } 
+    public ImpliedCurrencyAndAmount TotalNegotiatedTransactionsTradingVolume { get; set; } 
     #endif
     
     

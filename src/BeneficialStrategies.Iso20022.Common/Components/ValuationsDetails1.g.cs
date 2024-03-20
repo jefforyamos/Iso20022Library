@@ -126,13 +126,12 @@ public partial record ValuationsDetails1
     [DataMember(Name="AcrdIntrst")]
     #endif
     [IsoXmlTag("AcrdIntrst")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AccruedInterest { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; init; } 
     #else
-    public System.Decimal? AccruedInterest { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? AccruedInterest { get; set; } 
     #endif
     
     /// <summary>
@@ -144,13 +143,12 @@ public partial record ValuationsDetails1
     [DataMember(Name="CleanPric")]
     #endif
     [IsoXmlTag("CleanPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CleanPrice { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CleanPrice { get; init; } 
     #else
-    public System.Decimal? CleanPrice { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? CleanPrice { get; set; } 
     #endif
     
     /// <summary>

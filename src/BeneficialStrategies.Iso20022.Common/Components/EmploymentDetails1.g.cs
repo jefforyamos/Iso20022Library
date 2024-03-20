@@ -101,13 +101,12 @@ public partial record EmploymentDetails1
     [DataMember(Name="PrvsPay")]
     #endif
     [IsoXmlTag("PrvsPay")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PreviousPay { get; init; } 
+    public ActiveCurrencyAndAmount? PreviousPay { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviousPay { get; init; } 
+    public ActiveCurrencyAndAmount? PreviousPay { get; init; } 
     #else
-    public System.Decimal? PreviousPay { get; set; } 
+    public ActiveCurrencyAndAmount? PreviousPay { get; set; } 
     #endif
     
     /// <summary>
@@ -119,13 +118,12 @@ public partial record EmploymentDetails1
     [DataMember(Name="PrvsTax")]
     #endif
     [IsoXmlTag("PrvsTax")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PreviousTax { get; init; } 
+    public ActiveCurrencyAndAmount? PreviousTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviousTax { get; init; } 
+    public ActiveCurrencyAndAmount? PreviousTax { get; init; } 
     #else
-    public System.Decimal? PreviousTax { get; set; } 
+    public ActiveCurrencyAndAmount? PreviousTax { get; set; } 
     #endif
     
     /// <summary>

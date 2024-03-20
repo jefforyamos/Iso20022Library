@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_1o-QojL3EeKU9IrkkToqcw_-806320900")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined payout types.")]
-[Derivations(typeof(DTCCPayoutType5Code),typeof(DTCCPayoutType4Code),typeof(DTCCPayoutType3Code),typeof(DTCCPayoutType2Code),typeof(DTCCPayoutType1Code))]
+[Derivations(typeof(DTCCPayoutType4Code),typeof(DTCCPayoutType3Code),typeof(DTCCPayoutType5Code),typeof(DTCCPayoutType1Code),typeof(DTCCPayoutType2Code))]
 public enum DTCCPayoutTypeCode
 {
     /// <summary>

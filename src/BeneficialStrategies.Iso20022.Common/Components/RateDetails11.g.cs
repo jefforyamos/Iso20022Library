@@ -82,13 +82,12 @@ public partial record RateDetails11
     [DataMember(Name="FnlDvddRate")]
     #endif
     [IsoXmlTag("FnlDvddRate")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FinalDividendRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; init; } 
     #else
-    public System.Decimal? FinalDividendRate { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? FinalDividendRate { get; set; } 
     #endif
     
     /// <summary>
@@ -237,13 +236,12 @@ public partial record RateDetails11
     [DataMember(Name="PrvsnlDvddRate")]
     #endif
     [IsoXmlTag("PrvsnlDvddRate")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ProvisionalDividendRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; init; } 
     #else
-    public System.Decimal? ProvisionalDividendRate { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? ProvisionalDividendRate { get; set; } 
     #endif
     
     /// <summary>
@@ -430,13 +428,12 @@ public partial record RateDetails11
     [DataMember(Name="EqulstnRate")]
     #endif
     [IsoXmlTag("EqulstnRate")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EqualisationRate { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
     #else
-    public System.Decimal? EqualisationRate { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; set; } 
     #endif
     
     

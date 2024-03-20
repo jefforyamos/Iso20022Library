@@ -39,7 +39,7 @@ public partial record ContractRegistrationStatement2
     /// Constructs a ContractRegistrationStatement2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ContractRegistrationStatement2( TradeParty5 reqReportingParty,BranchAndFinancialInstitutionIdentification6 reqRegistrationAgent,ReportingPeriod4 reqReportingPeriod,RegisteredContract8 reqRegisteredContract,System.Decimal reqTotalContractTurnoverSum )
+    public ContractRegistrationStatement2( TradeParty5 reqReportingParty,BranchAndFinancialInstitutionIdentification6 reqRegistrationAgent,ReportingPeriod4 reqReportingPeriod,RegisteredContract8 reqRegisteredContract,ActiveCurrencyAndAmount reqTotalContractTurnoverSum )
     {
         ReportingParty = reqReportingParty;
         RegistrationAgent = reqRegistrationAgent;
@@ -222,15 +222,14 @@ public partial record ContractRegistrationStatement2
     [DataMember(Name="TtlCtrctTrnvrSum")]
     #endif
     [IsoXmlTag("TtlCtrctTrnvrSum")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
+    public required ActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalContractTurnoverSum { get; init; } 
+    public required ActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalContractTurnoverSum { get; init; } 
+    public ActiveCurrencyAndAmount TotalContractTurnoverSum { get; init; } 
     #else
-    public System.Decimal TotalContractTurnoverSum { get; set; } 
+    public ActiveCurrencyAndAmount TotalContractTurnoverSum { get; set; } 
     #endif
     
     /// <summary>

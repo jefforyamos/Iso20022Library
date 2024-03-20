@@ -39,7 +39,7 @@ public partial record TransactionReportItems3
     /// Constructs a TransactionReportItems3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TransactionReportItems3( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,PartyIdentification26 reqBuyer,PartyIdentification26 reqSeller,BICIdentification1 reqBuyerBank,string reqBuyerBankCountry,BICIdentification1 reqSellerBank,string reqSellerBankCountry,System.Decimal reqOutstandingAmount,System.Decimal reqTotalNetAmount )
+    public TransactionReportItems3( System.String reqTransactionIdentification,TransactionStatus4 reqTransactionStatus,DocumentIdentification7 reqPurchaseOrderReference,PartyIdentification26 reqBuyer,PartyIdentification26 reqSeller,BICIdentification1 reqBuyerBank,string reqBuyerBankCountry,BICIdentification1 reqSellerBank,string reqSellerBankCountry,CurrencyAndAmount reqOutstandingAmount,CurrencyAndAmount reqTotalNetAmount )
     {
         TransactionIdentification = reqTransactionIdentification;
         TransactionStatus = reqTransactionStatus;
@@ -302,15 +302,14 @@ public partial record TransactionReportItems3
     [DataMember(Name="OutsdngAmt")]
     #endif
     [IsoXmlTag("OutsdngAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount OutstandingAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OutstandingAmount { get; init; } 
+    public required CurrencyAndAmount OutstandingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OutstandingAmount { get; init; } 
+    public CurrencyAndAmount OutstandingAmount { get; init; } 
     #else
-    public System.Decimal OutstandingAmount { get; set; } 
+    public CurrencyAndAmount OutstandingAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -322,15 +321,14 @@ public partial record TransactionReportItems3
     [DataMember(Name="TtlNetAmt")]
     #endif
     [IsoXmlTag("TtlNetAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount TotalNetAmount { get; init; } 
+    public required CurrencyAndAmount TotalNetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalNetAmount { get; init; } 
+    public required CurrencyAndAmount TotalNetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalNetAmount { get; init; } 
+    public CurrencyAndAmount TotalNetAmount { get; init; } 
     #else
-    public System.Decimal TotalNetAmount { get; set; } 
+    public CurrencyAndAmount TotalNetAmount { get; set; } 
     #endif
     
     /// <summary>

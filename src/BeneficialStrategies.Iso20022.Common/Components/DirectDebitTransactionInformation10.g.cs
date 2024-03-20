@@ -39,7 +39,7 @@ public partial record DirectDebitTransactionInformation10
     /// Constructs a DirectDebitTransactionInformation10 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DirectDebitTransactionInformation10( PaymentIdentification3 reqPaymentIdentification,System.Decimal reqInterbankSettlementAmount,ChargeBearerType1Code reqChargeBearer,PartyIdentification32 reqCreditor,BranchAndFinancialInstitutionIdentification4 reqCreditorAgent,PartyIdentification32 reqDebtor,CashAccount16 reqDebtorAccount,BranchAndFinancialInstitutionIdentification4 reqDebtorAgent )
+    public DirectDebitTransactionInformation10( PaymentIdentification3 reqPaymentIdentification,ActiveCurrencyAndAmount reqInterbankSettlementAmount,ChargeBearerType1Code reqChargeBearer,PartyIdentification32 reqCreditor,BranchAndFinancialInstitutionIdentification4 reqCreditorAgent,PartyIdentification32 reqDebtor,CashAccount16 reqDebtorAccount,BranchAndFinancialInstitutionIdentification4 reqDebtorAgent )
     {
         PaymentIdentification = reqPaymentIdentification;
         InterbankSettlementAmount = reqInterbankSettlementAmount;
@@ -98,15 +98,14 @@ public partial record DirectDebitTransactionInformation10
     [DataMember(Name="IntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("IntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount InterbankSettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal InterbankSettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal InterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount InterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal InterbankSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount InterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -136,13 +135,12 @@ public partial record DirectDebitTransactionInformation10
     [DataMember(Name="InstdAmt")]
     #endif
     [IsoXmlTag("InstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #else
-    public System.Decimal? InstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; set; } 
     #endif
     
     /// <summary>

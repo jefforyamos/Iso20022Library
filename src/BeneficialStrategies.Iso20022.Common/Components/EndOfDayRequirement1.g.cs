@@ -48,13 +48,12 @@ public partial record EndOfDayRequirement1
     [DataMember(Name="InitlMrgnRqrmnt")]
     #endif
     [IsoXmlTag("InitlMrgnRqrmnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
+    public ActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginRequirement { get; init; } 
+    public ActiveCurrencyAndAmount? InitialMarginRequirement { get; init; } 
     #else
-    public System.Decimal? InitialMarginRequirement { get; set; } 
+    public ActiveCurrencyAndAmount? InitialMarginRequirement { get; set; } 
     #endif
     
     /// <summary>

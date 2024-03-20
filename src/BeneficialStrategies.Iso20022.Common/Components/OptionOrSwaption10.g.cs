@@ -152,13 +152,12 @@ public partial record OptionOrSwaption10
     [DataMember(Name="CallAmt")]
     #endif
     [IsoXmlTag("CallAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CallAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; init; } 
     #else
-    public System.Decimal? CallAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? CallAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -170,13 +169,12 @@ public partial record OptionOrSwaption10
     [DataMember(Name="PutAmt")]
     #endif
     [IsoXmlTag("PutAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PutAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; init; } 
     #else
-    public System.Decimal? PutAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PutAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -188,13 +186,12 @@ public partial record OptionOrSwaption10
     [DataMember(Name="PrmAmt")]
     #endif
     [IsoXmlTag("PrmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PremiumAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; init; } 
     #else
-    public System.Decimal? PremiumAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PremiumAmount { get; set; } 
     #endif
     
     /// <summary>

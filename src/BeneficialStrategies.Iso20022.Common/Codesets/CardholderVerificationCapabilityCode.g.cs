@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TWPA1AEcEeCQm6a_G2yO_w_1625416412")]
 [Description(@"Cardholder verification capabilities of the POI (Personal Identification Number) performing the transaction.")]
-[Derivations(typeof(CardholderVerificationCapability1Code),typeof(CardholderVerificationCapability3Code),typeof(CardholderVerificationCapability2Code),typeof(CardholderVerificationCapability4Code),typeof(CardholderVerificationCapability5Code))]
+[Derivations(typeof(CardholderVerificationCapability5Code),typeof(CardholderVerificationCapability2Code),typeof(CardholderVerificationCapability1Code),typeof(CardholderVerificationCapability3Code),typeof(CardholderVerificationCapability4Code))]
 public enum CardholderVerificationCapabilityCode
 {
     /// <summary>

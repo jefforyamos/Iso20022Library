@@ -39,7 +39,7 @@ public partial record TrackerCharges1
     /// Constructs a TrackerCharges1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TrackerCharges1( System.Decimal reqAmount,TrackerFinancialInstitutionIdentification1 reqAgent )
+    public TrackerCharges1( RestrictedFINActiveOrHistoricCurrencyAndAmount reqAmount,TrackerFinancialInstitutionIdentification1 reqAgent )
     {
         Amount = reqAmount;
         Agent = reqAgent;
@@ -56,15 +56,14 @@ public partial record TrackerCharges1
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoRestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; set; } 
     #endif
     
     /// <summary>

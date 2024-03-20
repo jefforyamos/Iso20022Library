@@ -116,13 +116,12 @@ public partial record OriginalNotificationReference4
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>

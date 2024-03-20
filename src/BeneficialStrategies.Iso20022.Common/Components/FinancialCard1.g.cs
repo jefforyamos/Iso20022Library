@@ -48,13 +48,12 @@ public partial record FinancialCard1
     [DataMember(Name="CdtLmtAmt")]
     #endif
     [IsoXmlTag("CdtLmtAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CreditLimitAmount { get; init; } 
+    public CurrencyAndAmount? CreditLimitAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CreditLimitAmount { get; init; } 
+    public CurrencyAndAmount? CreditLimitAmount { get; init; } 
     #else
-    public System.Decimal? CreditLimitAmount { get; set; } 
+    public CurrencyAndAmount? CreditLimitAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record FinancialCard1
     [DataMember(Name="CdtAvlblAmt")]
     #endif
     [IsoXmlTag("CdtAvlblAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CreditAvailableAmount { get; init; } 
+    public CurrencyAndAmount? CreditAvailableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CreditAvailableAmount { get; init; } 
+    public CurrencyAndAmount? CreditAvailableAmount { get; init; } 
     #else
-    public System.Decimal? CreditAvailableAmount { get; set; } 
+    public CurrencyAndAmount? CreditAvailableAmount { get; set; } 
     #endif
     
     /// <summary>

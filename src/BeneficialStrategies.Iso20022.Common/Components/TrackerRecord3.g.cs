@@ -48,13 +48,12 @@ public partial record TrackerRecord3
     [DataMember(Name="ChrgsAmt")]
     #endif
     [IsoXmlTag("ChrgsAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     #else
-    public System.Decimal? ChargesAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; set; } 
     #endif
     
     /// <summary>

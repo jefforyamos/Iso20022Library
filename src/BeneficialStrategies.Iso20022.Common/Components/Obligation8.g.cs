@@ -213,13 +213,12 @@ public partial record Obligation8
     [DataMember(Name="XpsrAmt")]
     #endif
     [IsoXmlTag("XpsrAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ExposureAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposureAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureAmount { get; init; } 
     #else
-    public System.Decimal? ExposureAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureAmount { get; set; } 
     #endif
     
     /// <summary>

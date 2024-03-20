@@ -39,7 +39,7 @@ public partial record TotalValueInPageAndStatement
     /// Constructs a TotalValueInPageAndStatement instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TotalValueInPageAndStatement( System.Decimal reqTotalHoldingsValueOfStatement )
+    public TotalValueInPageAndStatement( ActiveCurrencyAndAmount reqTotalHoldingsValueOfStatement )
     {
         TotalHoldingsValueOfStatement = reqTotalHoldingsValueOfStatement;
     }
@@ -55,13 +55,12 @@ public partial record TotalValueInPageAndStatement
     [DataMember(Name="TtlHldgsValOfPg")]
     #endif
     [IsoXmlTag("TtlHldgsValOfPg")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
+    public ActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalHoldingsValueOfPage { get; init; } 
+    public ActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; init; } 
     #else
-    public System.Decimal? TotalHoldingsValueOfPage { get; set; } 
+    public ActiveCurrencyAndAmount? TotalHoldingsValueOfPage { get; set; } 
     #endif
     
     /// <summary>
@@ -73,15 +72,14 @@ public partial record TotalValueInPageAndStatement
     [DataMember(Name="TtlHldgsValOfStmt")]
     #endif
     [IsoXmlTag("TtlHldgsValOfStmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
+    public required ActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalHoldingsValueOfStatement { get; init; } 
+    public required ActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalHoldingsValueOfStatement { get; init; } 
+    public ActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; init; } 
     #else
-    public System.Decimal TotalHoldingsValueOfStatement { get; set; } 
+    public ActiveCurrencyAndAmount TotalHoldingsValueOfStatement { get; set; } 
     #endif
     
     

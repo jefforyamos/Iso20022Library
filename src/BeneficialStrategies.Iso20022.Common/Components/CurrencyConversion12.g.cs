@@ -39,7 +39,7 @@ public partial record CurrencyConversion12
     /// Constructs a CurrencyConversion12 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CurrencyConversion12( CurrencyDetails1 reqTargetCurrency,System.Decimal reqResultingAmount,System.Decimal reqExchangeRate,CurrencyDetails1 reqSourceCurrency,OriginalAmountDetails1 reqOriginalAmount )
+    public CurrencyConversion12( CurrencyDetails1 reqTargetCurrency,ImpliedCurrencyAndAmount reqResultingAmount,System.Decimal reqExchangeRate,CurrencyDetails1 reqSourceCurrency,OriginalAmountDetails1 reqOriginalAmount )
     {
         TargetCurrency = reqTargetCurrency;
         ResultingAmount = reqResultingAmount;
@@ -97,15 +97,14 @@ public partial record CurrencyConversion12
     [DataMember(Name="RsltgAmt")]
     #endif
     [IsoXmlTag("RsltgAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ResultingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ResultingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ResultingAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #else
-    public System.Decimal ResultingAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ResultingAmount { get; set; } 
     #endif
     
     /// <summary>

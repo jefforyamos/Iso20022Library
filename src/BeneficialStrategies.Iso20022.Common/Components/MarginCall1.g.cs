@@ -48,13 +48,12 @@ public partial record MarginCall1
     [DataMember(Name="XpsdAmtPtyA")]
     #endif
     [IsoXmlTag("XpsdAmtPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposedAmountPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #else
-    public System.Decimal? ExposedAmountPartyA { get; set; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record MarginCall1
     [DataMember(Name="XpsdAmtPtyB")]
     #endif
     [IsoXmlTag("XpsdAmtPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposedAmountPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #else
-    public System.Decimal? ExposedAmountPartyB { get; set; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; set; } 
     #endif
     
     /// <summary>

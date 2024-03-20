@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZmQtp9p-Ed-ak6NoX_4Aeg_1726381602")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
-[Derivations(typeof(RejectionReason8Code),typeof(RejectionReason7Code),typeof(RejectionReason45Code),typeof(RejectionReason17Code),typeof(RejectionReason3Code),typeof(RejectionReason20Code),typeof(RejectionReason28Code),typeof(RejectionReason19Code),typeof(RejectionReason13Code),typeof(RejectionReason6Code),typeof(RejectionReason15Code),typeof(RejectionReason2Code),typeof(RejectionReason1Code),typeof(RejectionReason9Code),typeof(RejectionReason10Code),typeof(RejectionReason5Code),typeof(RejectionReason12Code),typeof(RejectionReason14Code),typeof(RejectionReason4Code),typeof(PendingCancellationReason4Code),typeof(RejectionReason11Code),typeof(RejectionReason18Code))]
+[Derivations(typeof(RejectionReason9Code),typeof(RejectionReason12Code),typeof(RejectionReason4Code),typeof(RejectionReason7Code),typeof(RejectionReason15Code),typeof(PendingCancellationReason4Code),typeof(RejectionReason8Code),typeof(RejectionReason19Code),typeof(RejectionReason11Code),typeof(RejectionReason14Code),typeof(RejectionReason1Code),typeof(RejectionReason28Code),typeof(RejectionReason18Code),typeof(RejectionReason20Code),typeof(RejectionReason3Code),typeof(RejectionReason10Code),typeof(RejectionReason45Code),typeof(RejectionReason13Code),typeof(RejectionReason5Code),typeof(RejectionReason17Code),typeof(RejectionReason2Code),typeof(RejectionReason6Code))]
 public enum RejectionReasonCode
 {
     /// <summary>

@@ -39,7 +39,7 @@ public partial record MonthlyResult1
     /// Constructs a MonthlyResult1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public MonthlyResult1( System.UInt64 reqNumberOfObservations,System.UInt64 reqNumberOfExceptions,System.Decimal reqCoverage,System.Decimal reqLargestException,System.Decimal reqAverageException )
+    public MonthlyResult1( System.UInt64 reqNumberOfObservations,System.UInt64 reqNumberOfExceptions,System.Decimal reqCoverage,ActiveCurrencyAndAmount reqLargestException,ActiveCurrencyAndAmount reqAverageException )
     {
         NumberOfObservations = reqNumberOfObservations;
         NumberOfExceptions = reqNumberOfExceptions;
@@ -119,15 +119,14 @@ public partial record MonthlyResult1
     [DataMember(Name="LrgstXcptn")]
     #endif
     [IsoXmlTag("LrgstXcptn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount LargestException { get; init; } 
+    public required ActiveCurrencyAndAmount LargestException { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LargestException { get; init; } 
+    public required ActiveCurrencyAndAmount LargestException { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LargestException { get; init; } 
+    public ActiveCurrencyAndAmount LargestException { get; init; } 
     #else
-    public System.Decimal LargestException { get; set; } 
+    public ActiveCurrencyAndAmount LargestException { get; set; } 
     #endif
     
     /// <summary>
@@ -139,15 +138,14 @@ public partial record MonthlyResult1
     [DataMember(Name="AvrgXcptn")]
     #endif
     [IsoXmlTag("AvrgXcptn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AverageException { get; init; } 
+    public required ActiveCurrencyAndAmount AverageException { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AverageException { get; init; } 
+    public required ActiveCurrencyAndAmount AverageException { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AverageException { get; init; } 
+    public ActiveCurrencyAndAmount AverageException { get; init; } 
     #else
-    public System.Decimal AverageException { get; set; } 
+    public ActiveCurrencyAndAmount AverageException { get; set; } 
     #endif
     
     /// <summary>

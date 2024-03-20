@@ -166,13 +166,12 @@ public partial record CoverPaymentEvent1
     [DataMember(Name="InstdAmt")]
     #endif
     [IsoXmlTag("InstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; init; } 
     #else
-    public System.Decimal? InstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? InstructedAmount { get; set; } 
     #endif
     
     /// <summary>

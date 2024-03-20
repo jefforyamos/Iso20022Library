@@ -39,7 +39,7 @@ public partial record TrackerData6
     /// Constructs a TrackerData6 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TrackerData6( DateAndDateTime2Choice_ reqConfirmedDate,System.Decimal reqConfirmedAmount )
+    public TrackerData6( DateAndDateTime2Choice_ reqConfirmedDate,ActiveCurrencyAndAmount reqConfirmedAmount )
     {
         ConfirmedDate = reqConfirmedDate;
         ConfirmedAmount = reqConfirmedAmount;
@@ -77,15 +77,14 @@ public partial record TrackerData6
     [DataMember(Name="ConfdAmt")]
     #endif
     [IsoXmlTag("ConfdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ConfirmedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #else
-    public System.Decimal ConfirmedAmount { get; set; } 
+    public ActiveCurrencyAndAmount ConfirmedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -97,13 +96,12 @@ public partial record TrackerData6
     [DataMember(Name="RmngToBeConfdAmt")]
     #endif
     [IsoXmlTag("RmngToBeConfdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RemainingToBeConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; init; } 
     #else
-    public System.Decimal? RemainingToBeConfirmedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? RemainingToBeConfirmedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -115,13 +113,12 @@ public partial record TrackerData6
     [DataMember(Name="PrevslyConfdAmt")]
     #endif
     [IsoXmlTag("PrevslyConfdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviouslyConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; init; } 
     #else
-    public System.Decimal? PreviouslyConfirmedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? PreviouslyConfirmedAmount { get; set; } 
     #endif
     
     /// <summary>

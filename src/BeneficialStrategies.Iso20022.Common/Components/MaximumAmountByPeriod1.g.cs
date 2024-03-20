@@ -39,7 +39,7 @@ public partial record MaximumAmountByPeriod1
     /// Constructs a MaximumAmountByPeriod1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public MaximumAmountByPeriod1( System.Decimal reqMaximumAmount,System.String reqNumberOfDays )
+    public MaximumAmountByPeriod1( ActiveCurrencyAndAmount reqMaximumAmount,System.String reqNumberOfDays )
     {
         MaximumAmount = reqMaximumAmount;
         NumberOfDays = reqNumberOfDays;
@@ -56,15 +56,14 @@ public partial record MaximumAmountByPeriod1
     [DataMember(Name="MaxAmt")]
     #endif
     [IsoXmlTag("MaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MaximumAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MaximumAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MaximumAmount { get; init; } 
+    public required ActiveCurrencyAndAmount MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MaximumAmount { get; init; } 
+    public ActiveCurrencyAndAmount MaximumAmount { get; init; } 
     #else
-    public System.Decimal MaximumAmount { get; set; } 
+    public ActiveCurrencyAndAmount MaximumAmount { get; set; } 
     #endif
     
     /// <summary>

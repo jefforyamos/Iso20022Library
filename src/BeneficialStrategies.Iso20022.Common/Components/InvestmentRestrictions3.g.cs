@@ -48,13 +48,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MinInitlSbcptAmt")]
     #endif
     [IsoXmlTag("MinInitlSbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumInitialSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? MinimumInitialSubscriptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumInitialSubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +83,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MinSbsqntSbcptAmt")]
     #endif
     [IsoXmlTag("MinSbsqntSbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumSubsequentSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? MinimumSubsequentSubscriptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumSubsequentSubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +118,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MaxRedAmt")]
     #endif
     [IsoXmlTag("MaxRedAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MaximumRedemptionAmount { get; init; } 
     #else
-    public System.Decimal? MaximumRedemptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MaximumRedemptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -193,13 +190,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MinSwtchSbcptAmt")]
     #endif
     [IsoXmlTag("MinSwtchSbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumSwitchSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? MinimumSwitchSubscriptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumSwitchSubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -229,13 +225,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MaxSwtchRedAmt")]
     #endif
     [IsoXmlTag("MaxSwtchRedAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumSwitchRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; init; } 
     #else
-    public System.Decimal? MaximumSwitchRedemptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MaximumSwitchRedemptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -284,13 +279,12 @@ public partial record InvestmentRestrictions3
     [DataMember(Name="MinHldgAmt")]
     #endif
     [IsoXmlTag("MinHldgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumHoldingAmount { get; init; } 
+    public ActiveCurrencyAndAmount? MinimumHoldingAmount { get; init; } 
     #else
-    public System.Decimal? MinimumHoldingAmount { get; set; } 
+    public ActiveCurrencyAndAmount? MinimumHoldingAmount { get; set; } 
     #endif
     
     /// <summary>

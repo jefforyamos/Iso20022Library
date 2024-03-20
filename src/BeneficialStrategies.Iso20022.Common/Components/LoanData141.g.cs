@@ -268,13 +268,12 @@ public partial record LoanData141
     [DataMember(Name="LnVal")]
     #endif
     [IsoXmlTag("LnVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LoanValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; init; } 
     #else
-    public System.Decimal? LoanValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? LoanValue { get; set; } 
     #endif
     
     /// <summary>

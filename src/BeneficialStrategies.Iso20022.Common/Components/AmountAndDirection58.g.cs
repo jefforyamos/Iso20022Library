@@ -39,7 +39,7 @@ public partial record AmountAndDirection58
     /// Constructs a AmountAndDirection58 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AmountAndDirection58( System.Decimal reqAmount )
+    public AmountAndDirection58( RestrictedFINActiveOrHistoricCurrencyAndAmount reqAmount )
     {
         Amount = reqAmount;
     }
@@ -55,15 +55,14 @@ public partial record AmountAndDirection58
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoRestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -92,13 +91,12 @@ public partial record AmountAndDirection58
     [DataMember(Name="OrgnlCcyAndOrdrdAmt")]
     #endif
     [IsoXmlTag("OrgnlCcyAndOrdrdAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; set; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; set; } 
     #endif
     
     /// <summary>

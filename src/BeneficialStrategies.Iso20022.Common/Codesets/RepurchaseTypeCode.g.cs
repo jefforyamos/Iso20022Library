@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZT7ngNp-Ed-ak6NoX_4Aeg_605345255")]
 [Description(@"Relates to a principal adjustment.")]
-[Derivations(typeof(RepurchaseType5Code),typeof(RepurchaseType3Code),typeof(RepurchaseType7Code),typeof(RepurchaseType6Code),typeof(RepurchaseType2Code),typeof(RepurchaseType4Code))]
+[Derivations(typeof(RepurchaseType7Code),typeof(RepurchaseType3Code),typeof(RepurchaseType6Code),typeof(RepurchaseType4Code),typeof(RepurchaseType5Code),typeof(RepurchaseType2Code))]
 public enum RepurchaseTypeCode
 {
     /// <summary>

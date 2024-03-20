@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TV8F4AEcEeCQm6a_G2yO_w_-487459684")]
 [Description(@"Method used to authenticate a cardholder.")]
-[Derivations(typeof(AuthenticationMethod12Code),typeof(AuthenticationMethod3Code),typeof(AuthenticationMethod4Code),typeof(AuthenticationMethod5Code),typeof(AuthenticationMethod6Code),typeof(AuthenticationMethod8Code),typeof(AuthenticationMethod7Code),typeof(AuthenticationMethod11Code),typeof(AuthenticationMethod1Code),typeof(AuthenticationMethod2Code))]
+[Derivations(typeof(AuthenticationMethod11Code),typeof(AuthenticationMethod4Code),typeof(AuthenticationMethod2Code),typeof(AuthenticationMethod7Code),typeof(AuthenticationMethod5Code),typeof(AuthenticationMethod6Code),typeof(AuthenticationMethod3Code),typeof(AuthenticationMethod12Code),typeof(AuthenticationMethod8Code),typeof(AuthenticationMethod1Code))]
 public enum AuthenticationMethodCode
 {
     /// <summary>

@@ -48,13 +48,12 @@ public partial record PrePostHaircut1
     [DataMember(Name="PreHrcut")]
     #endif
     [IsoXmlTag("PreHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; init; } 
     #else
-    public System.Decimal? PreHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PreHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record PrePostHaircut1
     [DataMember(Name="PstHrcut")]
     #endif
     [IsoXmlTag("PstHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; init; } 
     #else
-    public System.Decimal? PostHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? PostHaircut { get; set; } 
     #endif
     
     

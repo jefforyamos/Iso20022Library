@@ -190,13 +190,12 @@ public partial record RecurringTransaction5
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TotalAmount { get; init; } 
+    public CurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public CurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public CurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -208,13 +207,12 @@ public partial record RecurringTransaction5
     [DataMember(Name="FrstAmt")]
     #endif
     [IsoXmlTag("FrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FirstAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FirstAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; init; } 
     #else
-    public System.Decimal? FirstAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FirstAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -226,13 +224,12 @@ public partial record RecurringTransaction5
     [DataMember(Name="SbsqntAmt")]
     #endif
     [IsoXmlTag("SbsqntAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? SubsequentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubsequentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubsequentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? SubsequentAmount { get; init; } 
     #else
-    public System.Decimal? SubsequentAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? SubsequentAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -244,13 +241,12 @@ public partial record RecurringTransaction5
     [DataMember(Name="LastAmt")]
     #endif
     [IsoXmlTag("LastAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? LastAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? LastAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LastAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? LastAmount { get; init; } 
     #else
-    public System.Decimal? LastAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? LastAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -262,13 +258,12 @@ public partial record RecurringTransaction5
     [DataMember(Name="Chrgs")]
     #endif
     [IsoXmlTag("Chrgs")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? Charges { get; init; } 
+    public ImpliedCurrencyAndAmount? Charges { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Charges { get; init; } 
+    public ImpliedCurrencyAndAmount? Charges { get; init; } 
     #else
-    public System.Decimal? Charges { get; set; } 
+    public ImpliedCurrencyAndAmount? Charges { get; set; } 
     #endif
     
     /// <summary>

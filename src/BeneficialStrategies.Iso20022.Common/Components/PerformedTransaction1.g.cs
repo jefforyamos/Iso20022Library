@@ -161,13 +161,12 @@ public partial record PerformedTransaction1
     [DataMember(Name="RvsdAmt")]
     #endif
     [IsoXmlTag("RvsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReversedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ReversedAmount { get; init; } 
     #else
-    public System.Decimal? ReversedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? ReversedAmount { get; set; } 
     #endif
     
     

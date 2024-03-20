@@ -39,7 +39,7 @@ public partial record InstalmentFinancingInformation1
     /// Constructs a InstalmentFinancingInformation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public InstalmentFinancingInformation1( System.String reqInstalmentSequenceIdentification,System.Decimal reqInstalmentTotalAmount,FinancingResult1 reqInstalmentFinancingResult )
+    public InstalmentFinancingInformation1( System.String reqInstalmentSequenceIdentification,ActiveCurrencyAndAmount reqInstalmentTotalAmount,FinancingResult1 reqInstalmentFinancingResult )
     {
         InstalmentSequenceIdentification = reqInstalmentSequenceIdentification;
         InstalmentTotalAmount = reqInstalmentTotalAmount;
@@ -78,15 +78,14 @@ public partial record InstalmentFinancingInformation1
     [DataMember(Name="InstlmtTtlAmt")]
     #endif
     [IsoXmlTag("InstlmtTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal InstalmentTotalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal InstalmentTotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount InstalmentTotalAmount { get; init; } 
     #else
-    public System.Decimal InstalmentTotalAmount { get; set; } 
+    public ActiveCurrencyAndAmount InstalmentTotalAmount { get; set; } 
     #endif
     
     /// <summary>

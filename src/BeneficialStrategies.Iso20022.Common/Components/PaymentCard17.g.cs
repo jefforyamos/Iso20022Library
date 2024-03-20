@@ -162,13 +162,12 @@ public partial record PaymentCard17
     [DataMember(Name="RtndCardBal")]
     #endif
     [IsoXmlTag("RtndCardBal")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? RetainedCardBalance { get; init; } 
+    public CurrencyAndAmount? RetainedCardBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RetainedCardBalance { get; init; } 
+    public CurrencyAndAmount? RetainedCardBalance { get; init; } 
     #else
-    public System.Decimal? RetainedCardBalance { get; set; } 
+    public CurrencyAndAmount? RetainedCardBalance { get; set; } 
     #endif
     
     

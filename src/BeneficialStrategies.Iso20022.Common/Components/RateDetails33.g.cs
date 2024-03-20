@@ -324,13 +324,12 @@ public partial record RateDetails33
     [DataMember(Name="EqulstnRate")]
     #endif
     [IsoXmlTag("EqulstnRate")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EqualisationRate { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; init; } 
     #else
-    public System.Decimal? EqualisationRate { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EqualisationRate { get; set; } 
     #endif
     
     /// <summary>

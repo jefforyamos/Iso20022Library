@@ -39,7 +39,7 @@ public partial record VolumeCapResult1
     /// Constructs a VolumeCapResult1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public VolumeCapResult1( System.String reqIdentification,Period4Choice_ reqReportingPeriod,System.Decimal reqTotalTradingVolume,System.Decimal reqTradingUnderWaiverPercentage )
+    public VolumeCapResult1( System.String reqIdentification,Period4Choice_ reqReportingPeriod,ActiveCurrencyAndAmount reqTotalTradingVolume,System.Decimal reqTradingUnderWaiverPercentage )
     {
         Identification = reqIdentification;
         ReportingPeriod = reqReportingPeriod;
@@ -115,15 +115,14 @@ public partial record VolumeCapResult1
     [DataMember(Name="TtlTradgVol")]
     #endif
     [IsoXmlTag("TtlTradgVol")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalTradingVolume { get; init; } 
+    public required ActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalTradingVolume { get; init; } 
+    public ActiveCurrencyAndAmount TotalTradingVolume { get; init; } 
     #else
-    public System.Decimal TotalTradingVolume { get; set; } 
+    public ActiveCurrencyAndAmount TotalTradingVolume { get; set; } 
     #endif
     
     /// <summary>

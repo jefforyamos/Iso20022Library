@@ -39,7 +39,7 @@ public partial record TaxCalculationInformation10
     /// Constructs a TaxCalculationInformation10 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TaxCalculationInformation10( System.Decimal reqTaxableAmount )
+    public TaxCalculationInformation10( ActiveCurrencyAndAmount reqTaxableAmount )
     {
         TaxableAmount = reqTaxableAmount;
     }
@@ -72,15 +72,14 @@ public partial record TaxCalculationInformation10
     [DataMember(Name="TaxblAmt")]
     #endif
     [IsoXmlTag("TaxblAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TaxableAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TaxableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TaxableAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TaxableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TaxableAmount { get; init; } 
+    public ActiveCurrencyAndAmount TaxableAmount { get; init; } 
     #else
-    public System.Decimal TaxableAmount { get; set; } 
+    public ActiveCurrencyAndAmount TaxableAmount { get; set; } 
     #endif
     
     

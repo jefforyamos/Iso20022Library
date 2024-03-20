@@ -132,13 +132,12 @@ public partial record FinancialItem1
     [DataMember(Name="DueAmt")]
     #endif
     [IsoXmlTag("DueAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? DueAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DueAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DueAmount { get; init; } 
+    public ActiveCurrencyAndAmount? DueAmount { get; init; } 
     #else
-    public System.Decimal? DueAmount { get; set; } 
+    public ActiveCurrencyAndAmount? DueAmount { get; set; } 
     #endif
     
     /// <summary>

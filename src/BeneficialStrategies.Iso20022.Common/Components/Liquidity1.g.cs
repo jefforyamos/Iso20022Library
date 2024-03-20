@@ -48,13 +48,12 @@ public partial record Liquidity1
     [DataMember(Name="Val")]
     #endif
     [IsoXmlTag("Val")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? Value { get; init; } 
+    public ActiveCurrencyAndAmount? Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Value { get; init; } 
+    public ActiveCurrencyAndAmount? Value { get; init; } 
     #else
-    public System.Decimal? Value { get; set; } 
+    public ActiveCurrencyAndAmount? Value { get; set; } 
     #endif
     
     /// <summary>

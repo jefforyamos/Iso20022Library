@@ -115,13 +115,12 @@ public partial record ATMTransaction27
     [DataMember(Name="ElctrncPrsBal")]
     #endif
     [IsoXmlTag("ElctrncPrsBal")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? ElectronicPurseBalance { get; init; } 
+    public CurrencyAndAmount? ElectronicPurseBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ElectronicPurseBalance { get; init; } 
+    public CurrencyAndAmount? ElectronicPurseBalance { get; init; } 
     #else
-    public System.Decimal? ElectronicPurseBalance { get; set; } 
+    public CurrencyAndAmount? ElectronicPurseBalance { get; set; } 
     #endif
     
     

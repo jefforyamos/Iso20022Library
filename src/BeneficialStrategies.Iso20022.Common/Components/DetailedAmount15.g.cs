@@ -48,13 +48,12 @@ public partial record DetailedAmount15
     [DataMember(Name="AmtGoodsAndSvcs")]
     #endif
     [IsoXmlTag("AmtGoodsAndSvcs")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AmountGoodsAndServices { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountGoodsAndServices { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AmountGoodsAndServices { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountGoodsAndServices { get; init; } 
     #else
-    public System.Decimal? AmountGoodsAndServices { get; set; } 
+    public ImpliedCurrencyAndAmount? AmountGoodsAndServices { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record DetailedAmount15
     [DataMember(Name="CshBck")]
     #endif
     [IsoXmlTag("CshBck")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CashBack { get; init; } 
+    public ImpliedCurrencyAndAmount? CashBack { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashBack { get; init; } 
+    public ImpliedCurrencyAndAmount? CashBack { get; init; } 
     #else
-    public System.Decimal? CashBack { get; set; } 
+    public ImpliedCurrencyAndAmount? CashBack { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record DetailedAmount15
     [DataMember(Name="Grtty")]
     #endif
     [IsoXmlTag("Grtty")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? Gratuity { get; init; } 
+    public ImpliedCurrencyAndAmount? Gratuity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Gratuity { get; init; } 
+    public ImpliedCurrencyAndAmount? Gratuity { get; init; } 
     #else
-    public System.Decimal? Gratuity { get; set; } 
+    public ImpliedCurrencyAndAmount? Gratuity { get; set; } 
     #endif
     
     /// <summary>

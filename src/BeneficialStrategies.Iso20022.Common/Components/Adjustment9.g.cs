@@ -161,13 +161,12 @@ public partial record Adjustment9
     [DataMember(Name="AdjstmntAmt")]
     #endif
     [IsoXmlTag("AdjstmntAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AdjustmentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? AdjustmentAmount { get; init; } 
     #else
-    public System.Decimal? AdjustmentAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? AdjustmentAmount { get; set; } 
     #endif
     
     /// <summary>

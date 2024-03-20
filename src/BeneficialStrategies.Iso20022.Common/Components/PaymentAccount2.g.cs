@@ -65,13 +65,12 @@ public partial record PaymentAccount2
     [DataMember(Name="CurBal")]
     #endif
     [IsoXmlTag("CurBal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentBalance { get; init; } 
     #else
-    public System.Decimal? CurrentBalance { get; set; } 
+    public ImpliedCurrencyAndAmount? CurrentBalance { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record Dispute1
     /// Constructs a Dispute1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Dispute1( System.String reqMarginCallRequestIdentification,System.Decimal reqDisputedAmount,System.DateOnly reqDisputeDate )
+    public Dispute1( System.String reqMarginCallRequestIdentification,ActiveCurrencyAndAmount reqDisputedAmount,System.DateOnly reqDisputeDate )
     {
         MarginCallRequestIdentification = reqMarginCallRequestIdentification;
         DisputedAmount = reqDisputedAmount;
@@ -78,15 +78,14 @@ public partial record Dispute1
     [DataMember(Name="DsptdAmt")]
     #endif
     [IsoXmlTag("DsptdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount DisputedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount DisputedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal DisputedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount DisputedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal DisputedAmount { get; init; } 
+    public ActiveCurrencyAndAmount DisputedAmount { get; init; } 
     #else
-    public System.Decimal DisputedAmount { get; set; } 
+    public ActiveCurrencyAndAmount DisputedAmount { get; set; } 
     #endif
     
     /// <summary>

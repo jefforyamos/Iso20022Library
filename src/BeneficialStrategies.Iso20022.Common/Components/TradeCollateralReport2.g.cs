@@ -85,13 +85,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="InitlMrgnPstd")]
     #endif
     [IsoXmlTag("InitlMrgnPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? InitialMarginPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginPosted { get; init; } 
     #else
-    public System.Decimal? InitialMarginPosted { get; set; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginPosted { get; set; } 
     #endif
     
     /// <summary>
@@ -104,13 +103,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="VartnMrgnPstd")]
     #endif
     [IsoXmlTag("VartnMrgnPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? VariationMarginPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginPosted { get; init; } 
     #else
-    public System.Decimal? VariationMarginPosted { get; set; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginPosted { get; set; } 
     #endif
     
     /// <summary>
@@ -123,13 +121,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="InitlMrgnRcvd")]
     #endif
     [IsoXmlTag("InitlMrgnRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? InitialMarginReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginReceived { get; init; } 
     #else
-    public System.Decimal? InitialMarginReceived { get; set; } 
+    public ActiveCurrencyAnd20Amount? InitialMarginReceived { get; set; } 
     #endif
     
     /// <summary>
@@ -142,13 +139,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="VartnMrgnRcvd")]
     #endif
     [IsoXmlTag("VartnMrgnRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? VariationMarginReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginReceived { get; init; } 
     #else
-    public System.Decimal? VariationMarginReceived { get; set; } 
+    public ActiveCurrencyAnd20Amount? VariationMarginReceived { get; set; } 
     #endif
     
     /// <summary>
@@ -160,13 +156,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="XcssCollPstd")]
     #endif
     [IsoXmlTag("XcssCollPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExcessCollateralPosted { get; init; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; init; } 
     #else
-    public System.Decimal? ExcessCollateralPosted { get; set; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralPosted { get; set; } 
     #endif
     
     /// <summary>
@@ -178,13 +173,12 @@ public partial record TradeCollateralReport2
     [DataMember(Name="XcssCollRcvd")]
     #endif
     [IsoXmlTag("XcssCollRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd20Amount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExcessCollateralReceived { get; init; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; init; } 
     #else
-    public System.Decimal? ExcessCollateralReceived { get; set; } 
+    public ActiveCurrencyAnd20Amount? ExcessCollateralReceived { get; set; } 
     #endif
     
     

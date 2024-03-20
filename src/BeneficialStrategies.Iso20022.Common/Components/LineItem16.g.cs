@@ -135,13 +135,12 @@ public partial record LineItem16
     [DataMember(Name="NetPric")]
     #endif
     [IsoXmlTag("NetPric")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? NetPrice { get; init; } 
+    public CurrencyAndAmount? NetPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetPrice { get; init; } 
+    public CurrencyAndAmount? NetPrice { get; init; } 
     #else
-    public System.Decimal? NetPrice { get; set; } 
+    public CurrencyAndAmount? NetPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -204,13 +203,12 @@ public partial record LineItem16
     [DataMember(Name="GrssPric")]
     #endif
     [IsoXmlTag("GrssPric")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? GrossPrice { get; init; } 
+    public CurrencyAndAmount? GrossPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossPrice { get; init; } 
+    public CurrencyAndAmount? GrossPrice { get; init; } 
     #else
-    public System.Decimal? GrossPrice { get; set; } 
+    public CurrencyAndAmount? GrossPrice { get; set; } 
     #endif
     
     /// <summary>

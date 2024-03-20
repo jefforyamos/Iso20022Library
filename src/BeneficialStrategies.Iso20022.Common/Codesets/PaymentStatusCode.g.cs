@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Z7RUV9p-Ed-ak6NoX_4Aeg_-481257913")]
 [Description(@"Indicates the status of a single payment transaction or of a group of payment transactions.")]
-[Derivations(typeof(ValidationGroupStatus1Code),typeof(PartialGroupStatus2Code),typeof(TransactionIndividualStatus2Code),typeof(TransactionIndividualStatus4Code),typeof(CancellationIndividualStatus2Code),typeof(TransactionGroupStatus2Code),typeof(ValidationGroupStatus2Code),typeof(TransactionIndividualStatus5Code),typeof(CancellationIndividualStatus1Code),typeof(TransactionIndividualStatus1Code),typeof(GroupCancellationStatus1Code),typeof(PartialGroupStatus1Code),typeof(TransactionGroupStatus1Code),typeof(TransactionIndividualStatus3Code),typeof(TransactionGroupStatus3Code))]
+[Derivations(typeof(TransactionIndividualStatus2Code),typeof(CancellationIndividualStatus1Code),typeof(TransactionGroupStatus2Code),typeof(TransactionIndividualStatus5Code),typeof(TransactionIndividualStatus4Code),typeof(PartialGroupStatus1Code),typeof(ValidationGroupStatus1Code),typeof(ValidationGroupStatus2Code),typeof(GroupCancellationStatus1Code),typeof(TransactionGroupStatus1Code),typeof(CancellationIndividualStatus2Code),typeof(TransactionIndividualStatus3Code),typeof(PartialGroupStatus2Code),typeof(TransactionGroupStatus3Code),typeof(TransactionIndividualStatus1Code))]
 public enum PaymentStatusCode
 {
     /// <summary>

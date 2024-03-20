@@ -48,13 +48,12 @@ public partial record AmountAndDirection109
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd19DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd19DecimalAmount? Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd19DecimalAmount? Amount { get; set; } 
     #endif
     
     /// <summary>

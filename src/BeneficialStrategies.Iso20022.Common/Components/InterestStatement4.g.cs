@@ -75,13 +75,12 @@ public partial record InterestStatement4
     [DataMember(Name="TtlIntrstAmtDueToA")]
     #endif
     [IsoXmlTag("TtlIntrstAmtDueToA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalInterestAmountDueToA { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; init; } 
     #else
-    public System.Decimal? TotalInterestAmountDueToA { get; set; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToA { get; set; } 
     #endif
     
     /// <summary>
@@ -93,13 +92,12 @@ public partial record InterestStatement4
     [DataMember(Name="TtlIntrstAmtDueToB")]
     #endif
     [IsoXmlTag("TtlIntrstAmtDueToB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalInterestAmountDueToB { get; init; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; init; } 
     #else
-    public System.Decimal? TotalInterestAmountDueToB { get; set; } 
+    public ActiveCurrencyAndAmount? TotalInterestAmountDueToB { get; set; } 
     #endif
     
     /// <summary>

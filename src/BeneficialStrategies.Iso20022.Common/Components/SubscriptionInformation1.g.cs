@@ -39,7 +39,7 @@ public partial record SubscriptionInformation1
     /// Constructs a SubscriptionInformation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public SubscriptionInformation1( System.DateOnly reqDateOfFirstSubscription,System.Decimal reqTotalAmountYearToDate )
+    public SubscriptionInformation1( System.DateOnly reqDateOfFirstSubscription,ActiveCurrencyAndAmount reqTotalAmountYearToDate )
     {
         DateOfFirstSubscription = reqDateOfFirstSubscription;
         TotalAmountYearToDate = reqTotalAmountYearToDate;
@@ -76,13 +76,12 @@ public partial record SubscriptionInformation1
     [DataMember(Name="EqtyCmpnt")]
     #endif
     [IsoXmlTag("EqtyCmpnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? EquityComponent { get; init; } 
+    public ActiveCurrencyAndAmount? EquityComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EquityComponent { get; init; } 
+    public ActiveCurrencyAndAmount? EquityComponent { get; init; } 
     #else
-    public System.Decimal? EquityComponent { get; set; } 
+    public ActiveCurrencyAndAmount? EquityComponent { get; set; } 
     #endif
     
     /// <summary>
@@ -94,13 +93,12 @@ public partial record SubscriptionInformation1
     [DataMember(Name="CshCmpnt")]
     #endif
     [IsoXmlTag("CshCmpnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CashComponent { get; init; } 
+    public ActiveCurrencyAndAmount? CashComponent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashComponent { get; init; } 
+    public ActiveCurrencyAndAmount? CashComponent { get; init; } 
     #else
-    public System.Decimal? CashComponent { get; set; } 
+    public ActiveCurrencyAndAmount? CashComponent { get; set; } 
     #endif
     
     /// <summary>
@@ -112,15 +110,14 @@ public partial record SubscriptionInformation1
     [DataMember(Name="TtlAmtYrToDt")]
     #endif
     [IsoXmlTag("TtlAmtYrToDt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAmountYearToDate { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAmountYearToDate { get; init; } 
+    public ActiveCurrencyAndAmount TotalAmountYearToDate { get; init; } 
     #else
-    public System.Decimal TotalAmountYearToDate { get; set; } 
+    public ActiveCurrencyAndAmount TotalAmountYearToDate { get; set; } 
     #endif
     
     

@@ -153,13 +153,12 @@ public partial record Issuance6
     [DataMember(Name="FullIssdAmt")]
     #endif
     [IsoXmlTag("FullIssdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FullIssuedAmount { get; init; } 
+    public ActiveCurrencyAndAmount? FullIssuedAmount { get; init; } 
     #else
-    public System.Decimal? FullIssuedAmount { get; set; } 
+    public ActiveCurrencyAndAmount? FullIssuedAmount { get; set; } 
     #endif
     
     /// <summary>

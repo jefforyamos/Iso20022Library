@@ -39,7 +39,7 @@ public partial record AmountAndDirection9
     /// Constructs a AmountAndDirection9 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AmountAndDirection9( System.Decimal reqAmount )
+    public AmountAndDirection9( ActiveOrHistoricCurrencyAndAmount reqAmount )
     {
         Amount = reqAmount;
     }
@@ -55,15 +55,14 @@ public partial record AmountAndDirection9
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -92,13 +91,12 @@ public partial record AmountAndDirection9
     [DataMember(Name="OrgnlCcyAndOrdrdAmt")]
     #endif
     [IsoXmlTag("OrgnlCcyAndOrdrdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; set; } 
     #endif
     
     /// <summary>

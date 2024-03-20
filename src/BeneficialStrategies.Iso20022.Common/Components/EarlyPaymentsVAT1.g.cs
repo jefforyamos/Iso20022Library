@@ -39,7 +39,7 @@ public partial record EarlyPaymentsVAT1
     /// Constructs a EarlyPaymentsVAT1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public EarlyPaymentsVAT1( System.Decimal reqTaxRate,System.String reqDiscountTaxType,System.Decimal reqDiscountTaxAmount )
+    public EarlyPaymentsVAT1( System.Decimal reqTaxRate,System.String reqDiscountTaxType,CurrencyAndAmount reqDiscountTaxAmount )
     {
         TaxRate = reqTaxRate;
         DiscountTaxType = reqDiscountTaxType;
@@ -98,15 +98,14 @@ public partial record EarlyPaymentsVAT1
     [DataMember(Name="DscntTaxAmt")]
     #endif
     [IsoXmlTag("DscntTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount DiscountTaxAmount { get; init; } 
+    public required CurrencyAndAmount DiscountTaxAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal DiscountTaxAmount { get; init; } 
+    public required CurrencyAndAmount DiscountTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal DiscountTaxAmount { get; init; } 
+    public CurrencyAndAmount DiscountTaxAmount { get; init; } 
     #else
-    public System.Decimal DiscountTaxAmount { get; set; } 
+    public CurrencyAndAmount DiscountTaxAmount { get; set; } 
     #endif
     
     

@@ -78,13 +78,12 @@ public partial record ExchangeConfiguration3
     [DataMember(Name="MaxAmt")]
     #endif
     [IsoXmlTag("MaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; init; } 
     #else
-    public System.Decimal? MaximumAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumAmount { get; set; } 
     #endif
     
     /// <summary>

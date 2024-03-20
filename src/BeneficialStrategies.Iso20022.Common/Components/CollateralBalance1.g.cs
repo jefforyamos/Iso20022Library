@@ -39,7 +39,7 @@ public partial record CollateralBalance1
     /// Constructs a CollateralBalance1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralBalance1( System.Decimal reqHeldByPartyA,System.Decimal reqHeldByPartyB )
+    public CollateralBalance1( ActiveCurrencyAndAmount reqHeldByPartyA,ActiveCurrencyAndAmount reqHeldByPartyB )
     {
         HeldByPartyA = reqHeldByPartyA;
         HeldByPartyB = reqHeldByPartyB;
@@ -56,15 +56,14 @@ public partial record CollateralBalance1
     [DataMember(Name="HeldByPtyA")]
     #endif
     [IsoXmlTag("HeldByPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount HeldByPartyA { get; init; } 
+    public required ActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal HeldByPartyA { get; init; } 
+    public required ActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal HeldByPartyA { get; init; } 
+    public ActiveCurrencyAndAmount HeldByPartyA { get; init; } 
     #else
-    public System.Decimal HeldByPartyA { get; set; } 
+    public ActiveCurrencyAndAmount HeldByPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -76,15 +75,14 @@ public partial record CollateralBalance1
     [DataMember(Name="HeldByPtyB")]
     #endif
     [IsoXmlTag("HeldByPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount HeldByPartyB { get; init; } 
+    public required ActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal HeldByPartyB { get; init; } 
+    public required ActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal HeldByPartyB { get; init; } 
+    public ActiveCurrencyAndAmount HeldByPartyB { get; init; } 
     #else
-    public System.Decimal HeldByPartyB { get; set; } 
+    public ActiveCurrencyAndAmount HeldByPartyB { get; set; } 
     #endif
     
     

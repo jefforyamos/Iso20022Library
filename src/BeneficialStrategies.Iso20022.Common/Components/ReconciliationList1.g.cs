@@ -39,7 +39,7 @@ public partial record ReconciliationList1
     /// Constructs a ReconciliationList1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ReconciliationList1( System.DateOnly reqDate,QualifiedPartyIdentification1 reqRecipient,QualifiedPartyIdentification1 reqAdvisor,FinancialItemParameters1 reqParameters,PaymentIdentification1 reqPaymentReference,PaymentMeans1 reqPaymentMeans,System.DateOnly reqPaymentDate,PaymentTerms6 reqPaymentTerms,System.Decimal reqPaymentAmount,System.String reqItemCount )
+    public ReconciliationList1( System.DateOnly reqDate,QualifiedPartyIdentification1 reqRecipient,QualifiedPartyIdentification1 reqAdvisor,FinancialItemParameters1 reqParameters,PaymentIdentification1 reqPaymentReference,PaymentMeans1 reqPaymentMeans,System.DateOnly reqPaymentDate,PaymentTerms6 reqPaymentTerms,CurrencyAndAmount reqPaymentAmount,System.String reqItemCount )
     {
         Date = reqDate;
         Recipient = reqRecipient;
@@ -235,15 +235,14 @@ public partial record ReconciliationList1
     [DataMember(Name="PmtAmt")]
     #endif
     [IsoXmlTag("PmtAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount PaymentAmount { get; init; } 
+    public required CurrencyAndAmount PaymentAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PaymentAmount { get; init; } 
+    public required CurrencyAndAmount PaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PaymentAmount { get; init; } 
+    public CurrencyAndAmount PaymentAmount { get; init; } 
     #else
-    public System.Decimal PaymentAmount { get; set; } 
+    public CurrencyAndAmount PaymentAmount { get; set; } 
     #endif
     
     /// <summary>

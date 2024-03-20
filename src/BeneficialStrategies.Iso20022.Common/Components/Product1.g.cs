@@ -39,7 +39,7 @@ public partial record Product1
     /// Constructs a Product1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Product1( System.String reqProductCode,System.Decimal reqProductAmount )
+    public Product1( System.String reqProductCode,ImpliedCurrencyAndAmount reqProductAmount )
     {
         ProductCode = reqProductCode;
         ProductAmount = reqProductAmount;
@@ -112,13 +112,12 @@ public partial record Product1
     [DataMember(Name="UnitPric")]
     #endif
     [IsoXmlTag("UnitPric")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnitPrice { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     #else
-    public System.Decimal? UnitPrice { get; set; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -130,15 +129,14 @@ public partial record Product1
     [DataMember(Name="PdctAmt")]
     #endif
     [IsoXmlTag("PdctAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ProductAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ProductAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ProductAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ProductAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ProductAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ProductAmount { get; init; } 
     #else
-    public System.Decimal ProductAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ProductAmount { get; set; } 
     #endif
     
     /// <summary>

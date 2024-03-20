@@ -39,7 +39,7 @@ public partial record TradeSettlement2
     /// Constructs a TradeSettlement2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TradeSettlement2( System.Decimal reqDuePayableAmount,System.Decimal reqTaxTotalAmount )
+    public TradeSettlement2( CurrencyAndAmount reqDuePayableAmount,CurrencyAndAmount reqTaxTotalAmount )
     {
         DuePayableAmount = reqDuePayableAmount;
         TaxTotalAmount = reqTaxTotalAmount;
@@ -91,15 +91,14 @@ public partial record TradeSettlement2
     [DataMember(Name="DuePyblAmt")]
     #endif
     [IsoXmlTag("DuePyblAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount DuePayableAmount { get; init; } 
+    public required CurrencyAndAmount DuePayableAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal DuePayableAmount { get; init; } 
+    public required CurrencyAndAmount DuePayableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal DuePayableAmount { get; init; } 
+    public CurrencyAndAmount DuePayableAmount { get; init; } 
     #else
-    public System.Decimal DuePayableAmount { get; set; } 
+    public CurrencyAndAmount DuePayableAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -163,15 +162,14 @@ public partial record TradeSettlement2
     [DataMember(Name="TaxTtlAmt")]
     #endif
     [IsoXmlTag("TaxTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount TaxTotalAmount { get; init; } 
+    public required CurrencyAndAmount TaxTotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TaxTotalAmount { get; init; } 
+    public required CurrencyAndAmount TaxTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TaxTotalAmount { get; init; } 
+    public CurrencyAndAmount TaxTotalAmount { get; init; } 
     #else
-    public System.Decimal TaxTotalAmount { get; set; } 
+    public CurrencyAndAmount TaxTotalAmount { get; set; } 
     #endif
     
     /// <summary>

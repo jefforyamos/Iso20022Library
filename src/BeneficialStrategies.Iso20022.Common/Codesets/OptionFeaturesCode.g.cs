@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aPsFJtp-Ed-ak6NoX_4Aeg_322763675")]
 [Description(@"Specifies the features that may apply to a corporate action option.")]
-[Derivations(typeof(OptionFeatures6Code),typeof(OptionFeatures4Code),typeof(OptionFeatures3Code),typeof(OptionFeatures1Code),typeof(OptionFeatures7Code),typeof(OptionFeatures8Code),typeof(OptionFeatures10Code),typeof(OptionFeatures5Code),typeof(OptionFeatures12Code),typeof(OptionFeatures2Code),typeof(OptionFeatures11Code))]
+[Derivations(typeof(OptionFeatures7Code),typeof(OptionFeatures3Code),typeof(OptionFeatures2Code),typeof(OptionFeatures8Code),typeof(OptionFeatures5Code),typeof(OptionFeatures6Code),typeof(OptionFeatures12Code),typeof(OptionFeatures4Code),typeof(OptionFeatures11Code),typeof(OptionFeatures1Code),typeof(OptionFeatures10Code))]
 public enum OptionFeaturesCode
 {
     /// <summary>

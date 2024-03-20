@@ -76,13 +76,12 @@ public partial record CorporateActionPriceSD3
     [DataMember(Name="SbcptPric")]
     #endif
     [IsoXmlTag("SbcptPric")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? SubscriptionPrice { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? SubscriptionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubscriptionPrice { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? SubscriptionPrice { get; init; } 
     #else
-    public System.Decimal? SubscriptionPrice { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? SubscriptionPrice { get; set; } 
     #endif
     
     

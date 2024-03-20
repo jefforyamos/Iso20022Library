@@ -84,13 +84,12 @@ public partial record Quantity47
     [DataMember(Name="FaceAmt")]
     #endif
     [IsoXmlTag("FaceAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FaceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FaceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; init; } 
     #else
-    public System.Decimal? FaceAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -102,13 +101,12 @@ public partial record Quantity47
     [DataMember(Name="AmtsdVal")]
     #endif
     [IsoXmlTag("AmtsdVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AmortisedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? AmortisedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AmortisedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? AmortisedValue { get; init; } 
     #else
-    public System.Decimal? AmortisedValue { get; set; } 
+    public ImpliedCurrencyAndAmount? AmortisedValue { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +118,12 @@ public partial record Quantity47
     [DataMember(Name="CshAmt")]
     #endif
     [IsoXmlTag("CshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? CashAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CashAmount { get; init; } 
     #else
-    public System.Decimal? CashAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? CashAmount { get; set; } 
     #endif
     
     /// <summary>

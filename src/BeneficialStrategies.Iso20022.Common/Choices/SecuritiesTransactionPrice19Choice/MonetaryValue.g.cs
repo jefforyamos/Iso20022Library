@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choi
         /// Constructs a MonetaryValue instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public MonetaryValue( System.Decimal reqAmount )
+        public MonetaryValue( ActiveOrHistoricCurrencyAnd20DecimalAmount reqAmount )
         {
             Amount = reqAmount;
         }
@@ -60,15 +60,14 @@ namespace BeneficialStrategies.Iso20022.Choices.SecuritiesTransactionPrice19Choi
         [DataMember(Name="Amt")]
         #endif
         [IsoXmlTag("Amt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
+        public required ActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Amount { get; init; } 
+        public required ActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Amount { get; init; } 
+        public ActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; init; } 
         #else
-        public System.Decimal Amount { get; set; } 
+        public ActiveOrHistoricCurrencyAnd20DecimalAmount Amount { get; set; } 
         #endif
         
         /// <summary>

@@ -212,13 +212,12 @@ public partial record TaxEfficientProduct2
     [DataMember(Name="LwstInvstdAmtCurYr")]
     #endif
     [IsoXmlTag("LwstInvstdAmtCurYr")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LowestInvestedAmountCurrentYear { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; init; } 
     #else
-    public System.Decimal? LowestInvestedAmountCurrentYear { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? LowestInvestedAmountCurrentYear { get; set; } 
     #endif
     
     /// <summary>
@@ -230,13 +229,12 @@ public partial record TaxEfficientProduct2
     [DataMember(Name="TaxClctnBase")]
     #endif
     [IsoXmlTag("TaxClctnBase")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxCalculationBase { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; init; } 
     #else
-    public System.Decimal? TaxCalculationBase { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TaxCalculationBase { get; set; } 
     #endif
     
     /// <summary>
@@ -248,13 +246,12 @@ public partial record TaxEfficientProduct2
     [DataMember(Name="UusdTaxDdctn")]
     #endif
     [IsoXmlTag("UusdTaxDdctn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnusedTaxDeduction { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; init; } 
     #else
-    public System.Decimal? UnusedTaxDeduction { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? UnusedTaxDeduction { get; set; } 
     #endif
     
     /// <summary>
@@ -266,13 +263,12 @@ public partial record TaxEfficientProduct2
     [DataMember(Name="CurInvstmtAmt")]
     #endif
     [IsoXmlTag("CurInvstmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentInvestmentAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; init; } 
     #else
-    public System.Decimal? CurrentInvestmentAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? CurrentInvestmentAmount { get; set; } 
     #endif
     
     /// <summary>

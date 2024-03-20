@@ -171,13 +171,12 @@ public partial record TelecomServicesLineItem1
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>

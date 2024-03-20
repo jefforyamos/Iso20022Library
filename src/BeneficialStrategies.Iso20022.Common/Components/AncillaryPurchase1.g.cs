@@ -198,13 +198,12 @@ public partial record AncillaryPurchase1
     [DataMember(Name="Fee")]
     #endif
     [IsoXmlTag("Fee")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? Fee { get; init; } 
+    public ImpliedCurrencyAndAmount? Fee { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Fee { get; init; } 
+    public ImpliedCurrencyAndAmount? Fee { get; init; } 
     #else
-    public System.Decimal? Fee { get; set; } 
+    public ImpliedCurrencyAndAmount? Fee { get; set; } 
     #endif
     
     /// <summary>

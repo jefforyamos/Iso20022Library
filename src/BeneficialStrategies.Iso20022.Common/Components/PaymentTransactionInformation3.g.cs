@@ -143,13 +143,12 @@ public partial record PaymentTransactionInformation3
     [DataMember(Name="OrgnlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInterbankSettlementAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInterbankSettlementAmount { get; set; } 
+    public CurrencyAndAmount? OriginalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -161,13 +160,12 @@ public partial record PaymentTransactionInformation3
     [DataMember(Name="OrgnlInstdAmt")]
     #endif
     [IsoXmlTag("OrgnlInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInstructedAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInstructedAmount { get; set; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; set; } 
     #endif
     
     /// <summary>

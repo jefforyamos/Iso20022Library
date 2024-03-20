@@ -558,13 +558,12 @@ public partial record CorporateActionRate2
     [DataMember(Name="OrgnlAmt")]
     #endif
     [IsoXmlTag("OrgnlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? OriginalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     #else
-    public System.Decimal? OriginalAmount { get; set; } 
+    public ActiveCurrencyAndAmount? OriginalAmount { get; set; } 
     #endif
     
     /// <summary>

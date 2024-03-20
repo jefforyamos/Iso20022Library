@@ -93,13 +93,12 @@ public partial record CorporateActionSD3
     [DataMember(Name="EvtCshVal")]
     #endif
     [IsoXmlTag("EvtCshVal")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EventCashValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; init; } 
     #else
-    public System.Decimal? EventCashValue { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? EventCashValue { get; set; } 
     #endif
     
     /// <summary>

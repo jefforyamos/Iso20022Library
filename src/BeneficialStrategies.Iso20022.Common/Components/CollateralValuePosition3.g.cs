@@ -75,13 +75,12 @@ public partial record CollateralValuePosition3
     [DataMember(Name="TtlCollValtn")]
     #endif
     [IsoXmlTag("TtlCollValtn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
+    public ActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalCollateralValuation { get; init; } 
+    public ActiveCurrencyAndAmount? TotalCollateralValuation { get; init; } 
     #else
-    public System.Decimal? TotalCollateralValuation { get; set; } 
+    public ActiveCurrencyAndAmount? TotalCollateralValuation { get; set; } 
     #endif
     
     /// <summary>

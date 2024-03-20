@@ -39,7 +39,7 @@ public partial record ChargesInformation1
     /// Constructs a ChargesInformation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ChargesInformation1( System.Decimal reqChargesAmount,BranchAndFinancialInstitutionIdentification3 reqChargesParty )
+    public ChargesInformation1( CurrencyAndAmount reqChargesAmount,BranchAndFinancialInstitutionIdentification3 reqChargesParty )
     {
         ChargesAmount = reqChargesAmount;
         ChargesParty = reqChargesParty;
@@ -56,15 +56,14 @@ public partial record ChargesInformation1
     [DataMember(Name="ChrgsAmt")]
     #endif
     [IsoXmlTag("ChrgsAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount ChargesAmount { get; init; } 
+    public required CurrencyAndAmount ChargesAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ChargesAmount { get; init; } 
+    public required CurrencyAndAmount ChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ChargesAmount { get; init; } 
+    public CurrencyAndAmount ChargesAmount { get; init; } 
     #else
-    public System.Decimal ChargesAmount { get; set; } 
+    public CurrencyAndAmount ChargesAmount { get; set; } 
     #endif
     
     /// <summary>

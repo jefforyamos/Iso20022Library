@@ -266,13 +266,12 @@ public partial record CorporateActionOption186
     [DataMember(Name="StsCshAmt")]
     #endif
     [IsoXmlTag("StsCshAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StatusCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? StatusCashAmount { get; init; } 
     #else
-    public System.Decimal? StatusCashAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? StatusCashAmount { get; set; } 
     #endif
     
     

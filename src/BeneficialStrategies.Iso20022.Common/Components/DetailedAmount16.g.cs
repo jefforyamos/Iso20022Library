@@ -66,13 +66,12 @@ public partial record DetailedAmount16
     [DataMember(Name="AmtToDpst")]
     #endif
     [IsoXmlTag("AmtToDpst")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AmountToDeposit { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountToDeposit { get; init; } 
     #else
-    public System.Decimal? AmountToDeposit { get; set; } 
+    public ImpliedCurrencyAndAmount? AmountToDeposit { get; set; } 
     #endif
     
     /// <summary>
@@ -101,13 +100,12 @@ public partial record DetailedAmount16
     [DataMember(Name="CshBckAmt")]
     #endif
     [IsoXmlTag("CshBckAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashBackAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CashBackAmount { get; init; } 
     #else
-    public System.Decimal? CashBackAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? CashBackAmount { get; set; } 
     #endif
     
     /// <summary>

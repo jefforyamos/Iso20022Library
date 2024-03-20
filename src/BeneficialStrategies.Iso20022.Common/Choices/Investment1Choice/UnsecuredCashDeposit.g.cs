@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         /// Constructs a UnsecuredCashDeposit instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public UnsecuredCashDeposit( System.DateOnly reqMaturityDate,System.Decimal reqValue,System.String reqCounterpartyIdentification )
+        public UnsecuredCashDeposit( System.DateOnly reqMaturityDate,ActiveCurrencyAndAmount reqValue,System.String reqCounterpartyIdentification )
         {
             MaturityDate = reqMaturityDate;
             Value = reqValue;
@@ -82,15 +82,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Investment1Choice
         [DataMember(Name="Val")]
         #endif
         [IsoXmlTag("Val")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveCurrencyAndAmount Value { get; init; } 
+        public required ActiveCurrencyAndAmount Value { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Value { get; init; } 
+        public required ActiveCurrencyAndAmount Value { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Value { get; init; } 
+        public ActiveCurrencyAndAmount Value { get; init; } 
         #else
-        public System.Decimal Value { get; set; } 
+        public ActiveCurrencyAndAmount Value { get; set; } 
         #endif
         
         /// <summary>

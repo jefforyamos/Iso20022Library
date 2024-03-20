@@ -39,7 +39,7 @@ public partial record CapitalRequirement1
     /// Constructs a CapitalRequirement1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CapitalRequirement1( System.Decimal reqWindingDownOrRestructuringRisk,System.Decimal reqOperationalAndLegalRisk,System.Decimal reqCreditRisk,System.Decimal reqCounterPartyRisk,System.Decimal reqMarketRisk,System.Decimal reqBusinessRisk )
+    public CapitalRequirement1( ActiveCurrencyAndAmount reqWindingDownOrRestructuringRisk,ActiveCurrencyAndAmount reqOperationalAndLegalRisk,ActiveCurrencyAndAmount reqCreditRisk,ActiveCurrencyAndAmount reqCounterPartyRisk,ActiveCurrencyAndAmount reqMarketRisk,ActiveCurrencyAndAmount reqBusinessRisk )
     {
         WindingDownOrRestructuringRisk = reqWindingDownOrRestructuringRisk;
         OperationalAndLegalRisk = reqOperationalAndLegalRisk;
@@ -60,15 +60,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="WndgDwnOrRstrgRsk")]
     #endif
     [IsoXmlTag("WndgDwnOrRstrgRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
+    public required ActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal WindingDownOrRestructuringRisk { get; init; } 
+    public required ActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal WindingDownOrRestructuringRisk { get; init; } 
+    public ActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; init; } 
     #else
-    public System.Decimal WindingDownOrRestructuringRisk { get; set; } 
+    public ActiveCurrencyAndAmount WindingDownOrRestructuringRisk { get; set; } 
     #endif
     
     /// <summary>
@@ -80,15 +79,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="OprlAndLglRsk")]
     #endif
     [IsoXmlTag("OprlAndLglRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
+    public required ActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OperationalAndLegalRisk { get; init; } 
+    public required ActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OperationalAndLegalRisk { get; init; } 
+    public ActiveCurrencyAndAmount OperationalAndLegalRisk { get; init; } 
     #else
-    public System.Decimal OperationalAndLegalRisk { get; set; } 
+    public ActiveCurrencyAndAmount OperationalAndLegalRisk { get; set; } 
     #endif
     
     /// <summary>
@@ -100,15 +98,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="CdtRsk")]
     #endif
     [IsoXmlTag("CdtRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CreditRisk { get; init; } 
+    public required ActiveCurrencyAndAmount CreditRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CreditRisk { get; init; } 
+    public required ActiveCurrencyAndAmount CreditRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CreditRisk { get; init; } 
+    public ActiveCurrencyAndAmount CreditRisk { get; init; } 
     #else
-    public System.Decimal CreditRisk { get; set; } 
+    public ActiveCurrencyAndAmount CreditRisk { get; set; } 
     #endif
     
     /// <summary>
@@ -120,15 +117,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="CntrPtyRsk")]
     #endif
     [IsoXmlTag("CntrPtyRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
+    public required ActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CounterPartyRisk { get; init; } 
+    public required ActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CounterPartyRisk { get; init; } 
+    public ActiveCurrencyAndAmount CounterPartyRisk { get; init; } 
     #else
-    public System.Decimal CounterPartyRisk { get; set; } 
+    public ActiveCurrencyAndAmount CounterPartyRisk { get; set; } 
     #endif
     
     /// <summary>
@@ -140,15 +136,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="MktRsk")]
     #endif
     [IsoXmlTag("MktRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MarketRisk { get; init; } 
+    public required ActiveCurrencyAndAmount MarketRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MarketRisk { get; init; } 
+    public required ActiveCurrencyAndAmount MarketRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MarketRisk { get; init; } 
+    public ActiveCurrencyAndAmount MarketRisk { get; init; } 
     #else
-    public System.Decimal MarketRisk { get; set; } 
+    public ActiveCurrencyAndAmount MarketRisk { get; set; } 
     #endif
     
     /// <summary>
@@ -160,15 +155,14 @@ public partial record CapitalRequirement1
     [DataMember(Name="BizRsk")]
     #endif
     [IsoXmlTag("BizRsk")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount BusinessRisk { get; init; } 
+    public required ActiveCurrencyAndAmount BusinessRisk { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal BusinessRisk { get; init; } 
+    public required ActiveCurrencyAndAmount BusinessRisk { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal BusinessRisk { get; init; } 
+    public ActiveCurrencyAndAmount BusinessRisk { get; init; } 
     #else
-    public System.Decimal BusinessRisk { get; set; } 
+    public ActiveCurrencyAndAmount BusinessRisk { get; set; } 
     #endif
     
     /// <summary>

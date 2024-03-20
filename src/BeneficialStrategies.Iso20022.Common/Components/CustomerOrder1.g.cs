@@ -39,7 +39,7 @@ public partial record CustomerOrder1
     /// Constructs a CustomerOrder1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CustomerOrder1( System.String reqCustomerOrderIdentification,System.String reqSaleReferenceIdentification,System.DateTime reqStartDate,System.Decimal reqForecastedAmount )
+    public CustomerOrder1( System.String reqCustomerOrderIdentification,System.String reqSaleReferenceIdentification,System.DateTime reqStartDate,ImpliedCurrencyAndAmount reqForecastedAmount )
     {
         CustomerOrderIdentification = reqCustomerOrderIdentification;
         SaleReferenceIdentification = reqSaleReferenceIdentification;
@@ -173,15 +173,14 @@ public partial record CustomerOrder1
     [DataMember(Name="FrcstdAmt")]
     #endif
     [IsoXmlTag("FrcstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ForecastedAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ForecastedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ForecastedAmount { get; init; } 
     #else
-    public System.Decimal ForecastedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ForecastedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -193,13 +192,12 @@ public partial record CustomerOrder1
     [DataMember(Name="CurAmt")]
     #endif
     [IsoXmlTag("CurAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; init; } 
     #else
-    public System.Decimal? CurrentAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? CurrentAmount { get; set; } 
     #endif
     
     /// <summary>

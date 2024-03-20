@@ -171,13 +171,12 @@ public partial record ShippingPackage1
     [DataMember(Name="InsrncAmt")]
     #endif
     [IsoXmlTag("InsrncAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InsuranceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; init; } 
     #else
-    public System.Decimal? InsuranceAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? InsuranceAmount { get; set; } 
     #endif
     
     

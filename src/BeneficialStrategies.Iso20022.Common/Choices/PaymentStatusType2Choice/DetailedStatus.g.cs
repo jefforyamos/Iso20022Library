@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice
         /// Constructs a DetailedStatus instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public DetailedStatus( System.String reqOriginator,PaymentStatus5 reqTransactionStatus,System.Decimal reqConfirmedAmount )
+        public DetailedStatus( System.String reqOriginator,PaymentStatus5 reqTransactionStatus,ActiveOrHistoricCurrencyAndAmount reqConfirmedAmount )
         {
             Originator = reqOriginator;
             TransactionStatus = reqTransactionStatus;
@@ -139,15 +139,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice
         [DataMember(Name="ConfdAmt")]
         #endif
         [IsoXmlTag("ConfdAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal ConfirmedAmount { get; init; } 
+        public required ActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal ConfirmedAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; init; } 
         #else
-        public System.Decimal ConfirmedAmount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount ConfirmedAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -176,13 +175,12 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentStatusType2Choice
         [DataMember(Name="ChrgAmt")]
         #endif
         [IsoXmlTag("ChrgAmt")]
-        [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? ChargeAmount { get; init; } 
+        public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
         #else
-        public System.Decimal? ChargeAmount { get; set; } 
+        public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; set; } 
         #endif
         
         

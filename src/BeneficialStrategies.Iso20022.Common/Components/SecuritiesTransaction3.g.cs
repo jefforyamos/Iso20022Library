@@ -176,13 +176,12 @@ public partial record SecuritiesTransaction3
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? NetAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>

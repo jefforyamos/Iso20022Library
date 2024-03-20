@@ -48,13 +48,12 @@ public partial record CompareActiveOrHistoricCurrencyAndAmount3
     [DataMember(Name="Val1")]
     #endif
     [IsoXmlTag("Val1")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? Value1 { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value1 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Value1 { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value1 { get; init; } 
     #else
-    public System.Decimal? Value1 { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value1 { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record CompareActiveOrHistoricCurrencyAndAmount3
     [DataMember(Name="Val2")]
     #endif
     [IsoXmlTag("Val2")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? Value2 { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value2 { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Value2 { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value2 { get; init; } 
     #else
-    public System.Decimal? Value2 { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? Value2 { get; set; } 
     #endif
     
     

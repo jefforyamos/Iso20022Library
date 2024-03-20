@@ -39,7 +39,7 @@ public partial record IntraDayMarginCall1
     /// Constructs a IntraDayMarginCall1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public IntraDayMarginCall1( GenericIdentification165 reqMarginAccountIdentification,System.Decimal reqIntraDayCall,System.DateTime reqTimeStamp )
+    public IntraDayMarginCall1( GenericIdentification165 reqMarginAccountIdentification,ActiveCurrencyAndAmount reqIntraDayCall,System.DateTime reqTimeStamp )
     {
         MarginAccountIdentification = reqMarginAccountIdentification;
         IntraDayCall = reqIntraDayCall;
@@ -76,15 +76,14 @@ public partial record IntraDayMarginCall1
     [DataMember(Name="IntraDayCall")]
     #endif
     [IsoXmlTag("IntraDayCall")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount IntraDayCall { get; init; } 
+    public required ActiveCurrencyAndAmount IntraDayCall { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal IntraDayCall { get; init; } 
+    public required ActiveCurrencyAndAmount IntraDayCall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal IntraDayCall { get; init; } 
+    public ActiveCurrencyAndAmount IntraDayCall { get; init; } 
     #else
-    public System.Decimal IntraDayCall { get; set; } 
+    public ActiveCurrencyAndAmount IntraDayCall { get; set; } 
     #endif
     
     /// <summary>

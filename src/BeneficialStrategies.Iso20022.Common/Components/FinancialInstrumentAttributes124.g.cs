@@ -911,13 +911,12 @@ public partial record FinancialInstrumentAttributes124
     [DataMember(Name="FaceAmt")]
     #endif
     [IsoXmlTag("FaceAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FaceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FaceAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; init; } 
     #else
-    public System.Decimal? FaceAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FaceAmount { get; set; } 
     #endif
     
     /// <summary>

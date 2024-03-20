@@ -49,13 +49,12 @@ public partial record PostedMarginOrCollateral6
     [DataMember(Name="InitlMrgnPstdPreHrcut")]
     #endif
     [IsoXmlTag("InitlMrgnPstdPreHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginPostedPreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; init; } 
     #else
-    public System.Decimal? InitialMarginPostedPreHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPreHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -69,13 +68,12 @@ public partial record PostedMarginOrCollateral6
     [DataMember(Name="InitlMrgnPstdPstHrcut")]
     #endif
     [IsoXmlTag("InitlMrgnPstdPstHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginPostedPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; init; } 
     #else
-    public System.Decimal? InitialMarginPostedPostHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? InitialMarginPostedPostHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -88,13 +86,12 @@ public partial record PostedMarginOrCollateral6
     [DataMember(Name="VartnMrgnPstdPreHrcut")]
     #endif
     [IsoXmlTag("VartnMrgnPstdPreHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginPostedPreHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; init; } 
     #else
-    public System.Decimal? VariationMarginPostedPreHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPreHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -108,13 +105,12 @@ public partial record PostedMarginOrCollateral6
     [DataMember(Name="VartnMrgnPstdPstHrcut")]
     #endif
     [IsoXmlTag("VartnMrgnPstdPstHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginPostedPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; init; } 
     #else
-    public System.Decimal? VariationMarginPostedPostHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? VariationMarginPostedPostHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -126,13 +122,12 @@ public partial record PostedMarginOrCollateral6
     [DataMember(Name="XcssCollPstd")]
     #endif
     [IsoXmlTag("XcssCollPstd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd20DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExcessCollateralPosted { get; init; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; init; } 
     #else
-    public System.Decimal? ExcessCollateralPosted { get; set; } 
+    public ActiveOrHistoricCurrencyAnd20DecimalAmount? ExcessCollateralPosted { get; set; } 
     #endif
     
     

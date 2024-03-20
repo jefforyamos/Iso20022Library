@@ -39,7 +39,7 @@ public partial record UndertakingAmount4
     /// Constructs a UndertakingAmount4 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public UndertakingAmount4( System.Decimal reqVariationAmount )
+    public UndertakingAmount4( ActiveCurrencyAndAmount reqVariationAmount )
     {
         VariationAmount = reqVariationAmount;
     }
@@ -55,15 +55,14 @@ public partial record UndertakingAmount4
     [DataMember(Name="VartnAmt")]
     #endif
     [IsoXmlTag("VartnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount VariationAmount { get; init; } 
+    public required ActiveCurrencyAndAmount VariationAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal VariationAmount { get; init; } 
+    public required ActiveCurrencyAndAmount VariationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal VariationAmount { get; init; } 
+    public ActiveCurrencyAndAmount VariationAmount { get; init; } 
     #else
-    public System.Decimal VariationAmount { get; set; } 
+    public ActiveCurrencyAndAmount VariationAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -75,13 +74,12 @@ public partial record UndertakingAmount4
     [DataMember(Name="BalAmt")]
     #endif
     [IsoXmlTag("BalAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? BalanceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? BalanceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BalanceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? BalanceAmount { get; init; } 
     #else
-    public System.Decimal? BalanceAmount { get; set; } 
+    public ActiveCurrencyAndAmount? BalanceAmount { get; set; } 
     #endif
     
     

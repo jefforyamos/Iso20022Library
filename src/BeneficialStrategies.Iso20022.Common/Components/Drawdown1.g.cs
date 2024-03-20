@@ -109,13 +109,12 @@ public partial record Drawdown1
     [DataMember(Name="TtlAmtNetDrwdwn")]
     #endif
     [IsoXmlTag("TtlAmtNetDrwdwn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmountNetDrawdown { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; init; } 
     #else
-    public System.Decimal? TotalAmountNetDrawdown { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? TotalAmountNetDrawdown { get; set; } 
     #endif
     
     /// <summary>
@@ -162,13 +161,12 @@ public partial record Drawdown1
     [DataMember(Name="PnsnCmcmntLumpSumRmng")]
     #endif
     [IsoXmlTag("PnsnCmcmntLumpSumRmng")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PensionCommencementLumpSumRemaining { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; init; } 
     #else
-    public System.Decimal? PensionCommencementLumpSumRemaining { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? PensionCommencementLumpSumRemaining { get; set; } 
     #endif
     
     /// <summary>

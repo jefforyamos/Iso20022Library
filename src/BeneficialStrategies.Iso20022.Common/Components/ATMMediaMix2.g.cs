@@ -39,7 +39,7 @@ public partial record ATMMediaMix2
     /// Constructs a ATMMediaMix2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ATMMediaMix2( System.UInt64 reqNumber,System.Decimal reqUnitValue )
+    public ATMMediaMix2( System.UInt64 reqNumber,ImpliedCurrencyAndAmount reqUnitValue )
     {
         Number = reqNumber;
         UnitValue = reqUnitValue;
@@ -76,15 +76,14 @@ public partial record ATMMediaMix2
     [DataMember(Name="UnitVal")]
     #endif
     [IsoXmlTag("UnitVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount UnitValue { get; init; } 
+    public required ImpliedCurrencyAndAmount UnitValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal UnitValue { get; init; } 
+    public required ImpliedCurrencyAndAmount UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal UnitValue { get; init; } 
+    public ImpliedCurrencyAndAmount UnitValue { get; init; } 
     #else
-    public System.Decimal UnitValue { get; set; } 
+    public ImpliedCurrencyAndAmount UnitValue { get; set; } 
     #endif
     
     

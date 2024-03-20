@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a1YzMNp-Ed-ak6NoX_4Aeg_890260104")]
 [Description(@"Specifies the underlying reason for the cancellation of the associated transaction.")]
-[Derivations(typeof(CancelledStatusReason17Code),typeof(CancelledStatusReason1Code),typeof(CancelledStatusReason8Code),typeof(CancelledStatusReason3Code),typeof(CancelledStatusReason2Code),typeof(CancellationCompleteStatusReason1Code))]
+[Derivations(typeof(CancelledStatusReason17Code),typeof(CancelledStatusReason8Code),typeof(CancelledStatusReason3Code),typeof(CancellationCompleteStatusReason1Code),typeof(CancelledStatusReason1Code),typeof(CancelledStatusReason2Code))]
 public enum CancelledStatusReasonCode
 {
     /// <summary>

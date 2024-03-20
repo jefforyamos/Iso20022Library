@@ -82,13 +82,12 @@ public partial record ATMTotals1
     [DataMember(Name="ATMBal")]
     #endif
     [IsoXmlTag("ATMBal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ATMBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? ATMBalance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ATMBalance { get; init; } 
+    public ImpliedCurrencyAndAmount? ATMBalance { get; init; } 
     #else
-    public System.Decimal? ATMBalance { get; set; } 
+    public ImpliedCurrencyAndAmount? ATMBalance { get; set; } 
     #endif
     
     /// <summary>
@@ -100,13 +99,12 @@ public partial record ATMTotals1
     [DataMember(Name="ATMCur")]
     #endif
     [IsoXmlTag("ATMCur")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
+    public ImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ATMCurrent { get; init; } 
+    public ImpliedCurrencyAndAmount? ATMCurrent { get; init; } 
     #else
-    public System.Decimal? ATMCurrent { get; set; } 
+    public ImpliedCurrencyAndAmount? ATMCurrent { get; set; } 
     #endif
     
     /// <summary>

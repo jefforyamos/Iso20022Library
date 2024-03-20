@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_akGO4dp-Ed-ak6NoX_4Aeg_1216168726")]
 [Description(@"Specifies the regularity of an event.")]
-[Derivations(typeof(EventFrequency12Code),typeof(EventFrequency2Code),typeof(EventFrequency10Code),typeof(EventFrequency6Code),typeof(EventFrequency3Code),typeof(EventFrequency1Code),typeof(EventFrequency9Code),typeof(EventFrequency7Code),typeof(EventFrequency8Code),typeof(EventFrequency5Code),typeof(EventFrequency4Code))]
+[Derivations(typeof(EventFrequency9Code),typeof(EventFrequency8Code),typeof(EventFrequency7Code),typeof(EventFrequency1Code),typeof(EventFrequency5Code),typeof(EventFrequency10Code),typeof(EventFrequency4Code),typeof(EventFrequency6Code),typeof(EventFrequency2Code),typeof(EventFrequency12Code),typeof(EventFrequency3Code))]
 public enum EventFrequencyCode
 {
     /// <summary>

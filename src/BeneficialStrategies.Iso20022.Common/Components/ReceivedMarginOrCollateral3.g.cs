@@ -49,13 +49,12 @@ public partial record ReceivedMarginOrCollateral3
     [DataMember(Name="InitlMrgnRcvd")]
     #endif
     [IsoXmlTag("InitlMrgnRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InitialMarginReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; init; } 
     #else
-    public System.Decimal? InitialMarginReceived { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? InitialMarginReceived { get; set; } 
     #endif
     
     /// <summary>
@@ -68,13 +67,12 @@ public partial record ReceivedMarginOrCollateral3
     [DataMember(Name="VartnMrgnRcvd")]
     #endif
     [IsoXmlTag("VartnMrgnRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? VariationMarginReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; init; } 
     #else
-    public System.Decimal? VariationMarginReceived { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? VariationMarginReceived { get; set; } 
     #endif
     
     /// <summary>
@@ -86,13 +84,12 @@ public partial record ReceivedMarginOrCollateral3
     [DataMember(Name="XcssCollRcvd")]
     #endif
     [IsoXmlTag("XcssCollRcvd")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExcessCollateralReceived { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; init; } 
     #else
-    public System.Decimal? ExcessCollateralReceived { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExcessCollateralReceived { get; set; } 
     #endif
     
     

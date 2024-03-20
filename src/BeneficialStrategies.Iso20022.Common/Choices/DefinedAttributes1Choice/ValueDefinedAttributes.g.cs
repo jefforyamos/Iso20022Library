@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         /// Constructs a ValueDefinedAttributes instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public ValueDefinedAttributes( System.Decimal reqUnitValue,GenericIdentification168 reqIndexIdentification,System.String reqIndexUnit )
+        public ValueDefinedAttributes( ActiveCurrencyAndAmount reqUnitValue,GenericIdentification168 reqIndexIdentification,System.String reqIndexUnit )
         {
             UnitValue = reqUnitValue;
             IndexIdentification = reqIndexIdentification;
@@ -62,13 +62,12 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         [DataMember(Name="Ntnl")]
         #endif
         [IsoXmlTag("Ntnl")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public IsoActiveCurrencyAndAmount? Notional { get; init; } 
+        public ActiveCurrencyAndAmount? Notional { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal? Notional { get; init; } 
+        public ActiveCurrencyAndAmount? Notional { get; init; } 
         #else
-        public System.Decimal? Notional { get; set; } 
+        public ActiveCurrencyAndAmount? Notional { get; set; } 
         #endif
         
         /// <summary>
@@ -80,15 +79,14 @@ namespace BeneficialStrategies.Iso20022.Choices.DefinedAttributes1Choice
         [DataMember(Name="UnitVal")]
         #endif
         [IsoXmlTag("UnitVal")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveCurrencyAndAmount UnitValue { get; init; } 
+        public required ActiveCurrencyAndAmount UnitValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal UnitValue { get; init; } 
+        public required ActiveCurrencyAndAmount UnitValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal UnitValue { get; init; } 
+        public ActiveCurrencyAndAmount UnitValue { get; init; } 
         #else
-        public System.Decimal UnitValue { get; set; } 
+        public ActiveCurrencyAndAmount UnitValue { get; set; } 
         #endif
         
         /// <summary>

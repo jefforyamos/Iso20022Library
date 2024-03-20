@@ -115,13 +115,12 @@ public partial record ForeignExchangeTerms28
     [DataMember(Name="RsltgAmt")]
     #endif
     [IsoXmlTag("RsltgAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ResultingAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ResultingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ResultingAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ResultingAmount { get; init; } 
     #else
-    public System.Decimal? ResultingAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ResultingAmount { get; set; } 
     #endif
     
     

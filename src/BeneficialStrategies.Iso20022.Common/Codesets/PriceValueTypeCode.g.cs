@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aJunEtp-Ed-ak6NoX_4Aeg_-1411699432")]
 [Description(@"Price will not be paid.")]
-[Derivations(typeof(PriceValueType1Code),typeof(PriceValueType5Code),typeof(CommissionValueType1Code),typeof(PriceValueType7Code),typeof(PriceRateType3Code),typeof(PriceValueType3Code),typeof(PriceValueType13Code),typeof(PriceValueType2Code),typeof(PriceValueType10Code),typeof(PriceValueType4Code),typeof(PriceValueType12Code),typeof(PriceValueType9Code),typeof(PriceValueType8Code),typeof(PriceValueType6Code))]
+[Derivations(typeof(PriceValueType4Code),typeof(PriceValueType7Code),typeof(PriceValueType5Code),typeof(PriceRateType3Code),typeof(CommissionValueType1Code),typeof(PriceValueType8Code),typeof(PriceValueType3Code),typeof(PriceValueType12Code),typeof(PriceValueType9Code),typeof(PriceValueType2Code),typeof(PriceValueType1Code),typeof(PriceValueType10Code),typeof(PriceValueType6Code),typeof(PriceValueType13Code))]
 public enum PriceValueTypeCode
 {
     /// <summary>

@@ -136,13 +136,12 @@ public partial record SwitchExecution3
     [DataMember(Name="TtlRedAmt")]
     #endif
     [IsoXmlTag("TtlRedAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRedemptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalRedemptionAmount { get; init; } 
     #else
-    public System.Decimal? TotalRedemptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalRedemptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -154,13 +153,12 @@ public partial record SwitchExecution3
     [DataMember(Name="TtlSbcptAmt")]
     #endif
     [IsoXmlTag("TtlSbcptAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalSubscriptionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalSubscriptionAmount { get; init; } 
     #else
-    public System.Decimal? TotalSubscriptionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalSubscriptionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -172,13 +170,12 @@ public partial record SwitchExecution3
     [DataMember(Name="AddtlCshIn")]
     #endif
     [IsoXmlTag("AddtlCshIn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
+    public ActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AdditionalCashIn { get; init; } 
+    public ActiveCurrencyAndAmount? AdditionalCashIn { get; init; } 
     #else
-    public System.Decimal? AdditionalCashIn { get; set; } 
+    public ActiveCurrencyAndAmount? AdditionalCashIn { get; set; } 
     #endif
     
     /// <summary>
@@ -190,13 +187,12 @@ public partial record SwitchExecution3
     [DataMember(Name="RsltgCshOut")]
     #endif
     [IsoXmlTag("RsltgCshOut")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
+    public ActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ResultingCashOut { get; init; } 
+    public ActiveCurrencyAndAmount? ResultingCashOut { get; init; } 
     #else
-    public System.Decimal? ResultingCashOut { get; set; } 
+    public ActiveCurrencyAndAmount? ResultingCashOut { get; set; } 
     #endif
     
     /// <summary>

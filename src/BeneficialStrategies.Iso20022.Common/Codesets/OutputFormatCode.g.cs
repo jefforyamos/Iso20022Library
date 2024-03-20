@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_tW6kUHr5EeSZrs_hiwNOWA")]
 [Description(@"Available message format to display or print.")]
-[Derivations(typeof(OutputFormat4Code),typeof(OutputFormat1Code),typeof(OutputFormat3Code),typeof(OutputFormat5Code),typeof(OutputFormat2Code))]
+[Derivations(typeof(OutputFormat5Code),typeof(OutputFormat2Code),typeof(OutputFormat3Code),typeof(OutputFormat1Code),typeof(OutputFormat4Code))]
 public enum OutputFormatCode
 {
     /// <summary>

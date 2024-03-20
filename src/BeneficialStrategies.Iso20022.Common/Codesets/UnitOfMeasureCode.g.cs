@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Y4XF0tp-Ed-ak6NoX_4Aeg_385163498")]
 [Description(@"Identifies the unit of measure by means of a code.")]
-[Derivations(typeof(UnitOfMeasure12Code),typeof(UnitOfMeasure11Code),typeof(UnitOfMeasure9Code),typeof(UnitOfMeasure6Code),typeof(UnitOfMeasure1Code),typeof(UnitOfMeasure8Code),typeof(UnitOfMeasure10Code))]
+[Derivations(typeof(UnitOfMeasure11Code),typeof(UnitOfMeasure10Code),typeof(UnitOfMeasure8Code),typeof(UnitOfMeasure1Code),typeof(UnitOfMeasure6Code),typeof(UnitOfMeasure12Code),typeof(UnitOfMeasure9Code))]
 public enum UnitOfMeasureCode
 {
     /// <summary>

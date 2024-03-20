@@ -245,13 +245,12 @@ public partial record FinancingItemList1
     [DataMember(Name="TtlReqAmt")]
     #endif
     [IsoXmlTag("TtlReqAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalRequestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalRequestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRequestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalRequestAmount { get; init; } 
     #else
-    public System.Decimal? TotalRequestAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalRequestAmount { get; set; } 
     #endif
     
     /// <summary>

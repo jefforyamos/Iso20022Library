@@ -48,13 +48,12 @@ public partial record StatisticsTransparency3
     [DataMember(Name="AvrgDalyTrnvr")]
     #endif
     [IsoXmlTag("AvrgDalyTrnvr")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
+    public ActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AverageDailyTurnover { get; init; } 
+    public ActiveCurrencyAndAmount? AverageDailyTurnover { get; init; } 
     #else
-    public System.Decimal? AverageDailyTurnover { get; set; } 
+    public ActiveCurrencyAndAmount? AverageDailyTurnover { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record StatisticsTransparency3
     [DataMember(Name="AvrgTxVal")]
     #endif
     [IsoXmlTag("AvrgTxVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
+    public ActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AverageTransactionValue { get; init; } 
+    public ActiveCurrencyAndAmount? AverageTransactionValue { get; init; } 
     #else
-    public System.Decimal? AverageTransactionValue { get; set; } 
+    public ActiveCurrencyAndAmount? AverageTransactionValue { get; set; } 
     #endif
     
     /// <summary>

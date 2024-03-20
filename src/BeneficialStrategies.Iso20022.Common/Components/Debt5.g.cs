@@ -65,13 +65,12 @@ public partial record Debt5
     [DataMember(Name="FaceAmt")]
     #endif
     [IsoXmlTag("FaceAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? FaceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? FaceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FaceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? FaceAmount { get; init; } 
     #else
-    public System.Decimal? FaceAmount { get; set; } 
+    public ActiveCurrencyAndAmount? FaceAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -558,13 +557,12 @@ public partial record Debt5
     [DataMember(Name="OverAlltmtAmt")]
     #endif
     [IsoXmlTag("OverAlltmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OverAllotmentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     #else
-    public System.Decimal? OverAllotmentAmount { get; set; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -648,13 +646,12 @@ public partial record Debt5
     [DataMember(Name="ActlDnmtnAmt")]
     #endif
     [IsoXmlTag("ActlDnmtnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ActualDenominationAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ActualDenominationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ActualDenominationAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ActualDenominationAmount { get; init; } 
     #else
-    public System.Decimal? ActualDenominationAmount { get; set; } 
+    public ActiveCurrencyAndAmount? ActualDenominationAmount { get; set; } 
     #endif
     
     /// <summary>

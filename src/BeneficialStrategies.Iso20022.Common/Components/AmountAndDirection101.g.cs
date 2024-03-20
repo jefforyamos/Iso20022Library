@@ -120,13 +120,12 @@ public partial record AmountAndDirection101
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? Amount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -155,13 +154,12 @@ public partial record AmountAndDirection101
     [DataMember(Name="OrgnlCcyAndOrdrdAmt")]
     #endif
     [IsoXmlTag("OrgnlCcyAndOrdrdAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; init; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalCurrencyAndOrderedAmount { get; set; } 
+    public RestrictedFINActiveOrHistoricCurrencyAndAmount? OriginalCurrencyAndOrderedAmount { get; set; } 
     #endif
     
     /// <summary>

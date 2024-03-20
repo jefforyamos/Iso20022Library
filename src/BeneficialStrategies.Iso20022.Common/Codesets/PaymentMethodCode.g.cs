@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Z0uAYNp-Ed-ak6NoX_4Aeg_2143732969")]
 [Description(@"Specifies the transfer method that will be used to transfer the cash.")]
-[Derivations(typeof(PaymentMethod4Code),typeof(PaymentMethod5Code),typeof(PaymentMethod2Code),typeof(PaymentMethod3Code),typeof(PaymentMethod6Code),typeof(PaymentMethod7Code))]
+[Derivations(typeof(PaymentMethod2Code),typeof(PaymentMethod6Code),typeof(PaymentMethod3Code),typeof(PaymentMethod5Code),typeof(PaymentMethod7Code),typeof(PaymentMethod4Code))]
 public enum PaymentMethodCode
 {
     /// <summary>

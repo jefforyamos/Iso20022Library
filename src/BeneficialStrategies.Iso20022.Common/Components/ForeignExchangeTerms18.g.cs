@@ -39,7 +39,7 @@ public partial record ForeignExchangeTerms18
     /// Constructs a ForeignExchangeTerms18 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ForeignExchangeTerms18( string reqUnitCurrency,string reqQuotedCurrency,System.Decimal reqExchangeRate,System.Decimal reqConvertedAmount )
+    public ForeignExchangeTerms18( string reqUnitCurrency,string reqQuotedCurrency,System.Decimal reqExchangeRate,ActiveCurrencyAndAmount reqConvertedAmount )
     {
         UnitCurrency = reqUnitCurrency;
         QuotedCurrency = reqQuotedCurrency;
@@ -116,15 +116,14 @@ public partial record ForeignExchangeTerms18
     [DataMember(Name="ConvtdAmt")]
     #endif
     [IsoXmlTag("ConvtdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ConvertedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConvertedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ConvertedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConvertedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ConvertedAmount { get; init; } 
+    public ActiveCurrencyAndAmount ConvertedAmount { get; init; } 
     #else
-    public System.Decimal ConvertedAmount { get; set; } 
+    public ActiveCurrencyAndAmount ConvertedAmount { get; set; } 
     #endif
     
     

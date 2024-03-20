@@ -617,13 +617,12 @@ public partial record FinancialInstrumentStipulations4
     [DataMember(Name="OverAlltmtAmt")]
     #endif
     [IsoXmlTag("OverAlltmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OverAllotmentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; init; } 
     #else
-    public System.Decimal? OverAllotmentAmount { get; set; } 
+    public ActiveCurrencyAndAmount? OverAllotmentAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -39,7 +39,7 @@ public partial record DetailedAmount12
     /// Constructs a DetailedAmount12 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DetailedAmount12( System.Decimal reqAmountToDispense )
+    public DetailedAmount12( ImpliedCurrencyAndAmount reqAmountToDispense )
     {
         AmountToDispense = reqAmountToDispense;
     }
@@ -55,15 +55,14 @@ public partial record DetailedAmount12
     [DataMember(Name="AmtToDspns")]
     #endif
     [IsoXmlTag("AmtToDspns")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount AmountToDispense { get; init; } 
+    public required ImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AmountToDispense { get; init; } 
+    public required ImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AmountToDispense { get; init; } 
+    public ImpliedCurrencyAndAmount AmountToDispense { get; init; } 
     #else
-    public System.Decimal AmountToDispense { get; set; } 
+    public ImpliedCurrencyAndAmount AmountToDispense { get; set; } 
     #endif
     
     /// <summary>

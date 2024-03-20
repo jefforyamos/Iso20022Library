@@ -39,7 +39,7 @@ public partial record DetailedAmount3
     /// Constructs a DetailedAmount3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DetailedAmount3( TypeOfAmount2Code reqType,System.Decimal reqValue )
+    public DetailedAmount3( TypeOfAmount2Code reqType,ActiveCurrencyAndAmount reqValue )
     {
         Type = reqType;
         Value = reqValue;
@@ -75,15 +75,14 @@ public partial record DetailedAmount3
     [DataMember(Name="Val")]
     #endif
     [IsoXmlTag("Val")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount Value { get; init; } 
+    public required ActiveCurrencyAndAmount Value { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Value { get; init; } 
+    public required ActiveCurrencyAndAmount Value { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Value { get; init; } 
+    public ActiveCurrencyAndAmount Value { get; init; } 
     #else
-    public System.Decimal Value { get; set; } 
+    public ActiveCurrencyAndAmount Value { get; set; } 
     #endif
     
     

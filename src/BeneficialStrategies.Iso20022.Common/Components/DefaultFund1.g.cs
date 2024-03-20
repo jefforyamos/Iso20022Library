@@ -39,7 +39,7 @@ public partial record DefaultFund1
     /// Constructs a DefaultFund1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public DefaultFund1( AccountIdentification4Choice_ reqDefaultFundAccount,System.Decimal reqTotalDefaultFundAmount )
+    public DefaultFund1( AccountIdentification4Choice_ reqDefaultFundAccount,ActiveCurrencyAndAmount reqTotalDefaultFundAmount )
     {
         DefaultFundAccount = reqDefaultFundAccount;
         TotalDefaultFundAmount = reqTotalDefaultFundAmount;
@@ -75,15 +75,14 @@ public partial record DefaultFund1
     [DataMember(Name="TtlDfltFndAmt")]
     #endif
     [IsoXmlTag("TtlDfltFndAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalDefaultFundAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalDefaultFundAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalDefaultFundAmount { get; init; } 
     #else
-    public System.Decimal TotalDefaultFundAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalDefaultFundAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -112,13 +111,12 @@ public partial record DefaultFund1
     [DataMember(Name="IncrCvrgAmt")]
     #endif
     [IsoXmlTag("IncrCvrgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncreaseCoverageAmount { get; init; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; init; } 
     #else
-    public System.Decimal? IncreaseCoverageAmount { get; set; } 
+    public ActiveCurrencyAndAmount? IncreaseCoverageAmount { get; set; } 
     #endif
     
     

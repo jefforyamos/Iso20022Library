@@ -18,7 +18,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_pQycwB8_EeuaqdhZaJ3GHw")]
 [Description(@"Specifies all codes that are to be used in the formal validation rules.||Usage: those codes must not be used in message definitions, as the code set is used when the formal validation rules make reference of an external code sets.")]
-[Derivations(typeof(ValidationRuleInstruction1Code),typeof(ValidationRuleSettlementInProcess1Code),typeof(ValidationRuleAnyBank1Code),typeof(ValidationRulePendingAndRejected1Code),typeof(ValidationRuleSpecifiedAddress1Code),typeof(ValidationRulePending1Code),typeof(ValidationRuleIssuanceType1Code),typeof(ValidationRuleConfirmation1Code),typeof(ValidationRuleReceived1Code),typeof(ValidationRuleRejected1Code),typeof(ValidationRuleStatus3Code),typeof(ValidationRuleNarrative1Code),typeof(ValidationRulePayCreditorByCheque1Code),typeof(ValidationRuleStatus2Code),typeof(ValidationRuleStatus1Code),typeof(ValidationRuleCreditSettlement1Code))]
+[Derivations(typeof(ValidationRuleStatus1Code),typeof(ValidationRuleCreditSettlement1Code),typeof(ValidationRuleConfirmation1Code),typeof(ValidationRuleSettlementInProcess1Code),typeof(ValidationRuleAnyBank1Code),typeof(ValidationRuleStatus2Code),typeof(ValidationRuleSpecifiedAddress1Code),typeof(ValidationRulePending1Code),typeof(ValidationRuleStatus3Code),typeof(ValidationRulePendingAndRejected1Code),typeof(ValidationRuleReceived1Code),typeof(ValidationRulePayCreditorByCheque1Code),typeof(ValidationRuleRejected1Code),typeof(ValidationRuleInstruction1Code),typeof(ValidationRuleNarrative1Code),typeof(ValidationRuleIssuanceType1Code))]
 public enum ValidationRuleCode
 {
     /// <summary>

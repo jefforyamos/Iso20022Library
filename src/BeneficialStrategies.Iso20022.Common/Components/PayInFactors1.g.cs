@@ -39,7 +39,7 @@ public partial record PayInFactors1
     /// Constructs a PayInFactors1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public PayInFactors1( System.Decimal reqAggregateShortPositionLimit )
+    public PayInFactors1( ActiveCurrencyAndAmount reqAggregateShortPositionLimit )
     {
         AggregateShortPositionLimit = reqAggregateShortPositionLimit;
     }
@@ -55,15 +55,14 @@ public partial record PayInFactors1
     [DataMember(Name="AggtShrtPosLmt")]
     #endif
     [IsoXmlTag("AggtShrtPosLmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
+    public required ActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AggregateShortPositionLimit { get; init; } 
+    public required ActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AggregateShortPositionLimit { get; init; } 
+    public ActiveCurrencyAndAmount AggregateShortPositionLimit { get; init; } 
     #else
-    public System.Decimal AggregateShortPositionLimit { get; set; } 
+    public ActiveCurrencyAndAmount AggregateShortPositionLimit { get; set; } 
     #endif
     
     /// <summary>

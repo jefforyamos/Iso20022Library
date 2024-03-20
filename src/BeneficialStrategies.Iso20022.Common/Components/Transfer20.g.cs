@@ -159,13 +159,12 @@ public partial record Transfer20
     [DataMember(Name="AvrgPric")]
     #endif
     [IsoXmlTag("AvrgPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #else
-    public System.Decimal? AveragePrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; set; } 
     #endif
     
     /// <summary>

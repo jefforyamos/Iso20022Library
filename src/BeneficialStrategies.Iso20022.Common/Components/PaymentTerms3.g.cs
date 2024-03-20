@@ -139,13 +139,12 @@ public partial record PaymentTerms3
     [DataMember(Name="DscntAmt")]
     #endif
     [IsoXmlTag("DscntAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? DiscountAmount { get; init; } 
+    public CurrencyAndAmount? DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DiscountAmount { get; init; } 
+    public CurrencyAndAmount? DiscountAmount { get; init; } 
     #else
-    public System.Decimal? DiscountAmount { get; set; } 
+    public CurrencyAndAmount? DiscountAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -175,13 +174,12 @@ public partial record PaymentTerms3
     [DataMember(Name="DscntBsisAmt")]
     #endif
     [IsoXmlTag("DscntBsisAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? DiscountBasisAmount { get; init; } 
+    public CurrencyAndAmount? DiscountBasisAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DiscountBasisAmount { get; init; } 
+    public CurrencyAndAmount? DiscountBasisAmount { get; init; } 
     #else
-    public System.Decimal? DiscountBasisAmount { get; set; } 
+    public CurrencyAndAmount? DiscountBasisAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -193,13 +191,12 @@ public partial record PaymentTerms3
     [DataMember(Name="PnltyAmt")]
     #endif
     [IsoXmlTag("PnltyAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? PenaltyAmount { get; init; } 
+    public CurrencyAndAmount? PenaltyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PenaltyAmount { get; init; } 
+    public CurrencyAndAmount? PenaltyAmount { get; init; } 
     #else
-    public System.Decimal? PenaltyAmount { get; set; } 
+    public CurrencyAndAmount? PenaltyAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -229,13 +226,12 @@ public partial record PaymentTerms3
     [DataMember(Name="PnltyBsisAmt")]
     #endif
     [IsoXmlTag("PnltyBsisAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? PenaltyBasisAmount { get; init; } 
+    public CurrencyAndAmount? PenaltyBasisAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PenaltyBasisAmount { get; init; } 
+    public CurrencyAndAmount? PenaltyBasisAmount { get; init; } 
     #else
-    public System.Decimal? PenaltyBasisAmount { get; set; } 
+    public CurrencyAndAmount? PenaltyBasisAmount { get; set; } 
     #endif
     
     

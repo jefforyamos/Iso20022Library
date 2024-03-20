@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TVpK8gEcEeCQm6a_G2yO_w_-1860538994")]
 [Description(@"Type of action to be performed by the POI system (Point Of Interaction).")]
-[Derivations(typeof(ActionType3Code),typeof(ActionType4Code),typeof(ActionType12Code),typeof(ActionType7Code),typeof(ActionType9Code),typeof(ActionType6Code),typeof(ActionType13Code),typeof(ActionType5Code),typeof(ActionType10Code),typeof(ActionType8Code),typeof(ActionType2Code),typeof(ActionType1Code),typeof(ActionType11Code))]
+[Derivations(typeof(ActionType2Code),typeof(ActionType3Code),typeof(ActionType9Code),typeof(ActionType6Code),typeof(ActionType8Code),typeof(ActionType5Code),typeof(ActionType12Code),typeof(ActionType4Code),typeof(ActionType13Code),typeof(ActionType7Code),typeof(ActionType11Code),typeof(ActionType1Code),typeof(ActionType10Code))]
 public enum ActionTypeCode
 {
     /// <summary>

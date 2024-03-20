@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         /// Constructs a Trade instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public Trade( System.Decimal reqAmount,System.DateOnly reqMaturityDate,System.String reqProlongationFlag,System.DateOnly reqStartDate,string reqSettlementCurrency )
+        public Trade( ActiveCurrencyAndAmount reqAmount,System.DateOnly reqMaturityDate,System.String reqProlongationFlag,System.DateOnly reqStartDate,string reqSettlementCurrency )
         {
             Amount = reqAmount;
             MaturityDate = reqMaturityDate;
@@ -81,15 +81,14 @@ namespace BeneficialStrategies.Iso20022.Choices.UnderlyingContract2Choice
         [DataMember(Name="Amt")]
         #endif
         [IsoXmlTag("Amt")]
-        [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoActiveCurrencyAndAmount Amount { get; init; } 
+        public required ActiveCurrencyAndAmount Amount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Amount { get; init; } 
+        public required ActiveCurrencyAndAmount Amount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Amount { get; init; } 
+        public ActiveCurrencyAndAmount Amount { get; init; } 
         #else
-        public System.Decimal Amount { get; set; } 
+        public ActiveCurrencyAndAmount Amount { get; set; } 
         #endif
         
         /// <summary>

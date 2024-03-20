@@ -39,7 +39,7 @@ public partial record RedemptionOrder3
     /// Constructs a RedemptionOrder3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public RedemptionOrder3( System.String reqOrderReference,InvestmentAccount13 reqInvestmentAccountDetails,FinancialInstrumentQuantity1 reqUnitsNumber,System.Decimal reqNetAmount,System.Decimal reqHoldingsRedemptionRate,System.String reqPhysicalDeliveryIndicator )
+    public RedemptionOrder3( System.String reqOrderReference,InvestmentAccount13 reqInvestmentAccountDetails,FinancialInstrumentQuantity1 reqUnitsNumber,ActiveOrHistoricCurrencyAndAmount reqNetAmount,System.Decimal reqHoldingsRedemptionRate,System.String reqPhysicalDeliveryIndicator )
     {
         OrderReference = reqOrderReference;
         InvestmentAccountDetails = reqInvestmentAccountDetails;
@@ -153,15 +153,14 @@ public partial record RedemptionOrder3
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NetAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NetAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount NetAmount { get; init; } 
     #else
-    public System.Decimal NetAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -210,13 +209,12 @@ public partial record RedemptionOrder3
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; init; } 
     #else
-    public System.Decimal? GrossAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? GrossAmount { get; set; } 
     #endif
     
     /// <summary>

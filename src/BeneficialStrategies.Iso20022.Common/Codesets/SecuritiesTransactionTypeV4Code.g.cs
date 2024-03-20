@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_XodBUdEZEeiO-eodGv5iKQ")]
 [Description(@"Specifies underlying information regarding the type of settlement transaction.")]
-[Derivations(typeof(SecuritiesTransactionType27Code),typeof(SecuritiesTransactionType25Code),typeof(SecuritiesTransactionType26Code),typeof(SecuritiesTransactionType23Code),typeof(SecuritiesTransactionType24Code),typeof(SecuritiesTransactionType22Code),typeof(SecuritiesTransactionType28Code))]
+[Derivations(typeof(SecuritiesTransactionType23Code),typeof(SecuritiesTransactionType27Code),typeof(SecuritiesTransactionType28Code),typeof(SecuritiesTransactionType22Code),typeof(SecuritiesTransactionType25Code),typeof(SecuritiesTransactionType26Code),typeof(SecuritiesTransactionType24Code))]
 public enum SecuritiesTransactionTypeV4Code
 {
     /// <summary>

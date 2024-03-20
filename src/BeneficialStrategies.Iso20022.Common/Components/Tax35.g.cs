@@ -39,7 +39,7 @@ public partial record Tax35
     /// Constructs a Tax35 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Tax35( TaxType3Choice_ reqType,System.Decimal reqAppliedAmount )
+    public Tax35( TaxType3Choice_ reqType,ActiveCurrencyAndAmount reqAppliedAmount )
     {
         Type = reqType;
         AppliedAmount = reqAppliedAmount;
@@ -75,15 +75,14 @@ public partial record Tax35
     [DataMember(Name="ApldAmt")]
     #endif
     [IsoXmlTag("ApldAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AppliedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AppliedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AppliedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount AppliedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AppliedAmount { get; init; } 
+    public ActiveCurrencyAndAmount AppliedAmount { get; init; } 
     #else
-    public System.Decimal AppliedAmount { get; set; } 
+    public ActiveCurrencyAndAmount AppliedAmount { get; set; } 
     #endif
     
     /// <summary>

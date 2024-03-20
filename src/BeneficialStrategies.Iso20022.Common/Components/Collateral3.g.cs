@@ -39,7 +39,7 @@ public partial record Collateral3
     /// Constructs a Collateral3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Collateral3( System.Decimal reqPostHaircutValue,System.Decimal reqMarketValue,CollateralType2Code reqCollateralType )
+    public Collateral3( ActiveCurrencyAndAmount reqPostHaircutValue,ActiveCurrencyAndAmount reqMarketValue,CollateralType2Code reqCollateralType )
     {
         PostHaircutValue = reqPostHaircutValue;
         MarketValue = reqMarketValue;
@@ -57,15 +57,14 @@ public partial record Collateral3
     [DataMember(Name="PstHrcutVal")]
     #endif
     [IsoXmlTag("PstHrcutVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount PostHaircutValue { get; init; } 
+    public required ActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PostHaircutValue { get; init; } 
+    public required ActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PostHaircutValue { get; init; } 
+    public ActiveCurrencyAndAmount PostHaircutValue { get; init; } 
     #else
-    public System.Decimal PostHaircutValue { get; set; } 
+    public ActiveCurrencyAndAmount PostHaircutValue { get; set; } 
     #endif
     
     /// <summary>
@@ -77,15 +76,14 @@ public partial record Collateral3
     [DataMember(Name="MktVal")]
     #endif
     [IsoXmlTag("MktVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount MarketValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MarketValue { get; init; } 
+    public required ActiveCurrencyAndAmount MarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MarketValue { get; init; } 
+    public ActiveCurrencyAndAmount MarketValue { get; init; } 
     #else
-    public System.Decimal MarketValue { get; set; } 
+    public ActiveCurrencyAndAmount MarketValue { get; set; } 
     #endif
     
     /// <summary>

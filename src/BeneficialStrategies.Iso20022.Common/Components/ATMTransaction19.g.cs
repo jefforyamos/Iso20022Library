@@ -39,7 +39,7 @@ public partial record ATMTransaction19
     /// Constructs a ATMTransaction19 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ATMTransaction19( TransactionIdentifier1 reqTransactionIdentification,ATMTransactionStatus1Code reqTransactionStatus,AmountAndCurrency1 reqTotalDepositedAmount,System.Decimal reqTotalAuthorisedAmount )
+    public ATMTransaction19( TransactionIdentifier1 reqTransactionIdentification,ATMTransactionStatus1Code reqTransactionStatus,AmountAndCurrency1 reqTotalDepositedAmount,ImpliedCurrencyAndAmount reqTotalAuthorisedAmount )
     {
         TransactionIdentification = reqTransactionIdentification;
         TransactionStatus = reqTransactionStatus;
@@ -204,15 +204,14 @@ public partial record ATMTransaction19
     [DataMember(Name="TtlAuthrsdAmt")]
     #endif
     [IsoXmlTag("TtlAuthrsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount TotalAuthorisedAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalAuthorisedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAuthorisedAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount TotalAuthorisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAuthorisedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount TotalAuthorisedAmount { get; init; } 
     #else
-    public System.Decimal TotalAuthorisedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount TotalAuthorisedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -224,13 +223,12 @@ public partial record ATMTransaction19
     [DataMember(Name="TtlReqdAmt")]
     #endif
     [IsoXmlTag("TtlReqdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalRequestedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; init; } 
     #else
-    public System.Decimal? TotalRequestedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalRequestedAmount { get; set; } 
     #endif
     
     /// <summary>

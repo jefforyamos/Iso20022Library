@@ -65,13 +65,12 @@ public partial record TransactionCertificateContract2
     [DataMember(Name="TxAmtInCtrctCcy")]
     #endif
     [IsoXmlTag("TxAmtInCtrctCcy")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TransactionAmountInContractCurrency { get; init; } 
+    public ActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; init; } 
     #else
-    public System.Decimal? TransactionAmountInContractCurrency { get; set; } 
+    public ActiveCurrencyAndAmount? TransactionAmountInContractCurrency { get; set; } 
     #endif
     
     /// <summary>

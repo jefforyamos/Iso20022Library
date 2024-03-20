@@ -92,13 +92,12 @@ public partial record CashOption76
     [DataMember(Name="GrssCshAmt")]
     #endif
     [IsoXmlTag("GrssCshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossCashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
     #else
-    public System.Decimal? GrossCashAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GrossCashAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -110,13 +109,12 @@ public partial record CashOption76
     [DataMember(Name="NetCshAmt")]
     #endif
     [IsoXmlTag("NetCshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NetCashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetCashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetCashAmount { get; init; } 
     #else
-    public System.Decimal? NetCashAmount { get; set; } 
+    public ActiveCurrencyAndAmount? NetCashAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -128,13 +126,12 @@ public partial record CashOption76
     [DataMember(Name="EntitldAmt")]
     #endif
     [IsoXmlTag("EntitldAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? EntitledAmount { get; init; } 
+    public ActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EntitledAmount { get; init; } 
+    public ActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #else
-    public System.Decimal? EntitledAmount { get; set; } 
+    public ActiveCurrencyAndAmount? EntitledAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -163,13 +160,12 @@ public partial record CashOption76
     [DataMember(Name="WhldgTaxAmt")]
     #endif
     [IsoXmlTag("WhldgTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingTaxAmount { get; init; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingTaxAmount { get; set; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; set; } 
     #endif
     
     /// <summary>

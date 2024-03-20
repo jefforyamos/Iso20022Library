@@ -48,13 +48,12 @@ public partial record RemittanceAmount2
     [DataMember(Name="DuePyblAmt")]
     #endif
     [IsoXmlTag("DuePyblAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DuePayableAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; init; } 
     #else
-    public System.Decimal? DuePayableAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? DuePayableAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -83,13 +82,12 @@ public partial record RemittanceAmount2
     [DataMember(Name="CdtNoteAmt")]
     #endif
     [IsoXmlTag("CdtNoteAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CreditNoteAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; init; } 
     #else
-    public System.Decimal? CreditNoteAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? CreditNoteAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -135,13 +133,12 @@ public partial record RemittanceAmount2
     [DataMember(Name="RmtdAmt")]
     #endif
     [IsoXmlTag("RmtdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RemittedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; init; } 
     #else
-    public System.Decimal? RemittedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? RemittedAmount { get; set; } 
     #endif
     
     

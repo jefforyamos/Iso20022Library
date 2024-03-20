@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YsS_xdp-Ed-ak6NoX_4Aeg_-819075130")]
 [Description(@"Specifies the reason for a transaction to be rejected, returned or reversed by an instructed agent or somebody acting on behalf of an instructed agent.")]
-[Derivations(typeof(TransactionReversalReason2Code),typeof(TransactionRejectReason2Code),typeof(TransactionRejectReason6Code),typeof(TransactionReturnReason1Code),typeof(TransactionReversalReason1Code),typeof(TransactionRejectReason7Code),typeof(TransactionRejectReason4Code),typeof(TransactionRejectReason5Code))]
+[Derivations(typeof(TransactionRejectReason5Code),typeof(TransactionRejectReason6Code),typeof(TransactionReturnReason1Code),typeof(TransactionRejectReason7Code),typeof(TransactionRejectReason2Code),typeof(TransactionReversalReason2Code),typeof(TransactionReversalReason1Code),typeof(TransactionRejectReason4Code))]
 public enum TransactionReasonCode
 {
     /// <summary>

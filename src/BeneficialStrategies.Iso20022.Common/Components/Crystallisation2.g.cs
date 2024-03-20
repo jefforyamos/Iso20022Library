@@ -112,13 +112,12 @@ public partial record Crystallisation2
     [DataMember(Name="CrstllsdAmt")]
     #endif
     [IsoXmlTag("CrstllsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? CrystallisedAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CrystallisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CrystallisedAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? CrystallisedAmount { get; init; } 
     #else
-    public System.Decimal? CrystallisedAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? CrystallisedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -130,13 +129,12 @@ public partial record Crystallisation2
     [DataMember(Name="UcrstllsdAmt")]
     #endif
     [IsoXmlTag("UcrstllsdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? UncrystallisedAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? UncrystallisedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UncrystallisedAmount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? UncrystallisedAmount { get; init; } 
     #else
-    public System.Decimal? UncrystallisedAmount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? UncrystallisedAmount { get; set; } 
     #endif
     
     /// <summary>

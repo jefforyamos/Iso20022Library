@@ -39,7 +39,7 @@ public partial record SettlementData2
     /// Constructs a SettlementData2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public SettlementData2( System.Decimal reqSettlementAmount,PartyIdentification8Choice_ reqPayingParty,PartyIdentification8Choice_ reqReceivingParty,System.DateOnly reqSettlementDate,SettlementStatus1Code reqSettlementStatus,System.String reqExtendedSettlementStatus,System.String reqSuspended,System.String reqPending )
+    public SettlementData2( ActiveOrHistoricCurrencyAndAmount reqSettlementAmount,PartyIdentification8Choice_ reqPayingParty,PartyIdentification8Choice_ reqReceivingParty,System.DateOnly reqSettlementDate,SettlementStatus1Code reqSettlementStatus,System.String reqExtendedSettlementStatus,System.String reqSuspended,System.String reqPending )
     {
         SettlementAmount = reqSettlementAmount;
         PayingParty = reqPayingParty;
@@ -100,15 +100,14 @@ public partial record SettlementData2
     [DataMember(Name="SttlmAmt")]
     #endif
     [IsoXmlTag("SttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount SettlementAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal SettlementAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal SettlementAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount SettlementAmount { get; init; } 
     #else
-    public System.Decimal SettlementAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount SettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +119,12 @@ public partial record SettlementData2
     [DataMember(Name="SttldAmt")]
     #endif
     [IsoXmlTag("SttldAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? SettledAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? SettledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SettledAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? SettledAmount { get; init; } 
     #else
-    public System.Decimal? SettledAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? SettledAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -138,13 +136,12 @@ public partial record SettlementData2
     [DataMember(Name="RjctdAmt")]
     #endif
     [IsoXmlTag("RjctdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? RejectedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? RejectedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RejectedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? RejectedAmount { get; init; } 
     #else
-    public System.Decimal? RejectedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? RejectedAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -48,13 +48,12 @@ public partial record Commission11
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? Amount { get; set; } 
     #endif
     
     /// <summary>

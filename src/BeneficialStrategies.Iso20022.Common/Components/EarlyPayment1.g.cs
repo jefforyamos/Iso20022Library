@@ -39,7 +39,7 @@ public partial record EarlyPayment1
     /// Constructs a EarlyPayment1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public EarlyPayment1( System.DateOnly reqEarlyPaymentDate,System.Decimal reqDiscountPercent,System.Decimal reqDiscountAmount )
+    public EarlyPayment1( System.DateOnly reqEarlyPaymentDate,System.Decimal reqDiscountPercent,CurrencyAndAmount reqDiscountAmount )
     {
         EarlyPaymentDate = reqEarlyPaymentDate;
         DiscountPercent = reqDiscountPercent;
@@ -97,15 +97,14 @@ public partial record EarlyPayment1
     [DataMember(Name="DscntAmt")]
     #endif
     [IsoXmlTag("DscntAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount DiscountAmount { get; init; } 
+    public required CurrencyAndAmount DiscountAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal DiscountAmount { get; init; } 
+    public required CurrencyAndAmount DiscountAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal DiscountAmount { get; init; } 
+    public CurrencyAndAmount DiscountAmount { get; init; } 
     #else
-    public System.Decimal DiscountAmount { get; set; } 
+    public CurrencyAndAmount DiscountAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -134,13 +133,12 @@ public partial record EarlyPayment1
     [DataMember(Name="EarlyPmtTaxTtl")]
     #endif
     [IsoXmlTag("EarlyPmtTaxTtl")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
+    public CurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EarlyPaymentTaxTotal { get; init; } 
+    public CurrencyAndAmount? EarlyPaymentTaxTotal { get; init; } 
     #else
-    public System.Decimal? EarlyPaymentTaxTotal { get; set; } 
+    public CurrencyAndAmount? EarlyPaymentTaxTotal { get; set; } 
     #endif
     
     /// <summary>
@@ -152,13 +150,12 @@ public partial record EarlyPayment1
     [DataMember(Name="DuePyblAmtWthEarlyPmt")]
     #endif
     [IsoXmlTag("DuePyblAmtWthEarlyPmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
+    public CurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DuePayableAmountWithEarlyPayment { get; init; } 
+    public CurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; init; } 
     #else
-    public System.Decimal? DuePayableAmountWithEarlyPayment { get; set; } 
+    public CurrencyAndAmount? DuePayableAmountWithEarlyPayment { get; set; } 
     #endif
     
     

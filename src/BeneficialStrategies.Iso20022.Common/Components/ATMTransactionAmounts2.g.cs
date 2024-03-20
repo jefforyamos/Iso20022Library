@@ -65,13 +65,12 @@ public partial record ATMTransactionAmounts2
     [DataMember(Name="MaxAuthsbAmt")]
     #endif
     [IsoXmlTag("MaxAuthsbAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumAuthorisableAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; init; } 
     #else
-    public System.Decimal? MaximumAuthorisableAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumAuthorisableAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -83,13 +82,12 @@ public partial record ATMTransactionAmounts2
     [DataMember(Name="MinAllwdAmt")]
     #endif
     [IsoXmlTag("MinAllwdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MinimumAllowedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MinimumAllowedAmount { get; init; } 
     #else
-    public System.Decimal? MinimumAllowedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MinimumAllowedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -101,13 +99,12 @@ public partial record ATMTransactionAmounts2
     [DataMember(Name="MaxAllwdAmt")]
     #endif
     [IsoXmlTag("MaxAllwdAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MaximumAllowedAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? MaximumAllowedAmount { get; init; } 
     #else
-    public System.Decimal? MaximumAllowedAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? MaximumAllowedAmount { get; set; } 
     #endif
     
     /// <summary>

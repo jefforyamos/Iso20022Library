@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TWPA4QEcEeCQm6a_G2yO_w_1358541194")]
 [Description(@"Service provided by a card payment transaction.")]
-[Derivations(typeof(CardPaymentServiceType6Code),typeof(CardPaymentServiceType3Code),typeof(CardPaymentServiceType12Code),typeof(CardPaymentServiceType8Code),typeof(CardPaymentServiceType1Code),typeof(CardPaymentServiceType13Code),typeof(CardPaymentServiceType5Code),typeof(CardPaymentServiceType7Code),typeof(CardPaymentServiceType14Code),typeof(CardPaymentServiceType2Code),typeof(CardPaymentServiceType4Code),typeof(CardPaymentServiceType10Code),typeof(CardPaymentServiceType9Code))]
+[Derivations(typeof(CardPaymentServiceType5Code),typeof(CardPaymentServiceType1Code),typeof(CardPaymentServiceType10Code),typeof(CardPaymentServiceType7Code),typeof(CardPaymentServiceType2Code),typeof(CardPaymentServiceType12Code),typeof(CardPaymentServiceType4Code),typeof(CardPaymentServiceType14Code),typeof(CardPaymentServiceType6Code),typeof(CardPaymentServiceType13Code),typeof(CardPaymentServiceType3Code),typeof(CardPaymentServiceType9Code),typeof(CardPaymentServiceType8Code))]
 public enum CardPaymentServiceTypeCode
 {
     /// <summary>

@@ -75,13 +75,12 @@ public partial record CashInForecast1
     [DataMember(Name="SubTtlAmt")]
     #endif
     [IsoXmlTag("SubTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SubTotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; init; } 
     #else
-    public System.Decimal? SubTotalAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? SubTotalAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -347,13 +347,12 @@ public partial record MeetingNotice2
     [DataMember(Name="TtlNbOfSctiesOutsdng")]
     #endif
     [IsoXmlTag("TtlNbOfSctiesOutsdng")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public CurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; init; } 
+    public CurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; init; } 
     #else
-    public System.Decimal? TotalNumberOfSecuritiesOutstanding { get; set; } 
+    public CurrencyAndAmount? TotalNumberOfSecuritiesOutstanding { get; set; } 
     #endif
     
     /// <summary>

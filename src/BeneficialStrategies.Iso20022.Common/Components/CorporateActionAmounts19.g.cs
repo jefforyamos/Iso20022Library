@@ -48,13 +48,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="GrssCshAmt")]
     #endif
     [IsoXmlTag("GrssCshAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? GrossCashAmount { get; init; } 
     #else
-    public System.Decimal? GrossCashAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? GrossCashAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="NetCshAmt")]
     #endif
     [IsoXmlTag("NetCshAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? NetCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? NetCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetCashAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? NetCashAmount { get; init; } 
     #else
-    public System.Decimal? NetCashAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? NetCashAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="SlctnFees")]
     #endif
     [IsoXmlTag("SlctnFees")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? SolicitationFees { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SolicitationFees { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SolicitationFees { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SolicitationFees { get; init; } 
     #else
-    public System.Decimal? SolicitationFees { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? SolicitationFees { get; set; } 
     #endif
     
     /// <summary>
@@ -102,13 +99,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="CshInLieuOfShr")]
     #endif
     [IsoXmlTag("CshInLieuOfShr")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashInLieuOfShare { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; init; } 
     #else
-    public System.Decimal? CashInLieuOfShare { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashInLieuOfShare { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +116,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="CptlGn")]
     #endif
     [IsoXmlTag("CptlGn")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? CapitalGain { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CapitalGain { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CapitalGain { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CapitalGain { get; init; } 
     #else
-    public System.Decimal? CapitalGain { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? CapitalGain { get; set; } 
     #endif
     
     /// <summary>
@@ -138,13 +133,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="IntrstAmt")]
     #endif
     [IsoXmlTag("IntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? InterestAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InterestAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterestAmount { get; init; } 
     #else
-    public System.Decimal? InterestAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? InterestAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -156,13 +150,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="MktClmAmt")]
     #endif
     [IsoXmlTag("MktClmAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? MarketClaimAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? MarketClaimAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarketClaimAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? MarketClaimAmount { get; init; } 
     #else
-    public System.Decimal? MarketClaimAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? MarketClaimAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -174,13 +167,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="IndmntyAmt")]
     #endif
     [IsoXmlTag("IndmntyAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? IndemnityAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? IndemnityAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IndemnityAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? IndemnityAmount { get; init; } 
     #else
-    public System.Decimal? IndemnityAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? IndemnityAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -192,13 +184,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="ManfctrdDvddPmtAmt")]
     #endif
     [IsoXmlTag("ManfctrdDvddPmtAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ManufacturedDividendPaymentAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; init; } 
     #else
-    public System.Decimal? ManufacturedDividendPaymentAmount { get; set; } 
+    public ActiveCurrencyAndAmount? ManufacturedDividendPaymentAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -210,13 +201,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="RinvstmtAmt")]
     #endif
     [IsoXmlTag("RinvstmtAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ReinvestmentAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ReinvestmentAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReinvestmentAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ReinvestmentAmount { get; init; } 
     #else
-    public System.Decimal? ReinvestmentAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ReinvestmentAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -228,13 +218,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="FullyFrnkdAmt")]
     #endif
     [IsoXmlTag("FullyFrnkdAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? FullyFrankedAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FullyFrankedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FullyFrankedAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FullyFrankedAmount { get; init; } 
     #else
-    public System.Decimal? FullyFrankedAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? FullyFrankedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -246,13 +235,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="UfrnkdAmt")]
     #endif
     [IsoXmlTag("UfrnkdAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? UnfrankedAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? UnfrankedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnfrankedAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? UnfrankedAmount { get; init; } 
     #else
-    public System.Decimal? UnfrankedAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? UnfrankedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -264,13 +252,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="SndryOrOthrAmt")]
     #endif
     [IsoXmlTag("SndryOrOthrAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? SundryOrOtherAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SundryOrOtherAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SundryOrOtherAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? SundryOrOtherAmount { get; init; } 
     #else
-    public System.Decimal? SundryOrOtherAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? SundryOrOtherAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -282,13 +269,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="CshIncntiv")]
     #endif
     [IsoXmlTag("CshIncntiv")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? CashIncentive { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashIncentive { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashIncentive { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashIncentive { get; init; } 
     #else
-    public System.Decimal? CashIncentive { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? CashIncentive { get; set; } 
     #endif
     
     /// <summary>
@@ -300,13 +286,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="TaxFreeAmt")]
     #endif
     [IsoXmlTag("TaxFreeAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TaxFreeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxFreeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxFreeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxFreeAmount { get; init; } 
     #else
-    public System.Decimal? TaxFreeAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxFreeAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -318,13 +303,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="TaxDfrrdAmt")]
     #endif
     [IsoXmlTag("TaxDfrrdAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TaxDeferredAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxDeferredAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxDeferredAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxDeferredAmount { get; init; } 
     #else
-    public System.Decimal? TaxDeferredAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxDeferredAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -336,13 +320,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="ValAddedTaxAmt")]
     #endif
     [IsoXmlTag("ValAddedTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ValueAddedTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ValueAddedTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ValueAddedTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ValueAddedTaxAmount { get; init; } 
     #else
-    public System.Decimal? ValueAddedTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ValueAddedTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -354,13 +337,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="StmpDtyAmt")]
     #endif
     [IsoXmlTag("StmpDtyAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StampDutyAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     #else
-    public System.Decimal? StampDutyAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? StampDutyAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -372,13 +354,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="TaxRclmAmt")]
     #endif
     [IsoXmlTag("TaxRclmAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TaxReclaimAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxReclaimAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxReclaimAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxReclaimAmount { get; init; } 
     #else
-    public System.Decimal? TaxReclaimAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxReclaimAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -390,13 +371,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="TaxCdtAmt")]
     #endif
     [IsoXmlTag("TaxCdtAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? TaxCreditAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxCreditAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxCreditAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxCreditAmount { get; init; } 
     #else
-    public System.Decimal? TaxCreditAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? TaxCreditAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -408,13 +388,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="WhldgOfFrgnTaxAmt")]
     #endif
     [IsoXmlTag("WhldgOfFrgnTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? WithholdingOfForeignTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfForeignTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingOfForeignTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfForeignTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingOfForeignTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfForeignTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -426,13 +405,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="WhldgOfLclTaxAmt")]
     #endif
     [IsoXmlTag("WhldgOfLclTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? WithholdingOfLocalTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfLocalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingOfLocalTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfLocalTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingOfLocalTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingOfLocalTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -444,13 +422,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="AddtlTaxAmt")]
     #endif
     [IsoXmlTag("AddtlTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? AdditionalTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? AdditionalTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AdditionalTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? AdditionalTaxAmount { get; init; } 
     #else
-    public System.Decimal? AdditionalTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? AdditionalTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -462,13 +439,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="WhldgTaxAmt")]
     #endif
     [IsoXmlTag("WhldgTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingTaxAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingTaxAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? WithholdingTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -480,13 +456,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="FsclStmpAmt")]
     #endif
     [IsoXmlTag("FsclStmpAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? FiscalStampAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FiscalStampAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FiscalStampAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? FiscalStampAmount { get; init; } 
     #else
-    public System.Decimal? FiscalStampAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? FiscalStampAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -498,13 +473,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="ExctgBrkrAmt")]
     #endif
     [IsoXmlTag("ExctgBrkrAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ExecutingBrokerAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ExecutingBrokerAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExecutingBrokerAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ExecutingBrokerAmount { get; init; } 
     #else
-    public System.Decimal? ExecutingBrokerAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ExecutingBrokerAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -516,13 +490,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="PngAgtComssnAmt")]
     #endif
     [IsoXmlTag("PngAgtComssnAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PayingAgentCommissionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; init; } 
     #else
-    public System.Decimal? PayingAgentCommissionAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? PayingAgentCommissionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -534,13 +507,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="LclBrkrComssnAmt")]
     #endif
     [IsoXmlTag("LclBrkrComssnAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LocalBrokerCommissionAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; init; } 
     #else
-    public System.Decimal? LocalBrokerCommissionAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? LocalBrokerCommissionAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -552,13 +524,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="RgltryFeesAmt")]
     #endif
     [IsoXmlTag("RgltryFeesAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? RegulatoryFeesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? RegulatoryFeesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? RegulatoryFeesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? RegulatoryFeesAmount { get; init; } 
     #else
-    public System.Decimal? RegulatoryFeesAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? RegulatoryFeesAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -570,13 +541,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="ShppgFeesAmt")]
     #endif
     [IsoXmlTag("ShppgFeesAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ShippingFeesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ShippingFeesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ShippingFeesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ShippingFeesAmount { get; init; } 
     #else
-    public System.Decimal? ShippingFeesAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ShippingFeesAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -588,13 +558,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="ChrgsAmt")]
     #endif
     [IsoXmlTag("ChrgsAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargesAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; init; } 
     #else
-    public System.Decimal? ChargesAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? ChargesAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -606,13 +575,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="EntitldAmt")]
     #endif
     [IsoXmlTag("EntitldAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EntitledAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; init; } 
     #else
-    public System.Decimal? EntitledAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? EntitledAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -624,13 +592,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="OrgnlAmt")]
     #endif
     [IsoXmlTag("OrgnlAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? OriginalAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? OriginalAmount { get; init; } 
     #else
-    public System.Decimal? OriginalAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? OriginalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -642,13 +609,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="AcrdIntrstAmt")]
     #endif
     [IsoXmlTag("AcrdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AccruedInterestAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? AccruedInterestAmount { get; init; } 
     #else
-    public System.Decimal? AccruedInterestAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? AccruedInterestAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -660,13 +626,12 @@ public partial record CorporateActionAmounts19
     [DataMember(Name="IncmPrtn")]
     #endif
     [IsoXmlTag("IncmPrtn")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? IncomePortion { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? IncomePortion { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? IncomePortion { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? IncomePortion { get; init; } 
     #else
-    public System.Decimal? IncomePortion { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? IncomePortion { get; set; } 
     #endif
     
     

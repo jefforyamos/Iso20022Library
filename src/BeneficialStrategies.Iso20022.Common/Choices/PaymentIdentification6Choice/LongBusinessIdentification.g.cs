@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice
         /// Constructs a LongBusinessIdentification instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public LongBusinessIdentification( System.Decimal reqInterBankSettlementAmount,System.DateOnly reqInterBankSettlementDate,BranchAndFinancialInstitutionIdentification6 reqInstructingAgent,BranchAndFinancialInstitutionIdentification6 reqInstructedAgent )
+        public LongBusinessIdentification( ImpliedCurrencyAndAmount reqInterBankSettlementAmount,System.DateOnly reqInterBankSettlementDate,BranchAndFinancialInstitutionIdentification6 reqInstructingAgent,BranchAndFinancialInstitutionIdentification6 reqInstructedAgent )
         {
             InterBankSettlementAmount = reqInterBankSettlementAmount;
             InterBankSettlementDate = reqInterBankSettlementDate;
@@ -100,15 +100,14 @@ namespace BeneficialStrategies.Iso20022.Choices.PaymentIdentification6Choice
         [DataMember(Name="IntrBkSttlmAmt")]
         #endif
         [IsoXmlTag("IntrBkSttlmAmt")]
-        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoImpliedCurrencyAndAmount InterBankSettlementAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount InterBankSettlementAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal InterBankSettlementAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount InterBankSettlementAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal InterBankSettlementAmount { get; init; } 
+        public ImpliedCurrencyAndAmount InterBankSettlementAmount { get; init; } 
         #else
-        public System.Decimal InterBankSettlementAmount { get; set; } 
+        public ImpliedCurrencyAndAmount InterBankSettlementAmount { get; set; } 
         #endif
         
         /// <summary>

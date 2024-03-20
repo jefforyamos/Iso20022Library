@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TWrsygEcEeCQm6a_G2yO_w_-1624727429")]
 [Description(@"Category of data set to transfer.")]
-[Derivations(typeof(DataSetCategory1Code),typeof(DataSetCategory4Code),typeof(DataSetCategory2Code),typeof(DataSetCategory15Code),typeof(DataSetCategory3Code),typeof(DataSetCategory16Code),typeof(DataSetCategory17Code),typeof(DataSetCategory14Code),typeof(DataSetCategory6Code),typeof(DataSetCategory7Code),typeof(DataSetCategory10Code),typeof(DataSetCategory18Code),typeof(DataSetCategory12Code),typeof(DataSetCategory5Code),typeof(DataSetCategory9Code),typeof(DataSetCategory8Code),typeof(DataSetCategory13Code),typeof(DataSetCategory11Code))]
+[Derivations(typeof(DataSetCategory3Code),typeof(DataSetCategory6Code),typeof(DataSetCategory14Code),typeof(DataSetCategory2Code),typeof(DataSetCategory15Code),typeof(DataSetCategory16Code),typeof(DataSetCategory13Code),typeof(DataSetCategory5Code),typeof(DataSetCategory4Code),typeof(DataSetCategory9Code),typeof(DataSetCategory17Code),typeof(DataSetCategory11Code),typeof(DataSetCategory1Code),typeof(DataSetCategory18Code),typeof(DataSetCategory7Code),typeof(DataSetCategory10Code),typeof(DataSetCategory12Code),typeof(DataSetCategory8Code))]
 public enum DataSetCategoryCode
 {
     /// <summary>

@@ -48,13 +48,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="LineTtlAmt")]
     #endif
     [IsoXmlTag("LineTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? LineTotalAmount { get; init; } 
+    public CurrencyAndAmount? LineTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? LineTotalAmount { get; init; } 
+    public CurrencyAndAmount? LineTotalAmount { get; init; } 
     #else
-    public System.Decimal? LineTotalAmount { get; set; } 
+    public CurrencyAndAmount? LineTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="AllwncTtlAmt")]
     #endif
     [IsoXmlTag("AllwncTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? AllowanceTotalAmount { get; init; } 
+    public CurrencyAndAmount? AllowanceTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AllowanceTotalAmount { get; init; } 
+    public CurrencyAndAmount? AllowanceTotalAmount { get; init; } 
     #else
-    public System.Decimal? AllowanceTotalAmount { get; set; } 
+    public CurrencyAndAmount? AllowanceTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="ChrgTtlAmt")]
     #endif
     [IsoXmlTag("ChrgTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? ChargeTotalAmount { get; init; } 
+    public CurrencyAndAmount? ChargeTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargeTotalAmount { get; init; } 
+    public CurrencyAndAmount? ChargeTotalAmount { get; init; } 
     #else
-    public System.Decimal? ChargeTotalAmount { get; set; } 
+    public CurrencyAndAmount? ChargeTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -102,13 +99,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="TaxTtlAmt")]
     #endif
     [IsoXmlTag("TaxTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TaxTotalAmount { get; init; } 
+    public CurrencyAndAmount? TaxTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxTotalAmount { get; init; } 
+    public CurrencyAndAmount? TaxTotalAmount { get; init; } 
     #else
-    public System.Decimal? TaxTotalAmount { get; set; } 
+    public CurrencyAndAmount? TaxTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +116,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="TaxBsisTtlAmt")]
     #endif
     [IsoXmlTag("TaxBsisTtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TaxBasisTotalAmount { get; init; } 
+    public CurrencyAndAmount? TaxBasisTotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxBasisTotalAmount { get; init; } 
+    public CurrencyAndAmount? TaxBasisTotalAmount { get; init; } 
     #else
-    public System.Decimal? TaxBasisTotalAmount { get; set; } 
+    public CurrencyAndAmount? TaxBasisTotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -138,13 +133,12 @@ public partial record LineItemMonetarySummation1
     [DataMember(Name="InfAmt")]
     #endif
     [IsoXmlTag("InfAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? InformationAmount { get; init; } 
+    public CurrencyAndAmount? InformationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InformationAmount { get; init; } 
+    public CurrencyAndAmount? InformationAmount { get; init; } 
     #else
-    public System.Decimal? InformationAmount { get; set; } 
+    public CurrencyAndAmount? InformationAmount { get; set; } 
     #endif
     
     

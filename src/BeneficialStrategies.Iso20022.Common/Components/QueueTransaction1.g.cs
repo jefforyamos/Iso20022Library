@@ -39,7 +39,7 @@ public partial record QueueTransaction1
     /// Constructs a QueueTransaction1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public QueueTransaction1( FinancialInstitutionIdentification8 reqAccountOwner,AccountIdentification4Choice_ reqAccount,System.Decimal reqTotalAmount )
+    public QueueTransaction1( FinancialInstitutionIdentification8 reqAccountOwner,AccountIdentification4Choice_ reqAccount,ActiveCurrencyAndAmount reqTotalAmount )
     {
         AccountOwner = reqAccountOwner;
         Account = reqAccount;
@@ -113,15 +113,14 @@ public partial record QueueTransaction1
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalAmount { get; init; } 
     #else
-    public System.Decimal TotalAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalAmount { get; set; } 
     #endif
     
     

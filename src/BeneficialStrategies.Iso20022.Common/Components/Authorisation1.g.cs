@@ -39,7 +39,7 @@ public partial record Authorisation1
     /// Constructs a Authorisation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Authorisation1( System.Decimal reqMinimumAmountPerTransaction,System.Decimal reqMaximumAmountPerTransaction )
+    public Authorisation1( ActiveCurrencyAndAmount reqMinimumAmountPerTransaction,ActiveCurrencyAndAmount reqMaximumAmountPerTransaction )
     {
         MinimumAmountPerTransaction = reqMinimumAmountPerTransaction;
         MaximumAmountPerTransaction = reqMaximumAmountPerTransaction;
@@ -56,15 +56,14 @@ public partial record Authorisation1
     [DataMember(Name="MinAmtPerTx")]
     #endif
     [IsoXmlTag("MinAmtPerTx")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
+    public required ActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MinimumAmountPerTransaction { get; init; } 
+    public required ActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MinimumAmountPerTransaction { get; init; } 
+    public ActiveCurrencyAndAmount MinimumAmountPerTransaction { get; init; } 
     #else
-    public System.Decimal MinimumAmountPerTransaction { get; set; } 
+    public ActiveCurrencyAndAmount MinimumAmountPerTransaction { get; set; } 
     #endif
     
     /// <summary>
@@ -76,15 +75,14 @@ public partial record Authorisation1
     [DataMember(Name="MaxAmtPerTx")]
     #endif
     [IsoXmlTag("MaxAmtPerTx")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
+    public required ActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal MaximumAmountPerTransaction { get; init; } 
+    public required ActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal MaximumAmountPerTransaction { get; init; } 
+    public ActiveCurrencyAndAmount MaximumAmountPerTransaction { get; init; } 
     #else
-    public System.Decimal MaximumAmountPerTransaction { get; set; } 
+    public ActiveCurrencyAndAmount MaximumAmountPerTransaction { get; set; } 
     #endif
     
     /// <summary>

@@ -111,13 +111,12 @@ public partial record Product2
     [DataMember(Name="UnitPric")]
     #endif
     [IsoXmlTag("UnitPric")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? UnitPrice { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnitPrice { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; init; } 
     #else
-    public System.Decimal? UnitPrice { get; set; } 
+    public ImpliedCurrencyAndAmount? UnitPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -129,13 +128,12 @@ public partial record Product2
     [DataMember(Name="PdctAmt")]
     #endif
     [IsoXmlTag("PdctAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ProductAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ProductAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ProductAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? ProductAmount { get; init; } 
     #else
-    public System.Decimal? ProductAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? ProductAmount { get; set; } 
     #endif
     
     /// <summary>

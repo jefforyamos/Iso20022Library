@@ -220,13 +220,12 @@ public partial record ReorganisationInstructionSD6
     [DataMember(Name="WarrtSbcptChrgAmt")]
     #endif
     [IsoXmlTag("WarrtSbcptChrgAmt")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WarrantSubscriptionChargeAmount { get; init; } 
+    public RestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; init; } 
     #else
-    public System.Decimal? WarrantSubscriptionChargeAmount { get; set; } 
+    public RestrictedFINActiveCurrencyAndAmount? WarrantSubscriptionChargeAmount { get; set; } 
     #endif
     
     /// <summary>

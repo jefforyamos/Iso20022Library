@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aSXltNp-Ed-ak6NoX_4Aeg_336257668")]
 [Description(@"Specifies the current status of the order.")]
-[Derivations(typeof(OrderStatus4Code),typeof(OrderStatus5Code),typeof(OrderStatus8Code),typeof(OrderStatus3Code),typeof(OrderStatus6Code),typeof(OrderStatus2Code),typeof(OrderStatus1Code),typeof(OrderStatus7Code))]
+[Derivations(typeof(OrderStatus2Code),typeof(OrderStatus4Code),typeof(OrderStatus7Code),typeof(OrderStatus1Code),typeof(OrderStatus3Code),typeof(OrderStatus5Code),typeof(OrderStatus6Code),typeof(OrderStatus8Code))]
 public enum OrderStatusCode
 {
     /// <summary>

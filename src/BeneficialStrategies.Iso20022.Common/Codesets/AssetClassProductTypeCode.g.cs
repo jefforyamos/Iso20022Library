@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bI7sQQnYEeWa7rBfPECYsw")]
 [Description(@"Commodity derivative base product code list.")]
-[Derivations(typeof(AssetClassProductType3Code),typeof(AssetClassProductType15Code),typeof(AssetClassProductType6Code),typeof(AssetClassProductType14Code),typeof(AssetClassProductType7Code),typeof(AssetClassProductType2Code),typeof(AssetClassProductType11Code),typeof(AssetClassProductType4Code),typeof(AssetClassProductType9Code),typeof(AssetClassProductType13Code),typeof(AssetClassProductType8Code),typeof(AssetClassProductType1Code),typeof(AssetClassProductType12Code),typeof(AssetClassProductType5Code),typeof(AssetClassProductType16Code))]
+[Derivations(typeof(AssetClassProductType8Code),typeof(AssetClassProductType14Code),typeof(AssetClassProductType2Code),typeof(AssetClassProductType12Code),typeof(AssetClassProductType5Code),typeof(AssetClassProductType1Code),typeof(AssetClassProductType7Code),typeof(AssetClassProductType4Code),typeof(AssetClassProductType6Code),typeof(AssetClassProductType9Code),typeof(AssetClassProductType3Code),typeof(AssetClassProductType13Code),typeof(AssetClassProductType16Code),typeof(AssetClassProductType11Code),typeof(AssetClassProductType15Code))]
 public enum AssetClassProductTypeCode
 {
     /// <summary>

@@ -39,7 +39,7 @@ public partial record TaxVoucher1
     /// Constructs a TaxVoucher1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TaxVoucher1( System.Decimal reqTaxVoucherRate,System.Decimal reqTaxCredit,System.Decimal reqTaxDeduction,System.Decimal reqGrossAmount,System.Decimal reqNetAmount,UnitOrFaceAmount1Choice_ reqRecordDateHolding )
+    public TaxVoucher1( System.Decimal reqTaxVoucherRate,ActiveCurrencyAndAmount reqTaxCredit,ActiveCurrencyAndAmount reqTaxDeduction,ActiveCurrencyAndAmount reqGrossAmount,ActiveCurrencyAndAmount reqNetAmount,UnitOrFaceAmount1Choice_ reqRecordDateHolding )
     {
         TaxVoucherRate = reqTaxVoucherRate;
         TaxCredit = reqTaxCredit;
@@ -80,15 +80,14 @@ public partial record TaxVoucher1
     [DataMember(Name="TaxCdt")]
     #endif
     [IsoXmlTag("TaxCdt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TaxCredit { get; init; } 
+    public required ActiveCurrencyAndAmount TaxCredit { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TaxCredit { get; init; } 
+    public required ActiveCurrencyAndAmount TaxCredit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TaxCredit { get; init; } 
+    public ActiveCurrencyAndAmount TaxCredit { get; init; } 
     #else
-    public System.Decimal TaxCredit { get; set; } 
+    public ActiveCurrencyAndAmount TaxCredit { get; set; } 
     #endif
     
     /// <summary>
@@ -100,15 +99,14 @@ public partial record TaxVoucher1
     [DataMember(Name="TaxDdctn")]
     #endif
     [IsoXmlTag("TaxDdctn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TaxDeduction { get; init; } 
+    public required ActiveCurrencyAndAmount TaxDeduction { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TaxDeduction { get; init; } 
+    public required ActiveCurrencyAndAmount TaxDeduction { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TaxDeduction { get; init; } 
+    public ActiveCurrencyAndAmount TaxDeduction { get; init; } 
     #else
-    public System.Decimal TaxDeduction { get; set; } 
+    public ActiveCurrencyAndAmount TaxDeduction { get; set; } 
     #endif
     
     /// <summary>
@@ -120,15 +118,14 @@ public partial record TaxVoucher1
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount GrossAmount { get; init; } 
+    public required ActiveCurrencyAndAmount GrossAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal GrossAmount { get; init; } 
+    public required ActiveCurrencyAndAmount GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount GrossAmount { get; init; } 
     #else
-    public System.Decimal GrossAmount { get; set; } 
+    public ActiveCurrencyAndAmount GrossAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -140,15 +137,14 @@ public partial record TaxVoucher1
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount NetAmount { get; init; } 
+    public required ActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal NetAmount { get; init; } 
+    public required ActiveCurrencyAndAmount NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount NetAmount { get; init; } 
     #else
-    public System.Decimal NetAmount { get; set; } 
+    public ActiveCurrencyAndAmount NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -197,13 +193,12 @@ public partial record TaxVoucher1
     [DataMember(Name="WhldgTaxAmt")]
     #endif
     [IsoXmlTag("WhldgTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? WithholdingTaxAmount { get; init; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; init; } 
     #else
-    public System.Decimal? WithholdingTaxAmount { get; set; } 
+    public ActiveCurrencyAndAmount? WithholdingTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -250,13 +245,12 @@ public partial record TaxVoucher1
     [DataMember(Name="CshAmtBrghtFwd")]
     #endif
     [IsoXmlTag("CshAmtBrghtFwd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashAmountBroughtForward { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmountBroughtForward { get; init; } 
     #else
-    public System.Decimal? CashAmountBroughtForward { get; set; } 
+    public ActiveCurrencyAndAmount? CashAmountBroughtForward { get; set; } 
     #endif
     
     /// <summary>
@@ -285,13 +279,12 @@ public partial record TaxVoucher1
     [DataMember(Name="CshAmtCrrdFwd")]
     #endif
     [IsoXmlTag("CshAmtCrrdFwd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashAmountCarriedForward { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmountCarriedForward { get; init; } 
     #else
-    public System.Decimal? CashAmountCarriedForward { get; set; } 
+    public ActiveCurrencyAndAmount? CashAmountCarriedForward { get; set; } 
     #endif
     
     /// <summary>
@@ -303,13 +296,12 @@ public partial record TaxVoucher1
     [DataMember(Name="NtnlTax")]
     #endif
     [IsoXmlTag("NtnlTax")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NotionalTax { get; init; } 
+    public ActiveCurrencyAndAmount? NotionalTax { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NotionalTax { get; init; } 
+    public ActiveCurrencyAndAmount? NotionalTax { get; init; } 
     #else
-    public System.Decimal? NotionalTax { get; set; } 
+    public ActiveCurrencyAndAmount? NotionalTax { get; set; } 
     #endif
     
     /// <summary>
@@ -321,13 +313,12 @@ public partial record TaxVoucher1
     [DataMember(Name="NtnlDvddPybl")]
     #endif
     [IsoXmlTag("NtnlDvddPybl")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NotionalDividendPayable { get; init; } 
+    public ActiveCurrencyAndAmount? NotionalDividendPayable { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NotionalDividendPayable { get; init; } 
+    public ActiveCurrencyAndAmount? NotionalDividendPayable { get; init; } 
     #else
-    public System.Decimal? NotionalDividendPayable { get; set; } 
+    public ActiveCurrencyAndAmount? NotionalDividendPayable { get; set; } 
     #endif
     
     /// <summary>
@@ -375,13 +366,12 @@ public partial record TaxVoucher1
     [DataMember(Name="StmpDtyAmt")]
     #endif
     [IsoXmlTag("StmpDtyAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StampDutyAmount { get; init; } 
+    public ActiveCurrencyAndAmount? StampDutyAmount { get; init; } 
     #else
-    public System.Decimal? StampDutyAmount { get; set; } 
+    public ActiveCurrencyAndAmount? StampDutyAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -393,13 +383,12 @@ public partial record TaxVoucher1
     [DataMember(Name="ChrgAmt")]
     #endif
     [IsoXmlTag("ChrgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ChargeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargeAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ChargeAmount { get; init; } 
     #else
-    public System.Decimal? ChargeAmount { get; set; } 
+    public ActiveCurrencyAndAmount? ChargeAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -411,13 +400,12 @@ public partial record TaxVoucher1
     [DataMember(Name="ComssnAmt")]
     #endif
     [IsoXmlTag("ComssnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CommissionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? CommissionAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CommissionAmount { get; init; } 
+    public ActiveCurrencyAndAmount? CommissionAmount { get; init; } 
     #else
-    public System.Decimal? CommissionAmount { get; set; } 
+    public ActiveCurrencyAndAmount? CommissionAmount { get; set; } 
     #endif
     
     /// <summary>

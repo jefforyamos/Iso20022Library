@@ -39,7 +39,7 @@ public partial record PaymentTransaction50
     /// Constructs a PaymentTransaction50 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public PaymentTransaction50( System.Decimal reqReturnedInterbankSettlementAmount )
+    public PaymentTransaction50( ActiveCurrencyAndAmount reqReturnedInterbankSettlementAmount )
     {
         ReturnedInterbankSettlementAmount = reqReturnedInterbankSettlementAmount;
     }
@@ -167,13 +167,12 @@ public partial record PaymentTransaction50
     [DataMember(Name="OrgnlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInterbankSettlementAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInterbankSettlementAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -185,15 +184,14 @@ public partial record PaymentTransaction50
     [DataMember(Name="RtrdIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("RtrdIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ReturnedInterbankSettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ReturnedInterbankSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount ReturnedInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal ReturnedInterbankSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount ReturnedInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -242,13 +240,12 @@ public partial record PaymentTransaction50
     [DataMember(Name="RtrdInstdAmt")]
     #endif
     [IsoXmlTag("RtrdInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReturnedInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReturnedInstructedAmount { get; init; } 
     #else
-    public System.Decimal? ReturnedInstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReturnedInstructedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -278,13 +275,12 @@ public partial record PaymentTransaction50
     [DataMember(Name="CompstnAmt")]
     #endif
     [IsoXmlTag("CompstnAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? CompensationAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CompensationAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CompensationAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? CompensationAmount { get; init; } 
     #else
-    public System.Decimal? CompensationAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? CompensationAmount { get; set; } 
     #endif
     
     /// <summary>

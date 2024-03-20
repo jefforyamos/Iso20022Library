@@ -39,7 +39,7 @@ public partial record ForeignExchangeSwapTransaction3
     /// Constructs a ForeignExchangeSwapTransaction3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ForeignExchangeSwapTransaction3( TransactionOperationType1Code reqReportedTransactionStatus,System.String reqProprietaryTransactionIdentification,CounterpartyIdentification3Choice_ reqCounterpartyIdentification,DateAndDateTimeChoice_ reqTradeDate,System.DateOnly reqSpotValueDate,System.DateOnly reqMaturityDate,SecuritiesTransactionType15Code reqTransactionType,System.Decimal reqTransactionNominalAmount,ForeignExchange1 reqForeignExchange )
+    public ForeignExchangeSwapTransaction3( TransactionOperationType1Code reqReportedTransactionStatus,System.String reqProprietaryTransactionIdentification,CounterpartyIdentification3Choice_ reqCounterpartyIdentification,DateAndDateTimeChoice_ reqTradeDate,System.DateOnly reqSpotValueDate,System.DateOnly reqMaturityDate,SecuritiesTransactionType15Code reqTransactionType,ActiveCurrencyAndAmount reqTransactionNominalAmount,ForeignExchange1 reqForeignExchange )
     {
         ReportedTransactionStatus = reqReportedTransactionStatus;
         ProprietaryTransactionIdentification = reqProprietaryTransactionIdentification;
@@ -297,15 +297,14 @@ public partial record ForeignExchangeSwapTransaction3
     [DataMember(Name="TxNmnlAmt")]
     #endif
     [IsoXmlTag("TxNmnlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TransactionNominalAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TransactionNominalAmount { get; init; } 
+    public ActiveCurrencyAndAmount TransactionNominalAmount { get; init; } 
     #else
-    public System.Decimal TransactionNominalAmount { get; set; } 
+    public ActiveCurrencyAndAmount TransactionNominalAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aQR7BNp-Ed-ak6NoX_4Aeg_195526371")]
 [Description(@"Defines how an option can be exercised.")]
-[Derivations(typeof(OptionStyle4Code),typeof(OptionStyle2Code),typeof(OptionStyle7Code),typeof(OptionStyle6Code),typeof(OptionStyle3Code),typeof(OptionStyle5Code),typeof(OptionStyle1Code))]
+[Derivations(typeof(OptionStyle7Code),typeof(OptionStyle3Code),typeof(OptionStyle6Code),typeof(OptionStyle5Code),typeof(OptionStyle1Code),typeof(OptionStyle2Code),typeof(OptionStyle4Code))]
 public enum OptionStyleCode
 {
     /// <summary>

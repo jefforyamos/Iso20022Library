@@ -39,7 +39,7 @@ public partial record OriginalInvoiceInformation1
     /// Constructs a OriginalInvoiceInformation1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public OriginalInvoiceInformation1( System.String reqDocumentNumber,System.Decimal reqTotalInvoiceAmount,System.DateOnly reqIssueDate,System.DateOnly reqPaymentDueDate )
+    public OriginalInvoiceInformation1( System.String reqDocumentNumber,ActiveCurrencyAndAmount reqTotalInvoiceAmount,System.DateOnly reqIssueDate,System.DateOnly reqPaymentDueDate )
     {
         DocumentNumber = reqDocumentNumber;
         TotalInvoiceAmount = reqTotalInvoiceAmount;
@@ -79,15 +79,14 @@ public partial record OriginalInvoiceInformation1
     [DataMember(Name="TtlInvcAmt")]
     #endif
     [IsoXmlTag("TtlInvcAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalInvoiceAmount { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalInvoiceAmount { get; init; } 
+    public ActiveCurrencyAndAmount TotalInvoiceAmount { get; init; } 
     #else
-    public System.Decimal TotalInvoiceAmount { get; set; } 
+    public ActiveCurrencyAndAmount TotalInvoiceAmount { get; set; } 
     #endif
     
     /// <summary>

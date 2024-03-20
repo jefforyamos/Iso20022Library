@@ -44,7 +44,7 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity5Choice
         /// Constructs a OriginalAndCurrentFaceAmount instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public OriginalAndCurrentFaceAmount( System.Decimal reqFaceAmount,System.Decimal reqAmortisedValue )
+        public OriginalAndCurrentFaceAmount( ImpliedCurrencyAndAmount reqFaceAmount,ImpliedCurrencyAndAmount reqAmortisedValue )
         {
             FaceAmount = reqFaceAmount;
             AmortisedValue = reqAmortisedValue;
@@ -61,15 +61,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity5Choice
         [DataMember(Name="FaceAmt")]
         #endif
         [IsoXmlTag("FaceAmt")]
-        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoImpliedCurrencyAndAmount FaceAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal FaceAmount { get; init; } 
+        public required ImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal FaceAmount { get; init; } 
+        public ImpliedCurrencyAndAmount FaceAmount { get; init; } 
         #else
-        public System.Decimal FaceAmount { get; set; } 
+        public ImpliedCurrencyAndAmount FaceAmount { get; set; } 
         #endif
         
         /// <summary>
@@ -81,15 +80,14 @@ namespace BeneficialStrategies.Iso20022.Choices.Quantity5Choice
         [DataMember(Name="AmtsdVal")]
         #endif
         [IsoXmlTag("AmtsdVal")]
-        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoImpliedCurrencyAndAmount AmortisedValue { get; init; } 
+        public required ImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal AmortisedValue { get; init; } 
+        public required ImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal AmortisedValue { get; init; } 
+        public ImpliedCurrencyAndAmount AmortisedValue { get; init; } 
         #else
-        public System.Decimal AmortisedValue { get; set; } 
+        public ImpliedCurrencyAndAmount AmortisedValue { get; set; } 
         #endif
         
         

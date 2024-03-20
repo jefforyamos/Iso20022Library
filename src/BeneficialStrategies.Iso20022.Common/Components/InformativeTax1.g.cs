@@ -48,13 +48,12 @@ public partial record InformativeTax1
     [DataMember(Name="TaxblIncmPerDvdd")]
     #endif
     [IsoXmlTag("TaxblIncmPerDvdd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableIncomePerDividend { get; init; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; init; } 
     #else
-    public System.Decimal? TaxableIncomePerDividend { get; set; } 
+    public ActiveCurrencyAndAmount? TaxableIncomePerDividend { get; set; } 
     #endif
     
     /// <summary>

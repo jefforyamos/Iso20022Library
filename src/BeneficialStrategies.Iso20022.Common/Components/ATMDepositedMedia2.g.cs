@@ -66,13 +66,12 @@ public partial record ATMDepositedMedia2
     [DataMember(Name="UnitVal")]
     #endif
     [IsoXmlTag("UnitVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? UnitValue { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnitValue { get; init; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; init; } 
     #else
-    public System.Decimal? UnitValue { get; set; } 
+    public ImpliedCurrencyAndAmount? UnitValue { get; set; } 
     #endif
     
     /// <summary>
@@ -137,13 +136,12 @@ public partial record ATMDepositedMedia2
     [DataMember(Name="ScnndVal")]
     #endif
     [IsoXmlTag("ScnndVal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? ScannedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? ScannedValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ScannedValue { get; init; } 
+    public ImpliedCurrencyAndAmount? ScannedValue { get; init; } 
     #else
-    public System.Decimal? ScannedValue { get; set; } 
+    public ImpliedCurrencyAndAmount? ScannedValue { get; set; } 
     #endif
     
     /// <summary>

@@ -10,3 +10,13 @@
 0.2.1-alpha
     Mixed casing on package id.
 
+0.2.2-alpha
+    Removed Amounts from simpletypes.
+    Generated Amounts including currency type.
+
+0.2.3-alpha
+    Still currency types missing from amounts.
+
+0.2.4-alpha 
+    Tweaks in structure changes for serialization.
+    Updated sample in readme.

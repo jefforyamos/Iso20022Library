@@ -48,13 +48,12 @@ public partial record FleetDiscountTotals1
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? TotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record FleetDiscountTotals1
     [DataMember(Name="FuelAmt")]
     #endif
     [IsoXmlTag("FuelAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? FuelAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FuelAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FuelAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? FuelAmount { get; init; } 
     #else
-    public System.Decimal? FuelAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? FuelAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record FleetDiscountTotals1
     [DataMember(Name="NonFuelAmt")]
     #endif
     [IsoXmlTag("NonFuelAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? NonFuelAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NonFuelAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NonFuelAmount { get; init; } 
+    public ImpliedCurrencyAndAmount? NonFuelAmount { get; init; } 
     #else
-    public System.Decimal? NonFuelAmount { get; set; } 
+    public ImpliedCurrencyAndAmount? NonFuelAmount { get; set; } 
     #endif
     
     

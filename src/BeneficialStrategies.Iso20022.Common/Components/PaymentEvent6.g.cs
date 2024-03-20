@@ -114,13 +114,12 @@ public partial record PaymentEvent6
     [DataMember(Name="ChrgAmt")]
     #endif
     [IsoXmlTag("ChrgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ChargeAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; init; } 
     #else
-    public System.Decimal? ChargeAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ChargeAmount { get; set; } 
     #endif
     
     /// <summary>

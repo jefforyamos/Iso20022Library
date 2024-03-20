@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZJWvNdp-Ed-ak6NoX_4Aeg_-696908624")]
 [Description(@"Transaction is a pre-advice, that is, for matching purposes only.")]
-[Derivations(typeof(SecuritiesTransactionType20Code),typeof(SecuritiesTransactionType8Code),typeof(SecuritiesFinancingTransactionType1Code),typeof(SecuritiesTransactionType21Code),typeof(SecuritiesTransactionType3Code),typeof(SecuritiesTransactionType17Code),typeof(SecuritiesTransactionType1Code),typeof(SecuritiesTransactionType16Code),typeof(SecuritiesTransactionType9Code),typeof(SecuritiesTransactionType19Code),typeof(SecuritiesTransactionType6Code),typeof(SecuritiesFinancingTransactionType2Code),typeof(SecuritiesTransactionType7Code),typeof(SecuritiesTransactionType4Code),typeof(SecuritiesTransactionType5Code),typeof(SecuritiesTransactionType10Code),typeof(SecuritiesTransactionType18Code))]
+[Derivations(typeof(SecuritiesTransactionType19Code),typeof(SecuritiesTransactionType4Code),typeof(SecuritiesTransactionType7Code),typeof(SecuritiesTransactionType20Code),typeof(SecuritiesTransactionType8Code),typeof(SecuritiesTransactionType16Code),typeof(SecuritiesTransactionType10Code),typeof(SecuritiesTransactionType3Code),typeof(SecuritiesTransactionType18Code),typeof(SecuritiesTransactionType9Code),typeof(SecuritiesTransactionType17Code),typeof(SecuritiesTransactionType21Code),typeof(SecuritiesTransactionType1Code),typeof(SecuritiesTransactionType5Code),typeof(SecuritiesFinancingTransactionType1Code),typeof(SecuritiesTransactionType6Code),typeof(SecuritiesFinancingTransactionType2Code))]
 public enum SecuritiesTransactionTypeV2Code
 {
     /// <summary>

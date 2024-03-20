@@ -39,7 +39,7 @@ public partial record CollateralAmount9
     /// Constructs a CollateralAmount9 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CollateralAmount9( System.Decimal reqActualMarketValuePostHaircut )
+    public CollateralAmount9( ActiveOrHistoricCurrencyAndAmount reqActualMarketValuePostHaircut )
     {
         ActualMarketValuePostHaircut = reqActualMarketValuePostHaircut;
     }
@@ -55,15 +55,14 @@ public partial record CollateralAmount9
     [DataMember(Name="ActlMktValPstHrcut")]
     #endif
     [IsoXmlTag("ActlMktValPstHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ActualMarketValuePostHaircut { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ActualMarketValuePostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; init; } 
     #else
-    public System.Decimal ActualMarketValuePostHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount ActualMarketValuePostHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -75,13 +74,12 @@ public partial record CollateralAmount9
     [DataMember(Name="ActlMktValBfrHrcut")]
     #endif
     [IsoXmlTag("ActlMktValBfrHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ActualMarketValueBeforeHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; init; } 
     #else
-    public System.Decimal? ActualMarketValueBeforeHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ActualMarketValueBeforeHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -93,13 +91,12 @@ public partial record CollateralAmount9
     [DataMember(Name="XpsrCollInTxCcy")]
     #endif
     [IsoXmlTag("XpsrCollInTxCcy")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposureCollateralInTransactionCurrency { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; init; } 
     #else
-    public System.Decimal? ExposureCollateralInTransactionCurrency { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInTransactionCurrency { get; set; } 
     #endif
     
     /// <summary>
@@ -111,13 +108,12 @@ public partial record CollateralAmount9
     [DataMember(Name="XpsrCollInRptgCcy")]
     #endif
     [IsoXmlTag("XpsrCollInRptgCcy")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposureCollateralInReportingCurrency { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; init; } 
     #else
-    public System.Decimal? ExposureCollateralInReportingCurrency { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ExposureCollateralInReportingCurrency { get; set; } 
     #endif
     
     /// <summary>
@@ -129,13 +125,12 @@ public partial record CollateralAmount9
     [DataMember(Name="MktValAmtPstHrcut")]
     #endif
     [IsoXmlTag("MktValAmtPstHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarketValueAmountPostHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; init; } 
     #else
-    public System.Decimal? MarketValueAmountPostHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountPostHaircut { get; set; } 
     #endif
     
     /// <summary>
@@ -147,13 +142,12 @@ public partial record CollateralAmount9
     [DataMember(Name="MktValAmtBfrHrcut")]
     #endif
     [IsoXmlTag("MktValAmtBfrHrcut")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? MarketValueAmountBeforeHaircut { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; init; } 
     #else
-    public System.Decimal? MarketValueAmountBeforeHaircut { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? MarketValueAmountBeforeHaircut { get; set; } 
     #endif
     
     

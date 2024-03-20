@@ -44,30 +44,50 @@ namespace BeneficialStrategies.Iso20022.Choices.FinancialInstrumentQuantity30Cho
         /// Constructs a NominalValue instance using the members the ISO20022 deems required.
         /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
         /// </summary>
-        public NominalValue( System.Decimal reqValue )
+        public NominalValue( System.String reqCurrency,System.Decimal reqAmount )
         {
-            Value = reqValue;
+            Currency = reqCurrency;
+            Amount = reqAmount;
         }
         #endif
         #nullable enable
         
         /// <summary>
-        /// Contains the main value for the container.
-        /// Number of monetary units specified in a currency where the unit of currency is implied by the context and compliant with ISO 4217. The decimal separator is a dot.|Note: a zero amount is considered a positive amount.
+        /// The currency in which this amount is measured.
         /// </summary>
+        [IsoId("_JG0mceaqEeW1iL_FRZt8bg_Currency")]
+        [DisplayName("Implied Currency And 20 Amount _ Currency")]
         #if DECLARE_DATACONTRACT
-        [DataMember(Name="NmnlVal")]
+        [DataMember(Name="Currency")]
         #endif
-        [IsoXmlTag("NmnlVal")]
-        [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAnd20Amount)]
+        [IsoXmlTag("Currency")]
         #if NET8_0_OR_GREATER // C# 12 Global type alias
-        public required IsoImpliedCurrencyAnd20Amount Value { get; init; } 
+        public required System.String Currency { get; init; } 
         #elif NET7_0_OR_GREATER // C# 11 Records, required members
-        public required System.Decimal Value { get; init; } 
+        public required System.String Currency { get; init; } 
         #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-        public System.Decimal Value { get; init; } 
+        public System.String Currency { get; init; } 
         #else
-        public System.Decimal Value { get; set; } 
+        public System.String Currency { get; set; } 
+        #endif
+        
+        /// <summary>
+        /// Amount of the transaction.
+        /// </summary>
+        [IsoId("_JG0mceaqEeW1iL_FRZt8bg_Amount")]
+        [DisplayName("Implied Currency And 20 Amount _ Amount")]
+        #if DECLARE_DATACONTRACT
+        [DataMember(Name="Amount")]
+        #endif
+        [IsoXmlTag("Amount")]
+        #if NET8_0_OR_GREATER // C# 12 Global type alias
+        public required System.Decimal Amount { get; init; } 
+        #elif NET7_0_OR_GREATER // C# 11 Records, required members
+        public required System.Decimal Amount { get; init; } 
+        #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
+        public System.Decimal Amount { get; init; } 
+        #else
+        public System.Decimal Amount { get; set; } 
         #endif
         
         

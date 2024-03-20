@@ -362,13 +362,12 @@ public partial record Transfer37
     [DataMember(Name="OrgnlCost")]
     #endif
     [IsoXmlTag("OrgnlCost")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAnd13DecimalAmount? OriginalCost { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? OriginalCost { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalCost { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount? OriginalCost { get; init; } 
     #else
-    public System.Decimal? OriginalCost { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount? OriginalCost { get; set; } 
     #endif
     
     /// <summary>
@@ -380,13 +379,12 @@ public partial record Transfer37
     [DataMember(Name="AvrgPric")]
     #endif
     [IsoXmlTag("AvrgPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; init; } 
     #else
-    public System.Decimal? AveragePrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? AveragePrice { get; set; } 
     #endif
     
     /// <summary>
@@ -398,13 +396,12 @@ public partial record Transfer37
     [DataMember(Name="NewAvrgPric")]
     #endif
     [IsoXmlTag("NewAvrgPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? NewAveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? NewAveragePrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NewAveragePrice { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? NewAveragePrice { get; init; } 
     #else
-    public System.Decimal? NewAveragePrice { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? NewAveragePrice { get; set; } 
     #endif
     
     /// <summary>

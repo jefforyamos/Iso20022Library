@@ -74,13 +74,12 @@ public partial record BonusWithdrawal1
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Amount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; init; } 
     #else
-    public System.Decimal? Amount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? Amount { get; set; } 
     #endif
     
     /// <summary>
@@ -109,13 +108,12 @@ public partial record BonusWithdrawal1
     [DataMember(Name="UclmdAmt")]
     #endif
     [IsoXmlTag("UclmdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? UnclaimedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; init; } 
     #else
-    public System.Decimal? UnclaimedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAnd13DecimalAmount? UnclaimedAmount { get; set; } 
     #endif
     
     /// <summary>

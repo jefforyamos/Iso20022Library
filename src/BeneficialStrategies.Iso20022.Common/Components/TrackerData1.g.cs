@@ -39,7 +39,7 @@ public partial record TrackerData1
     /// Constructs a TrackerData1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public TrackerData1( DateAndDateTime2Choice_ reqConfirmedDate,System.Decimal reqConfirmedAmount )
+    public TrackerData1( DateAndDateTime2Choice_ reqConfirmedDate,ActiveCurrencyAndAmount reqConfirmedAmount )
     {
         ConfirmedDate = reqConfirmedDate;
         ConfirmedAmount = reqConfirmedAmount;
@@ -77,15 +77,14 @@ public partial record TrackerData1
     [DataMember(Name="ConfdAmt")]
     #endif
     [IsoXmlTag("ConfdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ConfirmedAmount { get; init; } 
+    public required ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ConfirmedAmount { get; init; } 
+    public ActiveCurrencyAndAmount ConfirmedAmount { get; init; } 
     #else
-    public System.Decimal ConfirmedAmount { get; set; } 
+    public ActiveCurrencyAndAmount ConfirmedAmount { get; set; } 
     #endif
     
     /// <summary>

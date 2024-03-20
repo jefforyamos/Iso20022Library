@@ -100,13 +100,12 @@ public partial record UnderlyingAttributes4
     [DataMember(Name="CshAmt")]
     #endif
     [IsoXmlTag("CshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CashAmount { get; init; } 
+    public ActiveCurrencyAndAmount? CashAmount { get; init; } 
     #else
-    public System.Decimal? CashAmount { get; set; } 
+    public ActiveCurrencyAndAmount? CashAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -188,13 +187,12 @@ public partial record UnderlyingAttributes4
     [DataMember(Name="StartVal")]
     #endif
     [IsoXmlTag("StartVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? StartValue { get; init; } 
+    public ActiveCurrencyAndAmount? StartValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? StartValue { get; init; } 
+    public ActiveCurrencyAndAmount? StartValue { get; init; } 
     #else
-    public System.Decimal? StartValue { get; set; } 
+    public ActiveCurrencyAndAmount? StartValue { get; set; } 
     #endif
     
     /// <summary>
@@ -206,13 +204,12 @@ public partial record UnderlyingAttributes4
     [DataMember(Name="CurVal")]
     #endif
     [IsoXmlTag("CurVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CurrentValue { get; init; } 
+    public ActiveCurrencyAndAmount? CurrentValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CurrentValue { get; init; } 
+    public ActiveCurrencyAndAmount? CurrentValue { get; init; } 
     #else
-    public System.Decimal? CurrentValue { get; set; } 
+    public ActiveCurrencyAndAmount? CurrentValue { get; set; } 
     #endif
     
     /// <summary>
@@ -224,13 +221,12 @@ public partial record UnderlyingAttributes4
     [DataMember(Name="EndVal")]
     #endif
     [IsoXmlTag("EndVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? EndValue { get; init; } 
+    public ActiveCurrencyAndAmount? EndValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EndValue { get; init; } 
+    public ActiveCurrencyAndAmount? EndValue { get; init; } 
     #else
-    public System.Decimal? EndValue { get; set; } 
+    public ActiveCurrencyAndAmount? EndValue { get; set; } 
     #endif
     
     /// <summary>
@@ -277,13 +273,12 @@ public partial record UnderlyingAttributes4
     [DataMember(Name="CapVal")]
     #endif
     [IsoXmlTag("CapVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? CapValue { get; init; } 
+    public ActiveCurrencyAndAmount? CapValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CapValue { get; init; } 
+    public ActiveCurrencyAndAmount? CapValue { get; init; } 
     #else
-    public System.Decimal? CapValue { get; set; } 
+    public ActiveCurrencyAndAmount? CapValue { get; set; } 
     #endif
     
     

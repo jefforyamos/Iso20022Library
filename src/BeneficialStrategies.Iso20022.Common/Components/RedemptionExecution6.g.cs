@@ -39,7 +39,7 @@ public partial record RedemptionExecution6
     /// Constructs a RedemptionExecution6 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public RedemptionExecution6( System.String reqOrderReference,System.String reqDealReference,FinancialInstrument10 reqFinancialInstrumentDetails,FinancialInstrumentQuantity1 reqUnitsNumber,DateAndDateTimeChoice_ reqTradeDateTime,System.Decimal reqSettlementAmount,System.String reqPartiallyExecutedIndicator,UnitPrice10 reqDealingPriceDetails,System.String reqCumDividendIndicator,System.String reqPhysicalDeliveryIndicator )
+    public RedemptionExecution6( System.String reqOrderReference,System.String reqDealReference,FinancialInstrument10 reqFinancialInstrumentDetails,FinancialInstrumentQuantity1 reqUnitsNumber,DateAndDateTimeChoice_ reqTradeDateTime,ActiveCurrencyAndAmount reqSettlementAmount,System.String reqPartiallyExecutedIndicator,UnitPrice10 reqDealingPriceDetails,System.String reqCumDividendIndicator,System.String reqPhysicalDeliveryIndicator )
     {
         OrderReference = reqOrderReference;
         DealReference = reqDealReference;
@@ -210,13 +210,12 @@ public partial record RedemptionExecution6
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -246,13 +245,12 @@ public partial record RedemptionExecution6
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #else
-    public System.Decimal? GrossAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -283,15 +281,14 @@ public partial record RedemptionExecution6
     [DataMember(Name="SttlmAmt")]
     #endif
     [IsoXmlTag("SttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount SettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount SettlementAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal SettlementAmount { get; init; } 
+    public required ActiveCurrencyAndAmount SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal SettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount SettlementAmount { get; init; } 
     #else
-    public System.Decimal SettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount SettlementAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -719,13 +716,12 @@ public partial record RedemptionExecution6
     [DataMember(Name="PrtlRedWhldgAmt")]
     #endif
     [IsoXmlTag("PrtlRedWhldgAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? PartialRedemptionWithholdingAmount { get; init; } 
+    public CurrencyAndAmount? PartialRedemptionWithholdingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PartialRedemptionWithholdingAmount { get; init; } 
+    public CurrencyAndAmount? PartialRedemptionWithholdingAmount { get; init; } 
     #else
-    public System.Decimal? PartialRedemptionWithholdingAmount { get; set; } 
+    public CurrencyAndAmount? PartialRedemptionWithholdingAmount { get; set; } 
     #endif
     
     /// <summary>

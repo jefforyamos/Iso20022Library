@@ -65,13 +65,12 @@ public partial record VolumeMetrics4
     [DataMember(Name="RinvstdCshAmt")]
     #endif
     [IsoXmlTag("RinvstdCshAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReinvestedCashAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; init; } 
     #else
-    public System.Decimal? ReinvestedCashAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? ReinvestedCashAmount { get; set; } 
     #endif
     
     

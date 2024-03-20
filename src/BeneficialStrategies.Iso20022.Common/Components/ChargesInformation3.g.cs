@@ -39,7 +39,7 @@ public partial record ChargesInformation3
     /// Constructs a ChargesInformation3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public ChargesInformation3( System.Decimal reqAmount )
+    public ChargesInformation3( CurrencyAndAmount reqAmount )
     {
         Amount = reqAmount;
     }
@@ -55,13 +55,12 @@ public partial record ChargesInformation3
     [DataMember(Name="TtlChrgsAndTaxAmt")]
     #endif
     [IsoXmlTag("TtlChrgsAndTaxAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
+    public CurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalChargesAndTaxAmount { get; init; } 
+    public CurrencyAndAmount? TotalChargesAndTaxAmount { get; init; } 
     #else
-    public System.Decimal? TotalChargesAndTaxAmount { get; set; } 
+    public CurrencyAndAmount? TotalChargesAndTaxAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -73,15 +72,14 @@ public partial record ChargesInformation3
     [DataMember(Name="Amt")]
     #endif
     [IsoXmlTag("Amt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount Amount { get; init; } 
+    public required CurrencyAndAmount Amount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal Amount { get; init; } 
+    public required CurrencyAndAmount Amount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal Amount { get; init; } 
+    public CurrencyAndAmount Amount { get; init; } 
     #else
-    public System.Decimal Amount { get; set; } 
+    public CurrencyAndAmount Amount { get; set; } 
     #endif
     
     /// <summary>

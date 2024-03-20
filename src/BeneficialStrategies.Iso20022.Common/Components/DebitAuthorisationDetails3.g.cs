@@ -74,13 +74,12 @@ public partial record DebitAuthorisationDetails3
     [DataMember(Name="AmtToDbt")]
     #endif
     [IsoXmlTag("AmtToDbt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AmountToDebit { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; init; } 
     #else
-    public System.Decimal? AmountToDebit { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? AmountToDebit { get; set; } 
     #endif
     
     /// <summary>

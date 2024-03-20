@@ -124,13 +124,12 @@ public partial record PaymentTransactionInformation4
     [DataMember(Name="OrgnlInstdAmt")]
     #endif
     [IsoXmlTag("OrgnlInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? OriginalInstructedAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInstructedAmount { get; init; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInstructedAmount { get; set; } 
+    public CurrencyAndAmount? OriginalInstructedAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -142,13 +141,12 @@ public partial record PaymentTransactionInformation4
     [DataMember(Name="RvsdInstdAmt")]
     #endif
     [IsoXmlTag("RvsdInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? ReversedInstructedAmount { get; init; } 
+    public CurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ReversedInstructedAmount { get; init; } 
+    public CurrencyAndAmount? ReversedInstructedAmount { get; init; } 
     #else
-    public System.Decimal? ReversedInstructedAmount { get; set; } 
+    public CurrencyAndAmount? ReversedInstructedAmount { get; set; } 
     #endif
     
     /// <summary>

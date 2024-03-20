@@ -48,13 +48,12 @@ public partial record MarginCollateral1
     [DataMember(Name="HeldByPtyA")]
     #endif
     [IsoXmlTag("HeldByPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? HeldByPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? HeldByPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? HeldByPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? HeldByPartyA { get; init; } 
     #else
-    public System.Decimal? HeldByPartyA { get; set; } 
+    public ActiveCurrencyAndAmount? HeldByPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -66,13 +65,12 @@ public partial record MarginCollateral1
     [DataMember(Name="HeldByPtyB")]
     #endif
     [IsoXmlTag("HeldByPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? HeldByPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? HeldByPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? HeldByPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? HeldByPartyB { get; init; } 
     #else
-    public System.Decimal? HeldByPartyB { get; set; } 
+    public ActiveCurrencyAndAmount? HeldByPartyB { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +82,12 @@ public partial record MarginCollateral1
     [DataMember(Name="PrrAgrdToPtyA")]
     #endif
     [IsoXmlTag("PrrAgrdToPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PriorAgreedToPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PriorAgreedToPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyA { get; init; } 
     #else
-    public System.Decimal? PriorAgreedToPartyA { get; set; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -102,13 +99,12 @@ public partial record MarginCollateral1
     [DataMember(Name="PrrAgrdToPtyB")]
     #endif
     [IsoXmlTag("PrrAgrdToPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? PriorAgreedToPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PriorAgreedToPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyB { get; init; } 
     #else
-    public System.Decimal? PriorAgreedToPartyB { get; set; } 
+    public ActiveCurrencyAndAmount? PriorAgreedToPartyB { get; set; } 
     #endif
     
     /// <summary>
@@ -120,13 +116,12 @@ public partial record MarginCollateral1
     [DataMember(Name="InTrnstToPtyA")]
     #endif
     [IsoXmlTag("InTrnstToPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? InTransitToPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InTransitToPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyA { get; init; } 
     #else
-    public System.Decimal? InTransitToPartyA { get; set; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -138,13 +133,12 @@ public partial record MarginCollateral1
     [DataMember(Name="InTrnstToPtyB")]
     #endif
     [IsoXmlTag("InTrnstToPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? InTransitToPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyB { get; init; } 
     #else
-    public System.Decimal? InTransitToPartyB { get; set; } 
+    public ActiveCurrencyAndAmount? InTransitToPartyB { get; set; } 
     #endif
     
     

@@ -39,7 +39,7 @@ public partial record AvailableFinancialResourcesAmount1
     /// Constructs a AvailableFinancialResourcesAmount1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AvailableFinancialResourcesAmount1( System.Decimal reqTotalInitialMargin,System.Decimal reqTotalPrefundedDefaultFund,System.Decimal reqOtherDefaultFundContribution,System.Decimal reqUnfundedMemberCommitment,System.Decimal reqUnfundedThirdPartyCommitment )
+    public AvailableFinancialResourcesAmount1( ActiveCurrencyAndAmount reqTotalInitialMargin,ActiveCurrencyAndAmount reqTotalPrefundedDefaultFund,ActiveCurrencyAndAmount reqOtherDefaultFundContribution,ActiveCurrencyAndAmount reqUnfundedMemberCommitment,ActiveCurrencyAndAmount reqUnfundedThirdPartyCommitment )
     {
         TotalInitialMargin = reqTotalInitialMargin;
         TotalPrefundedDefaultFund = reqTotalPrefundedDefaultFund;
@@ -59,15 +59,14 @@ public partial record AvailableFinancialResourcesAmount1
     [DataMember(Name="TtlInitlMrgn")]
     #endif
     [IsoXmlTag("TtlInitlMrgn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalInitialMargin { get; init; } 
+    public required ActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalInitialMargin { get; init; } 
+    public ActiveCurrencyAndAmount TotalInitialMargin { get; init; } 
     #else
-    public System.Decimal TotalInitialMargin { get; set; } 
+    public ActiveCurrencyAndAmount TotalInitialMargin { get; set; } 
     #endif
     
     /// <summary>
@@ -79,15 +78,14 @@ public partial record AvailableFinancialResourcesAmount1
     [DataMember(Name="TtlPrfnddDfltFnd")]
     #endif
     [IsoXmlTag("TtlPrfnddDfltFnd")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
+    public required ActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalPrefundedDefaultFund { get; init; } 
+    public required ActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalPrefundedDefaultFund { get; init; } 
+    public ActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; init; } 
     #else
-    public System.Decimal TotalPrefundedDefaultFund { get; set; } 
+    public ActiveCurrencyAndAmount TotalPrefundedDefaultFund { get; set; } 
     #endif
     
     /// <summary>
@@ -111,15 +109,14 @@ public partial record AvailableFinancialResourcesAmount1
     [DataMember(Name="OthrDfltFndCntrbtn")]
     #endif
     [IsoXmlTag("OthrDfltFndCntrbtn")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
+    public required ActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OtherDefaultFundContribution { get; init; } 
+    public required ActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OtherDefaultFundContribution { get; init; } 
+    public ActiveCurrencyAndAmount OtherDefaultFundContribution { get; init; } 
     #else
-    public System.Decimal OtherDefaultFundContribution { get; set; } 
+    public ActiveCurrencyAndAmount OtherDefaultFundContribution { get; set; } 
     #endif
     
     /// <summary>
@@ -131,15 +128,14 @@ public partial record AvailableFinancialResourcesAmount1
     [DataMember(Name="UfnddMmbCmmtmnt")]
     #endif
     [IsoXmlTag("UfnddMmbCmmtmnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
+    public required ActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal UnfundedMemberCommitment { get; init; } 
+    public required ActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal UnfundedMemberCommitment { get; init; } 
+    public ActiveCurrencyAndAmount UnfundedMemberCommitment { get; init; } 
     #else
-    public System.Decimal UnfundedMemberCommitment { get; set; } 
+    public ActiveCurrencyAndAmount UnfundedMemberCommitment { get; set; } 
     #endif
     
     /// <summary>
@@ -151,15 +147,14 @@ public partial record AvailableFinancialResourcesAmount1
     [DataMember(Name="UfnddThrdPtyCmmtmnt")]
     #endif
     [IsoXmlTag("UfnddThrdPtyCmmtmnt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
+    public required ActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal UnfundedThirdPartyCommitment { get; init; } 
+    public required ActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal UnfundedThirdPartyCommitment { get; init; } 
+    public ActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; init; } 
     #else
-    public System.Decimal UnfundedThirdPartyCommitment { get; set; } 
+    public ActiveCurrencyAndAmount UnfundedThirdPartyCommitment { get; set; } 
     #endif
     
     

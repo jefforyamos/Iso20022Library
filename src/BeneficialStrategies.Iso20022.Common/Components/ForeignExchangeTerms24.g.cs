@@ -115,13 +115,12 @@ public partial record ForeignExchangeTerms24
     [DataMember(Name="RsltgAmt")]
     #endif
     [IsoXmlTag("RsltgAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ResultingAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ResultingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ResultingAmount { get; init; } 
+    public ActiveCurrencyAndAmount? ResultingAmount { get; init; } 
     #else
-    public System.Decimal? ResultingAmount { get; set; } 
+    public ActiveCurrencyAndAmount? ResultingAmount { get; set; } 
     #endif
     
     

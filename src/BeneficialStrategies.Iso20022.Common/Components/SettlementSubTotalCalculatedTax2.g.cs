@@ -85,13 +85,12 @@ public partial record SettlementSubTotalCalculatedTax2
     [DataMember(Name="BsisAmt")]
     #endif
     [IsoXmlTag("BsisAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? BasisAmount { get; init; } 
+    public CurrencyAndAmount? BasisAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? BasisAmount { get; init; } 
+    public CurrencyAndAmount? BasisAmount { get; init; } 
     #else
-    public System.Decimal? BasisAmount { get; set; } 
+    public CurrencyAndAmount? BasisAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -103,13 +102,12 @@ public partial record SettlementSubTotalCalculatedTax2
     [DataMember(Name="ClctdAmt")]
     #endif
     [IsoXmlTag("ClctdAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoCurrencyAndAmount? CalculatedAmount { get; init; } 
+    public CurrencyAndAmount? CalculatedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? CalculatedAmount { get; init; } 
+    public CurrencyAndAmount? CalculatedAmount { get; init; } 
     #else
-    public System.Decimal? CalculatedAmount { get; set; } 
+    public CurrencyAndAmount? CalculatedAmount { get; set; } 
     #endif
     
     /// <summary>

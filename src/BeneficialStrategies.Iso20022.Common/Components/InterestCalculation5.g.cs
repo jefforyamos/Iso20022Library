@@ -258,13 +258,12 @@ public partial record InterestCalculation5
     [DataMember(Name="AggtdIntrstAmt")]
     #endif
     [IsoXmlTag("AggtdIntrstAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AggregatedInterestAmount { get; init; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; init; } 
     #else
-    public System.Decimal? AggregatedInterestAmount { get; set; } 
+    public ActiveCurrencyAndAmount? AggregatedInterestAmount { get; set; } 
     #endif
     
     

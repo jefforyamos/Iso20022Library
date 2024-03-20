@@ -39,7 +39,7 @@ public partial record UnderlyingPaymentInstruction1
     /// Constructs a UnderlyingPaymentInstruction1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public UnderlyingPaymentInstruction1( System.Decimal reqOriginalInstructedAmount )
+    public UnderlyingPaymentInstruction1( ActiveOrHistoricCurrencyAndAmount reqOriginalInstructedAmount )
     {
         OriginalInstructedAmount = reqOriginalInstructedAmount;
     }
@@ -129,15 +129,14 @@ public partial record UnderlyingPaymentInstruction1
     [DataMember(Name="OrgnlInstdAmt")]
     #endif
     [IsoXmlTag("OrgnlInstdAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount OriginalInstructedAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount OriginalInstructedAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OriginalInstructedAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount OriginalInstructedAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OriginalInstructedAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount OriginalInstructedAmount { get; init; } 
     #else
-    public System.Decimal OriginalInstructedAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount OriginalInstructedAmount { get; set; } 
     #endif
     
     /// <summary>

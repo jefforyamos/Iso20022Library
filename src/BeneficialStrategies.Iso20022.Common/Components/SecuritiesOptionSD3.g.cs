@@ -146,13 +146,12 @@ public partial record SecuritiesOptionSD3
     [DataMember(Name="FairMktVal")]
     #endif
     [IsoXmlTag("FairMktVal")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? FairMarketValue { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; init; } 
     #else
-    public System.Decimal? FairMarketValue { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? FairMarketValue { get; set; } 
     #endif
     
     /// <summary>

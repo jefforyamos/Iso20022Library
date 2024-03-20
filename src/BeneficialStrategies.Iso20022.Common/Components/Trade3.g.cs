@@ -39,7 +39,7 @@ public partial record Trade3
     /// Constructs a Trade3 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Trade3( System.Decimal reqExecutionPrice,System.Decimal reqLastQuantity,SettlementDateCode reqSettlementType,System.DateOnly reqSettlementDate,AgreedRate3 reqValuationRate,System.Decimal reqCalculatedCounterpartyCurrencyLastQuantity,System.DateOnly reqValueDate,System.Decimal reqRiskAmount,SecurityIdentification18 reqSecurityIdentification )
+    public Trade3( ActiveCurrencyAnd13DecimalAmount reqExecutionPrice,CurrencyAndAmount reqLastQuantity,SettlementDateCode reqSettlementType,System.DateOnly reqSettlementDate,AgreedRate3 reqValuationRate,CurrencyAndAmount reqCalculatedCounterpartyCurrencyLastQuantity,System.DateOnly reqValueDate,ActiveCurrencyAndAmount reqRiskAmount,SecurityIdentification18 reqSecurityIdentification )
     {
         ExecutionPrice = reqExecutionPrice;
         LastQuantity = reqLastQuantity;
@@ -63,15 +63,14 @@ public partial record Trade3
     [DataMember(Name="ExctnPric")]
     #endif
     [IsoXmlTag("ExctnPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ExecutionPrice { get; init; } 
+    public required ActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ExecutionPrice { get; init; } 
+    public ActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; init; } 
     #else
-    public System.Decimal ExecutionPrice { get; set; } 
+    public ActiveCurrencyAnd13DecimalAmount ExecutionPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -83,15 +82,14 @@ public partial record Trade3
     [DataMember(Name="LastQty")]
     #endif
     [IsoXmlTag("LastQty")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount LastQuantity { get; init; } 
+    public required CurrencyAndAmount LastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LastQuantity { get; init; } 
+    public required CurrencyAndAmount LastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LastQuantity { get; init; } 
+    public CurrencyAndAmount LastQuantity { get; init; } 
     #else
-    public System.Decimal LastQuantity { get; set; } 
+    public CurrencyAndAmount LastQuantity { get; set; } 
     #endif
     
     /// <summary>
@@ -179,15 +177,14 @@ public partial record Trade3
     [DataMember(Name="ClctdCtrPtyCcyLastQty")]
     #endif
     [IsoXmlTag("ClctdCtrPtyCcyLastQty")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required CurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public required CurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
+    public CurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; init; } 
     #else
-    public System.Decimal CalculatedCounterpartyCurrencyLastQuantity { get; set; } 
+    public CurrencyAndAmount CalculatedCounterpartyCurrencyLastQuantity { get; set; } 
     #endif
     
     /// <summary>
@@ -219,15 +216,14 @@ public partial record Trade3
     [DataMember(Name="RskAmt")]
     #endif
     [IsoXmlTag("RskAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount RiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal RiskAmount { get; init; } 
+    public required ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal RiskAmount { get; init; } 
+    public ActiveCurrencyAndAmount RiskAmount { get; init; } 
     #else
-    public System.Decimal RiskAmount { get; set; } 
+    public ActiveCurrencyAndAmount RiskAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -48,13 +48,12 @@ public partial record PaymentTransaction15
     [DataMember(Name="SttlmAmt")]
     #endif
     [IsoXmlTag("SttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? SettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? SettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; init; } 
     #else
-    public System.Decimal? SettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? SettlementAmount { get; set; } 
     #endif
     
     /// <summary>

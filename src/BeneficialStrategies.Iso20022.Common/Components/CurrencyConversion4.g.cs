@@ -39,7 +39,7 @@ public partial record CurrencyConversion4
     /// Constructs a CurrencyConversion4 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public CurrencyConversion4( CurrencyDetails2 reqTargetCurrency,System.Decimal reqResultingAmount,System.Decimal reqExchangeRate,CurrencyDetails2 reqSourceCurrency,System.Decimal reqOriginalAmount )
+    public CurrencyConversion4( CurrencyDetails2 reqTargetCurrency,ImpliedCurrencyAndAmount reqResultingAmount,System.Decimal reqExchangeRate,CurrencyDetails2 reqSourceCurrency,ImpliedCurrencyAndAmount reqOriginalAmount )
     {
         TargetCurrency = reqTargetCurrency;
         ResultingAmount = reqResultingAmount;
@@ -97,15 +97,14 @@ public partial record CurrencyConversion4
     [DataMember(Name="RsltgAmt")]
     #endif
     [IsoXmlTag("RsltgAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ResultingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ResultingAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ResultingAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ResultingAmount { get; init; } 
     #else
-    public System.Decimal ResultingAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ResultingAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -228,15 +227,14 @@ public partial record CurrencyConversion4
     [DataMember(Name="OrgnlAmt")]
     #endif
     [IsoXmlTag("OrgnlAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount OriginalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount OriginalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal OriginalAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount OriginalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal OriginalAmount { get; init; } 
+    public ImpliedCurrencyAndAmount OriginalAmount { get; init; } 
     #else
-    public System.Decimal OriginalAmount { get; set; } 
+    public ImpliedCurrencyAndAmount OriginalAmount { get; set; } 
     #endif
     
     /// <summary>

@@ -66,13 +66,12 @@ public partial record TaxAmount1
     [DataMember(Name="TaxblBaseAmt")]
     #endif
     [IsoXmlTag("TaxblBaseAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TaxableBaseAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; init; } 
     #else
-    public System.Decimal? TaxableBaseAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TaxableBaseAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -84,13 +83,12 @@ public partial record TaxAmount1
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; init; } 
     #else
-    public System.Decimal? TotalAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalAmount { get; set; } 
     #endif
     
     /// <summary>

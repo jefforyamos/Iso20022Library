@@ -195,13 +195,12 @@ public partial record PaymentTransaction106
     [DataMember(Name="OrgnlIntrBkSttlmAmt")]
     #endif
     [IsoXmlTag("OrgnlIntrBkSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? OriginalInterbankSettlementAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; init; } 
     #else
-    public System.Decimal? OriginalInterbankSettlementAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? OriginalInterbankSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

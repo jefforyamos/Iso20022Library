@@ -133,13 +133,12 @@ public partial record FinancialInstrument35
     [DataMember(Name="AvrgAcqstnPric")]
     #endif
     [IsoXmlTag("AvrgAcqstnPric")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
+    public ActiveCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AverageAcquisitionPrice { get; init; } 
+    public ActiveCurrencyAndAmount? AverageAcquisitionPrice { get; init; } 
     #else
-    public System.Decimal? AverageAcquisitionPrice { get; set; } 
+    public ActiveCurrencyAndAmount? AverageAcquisitionPrice { get; set; } 
     #endif
     
     /// <summary>
@@ -151,13 +150,12 @@ public partial record FinancialInstrument35
     [DataMember(Name="TtlBookVal")]
     #endif
     [IsoXmlTag("TtlBookVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalBookValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; init; } 
     #else
-    public System.Decimal? TotalBookValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? TotalBookValue { get; set; } 
     #endif
     
     /// <summary>

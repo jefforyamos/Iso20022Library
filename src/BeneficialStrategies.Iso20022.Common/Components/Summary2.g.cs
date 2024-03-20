@@ -39,7 +39,7 @@ public partial record Summary2
     /// Constructs a Summary2 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public Summary2( ExposureType8Code reqExposureType,System.Decimal reqTotalValueOfCollateral,System.DateTime reqValuationDateTime )
+    public Summary2( ExposureType8Code reqExposureType,ActiveCurrencyAndAmount reqTotalValueOfCollateral,System.DateTime reqValuationDateTime )
     {
         ExposureType = reqExposureType;
         TotalValueOfCollateral = reqTotalValueOfCollateral;
@@ -57,13 +57,12 @@ public partial record Summary2
     [DataMember(Name="XpsdAmtPtyA")]
     #endif
     [IsoXmlTag("XpsdAmtPtyA")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposedAmountPartyA { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; init; } 
     #else
-    public System.Decimal? ExposedAmountPartyA { get; set; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyA { get; set; } 
     #endif
     
     /// <summary>
@@ -75,13 +74,12 @@ public partial record Summary2
     [DataMember(Name="XpsdAmtPtyB")]
     #endif
     [IsoXmlTag("XpsdAmtPtyB")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? ExposedAmountPartyB { get; init; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; init; } 
     #else
-    public System.Decimal? ExposedAmountPartyB { get; set; } 
+    public ActiveCurrencyAndAmount? ExposedAmountPartyB { get; set; } 
     #endif
     
     /// <summary>
@@ -112,15 +110,14 @@ public partial record Summary2
     [DataMember(Name="TtlValOfColl")]
     #endif
     [IsoXmlTag("TtlValOfColl")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
+    public required ActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalValueOfCollateral { get; init; } 
+    public required ActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalValueOfCollateral { get; init; } 
+    public ActiveCurrencyAndAmount TotalValueOfCollateral { get; init; } 
     #else
-    public System.Decimal TotalValueOfCollateral { get; set; } 
+    public ActiveCurrencyAndAmount TotalValueOfCollateral { get; set; } 
     #endif
     
     /// <summary>
@@ -132,13 +129,12 @@ public partial record Summary2
     [DataMember(Name="NetXcssDfcit")]
     #endif
     [IsoXmlTag("NetXcssDfcit")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
+    public ActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetExcessDeficit { get; init; } 
+    public ActiveCurrencyAndAmount? NetExcessDeficit { get; init; } 
     #else
-    public System.Decimal? NetExcessDeficit { get; set; } 
+    public ActiveCurrencyAndAmount? NetExcessDeficit { get; set; } 
     #endif
     
     /// <summary>

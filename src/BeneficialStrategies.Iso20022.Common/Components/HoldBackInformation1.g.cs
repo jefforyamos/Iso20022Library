@@ -48,13 +48,12 @@ public partial record HoldBackInformation1
     [DataMember(Name="HldBckAmt")]
     #endif
     [IsoXmlTag("HldBckAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
+    public ActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? HoldBackAmount { get; init; } 
+    public ActiveCurrencyAndAmount? HoldBackAmount { get; init; } 
     #else
-    public System.Decimal? HoldBackAmount { get; set; } 
+    public ActiveCurrencyAndAmount? HoldBackAmount { get; set; } 
     #endif
     
     /// <summary>

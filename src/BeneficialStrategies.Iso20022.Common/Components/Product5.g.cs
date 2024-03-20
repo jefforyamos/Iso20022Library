@@ -95,13 +95,12 @@ public partial record Product5
     [DataMember(Name="AmtLmt")]
     #endif
     [IsoXmlTag("AmtLmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? AmountLimit { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountLimit { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? AmountLimit { get; init; } 
+    public ImpliedCurrencyAndAmount? AmountLimit { get; init; } 
     #else
-    public System.Decimal? AmountLimit { get; set; } 
+    public ImpliedCurrencyAndAmount? AmountLimit { get; set; } 
     #endif
     
     /// <summary>

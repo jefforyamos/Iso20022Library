@@ -115,13 +115,12 @@ public partial record EstimatedFundCashForecast1
     [DataMember(Name="EstmtdTtlNAV")]
     #endif
     [IsoXmlTag("EstmtdTtlNAV")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? EstimatedTotalNAV { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; init; } 
     #else
-    public System.Decimal? EstimatedTotalNAV { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? EstimatedTotalNAV { get; set; } 
     #endif
     
     /// <summary>
@@ -133,13 +132,12 @@ public partial record EstimatedFundCashForecast1
     [DataMember(Name="PrvsEstmtdTtlNAV")]
     #endif
     [IsoXmlTag("PrvsEstmtdTtlNAV")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? PreviousEstimatedTotalNAV { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; init; } 
     #else
-    public System.Decimal? PreviousEstimatedTotalNAV { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? PreviousEstimatedTotalNAV { get; set; } 
     #endif
     
     /// <summary>

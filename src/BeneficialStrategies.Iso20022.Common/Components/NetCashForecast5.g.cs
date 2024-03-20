@@ -73,13 +73,12 @@ public partial record NetCashForecast5
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>

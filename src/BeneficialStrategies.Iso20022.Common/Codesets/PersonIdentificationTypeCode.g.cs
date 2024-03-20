@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aG5VhNp-Ed-ak6NoX_4Aeg_1157186363")]
 [Description(@"Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.")]
-[Derivations(typeof(PersonIdentificationType6Code),typeof(PartyIdentificationType7Code),typeof(PersonIdentificationType7Code),typeof(PersonIdentificationType1Code),typeof(PersonIdentificationType2Code),typeof(PersonIdentificationType5Code),typeof(PersonIdentificationType4Code))]
+[Derivations(typeof(PersonIdentificationType2Code),typeof(PersonIdentificationType6Code),typeof(PartyIdentificationType7Code),typeof(PersonIdentificationType7Code),typeof(PersonIdentificationType4Code),typeof(PersonIdentificationType1Code),typeof(PersonIdentificationType5Code))]
 public enum PersonIdentificationTypeCode
 {
     /// <summary>

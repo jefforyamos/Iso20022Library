@@ -39,7 +39,7 @@ public partial record AmountType1
     /// Constructs a AmountType1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public AmountType1( TypeOfAmount9Code reqType,System.Decimal reqFromAmount,System.Decimal reqToAmount )
+    public AmountType1( TypeOfAmount9Code reqType,ImpliedCurrencyAndAmount reqFromAmount,ImpliedCurrencyAndAmount reqToAmount )
     {
         Type = reqType;
         FromAmount = reqFromAmount;
@@ -93,15 +93,14 @@ public partial record AmountType1
     [DataMember(Name="FrAmt")]
     #endif
     [IsoXmlTag("FrAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount FromAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount FromAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal FromAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount FromAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal FromAmount { get; init; } 
+    public ImpliedCurrencyAndAmount FromAmount { get; init; } 
     #else
-    public System.Decimal FromAmount { get; set; } 
+    public ImpliedCurrencyAndAmount FromAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -113,15 +112,14 @@ public partial record AmountType1
     [DataMember(Name="ToAmt")]
     #endif
     [IsoXmlTag("ToAmt")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoImpliedCurrencyAndAmount ToAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ToAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal ToAmount { get; init; } 
+    public required ImpliedCurrencyAndAmount ToAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal ToAmount { get; init; } 
+    public ImpliedCurrencyAndAmount ToAmount { get; init; } 
     #else
-    public System.Decimal ToAmount { get; set; } 
+    public ImpliedCurrencyAndAmount ToAmount { get; set; } 
     #endif
     
     

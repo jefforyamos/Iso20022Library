@@ -39,7 +39,7 @@ public partial record FixingConditions1
     /// Constructs a FixingConditions1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public FixingConditions1( System.DateOnly reqTradeDate,System.String reqOriginatorReference,System.Decimal reqTradingSideBuyAmount,System.Decimal reqTradingSideSellAmount,System.Decimal reqExchangeRate )
+    public FixingConditions1( System.DateOnly reqTradeDate,System.String reqOriginatorReference,ActiveOrHistoricCurrencyAndAmount reqTradingSideBuyAmount,ActiveOrHistoricCurrencyAndAmount reqTradingSideSellAmount,System.Decimal reqExchangeRate )
     {
         TradeDate = reqTradeDate;
         OriginatorReference = reqOriginatorReference;
@@ -138,15 +138,14 @@ public partial record FixingConditions1
     [DataMember(Name="TradgSdBuyAmt")]
     #endif
     [IsoXmlTag("TradgSdBuyAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TradingSideBuyAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TradingSideBuyAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; init; } 
     #else
-    public System.Decimal TradingSideBuyAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount TradingSideBuyAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -158,15 +157,14 @@ public partial record FixingConditions1
     [DataMember(Name="TradgSdSellAmt")]
     #endif
     [IsoXmlTag("TradgSdSellAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TradingSideSellAmount { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TradingSideSellAmount { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; init; } 
     #else
-    public System.Decimal TradingSideSellAmount { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount TradingSideSellAmount { get; set; } 
     #endif
     
     /// <summary>

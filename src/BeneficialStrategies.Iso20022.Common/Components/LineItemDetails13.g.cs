@@ -39,7 +39,7 @@ public partial record LineItemDetails13
     /// Constructs a LineItemDetails13 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public LineItemDetails13( System.String reqLineItemIdentification,Quantity9 reqQuantity,System.Decimal reqTotalAmount )
+    public LineItemDetails13( System.String reqLineItemIdentification,Quantity9 reqQuantity,CurrencyAndAmount reqTotalAmount )
     {
         LineItemIdentification = reqLineItemIdentification;
         Quantity = reqQuantity;
@@ -320,15 +320,14 @@ public partial record LineItemDetails13
     [DataMember(Name="TtlAmt")]
     #endif
     [IsoXmlTag("TtlAmt")]
-    [IsoSimpleType(IsoSimpleType.CurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoCurrencyAndAmount TotalAmount { get; init; } 
+    public required CurrencyAndAmount TotalAmount { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal TotalAmount { get; init; } 
+    public required CurrencyAndAmount TotalAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal TotalAmount { get; init; } 
+    public CurrencyAndAmount TotalAmount { get; init; } 
     #else
-    public System.Decimal TotalAmount { get; set; } 
+    public CurrencyAndAmount TotalAmount { get; set; } 
     #endif
     
     /// <summary>

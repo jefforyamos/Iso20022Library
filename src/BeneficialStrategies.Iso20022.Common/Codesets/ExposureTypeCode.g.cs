@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_alvNodp-Ed-ak6NoX_4Aeg_1976296742")]
 [Description(@"Short sale exposure.")]
-[Derivations(typeof(ExposureType5Code),typeof(ExposureType1Code),typeof(ExposureType2Code),typeof(ExposureType8Code),typeof(ExposureType6Code),typeof(ExposureType4Code))]
+[Derivations(typeof(ExposureType4Code),typeof(ExposureType1Code),typeof(ExposureType6Code),typeof(ExposureType5Code),typeof(ExposureType8Code),typeof(ExposureType2Code))]
 public enum ExposureTypeCode
 {
     /// <summary>

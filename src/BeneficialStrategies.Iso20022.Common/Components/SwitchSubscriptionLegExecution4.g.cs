@@ -138,13 +138,12 @@ public partial record SwitchSubscriptionLegExecution4
     [DataMember(Name="NetAmt")]
     #endif
     [IsoXmlTag("NetAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? NetAmount { get; init; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; init; } 
     #else
-    public System.Decimal? NetAmount { get; set; } 
+    public ActiveCurrencyAndAmount? NetAmount { get; set; } 
     #endif
     
     /// <summary>
@@ -157,13 +156,12 @@ public partial record SwitchSubscriptionLegExecution4
     [DataMember(Name="GrssAmt")]
     #endif
     [IsoXmlTag("GrssAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; init; } 
     #else
-    public System.Decimal? GrossAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GrossAmount { get; set; } 
     #endif
     
     /// <summary>

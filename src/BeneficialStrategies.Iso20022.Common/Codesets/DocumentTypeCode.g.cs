@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aghWddp-Ed-ak6NoX_4Aeg_-1963478091")]
 [Description(@"Specifies a type of financial or commercial document.")]
-[Derivations(typeof(DocumentType7Code),typeof(DocumentType6Code),typeof(DocumentType3Code),typeof(DocumentType4Code),typeof(DocumentType1Code),typeof(DocumentType2Code),typeof(DocumentType5Code))]
+[Derivations(typeof(DocumentType4Code),typeof(DocumentType3Code),typeof(DocumentType6Code),typeof(DocumentType1Code),typeof(DocumentType7Code),typeof(DocumentType5Code),typeof(DocumentType2Code))]
 public enum DocumentTypeCode
 {
     /// <summary>

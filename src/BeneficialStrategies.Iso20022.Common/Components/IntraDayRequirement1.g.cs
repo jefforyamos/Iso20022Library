@@ -39,7 +39,7 @@ public partial record IntraDayRequirement1
     /// Constructs a IntraDayRequirement1 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public IntraDayRequirement1( System.Decimal reqIntraDayMarginCall,System.Decimal reqPeakInitialMarginLiability,System.Decimal reqPeakVariationMarginLiability,System.Decimal reqAggregatePeakLiability,GenericIdentification165 reqMarginAccountIdentification )
+    public IntraDayRequirement1( ActiveCurrencyAndAmount reqIntraDayMarginCall,ActiveCurrencyAndAmount reqPeakInitialMarginLiability,ActiveCurrencyAndAmount reqPeakVariationMarginLiability,ActiveCurrencyAndAmount reqAggregatePeakLiability,GenericIdentification165 reqMarginAccountIdentification )
     {
         IntraDayMarginCall = reqIntraDayMarginCall;
         PeakInitialMarginLiability = reqPeakInitialMarginLiability;
@@ -59,15 +59,14 @@ public partial record IntraDayRequirement1
     [DataMember(Name="IntraDayMrgnCall")]
     #endif
     [IsoXmlTag("IntraDayMrgnCall")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
+    public required ActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal IntraDayMarginCall { get; init; } 
+    public required ActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal IntraDayMarginCall { get; init; } 
+    public ActiveCurrencyAndAmount IntraDayMarginCall { get; init; } 
     #else
-    public System.Decimal IntraDayMarginCall { get; set; } 
+    public ActiveCurrencyAndAmount IntraDayMarginCall { get; set; } 
     #endif
     
     /// <summary>
@@ -79,15 +78,14 @@ public partial record IntraDayRequirement1
     [DataMember(Name="PeakInitlMrgnLblty")]
     #endif
     [IsoXmlTag("PeakInitlMrgnLblty")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
+    public required ActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PeakInitialMarginLiability { get; init; } 
+    public required ActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PeakInitialMarginLiability { get; init; } 
+    public ActiveCurrencyAndAmount PeakInitialMarginLiability { get; init; } 
     #else
-    public System.Decimal PeakInitialMarginLiability { get; set; } 
+    public ActiveCurrencyAndAmount PeakInitialMarginLiability { get; set; } 
     #endif
     
     /// <summary>
@@ -99,15 +97,14 @@ public partial record IntraDayRequirement1
     [DataMember(Name="PeakVartnMrgnLblty")]
     #endif
     [IsoXmlTag("PeakVartnMrgnLblty")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
+    public required ActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal PeakVariationMarginLiability { get; init; } 
+    public required ActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal PeakVariationMarginLiability { get; init; } 
+    public ActiveCurrencyAndAmount PeakVariationMarginLiability { get; init; } 
     #else
-    public System.Decimal PeakVariationMarginLiability { get; set; } 
+    public ActiveCurrencyAndAmount PeakVariationMarginLiability { get; set; } 
     #endif
     
     /// <summary>
@@ -119,15 +116,14 @@ public partial record IntraDayRequirement1
     [DataMember(Name="AggtPeakLblty")]
     #endif
     [IsoXmlTag("AggtPeakLblty")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
+    public required ActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal AggregatePeakLiability { get; init; } 
+    public required ActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal AggregatePeakLiability { get; init; } 
+    public ActiveCurrencyAndAmount AggregatePeakLiability { get; init; } 
     #else
-    public System.Decimal AggregatePeakLiability { get; set; } 
+    public ActiveCurrencyAndAmount AggregatePeakLiability { get; set; } 
     #endif
     
     /// <summary>

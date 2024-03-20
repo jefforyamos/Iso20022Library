@@ -326,13 +326,12 @@ public partial record InvestmentFundTransaction2
     [DataMember(Name="GrssSttlmAmt")]
     #endif
     [IsoXmlTag("GrssSttlmAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? GrossSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossSettlementAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? GrossSettlementAmount { get; init; } 
+    public ActiveCurrencyAndAmount? GrossSettlementAmount { get; init; } 
     #else
-    public System.Decimal? GrossSettlementAmount { get; set; } 
+    public ActiveCurrencyAndAmount? GrossSettlementAmount { get; set; } 
     #endif
     
     /// <summary>

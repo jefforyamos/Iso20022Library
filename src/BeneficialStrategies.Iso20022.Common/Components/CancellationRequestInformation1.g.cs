@@ -116,13 +116,12 @@ public partial record CancellationRequestInformation1
     [DataMember(Name="TtlBlkInvcAmt")]
     #endif
     [IsoXmlTag("TtlBlkInvcAmt")]
-    [IsoSimpleType(IsoSimpleType.ActiveCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? TotalBulkInvoiceAmount { get; init; } 
+    public ActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; init; } 
     #else
-    public System.Decimal? TotalBulkInvoiceAmount { get; set; } 
+    public ActiveCurrencyAndAmount? TotalBulkInvoiceAmount { get; set; } 
     #endif
     
     /// <summary>

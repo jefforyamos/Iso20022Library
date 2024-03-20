@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bYaAsdp-Ed-ak6NoX_4Aeg_-51113838")]
 [Description(@"Specifies the reason for requesting the cancellation of a payment instruction.")]
-[Derivations(typeof(CancellationReason4Code),typeof(CancellationReason3Code),typeof(CancellationReason5Code),typeof(CancellationReason2Code),typeof(CancellationReason1Code))]
+[Derivations(typeof(CancellationReason3Code),typeof(CancellationReason5Code),typeof(CancellationReason1Code),typeof(CancellationReason4Code),typeof(CancellationReason2Code))]
 public enum CancellationReasonCode
 {
     /// <summary>

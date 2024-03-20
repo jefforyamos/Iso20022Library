@@ -211,13 +211,12 @@ public partial record StoredValueAccount1
     [DataMember(Name="Bal")]
     #endif
     [IsoXmlTag("Bal")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? Balance { get; init; } 
+    public ImpliedCurrencyAndAmount? Balance { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? Balance { get; init; } 
+    public ImpliedCurrencyAndAmount? Balance { get; init; } 
     #else
-    public System.Decimal? Balance { get; set; } 
+    public ImpliedCurrencyAndAmount? Balance { get; set; } 
     #endif
     
     

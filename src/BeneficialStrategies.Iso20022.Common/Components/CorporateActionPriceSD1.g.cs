@@ -76,13 +76,12 @@ public partial record CorporateActionPriceSD1
     [DataMember(Name="DclrdCshInLieuPric")]
     #endif
     [IsoXmlTag("DclrdCshInLieuPric")]
-    [IsoSimpleType(IsoSimpleType.RestrictedFINActiveCurrencyAnd13DecimalAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoRestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DeclaredCashInLieuPrice { get; init; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; init; } 
     #else
-    public System.Decimal? DeclaredCashInLieuPrice { get; set; } 
+    public RestrictedFINActiveCurrencyAnd13DecimalAmount? DeclaredCashInLieuPrice { get; set; } 
     #endif
     
     

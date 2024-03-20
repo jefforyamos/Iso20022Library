@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_0tTA3JfpEeSfnc-VXAEapg")]
 [Description(@"Specifies the type of process related to a specific transaction.")]
-[Derivations(typeof(TransactionOperationType4Code),typeof(TransactionOperationType7Code),typeof(TransactionOperationType1Code),typeof(TransactionOperationType5Code),typeof(TransactionOperationType6Code),typeof(TransactionOperationType3Code))]
+[Derivations(typeof(TransactionOperationType3Code),typeof(TransactionOperationType7Code),typeof(TransactionOperationType6Code),typeof(TransactionOperationType4Code),typeof(TransactionOperationType5Code),typeof(TransactionOperationType1Code))]
 public enum TransactionOperationTypeCode
 {
     /// <summary>

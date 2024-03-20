@@ -159,13 +159,12 @@ public partial record LodgingRoom1
     [DataMember(Name="DalyRoomRate")]
     #endif
     [IsoXmlTag("DalyRoomRate")]
-    [IsoSimpleType(IsoSimpleType.ImpliedCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public IsoImpliedCurrencyAndAmount? DailyRoomRate { get; init; } 
+    public ImpliedCurrencyAndAmount? DailyRoomRate { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal? DailyRoomRate { get; init; } 
+    public ImpliedCurrencyAndAmount? DailyRoomRate { get; init; } 
     #else
-    public System.Decimal? DailyRoomRate { get; set; } 
+    public ImpliedCurrencyAndAmount? DailyRoomRate { get; set; } 
     #endif
     
     

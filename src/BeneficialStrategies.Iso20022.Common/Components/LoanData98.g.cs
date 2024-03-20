@@ -39,7 +39,7 @@ public partial record LoanData98
     /// Constructs a LoanData98 instance using the members the ISO20022 deems required.
     /// It is higly recommended that you update to .NET 8 or above so you can use required initialization syntax instead
     /// </summary>
-    public LoanData98( System.String reqDeliveryByValue,SecurityCommodity8 reqAssetType,InterestRate20Choice_ reqRebateRate,System.Decimal reqLoanValue,System.String reqUniqueTradeIdentifier,System.DateOnly reqEventDate,Cleared10Choice_ reqClearingStatus,System.String reqTradingVenue,System.DateTime reqExecutionDateTime,System.DateOnly reqValueDate )
+    public LoanData98( System.String reqDeliveryByValue,SecurityCommodity8 reqAssetType,InterestRate20Choice_ reqRebateRate,ActiveOrHistoricCurrencyAndAmount reqLoanValue,System.String reqUniqueTradeIdentifier,System.DateOnly reqEventDate,Cleared10Choice_ reqClearingStatus,System.String reqTradingVenue,System.DateTime reqExecutionDateTime,System.DateOnly reqValueDate )
     {
         DeliveryByValue = reqDeliveryByValue;
         AssetType = reqAssetType;
@@ -156,15 +156,14 @@ public partial record LoanData98
     [DataMember(Name="LnVal")]
     #endif
     [IsoXmlTag("LnVal")]
-    [IsoSimpleType(IsoSimpleType.ActiveOrHistoricCurrencyAndAmount)]
     #if NET8_0_OR_GREATER // C# 12 Global type alias
-    public required IsoActiveOrHistoricCurrencyAndAmount LoanValue { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount LoanValue { get; init; } 
     #elif NET7_0_OR_GREATER // C# 11 Records, required members
-    public required System.Decimal LoanValue { get; init; } 
+    public required ActiveOrHistoricCurrencyAndAmount LoanValue { get; init; } 
     #elif NET5_0_OR_GREATER // C# 9 Records, init-only setters, data annotations native
-    public System.Decimal LoanValue { get; init; } 
+    public ActiveOrHistoricCurrencyAndAmount LoanValue { get; init; } 
     #else
-    public System.Decimal LoanValue { get; set; } 
+    public ActiveOrHistoricCurrencyAndAmount LoanValue { get; set; } 
     #endif
     
     /// <summary>

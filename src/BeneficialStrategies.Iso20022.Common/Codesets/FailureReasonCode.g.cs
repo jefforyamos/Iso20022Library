@@ -17,7 +17,7 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TUmCFQEcEeCQm6a_G2yO_w_-1240682578")]
 [Description(@"List of incidents happening during the transaction.")]
-[Derivations(typeof(FailureReason8Code),typeof(FailureReason1Code),typeof(FailureReason3Code),typeof(FailureReason7Code),typeof(FailureReason5Code),typeof(FailureReason2Code),typeof(FailureReason4Code),typeof(FailureReason6Code))]
+[Derivations(typeof(FailureReason7Code),typeof(FailureReason1Code),typeof(FailureReason8Code),typeof(FailureReason2Code),typeof(FailureReason4Code),typeof(FailureReason6Code),typeof(FailureReason3Code),typeof(FailureReason5Code))]
 public enum FailureReasonCode
 {
     /// <summary>
