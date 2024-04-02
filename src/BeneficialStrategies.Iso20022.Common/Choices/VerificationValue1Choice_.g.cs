@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(VerificationValue1Choice.BinaryValue))]
     [KnownType(typeof(VerificationValue1Choice.HexadecimalBinaryValue))]
     [KnownType(typeof(VerificationValue1Choice.PINData))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(VerificationValue1Choice.TextValue),nameof(VerificationValue1Choice.TextValue))]
+    [JsonDerivedType(typeof(VerificationValue1Choice.BinaryValue),nameof(VerificationValue1Choice.BinaryValue))]
+    [JsonDerivedType(typeof(VerificationValue1Choice.HexadecimalBinaryValue),nameof(VerificationValue1Choice.HexadecimalBinaryValue))]
+    [JsonDerivedType(typeof(VerificationValue1Choice.PINData),nameof(VerificationValue1Choice.PINData))]
+    #endif
     [IsoId("_4EhKpZaNEemfCcEf5rVTyg")]
     [DisplayName("Verification Value 1 Choice")]
     #if DECLARE_SERIALIZABLE

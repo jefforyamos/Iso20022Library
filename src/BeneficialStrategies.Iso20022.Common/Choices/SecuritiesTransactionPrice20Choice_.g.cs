@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice20Choice.Percentage))]
     [KnownType(typeof(SecuritiesTransactionPrice20Choice.Decimal))]
     [KnownType(typeof(SecuritiesTransactionPrice20Choice.BasisPointSpread))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice20Choice.MonetaryValue),nameof(SecuritiesTransactionPrice20Choice.MonetaryValue))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice20Choice.Percentage),nameof(SecuritiesTransactionPrice20Choice.Percentage))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice20Choice.Decimal),nameof(SecuritiesTransactionPrice20Choice.Decimal))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice20Choice.BasisPointSpread),nameof(SecuritiesTransactionPrice20Choice.BasisPointSpread))]
+    #endif
     [IsoId("_IXsu0U2vEe2Ci6HlmBLbDw")]
     [DisplayName("Securities Transaction Price 20 Choice")]
     #if DECLARE_SERIALIZABLE

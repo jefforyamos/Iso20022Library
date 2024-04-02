@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityPaper1Choice.Newsprint))]
     [KnownType(typeof(AssetClassCommodityPaper1Choice.Pulp))]
     [KnownType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.ContainerBoard),nameof(AssetClassCommodityPaper1Choice.ContainerBoard))]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Newsprint),nameof(AssetClassCommodityPaper1Choice.Newsprint))]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Pulp),nameof(AssetClassCommodityPaper1Choice.Pulp))]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper),nameof(AssetClassCommodityPaper1Choice.RecoveredPaper))]
+    #endif
     [IsoId("_0bsBIFrxEeWN79Bl6BUd3g")]
     [DisplayName("Asset Class Commodity Paper 1 Choice")]
     #if DECLARE_SERIALIZABLE

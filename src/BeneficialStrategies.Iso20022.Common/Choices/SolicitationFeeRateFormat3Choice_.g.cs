@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SolicitationFeeRateFormat3Choice.Rate))]
     [KnownType(typeof(SolicitationFeeRateFormat3Choice.NotSpecifiedRate))]
     [KnownType(typeof(SolicitationFeeRateFormat3Choice.AmountToQuantity))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat3Choice.Rate),nameof(SolicitationFeeRateFormat3Choice.Rate))]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat3Choice.NotSpecifiedRate),nameof(SolicitationFeeRateFormat3Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat3Choice.AmountToQuantity),nameof(SolicitationFeeRateFormat3Choice.AmountToQuantity))]
+    #endif
     [IsoId("_3xdV8OwOEd-sn-FiNtktcA")]
     [DisplayName("Solicitation Fee Rate Format 3 Choice")]
     #if DECLARE_SERIALIZABLE

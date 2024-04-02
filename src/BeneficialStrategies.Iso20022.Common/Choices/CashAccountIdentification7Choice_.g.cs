@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashAccountIdentification7Choice.BBAN))]
     [KnownType(typeof(CashAccountIdentification7Choice.UPIC))]
     [KnownType(typeof(CashAccountIdentification7Choice.DomesticAccount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CashAccountIdentification7Choice.IBAN),nameof(CashAccountIdentification7Choice.IBAN))]
+    [JsonDerivedType(typeof(CashAccountIdentification7Choice.BBAN),nameof(CashAccountIdentification7Choice.BBAN))]
+    [JsonDerivedType(typeof(CashAccountIdentification7Choice.UPIC),nameof(CashAccountIdentification7Choice.UPIC))]
+    [JsonDerivedType(typeof(CashAccountIdentification7Choice.DomesticAccount),nameof(CashAccountIdentification7Choice.DomesticAccount))]
+    #endif
     [IsoId("_oxTyQeWbEeevU7McUP3D1w")]
     [DisplayName("Cash Account Identification 7 Choice")]
     #if DECLARE_SERIALIZABLE

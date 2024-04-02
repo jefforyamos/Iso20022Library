@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentificationQuery4Choice.Index))]
     [KnownType(typeof(SecurityIdentificationQuery4Choice.Basket))]
     [KnownType(typeof(SecurityIdentificationQuery4Choice.NotReported))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.ISIN),nameof(SecurityIdentificationQuery4Choice.ISIN))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.AlternativeInstrumentIdentification),nameof(SecurityIdentificationQuery4Choice.AlternativeInstrumentIdentification))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.NotAvailable),nameof(SecurityIdentificationQuery4Choice.NotAvailable))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.UniqueProductIdentifier),nameof(SecurityIdentificationQuery4Choice.UniqueProductIdentifier))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.Index),nameof(SecurityIdentificationQuery4Choice.Index))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.Basket),nameof(SecurityIdentificationQuery4Choice.Basket))]
+    [JsonDerivedType(typeof(SecurityIdentificationQuery4Choice.NotReported),nameof(SecurityIdentificationQuery4Choice.NotReported))]
+    #endif
     [IsoId("_PHYIYZNeEeytjZlcgApf6A")]
     [DisplayName("Security Identification Query 4 Choice")]
     #if DECLARE_SERIALIZABLE

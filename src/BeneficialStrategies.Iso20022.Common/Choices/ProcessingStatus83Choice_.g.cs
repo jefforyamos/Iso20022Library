@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -27,6 +28,17 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus83Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus83Choice.CancellationRequested))]
     [KnownType(typeof(ProcessingStatus83Choice.ModificationRequested))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.PendingCancellation),nameof(ProcessingStatus83Choice.PendingCancellation))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.AcknowledgedAccepted),nameof(ProcessingStatus83Choice.AcknowledgedAccepted))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.PendingProcessing),nameof(ProcessingStatus83Choice.PendingProcessing))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.Rejected),nameof(ProcessingStatus83Choice.Rejected))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.Repair),nameof(ProcessingStatus83Choice.Repair))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.Cancelled),nameof(ProcessingStatus83Choice.Cancelled))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.Proprietary),nameof(ProcessingStatus83Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.CancellationRequested),nameof(ProcessingStatus83Choice.CancellationRequested))]
+    [JsonDerivedType(typeof(ProcessingStatus83Choice.ModificationRequested),nameof(ProcessingStatus83Choice.ModificationRequested))]
+    #endif
     [IsoId("_MnoZgStVEeyhipY4f42fZQ")]
     [DisplayName("Processing Status 83 Choice")]
     #if DECLARE_SERIALIZABLE

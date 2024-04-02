@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SuspendedStatusReasonChoice.Reason))]
     [KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
     [KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Reason),nameof(SuspendedStatusReasonChoice.Reason))]
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Proprietary),nameof(SuspendedStatusReasonChoice.Proprietary))]
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason),nameof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
+    #endif
     [IsoId("_RfGZSdp-Ed-ak6NoX_4Aeg_1537280901")]
     [DisplayName("Suspended Status Reason Choice")]
     #if DECLARE_SERIALIZABLE

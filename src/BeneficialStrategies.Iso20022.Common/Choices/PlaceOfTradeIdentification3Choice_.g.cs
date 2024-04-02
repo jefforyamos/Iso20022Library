@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOfTradeIdentification3Choice.Country))]
     [KnownType(typeof(PlaceOfTradeIdentification3Choice.Exchange))]
     [KnownType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Country),nameof(PlaceOfTradeIdentification3Choice.Country))]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Exchange),nameof(PlaceOfTradeIdentification3Choice.Exchange))]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter),nameof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
+    #endif
     [IsoId("_WNc-0tp-Ed-ak6NoX_4Aeg_-1162943357")]
     [DisplayName("Place Of Trade Identification 3 Choice")]
     #if DECLARE_SERIALIZABLE

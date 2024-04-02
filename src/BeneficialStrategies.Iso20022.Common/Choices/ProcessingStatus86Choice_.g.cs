@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus86Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus86Choice.Denied))]
     [KnownType(typeof(ProcessingStatus86Choice.Cancelled))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.PendingCancellation),nameof(ProcessingStatus86Choice.PendingCancellation))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.Rejected),nameof(ProcessingStatus86Choice.Rejected))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.Repair),nameof(ProcessingStatus86Choice.Repair))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.AcknowledgedAccepted),nameof(ProcessingStatus86Choice.AcknowledgedAccepted))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.Proprietary),nameof(ProcessingStatus86Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.Denied),nameof(ProcessingStatus86Choice.Denied))]
+    [JsonDerivedType(typeof(ProcessingStatus86Choice.Cancelled),nameof(ProcessingStatus86Choice.Cancelled))]
+    #endif
     [IsoId("_oYBXVytVEeyhipY4f42fZQ")]
     [DisplayName("Processing Status 86 Choice")]
     #if DECLARE_SERIALIZABLE

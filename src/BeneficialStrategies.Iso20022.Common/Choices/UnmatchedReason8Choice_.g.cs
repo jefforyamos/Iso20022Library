@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(UnmatchedReason8Choice.Code))]
     [KnownType(typeof(UnmatchedReason8Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(UnmatchedReason8Choice.Code),nameof(UnmatchedReason8Choice.Code))]
+    [JsonDerivedType(typeof(UnmatchedReason8Choice.Proprietary),nameof(UnmatchedReason8Choice.Proprietary))]
+    #endif
     [IsoId("_E2Dtd_4hEeCH9dkaY_DhYw")]
     [DisplayName("Unmatched Reason 8 Choice")]
     #if DECLARE_SERIALIZABLE

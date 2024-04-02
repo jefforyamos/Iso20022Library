@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(InterestRateDerivative2Choice.SwapRelated))]
     [KnownType(typeof(InterestRateDerivative2Choice.Other))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(InterestRateDerivative2Choice.SwapRelated),nameof(InterestRateDerivative2Choice.SwapRelated))]
+    [JsonDerivedType(typeof(InterestRateDerivative2Choice.Other),nameof(InterestRateDerivative2Choice.Other))]
+    #endif
     [IsoId("_xSfx_WlIEeaLAKoEUNsD9g")]
     [DisplayName("Interest Rate Derivative 2 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EventProcessingStatus6Choice.Reconciled))]
     [KnownType(typeof(EventProcessingStatus6Choice.Pending))]
     [KnownType(typeof(EventProcessingStatus6Choice.ProprietaryStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(EventProcessingStatus6Choice.Complete),nameof(EventProcessingStatus6Choice.Complete))]
+    [JsonDerivedType(typeof(EventProcessingStatus6Choice.Reconciled),nameof(EventProcessingStatus6Choice.Reconciled))]
+    [JsonDerivedType(typeof(EventProcessingStatus6Choice.Pending),nameof(EventProcessingStatus6Choice.Pending))]
+    [JsonDerivedType(typeof(EventProcessingStatus6Choice.ProprietaryStatus),nameof(EventProcessingStatus6Choice.ProprietaryStatus))]
+    #endif
     [IsoId("_Szi6OgVREeqjd8n6wD9JVw")]
     [DisplayName("Event Processing Status 6 Choice")]
     #if DECLARE_SERIALIZABLE

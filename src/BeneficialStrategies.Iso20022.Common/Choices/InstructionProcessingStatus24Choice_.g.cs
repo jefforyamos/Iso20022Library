@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingStatus24Choice.DefaultAction))]
     [KnownType(typeof(InstructionProcessingStatus24Choice.StandingInstruction))]
     [KnownType(typeof(InstructionProcessingStatus24Choice.ProprietaryStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.Cancelled),nameof(InstructionProcessingStatus24Choice.Cancelled))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.AcceptedForFurtherProcessing),nameof(InstructionProcessingStatus24Choice.AcceptedForFurtherProcessing))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.Rejected),nameof(InstructionProcessingStatus24Choice.Rejected))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.Pending),nameof(InstructionProcessingStatus24Choice.Pending))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.DefaultAction),nameof(InstructionProcessingStatus24Choice.DefaultAction))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.StandingInstruction),nameof(InstructionProcessingStatus24Choice.StandingInstruction))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus24Choice.ProprietaryStatus),nameof(InstructionProcessingStatus24Choice.ProprietaryStatus))]
+    #endif
     [IsoId("_wj9GAUGUEeWqy4niLuXETA")]
     [DisplayName("Instruction Processing Status 24 Choice")]
     #if DECLARE_SERIALIZABLE

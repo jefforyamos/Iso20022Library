@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(TradeReportQuery13Choice.AdHocQuery))]
     [KnownType(typeof(TradeReportQuery13Choice.RecurrentQuery))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TradeReportQuery13Choice.AdHocQuery),nameof(TradeReportQuery13Choice.AdHocQuery))]
+    [JsonDerivedType(typeof(TradeReportQuery13Choice.RecurrentQuery),nameof(TradeReportQuery13Choice.RecurrentQuery))]
+    #endif
     [IsoId("_1LqeURfMEeyPHpqpKwtFdw")]
     [DisplayName("Trade Report Query 13 Choice")]
     #if DECLARE_SERIALIZABLE

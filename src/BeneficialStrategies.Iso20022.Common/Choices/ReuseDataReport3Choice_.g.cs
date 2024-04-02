@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReuseDataReport3Choice.Error))]
     [KnownType(typeof(ReuseDataReport3Choice.Correction))]
     [KnownType(typeof(ReuseDataReport3Choice.CollateralReuseUpdate))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ReuseDataReport3Choice.New),nameof(ReuseDataReport3Choice.New))]
+    [JsonDerivedType(typeof(ReuseDataReport3Choice.Error),nameof(ReuseDataReport3Choice.Error))]
+    [JsonDerivedType(typeof(ReuseDataReport3Choice.Correction),nameof(ReuseDataReport3Choice.Correction))]
+    [JsonDerivedType(typeof(ReuseDataReport3Choice.CollateralReuseUpdate),nameof(ReuseDataReport3Choice.CollateralReuseUpdate))]
+    #endif
     [IsoId("_0hwiga4bEemB_csI4yyKLA")]
     [DisplayName("Reuse Data Report 3 Choice")]
     #if DECLARE_SERIALIZABLE

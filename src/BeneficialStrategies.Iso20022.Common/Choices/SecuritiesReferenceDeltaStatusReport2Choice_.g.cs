@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.ModifiedRecord))]
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.NewRecord))]
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.TerminatedRecord))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.ModifiedRecord),nameof(SecuritiesReferenceDeltaStatusReport2Choice.ModifiedRecord))]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.NewRecord),nameof(SecuritiesReferenceDeltaStatusReport2Choice.NewRecord))]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport2Choice.TerminatedRecord),nameof(SecuritiesReferenceDeltaStatusReport2Choice.TerminatedRecord))]
+    #endif
     [IsoId("_2XCW1Hv0EeanCNPcMT7sSg")]
     [DisplayName("Securities Reference Delta Status Report 2 Choice")]
     #if DECLARE_SERIALIZABLE

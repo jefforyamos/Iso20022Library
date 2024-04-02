@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity3Choice.NetAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity3Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity3Choice.HoldingsRedemptionRate))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity3Choice.UnitsNumber),nameof(FinancialInstrumentQuantity3Choice.UnitsNumber))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity3Choice.PercentageOfTotalSubscriptionAmount),nameof(FinancialInstrumentQuantity3Choice.PercentageOfTotalSubscriptionAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity3Choice.NetAmount),nameof(FinancialInstrumentQuantity3Choice.NetAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity3Choice.GrossAmount),nameof(FinancialInstrumentQuantity3Choice.GrossAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity3Choice.HoldingsRedemptionRate),nameof(FinancialInstrumentQuantity3Choice.HoldingsRedemptionRate))]
+    #endif
     [IsoId("_VOten9p-Ed-ak6NoX_4Aeg_1922478092")]
     [DisplayName("Financial Instrument Quantity 3 Choice")]
     #if DECLARE_SERIALIZABLE

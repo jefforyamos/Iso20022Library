@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(TEFRARules3Choice.Code))]
     [KnownType(typeof(TEFRARules3Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TEFRARules3Choice.Code),nameof(TEFRARules3Choice.Code))]
+    [JsonDerivedType(typeof(TEFRARules3Choice.Proprietary),nameof(TEFRARules3Choice.Proprietary))]
+    #endif
     [IsoId("_ighyQeLcEeWFtOV72FbX9w")]
     [DisplayName("TEFRA Rules 3 Choice")]
     #if DECLARE_SERIALIZABLE

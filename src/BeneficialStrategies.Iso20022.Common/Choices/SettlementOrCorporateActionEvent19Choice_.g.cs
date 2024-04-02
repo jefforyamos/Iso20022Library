@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(SettlementOrCorporateActionEvent19Choice.SecuritiesTransactionType))]
     [KnownType(typeof(SettlementOrCorporateActionEvent19Choice.CorporateActionEventType))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent19Choice.SecuritiesTransactionType),nameof(SettlementOrCorporateActionEvent19Choice.SecuritiesTransactionType))]
+    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent19Choice.CorporateActionEventType),nameof(SettlementOrCorporateActionEvent19Choice.CorporateActionEventType))]
+    #endif
     [IsoId("_5pmV4ZBPEeakHoV5BVecAQ")]
     [DisplayName("Settlement Or Corporate Action Event 19 Choice")]
     #if DECLARE_SERIALIZABLE

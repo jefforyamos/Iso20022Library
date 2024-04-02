@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailedSettlementStatus2Choice.Reason))]
     [KnownType(typeof(FailedSettlementStatus2Choice.DataSourceScheme))]
     [KnownType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.Reason),nameof(FailedSettlementStatus2Choice.Reason))]
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.DataSourceScheme),nameof(FailedSettlementStatus2Choice.DataSourceScheme))]
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason),nameof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
+    #endif
     [IsoId("_DOTJ4SY5EeW_ZNn8gbfY7Q")]
     [DisplayName("Failed Settlement Status 2 Choice")]
     #if DECLARE_SERIALIZABLE

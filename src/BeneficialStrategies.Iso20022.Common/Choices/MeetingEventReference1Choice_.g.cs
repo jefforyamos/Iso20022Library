@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification))]
     [KnownType(typeof(MeetingEventReference1Choice.LinkedMeetingIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification),nameof(MeetingEventReference1Choice.LinkedIssuerMeetingIdentification))]
+    [JsonDerivedType(typeof(MeetingEventReference1Choice.LinkedMeetingIdentification),nameof(MeetingEventReference1Choice.LinkedMeetingIdentification))]
+    #endif
     [IsoId("__b3CGa7rEemG7MmivSuE5g")]
     [DisplayName("Meeting Event Reference 1 Choice")]
     #if DECLARE_SERIALIZABLE

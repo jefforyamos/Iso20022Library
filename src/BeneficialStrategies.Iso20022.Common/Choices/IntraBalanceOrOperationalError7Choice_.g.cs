@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(IntraBalanceOrOperationalError7Choice.Movements))]
     [KnownType(typeof(IntraBalanceOrOperationalError7Choice.OperationalError))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.Movements),nameof(IntraBalanceOrOperationalError7Choice.Movements))]
+    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.OperationalError),nameof(IntraBalanceOrOperationalError7Choice.OperationalError))]
+    #endif
     [IsoId("_X3ej8TneEem7JZMuWtwtsg")]
     [DisplayName("Intra Balance Or Operational Error 7 Choice")]
     #if DECLARE_SERIALIZABLE

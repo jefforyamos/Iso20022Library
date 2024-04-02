@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(DailyFundTransfer1Choice.TransferTime))]
     [KnownType(typeof(DailyFundTransfer1Choice.TransferEvent))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferTime),nameof(DailyFundTransfer1Choice.TransferTime))]
+    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferEvent),nameof(DailyFundTransfer1Choice.TransferEvent))]
+    #endif
     [IsoId("_mJGJgCc6Eea7avjfd7yDAA")]
     [DisplayName("Daily Fund Transfer 1 Choice")]
     #if DECLARE_SERIALIZABLE

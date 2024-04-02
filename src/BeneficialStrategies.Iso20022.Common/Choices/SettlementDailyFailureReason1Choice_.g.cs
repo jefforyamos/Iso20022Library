@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(SettlementDailyFailureReason1Choice.DataSetAction))]
     [KnownType(typeof(SettlementDailyFailureReason1Choice.Data))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SettlementDailyFailureReason1Choice.DataSetAction),nameof(SettlementDailyFailureReason1Choice.DataSetAction))]
+    [JsonDerivedType(typeof(SettlementDailyFailureReason1Choice.Data),nameof(SettlementDailyFailureReason1Choice.Data))]
+    #endif
     [IsoId("_-7zQ0TOkEeqX8uoQQ3KffQ")]
     [DisplayName("Settlement Daily Failure Reason 1 Choice")]
     #if DECLARE_SERIALIZABLE

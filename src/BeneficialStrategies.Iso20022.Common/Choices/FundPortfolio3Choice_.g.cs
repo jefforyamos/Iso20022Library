@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundPortfolio3Choice.TaxEfficientProduct))]
     [KnownType(typeof(FundPortfolio3Choice.GeneralInvestment))]
     [KnownType(typeof(FundPortfolio3Choice.Pension))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(FundPortfolio3Choice.TaxEfficientProduct),nameof(FundPortfolio3Choice.TaxEfficientProduct))]
+    [JsonDerivedType(typeof(FundPortfolio3Choice.GeneralInvestment),nameof(FundPortfolio3Choice.GeneralInvestment))]
+    [JsonDerivedType(typeof(FundPortfolio3Choice.Pension),nameof(FundPortfolio3Choice.Pension))]
+    #endif
     [IsoId("_UorNQU7cEeifNrXGwadPmg")]
     [DisplayName("Fund Portfolio 3 Choice")]
     #if DECLARE_SERIALIZABLE

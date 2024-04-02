@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -37,6 +38,27 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemMemberIdentificationChoice.HongKongBankCode))]
     [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
     [KnownType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSUniversalIdentification),nameof(ClearingSystemMemberIdentificationChoice.CHIPSUniversalIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.NewZealandNCCIdentification),nameof(ClearingSystemMemberIdentificationChoice.NewZealandNCCIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.IrishNSCIdentification),nameof(ClearingSystemMemberIdentificationChoice.IrishNSCIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.UKDomesticSortCode),nameof(ClearingSystemMemberIdentificationChoice.UKDomesticSortCode))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.CHIPSParticipantIdentification),nameof(ClearingSystemMemberIdentificationChoice.CHIPSParticipantIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.SwissBCIdentification),nameof(ClearingSystemMemberIdentificationChoice.SwissBCIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.FedwireRoutingNumberIdentification),nameof(ClearingSystemMemberIdentificationChoice.FedwireRoutingNumberIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.PortugueseNCCIdentification),nameof(ClearingSystemMemberIdentificationChoice.PortugueseNCCIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.RussianCentralBankIdentificationCode),nameof(ClearingSystemMemberIdentificationChoice.RussianCentralBankIdentificationCode))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.ItalianDomesticIdentificationCode),nameof(ClearingSystemMemberIdentificationChoice.ItalianDomesticIdentificationCode))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.AustrianBankleitzahlIdentification),nameof(ClearingSystemMemberIdentificationChoice.AustrianBankleitzahlIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.CanadianPaymentsAssociationRoutingNumberIdentification),nameof(ClearingSystemMemberIdentificationChoice.CanadianPaymentsAssociationRoutingNumberIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.SwissSICIdentification),nameof(ClearingSystemMemberIdentificationChoice.SwissSICIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.GermanBankleitzahlIdentification),nameof(ClearingSystemMemberIdentificationChoice.GermanBankleitzahlIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.SpanishDomesticInterbankingIdentification),nameof(ClearingSystemMemberIdentificationChoice.SpanishDomesticInterbankingIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.SouthAfricanNCCIdentification),nameof(ClearingSystemMemberIdentificationChoice.SouthAfricanNCCIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.HongKongBankCode),nameof(ClearingSystemMemberIdentificationChoice.HongKongBankCode))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification),nameof(ClearingSystemMemberIdentificationChoice.AustralianExtensiveBranchNetworkIdentification))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification),nameof(ClearingSystemMemberIdentificationChoice.AustralianSmallNetworkIdentification))]
+    #endif
     [IsoId("_TDPFhtp-Ed-ak6NoX_4Aeg_-896562614")]
     [DisplayName("Clearing System Member Identification Choice")]
     #if DECLARE_SERIALIZABLE

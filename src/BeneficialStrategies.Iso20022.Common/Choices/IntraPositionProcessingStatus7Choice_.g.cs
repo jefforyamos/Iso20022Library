@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraPositionProcessingStatus7Choice.Cancelled))]
     [KnownType(typeof(IntraPositionProcessingStatus7Choice.AcknowledgedAccepted))]
     [KnownType(typeof(IntraPositionProcessingStatus7Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus7Choice.Rejected),nameof(IntraPositionProcessingStatus7Choice.Rejected))]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus7Choice.Repair),nameof(IntraPositionProcessingStatus7Choice.Repair))]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus7Choice.Cancelled),nameof(IntraPositionProcessingStatus7Choice.Cancelled))]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus7Choice.AcknowledgedAccepted),nameof(IntraPositionProcessingStatus7Choice.AcknowledgedAccepted))]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus7Choice.Proprietary),nameof(IntraPositionProcessingStatus7Choice.Proprietary))]
+    #endif
     [IsoId("_4EhzQewLEeiazoAmcoGsBQ")]
     [DisplayName("Intra Position Processing Status 7 Choice")]
     #if DECLARE_SERIALIZABLE

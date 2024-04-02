@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(AssetClassCommodityPolypropylene3Choice.Plastic))]
     [KnownType(typeof(AssetClassCommodityPolypropylene3Choice.Other))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(AssetClassCommodityPolypropylene3Choice.Plastic),nameof(AssetClassCommodityPolypropylene3Choice.Plastic))]
+    [JsonDerivedType(typeof(AssetClassCommodityPolypropylene3Choice.Other),nameof(AssetClassCommodityPolypropylene3Choice.Other))]
+    #endif
     [IsoId("_IX9wAbv9EeiLRYqS-r-R-A")]
     [DisplayName("Asset Class Commodity Polypropylene 3 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(SettlementConditionModificationStatus4Choice.Code))]
     [KnownType(typeof(SettlementConditionModificationStatus4Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SettlementConditionModificationStatus4Choice.Code),nameof(SettlementConditionModificationStatus4Choice.Code))]
+    [JsonDerivedType(typeof(SettlementConditionModificationStatus4Choice.Proprietary),nameof(SettlementConditionModificationStatus4Choice.Proprietary))]
+    #endif
     [IsoId("_8QcPyZNLEeWGlc8L7oPDIg")]
     [DisplayName("Settlement Condition Modification Status 4 Choice")]
     #if DECLARE_SERIALIZABLE

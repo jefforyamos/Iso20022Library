@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateUsedForPaymentFormat2Choice.Rate))]
     [KnownType(typeof(InterestRateUsedForPaymentFormat2Choice.Amount))]
     [KnownType(typeof(InterestRateUsedForPaymentFormat2Choice.RateTypeAndAmountAndRateStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat2Choice.Rate),nameof(InterestRateUsedForPaymentFormat2Choice.Rate))]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat2Choice.Amount),nameof(InterestRateUsedForPaymentFormat2Choice.Amount))]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat2Choice.RateTypeAndAmountAndRateStatus),nameof(InterestRateUsedForPaymentFormat2Choice.RateTypeAndAmountAndRateStatus))]
+    #endif
     [IsoId("_UM2Y_Np-Ed-ak6NoX_4Aeg_-807410440")]
     [DisplayName("Interest Rate Used For Payment Format 2 Choice")]
     #if DECLARE_SERIALIZABLE

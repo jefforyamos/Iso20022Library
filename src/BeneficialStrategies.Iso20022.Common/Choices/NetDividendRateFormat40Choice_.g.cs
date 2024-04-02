@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRateFormat40Choice.Amount))]
     [KnownType(typeof(NetDividendRateFormat40Choice.AmountAndRateStatus))]
     [KnownType(typeof(NetDividendRateFormat40Choice.RateTypeAndAmountAndRateStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(NetDividendRateFormat40Choice.Amount),nameof(NetDividendRateFormat40Choice.Amount))]
+    [JsonDerivedType(typeof(NetDividendRateFormat40Choice.AmountAndRateStatus),nameof(NetDividendRateFormat40Choice.AmountAndRateStatus))]
+    [JsonDerivedType(typeof(NetDividendRateFormat40Choice.RateTypeAndAmountAndRateStatus),nameof(NetDividendRateFormat40Choice.RateTypeAndAmountAndRateStatus))]
+    #endif
     [IsoId("_iwEfpeXsEemEj48jhmlA0Q")]
     [DisplayName("Net Dividend Rate Format 40 Choice")]
     #if DECLARE_SERIALIZABLE

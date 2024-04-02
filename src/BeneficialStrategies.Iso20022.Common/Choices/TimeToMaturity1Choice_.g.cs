@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(TimeToMaturity1Choice.Period))]
     [KnownType(typeof(TimeToMaturity1Choice.Special))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TimeToMaturity1Choice.Period),nameof(TimeToMaturity1Choice.Period))]
+    [JsonDerivedType(typeof(TimeToMaturity1Choice.Special),nameof(TimeToMaturity1Choice.Special))]
+    #endif
     [IsoId("_r8FOkMVaEeiYpLQka876sg")]
     [DisplayName("Time To Maturity 1 Choice")]
     #if DECLARE_SERIALIZABLE

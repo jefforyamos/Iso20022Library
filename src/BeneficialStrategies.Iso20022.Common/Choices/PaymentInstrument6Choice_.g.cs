@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument6Choice.DirectDebitDetails))]
     [KnownType(typeof(PaymentInstrument6Choice.ChequeDetails))]
     [KnownType(typeof(PaymentInstrument6Choice.AccountDetails))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PaymentInstrument6Choice.PaymentCardDetails),nameof(PaymentInstrument6Choice.PaymentCardDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument6Choice.CreditTransferDetails),nameof(PaymentInstrument6Choice.CreditTransferDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument6Choice.DirectDebitDetails),nameof(PaymentInstrument6Choice.DirectDebitDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument6Choice.ChequeDetails),nameof(PaymentInstrument6Choice.ChequeDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument6Choice.AccountDetails),nameof(PaymentInstrument6Choice.AccountDetails))]
+    #endif
     [IsoId("_VKiwQNp-Ed-ak6NoX_4Aeg_-620434673")]
     [DisplayName("Payment Instrument 6 Choice")]
     #if DECLARE_SERIALIZABLE

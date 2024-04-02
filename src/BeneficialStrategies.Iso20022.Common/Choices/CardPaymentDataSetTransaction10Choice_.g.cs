@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +25,14 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse))]
     [KnownType(typeof(CardPaymentDataSetTransaction10Choice.TokenRequest))]
     [KnownType(typeof(CardPaymentDataSetTransaction10Choice.TokenResponse))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Completion),nameof(CardPaymentDataSetTransaction10Choice.Completion))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Cancellation),nameof(CardPaymentDataSetTransaction10Choice.Cancellation))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationRequest),nameof(CardPaymentDataSetTransaction10Choice.AuthorisationRequest))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse),nameof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenRequest),nameof(CardPaymentDataSetTransaction10Choice.TokenRequest))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenResponse),nameof(CardPaymentDataSetTransaction10Choice.TokenResponse))]
+    #endif
     [IsoId("_bZ5hIU0ZEeybj420QgWBkA")]
     [DisplayName("Card Payment Data Set Transaction 10 Choice")]
     #if DECLARE_SERIALIZABLE

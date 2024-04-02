@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionUnallocatedBalanceSD2Choice.OnLoanBalance))]
     [KnownType(typeof(CorporateActionUnallocatedBalanceSD2Choice.PendingDeliveryBalance))]
     [KnownType(typeof(CorporateActionUnallocatedBalanceSD2Choice.PendingReceiptBalance))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.TotalEligibleBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.TotalEligibleBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.BorrowedBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.BorrowedBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.CollateralInBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.CollateralInBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.CollateralOutBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.CollateralOutBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.OnLoanBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.OnLoanBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.PendingDeliveryBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.PendingDeliveryBalance))]
+    [JsonDerivedType(typeof(CorporateActionUnallocatedBalanceSD2Choice.PendingReceiptBalance),nameof(CorporateActionUnallocatedBalanceSD2Choice.PendingReceiptBalance))]
+    #endif
     [IsoId("_20nwsaIQEeS6IulNYwkZBg")]
     [DisplayName("Corporate Action Unallocated Balance SD 2 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(RateAndAmountFormat43Choice.Rate))]
     [KnownType(typeof(RateAndAmountFormat43Choice.Amount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(RateAndAmountFormat43Choice.Rate),nameof(RateAndAmountFormat43Choice.Rate))]
+    [JsonDerivedType(typeof(RateAndAmountFormat43Choice.Amount),nameof(RateAndAmountFormat43Choice.Amount))]
+    #endif
     [IsoId("_chezk5KQEeWHWpTQn1FFVg")]
     [DisplayName("Rate And Amount Format 43 Choice")]
     #if DECLARE_SERIALIZABLE

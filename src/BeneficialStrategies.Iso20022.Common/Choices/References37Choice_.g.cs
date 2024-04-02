@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -32,6 +33,22 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References37Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
     [KnownType(typeof(References37Choice.OtherMessageIdentification))]
     [KnownType(typeof(References37Choice.TotalPortfolioValuationReportIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(References37Choice.SecuritiesSettlementTransactionConfirmationIdentification),nameof(References37Choice.SecuritiesSettlementTransactionConfirmationIdentification))]
+    [JsonDerivedType(typeof(References37Choice.IntraPositionMovementConfirmationIdentification),nameof(References37Choice.IntraPositionMovementConfirmationIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesBalanceAccountingReportIdentification),nameof(References37Choice.SecuritiesBalanceAccountingReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesBalanceCustodyReportIdentification),nameof(References37Choice.SecuritiesBalanceCustodyReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.IntraPositionMovementPostingReportIdentification),nameof(References37Choice.IntraPositionMovementPostingReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesFinancingConfirmationIdentification),nameof(References37Choice.SecuritiesFinancingConfirmationIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesTransactionPendingReportIdentification),nameof(References37Choice.SecuritiesTransactionPendingReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesTransactionPostingReportIdentification),nameof(References37Choice.SecuritiesTransactionPostingReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesSettlementTransactionAllegementReportIdentification),nameof(References37Choice.SecuritiesSettlementTransactionAllegementReportIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification),nameof(References37Choice.SecuritiesSettlementTransactionAllegementNotificationTransactionIdentification))]
+    [JsonDerivedType(typeof(References37Choice.PortfolioTransferNotificationIdentification),nameof(References37Choice.PortfolioTransferNotificationIdentification))]
+    [JsonDerivedType(typeof(References37Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification),nameof(References37Choice.SecuritiesSettlementTransactionGenerationNotificationIdentification))]
+    [JsonDerivedType(typeof(References37Choice.OtherMessageIdentification),nameof(References37Choice.OtherMessageIdentification))]
+    [JsonDerivedType(typeof(References37Choice.TotalPortfolioValuationReportIdentification),nameof(References37Choice.TotalPortfolioValuationReportIdentification))]
+    #endif
     [IsoId("_tWL8sQ34EeKN_Y-2Awiamw")]
     [DisplayName("References 37 Choice")]
     #if DECLARE_SERIALIZABLE

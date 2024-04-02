@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReferredDocumentAmount1Choice.RemittedAmount))]
     [KnownType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
     [KnownType(typeof(ReferredDocumentAmount1Choice.TaxAmount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ReferredDocumentAmount1Choice.DuePayableAmount),nameof(ReferredDocumentAmount1Choice.DuePayableAmount))]
+    [JsonDerivedType(typeof(ReferredDocumentAmount1Choice.DiscountAppliedAmount),nameof(ReferredDocumentAmount1Choice.DiscountAppliedAmount))]
+    [JsonDerivedType(typeof(ReferredDocumentAmount1Choice.RemittedAmount),nameof(ReferredDocumentAmount1Choice.RemittedAmount))]
+    [JsonDerivedType(typeof(ReferredDocumentAmount1Choice.CreditNoteAmount),nameof(ReferredDocumentAmount1Choice.CreditNoteAmount))]
+    [JsonDerivedType(typeof(ReferredDocumentAmount1Choice.TaxAmount),nameof(ReferredDocumentAmount1Choice.TaxAmount))]
+    #endif
     [IsoId("_QGJCQtp-Ed-ak6NoX_4Aeg_-888106501")]
     [DisplayName("Referred Document Amount 1 Choice")]
     #if DECLARE_SERIALIZABLE

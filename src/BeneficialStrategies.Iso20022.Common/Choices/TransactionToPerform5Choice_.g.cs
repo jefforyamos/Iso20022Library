@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionToPerform5Choice.PaymentRequest))]
     [KnownType(typeof(TransactionToPerform5Choice.LoyaltyRequest))]
     [KnownType(typeof(TransactionToPerform5Choice.ReversalRequest))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.PaymentRequest),nameof(TransactionToPerform5Choice.PaymentRequest))]
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.LoyaltyRequest),nameof(TransactionToPerform5Choice.LoyaltyRequest))]
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.ReversalRequest),nameof(TransactionToPerform5Choice.ReversalRequest))]
+    #endif
     [IsoId("_XnUecXGwEe2TbaNWBpRZpQ")]
     [DisplayName("Transaction To Perform 5 Choice")]
     #if DECLARE_SERIALIZABLE

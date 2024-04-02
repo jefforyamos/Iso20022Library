@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification97Choice.LegalEntityIdentifier))]
     [KnownType(typeof(PartyIdentification97Choice.NameAndAddress))]
     [KnownType(typeof(PartyIdentification97Choice.ProprietaryIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PartyIdentification97Choice.AnyBIC),nameof(PartyIdentification97Choice.AnyBIC))]
+    [JsonDerivedType(typeof(PartyIdentification97Choice.LegalEntityIdentifier),nameof(PartyIdentification97Choice.LegalEntityIdentifier))]
+    [JsonDerivedType(typeof(PartyIdentification97Choice.NameAndAddress),nameof(PartyIdentification97Choice.NameAndAddress))]
+    [JsonDerivedType(typeof(PartyIdentification97Choice.ProprietaryIdentification),nameof(PartyIdentification97Choice.ProprietaryIdentification))]
+    #endif
     [IsoId("_P50eUSVJEeWI0orciOKunQ")]
     [DisplayName("Party Identification 97 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode),nameof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
+    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS),nameof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
+    #endif
     [IsoId("_UuhioNp-Ed-ak6NoX_4Aeg_400175868")]
     [DisplayName("Frequency Code And DSS Code Choice")]
     #if DECLARE_SERIALIZABLE

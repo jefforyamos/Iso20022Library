@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceFormat12Choice.NotEligibleBalance))]
     [KnownType(typeof(BalanceFormat12Choice.FullPeriodUnits))]
     [KnownType(typeof(BalanceFormat12Choice.PartWayPeriodUnits))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(BalanceFormat12Choice.Balance),nameof(BalanceFormat12Choice.Balance))]
+    [JsonDerivedType(typeof(BalanceFormat12Choice.EligibleBalance),nameof(BalanceFormat12Choice.EligibleBalance))]
+    [JsonDerivedType(typeof(BalanceFormat12Choice.NotEligibleBalance),nameof(BalanceFormat12Choice.NotEligibleBalance))]
+    [JsonDerivedType(typeof(BalanceFormat12Choice.FullPeriodUnits),nameof(BalanceFormat12Choice.FullPeriodUnits))]
+    [JsonDerivedType(typeof(BalanceFormat12Choice.PartWayPeriodUnits),nameof(BalanceFormat12Choice.PartWayPeriodUnits))]
+    #endif
     [IsoId("_KADDNRuyEeyhRdHRjakS2w")]
     [DisplayName("Balance Format 12 Choice")]
     #if DECLARE_SERIALIZABLE

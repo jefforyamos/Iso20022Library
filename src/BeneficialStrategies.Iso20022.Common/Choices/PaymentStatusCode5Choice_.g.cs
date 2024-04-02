@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode5Choice.RTGS))]
     [KnownType(typeof(PaymentStatusCode5Choice.Settlement))]
     [KnownType(typeof(PaymentStatusCode5Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PaymentStatusCode5Choice.Pending),nameof(PaymentStatusCode5Choice.Pending))]
+    [JsonDerivedType(typeof(PaymentStatusCode5Choice.Final),nameof(PaymentStatusCode5Choice.Final))]
+    [JsonDerivedType(typeof(PaymentStatusCode5Choice.RTGS),nameof(PaymentStatusCode5Choice.RTGS))]
+    [JsonDerivedType(typeof(PaymentStatusCode5Choice.Settlement),nameof(PaymentStatusCode5Choice.Settlement))]
+    [JsonDerivedType(typeof(PaymentStatusCode5Choice.Proprietary),nameof(PaymentStatusCode5Choice.Proprietary))]
+    #endif
     [IsoId("_72FYEqMgEeCJ6YNENx4h-w_2022583428")]
     [DisplayName("Payment Status Code 5 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -26,6 +27,16 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityEnergy1Choice.RenewableEnergy))]
     [KnownType(typeof(AssetClassCommodityEnergy1Choice.LightEnd))]
     [KnownType(typeof(AssetClassCommodityEnergy1Choice.Distillates))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.Electricity),nameof(AssetClassCommodityEnergy1Choice.Electricity))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.NaturalGas),nameof(AssetClassCommodityEnergy1Choice.NaturalGas))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.Oil),nameof(AssetClassCommodityEnergy1Choice.Oil))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.Coal),nameof(AssetClassCommodityEnergy1Choice.Coal))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.InterEnergy),nameof(AssetClassCommodityEnergy1Choice.InterEnergy))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.RenewableEnergy),nameof(AssetClassCommodityEnergy1Choice.RenewableEnergy))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.LightEnd),nameof(AssetClassCommodityEnergy1Choice.LightEnd))]
+    [JsonDerivedType(typeof(AssetClassCommodityEnergy1Choice.Distillates),nameof(AssetClassCommodityEnergy1Choice.Distillates))]
+    #endif
     [IsoId("_pBoTZg2nEeW72qLtWESimw")]
     [DisplayName("Asset Class Commodity Energy 1 Choice")]
     #if DECLARE_SERIALIZABLE

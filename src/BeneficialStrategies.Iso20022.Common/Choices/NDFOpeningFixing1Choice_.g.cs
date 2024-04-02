@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConditions))]
     [KnownType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(NDFOpeningFixing1Choice.OpeningConditions),nameof(NDFOpeningFixing1Choice.OpeningConditions))]
+    [JsonDerivedType(typeof(NDFOpeningFixing1Choice.OpeningConfirmationReference),nameof(NDFOpeningFixing1Choice.OpeningConfirmationReference))]
+    #endif
     [IsoId("_1koBMJUIEeak6e8_Fc5fQg")]
     [DisplayName("NDF Opening Fixing 1 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(BenchmarkCurveName10Choice.Index))]
     [KnownType(typeof(BenchmarkCurveName10Choice.Name))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(BenchmarkCurveName10Choice.Index),nameof(BenchmarkCurveName10Choice.Index))]
+    [JsonDerivedType(typeof(BenchmarkCurveName10Choice.Name),nameof(BenchmarkCurveName10Choice.Name))]
+    #endif
     [IsoId("_CSXHb6x2Eem81-uIvTF5rQ")]
     [DisplayName("Benchmark Curve Name 10 Choice")]
     #if DECLARE_SERIALIZABLE

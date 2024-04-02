@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndex))]
     [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwapDerivative))]
     [KnownType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndexDerivative))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwap),nameof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwap))]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndex),nameof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndex))]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwapDerivative),nameof(CreditDefaultSwapsDerivative3Choice.SingleNameCreditDefaultSwapDerivative))]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndexDerivative),nameof(CreditDefaultSwapsDerivative3Choice.CreditDefaultSwapIndexDerivative))]
+    #endif
     [IsoId("_xTXs0X5eEea2k7EBUopqxw")]
     [DisplayName("Credit Default Swaps Derivative 3 Choice")]
     #if DECLARE_SERIALIZABLE

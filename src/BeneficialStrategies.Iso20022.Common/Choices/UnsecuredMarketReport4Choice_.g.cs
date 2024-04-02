@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(UnsecuredMarketReport4Choice.DataSetAction))]
     [KnownType(typeof(UnsecuredMarketReport4Choice.Transaction))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(UnsecuredMarketReport4Choice.DataSetAction),nameof(UnsecuredMarketReport4Choice.DataSetAction))]
+    [JsonDerivedType(typeof(UnsecuredMarketReport4Choice.Transaction),nameof(UnsecuredMarketReport4Choice.Transaction))]
+    #endif
     [IsoId("_G-P9i8EREea7jLfvGi1PDw")]
     [DisplayName("Unsecured Market Report 4 Choice")]
     #if DECLARE_SERIALIZABLE

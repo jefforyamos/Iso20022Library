@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(AirportName1Choice.AirportCode))]
     [KnownType(typeof(AirportName1Choice.OtherAirportDescription))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(AirportName1Choice.AirportCode),nameof(AirportName1Choice.AirportCode))]
+    [JsonDerivedType(typeof(AirportName1Choice.OtherAirportDescription),nameof(AirportName1Choice.OtherAirportDescription))]
+    #endif
     [IsoId("_SsSlI9p-Ed-ak6NoX_4Aeg_-992731401")]
     [DisplayName("Airport Name 1 Choice")]
     #if DECLARE_SERIALIZABLE

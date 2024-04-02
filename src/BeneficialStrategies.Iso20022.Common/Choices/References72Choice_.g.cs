@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +25,14 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References72Choice.MarketInfrastructureTransactionIdentification))]
     [KnownType(typeof(References72Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
     [KnownType(typeof(References72Choice.ProcessorTransactionIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(References72Choice.AccountOwnerTransactionIdentification),nameof(References72Choice.AccountOwnerTransactionIdentification))]
+    [JsonDerivedType(typeof(References72Choice.AccountServicerTransactionIdentification),nameof(References72Choice.AccountServicerTransactionIdentification))]
+    [JsonDerivedType(typeof(References72Choice.PoolIdentification),nameof(References72Choice.PoolIdentification))]
+    [JsonDerivedType(typeof(References72Choice.MarketInfrastructureTransactionIdentification),nameof(References72Choice.MarketInfrastructureTransactionIdentification))]
+    [JsonDerivedType(typeof(References72Choice.CounterpartyMarketInfrastructureTransactionIdentification),nameof(References72Choice.CounterpartyMarketInfrastructureTransactionIdentification))]
+    [JsonDerivedType(typeof(References72Choice.ProcessorTransactionIdentification),nameof(References72Choice.ProcessorTransactionIdentification))]
+    #endif
     [IsoId("_7AFuYSgPEeym1_Zp1BTvEw")]
     [DisplayName("References 72 Choice")]
     #if DECLARE_SERIALIZABLE

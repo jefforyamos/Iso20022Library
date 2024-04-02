@@ -20,3 +20,8 @@
 0.2.4-alpha 
     Tweaks in structure changes for serialization.
     Updated sample in readme.
+
+0.2.5-alpha
+    Added JsonDerivedType attributes on abstract choice values to enable JSON serialization.
+
+    

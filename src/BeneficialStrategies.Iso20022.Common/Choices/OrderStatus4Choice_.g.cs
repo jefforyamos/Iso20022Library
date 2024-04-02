@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OrderStatus4Choice.Suspended))]
     [KnownType(typeof(OrderStatus4Choice.InRepair))]
     [KnownType(typeof(OrderStatus4Choice.PartiallySettled))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(OrderStatus4Choice.Status),nameof(OrderStatus4Choice.Status))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.Cancelled),nameof(OrderStatus4Choice.Cancelled))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.ConditionallyAccepted),nameof(OrderStatus4Choice.ConditionallyAccepted))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.Rejected),nameof(OrderStatus4Choice.Rejected))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.Suspended),nameof(OrderStatus4Choice.Suspended))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.InRepair),nameof(OrderStatus4Choice.InRepair))]
+    [JsonDerivedType(typeof(OrderStatus4Choice.PartiallySettled),nameof(OrderStatus4Choice.PartiallySettled))]
+    #endif
     [IsoId("_9XxY8UH8EeaV3ab_pHzFIQ")]
     [DisplayName("Order Status 4 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(Proxy2Choice.Proxy))]
     [KnownType(typeof(Proxy2Choice.ProxyNotAllowed))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(Proxy2Choice.Proxy),nameof(Proxy2Choice.Proxy))]
+    [JsonDerivedType(typeof(Proxy2Choice.ProxyNotAllowed),nameof(Proxy2Choice.ProxyNotAllowed))]
+    #endif
     [IsoId("_7DISd1tgEeSwKe7KuKvXhg")]
     [DisplayName("Proxy 2 Choice")]
     #if DECLARE_SERIALIZABLE

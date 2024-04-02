@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +25,14 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References6Choice.PoolIdentification))]
     [KnownType(typeof(References6Choice.CommonIdentification))]
     [KnownType(typeof(References6Choice.TradeIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(References6Choice.AccountServicerTransactionIdentification),nameof(References6Choice.AccountServicerTransactionIdentification))]
+    [JsonDerivedType(typeof(References6Choice.AccountOwnerTransactionIdentification),nameof(References6Choice.AccountOwnerTransactionIdentification))]
+    [JsonDerivedType(typeof(References6Choice.MarketInfrastructureTransactionIdentification),nameof(References6Choice.MarketInfrastructureTransactionIdentification))]
+    [JsonDerivedType(typeof(References6Choice.PoolIdentification),nameof(References6Choice.PoolIdentification))]
+    [JsonDerivedType(typeof(References6Choice.CommonIdentification),nameof(References6Choice.CommonIdentification))]
+    [JsonDerivedType(typeof(References6Choice.TradeIdentification),nameof(References6Choice.TradeIdentification))]
+    #endif
     [IsoId("_UTGx8Np-Ed-ak6NoX_4Aeg_1758264340")]
     [DisplayName("References 6 Choice")]
     #if DECLARE_SERIALIZABLE

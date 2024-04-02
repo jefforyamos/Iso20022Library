@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(ShipmentSchedule1Choice.ShipmentDateRange))]
     [KnownType(typeof(ShipmentSchedule1Choice.ShipmentSubSchedule))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ShipmentSchedule1Choice.ShipmentDateRange),nameof(ShipmentSchedule1Choice.ShipmentDateRange))]
+    [JsonDerivedType(typeof(ShipmentSchedule1Choice.ShipmentSubSchedule),nameof(ShipmentSchedule1Choice.ShipmentSubSchedule))]
+    #endif
     [IsoId("_Rb-Mytp-Ed-ak6NoX_4Aeg_-786797544")]
     [DisplayName("Shipment Schedule 1 Choice")]
     #if DECLARE_SERIALIZABLE

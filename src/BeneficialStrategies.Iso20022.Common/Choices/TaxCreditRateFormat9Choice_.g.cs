@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxCreditRateFormat9Choice.Rate))]
     [KnownType(typeof(TaxCreditRateFormat9Choice.Amount))]
     [KnownType(typeof(TaxCreditRateFormat9Choice.RateTypeAndAmountAndRateStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TaxCreditRateFormat9Choice.Rate),nameof(TaxCreditRateFormat9Choice.Rate))]
+    [JsonDerivedType(typeof(TaxCreditRateFormat9Choice.Amount),nameof(TaxCreditRateFormat9Choice.Amount))]
+    [JsonDerivedType(typeof(TaxCreditRateFormat9Choice.RateTypeAndAmountAndRateStatus),nameof(TaxCreditRateFormat9Choice.RateTypeAndAmountAndRateStatus))]
+    #endif
     [IsoId("_ckCYvpKQEeWHWpTQn1FFVg")]
     [DisplayName("Tax Credit Rate Format 9 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PledgeeFormat6Choice.TypeAndIdentification))]
     [KnownType(typeof(PledgeeFormat6Choice.Identification))]
     [KnownType(typeof(PledgeeFormat6Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.TypeAndIdentification),nameof(PledgeeFormat6Choice.TypeAndIdentification))]
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.Identification),nameof(PledgeeFormat6Choice.Identification))]
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.Proprietary),nameof(PledgeeFormat6Choice.Proprietary))]
+    #endif
     [IsoId("_Z07smffVEeiNZp_PtLohLw")]
     [DisplayName("Pledgee Format 6 Choice")]
     #if DECLARE_SERIALIZABLE

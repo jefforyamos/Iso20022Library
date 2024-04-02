@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument24Choice.DirectDebitDetails))]
     [KnownType(typeof(PaymentInstrument24Choice.Cheque))]
     [KnownType(typeof(PaymentInstrument24Choice.BankersDraft))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.PaymentCardDetails),nameof(PaymentInstrument24Choice.PaymentCardDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.DirectDebitDetails),nameof(PaymentInstrument24Choice.DirectDebitDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.Cheque),nameof(PaymentInstrument24Choice.Cheque))]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.BankersDraft),nameof(PaymentInstrument24Choice.BankersDraft))]
+    #endif
     [IsoId("_JSXkMZTBEemqYPWMBuVawg")]
     [DisplayName("Payment Instrument 24 Choice")]
     #if DECLARE_SERIALIZABLE

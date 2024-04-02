@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -26,6 +27,16 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References35Choice.CommonIdentification))]
     [KnownType(typeof(References35Choice.TradeIdentification))]
     [KnownType(typeof(References35Choice.CorporateActionEventIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(References35Choice.AccountOwnerTransactionIdentification),nameof(References35Choice.AccountOwnerTransactionIdentification))]
+    [JsonDerivedType(typeof(References35Choice.AccountServicerTransactionIdentification),nameof(References35Choice.AccountServicerTransactionIdentification))]
+    [JsonDerivedType(typeof(References35Choice.MarketInfrastructureTransactionIdentification),nameof(References35Choice.MarketInfrastructureTransactionIdentification))]
+    [JsonDerivedType(typeof(References35Choice.ProcessorTransactionIdentification),nameof(References35Choice.ProcessorTransactionIdentification))]
+    [JsonDerivedType(typeof(References35Choice.PoolIdentification),nameof(References35Choice.PoolIdentification))]
+    [JsonDerivedType(typeof(References35Choice.CommonIdentification),nameof(References35Choice.CommonIdentification))]
+    [JsonDerivedType(typeof(References35Choice.TradeIdentification),nameof(References35Choice.TradeIdentification))]
+    [JsonDerivedType(typeof(References35Choice.CorporateActionEventIdentification),nameof(References35Choice.CorporateActionEventIdentification))]
+    #endif
     [IsoId("_jvWisO5NEeCisYr99QEiWA_-696933673")]
     [DisplayName("References 35 Choice")]
     #if DECLARE_SERIALIZABLE

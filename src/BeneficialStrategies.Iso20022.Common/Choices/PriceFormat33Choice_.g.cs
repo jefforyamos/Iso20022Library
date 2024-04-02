@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +25,14 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat33Choice.AmountPricePerFinancialInstrumentQuantity))]
     [KnownType(typeof(PriceFormat33Choice.AmountPricePerAmount))]
     [KnownType(typeof(PriceFormat33Choice.IndexPoints))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PriceFormat33Choice.PercentagePrice),nameof(PriceFormat33Choice.PercentagePrice))]
+    [JsonDerivedType(typeof(PriceFormat33Choice.AmountPrice),nameof(PriceFormat33Choice.AmountPrice))]
+    [JsonDerivedType(typeof(PriceFormat33Choice.NotSpecifiedPrice),nameof(PriceFormat33Choice.NotSpecifiedPrice))]
+    [JsonDerivedType(typeof(PriceFormat33Choice.AmountPricePerFinancialInstrumentQuantity),nameof(PriceFormat33Choice.AmountPricePerFinancialInstrumentQuantity))]
+    [JsonDerivedType(typeof(PriceFormat33Choice.AmountPricePerAmount),nameof(PriceFormat33Choice.AmountPricePerAmount))]
+    [JsonDerivedType(typeof(PriceFormat33Choice.IndexPoints),nameof(PriceFormat33Choice.IndexPoints))]
+    #endif
     [IsoId("_r15aZSXtEeO4bIO_HtGo9Q")]
     [DisplayName("Price Format 33 Choice")]
     #if DECLARE_SERIALIZABLE

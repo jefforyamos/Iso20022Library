@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus))]
     [KnownType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
     [KnownType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus),nameof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus))]
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction),nameof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter),nameof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
+    #endif
     [IsoId("_JTG3oIqLEeSRT5rEzcAHEw")]
     [DisplayName("ATM Command Parameters 1 Choice")]
     #if DECLARE_SERIALIZABLE

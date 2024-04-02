@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(LongPostalAddress1Choice.Unstructured))]
     [KnownType(typeof(LongPostalAddress1Choice.Structured))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(LongPostalAddress1Choice.Unstructured),nameof(LongPostalAddress1Choice.Unstructured))]
+    [JsonDerivedType(typeof(LongPostalAddress1Choice.Structured),nameof(LongPostalAddress1Choice.Structured))]
+    #endif
     [IsoId("_QG4pJdp-Ed-ak6NoX_4Aeg_-1972571676")]
     [DisplayName("Long Postal Address 1 Choice")]
     #if DECLARE_SERIALIZABLE

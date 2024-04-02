@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(UnilateralSplit4Choice.Code))]
     [KnownType(typeof(UnilateralSplit4Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(UnilateralSplit4Choice.Code),nameof(UnilateralSplit4Choice.Code))]
+    [JsonDerivedType(typeof(UnilateralSplit4Choice.Proprietary),nameof(UnilateralSplit4Choice.Proprietary))]
+    #endif
     [IsoId("_6GWWMZNLEeWGlc8L7oPDIg")]
     [DisplayName("Unilateral Split 4 Choice")]
     #if DECLARE_SERIALIZABLE

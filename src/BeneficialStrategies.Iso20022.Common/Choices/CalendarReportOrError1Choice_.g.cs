@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(CalendarReportOrError1Choice.CalendarReport))]
     [KnownType(typeof(CalendarReportOrError1Choice.OperationalError))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CalendarReportOrError1Choice.CalendarReport),nameof(CalendarReportOrError1Choice.CalendarReport))]
+    [JsonDerivedType(typeof(CalendarReportOrError1Choice.OperationalError),nameof(CalendarReportOrError1Choice.OperationalError))]
+    #endif
     [IsoId("_dVcQ4Ym7Eeipw6hHPgB4Sw")]
     [DisplayName("Calendar Report Or Error 1 Choice")]
     #if DECLARE_SERIALIZABLE

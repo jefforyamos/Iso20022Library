@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(CorrectiveTransaction1Choice.Initiation))]
     [KnownType(typeof(CorrectiveTransaction1Choice.Interbank))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CorrectiveTransaction1Choice.Initiation),nameof(CorrectiveTransaction1Choice.Initiation))]
+    [JsonDerivedType(typeof(CorrectiveTransaction1Choice.Interbank),nameof(CorrectiveTransaction1Choice.Interbank))]
+    #endif
     [IsoId("_P7RPB9p-Ed-ak6NoX_4Aeg_445154531")]
     [DisplayName("Corrective Transaction 1 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity27Choice.UnitsNumber))]
     [KnownType(typeof(FinancialInstrumentQuantity27Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity27Choice.NetAmount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity27Choice.UnitsNumber),nameof(FinancialInstrumentQuantity27Choice.UnitsNumber))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity27Choice.GrossAmount),nameof(FinancialInstrumentQuantity27Choice.GrossAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity27Choice.NetAmount),nameof(FinancialInstrumentQuantity27Choice.NetAmount))]
+    #endif
     [IsoId("_RoyRsDhSEeaRwdGFv45qTQ")]
     [DisplayName("Financial Instrument Quantity 27 Choice")]
     #if DECLARE_SERIALIZABLE

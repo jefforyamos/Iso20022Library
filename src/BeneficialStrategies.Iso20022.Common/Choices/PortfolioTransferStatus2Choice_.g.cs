@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PortfolioTransferStatus2Choice.PendingProcessing))]
     [KnownType(typeof(PortfolioTransferStatus2Choice.Rejected))]
     [KnownType(typeof(PortfolioTransferStatus2Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(PortfolioTransferStatus2Choice.AcknowledgedAccepted),nameof(PortfolioTransferStatus2Choice.AcknowledgedAccepted))]
+    [JsonDerivedType(typeof(PortfolioTransferStatus2Choice.PendingProcessing),nameof(PortfolioTransferStatus2Choice.PendingProcessing))]
+    [JsonDerivedType(typeof(PortfolioTransferStatus2Choice.Rejected),nameof(PortfolioTransferStatus2Choice.Rejected))]
+    [JsonDerivedType(typeof(PortfolioTransferStatus2Choice.Proprietary),nameof(PortfolioTransferStatus2Choice.Proprietary))]
+    #endif
     [IsoId("_bClDsekGEemm4qhb2yFPOw")]
     [DisplayName("Portfolio Transfer Status 2 Choice")]
     #if DECLARE_SERIALIZABLE

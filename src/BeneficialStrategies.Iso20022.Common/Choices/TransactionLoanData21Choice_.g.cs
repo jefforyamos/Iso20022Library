@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionLoanData21Choice.RepurchaseTrade))]
     [KnownType(typeof(TransactionLoanData21Choice.BuySellBack))]
     [KnownType(typeof(TransactionLoanData21Choice.SecuritiesLending))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TransactionLoanData21Choice.RepurchaseTrade),nameof(TransactionLoanData21Choice.RepurchaseTrade))]
+    [JsonDerivedType(typeof(TransactionLoanData21Choice.BuySellBack),nameof(TransactionLoanData21Choice.BuySellBack))]
+    [JsonDerivedType(typeof(TransactionLoanData21Choice.SecuritiesLending),nameof(TransactionLoanData21Choice.SecuritiesLending))]
+    #endif
     [IsoId("_4AyNrf_qEemm3skPVSMJQg")]
     [DisplayName("Transaction Loan Data 21 Choice")]
     #if DECLARE_SERIALIZABLE

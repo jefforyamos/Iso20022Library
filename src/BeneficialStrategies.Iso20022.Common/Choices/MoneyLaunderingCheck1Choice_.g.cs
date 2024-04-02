@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(MoneyLaunderingCheck1Choice.Code))]
     [KnownType(typeof(MoneyLaunderingCheck1Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Code),nameof(MoneyLaunderingCheck1Choice.Code))]
+    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Proprietary),nameof(MoneyLaunderingCheck1Choice.Proprietary))]
+    #endif
     [IsoId("_GExWwxdDEeK5g-3oYI0_9Q")]
     [DisplayName("Money Laundering Check 1 Choice")]
     #if DECLARE_SERIALIZABLE

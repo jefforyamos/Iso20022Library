@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingStatus46Choice.DefaultAction))]
     [KnownType(typeof(InstructionProcessingStatus46Choice.StandingInstruction))]
     [KnownType(typeof(InstructionProcessingStatus46Choice.ProprietaryStatus))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.Cancelled),nameof(InstructionProcessingStatus46Choice.Cancelled))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.AcceptedForFurtherProcessing),nameof(InstructionProcessingStatus46Choice.AcceptedForFurtherProcessing))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.Rejected),nameof(InstructionProcessingStatus46Choice.Rejected))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.Pending),nameof(InstructionProcessingStatus46Choice.Pending))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.DefaultAction),nameof(InstructionProcessingStatus46Choice.DefaultAction))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.StandingInstruction),nameof(InstructionProcessingStatus46Choice.StandingInstruction))]
+    [JsonDerivedType(typeof(InstructionProcessingStatus46Choice.ProprietaryStatus),nameof(InstructionProcessingStatus46Choice.ProprietaryStatus))]
+    #endif
     [IsoId("_dbpa0RnyEeyroI8qKgB7Mg")]
     [DisplayName("Instruction Processing Status 46 Choice")]
     #if DECLARE_SERIALIZABLE

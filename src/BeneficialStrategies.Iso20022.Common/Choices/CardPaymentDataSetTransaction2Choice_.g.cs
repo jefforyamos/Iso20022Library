@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardPaymentDataSetTransaction2Choice.Cancellation))]
     [KnownType(typeof(CardPaymentDataSetTransaction2Choice.AuthorisationRequest))]
     [KnownType(typeof(CardPaymentDataSetTransaction2Choice.AuthorisationResponse))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction2Choice.Completion),nameof(CardPaymentDataSetTransaction2Choice.Completion))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction2Choice.Cancellation),nameof(CardPaymentDataSetTransaction2Choice.Cancellation))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction2Choice.AuthorisationRequest),nameof(CardPaymentDataSetTransaction2Choice.AuthorisationRequest))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction2Choice.AuthorisationResponse),nameof(CardPaymentDataSetTransaction2Choice.AuthorisationResponse))]
+    #endif
     [IsoId("_RAjlgTKQEeOqyZqt0rCZLg")]
     [DisplayName("Card Payment Data Set Transaction 2 Choice")]
     #if DECLARE_SERIALIZABLE

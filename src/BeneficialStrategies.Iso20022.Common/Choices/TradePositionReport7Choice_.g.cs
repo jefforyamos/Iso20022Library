@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradePositionReport7Choice.ValuationUpdate))]
     [KnownType(typeof(TradePositionReport7Choice.Error))]
     [KnownType(typeof(TradePositionReport7Choice.Other))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TradePositionReport7Choice.New),nameof(TradePositionReport7Choice.New))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.Modification),nameof(TradePositionReport7Choice.Modification))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.Correction),nameof(TradePositionReport7Choice.Correction))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.EarlyTermination),nameof(TradePositionReport7Choice.EarlyTermination))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.ValuationUpdate),nameof(TradePositionReport7Choice.ValuationUpdate))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.Error),nameof(TradePositionReport7Choice.Error))]
+    [JsonDerivedType(typeof(TradePositionReport7Choice.Other),nameof(TradePositionReport7Choice.Other))]
+    #endif
     [IsoId("_bV7RKRLBEeqctpBfTmLJnw")]
     [DisplayName("Trade Position Report 7 Choice")]
     #if DECLARE_SERIALIZABLE

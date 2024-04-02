@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification))]
     [KnownType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
     [KnownType(typeof(InstrumentIdentification1Choice.OtherIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(InstrumentIdentification1Choice.ISIN),nameof(InstrumentIdentification1Choice.ISIN))]
+    [JsonDerivedType(typeof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification),nameof(InstrumentIdentification1Choice.AlternativeInstrumentIdentification))]
+    [JsonDerivedType(typeof(InstrumentIdentification1Choice.UniqueProductIdentifier),nameof(InstrumentIdentification1Choice.UniqueProductIdentifier))]
+    [JsonDerivedType(typeof(InstrumentIdentification1Choice.OtherIdentification),nameof(InstrumentIdentification1Choice.OtherIdentification))]
+    #endif
     [IsoId("_vWHmMAbSEeqrW7Meu5r3kQ")]
     [DisplayName("Instrument Identification 1 Choice")]
     #if DECLARE_SERIALIZABLE

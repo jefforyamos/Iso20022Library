@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -22,6 +23,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RatioFormat4Choice.AmountToAmount))]
     [KnownType(typeof(RatioFormat4Choice.AmountToQuantity))]
     [KnownType(typeof(RatioFormat4Choice.QuantityToAmount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(RatioFormat4Choice.QuantityToQuantity),nameof(RatioFormat4Choice.QuantityToQuantity))]
+    [JsonDerivedType(typeof(RatioFormat4Choice.AmountToAmount),nameof(RatioFormat4Choice.AmountToAmount))]
+    [JsonDerivedType(typeof(RatioFormat4Choice.AmountToQuantity),nameof(RatioFormat4Choice.AmountToQuantity))]
+    [JsonDerivedType(typeof(RatioFormat4Choice.QuantityToAmount),nameof(RatioFormat4Choice.QuantityToAmount))]
+    #endif
     [IsoId("_Q1h31dp-Ed-ak6NoX_4Aeg_544072927")]
     [DisplayName("Ratio Format 4 Choice")]
     #if DECLARE_SERIALIZABLE

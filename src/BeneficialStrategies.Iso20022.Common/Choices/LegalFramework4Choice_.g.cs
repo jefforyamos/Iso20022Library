@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(LegalFramework4Choice.Code))]
     [KnownType(typeof(LegalFramework4Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(LegalFramework4Choice.Code),nameof(LegalFramework4Choice.Code))]
+    [JsonDerivedType(typeof(LegalFramework4Choice.Proprietary),nameof(LegalFramework4Choice.Proprietary))]
+    #endif
     [IsoId("_5mw4H5NLEeWGlc8L7oPDIg")]
     [DisplayName("Legal Framework 4 Choice")]
     #if DECLARE_SERIALIZABLE

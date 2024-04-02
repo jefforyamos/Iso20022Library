@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(CollateralValueReportOrError6Choice.BusinessError))]
     [KnownType(typeof(CollateralValueReportOrError6Choice.CollateralValue))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(CollateralValueReportOrError6Choice.BusinessError),nameof(CollateralValueReportOrError6Choice.BusinessError))]
+    [JsonDerivedType(typeof(CollateralValueReportOrError6Choice.CollateralValue),nameof(CollateralValueReportOrError6Choice.CollateralValue))]
+    #endif
     [IsoId("_EFF_UTpyEemk2e6qGBk8IQ")]
     [DisplayName("Collateral Value Report Or Error 6 Choice")]
     #if DECLARE_SERIALIZABLE

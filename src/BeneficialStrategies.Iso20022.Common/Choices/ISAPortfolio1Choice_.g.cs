@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(ISAPortfolio1Choice.ISA))]
     [KnownType(typeof(ISAPortfolio1Choice.Portfolio))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ISAPortfolio1Choice.ISA),nameof(ISAPortfolio1Choice.ISA))]
+    [JsonDerivedType(typeof(ISAPortfolio1Choice.Portfolio),nameof(ISAPortfolio1Choice.Portfolio))]
+    #endif
     [IsoId("_IjgyAENIEeGHJ_bHJRPaIQ_1207099058")]
     [DisplayName("ISA Portfolio 1 Choice")]
     #if DECLARE_SERIALIZABLE

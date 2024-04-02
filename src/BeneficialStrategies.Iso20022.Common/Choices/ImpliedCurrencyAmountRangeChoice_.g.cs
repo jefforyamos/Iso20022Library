@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -23,6 +24,13 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.FromToAmount))]
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromAmount),nameof(ImpliedCurrencyAmountRangeChoice.FromAmount))]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.ToAmount),nameof(ImpliedCurrencyAmountRangeChoice.ToAmount))]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromToAmount),nameof(ImpliedCurrencyAmountRangeChoice.FromToAmount))]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount),nameof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount),nameof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
+    #endif
     [IsoId("_PU-ECtp-Ed-ak6NoX_4Aeg_847262836")]
     [DisplayName("Implied Currency Amount Range Choice")]
     #if DECLARE_SERIALIZABLE

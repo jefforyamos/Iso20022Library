@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SafekeepingPlaceFormatChoice.Identification))]
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS))]
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.Identification),nameof(SafekeepingPlaceFormatChoice.Identification))]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS),nameof(SafekeepingPlaceFormatChoice.IdentificationAsDSS))]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry),nameof(SafekeepingPlaceFormatChoice.IdentificationAsCountry))]
+    #endif
     [IsoId("_RB5f5Np-Ed-ak6NoX_4Aeg_-418949931")]
     [DisplayName("Safekeeping Place Format Choice")]
     #if DECLARE_SERIALIZABLE

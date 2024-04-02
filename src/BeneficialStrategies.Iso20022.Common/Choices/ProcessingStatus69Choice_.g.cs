@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -25,6 +26,15 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus69Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus69Choice.Denied))]
     [KnownType(typeof(ProcessingStatus69Choice.Cancelled))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.PendingCancellation),nameof(ProcessingStatus69Choice.PendingCancellation))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.Rejected),nameof(ProcessingStatus69Choice.Rejected))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.Repair),nameof(ProcessingStatus69Choice.Repair))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.AcknowledgedAccepted),nameof(ProcessingStatus69Choice.AcknowledgedAccepted))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.Proprietary),nameof(ProcessingStatus69Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.Denied),nameof(ProcessingStatus69Choice.Denied))]
+    [JsonDerivedType(typeof(ProcessingStatus69Choice.Cancelled),nameof(ProcessingStatus69Choice.Cancelled))]
+    #endif
     [IsoId("_1m2RQeF7EeWCAvUNsZ5u6g")]
     [DisplayName("Processing Status 69 Choice")]
     #if DECLARE_SERIALIZABLE

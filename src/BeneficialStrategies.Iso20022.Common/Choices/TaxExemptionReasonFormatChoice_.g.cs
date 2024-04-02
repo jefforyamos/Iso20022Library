@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Unstructured))]
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Structured))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Unstructured),nameof(TaxExemptionReasonFormatChoice.Unstructured))]
+    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Structured),nameof(TaxExemptionReasonFormatChoice.Structured))]
+    #endif
     [IsoId("_UzJj8tp-Ed-ak6NoX_4Aeg_-1748201270")]
     [DisplayName("Tax Exemption Reason Format Choice")]
     #if DECLARE_SERIALIZABLE

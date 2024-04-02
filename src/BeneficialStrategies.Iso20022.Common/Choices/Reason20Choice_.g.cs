@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -31,6 +32,21 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reason20Choice.RepairReason))]
     [KnownType(typeof(Reason20Choice.PendingModificationReason))]
     [KnownType(typeof(Reason20Choice.UnmatchedReason))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(Reason20Choice.RepoCallAcknowledgementReason),nameof(Reason20Choice.RepoCallAcknowledgementReason))]
+    [JsonDerivedType(typeof(Reason20Choice.CancellationReason),nameof(Reason20Choice.CancellationReason))]
+    [JsonDerivedType(typeof(Reason20Choice.PendingCancellationReason),nameof(Reason20Choice.PendingCancellationReason))]
+    [JsonDerivedType(typeof(Reason20Choice.GeneratedReason),nameof(Reason20Choice.GeneratedReason))]
+    [JsonDerivedType(typeof(Reason20Choice.DeniedReason),nameof(Reason20Choice.DeniedReason))]
+    [JsonDerivedType(typeof(Reason20Choice.AcknowledgedAcceptedReason),nameof(Reason20Choice.AcknowledgedAcceptedReason))]
+    [JsonDerivedType(typeof(Reason20Choice.PendingReason),nameof(Reason20Choice.PendingReason))]
+    [JsonDerivedType(typeof(Reason20Choice.FailingReason),nameof(Reason20Choice.FailingReason))]
+    [JsonDerivedType(typeof(Reason20Choice.PendingProcessingReason),nameof(Reason20Choice.PendingProcessingReason))]
+    [JsonDerivedType(typeof(Reason20Choice.RejectionReason),nameof(Reason20Choice.RejectionReason))]
+    [JsonDerivedType(typeof(Reason20Choice.RepairReason),nameof(Reason20Choice.RepairReason))]
+    [JsonDerivedType(typeof(Reason20Choice.PendingModificationReason),nameof(Reason20Choice.PendingModificationReason))]
+    [JsonDerivedType(typeof(Reason20Choice.UnmatchedReason),nameof(Reason20Choice.UnmatchedReason))]
+    #endif
     [IsoId("_gAQ5fTi8Eeydid5dcNPKvg")]
     [DisplayName("Reason 20 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustification4Choice.AnyInformation))]
     [KnownType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
     [KnownType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(UnableToApplyJustification4Choice.AnyInformation),nameof(UnableToApplyJustification4Choice.AnyInformation))]
+    [JsonDerivedType(typeof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation),nameof(UnableToApplyJustification4Choice.MissingOrIncorrectInformation))]
+    [JsonDerivedType(typeof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction),nameof(UnableToApplyJustification4Choice.PossibleDuplicateInstruction))]
+    #endif
     [IsoId("_7JifAdjKEeq5MfBBxQig1Q")]
     [DisplayName("Unable To Apply Justification 4 Choice")]
     #if DECLARE_SERIALIZABLE

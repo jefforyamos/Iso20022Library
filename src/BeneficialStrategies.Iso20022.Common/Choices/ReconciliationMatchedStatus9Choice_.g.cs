@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(ReconciliationMatchedStatus9Choice.Matched))]
     [KnownType(typeof(ReconciliationMatchedStatus9Choice.NotMatched))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(ReconciliationMatchedStatus9Choice.Matched),nameof(ReconciliationMatchedStatus9Choice.Matched))]
+    [JsonDerivedType(typeof(ReconciliationMatchedStatus9Choice.NotMatched),nameof(ReconciliationMatchedStatus9Choice.NotMatched))]
+    #endif
     [IsoId("_Av6qZcK3EeuFNp8LZAnorg")]
     [DisplayName("Reconciliation Matched Status 9 Choice")]
     #if DECLARE_SERIALIZABLE

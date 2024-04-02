@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -24,6 +25,14 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reference1Choice.CollateralProposalResponseIdentification))]
     [KnownType(typeof(Reference1Choice.DisputeNotificationIdentification))]
     [KnownType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(Reference1Choice.MarginCallRequestIdentification),nameof(Reference1Choice.MarginCallRequestIdentification))]
+    [JsonDerivedType(typeof(Reference1Choice.MarginCallResponseIdentification),nameof(Reference1Choice.MarginCallResponseIdentification))]
+    [JsonDerivedType(typeof(Reference1Choice.CollateralProposalIdentification),nameof(Reference1Choice.CollateralProposalIdentification))]
+    [JsonDerivedType(typeof(Reference1Choice.CollateralProposalResponseIdentification),nameof(Reference1Choice.CollateralProposalResponseIdentification))]
+    [JsonDerivedType(typeof(Reference1Choice.DisputeNotificationIdentification),nameof(Reference1Choice.DisputeNotificationIdentification))]
+    [JsonDerivedType(typeof(Reference1Choice.CollateralSubstitutionRequestIdentification),nameof(Reference1Choice.CollateralSubstitutionRequestIdentification))]
+    #endif
     [IsoId("_QmxqItp-Ed-ak6NoX_4Aeg_261203016")]
     [DisplayName("Reference 1 Choice")]
     #if DECLARE_SERIALIZABLE

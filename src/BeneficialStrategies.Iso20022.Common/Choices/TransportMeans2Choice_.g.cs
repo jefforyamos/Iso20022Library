@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(TransportMeans2Choice.IndividualTransport))]
     [KnownType(typeof(TransportMeans2Choice.MultimodalTransport))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(TransportMeans2Choice.IndividualTransport),nameof(TransportMeans2Choice.IndividualTransport))]
+    [JsonDerivedType(typeof(TransportMeans2Choice.MultimodalTransport),nameof(TransportMeans2Choice.MultimodalTransport))]
+    #endif
     [IsoId("_U7oxkdp-Ed-ak6NoX_4Aeg_-761772709")]
     [DisplayName("Transport Means 2 Choice")]
     #if DECLARE_SERIALIZABLE

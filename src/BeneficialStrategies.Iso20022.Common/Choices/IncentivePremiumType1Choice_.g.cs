@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -21,6 +22,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IncentivePremiumType1Choice.PerSecurity))]
     [KnownType(typeof(IncentivePremiumType1Choice.PerVote))]
     [KnownType(typeof(IncentivePremiumType1Choice.PerAttendee))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(IncentivePremiumType1Choice.PerSecurity),nameof(IncentivePremiumType1Choice.PerSecurity))]
+    [JsonDerivedType(typeof(IncentivePremiumType1Choice.PerVote),nameof(IncentivePremiumType1Choice.PerVote))]
+    [JsonDerivedType(typeof(IncentivePremiumType1Choice.PerAttendee),nameof(IncentivePremiumType1Choice.PerAttendee))]
+    #endif
     [IsoId("_RDieodp-Ed-ak6NoX_4Aeg_1038160776")]
     [DisplayName("Incentive Premium Type 1 Choice")]
     #if DECLARE_SERIALIZABLE

@@ -5,6 +5,7 @@
 // Copyright 2024 Jeff Ward, Beneficial Strategies. Usage subject to license of enclosing library.
 //
 
+using System.Text.Json.Serialization;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -20,6 +21,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(EUDividendStatusType1Choice.EUDividendStatus))]
     [KnownType(typeof(EUDividendStatusType1Choice.Proprietary))]
+    #if NET7_0_OR_GREATER // C# 11 Records, required members
+    [JsonDerivedType(typeof(EUDividendStatusType1Choice.EUDividendStatus),nameof(EUDividendStatusType1Choice.EUDividendStatus))]
+    [JsonDerivedType(typeof(EUDividendStatusType1Choice.Proprietary),nameof(EUDividendStatusType1Choice.Proprietary))]
+    #endif
     [IsoId("_RgcdEtp-Ed-ak6NoX_4Aeg_-1297197608")]
     [DisplayName("EU Dividend Status Type 1 Choice")]
     #if DECLARE_SERIALIZABLE
