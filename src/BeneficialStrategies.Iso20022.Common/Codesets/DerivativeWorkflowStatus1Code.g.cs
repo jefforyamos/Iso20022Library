@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_12PQkjL3EeKU9IrkkToqcw_-742843847")]
 [Description(@"Specifies the status of exchange's notice of change on a derivative.")]
 [DerivedFrom(typeof(DerivativeWorkflowStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DerivativeWorkflowStatus1Code>))]
+#endif
 public enum DerivativeWorkflowStatus1Code
 {
     /// <summary>

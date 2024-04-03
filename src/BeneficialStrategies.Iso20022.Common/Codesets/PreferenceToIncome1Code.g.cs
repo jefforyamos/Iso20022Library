@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aIFoVdp-Ed-ak6NoX_4Aeg_-943074065")]
 [Description(@"Indicates the level of priority to claim on income and assets of |the company in case of the payment of dividends and in the event of a bankruptcy, eg, ordinary/common stocks, preferred stocks, subordinated debt, etc.")]
 [DerivedFrom(typeof(PreferenceToIncomeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PreferenceToIncome1Code>))]
+#endif
 public enum PreferenceToIncome1Code
 {
     /// <summary>

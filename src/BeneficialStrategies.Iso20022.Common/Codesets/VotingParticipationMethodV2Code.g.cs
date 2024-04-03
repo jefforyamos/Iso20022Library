@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_JD_2QBrkEeyhRdHRjakS2w")]
 [Description(@"Specifies the different methods allowed for participating to the vote of agenda resolutions in a general meeting.")]
 [Derivations(typeof(VotingParticipationMethod3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<VotingParticipationMethodV2Code>))]
+#endif
 public enum VotingParticipationMethodV2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aVDGRtp-Ed-ak6NoX_4Aeg_162716149")]
 [Description(@"Provides the matching status of the instruction at the time the settlement instruction was sent.")]
 [Derivations(typeof(MatchingStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MatchingStatusCode>))]
+#endif
 public enum MatchingStatusCode
 {
     /// <summary>

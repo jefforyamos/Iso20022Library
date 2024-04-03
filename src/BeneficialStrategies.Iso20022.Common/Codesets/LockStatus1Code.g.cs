@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_mrGisGjMEeiRg5NzP0jkQg")]
 [Description(@"Specifies the lock status of a party.")]
 [DerivedFrom(typeof(LockStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LockStatus1Code>))]
+#endif
 public enum LockStatus1Code
 {
     /// <summary>

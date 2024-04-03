@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_b6ylkJx-EeuwYeL1lHu9zw")]
 [Description(@"Code that specifies the storage location.")]
 [Derivations(typeof(StorageLocation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StorageLocationCode>))]
+#endif
 public enum StorageLocationCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TxnhUE2XEe2bQ-Ksk8mwQg")]
 [Description(@"Specifies the type of process related to a specific transaction.")]
 [Derivations(typeof(TransactionOperationType8Code),typeof(TransactionOperationType10Code),typeof(TransactionOperationType11Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionOperationTypeV2Code>))]
+#endif
 public enum TransactionOperationTypeV2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RNLFpYmxEeeKR__nUfxjwA")]
 [Description(@"Specifies the result of an investigation, as published in an external investigation execution confirmation code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalInvestigationExecutionConfirmation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalInvestigationExecutionConfirmationCode>))]
+#endif
 public enum ExternalInvestigationExecutionConfirmationCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jc3ekMmJEeWAGphE2LvqeA")]
 [Description(@"Specifies the priority level of an event.")]
 [DerivedFrom(typeof(PriorityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Priority4Code>))]
+#endif
 public enum Priority4Code
 {
     /// <summary>

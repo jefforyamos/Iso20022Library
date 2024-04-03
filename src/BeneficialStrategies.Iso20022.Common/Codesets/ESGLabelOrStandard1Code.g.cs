@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_eSB0MNA7EeuSBa1PsnseFg")]
 [Description(@"Specifies the ESG label or standard of a product.")]
 [DerivedFrom(typeof(ESGLabelOrStandardCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ESGLabelOrStandard1Code>))]
+#endif
 public enum ESGLabelOrStandard1Code
 {
     /// <summary>

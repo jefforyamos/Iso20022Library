@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KU0viX1DEeCF8NjrBemJWQ_1699573944")]
 [Description(@"Type of algorithm used by the cryptographic key.")]
 [Derivations(typeof(CryptographicKeyType1Code),typeof(CryptographicKeyType2Code),typeof(CryptographicKeyType3Code),typeof(CryptographicKeyType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CryptographicKeyTypeCode>))]
+#endif
 public enum CryptographicKeyTypeCode
 {
     /// <summary>

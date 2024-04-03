@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_3_6sMI9LEeqMo4JxiuZGSw")]
 [Description(@"Frequencies for a floating rate transaction.||*** if an overnight frequency  rate fixing should be applied.  If not present, a periodic fixing frequency will be applied.****|")]
 [Derivations(typeof(FrequencyRateFixing1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FrequencyRateFixingCode>))]
+#endif
 public enum FrequencyRateFixingCode
 {
     /// <summary>

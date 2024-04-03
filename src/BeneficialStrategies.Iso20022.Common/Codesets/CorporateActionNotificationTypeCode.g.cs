@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bLJAw9p-Ed-ak6NoX_4Aeg_-765647150")]
 [Description(@"Type of notification.")]
 [Derivations(typeof(CorporateActionNotificationType1Code),typeof(CorporateActionNotificationType2Code),typeof(NotificationType3Code),typeof(NotificationType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionNotificationTypeCode>))]
+#endif
 public enum CorporateActionNotificationTypeCode
 {
     /// <summary>

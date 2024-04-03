@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_boLEIAyKEeKa_56Jbsi1RQ")]
 [Description(@"Type of assessment of a POI component (Point of Interaction).")]
 [Derivations(typeof(POIComponentAssessment1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<POIComponentAssessmentCode>))]
+#endif
 public enum POIComponentAssessmentCode
 {
     /// <summary>

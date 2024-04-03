@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZxlM1tp-Ed-ak6NoX_4Aeg_492772100")]
 [Description(@"Specifies the role of the party in the transaction.")]
-[Derivations(typeof(InvestmentFundRole1Code),typeof(InvestmentFundRole2Code),typeof(InvestmentFundRole4Code),typeof(PaymentRole1Code),typeof(InvestmentFundRole3Code),typeof(PartyRole1Code),typeof(InvestmentFundRole5Code),typeof(PartyRole2Code),typeof(InvestmentFundRole8Code),typeof(InvestmentFundRole6Code),typeof(InvestmentFundRole7Code),typeof(InternalPartyRole1Code),typeof(PartyRole3Code))]
+[Derivations(typeof(PaymentRole1Code),typeof(InvestmentFundRole7Code),typeof(InvestmentFundRole3Code),typeof(InvestmentFundRole6Code),typeof(InternalPartyRole1Code),typeof(InvestmentFundRole8Code),typeof(InvestmentFundRole4Code),typeof(PartyRole3Code),typeof(PartyRole2Code),typeof(PartyRole1Code),typeof(InvestmentFundRole2Code),typeof(InvestmentFundRole5Code),typeof(InvestmentFundRole1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartyRoleCode>))]
+#endif
 public enum PartyRoleCode
 {
     /// <summary>

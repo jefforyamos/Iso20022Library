@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8eUqAHX-Eee_qcLXasnA4g")]
 [Description(@"Specifies the clearing account type.")]
 [DerivedFrom(typeof(ClearingAccountTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ClearingAccountType3Code>))]
+#endif
 public enum ClearingAccountType3Code
 {
     /// <summary>

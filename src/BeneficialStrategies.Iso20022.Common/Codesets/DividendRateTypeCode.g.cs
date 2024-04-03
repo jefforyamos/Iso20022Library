@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_axET5tp-Ed-ak6NoX_4Aeg_-411764395")]
 [Description(@"Specifies the type of dividend rate.")]
-[Derivations(typeof(NetDividendRateType2Code),typeof(GrossDividendRateType4Code),typeof(GrossDividendRateType5Code),typeof(NetDividendRateType4Code),typeof(NetDividendRateType3Code),typeof(NetDividendRateType5Code),typeof(GrossDividendRateType3Code),typeof(NetDividendRateType1Code),typeof(DividendRateType1Code),typeof(GrossDividendRateType2Code),typeof(GrossDividendRateType1Code))]
+[Derivations(typeof(GrossDividendRateType1Code),typeof(NetDividendRateType3Code),typeof(GrossDividendRateType2Code),typeof(NetDividendRateType2Code),typeof(DividendRateType1Code),typeof(NetDividendRateType4Code),typeof(NetDividendRateType5Code),typeof(GrossDividendRateType5Code),typeof(GrossDividendRateType3Code),typeof(GrossDividendRateType4Code),typeof(NetDividendRateType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DividendRateTypeCode>))]
+#endif
 public enum DividendRateTypeCode
 {
     /// <summary>

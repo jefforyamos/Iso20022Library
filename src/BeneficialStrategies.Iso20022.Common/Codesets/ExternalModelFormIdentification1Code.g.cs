@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-MOeFG7iEeKo25nLKvGr8w_-1970285811")]
 [Description(@"Specifies the external model form identification code in the format of a character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.|")]
 [DerivedFrom(typeof(ExternalModelFormIdentificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalModelFormIdentification1Code>))]
+#endif
 public enum ExternalModelFormIdentification1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aOfyUdp-Ed-ak6NoX_4Aeg_1810038493")]
 [Description(@"Indicates that the trade was executed off-market.")]
 [DerivedFrom(typeof(OffMarketCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OffMarket1Code>))]
+#endif
 public enum OffMarket1Code
 {
     /// <summary>

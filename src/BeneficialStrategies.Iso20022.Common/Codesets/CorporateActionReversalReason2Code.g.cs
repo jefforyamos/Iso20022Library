@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WIh5kDQVEe2o-K1dwNg8Gg")]
 [Description(@"Specifies the reason why a reversal of payment is taking place in corporate action processing.")]
 [DerivedFrom(typeof(CorporateActionReversalReasonV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionReversalReason2Code>))]
+#endif
 public enum CorporateActionReversalReason2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aN5VZdp-Ed-ak6NoX_4Aeg_-927913400")]
 [Description(@"Specifies if the occurrence of the event contained in the notification is confirmed or unconfirmed. Details of the event can be complete or incomplete.")]
 [Derivations(typeof(NotificationStatus1Code),typeof(NotificationStatus2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NotificationStatusCode>))]
+#endif
 public enum NotificationStatusCode
 {
     /// <summary>

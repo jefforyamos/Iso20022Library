@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YXPTYA7xEeuZI5Sr_GAcuA")]
 [Description(@"Specify the type of blocking when instructions are temporarily blocked for an event.")]
 [DerivedFrom(typeof(InstructionLockoutTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionLockoutType1Code>))]
+#endif
 public enum InstructionLockoutType1Code
 {
     /// <summary>

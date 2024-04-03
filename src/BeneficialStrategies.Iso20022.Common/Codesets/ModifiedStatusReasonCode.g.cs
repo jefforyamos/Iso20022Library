@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_0ldWoglIEeGATtfOBToyew_1371294277")]
 [Description(@"Specifies that the transaction has been modified.")]
 [Derivations(typeof(ModifiedStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ModifiedStatusReasonCode>))]
+#endif
 public enum ModifiedStatusReasonCode
 {
     /// <summary>

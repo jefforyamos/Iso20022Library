@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_oE24kGpVEeSR-ZWLvO-1dg")]
 [Description(@"Type of communication network.")]
 [DerivedFrom(typeof(NetworkTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NetworkType1Code>))]
+#endif
 public enum NetworkType1Code
 {
     /// <summary>

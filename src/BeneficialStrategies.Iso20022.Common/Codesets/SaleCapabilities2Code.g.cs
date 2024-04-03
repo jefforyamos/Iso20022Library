@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6gewcN6mEeiwsev40qZGEQ")]
 [Description(@"Type of the Logical device located on a Sale Terminal or a POI Terminal, in term of class of information to output (display, print or store), or input (keyboard) for the Cashier |or the Customer.")]
 [DerivedFrom(typeof(SaleCapabilitiesCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SaleCapabilities2Code>))]
+#endif
 public enum SaleCapabilities2Code
 {
     /// <summary>

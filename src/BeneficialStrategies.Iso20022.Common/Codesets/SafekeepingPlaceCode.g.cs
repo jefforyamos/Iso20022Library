@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y-xP0Np-Ed-ak6NoX_4Aeg_-664604106")]
 [Description(@"Specifies the type of place of safekeeping.")]
 [Derivations(typeof(SafekeepingPlace3Code),typeof(SafekeepingPlace1Code),typeof(SafekeepingPlace2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SafekeepingPlaceCode>))]
+#endif
 public enum SafekeepingPlaceCode
 {
     /// <summary>

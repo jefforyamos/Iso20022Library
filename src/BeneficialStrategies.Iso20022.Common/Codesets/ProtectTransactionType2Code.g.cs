@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ARYN4LpREeilsanBGAzy4A")]
 [Description(@"Specifies the type of protect instruction.")]
 [DerivedFrom(typeof(ReorganisationTransactionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProtectTransactionType2Code>))]
+#endif
 public enum ProtectTransactionType2Code
 {
     /// <summary>

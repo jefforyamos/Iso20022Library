@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hX-RwJSZEeyTze01ewG2Qw")]
 [Description(@"Indicator if reconciliation of derivatives for which all the reconcilable fields are within the allowed tolerances.")]
 [DerivedFrom(typeof(ReconciliationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationStatus1Code>))]
+#endif
 public enum ReconciliationStatus1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bkBa2Np-Ed-ak6NoX_4Aeg_1047073628")]
 [Description(@"Specifies the balance of transactions with a certain status.")]
 [DerivedFrom(typeof(BalanceStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BalanceStatus1Code>))]
+#endif
 public enum BalanceStatus1Code
 {
     /// <summary>

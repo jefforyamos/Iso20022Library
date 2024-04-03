@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_K3qasA-zEeuE0Pnt-OcNOA")]
 [Description(@"Type of price is unspecified.")]
 [DerivedFrom(typeof(PriceValueTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PriceValueType13Code>))]
+#endif
 public enum PriceValueType13Code
 {
     /// <summary>

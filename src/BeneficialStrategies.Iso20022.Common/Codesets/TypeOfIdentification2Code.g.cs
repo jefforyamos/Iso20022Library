@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__ztF49ojEeC60axPepSq7g_97735513")]
 [Description(@"Specifies the type of alternate identification which can be used to give an alternate identification of the party identified.")]
 [DerivedFrom(typeof(TypeOfIdentificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeOfIdentification2Code>))]
+#endif
 public enum TypeOfIdentification2Code
 {
     /// <summary>

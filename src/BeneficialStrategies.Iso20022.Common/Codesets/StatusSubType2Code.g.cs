@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EcL4QZU-EeaYkf5FCqYMeA")]
 [Description(@"Indicates the sub status of the trade notification.")]
 [DerivedFrom(typeof(StatusSubTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatusSubType2Code>))]
+#endif
 public enum StatusSubType2Code
 {
     /// <summary>

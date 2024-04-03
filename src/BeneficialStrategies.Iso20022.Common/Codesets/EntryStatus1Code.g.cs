@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ahauU9p-Ed-ak6NoX_4Aeg_-773188206")]
 [Description(@"Specifies the status of an entry.")]
 [DerivedFrom(typeof(EntryStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EntryStatus1Code>))]
+#endif
 public enum EntryStatus1Code
 {
     /// <summary>

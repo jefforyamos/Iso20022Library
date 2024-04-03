@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_dLAZwdtkEee9e6xduATmQg")]
 [Description(@"Cryptographic algorithms for the protection of transported keys.")]
 [DerivedFrom(typeof(AlgorithmCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Algorithm18Code>))]
+#endif
 public enum Algorithm18Code
 {
     /// <summary>

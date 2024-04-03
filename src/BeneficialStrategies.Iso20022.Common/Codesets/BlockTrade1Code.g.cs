@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_begotNp-Ed-ak6NoX_4Aeg_450632861")]
 [Description(@"Specifies whether the instruction is the parent or a children of a block trade.")]
 [DerivedFrom(typeof(BlockTradeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BlockTrade1Code>))]
+#endif
 public enum BlockTrade1Code
 {
     /// <summary>

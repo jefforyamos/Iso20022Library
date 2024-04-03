@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ui-W4HdmEeeKH6vrEwvLHA")]
 [Description(@"Type of action taken as a disposition of a reported card payment fraud.")]
 [DerivedFrom(typeof(ActionTakenCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ActionTaken1Code>))]
+#endif
 public enum ActionTaken1Code
 {
     /// <summary>

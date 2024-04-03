@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__rixQAx1EeKa_56Jbsi1RQ")]
 [Description(@"Low level communication of the hardware or software component toward another component or an external entity.")]
 [DerivedFrom(typeof(POICommunicationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<POICommunicationType1Code>))]
+#endif
 public enum POICommunicationType1Code
 {
     /// <summary>

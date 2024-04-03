@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ax9EsNp-Ed-ak6NoX_4Aeg_-457133032")]
 [Description(@"Specified the type of modification to be applied on a data set.")]
 [DerivedFrom(typeof(DataModificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataModification1Code>))]
+#endif
 public enum DataModification1Code
 {
     /// <summary>

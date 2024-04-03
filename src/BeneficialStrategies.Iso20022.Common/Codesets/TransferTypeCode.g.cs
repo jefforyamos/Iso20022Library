@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Yvk9Qdp-Ed-ak6NoX_4Aeg_-1137009397")]
 [Description(@"Specifies whether a financial instrument is transferred as an asset or as cash.")]
 [Derivations(typeof(TransferType1Code),typeof(TransferType3Code),typeof(TransferType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransferTypeCode>))]
+#endif
 public enum TransferTypeCode
 {
     /// <summary>

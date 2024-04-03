@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_iTsYoPwhEeW4Wthd0Ze_kA")]
 [Description(@"Defines the sub-product types for specific asset classes.")]
 [DerivedFrom(typeof(AssetClassSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassSubProductType47Code>))]
+#endif
 public enum AssetClassSubProductType47Code
 {
     /// <summary>

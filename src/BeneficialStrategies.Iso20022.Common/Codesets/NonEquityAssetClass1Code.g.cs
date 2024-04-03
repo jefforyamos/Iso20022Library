@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_kJOfgIMfEeqqSpeC5JM2Mw")]
 [Description(@"Specifies the asset class of a non-equity financial instrument.")]
 [DerivedFrom(typeof(NonEquityAssetClassCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonEquityAssetClass1Code>))]
+#endif
 public enum NonEquityAssetClass1Code
 {
     /// <summary>

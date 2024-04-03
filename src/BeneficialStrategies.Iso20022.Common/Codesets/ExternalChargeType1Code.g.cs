@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -20,6 +21,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_t9qdIFkyEeGeoaLUQk__nA_-849686320")]
 [Description(@"Specifies the nature, or use, of the charges in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalChargeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalChargeType1Code>))]
+#endif
 public enum ExternalChargeType1Code
 {
     /// <summary>

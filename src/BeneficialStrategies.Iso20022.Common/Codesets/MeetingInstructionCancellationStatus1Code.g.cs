@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VpiZZdp-Ed-ak6NoX_4Aeg_-1337126365")]
 [Description(@"Status of a meeting instruction cancellation request.")]
 [DerivedFrom(typeof(MeetingInstructionCancellationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MeetingInstructionCancellationStatus1Code>))]
+#endif
 public enum MeetingInstructionCancellationStatus1Code
 {
     /// <summary>

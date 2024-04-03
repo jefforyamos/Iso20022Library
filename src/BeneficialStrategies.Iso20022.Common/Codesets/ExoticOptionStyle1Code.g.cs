@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IuoZkMRyEeOg-a7zWL_U0A")]
 [Description(@"Specifies the option style.")]
 [DerivedFrom(typeof(ExoticOptionStyleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExoticOptionStyle1Code>))]
+#endif
 public enum ExoticOptionStyle1Code
 {
     /// <summary>

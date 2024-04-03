@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wNAYIJSkEeeh5JjedkaA_g")]
 [Description(@"Specifies the type of a deemed rate.")]
 [Derivations(typeof(DeemedRateType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeemedRateTypeCode>))]
+#endif
 public enum DeemedRateTypeCode
 {
     /// <summary>

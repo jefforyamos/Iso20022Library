@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QBge0DEuEemzCpWiCwK4aQ")]
 [Description(@"Contains list of plan owners")]
 [DerivedFrom(typeof(PlanOwnerCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PlanOwner1Code>))]
+#endif
 public enum PlanOwner1Code
 {
     /// <summary>

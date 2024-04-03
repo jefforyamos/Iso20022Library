@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TUc4MgEcEeCQm6a_G2yO_w_-1884432238")]
 [Description(@"Type of user interface to display or print information.")]
 [DerivedFrom(typeof(UserInterfaceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UserInterface1Code>))]
+#endif
 public enum UserInterface1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_XZUVsWR8EeKFfdK0gKYFLQ")]
 [Description(@"Specifies how fractions resulting from derived securities will be processed or how prorated decisions will be rounding, if provided with a pro ration rate.")]
 [Derivations(typeof(FractionDispositionType10Code),typeof(FractionDispositionType11Code),typeof(FractionDispositionType8Code),typeof(FractionDispositionType9Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FractionDispositionTypeV2Code>))]
+#endif
 public enum FractionDispositionTypeV2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aVDGQNp-Ed-ak6NoX_4Aeg_-850156011")]
 [Description(@"Specifies the action to be performed on the matching process.")]
 [Derivations(typeof(MatchingProcess1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MatchingProcessCode>))]
+#endif
 public enum MatchingProcessCode
 {
     /// <summary>

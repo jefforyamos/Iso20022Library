@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZiQqIU7GEeyGi9JAv6wq7Q")]
 [Description(@"Specifies the options supported for a payment transaction.")]
 [DerivedFrom(typeof(SupportedPaymentOptionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SupportedPaymentOption2Code>))]
+#endif
 public enum SupportedPaymentOption2Code
 {
     /// <summary>

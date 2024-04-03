@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_11paszL3EeKU9IrkkToqcw_1964560171")]
 [Description(@"Specifies the state of details of the composite record on the system. Applicable to custodian service only.")]
 [DerivedFrom(typeof(CustodianRecordCompletenessTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CustodianRecordCompletenessType1Code>))]
+#endif
 public enum CustodianRecordCompletenessType1Code
 {
     /// <summary>

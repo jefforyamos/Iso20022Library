@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_4hc1MCYAEeym0KcvJF9aDQ")]
 [Description(@"Code to indicate the activity type to be reconciled.")]
 [DerivedFrom(typeof(ReconciliationActivityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationActivityType1Code>))]
+#endif
 public enum ReconciliationActivityType1Code
 {
     /// <summary>

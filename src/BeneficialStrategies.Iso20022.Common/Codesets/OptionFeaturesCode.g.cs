@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aPsFJtp-Ed-ak6NoX_4Aeg_322763675")]
 [Description(@"Specifies the features that may apply to a corporate action option.")]
-[Derivations(typeof(OptionFeatures7Code),typeof(OptionFeatures3Code),typeof(OptionFeatures2Code),typeof(OptionFeatures8Code),typeof(OptionFeatures5Code),typeof(OptionFeatures6Code),typeof(OptionFeatures12Code),typeof(OptionFeatures4Code),typeof(OptionFeatures11Code),typeof(OptionFeatures1Code),typeof(OptionFeatures10Code))]
+[Derivations(typeof(OptionFeatures10Code),typeof(OptionFeatures3Code),typeof(OptionFeatures2Code),typeof(OptionFeatures1Code),typeof(OptionFeatures11Code),typeof(OptionFeatures6Code),typeof(OptionFeatures8Code),typeof(OptionFeatures12Code),typeof(OptionFeatures7Code),typeof(OptionFeatures4Code),typeof(OptionFeatures5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionFeaturesCode>))]
+#endif
 public enum OptionFeaturesCode
 {
     /// <summary>

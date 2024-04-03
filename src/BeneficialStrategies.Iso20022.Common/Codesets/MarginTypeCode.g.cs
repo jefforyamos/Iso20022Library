@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-fsj2qMOEeCojJW5vEuTEQ_-1682565649")]
 [Description(@"Specifies the type of margin, for example, initial margin, variation margin, initial deposit or coupon margin.")]
 [Derivations(typeof(MarginType1Code),typeof(MarginType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarginTypeCode>))]
+#endif
 public enum MarginTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8eWckKFQEeSK_vfd3NHBGg")]
 [Description(@"Specifies the type of securities proceeds newly issued.")]
 [DerivedFrom(typeof(NewSecuritiesIssuanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NewSecuritiesIssuanceType4Code>))]
+#endif
 public enum NewSecuritiesIssuanceType4Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZQpqCNp-Ed-ak6NoX_4Aeg_336259528")]
 [Description(@"Type of subscription to market data.")]
 [Derivations(typeof(SubscriptionRequest1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SubscriptionRequestCode>))]
+#endif
 public enum SubscriptionRequestCode
 {
     /// <summary>

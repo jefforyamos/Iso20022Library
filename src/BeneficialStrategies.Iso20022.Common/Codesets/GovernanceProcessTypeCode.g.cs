@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EFRD0ID5Eeiw-daIkkmMqQ")]
 [Description(@"Specifies a type of governance process.")]
 [Derivations(typeof(GovernanceProcessType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GovernanceProcessTypeCode>))]
+#endif
 public enum GovernanceProcessTypeCode
 {
     /// <summary>

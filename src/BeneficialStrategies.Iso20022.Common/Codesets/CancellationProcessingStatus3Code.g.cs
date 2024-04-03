@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jQNIme5NEeCisYr99QEiWA_-1920216979")]
 [Description(@"Specifies the status of a cancellation request.")]
 [DerivedFrom(typeof(CancellationProcessingStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancellationProcessingStatus3Code>))]
+#endif
 public enum CancellationProcessingStatus3Code
 {
     /// <summary>

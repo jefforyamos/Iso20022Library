@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RYB8MDDhEeO9waS4ina8CA")]
 [Description(@"Type of instalment plan.")]
 [DerivedFrom(typeof(InstalmentPlanCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstalmentPlan1Code>))]
+#endif
 public enum InstalmentPlan1Code
 {
     /// <summary>

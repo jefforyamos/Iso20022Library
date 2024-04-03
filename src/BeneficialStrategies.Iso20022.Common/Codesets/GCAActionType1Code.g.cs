@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_118VojL3EeKU9IrkkToqcw_-1756186614")]
 [Description(@"Specifies what action needs to be taken by the validation service for this particular record.")]
 [DerivedFrom(typeof(GCAActionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GCAActionType1Code>))]
+#endif
 public enum GCAActionType1Code
 {
     /// <summary>

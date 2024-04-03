@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bdLL-dp-Ed-ak6NoX_4Aeg_335335188")]
 [Description(@"Basis price type in a bid order. Used for list trading.")]
 [Derivations(typeof(BasisPriceType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BasisPriceTypeCode>))]
+#endif
 public enum BasisPriceTypeCode
 {
     /// <summary>

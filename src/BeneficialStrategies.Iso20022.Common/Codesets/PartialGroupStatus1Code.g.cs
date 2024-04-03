@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YZEhx9p-Ed-ak6NoX_4Aeg_1562452239")]
 [Description(@"Indicates the status of a single payment transaction or of a group of payment transactions.")]
 [DerivedFrom(typeof(PaymentStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartialGroupStatus1Code>))]
+#endif
 public enum PartialGroupStatus1Code
 {
     /// <summary>

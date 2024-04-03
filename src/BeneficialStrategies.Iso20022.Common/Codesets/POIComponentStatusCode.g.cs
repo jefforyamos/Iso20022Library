@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_d4opsAxwEeKa_56Jbsi1RQ")]
 [Description(@"Status of a component belonging to a POI Terminal (Point of Interaction).")]
 [Derivations(typeof(POIComponentStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<POIComponentStatusCode>))]
+#endif
 public enum POIComponentStatusCode
 {
     /// <summary>

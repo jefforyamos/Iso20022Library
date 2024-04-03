@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_9snSQJiuEeO4o528ngEXuw")]
 [Description(@"Specifies the permission to use the account.")]
 [DerivedFrom(typeof(AccountPermissionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountPermissionType1Code>))]
+#endif
 public enum AccountPermissionType1Code
 {
     /// <summary>

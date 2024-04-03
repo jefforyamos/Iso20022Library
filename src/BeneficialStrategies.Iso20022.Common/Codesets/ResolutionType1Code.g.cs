@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZU-JUtp-Ed-ak6NoX_4Aeg_1068245890")]
 [Description(@"Specifies the type of resolution.")]
 [DerivedFrom(typeof(ResolutionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResolutionType1Code>))]
+#endif
 public enum ResolutionType1Code
 {
     /// <summary>

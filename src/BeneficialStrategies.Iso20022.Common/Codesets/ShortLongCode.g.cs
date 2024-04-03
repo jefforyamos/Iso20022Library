@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZOtwVdp-Ed-ak6NoX_4Aeg_-300293738")]
 [Description(@"Specifies whether the securities position is short or long, that is, whether the balance is a negative or positive balance.")]
 [Derivations(typeof(ShortLong1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ShortLongCode>))]
+#endif
 public enum ShortLongCode
 {
     /// <summary>

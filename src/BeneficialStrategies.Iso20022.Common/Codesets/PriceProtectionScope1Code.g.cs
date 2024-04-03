@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aIreNtp-Ed-ak6NoX_4Aeg_-529859319")]
 [Description(@"Defines the type of price protection the customer requires on their order.")]
 [DerivedFrom(typeof(PriceProtectionScopeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PriceProtectionScope1Code>))]
+#endif
 public enum PriceProtectionScope1Code
 {
     /// <summary>

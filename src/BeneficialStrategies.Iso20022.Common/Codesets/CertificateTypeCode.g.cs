@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a7y9MNp-Ed-ak6NoX_4Aeg_1668840941")]
 [Description(@"Identifies the type of certificate.")]
 [Derivations(typeof(CertificateType1Code),typeof(CertificateType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CertificateTypeCode>))]
+#endif
 public enum CertificateTypeCode
 {
     /// <summary>

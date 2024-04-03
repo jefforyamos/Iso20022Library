@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1pktlTL3EeKU9IrkkToqcw_-2000683477")]
 [Description(@"Specifies the oversubscription type.")]
 [Derivations(typeof(OversubscriptionType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OversubscriptionTypeCode>))]
+#endif
 public enum OversubscriptionTypeCode
 {
     /// <summary>

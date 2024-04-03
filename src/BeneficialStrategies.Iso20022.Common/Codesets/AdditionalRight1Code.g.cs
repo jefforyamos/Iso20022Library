@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bmjxdtp-Ed-ak6NoX_4Aeg_1174072380")]
 [Description(@"Define specific rights that the shareholder has (for example, the right to ask questions, the right to add items to the agenda or table draft resolutions).")]
 [DerivedFrom(typeof(AdditionalRightCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AdditionalRight1Code>))]
+#endif
 public enum AdditionalRight1Code
 {
     /// <summary>

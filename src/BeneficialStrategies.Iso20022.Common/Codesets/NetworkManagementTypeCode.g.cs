@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_pkktIFWOEeeiG_nL4vgKnQ")]
 [Description(@"Type of network management service|ISO 8583 bit 24.")]
 [Derivations(typeof(NetworkManagementType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NetworkManagementTypeCode>))]
+#endif
 public enum NetworkManagementTypeCode
 {
     /// <summary>

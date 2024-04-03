@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ya3Rhtp-Ed-ak6NoX_4Aeg_147505423")]
 [Description(@"Indicates if the method for interest calculation is simple or compounding.")]
 [DerivedFrom(typeof(CalculationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CalculationMethod1Code>))]
+#endif
 public enum CalculationMethod1Code
 {
     /// <summary>

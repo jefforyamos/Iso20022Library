@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_agObhtp-Ed-ak6NoX_4Aeg_1538718014")]
 [Description(@"Specifies the type of the document for example commercial invoice, credit note, debit note.")]
 [DerivedFrom(typeof(DocumentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DocumentType4Code>))]
+#endif
 public enum DocumentType4Code
 {
     /// <summary>

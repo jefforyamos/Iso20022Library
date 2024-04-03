@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aN8PUJTTEemC09f0MxYkRg")]
 [Description(@"Consent type in the context of the General Protection Regulation (GDPR) 2016/679 regulation.")]
 [Derivations(typeof(GDPRDataConsent1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GDPRDataConsentCode>))]
+#endif
 public enum GDPRDataConsentCode
 {
     /// <summary>

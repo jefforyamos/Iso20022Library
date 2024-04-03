@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1yNsNDL3EeKU9IrkkToqcw_804712401")]
 [Description(@"Specifies the workflow status of the announcement record based on validation procedure.")]
 [DerivedFrom(typeof(EventWorkflowStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventWorkflowStatus1Code>))]
+#endif
 public enum EventWorkflowStatus1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aDxJA9p-Ed-ak6NoX_4Aeg_-1233849534")]
 [Description(@"Specifies the reason for a transfer or settlement instruction settlement pending status.")]
 [DerivedFrom(typeof(PendingSettlementStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingSettlementStatusReason2Code>))]
+#endif
 public enum PendingSettlementStatusReason2Code
 {
     /// <summary>

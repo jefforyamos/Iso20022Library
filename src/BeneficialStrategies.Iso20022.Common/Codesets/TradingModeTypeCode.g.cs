@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-aXGMESeEeS6cOLECtYLrA")]
 [Description(@"Identifies the type of the trading mode.")]
 [Derivations(typeof(TradingModeType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradingModeTypeCode>))]
+#endif
 public enum TradingModeTypeCode
 {
     /// <summary>

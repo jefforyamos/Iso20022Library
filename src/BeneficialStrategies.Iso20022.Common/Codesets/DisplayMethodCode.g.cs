@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_awUtAtp-Ed-ak6NoX_4Aeg_711015828")]
 [Description(@"Instructions for the use of display quantity.")]
 [Derivations(typeof(DisplayMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DisplayMethodCode>))]
+#endif
 public enum DisplayMethodCode
 {
     /// <summary>

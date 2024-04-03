@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_I2eB0_jCEeiJaN6-Lf-c_w")]
 [Description(@"List of codes representing type of fleet purchases.")]
 [Derivations(typeof(FleetPurchaseType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FleetPurchaseTypeCode>))]
+#endif
 public enum FleetPurchaseTypeCode
 {
     /// <summary>

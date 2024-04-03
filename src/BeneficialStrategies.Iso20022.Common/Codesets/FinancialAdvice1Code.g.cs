@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_an-pUNp-Ed-ak6NoX_4Aeg_126030159")]
 [Description(@"Specifies if advice has been received from an independent financial advisor.")]
 [DerivedFrom(typeof(FinancialAdviceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialAdvice1Code>))]
+#endif
 public enum FinancialAdvice1Code
 {
     /// <summary>

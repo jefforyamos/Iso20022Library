@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bI7sQQnYEeWa7rBfPECYsw")]
 [Description(@"Commodity derivative base product code list.")]
-[Derivations(typeof(AssetClassProductType8Code),typeof(AssetClassProductType14Code),typeof(AssetClassProductType2Code),typeof(AssetClassProductType12Code),typeof(AssetClassProductType5Code),typeof(AssetClassProductType1Code),typeof(AssetClassProductType7Code),typeof(AssetClassProductType4Code),typeof(AssetClassProductType6Code),typeof(AssetClassProductType9Code),typeof(AssetClassProductType3Code),typeof(AssetClassProductType13Code),typeof(AssetClassProductType16Code),typeof(AssetClassProductType11Code),typeof(AssetClassProductType15Code))]
+[Derivations(typeof(AssetClassProductType1Code),typeof(AssetClassProductType2Code),typeof(AssetClassProductType11Code),typeof(AssetClassProductType13Code),typeof(AssetClassProductType16Code),typeof(AssetClassProductType14Code),typeof(AssetClassProductType5Code),typeof(AssetClassProductType12Code),typeof(AssetClassProductType8Code),typeof(AssetClassProductType15Code),typeof(AssetClassProductType7Code),typeof(AssetClassProductType3Code),typeof(AssetClassProductType9Code),typeof(AssetClassProductType4Code),typeof(AssetClassProductType6Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassProductTypeCode>))]
+#endif
 public enum AssetClassProductTypeCode
 {
     /// <summary>

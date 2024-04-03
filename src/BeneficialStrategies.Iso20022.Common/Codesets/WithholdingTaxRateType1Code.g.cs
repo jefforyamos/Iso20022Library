@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y7v0kCeGEeOXAt_43VmZGw")]
 [Description(@"Specifies the type of withholding tax rate.")]
 [DerivedFrom(typeof(WithholdingTaxRateTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<WithholdingTaxRateType1Code>))]
+#endif
 public enum WithholdingTaxRateType1Code
 {
     /// <summary>

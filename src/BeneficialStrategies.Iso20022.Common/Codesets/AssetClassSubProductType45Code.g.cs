@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HouHoPwdEeW4Wthd0Ze_kA")]
 [Description(@"Defines the sub-product of type Potato.")]
 [DerivedFrom(typeof(AssetClassSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassSubProductType45Code>))]
+#endif
 public enum AssetClassSubProductType45Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_W-sxcVj8EeOgwYxfAV02bg")]
 [Description(@"Specifies the reason for a rejected status|The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalRejectedReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalRejectedReasonCode>))]
+#endif
 public enum ExternalRejectedReasonCode
 {
     /// <summary>

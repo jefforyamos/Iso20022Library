@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y-8cBfwLEeGHDMP28rpT3g_-2028738047")]
 [Description(@"Specifies the external representment reason code in the format of character string with a maximum length of 4 characters. The list of valid codes is an external code list published separately.")]
 [DerivedFrom(typeof(ExternalRePresentmentReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalRePresentmentReason1Code>))]
+#endif
 public enum ExternalRePresentmentReason1Code
 {
     /// <summary>

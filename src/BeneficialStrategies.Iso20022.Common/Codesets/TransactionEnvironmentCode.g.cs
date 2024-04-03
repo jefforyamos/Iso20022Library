@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TVWQCwEcEeCQm6a_G2yO_w_1815843099")]
 [Description(@"Indicates the environment of the transaction.")]
 [Derivations(typeof(TransactionEnvironment1Code),typeof(TransactionEnvironment3Code),typeof(TransactionEnvironment2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionEnvironmentCode>))]
+#endif
 public enum TransactionEnvironmentCode
 {
     /// <summary>

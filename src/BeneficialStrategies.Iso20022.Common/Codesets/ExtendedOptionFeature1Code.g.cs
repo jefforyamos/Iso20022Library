@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_146xITL3EeKU9IrkkToqcw_1729100634")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) specific options.")]
 [DerivedFrom(typeof(ExtendedOptionFeatureCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExtendedOptionFeature1Code>))]
+#endif
 public enum ExtendedOptionFeature1Code
 {
     /// <summary>

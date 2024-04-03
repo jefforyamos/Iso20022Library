@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZVkmQtp-Ed-ak6NoX_4Aeg_-499524855")]
 [Description(@"Specifies the charateristics of a product.")]
 [Derivations(typeof(ProductCharacteristics1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProductCharacteristicsCode>))]
+#endif
 public enum ProductCharacteristicsCode
 {
     /// <summary>

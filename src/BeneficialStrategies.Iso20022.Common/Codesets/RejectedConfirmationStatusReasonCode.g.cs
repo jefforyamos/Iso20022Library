@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZcH6ONp-Ed-ak6NoX_4Aeg_2113248200")]
 [Description(@"Specifies the reason for a confirmation rejected status.")]
 [Derivations(typeof(RejectedConfirmationStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectedConfirmationStatusReasonCode>))]
+#endif
 public enum RejectedConfirmationStatusReasonCode
 {
     /// <summary>

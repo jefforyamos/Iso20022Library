@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bB5lMtp-Ed-ak6NoX_4Aeg_-838964064")]
 [Description(@"Specifies the reason for a conditionally accepted status.")]
 [Derivations(typeof(ConditionallyAcceptedStatusReason2Code),typeof(ConditionallyAcceptedStatusReason3Code),typeof(ConditionallyAcceptedStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ConditionallyAcceptedStatusReasonCode>))]
+#endif
 public enum ConditionallyAcceptedStatusReasonCode
 {
     /// <summary>

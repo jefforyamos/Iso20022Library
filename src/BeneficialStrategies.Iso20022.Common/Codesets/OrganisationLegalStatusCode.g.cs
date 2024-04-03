@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_L3FkYBE4EeafpqhYGpTDnw")]
 [Description(@"Specifies the status of a legal entity.")]
 [Derivations(typeof(OrganisationLegalStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrganisationLegalStatusCode>))]
+#endif
 public enum OrganisationLegalStatusCode
 {
     /// <summary>

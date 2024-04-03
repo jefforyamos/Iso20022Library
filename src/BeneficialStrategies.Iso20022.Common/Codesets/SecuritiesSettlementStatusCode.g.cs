@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZFx2yNp-Ed-ak6NoX_4Aeg_1133514272")]
 [Description(@"Provides the status of settlement of an instruction.")]
 [Derivations(typeof(SecuritiesSettlementStatus1Code),typeof(SecuritiesSettlementStatus2Code),typeof(SecuritiesSettlementStatus3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesSettlementStatusCode>))]
+#endif
 public enum SecuritiesSettlementStatusCode
 {
     /// <summary>

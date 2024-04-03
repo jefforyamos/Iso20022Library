@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_40EQcJF2EeeMPMycDdDCGw")]
 [Description(@"Specifies the type of billing rate or factor, as published in an external billing rate identification code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBillingRateIdentification1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalBillingRateIdentificationCode>))]
+#endif
 public enum ExternalBillingRateIdentificationCode
 {
     /// <summary>

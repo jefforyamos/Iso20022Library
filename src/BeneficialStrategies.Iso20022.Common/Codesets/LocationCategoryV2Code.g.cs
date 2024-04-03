@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TweHIFDdEeu8Rss-tto59A")]
 [Description(@"Location category code of the place where the merchant actually performed the transaction.")]
 [Derivations(typeof(LocationCategory4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LocationCategoryV2Code>))]
+#endif
 public enum LocationCategoryV2Code
 {
     /// <summary>

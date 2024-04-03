@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_h6npMWi7EeS87LmvcA55sg")]
 [Description(@"Cryptographic algorithms for the MAC (Message Authentication Code).")]
 [DerivedFrom(typeof(AlgorithmCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Algorithm12Code>))]
+#endif
 public enum Algorithm12Code
 {
     /// <summary>

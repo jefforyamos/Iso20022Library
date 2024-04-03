@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YqDkF9p-Ed-ak6NoX_4Aeg_-897262325")]
 [Description(@"Specifies the type of executed order in a bidding process.")]
 [DerivedFrom(typeof(TradeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeType2Code>))]
+#endif
 public enum TradeType2Code
 {
     /// <summary>

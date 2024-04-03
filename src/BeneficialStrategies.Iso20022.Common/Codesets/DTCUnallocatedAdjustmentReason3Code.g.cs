@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_u7JFsZEsEeajS_7NioJdVA")]
 [Description(@"DTC Unallocated reason codes for payment adjustments.")]
 [DerivedFrom(typeof(DTCUnallocatedAdjustmentReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCUnallocatedAdjustmentReason3Code>))]
+#endif
 public enum DTCUnallocatedAdjustmentReason3Code
 {
     /// <summary>

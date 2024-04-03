@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HCEBsC_qEeugIJ3Gvoevmg")]
 [Description(@"Type of non financial request that could be processed between an Acceptor and an Intermediary Agent or an Acquirer.")]
 [Derivations(typeof(NonFinancialRequestType1Code),typeof(NonFinancialRequestType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonFinancialRequestTypeCode>))]
+#endif
 public enum NonFinancialRequestTypeCode
 {
     /// <summary>

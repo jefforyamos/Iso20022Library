@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_4IQQ0NxhEeioifFt1dhnJA")]
 [Description(@"Additional attribute of the service type for totals.")]
 [DerivedFrom(typeof(TypeTransactionTotalsCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeTransactionTotals3Code>))]
+#endif
 public enum TypeTransactionTotals3Code
 {
     /// <summary>

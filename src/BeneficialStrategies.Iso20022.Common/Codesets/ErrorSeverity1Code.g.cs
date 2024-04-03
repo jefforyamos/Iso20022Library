@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_q_x78A3EEeWH49U6bkyMaA")]
 [Description(@"Indicates the severity of the related error.")]
 [DerivedFrom(typeof(ErrorSeverityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ErrorSeverity1Code>))]
+#endif
 public enum ErrorSeverity1Code
 {
     /// <summary>

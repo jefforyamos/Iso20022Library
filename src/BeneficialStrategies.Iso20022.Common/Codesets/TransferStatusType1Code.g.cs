@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_GrGf0FUWEeiQFOf5GRHqeQ")]
 [Description(@"Specifies a type of transfer status or transfer event.")]
 [DerivedFrom(typeof(TransferStatusTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransferStatusType1Code>))]
+#endif
 public enum TransferStatusType1Code
 {
     /// <summary>

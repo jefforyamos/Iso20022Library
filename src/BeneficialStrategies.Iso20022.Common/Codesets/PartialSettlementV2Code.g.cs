@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-oaa0ENHEeGHJ_bHJRPaIQ_1875185490")]
 [Description(@"Information about partial settlement.")]
 [Derivations(typeof(PartialSettlement2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartialSettlementV2Code>))]
+#endif
 public enum PartialSettlementV2Code
 {
     /// <summary>

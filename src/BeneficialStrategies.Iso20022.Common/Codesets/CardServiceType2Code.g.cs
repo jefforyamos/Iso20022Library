@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Xg9gcHvEEeSKFIcWw3l4Yw")]
 [Description(@"Type of network management service (correspond to the ISO 8583 field 24).")]
 [DerivedFrom(typeof(CardServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardServiceType2Code>))]
+#endif
 public enum CardServiceType2Code
 {
     /// <summary>

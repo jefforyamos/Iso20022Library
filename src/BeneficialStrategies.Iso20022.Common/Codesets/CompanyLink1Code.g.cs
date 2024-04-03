@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_r7rB4CCbEeWJd9HF2tO7BA")]
 [Description(@"Specifies the type of links to a company.")]
 [DerivedFrom(typeof(CompanyLinkCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CompanyLink1Code>))]
+#endif
 public enum CompanyLink1Code
 {
     /// <summary>

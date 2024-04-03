@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_sVbosE0eEeea0Mdu1TOzDQ")]
 [Description(@"Reason to send the message.|ISO 8583:93/2003 bit 25.")]
 [DerivedFrom(typeof(MessageReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageReason2Code>))]
+#endif
 public enum MessageReason2Code
 {
     /// <summary>

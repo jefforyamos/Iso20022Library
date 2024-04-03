@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_T4nIoIqJEeSRT5rEzcAHEw")]
 [Description(@"Type of command performed by an ATM.")]
-[Derivations(typeof(ATMCommand3Code),typeof(ATMCommand4Code),typeof(ATMCommand1Code),typeof(ATMCommand5Code),typeof(ATMCommand2Code),typeof(ATMCommand6Code))]
+[Derivations(typeof(ATMCommand6Code),typeof(ATMCommand3Code),typeof(ATMCommand4Code),typeof(ATMCommand2Code),typeof(ATMCommand1Code),typeof(ATMCommand5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMCommandCode>))]
+#endif
 public enum ATMCommandCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_2zud0CDNEeWPMvNwVtiMsA")]
 [Description(@"Specifies the type of profile.")]
 [Derivations(typeof(ProfileType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProfileTypeCode>))]
+#endif
 public enum ProfileTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_X5YEEIAwEeSUJZYcWGKkkw")]
 [Description(@"Type of data to indicate whether a trade is an option or resulted by an option exercise.")]
 [DerivedFrom(typeof(DataTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataType1Code>))]
+#endif
 public enum DataType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZQM-F9p-Ed-ak6NoX_4Aeg_1112854815")]
 [Description(@"Specifies the nature of a statement update, for example, it is a complete statement.")]
 [DerivedFrom(typeof(StatementUpdateTypeV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatementUpdateType1Code>))]
+#endif
 public enum StatementUpdateType1Code
 {
     /// <summary>

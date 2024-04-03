@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EEiRcJb0Eeuc6pwKtqbEVQ")]
 [Description(@"Type of batch management activity.")]
 [DerivedFrom(typeof(BatchManagementTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BatchManagementType2Code>))]
+#endif
 public enum BatchManagementType2Code
 {
     /// <summary>

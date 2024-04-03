@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TUAMNQEcEeCQm6a_G2yO_w_-248608949")]
 [Description(@"Level of urgency in contacting the terminal management system.")]
 [DerivedFrom(typeof(TMSContactLevelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TMSContactLevel1Code>))]
+#endif
 public enum TMSContactLevel1Code
 {
     /// <summary>

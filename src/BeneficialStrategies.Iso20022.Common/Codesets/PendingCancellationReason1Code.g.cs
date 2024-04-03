@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z-Gl4dp-Ed-ak6NoX_4Aeg_332106838")]
 [Description(@"Specifies the reason why a cancellation request sent for the related instruction is pending.")]
 [DerivedFrom(typeof(PendingFailingReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingCancellationReason1Code>))]
+#endif
 public enum PendingCancellationReason1Code
 {
     /// <summary>

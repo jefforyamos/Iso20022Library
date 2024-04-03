@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aY65oNp-Ed-ak6NoX_4Aeg_1001570968")]
 [Description(@"List of standards insurance clauses. (standard policy wordings issued by the Institute of London Underwriters or the American Institute of Marine Underwriters).")]
 [DerivedFrom(typeof(InsuranceClausesCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InsuranceClauses1Code>))]
+#endif
 public enum InsuranceClauses1Code
 {
     /// <summary>

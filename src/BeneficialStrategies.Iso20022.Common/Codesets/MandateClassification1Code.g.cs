@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_dYdaoGVREeacpJ-gG9kyUQ")]
 [Description(@"Specifies the type of direct debit amount, such as fixed or variable.")]
 [DerivedFrom(typeof(MandateClassificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MandateClassification1Code>))]
+#endif
 public enum MandateClassification1Code
 {
     /// <summary>

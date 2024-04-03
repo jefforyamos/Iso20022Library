@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YcWfQtp-Ed-ak6NoX_4Aeg_505422877")]
 [Description(@"Specifies whether the deposit is fixed term or call/notice.")]
 [Derivations(typeof(DepositType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DepositTypeCode>))]
+#endif
 public enum DepositTypeCode
 {
     /// <summary>

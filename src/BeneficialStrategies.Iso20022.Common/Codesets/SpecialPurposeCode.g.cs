@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_WjGtkBvUEeWeg9zOuV6DZQ")]
 [Description(@"Specifies special purpose codes.")]
-[Derivations(typeof(NotAvailable1Code),typeof(AnyMIC1Code),typeof(NoReasonCode),typeof(NotApplicable1Code),typeof(NotReported1Code),typeof(SpecialPurpose2Code))]
+[Derivations(typeof(NoReasonCode),typeof(AnyMIC1Code),typeof(NotAvailable1Code),typeof(NotReported1Code),typeof(NotApplicable1Code),typeof(SpecialPurpose2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SpecialPurposeCode>))]
+#endif
 public enum SpecialPurposeCode
 {
     /// <summary>

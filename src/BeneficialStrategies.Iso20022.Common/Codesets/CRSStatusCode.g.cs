@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8_HBAENfEeaS-NnwLNvMPg")]
 [Description(@"Specifies the Common Reporting Status (CRS) status.")]
 [Derivations(typeof(CRSStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CRSStatusCode>))]
+#endif
 public enum CRSStatusCode
 {
     /// <summary>

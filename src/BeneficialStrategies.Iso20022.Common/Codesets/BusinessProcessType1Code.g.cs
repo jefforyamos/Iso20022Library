@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__0mdwNojEeC60axPepSq7g_-2020190846")]
 [Description(@"Type of business process model used to carry out the transaction.")]
 [DerivedFrom(typeof(BusinessProcessTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BusinessProcessType1Code>))]
+#endif
 public enum BusinessProcessType1Code
 {
     /// <summary>

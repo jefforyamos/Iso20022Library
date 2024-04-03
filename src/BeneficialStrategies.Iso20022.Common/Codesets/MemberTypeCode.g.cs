@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aLzqtNp-Ed-ak6NoX_4Aeg_977880731")]
 [Description(@"Specifies the nature of the membership of a party in a system. A system may recognise different types of membership, with different related rights and obligations.")]
 [Derivations(typeof(MemberType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MemberTypeCode>))]
+#endif
 public enum MemberTypeCode
 {
     /// <summary>

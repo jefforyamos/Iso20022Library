@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ad114Np-Ed-ak6NoX_4Aeg_-1931554281")]
 [Description(@"Specifies whether a transaction report is late.")]
 [Derivations(typeof(LateReport1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LateReportCode>))]
+#endif
 public enum LateReportCode
 {
     /// <summary>

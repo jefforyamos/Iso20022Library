@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Zw1l-dp-Ed-ak6NoX_4Aeg_-30528564")]
 [Description(@"Specifies the role of the trading party in the transaction.")]
 [DerivedFrom(typeof(OriginatorRoleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OriginatorRole2Code>))]
+#endif
 public enum OriginatorRole2Code
 {
     /// <summary>

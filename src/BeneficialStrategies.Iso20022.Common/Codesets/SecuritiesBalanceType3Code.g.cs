@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZBdXeNp-Ed-ak6NoX_4Aeg_-1842760544")]
 [Description(@"Specifies the nature of the securities or investment fund balance.")]
 [DerivedFrom(typeof(SecuritiesBalanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesBalanceType3Code>))]
+#endif
 public enum SecuritiesBalanceType3Code
 {
     /// <summary>

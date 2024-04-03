@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Yll619p-Ed-ak6NoX_4Aeg_2070054481")]
 [Description(@"Specifies the timing or method for terminating the agreement - for repos.")]
 [DerivedFrom(typeof(TerminationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminationType1Code>))]
+#endif
 public enum TerminationType1Code
 {
     /// <summary>

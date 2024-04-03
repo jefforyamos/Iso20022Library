@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_2jl30KcCEeSyQqZ4APDtOA")]
 [Description(@"Specifies a code for a trade market.")]
 [DerivedFrom(typeof(TradeMarketCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeMarket1Code>))]
+#endif
 public enum TradeMarket1Code
 {
     /// <summary>

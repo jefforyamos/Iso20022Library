@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_amB7QM0UEeuAE-cYsQdwHQ")]
 [Description(@"Specifies whether the product is compatible with investors that have sustainability preferences. ")]
 [Derivations(typeof(SustainabilityPreferences1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SustainabilityPreferencesCode>))]
+#endif
 public enum SustainabilityPreferencesCode
 {
     /// <summary>

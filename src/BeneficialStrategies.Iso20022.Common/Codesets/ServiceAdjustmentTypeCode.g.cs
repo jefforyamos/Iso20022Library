@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6V6hwpqlEeGSON8vddiWzQ_-380579229")]
 [Description(@"Defines the type of allowed service adjustment.")]
 [Derivations(typeof(ServiceAdjustmentType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ServiceAdjustmentTypeCode>))]
+#endif
 public enum ServiceAdjustmentTypeCode
 {
     /// <summary>

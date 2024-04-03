@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_3dTnsHsIEeSR68OJvMfxJQ")]
 [Description(@"Indicates the entity hosting the terminal performing the transaction.")]
 [DerivedFrom(typeof(TransactionEnvironmentCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionEnvironment3Code>))]
+#endif
 public enum TransactionEnvironment3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_XwY_MLbwEeaqL_M7XFD7PQ")]
 [Description(@"Specifies the time an event occurred relative to an implied date.")]
 [DerivedFrom(typeof(SettlementDateCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementDate6Code>))]
+#endif
 public enum SettlementDate6Code
 {
     /// <summary>

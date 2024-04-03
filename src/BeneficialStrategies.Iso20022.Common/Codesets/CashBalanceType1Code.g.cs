@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a3xY09p-Ed-ak6NoX_4Aeg_628428306")]
 [Description(@"Specifies the type of cash balance.")]
 [DerivedFrom(typeof(BalanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CashBalanceType1Code>))]
+#endif
 public enum CashBalanceType1Code
 {
     /// <summary>

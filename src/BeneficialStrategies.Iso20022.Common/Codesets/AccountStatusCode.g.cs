@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_brn3odp-Ed-ak6NoX_4Aeg_-1657976569")]
 [Description(@"Specifies the current state of an account.")]
 [Derivations(typeof(AccountStatus2Code),typeof(AccountStatus1Code),typeof(AccountStatus3Code),typeof(AccountStatus4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountStatusCode>))]
+#endif
 public enum AccountStatusCode
 {
     /// <summary>

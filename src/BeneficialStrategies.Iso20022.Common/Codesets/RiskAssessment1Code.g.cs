@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1BC5kJljEeu76rs9yGlfEg")]
 [Description(@"Code that specifies risk assessment result.")]
 [DerivedFrom(typeof(RiskAssessmentCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RiskAssessment1Code>))]
+#endif
 public enum RiskAssessment1Code
 {
     /// <summary>

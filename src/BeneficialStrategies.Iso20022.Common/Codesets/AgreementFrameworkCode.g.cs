@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YbdHZdp-Ed-ak6NoX_4Aeg_630710567")]
 [Description(@"Specifies the agreement type details for the margin call.")]
 [Derivations(typeof(AgreementFramework1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AgreementFrameworkCode>))]
+#endif
 public enum AgreementFrameworkCode
 {
     /// <summary>

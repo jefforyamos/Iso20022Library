@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_0ZEJEIA2EeSUJZYcWGKkkw")]
 [Description(@"Specifies an alternative identification of a trading party, for example, trader code, trader name, short legal name of firm and so on.")]
 [DerivedFrom(typeof(PartyIdentificationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartyIdentificationType1Code>))]
+#endif
 public enum PartyIdentificationType1Code
 {
     /// <summary>

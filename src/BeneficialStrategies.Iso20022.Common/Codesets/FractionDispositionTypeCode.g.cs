@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_arsrs9p-Ed-ak6NoX_4Aeg_1799265079")]
 [Description(@"Indicates that fractional value should be retained; no rounding.")]
-[Derivations(typeof(FractionDispositionType1Code),typeof(FractionDispositionType12Code),typeof(FractionDispositionType4Code),typeof(FractionDispositionType6Code),typeof(FractionDispositionType5Code),typeof(FractionDispositionType2Code),typeof(FractionDispositionType3Code),typeof(FractionDispositionType7Code))]
+[Derivations(typeof(FractionDispositionType2Code),typeof(FractionDispositionType1Code),typeof(FractionDispositionType6Code),typeof(FractionDispositionType12Code),typeof(FractionDispositionType4Code),typeof(FractionDispositionType5Code),typeof(FractionDispositionType3Code),typeof(FractionDispositionType7Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FractionDispositionTypeCode>))]
+#endif
 public enum FractionDispositionTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_afxvk9p-Ed-ak6NoX_4Aeg_1808299686")]
 [Description(@"Specifies the reason for requesting the cancellation of a mandate.")]
 [DerivedFrom(typeof(MandateReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MandateCancellationReason1Code>))]
+#endif
 public enum MandateCancellationReason1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZRGV9Np-Ed-ak6NoX_4Aeg_1129333378")]
 [Description(@"Code identifying which SWIFT service level applies to the payment instruction.")]
 [DerivedFrom(typeof(SWIFTServiceLevelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SWIFTServiceLevel2Code>))]
+#endif
 public enum SWIFTServiceLevel2Code
 {
     /// <summary>

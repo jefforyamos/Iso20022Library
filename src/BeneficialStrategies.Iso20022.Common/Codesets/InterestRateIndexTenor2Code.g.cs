@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_mDriYI9GEeqMo4JxiuZGSw")]
 [Description(@"Specifies the tenor of the interest rate index (when the interest rate is paid out).")]
 [DerivedFrom(typeof(InterestRateIndexTenorCode_TO_MERGE))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestRateIndexTenor2Code>))]
+#endif
 public enum InterestRateIndexTenor2Code
 {
     /// <summary>

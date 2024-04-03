@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8OFBU6MgEeCJ6YNENx4h-w_-143150650")]
 [Description(@"Specifies the type of standing order, such as a user defined standing order or a predefined liquidity transfer.")]
 [DerivedFrom(typeof(StandingOrderTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StandingOrderType1Code>))]
+#endif
 public enum StandingOrderType1Code
 {
     /// <summary>

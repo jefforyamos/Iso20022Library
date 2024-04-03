@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1rgnRDL3EeKU9IrkkToqcw_1341412333")]
 [Description(@"Specifies the fractional security handling rule that does not have an ISO value.")]
 [DerivedFrom(typeof(FractionalSecurityRuleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FractionalSecurityRule1Code>))]
+#endif
 public enum FractionalSecurityRule1Code
 {
     /// <summary>

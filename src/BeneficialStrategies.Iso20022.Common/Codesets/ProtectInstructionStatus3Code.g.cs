@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_fzjwULpTEeilsanBGAzy4A")]
 [Description(@"Specifies the status of the protect transaction.")]
 [DerivedFrom(typeof(DTCInstructionStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProtectInstructionStatus3Code>))]
+#endif
 public enum ProtectInstructionStatus3Code
 {
     /// <summary>

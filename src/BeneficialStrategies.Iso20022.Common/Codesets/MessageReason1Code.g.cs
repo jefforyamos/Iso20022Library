@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_76pfcHs5EeSTS7uHCe8FPQ")]
 [Description(@"Reason to send an card acquirer to issuer message.|It corresponds to ISO 8583, field number 25 for the version 93, and 9 for the version 2003.")]
 [DerivedFrom(typeof(MessageReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageReason1Code>))]
+#endif
 public enum MessageReason1Code
 {
     /// <summary>

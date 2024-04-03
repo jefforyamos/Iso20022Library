@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vvgkkMYMEeexPc-mfUU5zQ")]
 [Description(@"Reason for rejection of a corporate action instruction or of an instruction cancellation.")]
 [Derivations(typeof(InstructionRejectionReason1Code),typeof(InstructionRejectionReason2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionRejectionReasonCode>))]
+#endif
 public enum InstructionRejectionReasonCode
 {
     /// <summary>

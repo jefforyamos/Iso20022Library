@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z4u9sNp-Ed-ak6NoX_4Aeg_-2057540990")]
 [Description(@"Specifies the reason for the reject of a modification request.")]
 [Derivations(typeof(ModificationRejection2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentModificationRejectionV2Code>))]
+#endif
 public enum PaymentModificationRejectionV2Code
 {
     /// <summary>

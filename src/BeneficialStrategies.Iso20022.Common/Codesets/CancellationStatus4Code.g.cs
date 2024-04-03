@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a0VqUNp-Ed-ak6NoX_4Aeg_434017571")]
 [Description(@"Specifies the status of the cancellation request of an invoice financing request.")]
 [DerivedFrom(typeof(CancellationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancellationStatus4Code>))]
+#endif
 public enum CancellationStatus4Code
 {
     /// <summary>

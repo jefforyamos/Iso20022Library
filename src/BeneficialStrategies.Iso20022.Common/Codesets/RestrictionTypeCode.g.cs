@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y94fBdp-Ed-ak6NoX_4Aeg_-1122710739")]
 [Description(@"Specifies the type of restriction.")]
 [Derivations(typeof(RestrictionType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RestrictionTypeCode>))]
+#endif
 public enum RestrictionTypeCode
 {
     /// <summary>

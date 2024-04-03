@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aG5VhNp-Ed-ak6NoX_4Aeg_1157186363")]
 [Description(@"Specifies an alternative identification of an individual person, for example, national registration identification number, passport number.")]
-[Derivations(typeof(PersonIdentificationType2Code),typeof(PersonIdentificationType6Code),typeof(PartyIdentificationType7Code),typeof(PersonIdentificationType7Code),typeof(PersonIdentificationType4Code),typeof(PersonIdentificationType1Code),typeof(PersonIdentificationType5Code))]
+[Derivations(typeof(PersonIdentificationType7Code),typeof(PersonIdentificationType6Code),typeof(PersonIdentificationType2Code),typeof(PersonIdentificationType4Code),typeof(PartyIdentificationType7Code),typeof(PersonIdentificationType5Code),typeof(PersonIdentificationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PersonIdentificationTypeCode>))]
+#endif
 public enum PersonIdentificationTypeCode
 {
     /// <summary>

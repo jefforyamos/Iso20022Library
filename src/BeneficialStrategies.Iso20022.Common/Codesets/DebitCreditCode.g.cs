@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Ieq6AFlcEeGqx4xQw6z6Ug_-1712839316")]
 [Description(@"Specifies if an operation is an increase or a decrease.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DebitCreditCode>))]
+#endif
 public enum DebitCreditCode
 {
     /// <summary>

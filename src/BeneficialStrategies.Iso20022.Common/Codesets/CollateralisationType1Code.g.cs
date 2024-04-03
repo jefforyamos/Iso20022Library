@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KepsAPP6EeS_qLctCs2aRQ")]
 [Description(@"Specifies the type of collateral agreement between two parties.")]
 [DerivedFrom(typeof(CollateralisationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralisationType1Code>))]
+#endif
 public enum CollateralisationType1Code
 {
     /// <summary>

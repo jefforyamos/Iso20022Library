@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TWii4QEcEeCQm6a_G2yO_w_1480882734")]
 [Description(@"CSC (Card Security Code) management associated with the transaction.")]
 [Derivations(typeof(CSCManagement1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CSCManagementCode>))]
+#endif
 public enum CSCManagementCode
 {
     /// <summary>

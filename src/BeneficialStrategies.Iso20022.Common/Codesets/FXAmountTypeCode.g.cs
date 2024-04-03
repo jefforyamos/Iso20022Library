@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_7XcKNQNyEe2-vqzwMUAewg")]
 [Description(@"Specifies the type of amount for foreign exchange commissions or fees.")]
 [Derivations(typeof(FXAmountType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FXAmountTypeCode>))]
+#endif
 public enum FXAmountTypeCode
 {
     /// <summary>

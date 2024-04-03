@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_yEJFENtrEeiXqq0XHEoNUA")]
 [Description(@"Hardware capabilities of the Sale Terminal.")]
 [Derivations(typeof(SaleCapabilities2Code),typeof(SaleCapabilities1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SaleCapabilitiesCode>))]
+#endif
 public enum SaleCapabilitiesCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_F091QNxeEeioifFt1dhnJA")]
 [Description(@"Type of Reconciliation requested by the Sale to the POI.")]
 [Derivations(typeof(ReconciliationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationTypeCode>))]
+#endif
 public enum ReconciliationTypeCode
 {
     /// <summary>

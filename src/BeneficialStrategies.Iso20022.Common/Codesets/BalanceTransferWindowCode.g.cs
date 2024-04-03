@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vLUjgBE3EeafpqhYGpTDnw")]
 [Description(@"Specifies the processing window in which the balance transfer will be processed on the switch date.")]
 [Derivations(typeof(BalanceTransferWindow1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BalanceTransferWindowCode>))]
+#endif
 public enum BalanceTransferWindowCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5P18EY0XEeWRYffwL7E13A")]
 [Description(@"Service provided by the card payment transaction, in addition to the main service.")]
 [DerivedFrom(typeof(CardPaymentServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardPaymentServiceType9Code>))]
+#endif
 public enum CardPaymentServiceType9Code
 {
     /// <summary>

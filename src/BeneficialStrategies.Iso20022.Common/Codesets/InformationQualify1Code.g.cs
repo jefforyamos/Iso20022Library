@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_FbE-INwoEeioifFt1dhnJA")]
 [Description(@"Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer.")]
 [DerivedFrom(typeof(InformationQualifyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InformationQualify1Code>))]
+#endif
 public enum InformationQualify1Code
 {
     /// <summary>

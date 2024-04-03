@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TQ3_sAEcEeCQm6a_G2yO_w_-1597992026")]
 [Description(@"Specifies the type of discount, that is, the reason why a discount is granted.")]
 [DerivedFrom(typeof(DiscountTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DiscountType1Code>))]
+#endif
 public enum DiscountType1Code
 {
     /// <summary>

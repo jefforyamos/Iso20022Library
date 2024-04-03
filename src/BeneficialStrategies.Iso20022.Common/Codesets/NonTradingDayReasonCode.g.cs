@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_7DQxQGw4EeWD9e8QDBgUOw")]
 [Description(@"Specifies the reason capturing a non trading day.")]
 [Derivations(typeof(NonTradingDayReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonTradingDayReasonCode>))]
+#endif
 public enum NonTradingDayReasonCode
 {
     /// <summary>

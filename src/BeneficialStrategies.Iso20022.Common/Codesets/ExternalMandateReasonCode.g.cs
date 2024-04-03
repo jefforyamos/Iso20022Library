@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -20,6 +21,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ps0OwMMxEeijqcQihwvv2A")]
 [Description(@"Specifies the external mandate processing reason code in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code list published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalMandateReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalMandateReasonCode>))]
+#endif
 public enum ExternalMandateReasonCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_boymFdp-Ed-ak6NoX_4Aeg_-1616551496")]
 [Description(@"Specifies if an operation is an increase or a decrease or the result of a reversal operation.")]
 [Derivations(typeof(CreditDebitCode),typeof(ReversalCode),typeof(CreditDebit3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AmountDirectionCode>))]
+#endif
 public enum AmountDirectionCode
 {
     /// <summary>

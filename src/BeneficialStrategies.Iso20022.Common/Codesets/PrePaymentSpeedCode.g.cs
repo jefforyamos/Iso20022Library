@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aIYjQ9p-Ed-ak6NoX_4Aeg_336258028")]
 [Description(@"Speed of unscheduled partial of complete payment of the principal amount outstanding on a debt obligation before its due date.")]
 [Derivations(typeof(PrePaymentSpeed1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PrePaymentSpeedCode>))]
+#endif
 public enum PrePaymentSpeedCode
 {
     /// <summary>

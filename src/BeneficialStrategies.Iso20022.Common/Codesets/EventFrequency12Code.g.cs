@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_tRpaUDrvEeuD7rm9md9zvg")]
 [Description(@"Specifies the regularity of an event.")]
 [DerivedFrom(typeof(EventFrequencyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventFrequency12Code>))]
+#endif
 public enum EventFrequency12Code
 {
     /// <summary>

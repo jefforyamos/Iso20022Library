@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_W2SfiqUqEee4_75LDmHZiQ")]
 [Description(@"Specifies underlying information regarding the type of settlement transaction.")]
 [DerivedFrom(typeof(SecuritiesTransactionTypeV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesTransactionType20Code>))]
+#endif
 public enum SecuritiesTransactionType20Code
 {
     /// <summary>

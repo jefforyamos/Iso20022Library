@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_qt8lnWXOEem9Y55YJ70L8g")]
 [Description(@"Terminal category code of the place where the merchant actually performed the transaction.")]
 [Derivations(typeof(TerminalIntegrationCategory1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminalIntegrationCategoryCode>))]
+#endif
 public enum TerminalIntegrationCategoryCode
 {
     /// <summary>

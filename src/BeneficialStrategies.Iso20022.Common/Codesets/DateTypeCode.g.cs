@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ayjhp9p-Ed-ak6NoX_4Aeg_-2092185589")]
 [Description(@"Ongoing basis, which indicates that the date is determined by ""ongoing basis"" process, for example ""au fil de l'eau"".")]
-[Derivations(typeof(DateType6Code),typeof(DateType9Code),typeof(DateType3Code),typeof(DateType8Code),typeof(DateType7Code),typeof(DateType4Code),typeof(DateType5Code),typeof(DateType10Code),typeof(DateType1Code),typeof(DateType2Code))]
+[Derivations(typeof(DateType1Code),typeof(DateType2Code),typeof(DateType6Code),typeof(DateType5Code),typeof(DateType8Code),typeof(DateType9Code),typeof(DateType3Code),typeof(DateType10Code),typeof(DateType7Code),typeof(DateType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DateTypeCode>))]
+#endif
 public enum DateTypeCode
 {
     /// <summary>

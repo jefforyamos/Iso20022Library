@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bEJA4dp-Ed-ak6NoX_4Aeg_2009797754")]
 [Description(@"Specifies the status of the CA event.")]
 [DerivedFrom(typeof(CorporateActionEventStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionEventStatus1Code>))]
+#endif
 public enum CorporateActionEventStatus1Code
 {
     /// <summary>

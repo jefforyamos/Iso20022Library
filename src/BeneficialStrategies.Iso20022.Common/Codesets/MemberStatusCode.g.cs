@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aLqgwtp-Ed-ak6NoX_4Aeg_-1869032551")]
 [Description(@"Specifies the live status of a member of a system.")]
 [Derivations(typeof(MemberStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MemberStatusCode>))]
+#endif
 public enum MemberStatusCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6WNctpqlEeGSON8vddiWzQ_739430745")]
 [Description(@"Defines the taxable status of the service.")]
 [Derivations(typeof(ServiceTaxDesignation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ServiceTaxDesignationCode>))]
+#endif
 public enum ServiceTaxDesignationCode
 {
     /// <summary>

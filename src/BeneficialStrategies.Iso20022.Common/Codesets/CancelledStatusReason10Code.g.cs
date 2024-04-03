@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a0fbUdp-Ed-ak6NoX_4Aeg_-1834917145")]
 [Description(@"Specifies the underlying reason for the cancellation of the associated transaction.")]
 [DerivedFrom(typeof(CancelledStatusReasonV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancelledStatusReason10Code>))]
+#endif
 public enum CancelledStatusReason10Code
 {
     /// <summary>

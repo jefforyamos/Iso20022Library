@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5Id0YIrfEeSvuOJS0mmL0g")]
 [Description(@"Mechanism used to protect the message of the ATM protocol.")]
 [Derivations(typeof(MessageProtection1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageProtectionCode>))]
+#endif
 public enum MessageProtectionCode
 {
     /// <summary>

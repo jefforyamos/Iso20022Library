@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1r9TNTL3EeKU9IrkkToqcw_1920534619")]
 [Description(@"Specifies types of linked events.")]
 [DerivedFrom(typeof(DTCCLinkTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCCLinkType1Code>))]
+#endif
 public enum DTCCLinkType1Code
 {
     /// <summary>

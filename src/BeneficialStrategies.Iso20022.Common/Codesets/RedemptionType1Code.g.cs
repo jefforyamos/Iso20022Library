@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Vu5ag9p-Ed-ak6NoX_4Aeg_840570050")]
 [Description(@"Indicates the redemption type of the interest bearing instrument.")]
 [DerivedFrom(typeof(RedemptionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RedemptionType1Code>))]
+#endif
 public enum RedemptionType1Code
 {
     /// <summary>

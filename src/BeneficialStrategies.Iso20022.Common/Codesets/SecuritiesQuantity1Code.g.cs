@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VCCygDFxEeGKkIZzgd38VA")]
 [Description(@"TSE/JASDEC codes for planned, maximum and minimum of shares to be purchased.")]
 [DerivedFrom(typeof(SecuritiesQuantityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesQuantity1Code>))]
+#endif
 public enum SecuritiesQuantity1Code
 {
     /// <summary>

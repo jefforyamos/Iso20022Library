@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bdn349p-Ed-ak6NoX_4Aeg_-737437637")]
 [Description(@"Specifies the type of certification completion required for a beneficiary.")]
 [DerivedFrom(typeof(BeneficiaryCertificationCompletionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BeneficiaryCertificationCompletion1Code>))]
+#endif
 public enum BeneficiaryCertificationCompletion1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aS0Rpdp-Ed-ak6NoX_4Aeg_-2117834119")]
 [Description(@"Indicates the type of instruction to a broker or dealer to buy or sell a financial instrument.")]
 [DerivedFrom(typeof(OrderTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderType1Code>))]
+#endif
 public enum OrderType1Code
 {
     /// <summary>

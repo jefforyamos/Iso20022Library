@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZFUTgNK5EeihtcVwfFPNlg")]
 [Description(@"Specifies the type of quotation.")]
 [DerivedFrom(typeof(QuotationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QuotationType1Code>))]
+#endif
 public enum QuotationType1Code
 {
     /// <summary>

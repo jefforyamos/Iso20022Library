@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VkeTNNp-Ed-ak6NoX_4Aeg_-866982753")]
 [Description(@"Specifies the reason for a rejected status.")]
 [DerivedFrom(typeof(RejectedStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectedStatusReason5Code>))]
+#endif
 public enum RejectedStatusReason5Code
 {
     /// <summary>

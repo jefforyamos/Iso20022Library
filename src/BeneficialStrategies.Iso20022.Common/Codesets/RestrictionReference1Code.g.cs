@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Q1UTcNavEei60tlze8Pqbw")]
 [Description(@"Specifies the restriction references to be applied to a transaction.")]
 [DerivedFrom(typeof(RestrictionReferenceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RestrictionReference1Code>))]
+#endif
 public enum RestrictionReference1Code
 {
     /// <summary>

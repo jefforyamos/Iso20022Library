@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_beD8xtp-Ed-ak6NoX_4Aeg_-2069893638")]
 [Description(@"The holder of the security has to irrevocably certify that it is a Qualified Institutional Buyer as defined in US Securities and Exchange Commission Rule 144A.")]
-[Derivations(typeof(BeneficiaryCertificationType2Code),typeof(BeneficiaryCertificationType5Code),typeof(BeneficiaryCertificationType4Code),typeof(BeneficiaryCertificationType1Code),typeof(BeneficiaryCertificationType3Code))]
+[Derivations(typeof(BeneficiaryCertificationType5Code),typeof(BeneficiaryCertificationType2Code),typeof(BeneficiaryCertificationType4Code),typeof(BeneficiaryCertificationType1Code),typeof(BeneficiaryCertificationType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BeneficiaryCertificationTypeCode>))]
+#endif
 public enum BeneficiaryCertificationTypeCode
 {
     /// <summary>

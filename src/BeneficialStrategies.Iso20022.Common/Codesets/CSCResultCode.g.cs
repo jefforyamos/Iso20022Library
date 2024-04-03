@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TWrswwEcEeCQm6a_G2yO_w_-323244249")]
 [Description(@"Result of the printed CSC (Card Security Code) validation.")]
 [Derivations(typeof(CSCResult1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CSCResultCode>))]
+#endif
 public enum CSCResultCode
 {
     /// <summary>

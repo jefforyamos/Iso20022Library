@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aFGlxdp-Ed-ak6NoX_4Aeg_-870507202")]
 [Description(@"Specifies the reason the transaction/instruction is pending settlement, ie, pending delivery or receipt of the financial instrument. Settlement on the instructed settlement date is still possible.")]
 [Derivations(typeof(PendingSettlement2Code),typeof(PendingSettlementStatusReason1Code),typeof(PendingSettlementStatusReason2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingSettlementStatusReasonCode>))]
+#endif
 public enum PendingSettlementStatusReasonCode
 {
     /// <summary>

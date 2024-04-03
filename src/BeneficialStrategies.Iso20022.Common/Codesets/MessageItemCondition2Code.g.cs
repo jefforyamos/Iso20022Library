@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_axD3cXC8Ee2bmOA3bkVsMg")]
 [Description(@"Rule to apply for the presence of a message item.")]
 [DerivedFrom(typeof(MessageItemConditionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageItemCondition2Code>))]
+#endif
 public enum MessageItemCondition2Code
 {
     /// <summary>

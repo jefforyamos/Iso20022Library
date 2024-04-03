@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wxlXIK4IEemG7MmivSuE5g")]
 [Description(@"Specifies a type of voting instructions.")]
 [DerivedFrom(typeof(VoteInstructionV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<VoteInstruction6Code>))]
+#endif
 public enum VoteInstruction6Code
 {
     /// <summary>

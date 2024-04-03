@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_H8wEoRXyEeOBE-jZfcm4KQ")]
 [Description(@"Specifies how expenses are paid.")]
 [Derivations(typeof(ChargePaymentMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChargePaymentMethodCode>))]
+#endif
 public enum ChargePaymentMethodCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1wRygjL3EeKU9IrkkToqcw_-786409042")]
 [Description(@"DTC (The Depository Trust Company) security sub-issue type code list.")]
 [DerivedFrom(typeof(DTCAssetTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCAssetType1Code>))]
+#endif
 public enum DTCAssetType1Code
 {
     /// <summary>

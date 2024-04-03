@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__R_VYPfFEei89sMSHxl1ew")]
 [Description(@"Indicates the call type")]
 [Derivations(typeof(TelephonyCallType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TelephonyCallTypeCode>))]
+#endif
 public enum TelephonyCallTypeCode
 {
     /// <summary>

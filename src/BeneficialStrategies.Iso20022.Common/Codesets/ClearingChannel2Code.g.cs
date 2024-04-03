@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a_OEo9p-Ed-ak6NoX_4Aeg_1501459302")]
 [Description(@"Specifies the clearing channel for the routing of the transaction, as part of the payment type identification.")]
 [DerivedFrom(typeof(ClearingChannelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ClearingChannel2Code>))]
+#endif
 public enum ClearingChannel2Code
 {
     /// <summary>

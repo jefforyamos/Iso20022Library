@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_qTSKAa2AEeWMg5rOByfExw")]
 [Description(@"Detail of the response to an ATM.")]
 [DerivedFrom(typeof(ResultDetailCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResultDetail4Code>))]
+#endif
 public enum ResultDetail4Code
 {
     /// <summary>

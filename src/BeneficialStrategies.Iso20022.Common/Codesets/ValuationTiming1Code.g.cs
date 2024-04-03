@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y81WJtp-Ed-ak6NoX_4Aeg_1401456437")]
 [Description(@"Specifies how the price valuation timing is done based on the timeline defined in the prospectus.")]
 [DerivedFrom(typeof(ValuationTimingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ValuationTiming1Code>))]
+#endif
 public enum ValuationTiming1Code
 {
     /// <summary>

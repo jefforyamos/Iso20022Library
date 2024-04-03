@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hbcAo2liEeGaMcKyqKNRfQ_1398344380")]
 [Description(@"Identifies if the security will be issued in New Global Note (NGN) or Classical Global Note (CGN).")]
 [DerivedFrom(typeof(GlobalNoteCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GlobalNote1Code>))]
+#endif
 public enum GlobalNote1Code
 {
     /// <summary>

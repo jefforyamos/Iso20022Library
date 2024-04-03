@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1rD7UDL3EeKU9IrkkToqcw_1757333975")]
 [Description(@"Specifies late announcements.")]
 [DerivedFrom(typeof(DTCLateCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCLate1Code>))]
+#endif
 public enum DTCLate1Code
 {
     /// <summary>

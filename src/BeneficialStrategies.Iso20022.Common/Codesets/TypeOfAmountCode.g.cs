@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TVWQDwEcEeCQm6a_G2yO_w_-259543426")]
 [Description(@"Identification or qualification of the type of amount.")]
-[Derivations(typeof(TypeOfAmount11Code),typeof(TypeOfAmount7Code),typeof(TypeOfAmount19Code),typeof(TypeOfAmount6Code),typeof(TypeOfAmount10Code),typeof(TypeOfAmount3Code),typeof(TypeOfAmount4Code),typeof(TypeOfAmount5Code),typeof(TypeOfAmount20Code),typeof(TypeOfAmount18Code),typeof(TypeOfAmount1Code),typeof(TypeOfAmount21Code),typeof(TypeOfAmount22Code),typeof(TypeOfAmount17Code),typeof(TypeOfAmount8Code),typeof(TypeOfAmount9Code),typeof(TypeOfAmount2Code),typeof(TypeOfAmount12Code))]
+[Derivations(typeof(TypeOfAmount11Code),typeof(TypeOfAmount10Code),typeof(TypeOfAmount8Code),typeof(TypeOfAmount9Code),typeof(TypeOfAmount19Code),typeof(TypeOfAmount12Code),typeof(TypeOfAmount7Code),typeof(TypeOfAmount4Code),typeof(TypeOfAmount2Code),typeof(TypeOfAmount20Code),typeof(TypeOfAmount18Code),typeof(TypeOfAmount6Code),typeof(TypeOfAmount22Code),typeof(TypeOfAmount21Code),typeof(TypeOfAmount17Code),typeof(TypeOfAmount3Code),typeof(TypeOfAmount1Code),typeof(TypeOfAmount5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeOfAmountCode>))]
+#endif
 public enum TypeOfAmountCode
 {
     /// <summary>

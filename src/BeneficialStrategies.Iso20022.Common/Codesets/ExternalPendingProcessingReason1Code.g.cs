@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wpcVgFj1EeOnqqBHs8Gasw")]
 [Description(@"Specifies the reason for pending status.|The list of valid codes is an external code list published separately. External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalPendingProcessingReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalPendingProcessingReason1Code>))]
+#endif
 public enum ExternalPendingProcessingReason1Code
 {
     /// <summary>

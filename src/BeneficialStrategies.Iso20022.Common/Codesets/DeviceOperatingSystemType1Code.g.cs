@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1J-XwJfREeuqNYk2TG3bTg")]
 [Description(@"Type of operating system deployed on device.")]
 [DerivedFrom(typeof(DeviceOperatingSystemTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeviceOperatingSystemType1Code>))]
+#endif
 public enum DeviceOperatingSystemType1Code
 {
     /// <summary>

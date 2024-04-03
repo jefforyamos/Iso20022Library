@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_GX-V4DiAEeaH-93K5JKmzw")]
 [Description(@"Specifies the type of service for which a fee is asked or paid.")]
 [Derivations(typeof(InvestmentFundFee1Code),typeof(InvestmentFundFee2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestmentFundFeeCode>))]
+#endif
 public enum InvestmentFundFeeCode
 {
     /// <summary>

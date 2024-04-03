@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_mRl-ILC2EeaSl6vJk5Bd8w")]
 [Description(@"Categorisation of margin models used by central counterparties.")]
 [DerivedFrom(typeof(ModelTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ModelType1Code>))]
+#endif
 public enum ModelType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YZq-tNp-Ed-ak6NoX_4Aeg_115662957")]
 [Description(@"Specifies the underlying product of the margin.")]
 [DerivedFrom(typeof(MarginProductCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarginProduct1Code>))]
+#endif
 public enum MarginProduct1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZFLZ2Np-Ed-ak6NoX_4Aeg_1201325476")]
 [Description(@"Specifies the type of securities entry on an account.")]
 [Derivations(typeof(SecuritiesEntryType1Code),typeof(SecuritiesEntryType2Code),typeof(SecuritiesEntryType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesEntryTypeCode>))]
+#endif
 public enum SecuritiesEntryTypeCode
 {
     /// <summary>

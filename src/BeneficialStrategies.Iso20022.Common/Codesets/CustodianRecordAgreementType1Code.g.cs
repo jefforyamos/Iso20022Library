@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_11fpsTL3EeKU9IrkkToqcw_1222518114")]
 [Description(@"Specifies the state of the agreement of the custodian record when compared to composite record.")]
 [DerivedFrom(typeof(CustodianRecordAgreementTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CustodianRecordAgreementType1Code>))]
+#endif
 public enum CustodianRecordAgreementType1Code
 {
     /// <summary>

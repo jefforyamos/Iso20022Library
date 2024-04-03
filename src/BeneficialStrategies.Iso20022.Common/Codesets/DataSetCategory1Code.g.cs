@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TS9qbQEcEeCQm6a_G2yO_w_-47918382")]
 [Description(@"Category of data set to transfer.")]
 [DerivedFrom(typeof(DataSetCategoryCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataSetCategory1Code>))]
+#endif
 public enum DataSetCategory1Code
 {
     /// <summary>

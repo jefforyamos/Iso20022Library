@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8N7QVqMgEeCJ6YNENx4h-w_-234356258")]
 [Description(@"Defines the query type for standing orders queries, that identifies the predefined key attributes expected in the response to the query.")]
 [DerivedFrom(typeof(StandingOrderQueryTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StandingOrderQueryType1Code>))]
+#endif
 public enum StandingOrderQueryType1Code
 {
     /// <summary>

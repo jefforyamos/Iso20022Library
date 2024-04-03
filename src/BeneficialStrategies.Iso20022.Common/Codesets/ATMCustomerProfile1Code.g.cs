@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_gHsJgIoZEeSirOZJBRz_nA")]
 [Description(@"Describes the main way customer information was collected to build up the customer menu and the withdrawal request.")]
 [DerivedFrom(typeof(ATMCustomerProfileCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMCustomerProfile1Code>))]
+#endif
 public enum ATMCustomerProfile1Code
 {
     /// <summary>

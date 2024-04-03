@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ah3aRNp-Ed-ak6NoX_4Aeg_-1106717300")]
 [Description(@"Error codes generated when the response to a query exceeds the maximum size or the data is not available.")]
 [DerivedFrom(typeof(ErrorHandlingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ErrorHandling1Code>))]
+#endif
 public enum ErrorHandling1Code
 {
     /// <summary>

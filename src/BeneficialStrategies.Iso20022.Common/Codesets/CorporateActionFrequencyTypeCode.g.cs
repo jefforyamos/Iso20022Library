@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bKGe89p-Ed-ak6NoX_4Aeg_1953823274")]
 [Description(@"Automatic Reinvestment of Cash distributed by accumulating funds.")]
 [Derivations(typeof(CorporateActionFrequencyType1Code),typeof(CorporateActionFrequencyType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionFrequencyTypeCode>))]
+#endif
 public enum CorporateActionFrequencyTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("__9ywuol5EeavwKddCbm3hg")]
 [Description(@"Specifies the reason why the instruction/cancellation request has a rejected status.")]
-[Derivations(typeof(RejectionReason71Code),typeof(RejectionReason66Code),typeof(RejectionReason76Code),typeof(RejectionReason79Code),typeof(RejectionReason54Code),typeof(RejectionReason56Code),typeof(RejectionReason46Code),typeof(RejectionReason63Code),typeof(RejectionReason48Code),typeof(RejectionReason69Code),typeof(RejectionReason75Code),typeof(RejectionReason78Code),typeof(PendingCancellationReason6Code),typeof(RejectionReason55Code),typeof(RejectionReason61Code),typeof(RejectionReason77Code),typeof(RejectionReason74Code),typeof(RejectionReason67Code),typeof(RejectionReason64Code),typeof(RejectionReason70Code),typeof(RejectionReason51Code),typeof(RejectionReason73Code),typeof(RejectionReason59Code),typeof(RejectionReason72Code),typeof(RejectionReason68Code),typeof(RejectionReason62Code),typeof(RejectionReason65Code),typeof(PendingCancellationReason5Code),typeof(RejectionReason49Code),typeof(RejectionReason52Code),typeof(RejectionReason50Code),typeof(RejectionReason58Code),typeof(RejectionReason57Code))]
+[Derivations(typeof(RejectionReason72Code),typeof(RejectionReason79Code),typeof(RejectionReason63Code),typeof(RejectionReason66Code),typeof(RejectionReason55Code),typeof(RejectionReason76Code),typeof(RejectionReason58Code),typeof(RejectionReason50Code),typeof(RejectionReason68Code),typeof(RejectionReason61Code),typeof(RejectionReason49Code),typeof(RejectionReason64Code),typeof(RejectionReason51Code),typeof(RejectionReason70Code),typeof(RejectionReason48Code),typeof(PendingCancellationReason6Code),typeof(RejectionReason75Code),typeof(RejectionReason74Code),typeof(RejectionReason71Code),typeof(RejectionReason59Code),typeof(RejectionReason78Code),typeof(PendingCancellationReason5Code),typeof(RejectionReason69Code),typeof(RejectionReason52Code),typeof(RejectionReason73Code),typeof(RejectionReason77Code),typeof(RejectionReason54Code),typeof(RejectionReason56Code),typeof(RejectionReason62Code),typeof(RejectionReason57Code),typeof(RejectionReason46Code),typeof(RejectionReason67Code),typeof(RejectionReason65Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectionReasonV3Code>))]
+#endif
 public enum RejectionReasonV3Code
 {
     /// <summary>

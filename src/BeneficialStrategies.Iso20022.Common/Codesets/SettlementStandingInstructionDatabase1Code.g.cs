@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZMMAxtp-Ed-ak6NoX_4Aeg_-1452828987")]
 [Description(@"Indicates what settlement standing instruction database is to be used to derive the settlement parties involved in the transaction.")]
 [DerivedFrom(typeof(SettlementStandingInstructionDatabaseCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementStandingInstructionDatabase1Code>))]
+#endif
 public enum SettlementStandingInstructionDatabase1Code
 {
     /// <summary>

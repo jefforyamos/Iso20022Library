@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zdviVg93EeGeV5vP7Mvdig_45097203")]
 [Description(@"Indicates which type of interest is applied to a balance left on an account.")]
 [DerivedFrom(typeof(InterestCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestType1Code>))]
+#endif
 public enum InterestType1Code
 {
     /// <summary>

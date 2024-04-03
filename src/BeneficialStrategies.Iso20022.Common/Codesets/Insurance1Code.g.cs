@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_BURwYBQbEeKebsB9eKJSkA")]
 [Description(@"Specifies the type of insurance.")]
 [DerivedFrom(typeof(InsuranceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Insurance1Code>))]
+#endif
 public enum Insurance1Code
 {
     /// <summary>

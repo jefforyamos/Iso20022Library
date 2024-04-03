@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8y6XACmsEeerta_tWXAsWQ")]
 [Description(@"Common report status for all individual reports sent / received.")]
 [Derivations(typeof(PairedReconciled1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PairedReconciledCode>))]
+#endif
 public enum PairedReconciledCode
 {
     /// <summary>

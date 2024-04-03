@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YrGs9Np-Ed-ak6NoX_4Aeg_-1913582483")]
 [Description(@"Indicates the factors that are/were applied in the event of pre-allocation.")]
 [Derivations(typeof(TradingSession1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradingSessionCode>))]
+#endif
 public enum TradingSessionCode
 {
     /// <summary>

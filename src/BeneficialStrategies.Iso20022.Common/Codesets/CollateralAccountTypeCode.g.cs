@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_waUkkqMOEeCojJW5vEuTEQ_951032316")]
 [Description(@"Specifies the collateral account type.")]
 [Derivations(typeof(CollateralAccountType1Code),typeof(CollateralAccountType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralAccountTypeCode>))]
+#endif
 public enum CollateralAccountTypeCode
 {
     /// <summary>

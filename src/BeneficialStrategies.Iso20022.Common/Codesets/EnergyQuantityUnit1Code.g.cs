@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_agE0AA3fEeWc7_0KPiuk6w")]
 [Description(@"Specifies an energy quantity unit.")]
 [DerivedFrom(typeof(EnergyQuantityUnitCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EnergyQuantityUnit1Code>))]
+#endif
 public enum EnergyQuantityUnit1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_lucbANwsEeioifFt1dhnJA")]
 [Description(@"Scope of the token that identifies  the payment mean of the customer.")]
 [Derivations(typeof(SaleTokenScope1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SaleTokenScopeCode>))]
+#endif
 public enum SaleTokenScopeCode
 {
     /// <summary>

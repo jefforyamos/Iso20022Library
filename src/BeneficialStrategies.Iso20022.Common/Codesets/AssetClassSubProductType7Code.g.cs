@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-yNTAAnyEeWnS-yHF1QhNQ")]
 [Description(@"Defines the sub-product of type Natural Gas.")]
 [DerivedFrom(typeof(AssetClassSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassSubProductType7Code>))]
+#endif
 public enum AssetClassSubProductType7Code
 {
     /// <summary>

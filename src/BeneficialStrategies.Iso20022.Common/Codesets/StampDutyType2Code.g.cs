@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_suw7QPpiEeCG_oUHBFcYXA")]
 [Description(@"Specifies if the stamp duty is applicable.")]
 [DerivedFrom(typeof(StampDutyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StampDutyType2Code>))]
+#endif
 public enum StampDutyType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bCNHNtp-Ed-ak6NoX_4Aeg_-673877093")]
 [Description(@"Specifies the type of conversion.")]
 [DerivedFrom(typeof(ConversionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ConversionType1Code>))]
+#endif
 public enum ConversionType1Code
 {
     /// <summary>

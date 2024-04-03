@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ajNeEdp-Ed-ak6NoX_4Aeg_-477138119")]
 [Description(@"Indicates the status of the occurrence of an event.")]
 [DerivedFrom(typeof(EventConfirmationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventConfirmationStatus1Code>))]
+#endif
 public enum EventConfirmationStatus1Code
 {
     /// <summary>

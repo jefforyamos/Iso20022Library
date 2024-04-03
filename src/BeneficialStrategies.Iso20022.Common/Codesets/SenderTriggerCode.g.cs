@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hy2h4MmLEeWAGphE2LvqeA")]
 [Description(@"Specifies the trigger code used by the sender to generate the file.")]
 [Derivations(typeof(SenderTrigger1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SenderTriggerCode>))]
+#endif
 public enum SenderTriggerCode
 {
     /// <summary>

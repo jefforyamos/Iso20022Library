@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ygvPwDwvEeaFzejt0Yw_3A")]
 [Description(@"Specifies the type of hold back on redemption proceeds.")]
 [Derivations(typeof(GateHoldBack1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GateHoldBackCode>))]
+#endif
 public enum GateHoldBackCode
 {
     /// <summary>

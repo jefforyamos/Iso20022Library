@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TVWQBgEcEeCQm6a_G2yO_w_644173117")]
 [Description(@"Specifies the type of communication channel.")]
 [Derivations(typeof(TransactionChannel1Code),typeof(TransactionChannel2Code),typeof(TransactionChannel3Code),typeof(TransactionChannel5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionChannelCode>))]
+#endif
 public enum TransactionChannelCode
 {
     /// <summary>

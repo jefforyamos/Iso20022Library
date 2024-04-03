@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bpr9-dp-Ed-ak6NoX_4Aeg_-339875295")]
 [Description(@"Specifies which type of action a user should take.")]
 [DerivedFrom(typeof(ActionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Action2Code>))]
+#endif
 public enum Action2Code
 {
     /// <summary>

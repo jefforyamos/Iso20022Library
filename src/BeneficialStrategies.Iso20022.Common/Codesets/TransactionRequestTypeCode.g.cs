@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_0-HZ0GKCEeGByYwyG-c4ow")]
 [Description(@"Specifies the type of information request related to a transaction number.")]
 [Derivations(typeof(TransactionRequestType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionRequestTypeCode>))]
+#endif
 public enum TransactionRequestTypeCode
 {
     /// <summary>

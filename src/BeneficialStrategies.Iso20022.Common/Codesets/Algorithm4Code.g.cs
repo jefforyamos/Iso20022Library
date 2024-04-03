@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wCmXsAiqEeKn9O5oyej_zw")]
 [Description(@"Cryptographic algorithms for digital signatures.")]
 [DerivedFrom(typeof(AlgorithmCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Algorithm4Code>))]
+#endif
 public enum Algorithm4Code
 {
     /// <summary>

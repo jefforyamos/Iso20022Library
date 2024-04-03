@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_dQw9IDT9Ee2tRf29bleifQ")]
 [Description(@"Specifies the network channel through which the vote should be sent.")]
 [DerivedFrom(typeof(VoteChannelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<VoteChannel1Code>))]
+#endif
 public enum VoteChannel1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cBwMgLwdEeivTd4NUfCi2g")]
 [Description(@"Collateral  transaction type expressed as an ISO 20022 code.")]
 [Derivations(typeof(CollateralTransactionType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralTransactionTypeCode>))]
+#endif
 public enum CollateralTransactionTypeCode
 {
     /// <summary>

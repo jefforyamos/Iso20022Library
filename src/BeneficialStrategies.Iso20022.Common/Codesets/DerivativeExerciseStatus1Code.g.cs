@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QJkDQIAxEeSUJZYcWGKkkw")]
 [Description(@"Specifies the exercise status of the derivative products.")]
 [DerivedFrom(typeof(DerivativeExerciseStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DerivativeExerciseStatus1Code>))]
+#endif
 public enum DerivativeExerciseStatus1Code
 {
     /// <summary>

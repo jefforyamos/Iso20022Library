@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_LCqQYGBhEeaR1OOiVxm3Gg")]
 [Description(@"Specifies the reason for an enabled status.")]
 [DerivedFrom(typeof(EnabledStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EnabledStatusReason1Code>))]
+#endif
 public enum EnabledStatusReason1Code
 {
     /// <summary>

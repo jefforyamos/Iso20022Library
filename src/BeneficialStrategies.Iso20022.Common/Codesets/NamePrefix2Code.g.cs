@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ODhzcHRmEeiH1ZOt2UD8vQ")]
 [Description(@"Specifies the terms used to formally address a person.")]
 [DerivedFrom(typeof(NamePrefixCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NamePrefix2Code>))]
+#endif
 public enum NamePrefix2Code
 {
     /// <summary>

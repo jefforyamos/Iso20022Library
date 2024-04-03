@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__0Ti1dojEeC60axPepSq7g_467150193")]
 [Description(@"Identifies the underlying reason for the borrowing.")]
 [DerivedFrom(typeof(BorrowingReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BorrowingReason1Code>))]
+#endif
 public enum BorrowingReason1Code
 {
     /// <summary>

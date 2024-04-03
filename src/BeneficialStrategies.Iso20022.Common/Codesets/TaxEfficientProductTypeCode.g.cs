@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_X-nhUE4LEeiQHa-q1Uephw")]
 [Description(@"Specifies a type of tax efficient product.")]
 [Derivations(typeof(TaxEfficientProductType1Code),typeof(TaxEfficientProductType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxEfficientProductTypeCode>))]
+#endif
 public enum TaxEfficientProductTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ek0aUSB4Eey8XKHwKquEQw")]
 [Description(@"Contains the reconciliation message type.")]
 [DerivedFrom(typeof(ReconciliationMessageTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationMessageType2Code>))]
+#endif
 public enum ReconciliationMessageType2Code
 {
     /// <summary>

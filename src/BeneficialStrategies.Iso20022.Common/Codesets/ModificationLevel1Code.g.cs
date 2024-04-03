@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_khDskA3mEeWc7_0KPiuk6w")]
 [Description(@"Specifies the transaction or position level.")]
 [DerivedFrom(typeof(ModificationLevelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ModificationLevel1Code>))]
+#endif
 public enum ModificationLevel1Code
 {
     /// <summary>

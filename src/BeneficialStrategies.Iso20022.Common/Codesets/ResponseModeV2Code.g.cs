@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_UvDdAFDiEeuzhPLt3qllKA")]
 [Description(@"Message response awaited by the initiator of the Request.")]
 [Derivations(typeof(ResponseMode2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResponseModeV2Code>))]
+#endif
 public enum ResponseModeV2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_0hem4UepEee9r7QjOdsbFw")]
 [Description(@"Card  writing capabilities of the terminal performing the transaction. | ISO 8583:93 bit 22-10, ISO 8583:2003 bit 27-8_9")]
 [DerivedFrom(typeof(CardDataReadingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardDataWriting1Code>))]
+#endif
 public enum CardDataWriting1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TR6hggEcEeCQm6a_G2yO_w_-1866554273")]
 [Description(@"Type of action to be performed by the POI System.")]
 [DerivedFrom(typeof(ActionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ActionType1Code>))]
+#endif
 public enum ActionType1Code
 {
     /// <summary>

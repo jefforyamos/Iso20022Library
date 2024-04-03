@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Hq2KwDHJEeyTT91yHXSlSQ")]
 [Description(@"A code that provides the reason of ICC fallback.")]
 [Derivations(typeof(ICCFallbackReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ICCFallbackReasonCode>))]
+#endif
 public enum ICCFallbackReasonCode
 {
     /// <summary>

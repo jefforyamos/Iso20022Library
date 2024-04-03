@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1j8MAPrtEemIKt9hrQ9pJw")]
 [Description(@"Provides the reason for a reject or a return status in the tracker.")]
 [DerivedFrom(typeof(TrackerPaymentRejectReturnReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TrackerPaymentRejectReturnReason1Code>))]
+#endif
 public enum TrackerPaymentRejectReturnReason1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aUTfYdp-Ed-ak6NoX_4Aeg_-982611626")]
 [Description(@"Specifies if an instruction is for a market or client side transaction.")]
 [Derivations(typeof(MarketClientSide1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarketClientSideCode>))]
+#endif
 public enum MarketClientSideCode
 {
     /// <summary>

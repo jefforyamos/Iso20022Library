@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_tzGsMQrAEeGFLZ_5tFfOnw")]
 [Description(@"Specifies the type of corporate action options.")]
 [DerivedFrom(typeof(CorporateActionOptionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionOption10Code>))]
+#endif
 public enum CorporateActionOption10Code
 {
     /// <summary>

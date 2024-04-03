@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a-7Jtdp-Ed-ak6NoX_4Aeg_1310151180")]
 [Description(@"Specifies the type of cheque.")]
 [DerivedFrom(typeof(ChequeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChequeType3Code>))]
+#endif
 public enum ChequeType3Code
 {
     /// <summary>

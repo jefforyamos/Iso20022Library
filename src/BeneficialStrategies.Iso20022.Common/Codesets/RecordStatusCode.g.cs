@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_P8v9YNHDEeaokquJJ-K6uA")]
 [Description(@"Specifies the status of the processing of an individual record within a message.")]
 [Derivations(typeof(ReportingRecordStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RecordStatusCode>))]
+#endif
 public enum RecordStatusCode
 {
     /// <summary>

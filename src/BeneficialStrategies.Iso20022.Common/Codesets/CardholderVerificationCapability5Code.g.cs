@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_4lWdQEevEee9r7QjOdsbFw")]
 [Description(@"Capability of verifying the cardholder's identity or authenticity.")]
 [DerivedFrom(typeof(CardholderVerificationCapabilityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardholderVerificationCapability5Code>))]
+#endif
 public enum CardholderVerificationCapability5Code
 {
     /// <summary>

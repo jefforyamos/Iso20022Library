@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QOgoAa4ZEeW_TaP-ygI0SQ")]
 [Description(@"Result of a requested currency conversion.")]
 [DerivedFrom(typeof(CurrencyConversionResponseCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CurrencyConversionResponse2Code>))]
+#endif
 public enum CurrencyConversionResponse2Code
 {
     /// <summary>

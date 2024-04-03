@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_PWEXMB3ZEeWNp95x0ENf8w")]
 [Description(@"Specifies a market identification code (MIC).")]
 [DerivedFrom(typeof(SpecialPurposeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AnyMIC1Code>))]
+#endif
 public enum AnyMIC1Code
 {
     /// <summary>

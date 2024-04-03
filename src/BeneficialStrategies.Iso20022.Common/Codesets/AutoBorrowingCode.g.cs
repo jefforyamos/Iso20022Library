@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bjuf5dp-Ed-ak6NoX_4Aeg_1205177778")]
 [Description(@"Specifies the condition under which automatic borrowing is allowed.")]
 [Derivations(typeof(AutoBorrowing1Code),typeof(AutoBorrowing2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AutoBorrowingCode>))]
+#endif
 public enum AutoBorrowingCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_11OY2ytUEeyhipY4f42fZQ")]
 [Description(@"Specifies the reason why the securities financing instruction has a rejected status.")]
 [DerivedFrom(typeof(RejectionReasonV3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectionReason70Code>))]
+#endif
 public enum RejectionReason70Code
 {
     /// <summary>

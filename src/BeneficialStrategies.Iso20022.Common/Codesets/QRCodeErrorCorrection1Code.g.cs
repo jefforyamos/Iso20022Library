@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_LwMBINubEeiB5uLfkg9ZJA")]
 [Description(@"Error Correction mode of Quick Response Code.")]
 [DerivedFrom(typeof(QRCodeErrorCorrectionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QRCodeErrorCorrection1Code>))]
+#endif
 public enum QRCodeErrorCorrection1Code
 {
     /// <summary>

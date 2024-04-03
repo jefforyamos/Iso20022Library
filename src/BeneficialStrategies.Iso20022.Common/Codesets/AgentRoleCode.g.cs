@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bofrItp-Ed-ak6NoX_4Aeg_388156528")]
 [Description(@"Identification of the agent acting as main paying agent or sub paying agent.")]
 [Derivations(typeof(AgentRole1Code),typeof(AgentRole2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AgentRoleCode>))]
+#endif
 public enum AgentRoleCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5z1UgLf7Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the status of a group of payment instructions, as published in an external payment group status code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentGroupStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalPaymentGroupStatusCode>))]
+#endif
 public enum ExternalPaymentGroupStatusCode
 {
     /// <summary>

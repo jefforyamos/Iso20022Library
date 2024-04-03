@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_awK8Adp-Ed-ak6NoX_4Aeg_1477351773")]
 [Description(@"Specifies the direction of a payment.")]
 [DerivedFrom(typeof(DirectionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Direction1Code>))]
+#endif
 public enum Direction1Code
 {
     /// <summary>

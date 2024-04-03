@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_AEXIl_JXEeiJn9rM2Znz2w")]
 [Description(@"Contains the additoinal identification type, for example NAICS, etc...")]
 [Derivations(typeof(AdditionalIdentificationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AdditionalIdentificationTypeCode>))]
+#endif
 public enum AdditionalIdentificationTypeCode
 {
     /// <summary>

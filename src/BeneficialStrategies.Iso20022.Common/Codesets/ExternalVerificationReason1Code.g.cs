@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YWiyMNp-Ed-ak6NoX_4Aeg_914233593")]
 [Description(@"Specifies the external verification reason code, as published in an external verification code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalVerificationReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalVerificationReason1Code>))]
+#endif
 public enum ExternalVerificationReason1Code
 {
     /// <summary>

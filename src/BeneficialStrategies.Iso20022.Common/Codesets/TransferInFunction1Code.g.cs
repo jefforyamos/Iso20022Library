@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_iCdscCVOEeWI0orciOKunQ")]
 [Description(@"Specifies the function of the transfer in.")]
 [DerivedFrom(typeof(TransferInFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransferInFunction1Code>))]
+#endif
 public enum TransferInFunction1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1oFf0DL3EeKU9IrkkToqcw_-1688796996")]
 [Description(@"Indicates what type of interface an agent has with DTC (The Depository Trust Corporation).")]
 [Derivations(typeof(DTCAutoOfferProgram1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCAutoOfferProgramCode>))]
+#endif
 public enum DTCAutoOfferProgramCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_gbgLkLb0Eeu9Cp6InX88Vw")]
 [Description(@"Specifies a payment schedule type.")]
 [DerivedFrom(typeof(PaymentScheduleTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentScheduleType2Code>))]
+#endif
 public enum PaymentScheduleType2Code
 {
     /// <summary>

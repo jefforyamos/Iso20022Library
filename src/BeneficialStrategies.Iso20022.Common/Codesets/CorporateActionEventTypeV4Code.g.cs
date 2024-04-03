@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_BHZogF76EeKuEK-D5sCZIw_2116376083")]
 [Description(@"Specifies the corporate action event type.")]
-[Derivations(typeof(CorporateActionEventType13Code),typeof(CorporateActionEventType11Code),typeof(CorporateActionEventType14Code),typeof(CorporateActionEventType12Code),typeof(CorporateActionEventType10Code))]
+[Derivations(typeof(CorporateActionEventType11Code),typeof(CorporateActionEventType12Code),typeof(CorporateActionEventType13Code),typeof(CorporateActionEventType14Code),typeof(CorporateActionEventType10Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionEventTypeV4Code>))]
+#endif
 public enum CorporateActionEventTypeV4Code
 {
     /// <summary>

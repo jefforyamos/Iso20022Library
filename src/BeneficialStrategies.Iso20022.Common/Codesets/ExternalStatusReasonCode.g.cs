@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a929gJ0uEeeuSNj2bfEs7Q")]
 [Description(@"Specifies the status reason, as published in an external status reason code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalStatusReasonCode>))]
+#endif
 public enum ExternalStatusReasonCode
 {
     /// <summary>

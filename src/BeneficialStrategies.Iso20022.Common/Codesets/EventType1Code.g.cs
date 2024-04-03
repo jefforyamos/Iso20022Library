@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aki609p-Ed-ak6NoX_4Aeg_-470397126")]
 [Description(@"Identifies the type of event.")]
 [DerivedFrom(typeof(EventTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventType1Code>))]
+#endif
 public enum EventType1Code
 {
     /// <summary>

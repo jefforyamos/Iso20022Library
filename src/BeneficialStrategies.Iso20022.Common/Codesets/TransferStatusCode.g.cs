@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YvRbQ9p-Ed-ak6NoX_4Aeg_-141526851")]
 [Description(@"Specifies the transfer or settlement instruction status.")]
-[Derivations(typeof(TransferStatus6Code),typeof(TransferStatus3Code),typeof(TransferStatus4Code),typeof(TransferStatus2Code),typeof(TransferStatus1Code))]
+[Derivations(typeof(TransferStatus4Code),typeof(TransferStatus6Code),typeof(TransferStatus3Code),typeof(TransferStatus2Code),typeof(TransferStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransferStatusCode>))]
+#endif
 public enum TransferStatusCode
 {
     /// <summary>

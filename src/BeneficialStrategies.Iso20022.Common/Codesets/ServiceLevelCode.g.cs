@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZKjCBtp-Ed-ak6NoX_4Aeg_27077398")]
 [Description(@"Specifies the pre-agreed level of service between the parties.")]
 [Derivations(typeof(ServiceLevel1Code),typeof(ServiceLevel2Code),typeof(ServiceLevel4Code),typeof(ServiceLevel3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ServiceLevelCode>))]
+#endif
 public enum ServiceLevelCode
 {
     /// <summary>

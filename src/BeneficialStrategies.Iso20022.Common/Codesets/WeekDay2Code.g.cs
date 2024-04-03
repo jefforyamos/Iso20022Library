@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_AgPzYS-pEeWvZpCvNOLJLQ")]
 [Description(@"Specifies the day of the week of the delivery.")]
 [DerivedFrom(typeof(WeekDayCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<WeekDay2Code>))]
+#endif
 public enum WeekDay2Code
 {
     /// <summary>

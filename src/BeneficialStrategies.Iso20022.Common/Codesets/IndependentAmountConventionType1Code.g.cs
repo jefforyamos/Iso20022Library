@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YczLNtp-Ed-ak6NoX_4Aeg_428105906")]
 [Description(@"Determines how the independent amount was applied in the margin calculation.")]
 [DerivedFrom(typeof(IndependentAmountConventionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IndependentAmountConventionType1Code>))]
+#endif
 public enum IndependentAmountConventionType1Code
 {
     /// <summary>

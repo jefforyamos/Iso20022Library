@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EnANEBsTEeWhp-Wous5jzA")]
 [Description(@"Specifies the type of price for an asset.")]
 [Derivations(typeof(AssetPriceType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetPriceTypeCode>))]
+#endif
 public enum AssetPriceTypeCode
 {
     /// <summary>

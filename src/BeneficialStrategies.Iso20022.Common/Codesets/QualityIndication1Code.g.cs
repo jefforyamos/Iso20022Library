@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZXNlBtp-Ed-ak6NoX_4Aeg_-1532318790")]
 [Description(@"Indicates the relative quality of the indication of interest.")]
 [DerivedFrom(typeof(QualityIndicationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QualityIndication1Code>))]
+#endif
 public enum QualityIndication1Code
 {
     /// <summary>

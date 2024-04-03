@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aR8RMQ26EeWmAKKPnqYEVQ")]
 [Description(@"Specifies whether the contract was electronically confirmed, non-electronically confirmed or remains unconfirmed.")]
 [Derivations(typeof(TradeConfirmationType2Code),typeof(TradeConfirmationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeConfirmationTypeCode>))]
+#endif
 public enum TradeConfirmationTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Vncustp-Ed-ak6NoX_4Aeg_1226420909")]
 [Description(@"Used when the unable to apply is due to incorrect information.")]
 [DerivedFrom(typeof(UnableToApplyIncorrectInfoCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnableToApplyIncorrectInfo1Code>))]
+#endif
 public enum UnableToApplyIncorrectInfo1Code
 {
     /// <summary>

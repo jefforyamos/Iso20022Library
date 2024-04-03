@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bUhmSdp-Ed-ak6NoX_4Aeg_-1415296832")]
 [Description(@"Firms that are taking in orders manually but routing for execution electronically and for reporting to OATS must capture the client's handling instructions.This is intended for compliance reporting only ( OATS Phase III regulatory requirement).")]
 [DerivedFrom(typeof(CustomerHandlingInstructionsCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CustomerHandlingInstructions1Code>))]
+#endif
 public enum CustomerHandlingInstructions1Code
 {
     /// <summary>

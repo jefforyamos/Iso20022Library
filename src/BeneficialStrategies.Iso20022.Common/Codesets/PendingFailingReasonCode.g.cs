@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Z-QW5dp-Ed-ak6NoX_4Aeg_-2146608608")]
 [Description(@"Specifies the reason the transaction/instruction is pending or failing settlement. Settlement on the instructed settlement date is still possible, status is pending. Settlement on the instructed settlement date is no longer possible, status is failing.")]
-[Derivations(typeof(PendingCancellationReason7Code),typeof(FailingReason2Code),typeof(PendingReason1Code),typeof(PendingReason17Code),typeof(PendingReason2Code),typeof(PendingReason7Code),typeof(PendingReason9Code),typeof(PendingReason19Code),typeof(PendingReason5Code),typeof(PendingReason4Code),typeof(PendingProcessingReason2Code),typeof(PendingCancellationReason2Code),typeof(PendingProcessingReason3Code),typeof(PendingReason6Code),typeof(PendingReason10Code),typeof(PendingReason3Code),typeof(PendingCancellationReason1Code),typeof(PendingReason11Code),typeof(FailingReason1Code),typeof(FailingReason3Code),typeof(PendingReason8Code),typeof(PendingProcessingReason4Code),typeof(PendingReason13Code),typeof(PendingProcessingReason1Code),typeof(PendingReason21Code))]
+[Derivations(typeof(PendingProcessingReason2Code),typeof(PendingReason8Code),typeof(PendingReason10Code),typeof(PendingReason6Code),typeof(PendingReason4Code),typeof(PendingCancellationReason1Code),typeof(PendingReason13Code),typeof(PendingReason17Code),typeof(PendingReason7Code),typeof(PendingCancellationReason7Code),typeof(PendingReason19Code),typeof(PendingReason1Code),typeof(PendingReason11Code),typeof(PendingReason21Code),typeof(PendingReason2Code),typeof(PendingProcessingReason4Code),typeof(PendingReason9Code),typeof(FailingReason1Code),typeof(PendingProcessingReason3Code),typeof(PendingCancellationReason2Code),typeof(PendingProcessingReason1Code),typeof(PendingReason5Code),typeof(FailingReason3Code),typeof(FailingReason2Code),typeof(PendingReason3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingFailingReasonCode>))]
+#endif
 public enum PendingFailingReasonCode
 {
     /// <summary>

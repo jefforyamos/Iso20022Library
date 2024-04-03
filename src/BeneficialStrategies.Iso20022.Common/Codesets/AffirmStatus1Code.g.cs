@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_JyV3kHOxEeSG-OV0nXMl5w")]
 [Description(@"Identifies the status of the confirmation acknowledgement.")]
 [DerivedFrom(typeof(AffirmStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AffirmStatus1Code>))]
+#endif
 public enum AffirmStatus1Code
 {
     /// <summary>

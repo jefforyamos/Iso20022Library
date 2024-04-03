@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5-DjoFSeEeatgN-VQ0eFlQ")]
 [Description(@"Specifies the instruction for which an status is required.")]
 [DerivedFrom(typeof(AccountManagementTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountManagementType3Code>))]
+#endif
 public enum AccountManagementType3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__2iXddojEeC60axPepSq7g_-1182518017")]
 [Description(@"Future And Option Contract Type.")]
 [DerivedFrom(typeof(FutureAndOptionContractTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FutureAndOptionContractType1Code>))]
+#endif
 public enum FutureAndOptionContractType1Code
 {
     /// <summary>

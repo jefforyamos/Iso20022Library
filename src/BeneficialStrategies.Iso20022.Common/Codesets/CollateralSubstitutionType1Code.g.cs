@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YcDkVNp-Ed-ak6NoX_4Aeg_917519215")]
 [Description(@"Specifies if the collateral that is substituted was posted against the variation margin or the independent amount.")]
 [DerivedFrom(typeof(CollateralSubstitutionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralSubstitutionType1Code>))]
+#endif
 public enum CollateralSubstitutionType1Code
 {
     /// <summary>

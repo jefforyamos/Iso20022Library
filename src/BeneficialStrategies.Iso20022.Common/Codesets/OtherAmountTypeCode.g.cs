@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_mutCoK53Eee6Q7mFsDuJBA")]
 [Description(@"Type of other amount.")]
 [Derivations(typeof(OtherAmountType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OtherAmountTypeCode>))]
+#endif
 public enum OtherAmountTypeCode
 {
     /// <summary>

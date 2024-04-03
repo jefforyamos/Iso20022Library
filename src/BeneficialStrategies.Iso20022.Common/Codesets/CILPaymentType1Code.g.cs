@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1s_1BjL3EeKU9IrkkToqcw_1334650704")]
 [Description(@"Specifies the cash in lieu payment type.")]
 [DerivedFrom(typeof(CILPaymentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CILPaymentType1Code>))]
+#endif
 public enum CILPaymentType1Code
 {
     /// <summary>

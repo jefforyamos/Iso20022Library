@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Zw8U8FBUEe2v8Nk6ybN7jA")]
 [Description(@"Specifies the process type used for the trade repository reconciliation.")]
 [DerivedFrom(typeof(ReconciliationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Reconciliation3Code>))]
+#endif
 public enum Reconciliation3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ahtpRdp-Ed-ak6NoX_4Aeg_1496558248")]
 [Description(@"Specifies information about ERISA (Eligibility to federal Employee Retirement Income Security Act) eligibility.")]
 [DerivedFrom(typeof(ERISAEligibilityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ERISAEligibility1Code>))]
+#endif
 public enum ERISAEligibility1Code
 {
     /// <summary>

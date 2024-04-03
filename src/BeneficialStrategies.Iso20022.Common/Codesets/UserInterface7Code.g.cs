@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VtKV4FBAEeedyPuM0kK2EQ")]
 [Description(@"Clearing agent dedicated interface.")]
 [DerivedFrom(typeof(UserInterfaceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UserInterface7Code>))]
+#endif
 public enum UserInterface7Code
 {
     /// <summary>

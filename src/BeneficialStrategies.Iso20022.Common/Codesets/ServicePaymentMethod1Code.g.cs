@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6V6hxZqlEeGSON8vddiWzQ_1243106424")]
 [Description(@"Defines the method for the payment of the services charge.")]
 [DerivedFrom(typeof(ServicePaymentMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ServicePaymentMethod1Code>))]
+#endif
 public enum ServicePaymentMethod1Code
 {
     /// <summary>

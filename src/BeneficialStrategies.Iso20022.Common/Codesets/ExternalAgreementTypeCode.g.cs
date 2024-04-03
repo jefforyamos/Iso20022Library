@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_B-g18MkeEeeiAIB1i4AlQw")]
 [Description(@"Details related to the master agreement.")]
 [Derivations(typeof(ExternalAgreementType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalAgreementTypeCode>))]
+#endif
 public enum ExternalAgreementTypeCode
 {
     /// <summary>

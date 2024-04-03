@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZKPgB9p-Ed-ak6NoX_4Aeg_868377274")]
 [Description(@"Specifies whether a once off transaction is covered or whether recurring transactions are covered.")]
 [DerivedFrom(typeof(SequenceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SequenceType2Code>))]
+#endif
 public enum SequenceType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1q93Uh-0EeuxStysDTgLiw")]
 [Description(@"Specifies the pending status code for the cross-element validation rules.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ValidationRulePending1Code>))]
+#endif
 public enum ValidationRulePending1Code
 {
     /// <summary>

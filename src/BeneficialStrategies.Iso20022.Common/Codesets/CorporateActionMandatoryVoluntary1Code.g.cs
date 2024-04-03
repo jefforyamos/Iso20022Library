@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bKsU0dp-Ed-ak6NoX_4Aeg_-2134886943")]
 [Description(@"Specifies whether the event is mandatory, mandatory with options or voluntary.")]
 [DerivedFrom(typeof(CorporateActionMandatoryVoluntaryCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionMandatoryVoluntary1Code>))]
+#endif
 public enum CorporateActionMandatoryVoluntary1Code
 {
     /// <summary>

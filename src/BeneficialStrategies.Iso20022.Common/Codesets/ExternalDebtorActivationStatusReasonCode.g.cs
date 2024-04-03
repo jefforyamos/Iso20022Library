@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_pe4x5OIwEeqbls7Gk4-ckA")]
 [Description(@"Specifies the debtor activation status reason code, as published in an external debtor activation status reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDebtorActivationStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalDebtorActivationStatusReasonCode>))]
+#endif
 public enum ExternalDebtorActivationStatusReasonCode
 {
     /// <summary>

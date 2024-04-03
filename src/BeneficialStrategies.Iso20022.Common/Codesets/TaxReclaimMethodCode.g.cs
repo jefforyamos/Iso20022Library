@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Nff_g_M9Eei4qfiLgRIZBA")]
 [Description(@"Contains Tax Reclaim options")]
 [Derivations(typeof(TaxReclaimMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxReclaimMethodCode>))]
+#endif
 public enum TaxReclaimMethodCode
 {
     /// <summary>

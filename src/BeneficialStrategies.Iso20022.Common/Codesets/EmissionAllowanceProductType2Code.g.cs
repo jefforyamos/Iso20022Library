@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_e3GDEGlHEeaLAKoEUNsD9g")]
 [Description(@"Specifies an mission allowance type.")]
 [DerivedFrom(typeof(AssetClassDetailedSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EmissionAllowanceProductType2Code>))]
+#endif
 public enum EmissionAllowanceProductType2Code
 {
     /// <summary>

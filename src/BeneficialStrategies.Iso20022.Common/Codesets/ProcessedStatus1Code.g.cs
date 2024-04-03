@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aKeN8Np-Ed-ak6NoX_4Aeg_985847288")]
 [Description(@"Specifies the processing status of the notification advice.")]
 [DerivedFrom(typeof(CorporateActionProcessedStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProcessedStatus1Code>))]
+#endif
 public enum ProcessedStatus1Code
 {
     /// <summary>

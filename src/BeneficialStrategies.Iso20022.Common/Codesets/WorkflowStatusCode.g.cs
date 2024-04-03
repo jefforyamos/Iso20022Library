@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1nx90jL3EeKU9IrkkToqcw_-1815438950")]
 [Description(@"Specifies the workflow status of the details of a specific level.")]
 [Derivations(typeof(WorkflowStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<WorkflowStatusCode>))]
+#endif
 public enum WorkflowStatusCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cmC3IHxsEeOCOoRiuJeDeg")]
 [Description(@"Specifies the type of the payment adjustment.")]
 [Derivations(typeof(DTCAdjustmentPaymentType2Code),typeof(DTCAdjustmentPaymentType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCAdjustmentPaymentTypeV2Code>))]
+#endif
 public enum DTCAdjustmentPaymentTypeV2Code
 {
     /// <summary>

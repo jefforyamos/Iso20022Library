@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Cjj9AF25EeiFXdiLi_Nf4A")]
 [Description(@"Specifies a type of amount.")]
 [DerivedFrom(typeof(TaxWrapperAmountTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxWrapperAmountType1Code>))]
+#endif
 public enum TaxWrapperAmountType1Code
 {
     /// <summary>

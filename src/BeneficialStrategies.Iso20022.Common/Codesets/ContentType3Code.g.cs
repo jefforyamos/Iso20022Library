@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_DOog0D6OEeq_lLaSkIVjTQ")]
 [Description(@"Identification of the type of protection for a protected data.")]
 [DerivedFrom(typeof(ContentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ContentType3Code>))]
+#endif
 public enum ContentType3Code
 {
     /// <summary>

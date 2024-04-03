@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZPw5NNp-Ed-ak6NoX_4Aeg_-471538083")]
 [Description(@"Specifies the type of standing instruction.")]
 [DerivedFrom(typeof(StandingInstructionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StandingInstructionType1Code>))]
+#endif
 public enum StandingInstructionType1Code
 {
     /// <summary>

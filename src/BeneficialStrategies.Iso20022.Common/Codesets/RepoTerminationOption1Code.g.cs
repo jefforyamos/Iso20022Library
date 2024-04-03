@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Dix5sCy0Eea35M2x2c9PXw")]
 [Description(@"Indicates the termination option for a repurchase agreement.")]
 [DerivedFrom(typeof(RepoTerminationOptionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RepoTerminationOption1Code>))]
+#endif
 public enum RepoTerminationOption1Code
 {
     /// <summary>

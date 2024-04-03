@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_c9M7QIZ5EeuSbct6WWD-Ng")]
 [Description(@"Type of Exchange Rate agreement.")]
 [Derivations(typeof(ExchangeRateAgreementType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExchangeRateAgreementTypeCode>))]
+#endif
 public enum ExchangeRateAgreementTypeCode
 {
     /// <summary>

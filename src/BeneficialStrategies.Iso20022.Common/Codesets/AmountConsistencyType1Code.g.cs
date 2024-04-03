@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QjU6UAStEeusZ4O-nsxv_w")]
 [Description(@"Specifies a type of amount inconsistencies, that the amount type provided matches the reference amount or not.")]
 [DerivedFrom(typeof(AmountConsistencyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AmountConsistencyType1Code>))]
+#endif
 public enum AmountConsistencyType1Code
 {
     /// <summary>

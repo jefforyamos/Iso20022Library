@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_7DGFoCpUEeuUucRY0yCMTA")]
 [Description(@"Available criterion to group transactions when a reconliation is made.")]
 [Derivations(typeof(ReconciliationCriteria1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationCriteriaCode>))]
+#endif
 public enum ReconciliationCriteriaCode
 {
     /// <summary>

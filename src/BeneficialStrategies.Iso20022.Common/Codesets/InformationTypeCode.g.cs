@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aWsFAtp-Ed-ak6NoX_4Aeg_760507288")]
 [Description(@"Specifies the coded type of additional information provided.")]
 [Derivations(typeof(InformationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InformationTypeCode>))]
+#endif
 public enum InformationTypeCode
 {
     /// <summary>

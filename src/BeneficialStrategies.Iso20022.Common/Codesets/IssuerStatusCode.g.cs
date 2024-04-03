@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1nV48zL3EeKU9IrkkToqcw_1768517900")]
 [Description(@"Specifies DTC (The Depository Trust Company) defined issuer status of the event.")]
 [Derivations(typeof(IssuerStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IssuerStatusCode>))]
+#endif
 public enum IssuerStatusCode
 {
     /// <summary>

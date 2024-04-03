@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_CoXPEAxzEeKa_56Jbsi1RQ")]
 [Description(@"Unit of the memory size.")]
 [Derivations(typeof(MemoryUnit1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MemoryUnitCode>))]
+#endif
 public enum MemoryUnitCode
 {
     /// <summary>

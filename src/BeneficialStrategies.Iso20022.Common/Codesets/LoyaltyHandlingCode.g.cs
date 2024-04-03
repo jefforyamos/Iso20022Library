@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-jd2ENt3EeiXqq0XHEoNUA")]
 [Description(@"Possible types of Loyalty processing.")]
 [Derivations(typeof(LoyaltyHandling1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LoyaltyHandlingCode>))]
+#endif
 public enum LoyaltyHandlingCode
 {
     /// <summary>

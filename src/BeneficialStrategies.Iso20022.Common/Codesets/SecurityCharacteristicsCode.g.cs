@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_X8tNUEqzEeenp6hmNprBHg")]
 [Description(@"Security characteristics of the communication link between a cardholder and a card acceptor.")]
 [Derivations(typeof(SecurityCharacteristics1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecurityCharacteristicsCode>))]
+#endif
 public enum SecurityCharacteristicsCode
 {
     /// <summary>

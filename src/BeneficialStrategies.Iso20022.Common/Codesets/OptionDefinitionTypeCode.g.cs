@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ADxVkLcQEeKuGrOch6U_ZQ_1001230530")]
 [Description(@"Indicates whether it is a Call option (right to purchase a specific underlying asset) or a Put option (right to sell a specific underlying asset).")]
 [Derivations(typeof(OptionType1Code),typeof(OptionTypeCode),typeof(OptionType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionDefinitionTypeCode>))]
+#endif
 public enum OptionDefinitionTypeCode
 {
     /// <summary>

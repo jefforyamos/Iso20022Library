@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Emn04KH3EeuiuNcvKhXmNQ")]
 [Description(@"Identifies the security characteristic of the PIN entry device.")]
 [Derivations(typeof(PINEntrySecurityCharacteristic1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PINEntrySecurityCharacteristicCode>))]
+#endif
 public enum PINEntrySecurityCharacteristicCode
 {
     /// <summary>

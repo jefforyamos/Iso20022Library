@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VqbxQdp-Ed-ak6NoX_4Aeg_-1345554396")]
 [Description(@"Specifies whether a message is an intention to execute a transfer instruction or an actual confirmation of the execution of the transfer.")]
 [Derivations(typeof(ConfirmationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ConfirmationTypeCode>))]
+#endif
 public enum ConfirmationTypeCode
 {
     /// <summary>

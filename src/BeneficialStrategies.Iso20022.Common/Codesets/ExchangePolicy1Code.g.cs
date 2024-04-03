@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KRiyAH1DEeCF8NjrBemJWQ_-642247861")]
 [Description(@"Exchange policy between parties.")]
 [DerivedFrom(typeof(ExchangePolicyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExchangePolicy1Code>))]
+#endif
 public enum ExchangePolicy1Code
 {
     /// <summary>

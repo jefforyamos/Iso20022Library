@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZzVAYNIGEeiG-o-KpBT4-g")]
 [Description(@"Indication whether both counterparties to the transaction have reported to the same trade repository or each counterparty to the transaction reported two different trade repository.")]
 [DerivedFrom(typeof(TradeRepositoryReportingTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeRepositoryReportingType1Code>))]
+#endif
 public enum TradeRepositoryReportingType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aSEqxtp-Ed-ak6NoX_4Aeg_1781619075")]
 [Description(@"Specifies the current status of the order.")]
 [DerivedFrom(typeof(OrderStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderStatus5Code>))]
+#endif
 public enum OrderStatus5Code
 {
     /// <summary>

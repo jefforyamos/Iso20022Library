@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aaj4Y9p-Ed-ak6NoX_4Aeg_343425877")]
 [Description(@"Exchange of holdings for other securities and/or cash. The exchange can be either mandatory or voluntary involving the exchange of outstanding securities for different securities and/or cash. For example ""exchange offer"", ""capital reorganisation"" or ""funds separation"".")]
-[Derivations(typeof(IntermediateSecurityDistributionType3Code),typeof(IntermediateSecurityDistributionType1Code),typeof(IntermediateSecurityDistributionType2Code),typeof(IntermediateSecurityDistributionType5Code),typeof(IntermediateSecurityDistributionType4Code))]
+[Derivations(typeof(IntermediateSecurityDistributionType4Code),typeof(IntermediateSecurityDistributionType1Code),typeof(IntermediateSecurityDistributionType3Code),typeof(IntermediateSecurityDistributionType2Code),typeof(IntermediateSecurityDistributionType5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IntermediateSecurityDistributionTypeCode>))]
+#endif
 public enum IntermediateSecurityDistributionTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5Ej7kE4YEeiQHa-q1Uephw")]
 [Description(@"Specifies the scope of a pension transfer.")]
 [DerivedFrom(typeof(PensionTransferScopeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PensionTransferScope1Code>))]
+#endif
 public enum PensionTransferScope1Code
 {
     /// <summary>

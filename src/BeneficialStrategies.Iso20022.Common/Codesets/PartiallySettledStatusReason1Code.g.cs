@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZxSR59p-Ed-ak6NoX_4Aeg_-674686926")]
 [Description(@"Specifies the reason for a partially settled status.")]
 [DerivedFrom(typeof(PartiallySettledStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartiallySettledStatusReason1Code>))]
+#endif
 public enum PartiallySettledStatusReason1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_sFQTwI4MEeW6h7rGyYlyTg")]
 [Description(@"Requested certificate management service.")]
 [DerivedFrom(typeof(CardPaymentServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardPaymentServiceType10Code>))]
+#endif
 public enum CardPaymentServiceType10Code
 {
     /// <summary>

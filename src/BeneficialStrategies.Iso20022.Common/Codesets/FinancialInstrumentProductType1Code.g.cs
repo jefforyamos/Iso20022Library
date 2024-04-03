@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_xYEPwJf8EeSfnc-VXAEapg")]
 [Description(@"Specifies the type of product or financial instrument.")]
 [DerivedFrom(typeof(FinancialInstrumentProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialInstrumentProductType1Code>))]
+#endif
 public enum FinancialInstrumentProductType1Code
 {
     /// <summary>

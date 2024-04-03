@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_CYsHEL-FEeWfsa741pI6WA")]
 [Description(@"Specifies the type of usage of the account.")]
 [DerivedFrom(typeof(AccountUsageTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountUsageType2Code>))]
+#endif
 public enum AccountUsageType2Code
 {
     /// <summary>

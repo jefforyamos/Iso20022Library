@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TVCuEAEcEeCQm6a_G2yO_w_-1692790704")]
 [Description(@"Generic component type belonging to a POI (Point of Interaction) Terminal.")]
-[Derivations(typeof(POIComponentType4Code),typeof(POIComponentType3Code),typeof(POIComponentType6Code),typeof(POIComponentType5Code),typeof(POIComponentType2Code),typeof(POIComponentType1Code))]
+[Derivations(typeof(POIComponentType1Code),typeof(POIComponentType5Code),typeof(POIComponentType2Code),typeof(POIComponentType3Code),typeof(POIComponentType6Code),typeof(POIComponentType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<POIComponentTypeCode>))]
+#endif
 public enum POIComponentTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bpPSANp-Ed-ak6NoX_4Aeg_-1257492124")]
 [Description(@"Specifies additional information about the processed instruction.")]
 [DerivedFrom(typeof(AcknowledgementReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AcknowledgementReason4Code>))]
+#endif
 public enum AcknowledgementReason4Code
 {
     /// <summary>

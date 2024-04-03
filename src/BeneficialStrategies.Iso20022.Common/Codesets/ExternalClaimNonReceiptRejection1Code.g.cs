@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_pAS38IluEeePr-EGJjGYzQ")]
 [Description(@"Specifies the reason for the rejection of a claim non receipt, as published in an external claim non receipt rejection code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalClaimNonReceiptRejectionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalClaimNonReceiptRejection1Code>))]
+#endif
 public enum ExternalClaimNonReceiptRejection1Code
 {
     /// <summary>

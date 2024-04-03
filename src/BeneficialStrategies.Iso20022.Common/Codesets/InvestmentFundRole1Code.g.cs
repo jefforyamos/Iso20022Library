@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Vi-eZtp-Ed-ak6NoX_4Aeg_1660914600")]
 [Description(@"Specifies the role played by the actors in the investment funds industry.")]
 [DerivedFrom(typeof(PartyRoleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestmentFundRole1Code>))]
+#endif
 public enum InvestmentFundRole1Code
 {
     /// <summary>

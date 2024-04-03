@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_w783gIcPEeu4rpsqTt37Pg")]
 [Description(@"Specifies the list of codes applicable to embedded option types.")]
 [Derivations(typeof(EmbeddedType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EmbeddedTypeCode>))]
+#endif
 public enum EmbeddedTypeCode
 {
     /// <summary>

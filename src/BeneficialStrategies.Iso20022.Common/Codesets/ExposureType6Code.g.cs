@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_UIVnYHaaEeavseMKyTsJEA")]
 [Description(@"Identification of the type of the transaction.")]
 [DerivedFrom(typeof(ExposureTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExposureType6Code>))]
+#endif
 public enum ExposureType6Code
 {
     /// <summary>

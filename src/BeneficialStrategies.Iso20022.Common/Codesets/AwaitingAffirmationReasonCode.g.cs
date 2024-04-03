@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__0Jx1dojEeC60axPepSq7g_-795321397")]
 [Description(@"Specifies the reason why the instruction has an awaiting affirmation status.")]
 [Derivations(typeof(AwaitingAffirmationReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AwaitingAffirmationReasonCode>))]
+#endif
 public enum AwaitingAffirmationReasonCode
 {
     /// <summary>

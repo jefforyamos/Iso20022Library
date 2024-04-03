@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_10Ab8DL3EeKU9IrkkToqcw_1816998804")]
 [Description(@"Specifies the type of the first accrual period for debt instruments compared to the normal accrual period of the security.")]
 [DerivedFrom(typeof(AccrualPeriodTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccrualPeriodType1Code>))]
+#endif
 public enum AccrualPeriodType1Code
 {
     /// <summary>

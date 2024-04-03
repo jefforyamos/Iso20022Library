@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8LOxMKa_EeSxuMLA5o46jQ")]
 [Description(@"Specifies the inquiry type of the data.")]
 [DerivedFrom(typeof(QueryDataTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QueryDataType1Code>))]
+#endif
 public enum QueryDataType1Code
 {
     /// <summary>

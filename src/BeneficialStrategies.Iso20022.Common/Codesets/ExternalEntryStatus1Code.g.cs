@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__lGEsK6IEeexrtTFgmVD3Q")]
 [Description(@"Specifies the status of an entry on the books of the account servicer, as published in an external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalEntryStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalEntryStatus1Code>))]
+#endif
 public enum ExternalEntryStatus1Code
 {
     /// <summary>

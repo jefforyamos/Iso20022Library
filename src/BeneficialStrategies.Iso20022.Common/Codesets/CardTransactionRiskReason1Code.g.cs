@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5YSw4HsMEeSR68OJvMfxJQ")]
 [Description(@"Reason to indicate a certain level of risk for the transaction.")]
 [DerivedFrom(typeof(CardTransactionRiskReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardTransactionRiskReason1Code>))]
+#endif
 public enum CardTransactionRiskReason1Code
 {
     /// <summary>

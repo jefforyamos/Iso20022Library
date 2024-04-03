@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aQR7BNp-Ed-ak6NoX_4Aeg_195526371")]
 [Description(@"Defines how an option can be exercised.")]
-[Derivations(typeof(OptionStyle7Code),typeof(OptionStyle3Code),typeof(OptionStyle6Code),typeof(OptionStyle5Code),typeof(OptionStyle1Code),typeof(OptionStyle2Code),typeof(OptionStyle4Code))]
+[Derivations(typeof(OptionStyle5Code),typeof(OptionStyle2Code),typeof(OptionStyle7Code),typeof(OptionStyle6Code),typeof(OptionStyle3Code),typeof(OptionStyle1Code),typeof(OptionStyle4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionStyleCode>))]
+#endif
 public enum OptionStyleCode
 {
     /// <summary>

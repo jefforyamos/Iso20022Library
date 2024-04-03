@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_OQLLYEV3EemRx7jyevcLwg")]
 [Description(@"Type of disclosure request.")]
 [DerivedFrom(typeof(DisclosureRequestTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DisclosureRequestType1Code>))]
+#endif
 public enum DisclosureRequestType1Code
 {
     /// <summary>

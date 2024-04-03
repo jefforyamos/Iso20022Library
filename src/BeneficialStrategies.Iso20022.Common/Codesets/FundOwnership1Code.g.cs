@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_j9NfQCDXEeWCLu74WLgP4w")]
 [Description(@"Specifies if all the shares are owned exclusively by the fund company.")]
 [DerivedFrom(typeof(FundOwnershipCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FundOwnership1Code>))]
+#endif
 public enum FundOwnership1Code
 {
     /// <summary>

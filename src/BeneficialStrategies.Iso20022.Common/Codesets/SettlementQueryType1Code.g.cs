@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_j4AIYO5NEeCisYr99QEiWA_-671204936")]
 [Description(@"Specifies the type of settlement instruction query to be executed.")]
 [DerivedFrom(typeof(SettlementQueryTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementQueryType1Code>))]
+#endif
 public enum SettlementQueryType1Code
 {
     /// <summary>

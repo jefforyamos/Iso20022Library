@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bjlV8Np-Ed-ak6NoX_4Aeg_-1874566431")]
 [Description(@"Specifies the level of approval depending on a number of factors, including payment type, threshold amount or local country or operations practice.")]
 [Derivations(typeof(Authorisation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AuthorisationCode>))]
+#endif
 public enum AuthorisationCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5rSSUA4SEeKGXqvMN6jpiw")]
 [Description(@"Specifies if an item is added, modified, deleted or unchanged.")]
 [DerivedFrom(typeof(ModificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Modification1Code>))]
+#endif
 public enum Modification1Code
 {
     /// <summary>

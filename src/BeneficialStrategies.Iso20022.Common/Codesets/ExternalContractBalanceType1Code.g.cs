@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cjg1wQtKEeWkxvNyFrBT8Q")]
 [Description(@"Specifies a contract balance type code, as published in the external ISO 20022 external code set.|External code sets can be downloaded from www.iso20022.org.")]
 [DerivedFrom(typeof(ExternalContractBalanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalContractBalanceType1Code>))]
+#endif
 public enum ExternalContractBalanceType1Code
 {
     /// <summary>

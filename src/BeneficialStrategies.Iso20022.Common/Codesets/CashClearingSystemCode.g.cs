@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a5tSg9p-Ed-ak6NoX_4Aeg_381100265")]
 [Description(@"Specification of a pre-agreed offering between clearing agents or the channel through which the payment instruction is to be processed.")]
 [Derivations(typeof(CashClearingSystem1Code),typeof(CashClearingSystem3Code),typeof(CashClearingSystem2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CashClearingSystemCode>))]
+#endif
 public enum CashClearingSystemCode
 {
     /// <summary>

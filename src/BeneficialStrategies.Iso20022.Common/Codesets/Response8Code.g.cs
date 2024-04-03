@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cKXU0Ji4EeefZKJHxQTztg")]
 [Description(@"Response codes.")]
 [DerivedFrom(typeof(ResponseCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Response8Code>))]
+#endif
 public enum Response8Code
 {
     /// <summary>

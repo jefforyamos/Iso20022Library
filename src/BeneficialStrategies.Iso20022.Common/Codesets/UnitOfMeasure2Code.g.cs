@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y2SCNtp-Ed-ak6NoX_4Aeg_-339035809")]
 [Description(@"Identifies the unit of measure by means of a code. The code is taken from UN/ECE Recommendation 20.")]
 [Derivations(typeof(UnitOfMeasure4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnitOfMeasure2Code>))]
+#endif
 public enum UnitOfMeasure2Code
 {
     /// <summary>

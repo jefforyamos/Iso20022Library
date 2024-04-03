@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YsJOxtp-Ed-ak6NoX_4Aeg_1783969936")]
 [Description(@"Provides the processing status of a transaction (at account servicer level).")]
 [DerivedFrom(typeof(InstructionProcessingStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionProcessingStatus2Code>))]
+#endif
 public enum TransactionProcessingStatus2Code
 {
     /// <summary>

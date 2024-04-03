@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YgYDpdp-Ed-ak6NoX_4Aeg_820677101")]
 [Description(@"Defines whether the threshold was applied on an unsecured or securited basis.")]
 [Derivations(typeof(ThresholdType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ThresholdTypeCode>))]
+#endif
 public enum ThresholdTypeCode
 {
     /// <summary>

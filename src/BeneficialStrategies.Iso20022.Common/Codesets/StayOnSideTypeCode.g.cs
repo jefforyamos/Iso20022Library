@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZQpqANp-Ed-ak6NoX_4Aeg_1097083970")]
 [Description(@"Indicates that an order is pegged against the offer/bid at the time of the order submission.")]
 [Derivations(typeof(StayOnSideType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StayOnSideTypeCode>))]
+#endif
 public enum StayOnSideTypeCode
 {
     /// <summary>

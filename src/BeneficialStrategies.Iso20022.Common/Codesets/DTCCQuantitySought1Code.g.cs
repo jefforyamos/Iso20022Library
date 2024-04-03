@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1sjJEzL3EeKU9IrkkToqcw_-1077750329")]
 [Description(@"Specifies the quantity sought type.")]
 [DerivedFrom(typeof(DTCCQuantitySoughtCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCCQuantitySought1Code>))]
+#endif
 public enum DTCCQuantitySought1Code
 {
     /// <summary>

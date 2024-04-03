@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aczUE9p-Ed-ak6NoX_4Aeg_1672602191")]
 [Description(@"Specifies the type of investment fund transaction that results in a cash movement out of a fund.")]
 [DerivedFrom(typeof(InvestmentFundTransactionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestmentFundTransactionOutType1Code>))]
+#endif
 public enum InvestmentFundTransactionOutType1Code
 {
     /// <summary>

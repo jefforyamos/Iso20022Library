@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_qrdJwC_vEeugIJ3Gvoevmg")]
 [Description(@"Type of risk management answer from an Acquirer (or its IntermediaryAgent) to a POI through a NonFinancialResponse. ")]
 [Derivations(typeof(NonFinancialResponseRisk1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonFinancialResponseRiskCode>))]
+#endif
 public enum NonFinancialResponseRiskCode
 {
     /// <summary>

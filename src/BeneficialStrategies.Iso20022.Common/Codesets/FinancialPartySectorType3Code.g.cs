@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WZwpASI5Ee2zWP9pqvmqdw")]
 [Description(@"Specifies the nature of the reporting counterparty business activities. ")]
 [DerivedFrom(typeof(FinancialPartySectorTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialPartySectorType3Code>))]
+#endif
 public enum FinancialPartySectorType3Code
 {
     /// <summary>

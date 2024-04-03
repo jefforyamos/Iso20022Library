@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5Y5AxSs8EeySlt9bF77XfA")]
 [Description(@"Specifies the underlying business area/type of trade causing the collateral movement.")]
 [DerivedFrom(typeof(ExposureTypeV3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExposureType14Code>))]
+#endif
 public enum ExposureType14Code
 {
     /// <summary>

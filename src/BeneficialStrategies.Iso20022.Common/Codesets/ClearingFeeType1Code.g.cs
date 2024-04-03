@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a_X1pdp-Ed-ak6NoX_4Aeg_-358876339")]
 [Description(@"Indicates the type of fee being assessed of the customer for trade executions at an exchange. Applicable for futures markets only at this time.")]
 [DerivedFrom(typeof(ClearingFeeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ClearingFeeType1Code>))]
+#endif
 public enum ClearingFeeType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ux3yUNkWEeiojJsa6FYyew")]
 [Description(@"Use to identify format of a track on a card or other documents like checks.")]
 [DerivedFrom(typeof(TrackFormatCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TrackFormat1Code>))]
+#endif
 public enum TrackFormat1Code
 {
     /// <summary>

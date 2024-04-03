@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_K7_KQLu9EeSXxOgurgHGgw")]
 [Description(@"Specifies the type of overnight index swap transaction.")]
 [DerivedFrom(typeof(OvernightIndexSwapTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OvernightIndexSwapType1Code>))]
+#endif
 public enum OvernightIndexSwapType1Code
 {
     /// <summary>

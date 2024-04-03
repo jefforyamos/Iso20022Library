@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_m5hTcvNBEeCuA5Tr22BnwA_770688257")]
 [Description(@"Specifies the source of the report.")]
 [DerivedFrom(typeof(StatementSourceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatementSource1Code>))]
+#endif
 public enum StatementSource1Code
 {
     /// <summary>

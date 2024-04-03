@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aiKVONp-Ed-ak6NoX_4Aeg_235937580")]
 [Description(@"Specifies whether the dividend is in the scope of the European directive on taxation of savings income in the form of interest payments.")]
 [Derivations(typeof(EUDividendStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EUDividendStatusCode>))]
+#endif
 public enum EUDividendStatusCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zdTdcw93EeGeV5vP7Mvdig_1618918841")]
 [Description(@"Specifies the type of Transfer, PEP or ISA.")]
 [DerivedFrom(typeof(PEPISACode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PEPISA1Code>))]
+#endif
 public enum PEPISA1Code
 {
     /// <summary>

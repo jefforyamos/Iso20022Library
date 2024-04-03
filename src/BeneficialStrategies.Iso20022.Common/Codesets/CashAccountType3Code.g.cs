@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a3Bx99p-Ed-ak6NoX_4Aeg_-801481171")]
 [Description(@"Specifies the nature, or use, of the cash account.")]
 [DerivedFrom(typeof(CashAccountTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CashAccountType3Code>))]
+#endif
 public enum CashAccountType3Code
 {
     /// <summary>

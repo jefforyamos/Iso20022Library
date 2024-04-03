@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZXgf89p-Ed-ak6NoX_4Aeg_973159431")]
 [Description(@"Quantity is unknown by the sender or has not been established.")]
-[Derivations(typeof(Quantity2Code),typeof(Quantity4Code),typeof(Quantity5Code),typeof(Quantity3Code),typeof(Quantity1Code))]
+[Derivations(typeof(Quantity2Code),typeof(Quantity3Code),typeof(Quantity5Code),typeof(Quantity4Code),typeof(Quantity1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QuantityCode>))]
+#endif
 public enum QuantityCode
 {
     /// <summary>

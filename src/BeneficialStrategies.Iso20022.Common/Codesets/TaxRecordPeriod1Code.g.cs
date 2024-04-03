@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YiT9VNp-Ed-ak6NoX_4Aeg_-1322025669")]
 [Description(@"Specifies the period related to the tax payment.")]
 [DerivedFrom(typeof(TaxRecordPeriodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxRecordPeriod1Code>))]
+#endif
 public enum TaxRecordPeriod1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_FQp0QHyaEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the status of the demand for payment.")]
 [DerivedFrom(typeof(DemandStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DemandStatus1Code>))]
+#endif
 public enum DemandStatus1Code
 {
     /// <summary>

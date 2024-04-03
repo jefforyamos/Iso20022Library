@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Kl0T0CDEEeWPMvNwVtiMsA")]
 [Description(@"Specifies the accounting status.")]
 [Derivations(typeof(AccountingStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountingStatusCode>))]
+#endif
 public enum AccountingStatusCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_asTIqdp-Ed-ak6NoX_4Aeg_-2101415313")]
 [Description(@"Specifies the regularity of an event.")]
-[Derivations(typeof(Frequency19Code),typeof(Frequency3Code),typeof(Frequency1Code),typeof(Frequency7Code),typeof(Frequency5Code),typeof(Frequency17Code),typeof(Frequency10Code),typeof(Frequency12Code),typeof(Frequency14Code),typeof(Frequency6Code),typeof(Frequency8Code),typeof(Frequency11Code),typeof(Frequency13Code),typeof(Frequency4Code),typeof(Frequency18Code),typeof(Frequency2Code))]
+[Derivations(typeof(Frequency18Code),typeof(Frequency11Code),typeof(Frequency4Code),typeof(Frequency8Code),typeof(Frequency3Code),typeof(Frequency14Code),typeof(Frequency10Code),typeof(Frequency5Code),typeof(Frequency13Code),typeof(Frequency12Code),typeof(Frequency19Code),typeof(Frequency17Code),typeof(Frequency1Code),typeof(Frequency7Code),typeof(Frequency2Code),typeof(Frequency6Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FrequencyCode>))]
+#endif
 public enum FrequencyCode
 {
     /// <summary>

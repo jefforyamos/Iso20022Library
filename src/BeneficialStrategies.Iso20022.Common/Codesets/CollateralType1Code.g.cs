@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YghNlNp-Ed-ak6NoX_4Aeg_-1342567946")]
 [Description(@"Specifies the type of collateral.")]
 [DerivedFrom(typeof(CollateralTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralType1Code>))]
+#endif
 public enum CollateralType1Code
 {
     /// <summary>

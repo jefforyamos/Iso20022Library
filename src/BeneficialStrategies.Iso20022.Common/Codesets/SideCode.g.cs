@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZPArRNp-Ed-ak6NoX_4Aeg_336257608")]
 [Description(@"Side taken by a party on an order.")]
-[Derivations(typeof(Side3Code),typeof(Side1Code),typeof(Side5Code),typeof(OrderDriverCode),typeof(IOISideTypeCode))]
+[Derivations(typeof(Side5Code),typeof(Side3Code),typeof(Side1Code),typeof(OrderDriverCode),typeof(IOISideTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SideCode>))]
+#endif
 public enum SideCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TUJ9MwEcEeCQm6a_G2yO_w_-427781044")]
 [Description(@"Qualifies the amount associated with the transaction.")]
 [DerivedFrom(typeof(TypeOfAmountCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeOfAmount1Code>))]
+#endif
 public enum TypeOfAmount1Code
 {
     /// <summary>

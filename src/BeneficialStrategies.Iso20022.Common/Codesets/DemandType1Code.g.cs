@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__XQC0HyXEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the type of demand for payment.")]
 [DerivedFrom(typeof(DemandTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DemandType1Code>))]
+#endif
 public enum DemandType1Code
 {
     /// <summary>

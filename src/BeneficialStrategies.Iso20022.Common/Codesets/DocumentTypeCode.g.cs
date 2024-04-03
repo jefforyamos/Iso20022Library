@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aghWddp-Ed-ak6NoX_4Aeg_-1963478091")]
 [Description(@"Specifies a type of financial or commercial document.")]
-[Derivations(typeof(DocumentType4Code),typeof(DocumentType3Code),typeof(DocumentType6Code),typeof(DocumentType1Code),typeof(DocumentType7Code),typeof(DocumentType5Code),typeof(DocumentType2Code))]
+[Derivations(typeof(DocumentType5Code),typeof(DocumentType6Code),typeof(DocumentType1Code),typeof(DocumentType3Code),typeof(DocumentType4Code),typeof(DocumentType7Code),typeof(DocumentType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DocumentTypeCode>))]
+#endif
 public enum DocumentTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_A2UAQBEhEeKG5rB3aM9OkQ")]
 [Description(@"Specifies when a transaction/instruction is to be executed relative to a linked transaction/instruction.")]
 [DerivedFrom(typeof(ProcessingPositionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProcessingPosition4Code>))]
+#endif
 public enum ProcessingPosition4Code
 {
     /// <summary>

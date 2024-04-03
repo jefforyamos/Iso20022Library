@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_glgtoCDCEeaned5xL18mUQ")]
 [Description(@"Identifies whether the reporting counterparty is a collateral provider or a collateral taker.")]
 [Derivations(typeof(CollateralRole1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralRoleCode>))]
+#endif
 public enum CollateralRoleCode
 {
     /// <summary>

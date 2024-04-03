@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ae4Xttp-Ed-ak6NoX_4Aeg_-2003821143")]
 [Description(@"Type of linkage requested.")]
 [DerivedFrom(typeof(LinkageTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LinkageType1Code>))]
+#endif
 public enum LinkageType1Code
 {
     /// <summary>

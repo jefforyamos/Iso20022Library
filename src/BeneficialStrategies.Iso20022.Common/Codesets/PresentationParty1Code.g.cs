@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RvL0sHyeEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the party to receive the presentation.")]
 [DerivedFrom(typeof(PresentationPartyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PresentationParty1Code>))]
+#endif
 public enum PresentationParty1Code
 {
     /// <summary>

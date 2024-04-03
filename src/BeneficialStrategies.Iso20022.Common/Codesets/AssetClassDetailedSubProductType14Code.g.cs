@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_clWEkFuVEeWyucVx3N7tNg")]
 [Description(@"Further sub product code list for commodity derivative Dry.")]
 [DerivedFrom(typeof(AssetClassDetailedSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassDetailedSubProductType14Code>))]
+#endif
 public enum AssetClassDetailedSubProductType14Code
 {
     /// <summary>

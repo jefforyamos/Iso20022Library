@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZVH6Vdp-Ed-ak6NoX_4Aeg_336259036")]
 [Description(@"Specifies the level of response requested from the receiver of the message.")]
 [Derivations(typeof(ResponseLevel1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResponseLevelCode>))]
+#endif
 public enum ResponseLevelCode
 {
     /// <summary>

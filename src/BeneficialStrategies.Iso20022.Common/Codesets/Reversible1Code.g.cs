@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__v1ShtojEeC60axPepSq7g_1110549094")]
 [Description(@"Indicates the possibility to terminate the securitiesc lending contract either by the borrower or lender before the expiration date.")]
 [DerivedFrom(typeof(ReversibleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Reversible1Code>))]
+#endif
 public enum Reversible1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TUvzFgEcEeCQm6a_G2yO_w_-366537525")]
 [Description(@"Type of process related to a specific message.")]
-[Derivations(typeof(MessageFunction25Code),typeof(MessageFunction40Code),typeof(MessageFunction12Code),typeof(MessageFunction17Code),typeof(MessageFunction44Code),typeof(MessageFunction29Code),typeof(MessageFunction39Code),typeof(MessageFunction9Code),typeof(MessageFunction15Code),typeof(MessageFunction5Code),typeof(MessageFunction41Code),typeof(MessageFunction2Code),typeof(MessageFunction13Code),typeof(MessageFunction23Code),typeof(MessageFunction6Code),typeof(MessageFunction4Code),typeof(MessageFunction46Code),typeof(MessageFunction27Code),typeof(MessageFunction18Code),typeof(MessageFunction7Code),typeof(MessageFunction8Code),typeof(MessageFunction16Code),typeof(MessageFunction14Code),typeof(MessageFunction45Code),typeof(MessageFunction1Code),typeof(MessageFunction43Code),typeof(MessageFunction11Code),typeof(MessageFunction3Code),typeof(MessageFunction10Code),typeof(MessageFunction37Code),typeof(MessageFunction42Code),typeof(MessageFunction20Code))]
+[Derivations(typeof(MessageFunction11Code),typeof(MessageFunction39Code),typeof(MessageFunction44Code),typeof(MessageFunction3Code),typeof(MessageFunction10Code),typeof(MessageFunction8Code),typeof(MessageFunction12Code),typeof(MessageFunction46Code),typeof(MessageFunction40Code),typeof(MessageFunction45Code),typeof(MessageFunction37Code),typeof(MessageFunction41Code),typeof(MessageFunction43Code),typeof(MessageFunction18Code),typeof(MessageFunction9Code),typeof(MessageFunction25Code),typeof(MessageFunction6Code),typeof(MessageFunction42Code),typeof(MessageFunction23Code),typeof(MessageFunction16Code),typeof(MessageFunction7Code),typeof(MessageFunction13Code),typeof(MessageFunction15Code),typeof(MessageFunction14Code),typeof(MessageFunction29Code),typeof(MessageFunction4Code),typeof(MessageFunction5Code),typeof(MessageFunction27Code),typeof(MessageFunction1Code),typeof(MessageFunction20Code),typeof(MessageFunction17Code),typeof(MessageFunction2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageFunctionCode>))]
+#endif
 public enum MessageFunctionCode
 {
     /// <summary>

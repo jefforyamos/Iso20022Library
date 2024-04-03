@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_m50OY_NBEeCuA5Tr22BnwA_1824968417")]
 [Description(@"Specifies unrealised parameter.")]
 [Derivations(typeof(Unrealised1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnrealisedCode>))]
+#endif
 public enum UnrealisedCode
 {
     /// <summary>

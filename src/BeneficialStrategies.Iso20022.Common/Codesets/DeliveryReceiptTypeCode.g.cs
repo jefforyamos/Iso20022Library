@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_azTIgNp-Ed-ak6NoX_4Aeg_-314094989")]
 [Description(@"Specifies how the transaction is to be settled.")]
 [Derivations(typeof(DeliveryReceiptType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeliveryReceiptTypeCode>))]
+#endif
 public enum DeliveryReceiptTypeCode
 {
     /// <summary>

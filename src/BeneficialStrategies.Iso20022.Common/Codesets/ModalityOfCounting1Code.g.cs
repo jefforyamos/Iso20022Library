@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QzPaAK-vEemJ1NnLPsTFaw")]
 [Description(@"Specifies the modality through which the votes that have been recorded and counted.")]
 [DerivedFrom(typeof(ModalityOfCountingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ModalityOfCounting1Code>))]
+#endif
 public enum ModalityOfCounting1Code
 {
     /// <summary>

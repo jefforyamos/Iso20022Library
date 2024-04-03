@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_O_lBYDEmEemzCpWiCwK4aQ")]
 [Description(@"Indicates whether the action applies to a file or a record.")]
 [DerivedFrom(typeof(FileActionScopeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FileActionScope1Code>))]
+#endif
 public enum FileActionScope1Code
 {
     /// <summary>

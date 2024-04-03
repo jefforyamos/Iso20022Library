@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZNhdh9p-Ed-ak6NoX_4Aeg_885272360")]
 [Description(@"Collateral position is available for other purposes (for example, onwards delivery).")]
-[Derivations(typeof(SettlementTransactionCondition8Code),typeof(SettlementTransactionCondition6Code),typeof(SettlementTransactionCondition11Code),typeof(SettlementTransactionCondition13Code),typeof(SettlementTransactionCondition10Code),typeof(SettlementTransactionCondition4Code),typeof(SettlementTransactionCondition12Code),typeof(SettlementTransactionCondition14Code),typeof(SettlementTransactionCondition3Code),typeof(SettlementTransactionCondition5Code),typeof(SettlementTransactionCondition2Code))]
+[Derivations(typeof(SettlementTransactionCondition4Code),typeof(SettlementTransactionCondition12Code),typeof(SettlementTransactionCondition11Code),typeof(SettlementTransactionCondition3Code),typeof(SettlementTransactionCondition6Code),typeof(SettlementTransactionCondition5Code),typeof(SettlementTransactionCondition10Code),typeof(SettlementTransactionCondition13Code),typeof(SettlementTransactionCondition2Code),typeof(SettlementTransactionCondition14Code),typeof(SettlementTransactionCondition8Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementTransactionConditionCode>))]
+#endif
 public enum SettlementTransactionConditionCode
 {
     /// <summary>

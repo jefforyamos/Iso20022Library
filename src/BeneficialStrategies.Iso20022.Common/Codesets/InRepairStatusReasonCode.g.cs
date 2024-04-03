@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aWsFB9p-Ed-ak6NoX_4Aeg_1106691227")]
 [Description(@"Specifies the reason for a In Repair status.")]
 [Derivations(typeof(InRepairStatusReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InRepairStatusReasonCode>))]
+#endif
 public enum InRepairStatusReasonCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y0Kk0CR8Ee2VuKUpJ7HXPg")]
 [Description(@"Specifies the type of the trade counterparty.")]
 [DerivedFrom(typeof(TradeCounterpartyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeCounterpartyType1Code>))]
+#endif
 public enum TradeCounterpartyType1Code
 {
     /// <summary>

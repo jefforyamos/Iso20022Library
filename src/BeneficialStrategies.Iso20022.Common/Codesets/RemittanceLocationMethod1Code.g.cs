@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZsOLt9p-Ed-ak6NoX_4Aeg_91898271")]
 [Description(@"Specifies the method used to deliver the remittance advice information.")]
 [DerivedFrom(typeof(RemittanceLocationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RemittanceLocationMethod1Code>))]
+#endif
 public enum RemittanceLocationMethod1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_7NuDMcsZEeizUq4cFQ71-Q")]
 [Description(@"Identifies the type of process related to the message.")]
 [DerivedFrom(typeof(MessageFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageFunction39Code>))]
+#endif
 public enum MessageFunction39Code
 {
     /// <summary>

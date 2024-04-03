@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_iwO2kPGuEeiGNursv3uE_g")]
 [Description(@"Code list containing a code that identifies the error condition.")]
 [Derivations(typeof(MessageError1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageErrorCode>))]
+#endif
 public enum MessageErrorCode
 {
     /// <summary>

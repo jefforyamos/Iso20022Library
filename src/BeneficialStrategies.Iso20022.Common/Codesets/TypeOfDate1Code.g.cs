@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TVs0sFfvEeOuDtoQo1qilA")]
 [Description(@"Specifies whether a date is actual or estimated.")]
 [DerivedFrom(typeof(TypeOfDateCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeOfDate1Code>))]
+#endif
 public enum TypeOfDate1Code
 {
     /// <summary>

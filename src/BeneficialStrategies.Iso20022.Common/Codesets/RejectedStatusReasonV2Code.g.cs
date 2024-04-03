@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_SOEqKkpIEe2Kv_AXFg3f7A")]
 [Description(@"Cash settlement date is not recognised or is invalid.")]
 [Derivations(typeof(MessageRejectedReason2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectedStatusReasonV2Code>))]
+#endif
 public enum RejectedStatusReasonV2Code
 {
     /// <summary>

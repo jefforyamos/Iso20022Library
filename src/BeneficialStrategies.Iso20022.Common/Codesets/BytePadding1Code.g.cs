@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zBfYoGi9EeS87LmvcA55sg")]
 [Description(@"Byte padding for a cypher block chaining mode encryption, if the padding is not implicit.")]
 [DerivedFrom(typeof(BytePaddingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BytePadding1Code>))]
+#endif
 public enum BytePadding1Code
 {
     /// <summary>

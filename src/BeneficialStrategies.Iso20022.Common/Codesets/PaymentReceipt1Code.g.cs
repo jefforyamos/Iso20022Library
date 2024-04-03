@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_939OkA5EEeenr-7g_0TYag")]
 [Description(@"Specifies if an operation is a payment, or a receipt or none.")]
 [DerivedFrom(typeof(PaymentReceiptCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentReceipt1Code>))]
+#endif
 public enum PaymentReceipt1Code
 {
     /// <summary>

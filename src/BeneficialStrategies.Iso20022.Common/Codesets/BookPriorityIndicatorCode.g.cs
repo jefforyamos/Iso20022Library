@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bVIDMtp-Ed-ak6NoX_4Aeg_335335591")]
 [Description(@"Indicates if a Cancel/Replace instruction has caused an order to loose its book priority.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BookPriorityIndicatorCode>))]
+#endif
 public enum BookPriorityIndicatorCode
 {
     /// <summary>

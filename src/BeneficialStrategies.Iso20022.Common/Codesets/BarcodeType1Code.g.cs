@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_yIRoQNuZEeiB5uLfkg9ZJA")]
 [Description(@"Type of BarCode coding.")]
 [DerivedFrom(typeof(BarcodeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BarcodeType1Code>))]
+#endif
 public enum BarcodeType1Code
 {
     /// <summary>

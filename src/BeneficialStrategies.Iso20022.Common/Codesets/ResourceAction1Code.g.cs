@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YO9n4C8AEeu125Ip9zFcsQ")]
 [Description(@"Type of action to perform on a media resource.")]
 [DerivedFrom(typeof(ResourceActionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResourceAction1Code>))]
+#endif
 public enum ResourceAction1Code
 {
     /// <summary>

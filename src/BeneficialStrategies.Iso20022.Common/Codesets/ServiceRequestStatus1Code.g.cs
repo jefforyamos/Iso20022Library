@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_BrhagPF6EemQ7oqCO5NTQw")]
 [Description(@"Specifies the status of a service request.")]
 [DerivedFrom(typeof(ServiceRequestStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ServiceRequestStatus1Code>))]
+#endif
 public enum ServiceRequestStatus1Code
 {
     /// <summary>

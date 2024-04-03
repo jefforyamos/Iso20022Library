@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1qBZgDL3EeKU9IrkkToqcw_183881059")]
 [Description(@"Specifies whether the calculation basis is on base (original) or disbursed (distributed) security.")]
 [Derivations(typeof(DTCBaseDisbursed1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCBaseDisbursedCode>))]
+#endif
 public enum DTCBaseDisbursedCode
 {
     /// <summary>

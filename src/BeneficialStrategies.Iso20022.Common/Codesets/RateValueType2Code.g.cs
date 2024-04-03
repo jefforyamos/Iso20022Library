@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZaMAhdp-Ed-ak6NoX_4Aeg_-1008646416")]
 [Description(@"Specifies the value of a rate.")]
 [DerivedFrom(typeof(RateTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RateValueType2Code>))]
+#endif
 public enum RateValueType2Code
 {
     /// <summary>

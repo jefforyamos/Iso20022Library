@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-fsj16MOEeCojJW5vEuTEQ_-1075208421")]
 [Description(@"Specifies the trade is maintained as a separate individual position in the clearing account, or not.")]
 [DerivedFrom(typeof(TradePostingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradePosting1Code>))]
+#endif
 public enum TradePosting1Code
 {
     /// <summary>

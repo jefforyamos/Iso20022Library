@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_AaCp4JfsEeSfnc-VXAEapg")]
 [Description(@"Specifies the transaction type used in the money market statistical reporting for the secured market.")]
 [DerivedFrom(typeof(MoneyMarketTransactionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MoneyMarketTransactionType1Code>))]
+#endif
 public enum MoneyMarketTransactionType1Code
 {
     /// <summary>

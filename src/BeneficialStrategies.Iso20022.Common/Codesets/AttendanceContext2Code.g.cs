@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_DnQc8JVJEeWu36UkS2TkoQ")]
 [Description(@"Identify the method of delivery or distribution.")]
 [DerivedFrom(typeof(AttendanceContextCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AttendanceContext2Code>))]
+#endif
 public enum AttendanceContext2Code
 {
     /// <summary>

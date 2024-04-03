@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_JX1ngGjNEeiRg5NzP0jkQg")]
 [Description(@"Specifies the type of residence where the party has its permanent home or principal establishment.")]
 [DerivedFrom(typeof(ResidenceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResidenceType1Code>))]
+#endif
 public enum ResidenceType1Code
 {
     /// <summary>

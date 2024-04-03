@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aiUGM9p-Ed-ak6NoX_4Aeg_511985802")]
 [Description(@"Indicates whether or not the fund is subject to reporting under the EU Savings Directive. Enter ""Variable"" if the status of the fund is likely to change from time to time.")]
 [DerivedFrom(typeof(EUSavingsDirectiveCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EUSavingsDirective1Code>))]
+#endif
 public enum EUSavingsDirective1Code
 {
     /// <summary>

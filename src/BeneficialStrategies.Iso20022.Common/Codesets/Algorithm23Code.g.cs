@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ge_TAdaCEeeA4_YxLuyJaA")]
 [Description(@"Cryptographic algorithms for encryptions with a symmetric cryptographic key.")]
 [DerivedFrom(typeof(AlgorithmCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Algorithm23Code>))]
+#endif
 public enum Algorithm23Code
 {
     /// <summary>

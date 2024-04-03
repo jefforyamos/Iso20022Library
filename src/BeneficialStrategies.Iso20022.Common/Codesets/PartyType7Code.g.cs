@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cUMkAAyHEeKa_56Jbsi1RQ")]
 [Description(@"Party that communicate with a POI component (Point of Interaction), using a communication device.")]
 [DerivedFrom(typeof(PartyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartyType7Code>))]
+#endif
 public enum PartyType7Code
 {
     /// <summary>

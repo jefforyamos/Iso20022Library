@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HqDnMezYEeSBf_ghFpb9rQ")]
 [Description(@"Status of the price of a financial instrument.")]
 [Derivations(typeof(PriceStatus1Code),typeof(PriceStatus2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PriceStatusCode>))]
+#endif
 public enum PriceStatusCode
 {
     /// <summary>

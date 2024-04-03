@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jo1CQLoUEeGUKJo4_mMY_Q_-1167411913")]
 [Description(@"Defines the balance of the billing service, as published in an external billing balance code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBillingBalanceType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalBillingBalanceTypeCode>))]
+#endif
 public enum ExternalBillingBalanceTypeCode
 {
     /// <summary>

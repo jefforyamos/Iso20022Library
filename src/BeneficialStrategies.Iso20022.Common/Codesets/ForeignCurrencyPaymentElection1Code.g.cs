@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1zs58jL3EeKU9IrkkToqcw_-975137310")]
 [Description(@"Specifies whether the foreign currency payment is offered.")]
 [DerivedFrom(typeof(ForeignCurrencyPaymentElectionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ForeignCurrencyPaymentElection1Code>))]
+#endif
 public enum ForeignCurrencyPaymentElection1Code
 {
     /// <summary>

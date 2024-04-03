@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6VUE1pqlEeGSON8vddiWzQ_861577519")]
 [Description(@"Defines the status of the billing statement.")]
 [Derivations(typeof(BillingStatementStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BillingStatementStatusCode>))]
+#endif
 public enum BillingStatementStatusCode
 {
     /// <summary>

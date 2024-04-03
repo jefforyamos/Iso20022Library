@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_x8pjANBUEeiirviLm7P0IA")]
 [Description(@"Specifies whether the report includes pending or settled transactions.")]
 [Derivations(typeof(StatementStatusType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatementStatusTypeCode>))]
+#endif
 public enum StatementStatusTypeCode
 {
     /// <summary>

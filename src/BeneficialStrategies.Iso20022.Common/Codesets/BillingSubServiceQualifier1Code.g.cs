@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6WgXpJqlEeGSON8vddiWzQ_-2011541661")]
 [Description(@"Qualifies the content of the subservice code.")]
 [DerivedFrom(typeof(BillingSubServiceQualifierCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BillingSubServiceQualifier1Code>))]
+#endif
 public enum BillingSubServiceQualifier1Code
 {
     /// <summary>

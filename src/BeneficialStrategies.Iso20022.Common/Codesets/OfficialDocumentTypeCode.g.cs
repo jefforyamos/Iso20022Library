@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6Y3R0HhNEee6_vnrijrKgg")]
 [Description(@"Official document type used for identification or authentication")]
 [Derivations(typeof(OfficialDocumentType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OfficialDocumentTypeCode>))]
+#endif
 public enum OfficialDocumentTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_L915cA1fEeu_4e16J8D_UA")]
 [Description(@"Specifies the place of delivery.")]
 [DerivedFrom(typeof(DeliveryPlaceV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeliveryPlace3Code>))]
+#endif
 public enum DeliveryPlace3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YcWfRdp-Ed-ak6NoX_4Aeg_-299139141")]
 [Description(@"Specifies the nature of the disputed collateral amount.")]
 [DerivedFrom(typeof(DisputeResolutionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DisputeResolutionType1Code>))]
+#endif
 public enum DisputeResolutionType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z-QW4Np-Ed-ak6NoX_4Aeg_2142368384")]
 [Description(@"Standard code to specify.")]
 [DerivedFrom(typeof(RejectionReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingCancellationReason4Code>))]
+#endif
 public enum PendingCancellationReason4Code
 {
     /// <summary>

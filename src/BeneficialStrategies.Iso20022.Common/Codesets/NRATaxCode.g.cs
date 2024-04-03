@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1ygnJjL3EeKU9IrkkToqcw_1746439852")]
 [Description(@"Non resident alien U.S. tax codes.")]
 [Derivations(typeof(NRATax1Code),typeof(NRATax2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NRATaxCode>))]
+#endif
 public enum NRATaxCode
 {
     /// <summary>

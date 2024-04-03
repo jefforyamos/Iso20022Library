@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_l0Ao8Hu8EeSLmfFG0DG7zQ")]
 [Description(@"Type of administrative service.")]
-[Derivations(typeof(CardServiceType2Code),typeof(CardServiceType4Code),typeof(CardServiceType3Code),typeof(CardServiceType1Code),typeof(CardServiceType5Code))]
+[Derivations(typeof(CardServiceType3Code),typeof(CardServiceType5Code),typeof(CardServiceType4Code),typeof(CardServiceType1Code),typeof(CardServiceType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardServiceTypeCode>))]
+#endif
 public enum CardServiceTypeCode
 {
     /// <summary>

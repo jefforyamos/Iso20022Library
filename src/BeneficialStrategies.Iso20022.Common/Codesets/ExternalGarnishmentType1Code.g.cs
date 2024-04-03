@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_DsFkYInoEeOORMXOfBk1Bw")]
 [Description(@"Specifies the garnishment type as published in an external document type code list.")]
 [DerivedFrom(typeof(ExternalGarnishmentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalGarnishmentType1Code>))]
+#endif
 public enum ExternalGarnishmentType1Code
 {
     /// <summary>

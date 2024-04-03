@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_g3O-gdqhEeearpaEPXv9UA")]
 [Description(@"Maintenance service to delegate.")]
 [DerivedFrom(typeof(DataSetCategoryCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataSetCategory13Code>))]
+#endif
 public enum DataSetCategory13Code
 {
     /// <summary>

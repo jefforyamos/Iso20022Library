@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bM7wg9p-Ed-ak6NoX_4Aeg_962956293")]
 [Description(@"Specifies the type of corporate action options offered to the account holder for a corporate action.")]
-[Derivations(typeof(CorporateActionOption16Code),typeof(CorporateActionOption2Code),typeof(CorporateActionOption9Code),typeof(CorporateActionOption6Code),typeof(CorporateActionOption17Code),typeof(CorporateActionOption10Code),typeof(CorporateActionOption11Code),typeof(CorporateActionOption4Code),typeof(CorporateActionOption14Code),typeof(CorporateActionOption7Code),typeof(CorporateActionOption5Code),typeof(CorporateActionOption12Code),typeof(CorporateActionOption15Code),typeof(CorporateActionOption8Code),typeof(CorporateActionOption13Code),typeof(CorporateActionOption3Code))]
+[Derivations(typeof(CorporateActionOption2Code),typeof(CorporateActionOption3Code),typeof(CorporateActionOption10Code),typeof(CorporateActionOption9Code),typeof(CorporateActionOption7Code),typeof(CorporateActionOption13Code),typeof(CorporateActionOption11Code),typeof(CorporateActionOption14Code),typeof(CorporateActionOption5Code),typeof(CorporateActionOption12Code),typeof(CorporateActionOption4Code),typeof(CorporateActionOption8Code),typeof(CorporateActionOption16Code),typeof(CorporateActionOption6Code),typeof(CorporateActionOption17Code),typeof(CorporateActionOption15Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionOptionCode>))]
+#endif
 public enum CorporateActionOptionCode
 {
     /// <summary>

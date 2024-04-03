@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZRZQ5dp-Ed-ak6NoX_4Aeg_1212494654")]
 [Description(@"Specifies a type of event related to a system's operation.")]
 [DerivedFrom(typeof(SystemEventTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SystemEventType2Code>))]
+#endif
 public enum SystemEventType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZTCPotp-Ed-ak6NoX_4Aeg_1670165238")]
 [Description(@"Specifies the nature of the report, that is, standard or proprietary.")]
 [DerivedFrom(typeof(ReportIndicatorCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReportIndicator1Code>))]
+#endif
 public enum ReportIndicator1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-ZqKICjmEeK1Sbo8NpBROA")]
 [Description(@"Indicates the underlying product type for reporting to trade repositories. These product codes must be in line with the ISDA Product Taxonomy.")]
 [DerivedFrom(typeof(UnderlyingProductIdentifierCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnderlyingProductIdentifier1Code>))]
+#endif
 public enum UnderlyingProductIdentifier1Code
 {
     /// <summary>

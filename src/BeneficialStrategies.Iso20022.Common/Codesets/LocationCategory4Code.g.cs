@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_3eb_cFDdEeu8Rss-tto59A")]
 [Description(@"Indicates the type of integration of the POI terminal in the sale environment.")]
 [DerivedFrom(typeof(LocationCategoryV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LocationCategory4Code>))]
+#endif
 public enum LocationCategory4Code
 {
     /// <summary>

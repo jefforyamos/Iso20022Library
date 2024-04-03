@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_KTocs31DEeCF8NjrBemJWQ_1816233839")]
 [Description(@"Types of terminal management action to be performed by a point of interaction.")]
-[Derivations(typeof(TerminalManagementAction4Code),typeof(TerminalManagementAction1Code),typeof(TerminalManagementAction2Code),typeof(TerminalManagementAction3Code),typeof(TerminalManagementAction5Code))]
+[Derivations(typeof(TerminalManagementAction1Code),typeof(TerminalManagementAction5Code),typeof(TerminalManagementAction2Code),typeof(TerminalManagementAction4Code),typeof(TerminalManagementAction3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminalManagementActionCode>))]
+#endif
 public enum TerminalManagementActionCode
 {
     /// <summary>

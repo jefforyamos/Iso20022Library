@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_c7iNMJNCEemQB_8XA98K0Q")]
 [Description(@"Specifies a type of asset.")]
 [DerivedFrom(typeof(OtherAssetCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OtherAsset2Code>))]
+#endif
 public enum OtherAsset2Code
 {
     /// <summary>

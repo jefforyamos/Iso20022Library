@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8KDc86MgEeCJ6YNENx4h-w_-1329725720")]
 [Description(@"Specifies the precise type of reservation.")]
 [DerivedFrom(typeof(ReservationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReservationType2Code>))]
+#endif
 public enum ReservationType2Code
 {
     /// <summary>

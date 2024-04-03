@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_B3AosAvFEeKzJ69IWwzB9Q")]
 [Description(@"PIN (Personal Identification Number) format used before encryption.")]
 [DerivedFrom(typeof(PINFormatCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PINFormat2Code>))]
+#endif
 public enum PINFormat2Code
 {
     /// <summary>

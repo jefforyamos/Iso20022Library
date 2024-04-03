@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y50Ksh-1EeuxStysDTgLiw")]
 [Description(@"Specifies the pay creditor by cheque instruction code for the cross-element validation rules.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ValidationRulePayCreditorByCheque1Code>))]
+#endif
 public enum ValidationRulePayCreditorByCheque1Code
 {
     /// <summary>

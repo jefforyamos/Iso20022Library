@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_C4Fi8FyZEeewBcMu1EH_Gg")]
 [Description(@"CodeSet identifying parties involved in a payments transaction.")]
 [DerivedFrom(typeof(PaymentsPartyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentsPartyType2Code>))]
+#endif
 public enum PaymentsPartyType2Code
 {
     /// <summary>

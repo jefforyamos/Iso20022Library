@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZWd-J9p-Ed-ak6NoX_4Aeg_-929799410")]
 [Description(@"Specifies the type of proxy person.")]
 [DerivedFrom(typeof(ProxyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProxyType2Code>))]
+#endif
 public enum ProxyType2Code
 {
     /// <summary>

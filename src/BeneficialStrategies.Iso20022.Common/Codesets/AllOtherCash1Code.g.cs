@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IzK98CYIEeWJkOUkQWu90g")]
 [Description(@"Specifies if remaining assets are transferred as cash.")]
 [DerivedFrom(typeof(AllOtherCashCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AllOtherCash1Code>))]
+#endif
 public enum AllOtherCash1Code
 {
     /// <summary>

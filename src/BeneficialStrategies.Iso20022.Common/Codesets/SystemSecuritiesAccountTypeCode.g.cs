@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hjeiUmliEeGaMcKyqKNRfQ_-1442503299")]
 [Description(@"Lists the type of the securities account specific for a system.")]
 [Derivations(typeof(SystemSecuritiesAccountType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SystemSecuritiesAccountTypeCode>))]
+#endif
 public enum SystemSecuritiesAccountTypeCode
 {
     /// <summary>

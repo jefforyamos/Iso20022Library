@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_prJ48a4CEeWL1uap3dNhCQ")]
 [Description(@"Type of media inside an ATM cassette.")]
 [DerivedFrom(typeof(ATMMediaTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMMediaType2Code>))]
+#endif
 public enum ATMMediaType2Code
 {
     /// <summary>

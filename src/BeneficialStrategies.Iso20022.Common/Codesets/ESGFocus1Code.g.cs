@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_j5Q-8NA6EeuSBa1PsnseFg")]
 [Description(@"Specifies if focus will be Environmental, Social or Governance.")]
 [DerivedFrom(typeof(ESGFocusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ESGFocus1Code>))]
+#endif
 public enum ESGFocus1Code
 {
     /// <summary>

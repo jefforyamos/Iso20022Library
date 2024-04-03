@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_t_HHUNdjEeibyvRfU9vJ7w")]
 [Description(@"Specifies whether a financial product is in scope of a target market parameter.")]
 [DerivedFrom(typeof(TargetMarketCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TargetMarket2Code>))]
+#endif
 public enum TargetMarket2Code
 {
     /// <summary>

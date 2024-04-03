@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aHytYdp-Ed-ak6NoX_4Aeg_-1168571799")]
 [Description(@"Indicates the legal constraint on the power of attorney.")]
 [Derivations(typeof(PowerOfAttorneyLegalisation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PowerOfAttorneyLegalisationCode>))]
+#endif
 public enum PowerOfAttorneyLegalisationCode
 {
     /// <summary>

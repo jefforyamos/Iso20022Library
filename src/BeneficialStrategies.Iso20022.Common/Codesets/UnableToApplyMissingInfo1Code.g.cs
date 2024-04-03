@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Y1YqVNp-Ed-ak6NoX_4Aeg_1310461274")]
 [Description(@"Used when the unable to apply is due to missing information.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnableToApplyMissingInfo1Code>))]
+#endif
 public enum UnableToApplyMissingInfo1Code
 {
     /// <summary>

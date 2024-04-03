@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TSz5bQEcEeCQm6a_G2yO_w_780953916")]
 [Description(@"Identification of the type of a Cryptographic Message Syntax (CMS) data structure.")]
 [DerivedFrom(typeof(ContentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ContentType1Code>))]
+#endif
 public enum ContentType1Code
 {
     /// <summary>

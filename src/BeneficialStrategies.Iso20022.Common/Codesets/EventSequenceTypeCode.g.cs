@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vPbyYLXHEeiTob_PrFFUxA")]
 [Description(@"Specifies whether the event is an interim or a final event in a series of successive events. ")]
 [Derivations(typeof(EventSequenceType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventSequenceTypeCode>))]
+#endif
 public enum EventSequenceTypeCode
 {
     /// <summary>

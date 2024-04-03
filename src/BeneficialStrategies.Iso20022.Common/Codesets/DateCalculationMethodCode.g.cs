@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_oGUJ5lSUEempisJfoIfvvQ")]
 [Description(@"Indicates the calculation method to be used to caculate on which dates the shares have been acquired.")]
 [Derivations(typeof(DateCalculationMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DateCalculationMethodCode>))]
+#endif
 public enum DateCalculationMethodCode
 {
     /// <summary>

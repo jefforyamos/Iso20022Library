@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EjDNwHvuEeanCNPcMT7sSg")]
 [Description(@"Specifies the methodology used for a transparency operation.")]
 [DerivedFrom(typeof(TransparencyMethodologyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransparencyMethodology2Code>))]
+#endif
 public enum TransparencyMethodology2Code
 {
     /// <summary>

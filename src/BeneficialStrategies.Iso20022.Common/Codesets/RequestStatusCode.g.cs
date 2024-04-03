@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZUFYg9p-Ed-ak6NoX_4Aeg_1488265087")]
 [Description(@"Specifies the coded status of invoice financing request.")]
 [Derivations(typeof(RequestStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RequestStatusCode>))]
+#endif
 public enum RequestStatusCode
 {
     /// <summary>

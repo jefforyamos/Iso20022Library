@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_x0bGkMkVEeeiAIB1i4AlQw")]
 [Description(@"Risk classification of the security used as collateral.")]
 [DerivedFrom(typeof(CollateralQualityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralQualityType1Code>))]
+#endif
 public enum CollateralQualityType1Code
 {
     /// <summary>

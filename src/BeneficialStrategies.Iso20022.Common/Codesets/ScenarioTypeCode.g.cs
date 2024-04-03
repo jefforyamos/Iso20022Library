@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Bd4VEKssEeayv9XxdmMwKQ")]
 [Description(@"Type of scenario based on how the risk factors moves for that scenario were conceived.")]
 [Derivations(typeof(ScenarioType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ScenarioTypeCode>))]
+#endif
 public enum ScenarioTypeCode
 {
     /// <summary>

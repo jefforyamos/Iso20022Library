@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1sQOIzL3EeKU9IrkkToqcw_1983837671")]
 [Description(@"Specifies the function the agent is performing (for example, event agent, information agent).")]
 [DerivedFrom(typeof(AgentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AgentType1Code>))]
+#endif
 public enum AgentType1Code
 {
     /// <summary>

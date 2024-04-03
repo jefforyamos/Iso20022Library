@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__wk5ZdojEeC60axPepSq7g_1768123996")]
 [Description(@"Settlement Instruction Generation Code.")]
 [DerivedFrom(typeof(SettlementInstructionGenerationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementInstructionGeneration1Code>))]
+#endif
 public enum SettlementInstructionGeneration1Code
 {
     /// <summary>

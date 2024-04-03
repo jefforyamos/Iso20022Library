@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZbFYY9p-Ed-ak6NoX_4Aeg_-770609526")]
 [Description(@"Specifies the status of the registration processing.")]
 [Derivations(typeof(RegistrationProcessingStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RegistrationProcessingStatusCode>))]
+#endif
 public enum RegistrationProcessingStatusCode
 {
     /// <summary>

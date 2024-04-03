@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HnrOEAMlEeujMs2LsB3mMw")]
 [Description(@"Attestation status value.")]
 [DerivedFrom(typeof(AttestationValueCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AttestationValue1Code>))]
+#endif
 public enum AttestationValue1Code
 {
     /// <summary>

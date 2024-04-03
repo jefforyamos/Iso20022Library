@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_229eQLf8Eee9KIDjEHK7ZQ")]
 [Description(@"Specifies the reporting source, as published in an external reporting source code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalReportingSource1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalReportingSourceCode>))]
+#endif
 public enum ExternalReportingSourceCode
 {
     /// <summary>

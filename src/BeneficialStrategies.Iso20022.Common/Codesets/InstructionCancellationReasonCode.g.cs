@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aXSh99p-Ed-ak6NoX_4Aeg_-840499374")]
 [Description(@"Specifies the reason why the instruction is cancelled.")]
 [Derivations(typeof(InstructionCancellationReason1Code),typeof(InstructionCancellationReason2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionCancellationReasonCode>))]
+#endif
 public enum InstructionCancellationReasonCode
 {
     /// <summary>

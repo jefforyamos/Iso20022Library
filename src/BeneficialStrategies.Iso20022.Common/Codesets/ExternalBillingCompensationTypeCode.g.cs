@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_XM07ICM8EeKqFfWb-hg03g_986653055")]
 [Description(@"Defines the type of billing compensation to be applied, as published in an external billing compensation type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalBillingCompensationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalBillingCompensationTypeCode>))]
+#endif
 public enum ExternalBillingCompensationTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_uDmwIN6SEeiwsev40qZGEQ")]
 [Description(@"Indicates the hierarchical structure of the reconciliation result of the Sale to POI reconciliation.")]
 [Derivations(typeof(TotalDetails1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TotalDetailsCode>))]
+#endif
 public enum TotalDetailsCode
 {
     /// <summary>

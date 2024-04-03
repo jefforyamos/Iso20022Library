@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aeSh1tp-Ed-ak6NoX_4Aeg_336256659")]
 [Description(@"Indicates the type of leg structuring a swap.")]
 [Derivations(typeof(LegSwapType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LegSwapTypeCode>))]
+#endif
 public enum LegSwapTypeCode
 {
     /// <summary>

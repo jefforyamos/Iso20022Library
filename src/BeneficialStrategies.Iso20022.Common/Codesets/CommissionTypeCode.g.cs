@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VqbxSNp-Ed-ak6NoX_4Aeg_384306495")]
 [Description(@"Type of service for which the commission is asked or paid.")]
 [Derivations(typeof(CommissionType5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CommissionTypeCode>))]
+#endif
 public enum CommissionTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bCpMFtp-Ed-ak6NoX_4Aeg_-484210840")]
 [Description(@"Specifies reasons for cancellation of a corporate action event.")]
 [Derivations(typeof(CorporateActionCancellationReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionCancellationReasonCode>))]
+#endif
 public enum CorporateActionCancellationReasonCode
 {
     /// <summary>

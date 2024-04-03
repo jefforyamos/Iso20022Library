@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ar5eoJyAEeuo7tDc4CDHXg")]
 [Description(@"Method used to protect the sensitive data.")]
 [Derivations(typeof(ProtectionMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProtectionMethodCode>))]
+#endif
 public enum ProtectionMethodCode
 {
     /// <summary>

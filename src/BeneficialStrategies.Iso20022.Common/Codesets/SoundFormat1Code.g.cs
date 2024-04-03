@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_MjnR0N6_Eeiwsev40qZGEQ")]
 [Description(@"Type of sound to play.")]
 [DerivedFrom(typeof(SoundFormatCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SoundFormat1Code>))]
+#endif
 public enum SoundFormat1Code
 {
     /// <summary>

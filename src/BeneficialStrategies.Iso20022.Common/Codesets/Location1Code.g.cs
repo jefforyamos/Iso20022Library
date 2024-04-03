@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KkDnQKHoEeagRbKvRt3LnA")]
 [Description(@"Specifies the location of the search")]
 [DerivedFrom(typeof(LocationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Location1Code>))]
+#endif
 public enum Location1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z9p599p-Ed-ak6NoX_4Aeg_307440382")]
 [Description(@"Indicates a type of instruction to a broker or dealer to buy or sell a financial instrument which is pegged against a certain value.")]
 [DerivedFrom(typeof(PegTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PegType1Code>))]
+#endif
 public enum PegType1Code
 {
     /// <summary>

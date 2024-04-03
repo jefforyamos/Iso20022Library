@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_MQE3AErHEeenp6hmNprBHg")]
 [Description(@"Way of transmitting receipt information to recipient.")]
 [DerivedFrom(typeof(ReceiptTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReceiptType1Code>))]
+#endif
 public enum ReceiptType1Code
 {
     /// <summary>

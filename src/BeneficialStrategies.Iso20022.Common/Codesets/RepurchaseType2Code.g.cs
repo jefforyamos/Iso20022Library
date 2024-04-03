@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZTe7ltp-Ed-ak6NoX_4Aeg_212758394")]
 [Description(@"Specifies the type of repurchase transaction.")]
 [DerivedFrom(typeof(RepurchaseTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RepurchaseType2Code>))]
+#endif
 public enum RepurchaseType2Code
 {
     /// <summary>

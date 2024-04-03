@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VsEwAdp-Ed-ak6NoX_4Aeg_-1720487337")]
 [Description(@"Specifies whether a physical form is required.")]
 [Derivations(typeof(Form1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FormCode>))]
+#endif
 public enum FormCode
 {
     /// <summary>

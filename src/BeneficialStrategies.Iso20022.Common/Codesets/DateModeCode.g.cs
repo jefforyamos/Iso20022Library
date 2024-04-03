@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_NR5vEFuREeSmO6RkXg92Lg")]
 [Description(@"Specifies, for a date, when the event or operation is to take place, for example at the beginning or end of the day.")]
 [Derivations(typeof(DateMode1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DateModeCode>))]
+#endif
 public enum DateModeCode
 {
     /// <summary>

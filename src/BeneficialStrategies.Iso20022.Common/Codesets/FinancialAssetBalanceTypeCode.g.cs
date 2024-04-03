@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_m34UtfNBEeCuA5Tr22BnwA_1170507866")]
 [Description(@"Specifies balances of assets and other balances.")]
 [Derivations(typeof(FinancialAssetBalanceType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialAssetBalanceTypeCode>))]
+#endif
 public enum FinancialAssetBalanceTypeCode
 {
     /// <summary>

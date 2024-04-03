@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wcX9QKx1Eem81-uIvTF5rQ")]
 [Description(@"Specifies a benchmark curve name.")]
 [DerivedFrom(typeof(BenchmarkCurveNameCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BenchmarkCurveName3Code>))]
+#endif
 public enum BenchmarkCurveName3Code
 {
     /// <summary>

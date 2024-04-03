@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bDZaAtp-Ed-ak6NoX_4Aeg_771492585")]
 [Description(@"Specifies the stage in the corporate action event life cycle.")]
 [DerivedFrom(typeof(CorporateActionEventProcessingStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionEventProcessingStatus1Code>))]
+#endif
 public enum CorporateActionEventProcessingStatus1Code
 {
     /// <summary>

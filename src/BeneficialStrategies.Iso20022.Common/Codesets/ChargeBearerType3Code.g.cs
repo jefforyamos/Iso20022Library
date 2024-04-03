@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_he7u0KXeEeaBtJ1HvhzRtg")]
 [Description(@"Specifies which party/parties will bear the charges associated with the processing of the payment transaction.")]
 [DerivedFrom(typeof(ChargeBearerTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChargeBearerType3Code>))]
+#endif
 public enum ChargeBearerType3Code
 {
     /// <summary>

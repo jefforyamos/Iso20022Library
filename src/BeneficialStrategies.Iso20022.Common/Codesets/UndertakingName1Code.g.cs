@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-YzAEHyjEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the named type of the undertaking.")]
 [DerivedFrom(typeof(UndertakingNameCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UndertakingName1Code>))]
+#endif
 public enum UndertakingName1Code
 {
     /// <summary>

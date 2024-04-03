@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_c--OoFNiEeijdq8ilaxyOA")]
 [Description(@"Specifies a type of drawdown event.")]
 [DerivedFrom(typeof(DrawdownEventTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DrawdownEventType1Code>))]
+#endif
 public enum DrawdownEventType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YcMuRdp-Ed-ak6NoX_4Aeg_-662678761")]
 [Description(@"Specifies if the collateral is to be delivered or returned.")]
 [Derivations(typeof(DeliverReturn1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeliverReturnCode>))]
+#endif
 public enum DeliverReturnCode
 {
     /// <summary>

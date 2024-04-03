@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__1CBwDy5EeS4E7Ac8_OV3g")]
 [Description(@"Defines the granularity of the frequency used for the reporting.")]
 [DerivedFrom(typeof(FrequencyGranularityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FrequencyGranularityType1Code>))]
+#endif
 public enum FrequencyGranularityType1Code
 {
     /// <summary>

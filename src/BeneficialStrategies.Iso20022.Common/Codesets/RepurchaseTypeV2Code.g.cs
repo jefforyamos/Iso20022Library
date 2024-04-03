@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_oOW02Y-QEeaVK-2bgpxeYw")]
 [Description(@"Relates to a principal adjustment.")]
 [Derivations(typeof(RepurchaseType8Code),typeof(RepurchaseType10Code),typeof(RepurchaseType9Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RepurchaseTypeV2Code>))]
+#endif
 public enum RepurchaseTypeV2Code
 {
     /// <summary>

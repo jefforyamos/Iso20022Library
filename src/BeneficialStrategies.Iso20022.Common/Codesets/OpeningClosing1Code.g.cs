@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aOytRtp-Ed-ak6NoX_4Aeg_1505902353")]
 [Description(@"Specifies additional information relative to the processing of the trade.")]
 [DerivedFrom(typeof(OpeningClosingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OpeningClosing1Code>))]
+#endif
 public enum OpeningClosing1Code
 {
     /// <summary>

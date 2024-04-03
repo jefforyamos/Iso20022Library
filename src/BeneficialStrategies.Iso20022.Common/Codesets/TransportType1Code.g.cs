@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QBGkQDEwEemzCpWiCwK4aQ")]
 [Description(@"Contains the transportation type code list")]
 [DerivedFrom(typeof(TransportTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransportType1Code>))]
+#endif
 public enum TransportType1Code
 {
     /// <summary>

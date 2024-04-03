@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bDPpCNp-Ed-ak6NoX_4Aeg_474204484")]
 [Description(@"Specifies the deadline reference of a corporate action.")]
 [DerivedFrom(typeof(CorporateActionReferenceDateCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionDeadline1Code>))]
+#endif
 public enum CorporateActionDeadline1Code
 {
     /// <summary>

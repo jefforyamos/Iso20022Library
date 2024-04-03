@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_t5NoYC6mEeiLE6ldFr13hQ")]
 [Description(@"Specifies the type of entity which has been assigned a MIC code.")]
 [DerivedFrom(typeof(TradingVenueCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MICEntityType1Code>))]
+#endif
 public enum MICEntityType1Code
 {
     /// <summary>

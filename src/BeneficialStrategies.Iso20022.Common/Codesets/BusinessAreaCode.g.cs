@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a9UR8E4NEey_VecAUE-C9Q")]
 [Description(@"Specifies the business context of the transaction")]
 [Derivations(typeof(BusinessArea1Code),typeof(BusinessArea2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BusinessAreaCode>))]
+#endif
 public enum BusinessAreaCode
 {
     /// <summary>

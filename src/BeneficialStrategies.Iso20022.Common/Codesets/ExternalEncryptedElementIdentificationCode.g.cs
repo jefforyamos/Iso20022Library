@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -20,6 +21,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aG9UEVdTEeqBUKlIwxdUog")]
 [Description(@"Specifies the element that has been encrypted, as published in an external data to encrypt type code set.|External code sets can be downloaded from www.iso20022.org.||These codes have the same value as the tag assignments shown in ISO 13492 for the data encryption dataset.  The codes are variable in length and conform to ISO/IEC 8825-1.")]
 [Derivations(typeof(ExternalEncryptedElementIdentification1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalEncryptedElementIdentificationCode>))]
+#endif
 public enum ExternalEncryptedElementIdentificationCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_2qD00IJoEeaStugbHOVOsA")]
 [Description(@"Specifies the type for an underlying contract for difference derivative.")]
 [DerivedFrom(typeof(UnderlyingTypeV3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnderlyingContractForDifferenceType3Code>))]
+#endif
 public enum UnderlyingContractForDifferenceType3Code
 {
     /// <summary>

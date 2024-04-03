@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hblKmGliEeGaMcKyqKNRfQ_420935209")]
 [Description(@"Indicates the physical form of the securities.")]
 [Derivations(typeof(InitialPhysicalForm1Code),typeof(InitialPhysicalForm2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InitialPhysicalFormCode>))]
+#endif
 public enum InitialPhysicalFormCode
 {
     /// <summary>

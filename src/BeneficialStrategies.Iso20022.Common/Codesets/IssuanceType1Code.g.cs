@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vRbJQH4MEeG05p8M2uqofg")]
 [Description(@"Specifies undertaking issuance type.")]
 [DerivedFrom(typeof(IssuanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IssuanceType1Code>))]
+#endif
 public enum IssuanceType1Code
 {
     /// <summary>

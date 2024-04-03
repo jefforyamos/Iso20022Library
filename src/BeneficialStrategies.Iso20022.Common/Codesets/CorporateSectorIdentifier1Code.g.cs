@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_gj0acFBdEeOenoknK_-H2g")]
 [Description(@"Identifies the corporate sector of the counterparty for reporting to trade repositories.")]
 [DerivedFrom(typeof(CorporateSectorIdentifierCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateSectorIdentifier1Code>))]
+#endif
 public enum CorporateSectorIdentifier1Code
 {
     /// <summary>

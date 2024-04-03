@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_POtDcUAuEeGeCKosDOIVvQ_1275943519")]
 [Description(@"Unrecognised or invalid depository.")]
 [DerivedFrom(typeof(RejectionReasonV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectionReason32Code>))]
+#endif
 public enum RejectionReason32Code
 {
     /// <summary>

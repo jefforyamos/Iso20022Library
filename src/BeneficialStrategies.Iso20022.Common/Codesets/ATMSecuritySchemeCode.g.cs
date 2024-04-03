@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zqg0kIr4EeSvuOJS0mmL0g")]
 [Description(@"Key exchange security scheme on an ATM for the host manager.")]
 [Derivations(typeof(ATMSecurityScheme2Code),typeof(ATMSecurityScheme1Code),typeof(ATMSecurityScheme3Code),typeof(ATMSecurityScheme4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMSecuritySchemeCode>))]
+#endif
 public enum ATMSecuritySchemeCode
 {
     /// <summary>

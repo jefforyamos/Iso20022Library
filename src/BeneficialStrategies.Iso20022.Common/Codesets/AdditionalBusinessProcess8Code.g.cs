@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_4f5gkJcDEee8S7xwGG7Veg")]
 [Description(@"Specifies the additional business process linked to a corporate action event such as an automatic market claim.")]
 [DerivedFrom(typeof(AdditionalBusinessProcessCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AdditionalBusinessProcess8Code>))]
+#endif
 public enum AdditionalBusinessProcess8Code
 {
     /// <summary>

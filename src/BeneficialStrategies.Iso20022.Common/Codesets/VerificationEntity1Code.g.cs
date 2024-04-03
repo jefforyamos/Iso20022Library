@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Lxl9oBZOEeiXa46FI4OtcQ")]
 [Description(@"Type of verification entity.")]
 [DerivedFrom(typeof(VerificationEntityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<VerificationEntity1Code>))]
+#endif
 public enum VerificationEntity1Code
 {
     /// <summary>

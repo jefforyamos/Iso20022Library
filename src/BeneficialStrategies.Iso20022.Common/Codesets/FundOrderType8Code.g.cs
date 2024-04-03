@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_y8_NwEcuEeam48hW0M8V2Q")]
 [Description(@"Specifies the category of the investment fund order.")]
 [DerivedFrom(typeof(FundOrderTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FundOrderType8Code>))]
+#endif
 public enum FundOrderType8Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YobMYNp-Ed-ak6NoX_4Aeg_1891584902")]
 [Description(@"Specifies the conditions under which the order/trade is to be/was executed.")]
 [DerivedFrom(typeof(TradeTransactionConditionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeTransactionCondition3Code>))]
+#endif
 public enum TradeTransactionCondition3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aVWBNtp-Ed-ak6NoX_4Aeg_-958051818")]
 [Description(@"Identifies the possible statuses of a meeting date.")]
 [Derivations(typeof(MeetingDateStatus1Code),typeof(MeetingDateStatus2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MeetingDateStatusCode>))]
+#endif
 public enum MeetingDateStatusCode
 {
     /// <summary>

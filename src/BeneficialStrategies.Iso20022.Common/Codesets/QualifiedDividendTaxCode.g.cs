@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1mSwEDL3EeKU9IrkkToqcw_1943389310")]
 [Description(@"Indicates whether the dividend as a whole or in part qualifies for lower/favourable tax rate.")]
 [Derivations(typeof(QualifiedDividendTax1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QualifiedDividendTaxCode>))]
+#endif
 public enum QualifiedDividendTaxCode
 {
     /// <summary>

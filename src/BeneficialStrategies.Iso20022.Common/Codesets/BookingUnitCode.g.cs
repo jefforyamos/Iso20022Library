@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bU-SNtp-Ed-ak6NoX_4Aeg_335335556")]
 [Description(@"Description of the method used to book single or grouped executions.")]
 [Derivations(typeof(BookingUnit1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BookingUnitCode>))]
+#endif
 public enum BookingUnitCode
 {
     /// <summary>

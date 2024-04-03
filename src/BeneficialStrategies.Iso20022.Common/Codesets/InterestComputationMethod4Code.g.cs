@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RHkKgHitEeqKjIYaFgh_2g")]
 [Description(@"Specifies the method used to compute accruing interest of a financial instrument.")]
 [DerivedFrom(typeof(InterestComputationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestComputationMethod4Code>))]
+#endif
 public enum InterestComputationMethod4Code
 {
     /// <summary>

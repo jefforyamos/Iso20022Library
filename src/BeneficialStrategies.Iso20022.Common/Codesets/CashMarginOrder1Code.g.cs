@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a65lVdp-Ed-ak6NoX_4Aeg_-1022295664")]
 [Description(@"Identifies whether an order is a non-margin, an opening margin or a closing margin order.")]
 [DerivedFrom(typeof(CashMarginOrderCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CashMarginOrder1Code>))]
+#endif
 public enum CashMarginOrder1Code
 {
     /// <summary>

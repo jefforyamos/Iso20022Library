@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YZ95pNp-Ed-ak6NoX_4Aeg_878628292")]
 [Description(@"Specifies the type of the obligation.")]
 [Derivations(typeof(ObligationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ObligationTypeCode>))]
+#endif
 public enum ObligationTypeCode
 {
     /// <summary>

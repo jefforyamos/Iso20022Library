@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZfQtyNp-Ed-ak6NoX_4Aeg_99789863")]
 [Description(@"Cash settlement date is not recognised or is invalid.")]
-[Derivations(typeof(RejectedStatusReason5Code),typeof(RejectedStatusReason6Code),typeof(RejectedStatusReason11Code),typeof(RejectedStatusReason13Code),typeof(TransferRejectedStatusReason2Code),typeof(MessageRejectedReason1Code),typeof(CancellationRejectedReason1Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason7Code),typeof(TransferRejectedStatusReason1Code),typeof(RejectedStatusReason9Code),typeof(RejectedStatusReason8Code),typeof(RejectedStatusReason10Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason4Code))]
+[Derivations(typeof(MessageRejectedReason1Code),typeof(RejectedStatusReason11Code),typeof(TransferRejectedStatusReason1Code),typeof(RejectedStatusReason10Code),typeof(RejectedStatusReason8Code),typeof(TransferRejectedStatusReason2Code),typeof(RejectedStatusReason7Code),typeof(RejectedCancellationStatusReason1Code),typeof(RejectedStatusReason13Code),typeof(RejectedStatusReason9Code),typeof(RejectedStatusReason4Code),typeof(CancellationRejectedReason1Code),typeof(RejectedStatusReason5Code),typeof(RejectedStatusReason12Code),typeof(RejectedStatusReason6Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectedStatusReasonCode>))]
+#endif
 public enum RejectedStatusReasonCode
 {
     /// <summary>

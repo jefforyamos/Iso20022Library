@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_afCItNp-Ed-ak6NoX_4Aeg_1937966255")]
 [Description(@"Specifies the market and statistic conditions upon which a liquidity indicator has been computed.")]
 [DerivedFrom(typeof(LiquidityIndicatorTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LiquidityIndicatorType1Code>))]
+#endif
 public enum LiquidityIndicatorType1Code
 {
     /// <summary>

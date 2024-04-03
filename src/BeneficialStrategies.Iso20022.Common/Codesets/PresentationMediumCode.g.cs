@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_oH14wHyeEeGWJuGCfvwOsQ")]
 [Description(@"Specifies the presentation medium.")]
 [Derivations(typeof(PresentationMedium1Code),typeof(PresentationMedium2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PresentationMediumCode>))]
+#endif
 public enum PresentationMediumCode
 {
     /// <summary>

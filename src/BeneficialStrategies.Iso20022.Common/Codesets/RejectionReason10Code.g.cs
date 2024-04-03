@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZgdAlNp-Ed-ak6NoX_4Aeg_1761795494")]
 [Description(@"Specifies the reason of a rejection of a standing instruction cancellation request.")]
 [DerivedFrom(typeof(RejectionReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RejectionReason10Code>))]
+#endif
 public enum RejectionReason10Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_5BKA0VWXEeeiG_nL4vgKnQ")]
 [Description(@"Type of key exchange.")]
 [DerivedFrom(typeof(CardServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardServiceType5Code>))]
+#endif
 public enum CardServiceType5Code
 {
     /// <summary>

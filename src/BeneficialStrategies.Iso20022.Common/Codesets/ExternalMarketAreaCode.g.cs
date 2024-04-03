@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -20,6 +21,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-ctAF_ouEe2ClqPWkEN24A")]
 [Description(@"Specifies the external market code, to which the instruction, operation or report relates, in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalMarketArea1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalMarketAreaCode>))]
+#endif
 public enum ExternalMarketAreaCode
 {
     /// <summary>

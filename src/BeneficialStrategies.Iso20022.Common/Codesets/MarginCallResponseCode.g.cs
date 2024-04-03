@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YdGGINp-Ed-ak6NoX_4Aeg_420355985")]
 [Description(@"Specifies whether the margin call request was sent on a non valuation day or was received after notification time.")]
 [Derivations(typeof(MarginCallResponse1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarginCallResponseCode>))]
+#endif
 public enum MarginCallResponseCode
 {
     /// <summary>

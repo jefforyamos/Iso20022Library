@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jiYPJYBAEeall68-KLgmUw")]
 [Description(@"Specifies whether the financial instrument is to be physically delivered or is a dematerilized transfer.")]
 [Derivations(typeof(PhysicalTransferType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PhysicalTransferTypeV2Code>))]
+#endif
 public enum PhysicalTransferTypeV2Code
 {
     /// <summary>

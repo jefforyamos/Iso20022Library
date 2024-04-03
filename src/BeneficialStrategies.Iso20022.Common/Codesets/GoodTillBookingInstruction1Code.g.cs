@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_auYMQdp-Ed-ak6NoX_4Aeg_438323415")]
 [Description(@"States whether executions are booked out or accumulated on a partially filled good till order on the day of execution or to accumulate.")]
 [DerivedFrom(typeof(GoodTillBookingInstructionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GoodTillBookingInstruction1Code>))]
+#endif
 public enum GoodTillBookingInstruction1Code
 {
     /// <summary>

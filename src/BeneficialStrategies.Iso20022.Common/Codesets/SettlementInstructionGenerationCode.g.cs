@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__wuqYdojEeC60axPepSq7g_-1147396921")]
 [Description(@"Specifies if the ETC service provider is to generate a settlement instruction or not.")]
 [Derivations(typeof(SettlementInstructionGeneration1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementInstructionGenerationCode>))]
+#endif
 public enum SettlementInstructionGenerationCode
 {
     /// <summary>

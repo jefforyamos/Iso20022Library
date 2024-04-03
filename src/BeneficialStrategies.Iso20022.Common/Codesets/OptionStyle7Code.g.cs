@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VUJB0ED8EeW1yage4PQ__A")]
 [Description(@"Specifies how an option for a derivative or securities derivative can be exercised.")]
 [DerivedFrom(typeof(OptionStyleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionStyle7Code>))]
+#endif
 public enum OptionStyle7Code
 {
     /// <summary>

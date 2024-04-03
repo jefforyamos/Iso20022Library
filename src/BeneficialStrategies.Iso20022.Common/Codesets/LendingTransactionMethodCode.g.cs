@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__2_DY9ojEeC60axPepSq7g_1658762544")]
 [Description(@"Lending method applied to the securities financing contract.")]
 [Derivations(typeof(LendingTransactionMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LendingTransactionMethodCode>))]
+#endif
 public enum LendingTransactionMethodCode
 {
     /// <summary>

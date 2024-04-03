@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a2bVAtp-Ed-ak6NoX_4Aeg_-1716921082")]
 [Description(@"Specifies the action requested when forwarding a case.")]
 [DerivedFrom(typeof(CaseForwardingNotificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CaseForwardingNotification3Code>))]
+#endif
 public enum CaseForwardingNotification3Code
 {
     /// <summary>

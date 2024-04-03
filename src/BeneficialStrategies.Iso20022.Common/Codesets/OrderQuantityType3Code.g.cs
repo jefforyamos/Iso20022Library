@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aRVD49p-Ed-ak6NoX_4Aeg_-1276786595")]
 [Description(@"Specifies how the order is placed, for example by quantity of units or by amount of money.")]
 [DerivedFrom(typeof(OrderQuantityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderQuantityType3Code>))]
+#endif
 public enum OrderQuantityType3Code
 {
     /// <summary>

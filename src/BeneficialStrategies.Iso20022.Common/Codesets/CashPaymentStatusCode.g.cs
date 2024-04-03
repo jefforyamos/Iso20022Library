@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a7MgQNp-Ed-ak6NoX_4Aeg_1461915358")]
 [Description(@"Specifies the state of a payment instruction at a specified time.")]
 [Derivations(typeof(CashPaymentStatus2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CashPaymentStatusCode>))]
+#endif
 public enum CashPaymentStatusCode
 {
     /// <summary>

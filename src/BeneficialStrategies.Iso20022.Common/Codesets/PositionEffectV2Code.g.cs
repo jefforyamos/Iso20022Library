@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__tJx8tojEeC60axPepSq7g_1840994325")]
 [Description(@"Indicates whether the resulting position after a trade should be an opening position or closing position.")]
 [Derivations(typeof(PositionEffect2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PositionEffectV2Code>))]
+#endif
 public enum PositionEffectV2Code
 {
     /// <summary>

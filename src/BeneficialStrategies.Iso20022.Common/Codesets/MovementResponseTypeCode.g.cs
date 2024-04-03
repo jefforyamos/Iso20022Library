@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jQ9Wgu5NEeCisYr99QEiWA_1302753990")]
 [Description(@"Specifies the type of movement response to be returned.")]
 [Derivations(typeof(MovementResponseType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MovementResponseTypeCode>))]
+#endif
 public enum MovementResponseTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aNcpctp-Ed-ak6NoX_4Aeg_-849280423")]
 [Description(@"Specifies that there is no criteria.")]
 [DerivedFrom(typeof(NoCriteriaCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NoCriteria1Code>))]
+#endif
 public enum NoCriteria1Code
 {
     /// <summary>

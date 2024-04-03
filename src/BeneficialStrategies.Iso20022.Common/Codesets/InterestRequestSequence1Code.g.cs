@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YbKMd9p-Ed-ak6NoX_4Aeg_2101487215")]
 [Description(@"Indicates whether the interest request is new or updated.")]
 [DerivedFrom(typeof(InterestRequestSequenceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestRequestSequence1Code>))]
+#endif
 public enum InterestRequestSequence1Code
 {
     /// <summary>

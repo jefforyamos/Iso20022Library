@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_axNd2dp-Ed-ak6NoX_4Aeg_-1189024253")]
 [Description(@"Specifies the nature of the dividend.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DividendTypeCode>))]
+#endif
 public enum DividendTypeCode
 {
     /// <summary>

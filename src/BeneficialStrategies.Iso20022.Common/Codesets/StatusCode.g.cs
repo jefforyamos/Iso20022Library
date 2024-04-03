@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_YgFIuNp-Ed-ak6NoX_4Aeg_-740656164")]
 [Description(@"Specifies the status of an instruction.")]
-[Derivations(typeof(Status7Code),typeof(Status2Code),typeof(Status6Code),typeof(Status8Code),typeof(Status5Code),typeof(Status3Code),typeof(Status4Code),typeof(Status1Code))]
+[Derivations(typeof(Status8Code),typeof(Status7Code),typeof(Status4Code),typeof(Status6Code),typeof(Status3Code),typeof(Status1Code),typeof(Status2Code),typeof(Status5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatusCode>))]
+#endif
 public enum StatusCode
 {
     /// <summary>

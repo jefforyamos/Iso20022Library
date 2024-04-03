@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_2y16wML_EeiKUovBlz9Jxg")]
 [Description(@"Specifies the role associated with a specific party in a payment instruction, as published in an external payment role code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentRole1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalPaymentRoleCode>))]
+#endif
 public enum ExternalPaymentRoleCode
 {
     /// <summary>

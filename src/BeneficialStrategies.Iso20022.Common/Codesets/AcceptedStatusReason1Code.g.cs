@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RiGKQGBnEeaR1OOiVxm3Gg")]
 [Description(@"Specifies the reason for an accepted status.")]
 [DerivedFrom(typeof(AcceptedStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AcceptedStatusReason1Code>))]
+#endif
 public enum AcceptedStatusReason1Code
 {
     /// <summary>

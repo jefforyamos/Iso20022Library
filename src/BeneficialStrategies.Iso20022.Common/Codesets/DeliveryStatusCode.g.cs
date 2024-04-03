@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_MKgsMQ2pEeWH49U6bkyMaA")]
 [Description(@"Provides an explicit indication whether the delivery attempt resulted in success or failure.")]
 [Derivations(typeof(DeliveryStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeliveryStatusCode>))]
+#endif
 public enum DeliveryStatusCode
 {
     /// <summary>

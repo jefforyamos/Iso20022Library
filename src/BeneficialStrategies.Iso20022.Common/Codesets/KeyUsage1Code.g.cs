@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KSJO8H1DEeCF8NjrBemJWQ_1886720027")]
 [Description(@"Allowed usages of the key.")]
 [DerivedFrom(typeof(KeyUsageCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<KeyUsage1Code>))]
+#endif
 public enum KeyUsage1Code
 {
     /// <summary>

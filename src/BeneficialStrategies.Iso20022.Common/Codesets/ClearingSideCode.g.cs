@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__1M6s9ojEeC60axPepSq7g_1756834553")]
 [Description(@"Side taken by a party on an order.")]
 [Derivations(typeof(ClearingSide1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ClearingSideCode>))]
+#endif
 public enum ClearingSideCode
 {
     /// <summary>

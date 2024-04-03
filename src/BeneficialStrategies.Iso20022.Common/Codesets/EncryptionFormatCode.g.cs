@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jZW04Gi3EeS87LmvcA55sg")]
 [Description(@"Format of data before encryption, if the format is not plaintext or implicit.")]
 [Derivations(typeof(EncryptionFormat1Code),typeof(EncryptionFormat2Code),typeof(EncryptionFormat3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EncryptionFormatCode>))]
+#endif
 public enum EncryptionFormatCode
 {
     /// <summary>

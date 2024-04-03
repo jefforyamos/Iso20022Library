@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ux3xACHnEeOQ7qT4JUI53A")]
 [Description(@"Specifies the type of consent announced.")]
 [DerivedFrom(typeof(ConsentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ConsentType1Code>))]
+#endif
 public enum ConsentType1Code
 {
     /// <summary>

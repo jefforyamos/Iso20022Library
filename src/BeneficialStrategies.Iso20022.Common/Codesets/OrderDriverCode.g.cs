@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aRBh4dp-Ed-ak6NoX_4Aeg_-127818682")]
 [Description(@"Specifies if the order is sell or buy driven.")]
 [DerivedFrom(typeof(SideCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderDriverCode>))]
+#endif
 public enum OrderDriverCode
 {
     /// <summary>

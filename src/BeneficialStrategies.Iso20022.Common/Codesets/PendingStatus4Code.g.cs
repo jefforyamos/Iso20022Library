@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aGJuo9p-Ed-ak6NoX_4Aeg_1263998543")]
 [Description(@"Indicates that the state of a payment at the clearing agent side is pending.")]
 [DerivedFrom(typeof(PaymentInstructionStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingStatus4Code>))]
+#endif
 public enum PendingStatus4Code
 {
     /// <summary>

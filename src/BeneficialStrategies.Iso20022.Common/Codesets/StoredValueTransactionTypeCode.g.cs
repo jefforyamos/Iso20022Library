@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_OuAlgNuNEeiB5uLfkg9ZJA")]
 [Description(@"Identification of operation to proceed on the stored value account or the stored value card.")]
 [Derivations(typeof(StoredValueTransactionType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StoredValueTransactionTypeCode>))]
+#endif
 public enum StoredValueTransactionTypeCode
 {
     /// <summary>

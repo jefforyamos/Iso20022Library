@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_alvNodp-Ed-ak6NoX_4Aeg_1976296742")]
 [Description(@"Short sale exposure.")]
-[Derivations(typeof(ExposureType4Code),typeof(ExposureType1Code),typeof(ExposureType6Code),typeof(ExposureType5Code),typeof(ExposureType8Code),typeof(ExposureType2Code))]
+[Derivations(typeof(ExposureType1Code),typeof(ExposureType4Code),typeof(ExposureType2Code),typeof(ExposureType5Code),typeof(ExposureType8Code),typeof(ExposureType6Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExposureTypeCode>))]
+#endif
 public enum ExposureTypeCode
 {
     /// <summary>

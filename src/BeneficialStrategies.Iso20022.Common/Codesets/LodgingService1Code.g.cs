@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_uwes0GMtEeexSYCBvAp_qA")]
 [Description(@"Type of lodging service.")]
 [DerivedFrom(typeof(LodgingServiceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LodgingService1Code>))]
+#endif
 public enum LodgingService1Code
 {
     /// <summary>

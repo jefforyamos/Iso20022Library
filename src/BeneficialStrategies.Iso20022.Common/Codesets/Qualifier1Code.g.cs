@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZWnIFtp-Ed-ak6NoX_4Aeg_-2042168442")]
 [Description(@"Qualifies the use of the quote or the indication of interest.")]
 [DerivedFrom(typeof(QualifierCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Qualifier1Code>))]
+#endif
 public enum Qualifier1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EHaIYDQTEe2o-K1dwNg8Gg")]
 [Description(@"Specifies whether the message is a final eligible balance and entitlements message or a preliminary advice of payment message.")]
 [Derivations(typeof(CorporateActionMovementPreliminaryAdviceFunction1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionMovementPreliminaryAdviceFunctionCode>))]
+#endif
 public enum CorporateActionMovementPreliminaryAdviceFunctionCode
 {
     /// <summary>

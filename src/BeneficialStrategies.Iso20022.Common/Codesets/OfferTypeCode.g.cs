@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aOWBU9p-Ed-ak6NoX_4Aeg_1608488779")]
 [Description(@"Specifies the conditions that apply to the offer.")]
 [Derivations(typeof(OfferType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OfferTypeCode>))]
+#endif
 public enum OfferTypeCode
 {
     /// <summary>

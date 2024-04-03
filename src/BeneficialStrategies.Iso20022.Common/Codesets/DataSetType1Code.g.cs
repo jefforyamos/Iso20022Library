@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VrxOA9p-Ed-ak6NoX_4Aeg_2082288743")]
 [Description(@"Specifies the type of data set that is matched.")]
 [DerivedFrom(typeof(DataSetTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataSetType1Code>))]
+#endif
 public enum DataSetType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y-eU49p-Ed-ak6NoX_4Aeg_1272441146")]
 [Description(@"Specifies the account identification via a code.")]
 [DerivedFrom(typeof(SafekeepingAccountIdentificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SafekeepingAccountIdentification1Code>))]
+#endif
 public enum SafekeepingAccountIdentification1Code
 {
     /// <summary>

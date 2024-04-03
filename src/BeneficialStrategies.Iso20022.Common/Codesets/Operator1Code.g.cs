@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aPFoM9p-Ed-ak6NoX_4Aeg_1632624571")]
 [Description(@"Code containing the operator used to indicate the relationship between a variable and a fixed value.")]
 [DerivedFrom(typeof(OperatorCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Operator1Code>))]
+#endif
 public enum Operator1Code
 {
     /// <summary>

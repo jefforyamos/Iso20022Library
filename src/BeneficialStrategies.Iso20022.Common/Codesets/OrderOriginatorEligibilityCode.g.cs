@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aRLS49p-Ed-ak6NoX_4Aeg_-105822202")]
 [Description(@"Specifies the type of the counterparties eligibility as defined by article 24 of the EU MiFID Directive applicable to transactions executed by investment firms for eligible counterparties.")]
 [Derivations(typeof(OrderOriginatorEligibility1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderOriginatorEligibilityCode>))]
+#endif
 public enum OrderOriginatorEligibilityCode
 {
     /// <summary>

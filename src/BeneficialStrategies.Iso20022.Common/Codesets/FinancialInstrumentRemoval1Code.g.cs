@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_MUJ0kPkNEeicy5Zn42b9bg")]
 [Description(@"Specifies the removal process.")]
 [DerivedFrom(typeof(FinancialInstrumentRemovalCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialInstrumentRemoval1Code>))]
+#endif
 public enum FinancialInstrumentRemoval1Code
 {
     /// <summary>

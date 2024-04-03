@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zdviUQ93EeGeV5vP7Mvdig_1432715289")]
 [Description(@"Specifies the current status of a limit.")]
 [DerivedFrom(typeof(LimitStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LimitStatus1Code>))]
+#endif
 public enum LimitStatus1Code
 {
     /// <summary>

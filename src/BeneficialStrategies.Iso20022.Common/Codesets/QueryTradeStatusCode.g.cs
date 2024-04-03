@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_LmV-saacEeSR8qifggAitQ")]
 [Description(@"Specifies the inquiry status of the trade.")]
 [Derivations(typeof(QueryTradeStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QueryTradeStatusCode>))]
+#endif
 public enum QueryTradeStatusCode
 {
     /// <summary>

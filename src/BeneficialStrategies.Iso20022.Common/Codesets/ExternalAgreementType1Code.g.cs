@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Jjlw8MkeEeeiAIB1i4AlQw")]
 [Description(@"Name of the identification scheme, in a coded form as published in an external list.")]
 [DerivedFrom(typeof(ExternalAgreementTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalAgreementType1Code>))]
+#endif
 public enum ExternalAgreementType1Code
 {
     /// <summary>

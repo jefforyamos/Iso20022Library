@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_lko5sDcjEeidBoT_PugKiA")]
 [Description(@"Specifies if a charge or cost is intended (ex ante) or actual (post ante).")]
 [Derivations(typeof(IntendedOrActual2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IntendedOrActualCode>))]
+#endif
 public enum IntendedOrActualCode
 {
     /// <summary>

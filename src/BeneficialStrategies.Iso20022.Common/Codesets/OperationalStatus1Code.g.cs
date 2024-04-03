@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EwU6kCDZEeWCLu74WLgP4w")]
 [Description(@"Specifies the operational status.")]
 [DerivedFrom(typeof(OperationalStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OperationalStatus1Code>))]
+#endif
 public enum OperationalStatus1Code
 {
     /// <summary>

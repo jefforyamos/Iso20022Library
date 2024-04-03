@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ku3YgeBFEd-D2OAFXdoRmA")]
 [Description(@"Specifies the conditions under which the order/trade is to be settled.")]
 [DerivedFrom(typeof(SettlementTransactionConditionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementTransactionCondition5Code>))]
+#endif
 public enum SettlementTransactionCondition5Code
 {
     /// <summary>

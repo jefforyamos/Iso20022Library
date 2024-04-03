@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bVa-INp-Ed-ak6NoX_4Aeg_-1889057025")]
 [Description(@"Specifies the calculation basis.")]
 [Derivations(typeof(CalculationBasis1Code),typeof(CalculationBasis2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CalculationBasisCode>))]
+#endif
 public enum CalculationBasisCode
 {
     /// <summary>

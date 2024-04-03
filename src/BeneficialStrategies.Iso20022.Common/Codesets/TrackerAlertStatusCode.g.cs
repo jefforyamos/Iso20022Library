@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_FJ4ewPrxEemIKt9hrQ9pJw")]
 [Description(@"Indicates the status of the tracker alert notification.")]
 [Derivations(typeof(TrackerAlertStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TrackerAlertStatusCode>))]
+#endif
 public enum TrackerAlertStatusCode
 {
     /// <summary>

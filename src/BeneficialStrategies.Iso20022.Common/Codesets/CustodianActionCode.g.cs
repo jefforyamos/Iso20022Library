@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_14eFMTL3EeKU9IrkkToqcw_2034050184")]
 [Description(@"Specifies custodian activity codes.")]
 [Derivations(typeof(CustodianAction1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CustodianActionCode>))]
+#endif
 public enum CustodianActionCode
 {
     /// <summary>

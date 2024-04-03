@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZU0_Zdp-Ed-ak6NoX_4Aeg_188066871")]
 [Description(@"Specifies whether a resolution in an agenda is still active or has been deleted.")]
 [DerivedFrom(typeof(ResolutionStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResolutionStatus1Code>))]
+#endif
 public enum ResolutionStatus1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z7uAQtp-Ed-ak6NoX_4Aeg_1319644743")]
 [Description(@"Specifies the payment conditions.")]
 [DerivedFrom(typeof(PaymentTimeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentTime2Code>))]
+#endif
 public enum PaymentTime2Code
 {
     /// <summary>

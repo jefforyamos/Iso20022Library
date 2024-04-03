@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_wZ0M8Qu2Eeq4I6UJxZQ2Qw")]
 [Description(@"Configuration of the exchanges to perform the cancellation of a payment transaction.")]
 [DerivedFrom(typeof(CancellationProcessCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancellationProcess2Code>))]
+#endif
 public enum CancellationProcess2Code
 {
     /// <summary>

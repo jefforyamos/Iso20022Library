@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YdGGJtp-Ed-ak6NoX_4Aeg_1195947295")]
 [Description(@"Specifies whether the proposal is an initial or a counter proposal.")]
 [Derivations(typeof(ProposalType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProposalTypeCode>))]
+#endif
 public enum ProposalTypeCode
 {
     /// <summary>

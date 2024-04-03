@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bTCYiNp-Ed-ak6NoX_4Aeg_263893387")]
 [Description(@"Type of statement reporting on account holdings for corporate action events eg. reporting on multiple accounts or multiple events.")]
 [Derivations(typeof(CorporateActionStatementReportingType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionStatementReportingTypeCode>))]
+#endif
 public enum CorporateActionStatementReportingTypeCode
 {
     /// <summary>

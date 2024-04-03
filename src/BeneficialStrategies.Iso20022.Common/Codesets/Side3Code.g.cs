@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__x69MtojEeC60axPepSq7g_1543095306")]
 [Description(@"Side taken by a party on an order.")]
 [DerivedFrom(typeof(SideCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Side3Code>))]
+#endif
 public enum Side3Code
 {
     /// <summary>

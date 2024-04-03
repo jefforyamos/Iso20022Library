@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1rW2RTL3EeKU9IrkkToqcw_118506485")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined payout types.")]
 [DerivedFrom(typeof(DTCCPayoutTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCCPayoutType2Code>))]
+#endif
 public enum DTCCPayoutType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_leEoQad3EeuEcqP2FGAFaA")]
 [Description(@"Identification of an individual.")]
 [DerivedFrom(typeof(IdentificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Identification3Code>))]
+#endif
 public enum Identification3Code
 {
     /// <summary>

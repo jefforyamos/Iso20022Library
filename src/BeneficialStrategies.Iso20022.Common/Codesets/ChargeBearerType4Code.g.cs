@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_XaGi3_WfEemtd4wHZYvFUQ")]
 [Description(@"Specifies which party(ies) will pay charges due for processing of the instruction.")]
 [DerivedFrom(typeof(ChargeBearerTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChargeBearerType4Code>))]
+#endif
 public enum ChargeBearerType4Code
 {
     /// <summary>

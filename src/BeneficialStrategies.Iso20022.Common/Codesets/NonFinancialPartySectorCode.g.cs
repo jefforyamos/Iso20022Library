@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_H2VH0BQYEeWSI-Fz8Zwg6g")]
 [Description(@"Specifies the sector of a party with non financial activities.")]
 [Derivations(typeof(NonFinancialPartySector1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonFinancialPartySectorCode>))]
+#endif
 public enum NonFinancialPartySectorCode
 {
     /// <summary>

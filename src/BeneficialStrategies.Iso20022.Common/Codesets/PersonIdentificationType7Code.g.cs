@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_A351sE4REeiQHa-q1Uephw")]
 [Description(@"Specifies a type of tax reference.")]
 [DerivedFrom(typeof(PersonIdentificationTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PersonIdentificationType7Code>))]
+#endif
 public enum PersonIdentificationType7Code
 {
     /// <summary>

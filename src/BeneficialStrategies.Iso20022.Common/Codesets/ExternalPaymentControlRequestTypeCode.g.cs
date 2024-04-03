@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -20,6 +21,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hQU4EZIgEeect698_YsnIA")]
 [Description(@"Specifies the external request type code for a payment control command in the format of character string with a maximum length of 4 characters.|The list of valid codes is an external code set published separately.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalPaymentControlRequestType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalPaymentControlRequestTypeCode>))]
+#endif
 public enum ExternalPaymentControlRequestTypeCode
 {
     /// <summary>

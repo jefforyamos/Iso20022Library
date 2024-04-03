@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZUYTc9p-Ed-ak6NoX_4Aeg_-165761302")]
 [Description(@"Specifies the request used to further detail the type of information that will be queried.")]
 [Derivations(typeof(RequestType1Code),typeof(RequestType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RequestTypeCode>))]
+#endif
 public enum RequestTypeCode
 {
     /// <summary>

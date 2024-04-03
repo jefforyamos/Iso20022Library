@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZyoVs9p-Ed-ak6NoX_4Aeg_-359397827")]
 [Description(@"Specifies the entitled party.")]
-[Derivations(typeof(PartyType11Code),typeof(PartyType3Code),typeof(PartyType19Code),typeof(PartyType2Code),typeof(PartyType4Code),typeof(PartyType28Code),typeof(PartyType10Code),typeof(PartyType17Code),typeof(PartyType16Code),typeof(PartyType26Code),typeof(PartyType22Code),typeof(PartyType1Code),typeof(PartyType7Code),typeof(PartyType20Code),typeof(PartyType6Code),typeof(PartyType5Code),typeof(PartyType23Code),typeof(PartyType9Code),typeof(PartyType12Code),typeof(PartyType18Code),typeof(PartyType15Code),typeof(PartyType21Code),typeof(PartyType33Code),typeof(PartyType25Code),typeof(PartyType32Code),typeof(PartyType14Code),typeof(PartyType13Code))]
+[Derivations(typeof(PartyType9Code),typeof(PartyType5Code),typeof(PartyType23Code),typeof(PartyType17Code),typeof(PartyType14Code),typeof(PartyType10Code),typeof(PartyType18Code),typeof(PartyType19Code),typeof(PartyType6Code),typeof(PartyType2Code),typeof(PartyType21Code),typeof(PartyType25Code),typeof(PartyType4Code),typeof(PartyType7Code),typeof(PartyType15Code),typeof(PartyType16Code),typeof(PartyType22Code),typeof(PartyType1Code),typeof(PartyType20Code),typeof(PartyType32Code),typeof(PartyType13Code),typeof(PartyType12Code),typeof(PartyType33Code),typeof(PartyType3Code),typeof(PartyType26Code),typeof(PartyType11Code),typeof(PartyType28Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartyTypeCode>))]
+#endif
 public enum PartyTypeCode
 {
     /// <summary>

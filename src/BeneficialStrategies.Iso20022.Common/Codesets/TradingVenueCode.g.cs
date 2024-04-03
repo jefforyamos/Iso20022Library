@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8UfE0F0fEeWErPfQ7BYx8A")]
 [Description(@"Specifies the type of a trading venue.")]
 [Derivations(typeof(TradingVenue2Code),typeof(TradingVenue1Code),typeof(MICEntityType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradingVenueCode>))]
+#endif
 public enum TradingVenueCode
 {
     /// <summary>

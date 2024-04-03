@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_tIL3gCDLEeWPMvNwVtiMsA")]
 [Description(@"Specifies the order in which events are processed.")]
 [DerivedFrom(typeof(PositionEffectCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PositionEffect3Code>))]
+#endif
 public enum PositionEffect3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_UJ4QoAnyEeWnS-yHF1QhNQ")]
 [Description(@"Commodity derivative base product code list for Agricultural.")]
 [DerivedFrom(typeof(AssetClassProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassProductType1Code>))]
+#endif
 public enum AssetClassProductType1Code
 {
     /// <summary>

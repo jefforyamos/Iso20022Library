@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_AyeSgIMNEeq-_7a8Z6CuPA")]
 [Description(@"Criteria used to segment classes of non-equity instruments into sub classes as per local regulation.")]
 [DerivedFrom(typeof(NonEquitySubClassSegmentationCriteriaCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NonEquitySubClassSegmentationCriteria1Code>))]
+#endif
 public enum NonEquitySubClassSegmentationCriteria1Code
 {
     /// <summary>

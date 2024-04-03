@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aevNwNp-Ed-ak6NoX_4Aeg_-1698330264")]
 [Description(@"Specifies the type of risk management limit.")]
-[Derivations(typeof(RiskLimitType1Code),typeof(LimitType4Code),typeof(LimitType3Code),typeof(LimitType1Code),typeof(LimitType2Code))]
+[Derivations(typeof(LimitType3Code),typeof(LimitType4Code),typeof(LimitType2Code),typeof(LimitType1Code),typeof(RiskLimitType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LimitTypeCode>))]
+#endif
 public enum LimitTypeCode
 {
     /// <summary>

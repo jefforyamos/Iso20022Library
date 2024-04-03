@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6UHyApqlEeGSON8vddiWzQ_1788250895")]
 [Description(@"Preferred method used to reach the individual contact within an organisation.")]
 [DerivedFrom(typeof(PreferredContactMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PreferredContactMethod1Code>))]
+#endif
 public enum PreferredContactMethod1Code
 {
     /// <summary>

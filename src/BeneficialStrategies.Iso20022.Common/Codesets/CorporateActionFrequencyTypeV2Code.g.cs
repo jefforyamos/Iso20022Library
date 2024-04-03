@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_OR5utiXeEeO8J8_akw9vuw")]
 [Description(@"Frequency of the cash distribution.")]
 [Derivations(typeof(CorporateActionFrequencyType3Code),typeof(CorporateActionFrequencyType4Code),typeof(CorporateActionFrequencyType5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionFrequencyTypeV2Code>))]
+#endif
 public enum CorporateActionFrequencyTypeV2Code
 {
     /// <summary>

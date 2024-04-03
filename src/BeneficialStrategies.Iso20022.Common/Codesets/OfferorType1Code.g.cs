@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1pa8lTL3EeKU9IrkkToqcw_1480504854")]
 [Description(@"Specifies whether the offeror for the event is the issuing company or a third party.")]
 [DerivedFrom(typeof(OfferorTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OfferorType1Code>))]
+#endif
 public enum OfferorType1Code
 {
     /// <summary>

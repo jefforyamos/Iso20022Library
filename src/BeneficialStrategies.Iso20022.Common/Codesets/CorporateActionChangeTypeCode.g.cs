@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bDF4Bdp-Ed-ak6NoX_4Aeg_-1435625775")]
 [Description(@"Specifies the type of changes.")]
 [Derivations(typeof(CorporateActionChangeType2Code),typeof(CorporateActionChangeType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionChangeTypeCode>))]
+#endif
 public enum CorporateActionChangeTypeCode
 {
     /// <summary>

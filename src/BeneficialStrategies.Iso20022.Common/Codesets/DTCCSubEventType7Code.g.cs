@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8FNzoe2OEeiWtrflKsFqHg")]
 [Description(@"Specifies DTCC (The Depository Trust and Clearing Corporation) defined sub event types.")]
 [DerivedFrom(typeof(DTCCSubEventTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCCSubEventType7Code>))]
+#endif
 public enum DTCCSubEventType7Code
 {
     /// <summary>

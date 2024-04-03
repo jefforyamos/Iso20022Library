@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YwKzJdp-Ed-ak6NoX_4Aeg_159326277")]
 [Description(@"Defines when the trigger will hit, i.e. the action specified by the trigger instructions will come into effect.")]
 [DerivedFrom(typeof(TriggerTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TriggerType1Code>))]
+#endif
 public enum TriggerType1Code
 {
     /// <summary>

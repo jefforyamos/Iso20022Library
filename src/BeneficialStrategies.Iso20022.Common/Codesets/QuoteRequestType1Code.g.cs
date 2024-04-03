@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZX9L4dp-Ed-ak6NoX_4Aeg_244698019")]
 [Description(@"Indicates the type of quote request (e.g. manual vs. automatic) being generated.")]
 [DerivedFrom(typeof(QuoteRequestTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QuoteRequestType1Code>))]
+#endif
 public enum QuoteRequestType1Code
 {
     /// <summary>

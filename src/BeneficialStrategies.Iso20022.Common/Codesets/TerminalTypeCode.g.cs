@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_71JA8ECGEeeXpbqDpLawug")]
 [Description(@"Type of terminal under the control of the card acceptor used for the card transaction.")]
 [Derivations(typeof(TerminalType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminalTypeCode>))]
+#endif
 public enum TerminalTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bXW30tp-Ed-ak6NoX_4Aeg_-343201614")]
 [Description(@"Specifies the type of pay-in call report.")]
 [Derivations(typeof(CallIn1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CallInCode>))]
+#endif
 public enum CallInCode
 {
     /// <summary>

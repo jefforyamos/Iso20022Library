@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_c6sBIIO6EeSWSLYdc10LRg")]
 [Description(@"Destination of the message.")]
 [DerivedFrom(typeof(UserInterfaceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UserInterface3Code>))]
+#endif
 public enum UserInterface3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_t3fDoAitEeKn9O5oyej_zw")]
 [Description(@"Cryptographic algorithms for digests.")]
 [DerivedFrom(typeof(AlgorithmCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Algorithm5Code>))]
+#endif
 public enum Algorithm5Code
 {
     /// <summary>

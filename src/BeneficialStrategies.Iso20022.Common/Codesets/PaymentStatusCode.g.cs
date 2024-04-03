@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Z7RUV9p-Ed-ak6NoX_4Aeg_-481257913")]
 [Description(@"Indicates the status of a single payment transaction or of a group of payment transactions.")]
-[Derivations(typeof(TransactionIndividualStatus2Code),typeof(CancellationIndividualStatus1Code),typeof(TransactionGroupStatus2Code),typeof(TransactionIndividualStatus5Code),typeof(TransactionIndividualStatus4Code),typeof(PartialGroupStatus1Code),typeof(ValidationGroupStatus1Code),typeof(ValidationGroupStatus2Code),typeof(GroupCancellationStatus1Code),typeof(TransactionGroupStatus1Code),typeof(CancellationIndividualStatus2Code),typeof(TransactionIndividualStatus3Code),typeof(PartialGroupStatus2Code),typeof(TransactionGroupStatus3Code),typeof(TransactionIndividualStatus1Code))]
+[Derivations(typeof(TransactionIndividualStatus1Code),typeof(TransactionIndividualStatus3Code),typeof(TransactionIndividualStatus5Code),typeof(TransactionGroupStatus3Code),typeof(PartialGroupStatus2Code),typeof(TransactionGroupStatus2Code),typeof(TransactionIndividualStatus2Code),typeof(TransactionIndividualStatus4Code),typeof(PartialGroupStatus1Code),typeof(TransactionGroupStatus1Code),typeof(CancellationIndividualStatus1Code),typeof(ValidationGroupStatus2Code),typeof(CancellationIndividualStatus2Code),typeof(GroupCancellationStatus1Code),typeof(ValidationGroupStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentStatusCode>))]
+#endif
 public enum PaymentStatusCode
 {
     /// <summary>

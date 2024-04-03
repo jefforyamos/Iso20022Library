@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8OFBV6MgEeCJ6YNENx4h-w_-736903366")]
 [Description(@"Specifies the nature of the balance within a system processing the transactions.")]
 [DerivedFrom(typeof(SystemBalanceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SystemBalanceType2Code>))]
+#endif
 public enum SystemBalanceType2Code
 {
     /// <summary>

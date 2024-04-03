@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_0DaqkK4kEemG7MmivSuE5g")]
 [Description(@"Conditions for physical admittance to general meetings.")]
 [Derivations(typeof(AttendanceAdmissionConditions1Code),typeof(AttendanceAdmissionConditions2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AttendanceAdmissionConditionsCode>))]
+#endif
 public enum AttendanceAdmissionConditionsCode
 {
     /// <summary>

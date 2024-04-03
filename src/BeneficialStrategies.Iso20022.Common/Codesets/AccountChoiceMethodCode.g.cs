@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IwRRkHs7EeSTS7uHCe8FPQ")]
 [Description(@"Method used by the cardholder and the terminal for the choice of the account.")]
 [Derivations(typeof(AccountChoiceMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountChoiceMethodCode>))]
+#endif
 public enum AccountChoiceMethodCode
 {
     /// <summary>

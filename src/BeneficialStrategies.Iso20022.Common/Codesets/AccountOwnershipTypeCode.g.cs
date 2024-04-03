@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_brLLsNp-Ed-ak6NoX_4Aeg_1487774282")]
 [Description(@"Specifies the type of account ownership.")]
-[Derivations(typeof(AccountOwnershipType5Code),typeof(AccountOwnershipType3Code),typeof(AccountOwnershipType6Code),typeof(AccountOwnershipType4Code),typeof(AccountOwnershipType2Code))]
+[Derivations(typeof(AccountOwnershipType3Code),typeof(AccountOwnershipType2Code),typeof(AccountOwnershipType6Code),typeof(AccountOwnershipType5Code),typeof(AccountOwnershipType4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountOwnershipTypeCode>))]
+#endif
 public enum AccountOwnershipTypeCode
 {
     /// <summary>

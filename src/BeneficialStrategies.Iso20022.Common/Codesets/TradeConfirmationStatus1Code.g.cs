@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cU5H8IBCEeSUJZYcWGKkkw")]
 [Description(@"Identifies the status of the confirmation.")]
 [DerivedFrom(typeof(TradeConfirmationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeConfirmationStatus1Code>))]
+#endif
 public enum TradeConfirmationStatus1Code
 {
     /// <summary>

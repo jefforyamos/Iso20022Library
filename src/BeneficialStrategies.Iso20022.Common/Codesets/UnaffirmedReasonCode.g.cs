@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__qxMVNojEeC60axPepSq7g_1753446814")]
 [Description(@"Specifies the reason the transaction, transfer or settlement instruction is unaffirmed.")]
 [Derivations(typeof(UnaffirmedReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnaffirmedReasonCode>))]
+#endif
 public enum UnaffirmedReasonCode
 {
     /// <summary>

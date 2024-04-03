@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_InkecFKjEeiSDqv62fL07g")]
 [Description(@"Specifies a drawdown status.")]
 [DerivedFrom(typeof(DrawdownStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DrawdownStatus1Code>))]
+#endif
 public enum DrawdownStatus1Code
 {
     /// <summary>

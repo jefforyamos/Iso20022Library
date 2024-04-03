@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZQM-E9p-Ed-ak6NoX_4Aeg_757727458")]
 [Description(@"Specifies the statement message.")]
 [DerivedFrom(typeof(MessageTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<StatementType1Code>))]
+#endif
 public enum StatementType1Code
 {
     /// <summary>

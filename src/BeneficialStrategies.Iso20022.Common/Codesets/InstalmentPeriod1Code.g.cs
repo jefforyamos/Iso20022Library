@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_s75uYDEqEemzCpWiCwK4aQ")]
 [Description(@"Instalment period.")]
 [DerivedFrom(typeof(InstalmentPeriodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstalmentPeriod1Code>))]
+#endif
 public enum InstalmentPeriod1Code
 {
     /// <summary>

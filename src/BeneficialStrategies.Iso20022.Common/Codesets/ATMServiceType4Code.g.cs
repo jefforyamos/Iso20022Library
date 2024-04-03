@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_kpAfsIq1EeSIDtZ76p6McQ")]
 [Description(@"Type of service to be offered for a customer at an ATM.")]
 [DerivedFrom(typeof(ATMServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMServiceType4Code>))]
+#endif
 public enum ATMServiceType4Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_JuMQeH50EeasY4u9QTizPQ")]
 [Description(@"Specifies the underlying financial instrument.")]
 [Derivations(typeof(UnderlyingInterestRateType3Code),typeof(UnderlyingContractForDifferenceType3Code),typeof(UnderlyingEquityType6Code),typeof(UnderlyingEquityType5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnderlyingTypeV3Code>))]
+#endif
 public enum UnderlyingTypeV3Code
 {
     /// <summary>

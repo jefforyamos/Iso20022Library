@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_v3kM0WOQEeW4z96Yfj3Wng")]
 [Description(@"Specifies the feature of an option.")]
 [DerivedFrom(typeof(OptionFeaturesCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionFeatures6Code>))]
+#endif
 public enum OptionFeatures6Code
 {
     /// <summary>

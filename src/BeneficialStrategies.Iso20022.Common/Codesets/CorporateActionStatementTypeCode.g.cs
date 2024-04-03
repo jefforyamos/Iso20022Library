@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bTMJhdp-Ed-ak6NoX_4Aeg_-454336053")]
 [Description(@"Indicates whether the statement contains missing instructions only or all instructions.")]
 [Derivations(typeof(CorporateActionStatementType1Code),typeof(CorporateActionStatementType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionStatementTypeCode>))]
+#endif
 public enum CorporateActionStatementTypeCode
 {
     /// <summary>

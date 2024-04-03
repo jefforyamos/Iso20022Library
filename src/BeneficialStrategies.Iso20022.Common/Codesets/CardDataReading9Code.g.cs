@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ApKlgJlfEeu76rs9yGlfEg")]
 [Description(@"Method used to obtain card payment information.")]
 [DerivedFrom(typeof(CardDataReadingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardDataReading9Code>))]
+#endif
 public enum CardDataReading9Code
 {
     /// <summary>

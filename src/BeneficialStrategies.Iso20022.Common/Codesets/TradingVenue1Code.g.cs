@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_miosoF0gEeWErPfQ7BYx8A")]
 [Description(@"Specifies the type of a trading venue which must use the market identification code (MIC).")]
 [DerivedFrom(typeof(TradingVenueCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradingVenue1Code>))]
+#endif
 public enum TradingVenue1Code
 {
     /// <summary>

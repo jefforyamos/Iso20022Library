@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YQhLUPP4EeS_qLctCs2aRQ")]
 [Description(@"Specifies the type used for the calculation of the valuation.")]
 [Derivations(typeof(ValuationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ValuationTypeCode>))]
+#endif
 public enum ValuationTypeCode
 {
     /// <summary>

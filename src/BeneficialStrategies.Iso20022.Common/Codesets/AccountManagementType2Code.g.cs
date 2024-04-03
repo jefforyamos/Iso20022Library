@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bqvG0tp-Ed-ak6NoX_4Aeg_-845396197")]
 [Description(@"Refer to an account management instruction ie, either an account opening instruction or an account modification instruction or a get account details message.")]
 [DerivedFrom(typeof(AccountManagementTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountManagementType2Code>))]
+#endif
 public enum AccountManagementType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YbKMdNp-Ed-ak6NoX_4Aeg_-1204468675")]
 [Description(@"Indicates whether the interest request is rejected due a value date or an interest amount difference.")]
 [Derivations(typeof(InterestRejectionReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestRejectionReasonCode>))]
+#endif
 public enum InterestRejectionReasonCode
 {
     /// <summary>

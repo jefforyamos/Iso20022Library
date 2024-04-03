@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_le2Gw_r4EeCu2Z1WwxJVWA")]
 [Description(@"Specifies the reason for the assets transfer.")]
 [Derivations(typeof(TransferReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransferReasonCode>))]
+#endif
 public enum TransferReasonCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8jvwwJGCEeeBGrZP1w0opg")]
 [Description(@"Specifies the document type as published in an external document type code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalDocumentType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalDocumentTypeCode>))]
+#endif
 public enum ExternalDocumentTypeCode
 {
     /// <summary>

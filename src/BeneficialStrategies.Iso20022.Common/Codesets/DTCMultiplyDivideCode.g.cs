@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1pueljL3EeKU9IrkkToqcw_678847441")]
 [Description(@"Specifies DTC (The Depository Trust Company) entitlement calculation logic.")]
 [Derivations(typeof(DTCMultiplyDivide1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCMultiplyDivideCode>))]
+#endif
 public enum DTCMultiplyDivideCode
 {
     /// <summary>

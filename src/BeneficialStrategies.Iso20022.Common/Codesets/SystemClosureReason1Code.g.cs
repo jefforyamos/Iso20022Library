@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZRQG8tp-Ed-ak6NoX_4Aeg_2007403394")]
 [Description(@"Specifies the reason for system inactivity.")]
 [DerivedFrom(typeof(SystemClosureReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SystemClosureReason1Code>))]
+#endif
 public enum SystemClosureReason1Code
 {
     /// <summary>

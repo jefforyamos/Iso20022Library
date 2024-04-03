@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YqgQAtp-Ed-ak6NoX_4Aeg_-258608744")]
 [Description(@"Specifies the method used for the negotiation and execution of the trade.")]
 [DerivedFrom(typeof(TradingMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Trading1MethodCode>))]
+#endif
 public enum Trading1MethodCode
 {
     /// <summary>

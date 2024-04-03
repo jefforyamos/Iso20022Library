@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zdcnZQ93EeGeV5vP7Mvdig_-110011060")]
 [Description(@"Specifies the processing status of an investment fund transaction.")]
 [DerivedFrom(typeof(TransactionStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionStatus1Code>))]
+#endif
 public enum TransactionStatus1Code
 {
     /// <summary>

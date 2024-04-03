@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZY2jwtp-Ed-ak6NoX_4Aeg_2060710435")]
 [Description(@"Identifies the type of quote. Can be either an indicative, a tradeable or a restricted tradeable quote.")]
 [DerivedFrom(typeof(QuoteTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QuoteType1Code>))]
+#endif
 public enum QuoteType1Code
 {
     /// <summary>

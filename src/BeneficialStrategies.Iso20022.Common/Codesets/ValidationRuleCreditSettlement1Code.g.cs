@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_el78sCE5EeuIZ4Hf6difAw")]
 [Description(@"Specifies the accepted credit settlement completed status code for the cross-element validation rules.")]
 [DerivedFrom(typeof(ValidationRuleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ValidationRuleCreditSettlement1Code>))]
+#endif
 public enum ValidationRuleCreditSettlement1Code
 {
     /// <summary>

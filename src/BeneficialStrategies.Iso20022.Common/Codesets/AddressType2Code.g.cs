@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bm2sYNp-Ed-ak6NoX_4Aeg_595056355")]
 [Description(@"Specifies the type of address.")]
 [DerivedFrom(typeof(AddressTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AddressType2Code>))]
+#endif
 public enum AddressType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8I3roNtmEeipuvJHTHIw9A")]
 [Description(@"Method to authenticate the customer or its card.")]
 [DerivedFrom(typeof(AuthenticationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AuthenticationMethod8Code>))]
+#endif
 public enum AuthenticationMethod8Code
 {
     /// <summary>

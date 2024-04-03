@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a78HINp-Ed-ak6NoX_4Aeg_-1603295237")]
 [Description(@"Specifies the certification format required, that is, physical or electronic format.")]
 [DerivedFrom(typeof(CertificationFormatTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CertificationFormatType1Code>))]
+#endif
 public enum CertificationFormatType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HPsxIIJUEeuDe9SyRl5qeg")]
 [Description(@"Specifies the list of codes applicable to the clearing exemptions or exceptions.")]
 [DerivedFrom(typeof(ClearingExemptionExceptionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ClearingExemptionException1Code>))]
+#endif
 public enum ClearingExemptionException1Code
 {
     /// <summary>

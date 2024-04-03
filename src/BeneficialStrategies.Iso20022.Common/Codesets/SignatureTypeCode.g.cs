@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZPUNRtp-Ed-ak6NoX_4Aeg_1133516215")]
 [Description(@"Type of signature form.")]
 [Derivations(typeof(SignatureType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SignatureTypeCode>))]
+#endif
 public enum SignatureTypeCode
 {
     /// <summary>

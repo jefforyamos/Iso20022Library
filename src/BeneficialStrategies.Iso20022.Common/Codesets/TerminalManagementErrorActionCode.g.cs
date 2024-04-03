@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KUq-gH1DEeCF8NjrBemJWQ_-187828262")]
 [Description(@"Action to perform in case of error during the action in progress.")]
 [Derivations(typeof(TerminalManagementErrorAction1Code),typeof(TerminalManagementErrorAction2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminalManagementErrorActionCode>))]
+#endif
 public enum TerminalManagementErrorActionCode
 {
     /// <summary>

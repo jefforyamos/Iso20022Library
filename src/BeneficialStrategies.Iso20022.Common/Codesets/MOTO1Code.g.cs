@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_3MsO4DHLEeyTT91yHXSlSQ")]
 [Description(@"A code that identifies the type of MOTO transaction.")]
 [DerivedFrom(typeof(MOTOCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MOTO1Code>))]
+#endif
 public enum MOTO1Code
 {
     /// <summary>

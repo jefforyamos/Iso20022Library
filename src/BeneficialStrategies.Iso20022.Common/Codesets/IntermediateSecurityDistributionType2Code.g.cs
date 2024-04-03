@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aaQ9cdp-Ed-ak6NoX_4Aeg_-1418652702")]
 [Description(@"Specifies the type of intermediate security distribution.")]
 [DerivedFrom(typeof(IntermediateSecurityDistributionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<IntermediateSecurityDistributionType2Code>))]
+#endif
 public enum IntermediateSecurityDistributionType2Code
 {
     /// <summary>

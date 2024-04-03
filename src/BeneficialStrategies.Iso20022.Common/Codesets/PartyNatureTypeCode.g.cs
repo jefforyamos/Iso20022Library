@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ei1oQc2IEeS6sY79p-9Zxw")]
 [Description(@"Specifies the nature of a counterparty.")]
 [Derivations(typeof(PartyNatureType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PartyNatureTypeCode>))]
+#endif
 public enum PartyNatureTypeCode
 {
     /// <summary>

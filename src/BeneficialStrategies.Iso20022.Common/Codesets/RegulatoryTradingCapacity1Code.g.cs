@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_905ZYO8bEeSLA89yUYsVSw")]
 [Description(@"Specifies the regulatory trading capacity.")]
 [DerivedFrom(typeof(RegulatoryTradingCapacityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RegulatoryTradingCapacity1Code>))]
+#endif
 public enum RegulatoryTradingCapacity1Code
 {
     /// <summary>

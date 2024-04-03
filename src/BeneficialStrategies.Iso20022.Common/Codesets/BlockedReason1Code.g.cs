@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cRRFABHbEeKVqeHljBM1MQ")]
 [Description(@"Specifies the reason an account is blocked.")]
 [DerivedFrom(typeof(BlockedReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BlockedReason1Code>))]
+#endif
 public enum BlockedReason1Code
 {
     /// <summary>

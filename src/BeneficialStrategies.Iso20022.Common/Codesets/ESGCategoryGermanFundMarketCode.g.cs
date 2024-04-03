@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hih3QM2sEeuAE-cYsQdwHQ")]
 [Description(@"Specifies the category of fund product.")]
 [Derivations(typeof(ESGCategoryGermanFundMarket1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ESGCategoryGermanFundMarketCode>))]
+#endif
 public enum ESGCategoryGermanFundMarketCode
 {
     /// <summary>

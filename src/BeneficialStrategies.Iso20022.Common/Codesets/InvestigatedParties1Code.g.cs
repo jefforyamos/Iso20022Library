@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_U1p9sGKEEeG1ab6Vf7EgPA")]
 [Description(@"Specifies the investigated parties.")]
 [DerivedFrom(typeof(InvestigatedPartiesCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestigatedParties1Code>))]
+#endif
 public enum InvestigatedParties1Code
 {
     /// <summary>

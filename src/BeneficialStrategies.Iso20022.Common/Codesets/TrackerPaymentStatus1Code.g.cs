@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Y4-AIPpPEemXaqBx8S4XSg")]
 [Description(@"Indicates a status of a payment transaction as defined for the tracker.")]
 [DerivedFrom(typeof(TrackerPaymentStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TrackerPaymentStatus1Code>))]
+#endif
 public enum TrackerPaymentStatus1Code
 {
     /// <summary>

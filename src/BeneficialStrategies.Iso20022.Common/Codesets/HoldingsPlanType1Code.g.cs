@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_15H24PuzEeC3VvXpH76gow")]
 [Description(@"Specifies the holdings plan of the assets to transfer.")]
 [DerivedFrom(typeof(HoldingsPlanTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<HoldingsPlanType1Code>))]
+#endif
 public enum HoldingsPlanType1Code
 {
     /// <summary>

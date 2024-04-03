@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_qIPhcFW7EeeiG_nL4vgKnQ")]
 [Description(@"Information related to the protocol management.|ISO 8583 MTI.")]
 [DerivedFrom(typeof(MessageFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageFunction27Code>))]
+#endif
 public enum MessageFunction27Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aKBiBNp-Ed-ak6NoX_4Aeg_-62106922")]
 [Description(@"Indicates if one side or the other of a cross order should be prioritized.")]
 [Derivations(typeof(Prioritisation1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PrioritisationCode>))]
+#endif
 public enum PrioritisationCode
 {
     /// <summary>

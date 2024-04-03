@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZQzbBtp-Ed-ak6NoX_4Aeg_1875327691")]
 [Description(@"Specifies the reason for a suspended status.")]
 [DerivedFrom(typeof(SuspendedStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SuspendedStatusReason3Code>))]
+#endif
 public enum SuspendedStatusReason3Code
 {
     /// <summary>

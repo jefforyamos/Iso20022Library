@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_m8c_gMm4EeWAGphE2LvqeA")]
 [Description(@"Specifies the combination of mode and type of the query information.")]
 [Derivations(typeof(RequestModeType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RequestModeTypeCode>))]
+#endif
 public enum RequestModeTypeCode
 {
     /// <summary>

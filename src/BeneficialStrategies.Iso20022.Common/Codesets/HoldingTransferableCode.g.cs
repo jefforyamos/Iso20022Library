@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aV8eI9p-Ed-ak6NoX_4Aeg_1872710990")]
 [Description(@"Indicate whether or not registered investors are able to transfer some or all of their holdings to third parties.")]
 [Derivations(typeof(HoldingTransferable1Code),typeof(ReferToFundOrderDesk1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<HoldingTransferableCode>))]
+#endif
 public enum HoldingTransferableCode
 {
     /// <summary>

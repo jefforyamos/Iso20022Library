@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_beXewNp-Ed-ak6NoX_4Aeg_-83762235")]
 [Description(@"Specifies whether best execution rules as defined in the EU MiFID directive were followed for a transaction.")]
 [DerivedFrom(typeof(BestExecutionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BestExecution1Code>))]
+#endif
 public enum BestExecution1Code
 {
     /// <summary>

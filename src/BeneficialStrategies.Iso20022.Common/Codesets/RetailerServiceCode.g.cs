@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_hlqYENt5EeiXqq0XHEoNUA")]
 [Description(@"List of services and functions available in ISO20022 Retail messages.")]
-[Derivations(typeof(RetailerService9Code),typeof(RetailerService4Code),typeof(RetailerService3Code),typeof(RetailerService5Code),typeof(RetailerService6Code),typeof(RetailerService1Code),typeof(RetailerService7Code),typeof(RetailerService2Code),typeof(RetailerService8Code))]
+[Derivations(typeof(RetailerService7Code),typeof(RetailerService8Code),typeof(RetailerService2Code),typeof(RetailerService6Code),typeof(RetailerService5Code),typeof(RetailerService1Code),typeof(RetailerService3Code),typeof(RetailerService4Code),typeof(RetailerService9Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RetailerServiceCode>))]
+#endif
 public enum RetailerServiceCode
 {
     /// <summary>

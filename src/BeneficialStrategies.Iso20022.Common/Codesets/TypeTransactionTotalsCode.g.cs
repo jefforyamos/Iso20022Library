@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TVfZ-gEcEeCQm6a_G2yO_w_-334806911")]
 [Description(@"Identification of the type of transactions which are included in the totals.")]
 [Derivations(typeof(TypeTransactionTotals1Code),typeof(TypeTransactionTotals2Code),typeof(TypeTransactionTotals3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TypeTransactionTotalsCode>))]
+#endif
 public enum TypeTransactionTotalsCode
 {
     /// <summary>

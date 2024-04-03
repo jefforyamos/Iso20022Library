@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Yq878Np-Ed-ak6NoX_4Aeg_337179655")]
 [Description(@"Description of the parameters under which an order must be handled on the floor.")]
 [Derivations(typeof(TradingFloorOrderHandling1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradingFloorOrderHandlingCode>))]
+#endif
 public enum TradingFloorOrderHandlingCode
 {
     /// <summary>

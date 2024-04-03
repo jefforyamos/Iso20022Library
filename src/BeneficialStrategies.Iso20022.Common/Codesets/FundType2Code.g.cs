@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_e_zPoFKVEee26cwI-oG0JQ")]
 [Description(@"In the case where the reporting counterparty is a UCIT or AIF, an indication whether it is an ETF or a MMF.")]
 [DerivedFrom(typeof(FundTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FundType2Code>))]
+#endif
 public enum FundType2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_p-vHdN4jEeqt1ZcLzWyWFw")]
 [Description(@"Specifies the reason of an unable to apply due to missing data, as published in an external unable to apply missing data code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalUnableToApplyMissingData1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalUnableToApplyMissingDataCode>))]
+#endif
 public enum ExternalUnableToApplyMissingDataCode
 {
     /// <summary>

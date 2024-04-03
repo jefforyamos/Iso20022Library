@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_rHMhkWueEeaRcazd7EYKFQ")]
 [Description(@"Specifies the status of a group of tax reporting transactions.")]
 [DerivedFrom(typeof(StatisticalReportingStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxReportingStatus1Code>))]
+#endif
 public enum TaxReportingStatus1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IWuWENDjEeSv_Pll20DdbA")]
 [Description(@"Specifies the allowed foreign exchange types for foreign exchange derivatives.")]
 [DerivedFrom(typeof(AssetClassDetailedSubProductTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetFXSubProductType1Code>))]
+#endif
 public enum AssetFXSubProductType1Code
 {
     /// <summary>

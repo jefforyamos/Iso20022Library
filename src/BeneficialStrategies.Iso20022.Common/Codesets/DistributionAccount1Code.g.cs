@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1tcg8TL3EeKU9IrkkToqcw_-1446554882")]
 [Description(@"Code specifying the type of account where the disbursed CUSIP will be allocated.")]
 [DerivedFrom(typeof(DistributionAccountCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DistributionAccount1Code>))]
+#endif
 public enum DistributionAccount1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZXqQ9tp-Ed-ak6NoX_4Aeg_1181990652")]
 [Description(@"Specifies the nature of the request, that is whether all information be returned or only information that has changed since the last similar request was returned.")]
 [DerivedFrom(typeof(QueryTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<QueryType3Code>))]
+#endif
 public enum QueryType3Code
 {
     /// <summary>

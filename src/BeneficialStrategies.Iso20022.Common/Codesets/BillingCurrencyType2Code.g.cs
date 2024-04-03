@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6WzSkZqlEeGSON8vddiWzQ_-1596461946")]
 [Description(@"Defines the type of currency to be used for the billing of a service.")]
 [DerivedFrom(typeof(BillingCurrencyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BillingCurrencyType2Code>))]
+#endif
 public enum BillingCurrencyType2Code
 {
     /// <summary>

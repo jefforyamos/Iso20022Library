@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_sseY0NuXEeiB5uLfkg9ZJA")]
 [Description(@"Type of output format.")]
 [DerivedFrom(typeof(OutputFormatCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OutputFormat3Code>))]
+#endif
 public enum OutputFormat3Code
 {
     /// <summary>

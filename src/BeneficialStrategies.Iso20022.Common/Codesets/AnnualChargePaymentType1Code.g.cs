@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_gJ_qoGAPEeiNMJ262H2pWg")]
 [Description(@"Specifies how a charge is to be deducted.")]
 [DerivedFrom(typeof(AnnualChargePaymentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AnnualChargePaymentType1Code>))]
+#endif
 public enum AnnualChargePaymentType1Code
 {
     /// <summary>

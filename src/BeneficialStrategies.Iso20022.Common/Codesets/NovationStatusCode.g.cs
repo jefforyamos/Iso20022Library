@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_QF-sEMETEea7jLfvGi1PDw")]
 [Description(@"Specifies the status of the novation.")]
 [Derivations(typeof(NovationStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NovationStatusCode>))]
+#endif
 public enum NovationStatusCode
 {
     /// <summary>

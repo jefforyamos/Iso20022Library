@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KjGSMDEqEemzCpWiCwK4aQ")]
 [Description(@"Contains the details of the grace period applicable to the instalment.")]
 [DerivedFrom(typeof(InstalmentAmountDetailsTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstalmentAmountDetailsType1Code>))]
+#endif
 public enum InstalmentAmountDetailsType1Code
 {
     /// <summary>

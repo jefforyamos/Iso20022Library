@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_9p8WwFDqEee94_dUz-hvgw")]
 [Description(@"Determines the type of file action service.|ISO 8583:87 bit 91; ISO 8583:93/2003 bit 24")]
 [DerivedFrom(typeof(FileActionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FileActionType1Code>))]
+#endif
 public enum FileActionType1Code
 {
     /// <summary>

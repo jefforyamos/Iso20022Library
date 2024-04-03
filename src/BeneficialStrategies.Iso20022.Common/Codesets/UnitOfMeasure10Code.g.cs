@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vfbbYF_pEee-csPAW1txwQ")]
 [Description(@"Unit of measure expressed in miles and kilometres.")]
 [DerivedFrom(typeof(UnitOfMeasureCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnitOfMeasure10Code>))]
+#endif
 public enum UnitOfMeasure10Code
 {
     /// <summary>

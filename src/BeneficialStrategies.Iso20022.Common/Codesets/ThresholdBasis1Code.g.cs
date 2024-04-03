@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IRxt4BuOEeyhRdHRjakS2w")]
 [Description(@"Nature of the quantity used as a basis to set a threshold for voting on resolutions at general meetings.")]
 [DerivedFrom(typeof(ThresholdBasisCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ThresholdBasis1Code>))]
+#endif
 public enum ThresholdBasis1Code
 {
     /// <summary>

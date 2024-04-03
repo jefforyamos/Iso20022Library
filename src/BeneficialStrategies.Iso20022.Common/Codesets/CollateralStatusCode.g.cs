@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_itEK0MUZEeiF-qqyf1JQhg")]
 [Description(@"Provides the status after comparing the total collateral required and the total collateral value of all transactions covered in the message.")]
 [Derivations(typeof(CollateralStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralStatusCode>))]
+#endif
 public enum CollateralStatusCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Vp_FU9p-Ed-ak6NoX_4Aeg_-86852675")]
 [Description(@"Status to define the completeness of information contained in the notification.")]
 [DerivedFrom(typeof(NotificationStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NotificationStatus1Code>))]
+#endif
 public enum NotificationStatus1Code
 {
     /// <summary>

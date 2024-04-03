@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_yHODoQjUEeS5F6qHcKOrew")]
 [Description(@"Specifies the source of Foreign Account Tax Compliance Act (FATCA) status.")]
 [Derivations(typeof(FATCASourceStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FATCASourceStatusCode>))]
+#endif
 public enum FATCASourceStatusCode
 {
     /// <summary>

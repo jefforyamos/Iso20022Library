@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_10dH4jL3EeKU9IrkkToqcw_-75321880")]
 [Description(@"Indicates whether the cash debit for the subscription charge is made immediately or accumulated.")]
 [Derivations(typeof(SubscriptionChargeApplicationType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SubscriptionChargeApplicationTypeCode>))]
+#endif
 public enum SubscriptionChargeApplicationTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__q6WQdojEeC60axPepSq7g_-1712157362")]
 [Description(@"Specifies the reason the transaction, transfer or settlement instruction is unmatched.")]
 [DerivedFrom(typeof(UnmatchedReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<UnmatchedReason4Code>))]
+#endif
 public enum UnmatchedReason4Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_OrKFoNA-EeuSBa1PsnseFg")]
 [Description(@"Specifies the approach of the Autorite des Marches Financiers (AMF) recommendation 2020-03 to which the fund complies.")]
 [DerivedFrom(typeof(AMFDoctrineCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AMFDoctrine1Code>))]
+#endif
 public enum AMFDoctrine1Code
 {
     /// <summary>

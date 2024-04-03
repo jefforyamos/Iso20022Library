@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aw6i4dp-Ed-ak6NoX_4Aeg_-1335531039")]
 [Description(@"Specifies whether the proceeds of the event will be distributed on a rolling basis rather than on a specific date.")]
 [DerivedFrom(typeof(DistributionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DistributionType1Code>))]
+#endif
 public enum DistributionType1Code
 {
     /// <summary>

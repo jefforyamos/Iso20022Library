@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_hblKkmliEeGaMcKyqKNRfQ_601711854")]
 [Description(@"Type of settlement foreseen for the security.")]
 [Derivations(typeof(SettlementUnitType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementUnitTypeCode>))]
+#endif
 public enum SettlementUnitTypeCode
 {
     /// <summary>

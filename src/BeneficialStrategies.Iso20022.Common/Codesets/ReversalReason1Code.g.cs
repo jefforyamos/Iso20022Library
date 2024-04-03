@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_DBKyoNuHEeiB5uLfkg9ZJA")]
 [Description(@"Reason of the payment or loyalty reversal.")]
 [DerivedFrom(typeof(ReversalReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReversalReason1Code>))]
+#endif
 public enum ReversalReason1Code
 {
     /// <summary>

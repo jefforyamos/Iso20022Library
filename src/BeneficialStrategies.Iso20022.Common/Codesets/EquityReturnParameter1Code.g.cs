@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_drgvAAneEeWa7rBfPECYsw")]
 [Description(@"Specifies an equity derivative return parameter.")]
 [DerivedFrom(typeof(EquityReturnParameterCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EquityReturnParameter1Code>))]
+#endif
 public enum EquityReturnParameter1Code
 {
     /// <summary>

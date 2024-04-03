@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_RxJesLf7EeeNBs0sDWdcSw")]
 [Description(@"Specifies the document line type as published in an external document type code list.")]
 [Derivations(typeof(ExternalDocumentLineType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalDocumentLineTypeCode>))]
+#endif
 public enum ExternalDocumentLineTypeCode
 {
     /// <summary>

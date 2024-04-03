@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_S1ANk_DCEemsS_0xy2XRug")]
 [Description(@"Specifies the creditor enrolment amendment reason code, as published in an external creditor enrolment amendment reason code set.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalCreditorEnrolmentAmendmentReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalCreditorEnrolmentAmendmentReasonCode>))]
+#endif
 public enum ExternalCreditorEnrolmentAmendmentReasonCode
 {
     /// <summary>

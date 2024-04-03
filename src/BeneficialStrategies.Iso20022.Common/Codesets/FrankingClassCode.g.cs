@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WlzwAVfuEeOuDtoQo1qilA")]
 [Description(@"Code defining the dvidend / distribution class where this franking information applies to.")]
 [Derivations(typeof(FrankingClass1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FrankingClassCode>))]
+#endif
 public enum FrankingClassCode
 {
     /// <summary>

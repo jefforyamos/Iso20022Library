@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Q-jNYCmyEeutWNGMV2XKIQ")]
 [Description(@"Specifies the roles of the parties linked to a cheque.")]
 [DerivedFrom(typeof(ChequePartyRoleCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChequePartyRole1Code>))]
+#endif
 public enum ChequePartyRole1Code
 {
     /// <summary>

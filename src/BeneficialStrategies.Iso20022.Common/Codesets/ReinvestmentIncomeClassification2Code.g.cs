@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WqyN4HngEeO2o_OAyvnbZw")]
 [Description(@"Specifies the type of cash proceeds that the holder is eligible to reinvest.")]
 [DerivedFrom(typeof(ReinvestmentIncomeClassificationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReinvestmentIncomeClassification2Code>))]
+#endif
 public enum ReinvestmentIncomeClassification2Code
 {
     /// <summary>

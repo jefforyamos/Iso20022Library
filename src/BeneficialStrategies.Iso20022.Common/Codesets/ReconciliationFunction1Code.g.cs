@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_rWAiEC7OEemIy6A-26wnAg")]
 [Description(@"Indicates whether the message is a request for totals or to convey totals. ")]
 [DerivedFrom(typeof(ReconciliationFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReconciliationFunction1Code>))]
+#endif
 public enum ReconciliationFunction1Code
 {
     /// <summary>

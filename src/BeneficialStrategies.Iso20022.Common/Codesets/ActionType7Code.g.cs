@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_GC_wAaziEeaS8qpTeYtFzA")]
 [Description(@"Type of action to be performed by the point of interaction (POI).")]
 [DerivedFrom(typeof(ActionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ActionType7Code>))]
+#endif
 public enum ActionType7Code
 {
     /// <summary>

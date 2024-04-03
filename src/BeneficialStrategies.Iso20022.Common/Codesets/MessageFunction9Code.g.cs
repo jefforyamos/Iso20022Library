@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_4q5AcY0NEeWRYffwL7E13A")]
 [Description(@"Identifies the message function within a card payment exchange.")]
 [DerivedFrom(typeof(MessageFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageFunction9Code>))]
+#endif
 public enum MessageFunction9Code
 {
     /// <summary>

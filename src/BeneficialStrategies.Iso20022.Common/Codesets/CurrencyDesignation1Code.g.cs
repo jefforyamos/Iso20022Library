@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Bru94Ad2EeSPHJIdUs1USg")]
 [Description(@"Specifies whether a currency is settled offshore or onshore.")]
 [DerivedFrom(typeof(CurrencyDesignationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CurrencyDesignation1Code>))]
+#endif
 public enum CurrencyDesignation1Code
 {
     /// <summary>

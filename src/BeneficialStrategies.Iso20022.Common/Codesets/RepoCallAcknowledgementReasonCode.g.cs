@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZSvUuNp-Ed-ak6NoX_4Aeg_-2001170938")]
 [Description(@"Specifies additional information about the repurchase agreement call processed instruction.")]
 [Derivations(typeof(RepoCallAcknowledgementReason2Code),typeof(RepoCallAcknowledgementReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RepoCallAcknowledgementReasonCode>))]
+#endif
 public enum RepoCallAcknowledgementReasonCode
 {
     /// <summary>

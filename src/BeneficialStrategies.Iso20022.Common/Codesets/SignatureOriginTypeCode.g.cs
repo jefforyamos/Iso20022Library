@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_l-8UwMnAEeWI4cSIO9foRA")]
 [Description(@"Specifies the origin of the signature.")]
 [Derivations(typeof(SignatureOriginType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SignatureOriginTypeCode>))]
+#endif
 public enum SignatureOriginTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aLED0tp-Ed-ak6NoX_4Aeg_1278061835")]
 [Description(@"Specifies when an transaction/instruction is to be executed relative to a linked transaction/instruction.")]
 [Derivations(typeof(ProcessingPosition3Code),typeof(ProcessingPosition4Code),typeof(ProcessingPosition2Code),typeof(ProcessingPosition5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ProcessingPositionCode>))]
+#endif
 public enum ProcessingPositionCode
 {
     /// <summary>

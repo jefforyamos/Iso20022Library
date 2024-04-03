@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_A695wN7GEeSaBeqd_btViQ")]
 [Description(@"Specifies whether the collateral is a pool collateral or not.")]
 [DerivedFrom(typeof(CollateralPoolCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralPool1Code>))]
+#endif
 public enum CollateralPool1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_l3X10fIrEd-dOvqmSLSz5g")]
 [Description(@"Specifies whether registration should occur upon receipt.")]
 [DerivedFrom(typeof(RegistrationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Registration2Code>))]
+#endif
 public enum Registration2Code
 {
     /// <summary>

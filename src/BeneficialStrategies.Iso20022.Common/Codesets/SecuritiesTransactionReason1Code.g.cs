@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZF7AuNp-Ed-ak6NoX_4Aeg_503817195")]
 [Description(@"Identifies the reason why the transaction has a specific status.")]
 [DerivedFrom(typeof(SecuritiesTransactionReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesTransactionReason1Code>))]
+#endif
 public enum SecuritiesTransactionReason1Code
 {
     /// <summary>

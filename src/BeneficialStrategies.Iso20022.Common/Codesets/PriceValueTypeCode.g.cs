@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aJunEtp-Ed-ak6NoX_4Aeg_-1411699432")]
 [Description(@"Price will not be paid.")]
-[Derivations(typeof(PriceValueType4Code),typeof(PriceValueType7Code),typeof(PriceValueType5Code),typeof(PriceRateType3Code),typeof(CommissionValueType1Code),typeof(PriceValueType8Code),typeof(PriceValueType3Code),typeof(PriceValueType12Code),typeof(PriceValueType9Code),typeof(PriceValueType2Code),typeof(PriceValueType1Code),typeof(PriceValueType10Code),typeof(PriceValueType6Code),typeof(PriceValueType13Code))]
+[Derivations(typeof(PriceValueType7Code),typeof(PriceValueType12Code),typeof(PriceValueType8Code),typeof(CommissionValueType1Code),typeof(PriceRateType3Code),typeof(PriceValueType10Code),typeof(PriceValueType4Code),typeof(PriceValueType6Code),typeof(PriceValueType5Code),typeof(PriceValueType3Code),typeof(PriceValueType2Code),typeof(PriceValueType13Code),typeof(PriceValueType9Code),typeof(PriceValueType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PriceValueTypeCode>))]
+#endif
 public enum PriceValueTypeCode
 {
     /// <summary>

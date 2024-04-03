@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_kWpW4JIWEeaNbfbSYshZYw")]
 [Description(@"DTC (The Depository Trust Company) system status code of instruction.")]
 [DerivedFrom(typeof(DTCInstructionStatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCInstructionStatus2Code>))]
+#endif
 public enum DTCInstructionStatus2Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_xvGg0c2FEeq8rujJR5QTKA")]
 [Description(@"Specifies the frequency of an interest payment with a time unit.")]
 [DerivedFrom(typeof(FrequencyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Frequency14Code>))]
+#endif
 public enum Frequency14Code
 {
     /// <summary>

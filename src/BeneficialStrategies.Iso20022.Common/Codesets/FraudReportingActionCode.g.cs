@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ndM2AHbBEeef9c2nwgY9Xw")]
 [Description(@"Type of fraud reporting.")]
 [Derivations(typeof(FraudReportingAction1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FraudReportingActionCode>))]
+#endif
 public enum FraudReportingActionCode
 {
     /// <summary>

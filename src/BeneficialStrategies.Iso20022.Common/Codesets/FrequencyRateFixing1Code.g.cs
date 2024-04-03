@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HAxU4I9PEeqMo4JxiuZGSw")]
 [Description(@"Defines the frequency rate fixing.")]
 [DerivedFrom(typeof(FrequencyRateFixingCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FrequencyRateFixing1Code>))]
+#endif
 public enum FrequencyRateFixing1Code
 {
     /// <summary>

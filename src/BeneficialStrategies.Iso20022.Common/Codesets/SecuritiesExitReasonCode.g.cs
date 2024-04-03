@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_10TW4DL3EeKU9IrkkToqcw_111370307")]
 [Description(@"Specifies the reason for DTC (The Depository Trust Company) to exit the shares.")]
 [Derivations(typeof(SecuritiesExitReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SecuritiesExitReasonCode>))]
+#endif
 public enum SecuritiesExitReasonCode
 {
     /// <summary>

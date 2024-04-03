@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VkKxMNp-Ed-ak6NoX_4Aeg_1274144417")]
 [Description(@"Specifies if the investor has the right to cancel an instruction or, if not, the reason the investor cannot cancel.")]
 [DerivedFrom(typeof(CancellationRightCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancellationRight2Code>))]
+#endif
 public enum CancellationRight2Code
 {
     /// <summary>

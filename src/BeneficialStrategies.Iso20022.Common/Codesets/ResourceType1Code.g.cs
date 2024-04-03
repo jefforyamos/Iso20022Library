@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_8wnVAC8CEeu125Ip9zFcsQ")]
 [Description(@"Type of resource.")]
 [DerivedFrom(typeof(ResourceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ResourceType1Code>))]
+#endif
 public enum ResourceType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_KUh0kn1DEeCF8NjrBemJWQ_-888899515")]
 [Description(@"Additional process to perform before starting or after completing a terminal management action.")]
 [Derivations(typeof(TerminalManagementAdditionalProcess1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TerminalManagementAdditionalProcessCode>))]
+#endif
 public enum TerminalManagementAdditionalProcessCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__yN4JdojEeC60axPepSq7g_-544243991")]
 [Description(@"indicates if the Trade Regulatory Conditions is solicited or not.")]
 [DerivedFrom(typeof(TradeRegulatoryConditionsCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeRegulatoryConditions1Code>))]
+#endif
 public enum TradeRegulatoryConditions1Code
 {
     /// <summary>

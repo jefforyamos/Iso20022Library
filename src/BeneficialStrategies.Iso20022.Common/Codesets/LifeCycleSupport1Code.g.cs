@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Qs4p0FJ4EeeHVODnW-1ONQ")]
 [Description(@"Indicates the point in the transaction lifecycle at which the lifecycle identifier was assigned.")]
 [DerivedFrom(typeof(LifeCycleSupportCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LifeCycleSupport1Code>))]
+#endif
 public enum LifeCycleSupport1Code
 {
     /// <summary>

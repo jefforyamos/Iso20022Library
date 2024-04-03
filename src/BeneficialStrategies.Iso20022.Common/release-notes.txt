@@ -26,3 +26,7 @@
 
 0.2.6-alpha
     Removed StringLengthAttribute from collections, causing JSON serialization problems.
+
+0.2.7-alpha
+    Attribute JsonConverter to serialize enums as string values for .NET 8 and greater.
+

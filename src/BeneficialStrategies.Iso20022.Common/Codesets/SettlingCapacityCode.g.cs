@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZOkmYdp-Ed-ak6NoX_4Aeg_-1171911201")]
 [Description(@"Specifies the role of the party in the settlement of the transaction.")]
 [Derivations(typeof(SettlingCapacity1Code),typeof(SettlingCapacity2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlingCapacityCode>))]
+#endif
 public enum SettlingCapacityCode
 {
     /// <summary>

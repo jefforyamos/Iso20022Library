@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WCVqYCDYEeWCLu74WLgP4w")]
 [Description(@"Specifies if the fund is intended for qualified investors.")]
 [DerivedFrom(typeof(FundIntentionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FundIntention1Code>))]
+#endif
 public enum FundIntention1Code
 {
     /// <summary>

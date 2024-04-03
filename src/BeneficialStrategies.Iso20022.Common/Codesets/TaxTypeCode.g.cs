@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_Yk2T89p-Ed-ak6NoX_4Aeg_1366299042")]
 [Description(@"Specifies the type of tax.")]
-[Derivations(typeof(TaxType16Code),typeof(TaxType13Code),typeof(TaxType14Code),typeof(TaxType6Code),typeof(TaxType2Code),typeof(TaxType7Code),typeof(TaxType15Code),typeof(TaxType11Code),typeof(TaxType3Code),typeof(TaxType4Code),typeof(TaxType17Code),typeof(TaxType12Code),typeof(TaxType9Code),typeof(TaxType10Code),typeof(TaxType5Code))]
+[Derivations(typeof(TaxType17Code),typeof(TaxType2Code),typeof(TaxType7Code),typeof(TaxType12Code),typeof(TaxType4Code),typeof(TaxType11Code),typeof(TaxType9Code),typeof(TaxType5Code),typeof(TaxType10Code),typeof(TaxType13Code),typeof(TaxType6Code),typeof(TaxType3Code),typeof(TaxType16Code),typeof(TaxType15Code),typeof(TaxType14Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxTypeCode>))]
+#endif
 public enum TaxTypeCode
 {
     /// <summary>

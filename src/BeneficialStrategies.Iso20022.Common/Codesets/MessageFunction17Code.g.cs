@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_nDae0E92EeePXdaAO32Uew")]
 [Description(@"Identifies the type of process related to the reconciliation of financial totals.|ISO 8583 MTI ")]
 [DerivedFrom(typeof(MessageFunctionCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageFunction17Code>))]
+#endif
 public enum MessageFunction17Code
 {
     /// <summary>

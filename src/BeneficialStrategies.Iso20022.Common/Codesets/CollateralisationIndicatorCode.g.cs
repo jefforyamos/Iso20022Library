@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_9l5ZMC48EeK7-OZOLIksSw")]
 [Description(@"Specifies whether the transaction is collateralised.")]
 [Derivations(typeof(CollateralisationIndicator1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CollateralisationIndicatorCode>))]
+#endif
 public enum CollateralisationIndicatorCode
 {
     /// <summary>

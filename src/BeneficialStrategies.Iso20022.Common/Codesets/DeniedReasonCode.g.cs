@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_avkfGdp-Ed-ak6NoX_4Aeg_-135680371")]
 [Description(@"Specifies the denied reason.")]
-[Derivations(typeof(DeniedReason3Code),typeof(DeniedReason4Code),typeof(DeniedReason2Code),typeof(DeniedReason5Code),typeof(DeniedReason1Code))]
+[Derivations(typeof(DeniedReason2Code),typeof(DeniedReason1Code),typeof(DeniedReason5Code),typeof(DeniedReason4Code),typeof(DeniedReason3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeniedReasonCode>))]
+#endif
 public enum DeniedReasonCode
 {
     /// <summary>

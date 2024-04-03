@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aOo8RNp-Ed-ak6NoX_4Aeg_1061425595")]
 [Description(@"Type of peg offset or type of discretion offset (e.g. price offset, tick offset etc).")]
 [Derivations(typeof(OffsetType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OffsetTypeCode>))]
+#endif
 public enum OffsetTypeCode
 {
     /// <summary>

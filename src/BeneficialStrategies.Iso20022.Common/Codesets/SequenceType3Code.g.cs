@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_t90OI1kyEeGeoaLUQk__nA_2097556198")]
 [Description(@"Specifies the type of the current transaction that belongs to a sequence of transactions.")]
 [DerivedFrom(typeof(SequenceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SequenceType3Code>))]
+#endif
 public enum SequenceType3Code
 {
     /// <summary>

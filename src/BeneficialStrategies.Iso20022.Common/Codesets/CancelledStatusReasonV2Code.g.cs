@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_a1h9Itp-Ed-ak6NoX_4Aeg_1210390507")]
 [Description(@"See narrative field for reason.")]
-[Derivations(typeof(CancelledStatusReason7Code),typeof(CancelledStatusReason13Code),typeof(CancelledStatusReason4Code),typeof(CancelledStatusReason12Code),typeof(CancelledStatusReason11Code),typeof(CancelledStatusReason14Code),typeof(CancelledStatusReason9Code),typeof(CancelledStatusReason5Code),typeof(CancelledStatusReason15Code),typeof(CancelledStatusReason6Code),typeof(CancelledStatusReason10Code),typeof(CancelledStatusReason16Code))]
+[Derivations(typeof(CancelledStatusReason10Code),typeof(CancelledStatusReason12Code),typeof(CancelledStatusReason7Code),typeof(CancelledStatusReason15Code),typeof(CancelledStatusReason11Code),typeof(CancelledStatusReason13Code),typeof(CancelledStatusReason6Code),typeof(CancelledStatusReason4Code),typeof(CancelledStatusReason14Code),typeof(CancelledStatusReason9Code),typeof(CancelledStatusReason16Code),typeof(CancelledStatusReason5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CancelledStatusReasonV2Code>))]
+#endif
 public enum CancelledStatusReasonV2Code
 {
     /// <summary>

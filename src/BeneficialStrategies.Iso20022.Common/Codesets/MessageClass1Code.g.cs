@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IEYhwBtCEeqrvK3udMUsNQ")]
 [Description(@"Identifies a class of messages with the same high level function.")]
 [DerivedFrom(typeof(MessageClassCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MessageClass1Code>))]
+#endif
 public enum MessageClass1Code
 {
     /// <summary>

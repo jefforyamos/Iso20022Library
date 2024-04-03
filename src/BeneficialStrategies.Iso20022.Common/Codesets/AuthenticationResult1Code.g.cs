@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_rETL4Pm3EeaYndR2y_Ep9g")]
 [Description(@"Specifies the result of authentication done.")]
 [DerivedFrom(typeof(AuthenticationResultCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AuthenticationResult1Code>))]
+#endif
 public enum AuthenticationResult1Code
 {
     /// <summary>

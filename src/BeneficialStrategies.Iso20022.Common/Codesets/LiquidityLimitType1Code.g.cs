@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_afL5tNp-Ed-ak6NoX_4Aeg_-1698330294")]
 [Description(@"Specifies the precise type of liquidity management limit.")]
 [DerivedFrom(typeof(LiquidityLimitTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LiquidityLimitType1Code>))]
+#endif
 public enum LiquidityLimitType1Code
 {
     /// <summary>

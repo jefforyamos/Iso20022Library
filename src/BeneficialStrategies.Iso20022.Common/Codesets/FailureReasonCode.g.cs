@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TUmCFQEcEeCQm6a_G2yO_w_-1240682578")]
 [Description(@"List of incidents happening during the transaction.")]
-[Derivations(typeof(FailureReason7Code),typeof(FailureReason1Code),typeof(FailureReason8Code),typeof(FailureReason2Code),typeof(FailureReason4Code),typeof(FailureReason6Code),typeof(FailureReason3Code),typeof(FailureReason5Code))]
+[Derivations(typeof(FailureReason5Code),typeof(FailureReason6Code),typeof(FailureReason2Code),typeof(FailureReason3Code),typeof(FailureReason1Code),typeof(FailureReason7Code),typeof(FailureReason4Code),typeof(FailureReason8Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FailureReasonCode>))]
+#endif
 public enum FailureReasonCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_B1inEE-DEeePXdaAO32Uew")]
 [Description(@"Type of reconciliation.")]
 [DerivedFrom(typeof(CardServiceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardServiceType4Code>))]
+#endif
 public enum CardServiceType4Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_2DXCYDlEEealR6-8aQ15BA")]
 [Description(@"Specifies the origin of cash.")]
 [Derivations(typeof(SourceOfCash1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SourceOfCashCode>))]
+#endif
 public enum SourceOfCashCode
 {
     /// <summary>

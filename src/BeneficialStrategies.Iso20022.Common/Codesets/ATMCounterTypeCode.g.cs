@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_vSNNoIqiEeS4a4abTJTSSw")]
 [Description(@"Type of ATM cassette counters.")]
 [Derivations(typeof(ATMCounterType1Code),typeof(ATMCounterType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ATMCounterTypeCode>))]
+#endif
 public enum ATMCounterTypeCode
 {
     /// <summary>

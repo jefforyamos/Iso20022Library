@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Rar2EB0-EeiYoZGjIMHr2A")]
 [Description(@"Provides the reason as to why a payment cancellation request is pending.")]
 [Derivations(typeof(PendingPaymentCancellationReason1Code),typeof(PendingPaymentCancellationReason2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingPaymentCancellationReasonCode>))]
+#endif
 public enum PendingPaymentCancellationReasonCode
 {
     /// <summary>

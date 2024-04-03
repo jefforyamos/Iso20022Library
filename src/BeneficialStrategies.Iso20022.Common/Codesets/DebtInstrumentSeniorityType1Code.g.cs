@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_xteCIM4tEeSc85GUbgBycw")]
 [Description(@"Specifies the seniority type of a specific debt instrument.")]
 [DerivedFrom(typeof(DebtInstrumentSeniorityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DebtInstrumentSeniorityType1Code>))]
+#endif
 public enum DebtInstrumentSeniorityType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZO3hUNp-Ed-ak6NoX_4Aeg_336258183")]
 [Description(@"Indicates the side of the quote request, from the buy-side perspective.")]
 [DerivedFrom(typeof(SideCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Side1Code>))]
+#endif
 public enum Side1Code
 {
     /// <summary>

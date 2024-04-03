@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_cBfSsN6LEeiwsev40qZGEQ")]
 [Description(@"List of specific services for SessionManagementResponse.")]
 [DerivedFrom(typeof(RetailerServiceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RetailerService5Code>))]
+#endif
 public enum RetailerService5Code
 {
     /// <summary>

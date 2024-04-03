@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -19,6 +20,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_DkNtsJ26Eeuwmdq0KtnICg")]
 [Description(@"Specifies the reason for the exchange with the national competent authority, as published in an external category purpose code list.|External code sets can be downloaded from www.iso20022.org.")]
 [Derivations(typeof(ExternalAuthorityExchangeReason1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExternalAuthorityExchangeReasonCode>))]
+#endif
 public enum ExternalAuthorityExchangeReasonCode
 {
     /// <summary>

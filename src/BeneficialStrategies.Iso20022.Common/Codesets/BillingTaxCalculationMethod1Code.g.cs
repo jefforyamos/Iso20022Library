@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6Vd10pqlEeGSON8vddiWzQ_-401381436")]
 [Description(@"Defines the tax calculation method.")]
 [DerivedFrom(typeof(BillingTaxCalculationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BillingTaxCalculationMethod1Code>))]
+#endif
 public enum BillingTaxCalculationMethod1Code
 {
     /// <summary>

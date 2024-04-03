@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WMNrgF6uEeSyc4g_pm5hbw")]
 [Description(@"Specifies the status of an instruction/vote.")]
 [DerivedFrom(typeof(StatusCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Status7Code>))]
+#endif
 public enum Status7Code
 {
     /// <summary>

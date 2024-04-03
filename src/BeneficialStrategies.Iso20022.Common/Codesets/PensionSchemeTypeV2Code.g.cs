@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_BGikxDOSEeqKY_RYlDm6Pw")]
 [Description(@"Specifies a type of pension scheme.")]
 [Derivations(typeof(PensionSchemeType2Code),typeof(PensionSchemeType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PensionSchemeTypeV2Code>))]
+#endif
 public enum PensionSchemeTypeV2Code
 {
     /// <summary>

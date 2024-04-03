@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_99WtQIl6EeavwKddCbm3hg")]
 [Description(@"Specifies the reason the transaction/instruction is pending or failing settlement. Settlement on the instructed settlement date is still possible, status is pending. Settlement on the instructed settlement date is no longer possible, status is failing.")]
-[Derivations(typeof(PendingReason24Code),typeof(PendingReason23Code),typeof(FailingReason4Code),typeof(PendingReason18Code),typeof(PendingReason16Code),typeof(PendingReason20Code),typeof(PendingReason14Code),typeof(PendingReason22Code),typeof(PendingFailingReason1Code))]
+[Derivations(typeof(PendingReason24Code),typeof(PendingReason16Code),typeof(PendingFailingReason1Code),typeof(PendingReason18Code),typeof(PendingReason22Code),typeof(PendingReason14Code),typeof(PendingReason23Code),typeof(PendingReason20Code),typeof(FailingReason4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingFailingReasonV2Code>))]
+#endif
 public enum PendingFailingReasonV2Code
 {
     /// <summary>

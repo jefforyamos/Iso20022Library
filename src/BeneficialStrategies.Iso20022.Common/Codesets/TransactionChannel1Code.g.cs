@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TUAMOQEcEeCQm6a_G2yO_w_2033954837")]
 [Description(@"Identifies the type of the communication channels used by the cardholder to the acceptor system.")]
 [DerivedFrom(typeof(TransactionChannelCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionChannel1Code>))]
+#endif
 public enum TransactionChannel1Code
 {
     /// <summary>

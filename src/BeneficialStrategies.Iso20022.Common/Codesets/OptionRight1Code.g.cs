@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__vPcotojEeC60axPepSq7g_-921943396")]
 [Description(@"Specifies the option rights.")]
 [DerivedFrom(typeof(OptionRightCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OptionRight1Code>))]
+#endif
 public enum OptionRight1Code
 {
     /// <summary>

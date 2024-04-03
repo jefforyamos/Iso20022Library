@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_tnAmA1OzEeGs_NnqHXQZkw")]
 [Description(@"Classification of the regulatory condition of a merger for the TSE/JASDEC extension.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MergerCode>))]
+#endif
 public enum MergerCode
 {
     /// <summary>

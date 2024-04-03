@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_xfQ6kAOBEeWs3sTa9Sj6Lg")]
 [Description(@"Specifies the contract type of a derivative.")]
 [DerivedFrom(typeof(FinancialInstrumentContractTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FinancialInstrumentContractType1Code>))]
+#endif
 public enum FinancialInstrumentContractType1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ltUEcNomEeCWg-hsBVGrDA_-989246574")]
 [Description(@"Describes the delivery or custody arrangement for the underlying securities.")]
 [Derivations(typeof(DeliveryType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DeliveryTypeV2Code>))]
+#endif
 public enum DeliveryTypeV2Code
 {
     /// <summary>

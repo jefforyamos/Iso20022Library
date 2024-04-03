@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aMj4odp-Ed-ak6NoX_4Aeg_-1435186299")]
 [Description(@"Specifies the status of money laundering identification procedures.")]
 [DerivedFrom(typeof(MoneyLaunderingCheckCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MoneyLaunderingCheck1Code>))]
+#endif
 public enum MoneyLaunderingCheck1Code
 {
     /// <summary>

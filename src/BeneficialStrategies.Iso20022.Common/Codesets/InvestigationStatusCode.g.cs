@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("__-fWcz_lEeGQnbmlZjr_fQ")]
 [Description(@"Provides the status of the investigation response related to a previously sent request.")]
 [Derivations(typeof(InvestigationStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestigationStatusCode>))]
+#endif
 public enum InvestigationStatusCode
 {
     /// <summary>

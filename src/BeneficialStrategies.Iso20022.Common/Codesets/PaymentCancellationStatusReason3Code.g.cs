@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_rUlXoIEoEei51tn2YGQhvg")]
 [Description(@"Provides status reasons with regards to the cancellation of the payment.")]
 [DerivedFrom(typeof(PaymentCancellationStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentCancellationStatusReason3Code>))]
+#endif
 public enum PaymentCancellationStatusReason3Code
 {
     /// <summary>

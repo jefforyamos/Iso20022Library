@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TV8F7AEcEeCQm6a_G2yO_w_398677392")]
 [Description(@"Type of cardholder account used for the transaction.")]
 [Derivations(typeof(CardAccountType1Code),typeof(CardAccountType2Code),typeof(CardAccountType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardAccountTypeCode>))]
+#endif
 public enum CardAccountTypeCode
 {
     /// <summary>

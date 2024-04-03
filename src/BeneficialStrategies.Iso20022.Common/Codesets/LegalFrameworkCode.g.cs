@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ad115dp-Ed-ak6NoX_4Aeg_-859807356")]
 [Description(@"Identifies the legal framework of the transaction.")]
 [Derivations(typeof(LegalFramework1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LegalFrameworkCode>))]
+#endif
 public enum LegalFrameworkCode
 {
     /// <summary>

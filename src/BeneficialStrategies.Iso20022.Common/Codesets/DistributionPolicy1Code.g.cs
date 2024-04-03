@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_awwx4tp-Ed-ak6NoX_4Aeg_-433302197")]
 [Description(@"Specifies if income is to be paid out (distributed) or retained (accumulated).")]
 [DerivedFrom(typeof(DistributionPolicyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DistributionPolicy1Code>))]
+#endif
 public enum DistributionPolicy1Code
 {
     /// <summary>

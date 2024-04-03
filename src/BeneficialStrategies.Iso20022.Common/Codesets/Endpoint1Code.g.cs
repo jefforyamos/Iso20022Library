@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aAUwIINoEeuHqfO1LgkE9Q")]
 [Description(@"Defines the type of endpoint.")]
 [DerivedFrom(typeof(EndpointCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<Endpoint1Code>))]
+#endif
 public enum Endpoint1Code
 {
     /// <summary>

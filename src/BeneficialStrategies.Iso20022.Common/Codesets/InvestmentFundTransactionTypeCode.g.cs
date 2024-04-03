@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aczUGNp-Ed-ak6NoX_4Aeg_-1474043592")]
 [Description(@"Specifies the type of transaction.")]
-[Derivations(typeof(InvestmentFundTransactionOutType1Code),typeof(InvestmentFundTransactionOutType4Code),typeof(TransactionType1Code),typeof(TransactionType2Code),typeof(InvestmentFundTransactionType1Code),typeof(InvestmentFundTransactionInType3Code),typeof(InvestmentFundTransactionInType1Code))]
+[Derivations(typeof(InvestmentFundTransactionInType3Code),typeof(InvestmentFundTransactionOutType1Code),typeof(InvestmentFundTransactionType1Code),typeof(TransactionType2Code),typeof(InvestmentFundTransactionOutType4Code),typeof(TransactionType1Code),typeof(InvestmentFundTransactionInType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestmentFundTransactionTypeCode>))]
+#endif
 public enum InvestmentFundTransactionTypeCode
 {
     /// <summary>

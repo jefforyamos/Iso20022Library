@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_HW4DYsESEea7jLfvGi1PDw")]
 [Description(@"Specifies the type of report activity for a specific reporting period.")]
 [DerivedFrom(typeof(ReportPeriodActivityCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReportPeriodActivity3Code>))]
+#endif
 public enum ReportPeriodActivity3Code
 {
     /// <summary>

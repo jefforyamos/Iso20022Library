@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Yll61Np-Ed-ak6NoX_4Aeg_771598790")]
 [Description(@"Specifies the result of the technical validation carried out by the receiver (forwarding or first agent).")]
 [Derivations(typeof(TechnicalValidationStatus1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TechnicalValidationStatusCode>))]
+#endif
 public enum TechnicalValidationStatusCode
 {
     /// <summary>

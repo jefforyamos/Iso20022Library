@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZSJe2Np-Ed-ak6NoX_4Aeg_-2111038385")]
 [Description(@"Specifies the status of a system.")]
 [Derivations(typeof(SystemStatus2Code),typeof(SystemStatus3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SystemStatusCode>))]
+#endif
 public enum SystemStatusCode
 {
     /// <summary>

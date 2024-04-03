@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YlcJ1dp-Ed-ak6NoX_4Aeg_1304530864")]
 [Description(@"Specified the method by which the tax on the interests is to be processed i.e. either withheld at source or reported to tax authorities or a tax certificate has been provided by the beneficiary.")]
 [Derivations(typeof(TaxWithholdingMethod1Code),typeof(TaxWithholdingMethod2Code),typeof(TaxWithholdingMethod3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxWithholdingMethodCode>))]
+#endif
 public enum TaxWithholdingMethodCode
 {
     /// <summary>

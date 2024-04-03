@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,6 +18,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_awUtBtp-Ed-ak6NoX_4Aeg_627416917")]
 [Description(@"Identifies the method used to determine a settlement rate when a disruption event has occurred.")]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DisruptionFallbackCode>))]
+#endif
 public enum DisruptionFallbackCode
 {
     /// <summary>

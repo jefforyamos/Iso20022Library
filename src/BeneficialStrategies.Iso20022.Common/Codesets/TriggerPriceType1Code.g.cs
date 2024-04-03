@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Yv34Ntp-Ed-ak6NoX_4Aeg_-1635338287")]
 [Description(@"Specifies the type of price that the trigger is compared to.")]
 [DerivedFrom(typeof(TriggerPriceTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TriggerPriceType1Code>))]
+#endif
 public enum TriggerPriceType1Code
 {
     /// <summary>

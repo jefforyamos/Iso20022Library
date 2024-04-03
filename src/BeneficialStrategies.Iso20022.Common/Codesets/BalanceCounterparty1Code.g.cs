@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bkBa0tp-Ed-ak6NoX_4Aeg_678189976")]
 [Description(@"Specifies the type of counterparty to be taken into account for calculation of the balance.")]
 [DerivedFrom(typeof(BalanceCounterpartyCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BalanceCounterparty1Code>))]
+#endif
 public enum BalanceCounterparty1Code
 {
     /// <summary>

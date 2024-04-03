@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YuFIdtp-Ed-ak6NoX_4Aeg_1201919260")]
 [Description(@"Specifies the reason for a transaction to be reversed by an instructed agent or somebody acting on behalf of an instructed agent.")]
 [DerivedFrom(typeof(TransactionReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TransactionReversalReason1Code>))]
+#endif
 public enum TransactionReversalReason1Code
 {
     /// <summary>

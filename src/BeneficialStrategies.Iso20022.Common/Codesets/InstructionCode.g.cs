@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aXbr6Np-Ed-ak6NoX_4Aeg_86377106")]
 [Description(@"Specifies further instructions concerning the processing of a payment instruction.")]
-[Derivations(typeof(Instruction4Code),typeof(Instruction3Code),typeof(Instruction5Code),typeof(Instruction1Code),typeof(PartialInstruction3Code))]
+[Derivations(typeof(Instruction4Code),typeof(Instruction3Code),typeof(Instruction1Code),typeof(Instruction5Code),typeof(PartialInstruction3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionCode>))]
+#endif
 public enum InstructionCode
 {
     /// <summary>

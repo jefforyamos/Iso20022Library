@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZbPJYtp-Ed-ak6NoX_4Aeg_44026870")]
 [Description(@"Identifies whether the regulatory reporting information applies to the debit side, to the credit side or to both debit and credit sides of the transaction.")]
 [Derivations(typeof(RegulatoryReportingType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RegulatoryReportingTypeCode>))]
+#endif
 public enum RegulatoryReportingTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EsjOkO3NEeqc-LCjwLsUVg")]
 [Description(@"Types of acceptable bid range values.")]
 [DerivedFrom(typeof(BidRangeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BidRangeType1Code>))]
+#endif
 public enum BidRangeType1Code
 {
     /// <summary>

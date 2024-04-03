@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_BuhW0DEtEemzCpWiCwK4aQ")]
 [Description(@"Contains the list of key types that may be exchanged.")]
 [DerivedFrom(typeof(KeyTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<KeyType1Code>))]
+#endif
 public enum KeyType1Code
 {
     /// <summary>

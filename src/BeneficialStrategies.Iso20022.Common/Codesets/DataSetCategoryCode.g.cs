@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TWrsygEcEeCQm6a_G2yO_w_-1624727429")]
 [Description(@"Category of data set to transfer.")]
-[Derivations(typeof(DataSetCategory3Code),typeof(DataSetCategory6Code),typeof(DataSetCategory14Code),typeof(DataSetCategory2Code),typeof(DataSetCategory15Code),typeof(DataSetCategory16Code),typeof(DataSetCategory13Code),typeof(DataSetCategory5Code),typeof(DataSetCategory4Code),typeof(DataSetCategory9Code),typeof(DataSetCategory17Code),typeof(DataSetCategory11Code),typeof(DataSetCategory1Code),typeof(DataSetCategory18Code),typeof(DataSetCategory7Code),typeof(DataSetCategory10Code),typeof(DataSetCategory12Code),typeof(DataSetCategory8Code))]
+[Derivations(typeof(DataSetCategory14Code),typeof(DataSetCategory10Code),typeof(DataSetCategory5Code),typeof(DataSetCategory16Code),typeof(DataSetCategory2Code),typeof(DataSetCategory15Code),typeof(DataSetCategory3Code),typeof(DataSetCategory13Code),typeof(DataSetCategory9Code),typeof(DataSetCategory12Code),typeof(DataSetCategory11Code),typeof(DataSetCategory1Code),typeof(DataSetCategory17Code),typeof(DataSetCategory4Code),typeof(DataSetCategory8Code),typeof(DataSetCategory18Code),typeof(DataSetCategory6Code),typeof(DataSetCategory7Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DataSetCategoryCode>))]
+#endif
 public enum DataSetCategoryCode
 {
     /// <summary>

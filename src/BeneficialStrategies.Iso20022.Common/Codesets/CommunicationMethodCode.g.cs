@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_bAtSYdp-Ed-ak6NoX_4Aeg_-468324815")]
 [Description(@"Communication method used for the transmission of documents.")]
 [Derivations(typeof(CommunicationMethod1Code),typeof(CommunicationMethod2Code),typeof(CommunicationMethod3Code),typeof(CommunicationMethod4Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CommunicationMethodCode>))]
+#endif
 public enum CommunicationMethodCode
 {
     /// <summary>

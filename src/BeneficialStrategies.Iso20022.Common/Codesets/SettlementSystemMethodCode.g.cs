@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZMx2otp-Ed-ak6NoX_4Aeg_-1474296543")]
 [Description(@"Specifies whether the settlement instruction is to be settled through the default or the alternate settlement system.")]
 [Derivations(typeof(SettlementSystemMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementSystemMethodCode>))]
+#endif
 public enum SettlementSystemMethodCode
 {
     /// <summary>

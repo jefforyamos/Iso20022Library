@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_x_1NIJElEeKcLcxonNWTXg")]
 [Description(@"Specifies the reason that an alleged trade is withdrawn.")]
 [DerivedFrom(typeof(WithdrawalReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<WithdrawalReason1Code>))]
+#endif
 public enum WithdrawalReason1Code
 {
     /// <summary>

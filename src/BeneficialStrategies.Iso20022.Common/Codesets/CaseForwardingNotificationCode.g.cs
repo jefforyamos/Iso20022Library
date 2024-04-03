@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_a2bVCdp-Ed-ak6NoX_4Aeg_-1197135711")]
 [Description(@"Specifies the action requested when forwarding a case. Assignees taking the decision to cancel or modify to further case assignees must communicate this decision to their case assigners.")]
 [Derivations(typeof(CaseForwardingNotification1Code),typeof(CaseForwardingNotification2Code),typeof(CaseForwardingNotification3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CaseForwardingNotificationCode>))]
+#endif
 public enum CaseForwardingNotificationCode
 {
     /// <summary>

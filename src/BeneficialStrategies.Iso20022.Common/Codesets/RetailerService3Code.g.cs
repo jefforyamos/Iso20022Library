@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jfjsINwtEeioifFt1dhnJA")]
 [Description(@"List of specific services for ServiceResponse.")]
 [DerivedFrom(typeof(RetailerServiceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RetailerService3Code>))]
+#endif
 public enum RetailerService3Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ZTVxotp-Ed-ak6NoX_4Aeg_-215532945")]
 [Description(@"Specifies whether the report contains a new, a resubmitted or an amended baseline.")]
 [DerivedFrom(typeof(ReportTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ReportType1Code>))]
+#endif
 public enum ReportType1Code
 {
     /// <summary>

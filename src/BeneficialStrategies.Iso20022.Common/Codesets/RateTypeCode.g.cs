@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZZvUldp-Ed-ak6NoX_4Aeg_233339087")]
 [Description(@"Any and all rate is sought.")]
-[Derivations(typeof(RateValueType6Code),typeof(RateValueType7Code),typeof(RateType10Code),typeof(RateType13Code),typeof(RateType8Code),typeof(RateType9Code),typeof(RateType3Code),typeof(RateValueType2Code),typeof(RateType12Code),typeof(RateType5Code),typeof(RateType2Code))]
+[Derivations(typeof(RateValueType6Code),typeof(RateType8Code),typeof(RateType2Code),typeof(RateType3Code),typeof(RateValueType7Code),typeof(RateType12Code),typeof(RateType13Code),typeof(RateType9Code),typeof(RateType5Code),typeof(RateType10Code),typeof(RateValueType2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<RateTypeCode>))]
+#endif
 public enum RateTypeCode
 {
     /// <summary>

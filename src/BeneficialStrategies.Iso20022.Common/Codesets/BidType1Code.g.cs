@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_beXexNp-Ed-ak6NoX_4Aeg_453364379")]
 [Description(@"Identifies the type of bid request.")]
 [DerivedFrom(typeof(BidTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BidType1Code>))]
+#endif
 public enum BidType1Code
 {
     /// <summary>

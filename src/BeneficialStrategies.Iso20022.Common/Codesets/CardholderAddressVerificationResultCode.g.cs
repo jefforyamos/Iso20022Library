@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_TWF26gEcEeCQm6a_G2yO_w_1762343535")]
 [Description(@"Result of the cardholder verification address checks on the street number and the postal code from the cardholder's address.")]
 [Derivations(typeof(CardholderAddressVerificationResult1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CardholderAddressVerificationResultCode>))]
+#endif
 public enum CardholderAddressVerificationResultCode
 {
     /// <summary>

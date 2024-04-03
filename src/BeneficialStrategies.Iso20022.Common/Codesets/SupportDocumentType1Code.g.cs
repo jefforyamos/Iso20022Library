@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_MSMgcNnTEeS--7IJLPC9lw")]
 [Description(@"Specifies a type of supporting document.")]
 [DerivedFrom(typeof(SupportDocumentTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SupportDocumentType1Code>))]
+#endif
 public enum SupportDocumentType1Code
 {
     /// <summary>

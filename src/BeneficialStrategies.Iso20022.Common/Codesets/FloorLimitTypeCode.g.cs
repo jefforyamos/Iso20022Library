@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aqzT1tp-Ed-ak6NoX_4Aeg_611309431")]
 [Description(@"Indicates whether the floor limit applies to credit, to debit or to both credit and debit entries.")]
 [Derivations(typeof(FloorLimitType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FloorLimitTypeCode>))]
+#endif
 public enum FloorLimitTypeCode
 {
     /// <summary>

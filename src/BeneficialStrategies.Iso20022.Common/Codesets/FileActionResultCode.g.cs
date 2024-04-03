@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_K1GHcFEBEee94_dUz-hvgw")]
 [Description(@"File action processing result.")]
 [Derivations(typeof(FileActionResult1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FileActionResultCode>))]
+#endif
 public enum FileActionResultCode
 {
     /// <summary>

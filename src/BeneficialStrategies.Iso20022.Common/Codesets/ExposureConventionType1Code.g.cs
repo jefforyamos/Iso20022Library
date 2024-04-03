@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YczLMNp-Ed-ak6NoX_4Aeg_945714582")]
 [Description(@"Determines how the variation margin requirement will be calculated, either net or gross.")]
 [DerivedFrom(typeof(ExposureConventionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ExposureConventionType1Code>))]
+#endif
 public enum ExposureConventionType1Code
 {
     /// <summary>

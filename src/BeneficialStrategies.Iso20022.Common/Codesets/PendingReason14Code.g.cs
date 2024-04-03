@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_CeYl0YlsEeavwKddCbm3hg")]
 [Description(@"Specifies the reason why the instruction has a pending status.")]
 [DerivedFrom(typeof(PendingFailingReasonV2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingReason14Code>))]
+#endif
 public enum PendingReason14Code
 {
     /// <summary>

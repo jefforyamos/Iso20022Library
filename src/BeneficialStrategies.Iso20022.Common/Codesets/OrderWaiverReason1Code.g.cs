@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aUAkeNp-Ed-ak6NoX_4Aeg_-1311872043")]
 [Description(@"Relates to non-standard orders, to handle them differently, probably in a manual fashion.")]
 [DerivedFrom(typeof(OrderWaiverReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<OrderWaiverReason1Code>))]
+#endif
 public enum OrderWaiverReason1Code
 {
     /// <summary>

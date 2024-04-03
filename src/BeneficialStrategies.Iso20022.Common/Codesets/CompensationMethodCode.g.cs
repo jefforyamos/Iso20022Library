@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_6Vwww5qlEeGSON8vddiWzQ_197335871")]
 [Description(@"Defines if and how charges and taxes due are paid to the financial institution.")]
 [Derivations(typeof(CompensationMethod1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CompensationMethodCode>))]
+#endif
 public enum CompensationMethodCode
 {
     /// <summary>

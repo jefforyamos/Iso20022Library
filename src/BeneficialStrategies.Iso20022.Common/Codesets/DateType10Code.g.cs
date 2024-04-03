@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_sW5NwDUIEe2tRf29bleifQ")]
 [Description(@"Date is specified as a fixed code value.")]
 [DerivedFrom(typeof(DateTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DateType10Code>))]
+#endif
 public enum DateType10Code
 {
     /// <summary>

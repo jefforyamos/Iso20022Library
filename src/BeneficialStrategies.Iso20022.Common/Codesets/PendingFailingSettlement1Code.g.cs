@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_zcQUlA93EeGeV5vP7Mvdig_816274429")]
 [Description(@"Specifies the reason the transaction/instruction is pending failing settlement, and the settlement at the instruction settlement date is no longer possible.")]
 [DerivedFrom(typeof(PendingFailingSettlementCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingFailingSettlement1Code>))]
+#endif
 public enum PendingFailingSettlement1Code
 {
     /// <summary>

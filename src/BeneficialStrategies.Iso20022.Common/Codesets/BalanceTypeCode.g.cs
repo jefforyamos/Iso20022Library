@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_bbFhQNp-Ed-ak6NoX_4Aeg_142948041")]
 [Description(@"Specifies the nature of the balance.")]
-[Derivations(typeof(SecuritiesBalanceType6Code),typeof(BalanceType7Code),typeof(BalanceType11Code),typeof(BalanceType14Code),typeof(BalanceType10Code),typeof(BalanceType15Code),typeof(CashBalanceType1Code),typeof(BalanceType4Code),typeof(BalanceType12Code),typeof(SecuritiesBalanceType9Code),typeof(BalanceType6Code),typeof(BalanceType13Code),typeof(SecuritiesBalanceType10Code),typeof(BalanceType8Code),typeof(BalanceType5Code),typeof(BalanceType9Code))]
+[Derivations(typeof(SecuritiesBalanceType10Code),typeof(BalanceType10Code),typeof(BalanceType4Code),typeof(CashBalanceType1Code),typeof(BalanceType12Code),typeof(BalanceType7Code),typeof(BalanceType9Code),typeof(BalanceType13Code),typeof(BalanceType14Code),typeof(SecuritiesBalanceType6Code),typeof(BalanceType15Code),typeof(BalanceType6Code),typeof(SecuritiesBalanceType9Code),typeof(BalanceType11Code),typeof(BalanceType8Code),typeof(BalanceType5Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<BalanceTypeCode>))]
+#endif
 public enum BalanceTypeCode
 {
     /// <summary>

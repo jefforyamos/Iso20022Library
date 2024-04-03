@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_S2Sb8J9WEeqxTNfi5y7ywQ")]
 [Description(@"Specifies the unit basis of a financial instrument.")]
 [Derivations(typeof(NotionalOrUnitBased1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<NotionalOrUnitBasedCode>))]
+#endif
 public enum NotionalOrUnitBasedCode
 {
     /// <summary>

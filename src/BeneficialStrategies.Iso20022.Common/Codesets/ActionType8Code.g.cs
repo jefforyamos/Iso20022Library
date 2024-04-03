@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_EsxP4ErCEeenp6hmNprBHg")]
 [Description(@"Recommended action for the card issuer.")]
 [DerivedFrom(typeof(ActionTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ActionType8Code>))]
+#endif
 public enum ActionType8Code
 {
     /// <summary>

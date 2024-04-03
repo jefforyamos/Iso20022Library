@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jj4Sgu5NEeCisYr99QEiWA_1468427888")]
 [Description(@"Specifies the type of instruction queried.")]
 [Derivations(typeof(InstructionQueryType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionQueryTypeCode>))]
+#endif
 public enum InstructionQueryTypeCode
 {
     /// <summary>

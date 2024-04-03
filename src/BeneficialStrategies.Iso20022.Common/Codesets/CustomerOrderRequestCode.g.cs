@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ETkWwN6JEeiwsev40qZGEQ")]
 [Description(@"Type of customer orders that must be sent in response message.")]
 [Derivations(typeof(CustomerOrderRequest1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CustomerOrderRequestCode>))]
+#endif
 public enum CustomerOrderRequestCode
 {
     /// <summary>

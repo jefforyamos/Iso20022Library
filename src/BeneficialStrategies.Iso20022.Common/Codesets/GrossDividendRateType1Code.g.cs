@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_auh9QNp-Ed-ak6NoX_4Aeg_-75891244")]
 [Description(@"Specifies the type of gross dividend rate.")]
 [DerivedFrom(typeof(DividendRateTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<GrossDividendRateType1Code>))]
+#endif
 public enum GrossDividendRateType1Code
 {
     /// <summary>

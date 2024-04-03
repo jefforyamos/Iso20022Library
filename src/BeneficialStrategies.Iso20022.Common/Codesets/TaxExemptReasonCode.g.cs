@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_YhkWcNp-Ed-ak6NoX_4Aeg_-1906851692")]
 [Description(@"Specifies the reason a specific tax has not been levied/deducted on a given transaction.")]
 [Derivations(typeof(TaxExemptReason1Code),typeof(TaxExemptReason2Code),typeof(TaxExemptReason3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TaxExemptReasonCode>))]
+#endif
 public enum TaxExemptReasonCode
 {
     /// <summary>

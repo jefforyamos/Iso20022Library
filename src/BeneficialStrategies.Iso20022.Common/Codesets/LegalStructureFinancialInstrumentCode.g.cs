@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_-MDTkDQeEeifw8iDiyZLmQ")]
 [Description(@"Specifies the legal structure of a financial instrument as defined in the scope of European MiFID Template (EMT) reference 00060.")]
 [Derivations(typeof(LegalStructureFinancialInstrument1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LegalStructureFinancialInstrumentCode>))]
+#endif
 public enum LegalStructureFinancialInstrumentCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1y3xAC2oEeuVt5XRmyhHiA")]
 [Description(@"Specifies the type of market claim in the context of a corporate action distribution event.")]
 [DerivedFrom(typeof(MarketClaimTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarketClaimType1Code>))]
+#endif
 public enum MarketClaimType1Code
 {
     /// <summary>

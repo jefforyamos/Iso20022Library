@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_t8lCD4cSEeavwKddCbm3hg")]
 [Description(@"Specifies the corporate action event type.")]
-[Derivations(typeof(CorporateActionEventType24Code),typeof(CorporateActionEventType33Code),typeof(CorporateActionEventType23Code),typeof(CorporateActionEventType22Code),typeof(CorporateActionEventType25Code),typeof(CorporateActionEventType28Code),typeof(CorporateActionEventType20Code),typeof(CorporateActionEventType34Code),typeof(CorporateActionEventType30Code),typeof(CorporateActionEventType29Code),typeof(CorporateActionEventType21Code),typeof(CorporateActionEventType27Code),typeof(CorporateActionEventType26Code),typeof(CorporateActionEventType32Code),typeof(CorporateActionEventType31Code))]
+[Derivations(typeof(CorporateActionEventType29Code),typeof(CorporateActionEventType27Code),typeof(CorporateActionEventType23Code),typeof(CorporateActionEventType22Code),typeof(CorporateActionEventType20Code),typeof(CorporateActionEventType21Code),typeof(CorporateActionEventType30Code),typeof(CorporateActionEventType26Code),typeof(CorporateActionEventType28Code),typeof(CorporateActionEventType25Code),typeof(CorporateActionEventType33Code),typeof(CorporateActionEventType34Code),typeof(CorporateActionEventType32Code),typeof(CorporateActionEventType24Code),typeof(CorporateActionEventType31Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<CorporateActionEventTypeV6Code>))]
+#endif
 public enum CorporateActionEventTypeV6Code
 {
     /// <summary>

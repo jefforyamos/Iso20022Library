@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_keo2gLcYEeKuGrOch6U_ZQ_-1636830227")]
 [Description(@"Specifies the type of account to which an account opening request is related, for instance a new account.")]
 [Derivations(typeof(AccountOpeningType1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AccountOpeningTypeCode>))]
+#endif
 public enum AccountOpeningTypeCode
 {
     /// <summary>

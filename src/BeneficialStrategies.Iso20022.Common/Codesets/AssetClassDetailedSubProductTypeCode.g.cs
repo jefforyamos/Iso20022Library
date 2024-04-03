@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_O1x5odDiEeSv_Pll20DdbA")]
 [Description(@"Specifies the detailed sub products types allowed for commodity derivative.")]
-[Derivations(typeof(AssetClassDetailedSubProductType29Code),typeof(AssetClassDetailedSubProductType31Code),typeof(AssetClassDetailedSubProductType34Code),typeof(AssetClassDetailedSubProductType7Code),typeof(AssetClassDetailedSubProductType4Code),typeof(AssetClassDetailedSubProductType12Code),typeof(AssetClassDetailedSubProductType16Code),typeof(AssetClassDetailedSubProductType8Code),typeof(AssetClassDetailedSubProductType11Code),typeof(AssetFXSubProductType1Code),typeof(EmissionAllowanceProductType1Code),typeof(AssetClassDetailedSubProductType10Code),typeof(AssetClassDetailedSubProductType30Code),typeof(AssetClassDetailedSubProductType14Code),typeof(AssetClassDetailedSubProductType2Code),typeof(AssetClassDetailedSubProductType32Code),typeof(EmissionAllowanceProductType2Code),typeof(AssetClassDetailedSubProductType33Code),typeof(AssetClassDetailedSubProductType5Code),typeof(AssetClassDetailedSubProductType6Code),typeof(AssetClassDetailedSubProductType15Code),typeof(AssetClassDetailedSubProductType1Code))]
+[Derivations(typeof(AssetClassDetailedSubProductType16Code),typeof(AssetClassDetailedSubProductType8Code),typeof(AssetClassDetailedSubProductType32Code),typeof(AssetClassDetailedSubProductType10Code),typeof(AssetFXSubProductType1Code),typeof(AssetClassDetailedSubProductType4Code),typeof(AssetClassDetailedSubProductType2Code),typeof(AssetClassDetailedSubProductType7Code),typeof(AssetClassDetailedSubProductType15Code),typeof(EmissionAllowanceProductType2Code),typeof(AssetClassDetailedSubProductType1Code),typeof(AssetClassDetailedSubProductType12Code),typeof(AssetClassDetailedSubProductType6Code),typeof(AssetClassDetailedSubProductType14Code),typeof(AssetClassDetailedSubProductType29Code),typeof(AssetClassDetailedSubProductType31Code),typeof(AssetClassDetailedSubProductType11Code),typeof(AssetClassDetailedSubProductType5Code),typeof(AssetClassDetailedSubProductType33Code),typeof(AssetClassDetailedSubProductType30Code),typeof(EmissionAllowanceProductType1Code),typeof(AssetClassDetailedSubProductType34Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AssetClassDetailedSubProductTypeCode>))]
+#endif
 public enum AssetClassDetailedSubProductTypeCode
 {
     /// <summary>

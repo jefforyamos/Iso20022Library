@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_aLgvwtp-Ed-ak6NoX_4Aeg_-1244080292")]
 [Description(@"Specifies the type of security holders meeting.")]
 [Derivations(typeof(MeetingType1Code),typeof(MeetingType2Code),typeof(MeetingType3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MeetingTypeCode>))]
+#endif
 public enum MeetingTypeCode
 {
     /// <summary>

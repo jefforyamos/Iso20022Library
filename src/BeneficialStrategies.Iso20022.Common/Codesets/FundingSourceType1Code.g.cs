@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_7yTnEFXJEeeUQbJN-rt4dg")]
 [Description(@"Type of a funding used.")]
 [DerivedFrom(typeof(FundingSourcesTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<FundingSourceType1Code>))]
+#endif
 public enum FundingSourceType1Code
 {
     /// <summary>

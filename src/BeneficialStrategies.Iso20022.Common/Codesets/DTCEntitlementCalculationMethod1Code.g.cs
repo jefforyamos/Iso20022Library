@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1qnPYDL3EeKU9IrkkToqcw_744011491")]
 [Description(@"Specifies the type of calculation of entitlements.")]
 [DerivedFrom(typeof(DTCEntitlementCalculationMethodCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<DTCEntitlementCalculationMethod1Code>))]
+#endif
 public enum DTCEntitlementCalculationMethod1Code
 {
     /// <summary>

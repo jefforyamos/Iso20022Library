@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_aUwLU9p-Ed-ak6NoX_4Aeg_1124995296")]
 [Description(@"Specifies the type of place where a trade was executed, a price was sourced from, an instrument is listed.")]
-[Derivations(typeof(MarketType2Code),typeof(MarketType4Code),typeof(MarketType5Code),typeof(MarketType1Code),typeof(MarketType3Code),typeof(MarketType8Code),typeof(MarketType6Code))]
+[Derivations(typeof(MarketType3Code),typeof(MarketType4Code),typeof(MarketType2Code),typeof(MarketType1Code),typeof(MarketType5Code),typeof(MarketType6Code),typeof(MarketType8Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<MarketTypeCode>))]
+#endif
 public enum MarketTypeCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_IZ8fYF_CEee_oqB7UglxLw")]
 [Description(@"Type of value used for a loyalty programme.")]
 [DerivedFrom(typeof(LoyaltyValueTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<LoyaltyValueType1Code>))]
+#endif
 public enum LoyaltyValueType1Code
 {
     /// <summary>

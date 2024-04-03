@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_TVpK_AEcEeCQm6a_G2yO_w_454879121")]
 [Description(@"Identification of the MAC algorithm.")]
-[Derivations(typeof(Algorithm8Code),typeof(Algorithm7Code),typeof(Algorithm25Code),typeof(Algorithm11Code),typeof(Algorithm3Code),typeof(Algorithm9Code),typeof(Algorithm5Code),typeof(Algorithm18Code),typeof(Algorithm17Code),typeof(Algorithm2Code),typeof(Algorithm15Code),typeof(Algorithm13Code),typeof(Algorithm24Code),typeof(Algorithm20Code),typeof(Algorithm4Code),typeof(Algorithm23Code),typeof(Algorithm1Code),typeof(Algorithm19Code),typeof(Algorithm6Code),typeof(Algorithm12Code),typeof(Algorithm10Code),typeof(Algorithm14Code),typeof(Algorithm16Code))]
+[Derivations(typeof(Algorithm18Code),typeof(Algorithm20Code),typeof(Algorithm9Code),typeof(Algorithm7Code),typeof(Algorithm17Code),typeof(Algorithm6Code),typeof(Algorithm19Code),typeof(Algorithm16Code),typeof(Algorithm2Code),typeof(Algorithm3Code),typeof(Algorithm25Code),typeof(Algorithm5Code),typeof(Algorithm12Code),typeof(Algorithm24Code),typeof(Algorithm10Code),typeof(Algorithm23Code),typeof(Algorithm15Code),typeof(Algorithm4Code),typeof(Algorithm11Code),typeof(Algorithm13Code),typeof(Algorithm1Code),typeof(Algorithm14Code),typeof(Algorithm8Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<AlgorithmCode>))]
+#endif
 public enum AlgorithmCode
 {
     /// <summary>

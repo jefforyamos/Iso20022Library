@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_FENyMDErEemzCpWiCwK4aQ")]
 [Description(@"Contains the list of interest rates.")]
 [DerivedFrom(typeof(InterestRateCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InterestRate1Code>))]
+#endif
 public enum InterestRate1Code
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_uBUPAGCKEeabZtzjEVWYCQ")]
 [Description(@"Specifies the reason for a pending account opening status.")]
 [DerivedFrom(typeof(PendingOpeningStatusReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PendingOpeningStatusReason1Code>))]
+#endif
 public enum PendingOpeningStatusReason1Code
 {
     /// <summary>

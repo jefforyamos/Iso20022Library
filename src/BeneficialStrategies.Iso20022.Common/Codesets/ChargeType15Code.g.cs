@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_WOC0odp-Ed-ak6NoX_4Aeg_-70268021")]
 [Description(@"Specifies the type of service for which a charge is asked or paid.")]
 [DerivedFrom(typeof(ChargeTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ChargeType15Code>))]
+#endif
 public enum ChargeType15Code
 {
     /// <summary>

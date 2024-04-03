@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -17,7 +18,10 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [Serializable]
 [IsoId("_ZLby19p-Ed-ak6NoX_4Aeg_336259131")]
 [Description(@"Specifies the date of settlement, in coded form.")]
-[Derivations(typeof(SettlementDate5Code),typeof(SettlementDate6Code),typeof(SettlementDate4Code),typeof(SettlementDate1Code),typeof(SettlementDate2Code),typeof(SettlementDate3Code))]
+[Derivations(typeof(SettlementDate5Code),typeof(SettlementDate4Code),typeof(SettlementDate1Code),typeof(SettlementDate2Code),typeof(SettlementDate6Code),typeof(SettlementDate3Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<SettlementDateCode>))]
+#endif
 public enum SettlementDateCode
 {
     /// <summary>

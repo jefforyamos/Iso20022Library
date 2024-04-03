@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Ymocpdp-Ed-ak6NoX_4Aeg_-630382090")]
 [Description(@"Specifies the level of service offered.")]
 [DerivedFrom(typeof(TradeFinanceServiceCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<TradeFinanceService2Code>))]
+#endif
 public enum TradeFinanceService2Code
 {
     /// <summary>

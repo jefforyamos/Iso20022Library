@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_jBwc4O5NEeCisYr99QEiWA_1266829801")]
 [Description(@"Defines the type of eligibility.")]
 [DerivedFrom(typeof(EligibilityTypeCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EligibilityType1Code>))]
+#endif
 public enum EligibilityType1Code
 {
     /// <summary>

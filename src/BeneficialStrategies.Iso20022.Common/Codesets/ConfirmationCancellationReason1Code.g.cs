@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_e0ShUFM7EeaOrcVOcDJQkA")]
 [Description(@"Specifies the reason why a confirmation is cancelled.")]
 [DerivedFrom(typeof(ConfirmationCancellationReasonCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<ConfirmationCancellationReason1Code>))]
+#endif
 public enum ConfirmationCancellationReason1Code
 {
     /// <summary>

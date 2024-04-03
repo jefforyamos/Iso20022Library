@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_VnJzxtp-Ed-ak6NoX_4Aeg_804338895")]
 [Description(@"Indicates the result of an investigation.")]
 [DerivedFrom(typeof(InvestigationExecutionConfirmationCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InvestigationExecutionConfirmation1Code>))]
+#endif
 public enum InvestigationExecutionConfirmation1Code
 {
     /// <summary>

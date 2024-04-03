@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_Z0Hjd9p-Ed-ak6NoX_4Aeg_382466788")]
 [Description(@"Specifies the payment instrument used or the underlying financial transaction that resulted in a payment transaction.")]
 [Derivations(typeof(PaymentInstrument1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<PaymentInstrumentCode>))]
+#endif
 public enum PaymentInstrumentCode
 {
     /// <summary>

@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_ahQ9WNp-Ed-ak6NoX_4Aeg_-1271465048")]
 [Description(@"Specifies the type of an entry in a report.")]
 [Derivations(typeof(Entry2Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EntryCode>))]
+#endif
 public enum EntryCode
 {
     /// <summary>

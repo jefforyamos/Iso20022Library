@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1oFf1TL3EeKU9IrkkToqcw_-1695680614")]
 [Description(@"Specifies status of the instruction lock (for elections).")]
 [Derivations(typeof(InstructionLockout1Code))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<InstructionLockoutCode>))]
+#endif
 public enum InstructionLockoutCode
 {
     /// <summary>

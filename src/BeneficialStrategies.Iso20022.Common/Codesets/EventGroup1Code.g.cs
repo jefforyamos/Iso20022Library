@@ -7,6 +7,7 @@
 
 using System.Reflection;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace BeneficialStrategies.Iso20022.Codesets;
 
@@ -18,6 +19,9 @@ namespace BeneficialStrategies.Iso20022.Codesets;
 [IsoId("_1tTXAjL3EeKU9IrkkToqcw_-1870797912")]
 [Description(@"Specifies DTC (The Depository Trust Company) processing domain for the event.")]
 [DerivedFrom(typeof(EventGroupCode))]
+#if NET8_0_OR_GREATER // C# 12 Global type alias
+[JsonConverter(typeof(JsonStringEnumConverter<EventGroup1Code>))]
+#endif
 public enum EventGroup1Code
 {
     /// <summary>
