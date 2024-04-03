@@ -192,7 +192,6 @@ public partial record Cheque6
     [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> MemoField { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>

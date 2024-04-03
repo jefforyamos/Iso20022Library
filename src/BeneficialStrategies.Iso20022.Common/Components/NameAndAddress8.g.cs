@@ -96,7 +96,6 @@ public partial record NameAndAddress8
     [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(10)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> AlternativeIdentifier { get; init; } = new SimpleValueList<System.String>(){};
     
     

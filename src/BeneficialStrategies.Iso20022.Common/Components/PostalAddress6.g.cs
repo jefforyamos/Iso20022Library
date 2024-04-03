@@ -218,7 +218,6 @@ public partial record PostalAddress6
     [IsoSimpleType(IsoSimpleType.Max70Text)]
     [MinLength(0)]
     [MaxLength(7)]
-    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
     public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
     
     

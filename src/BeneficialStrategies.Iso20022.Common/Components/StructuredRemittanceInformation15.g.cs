@@ -170,7 +170,6 @@ public partial record StructuredRemittanceInformation15
     [IsoSimpleType(IsoSimpleType.Max140Text)]
     [MinLength(0)]
     [MaxLength(3)]
-    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
     public SimpleValueList<System.String> AdditionalRemittanceInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

@@ -59,7 +59,6 @@ public partial record PostalAddress18
     [IsoSimpleType(IsoSimpleType.Max70Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    [StringLength(maximumLength: 70 ,MinimumLength = 1)]
     public SimpleValueList<System.String> AddressLine { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
@@ -152,7 +151,6 @@ public partial record PostalAddress18
     [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> CountrySubDivision { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>

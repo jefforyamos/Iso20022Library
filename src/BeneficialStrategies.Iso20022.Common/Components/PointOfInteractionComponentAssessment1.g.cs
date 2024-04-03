@@ -76,7 +76,6 @@ public partial record PointOfInteractionComponentAssessment1
     #endif
     [IsoXmlTag("Assgnr")]
     [IsoSimpleType(IsoSimpleType.Max35Text)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Assigner { get; init; } = new SimpleValueList<System.String>(){}; // Warning: Don't know multiplicity.
     // ID for the above is _L3GT4AyREeKa_56Jbsi1RQ
     

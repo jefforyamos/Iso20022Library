@@ -95,7 +95,6 @@ public partial record TechnicalError1
     #endif
     [IsoXmlTag("Desc")]
     [IsoSimpleType(IsoSimpleType.Max140Text)]
-    [StringLength(maximumLength: 140 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Description { get; init; } = new SimpleValueList<System.String>(){}; // Warning: Don't know multiplicity.
     // ID for the above is _-CoNtA23EeWH49U6bkyMaA
     

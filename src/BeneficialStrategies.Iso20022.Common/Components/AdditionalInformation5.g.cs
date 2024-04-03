@@ -49,7 +49,6 @@ public partial record AdditionalInformation5
     #endif
     [IsoXmlTag("Inf")]
     [IsoSimpleType(IsoSimpleType.Max256Text)]
-    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Information { get; init; } = new SimpleValueList<System.String>(){}; // Warning: Don't know multiplicity.
     // ID for the above is _Qoao5tp-Ed-ak6NoX_4Aeg_1159536818
     

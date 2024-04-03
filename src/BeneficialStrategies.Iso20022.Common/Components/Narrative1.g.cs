@@ -68,7 +68,6 @@ public partial record Narrative1
     [IsoSimpleType(IsoSimpleType.Max20000Text)]
     [MinLength(1)]
     [MaxLength(5)]
-    [StringLength(maximumLength: 20000 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Text { get; init; } = new SimpleValueList<System.String>(){};
     
     

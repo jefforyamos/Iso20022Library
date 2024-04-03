@@ -100,7 +100,6 @@ public partial record IsabelSEPAFile1
     [IsoSimpleType(IsoSimpleType.Max35Text)]
     [MinLength(0)]
     [MaxLength(10)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> MarketPractices { get; init; } = new SimpleValueList<System.String>(){};
     
     

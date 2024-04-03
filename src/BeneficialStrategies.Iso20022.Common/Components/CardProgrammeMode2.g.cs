@@ -68,7 +68,6 @@ public partial record CardProgrammeMode2
     #endif
     [IsoXmlTag("Id")]
     [IsoSimpleType(IsoSimpleType.Max35Text)]
-    [StringLength(maximumLength: 35 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Identification { get; init; } = new SimpleValueList<System.String>(){}; // Warning: Don't know multiplicity.
     // ID for the above is _2fS95OkOEemeDPHh-U9b6w
     

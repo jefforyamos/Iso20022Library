@@ -51,7 +51,6 @@ public partial record Portfolio1
     [IsoSimpleType(IsoSimpleType.Max350Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    [StringLength(maximumLength: 350 ,MinimumLength = 1)]
     public SimpleValueList<System.String> PortfolioInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

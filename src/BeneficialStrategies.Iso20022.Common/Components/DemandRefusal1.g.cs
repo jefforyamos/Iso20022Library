@@ -192,7 +192,6 @@ public partial record DemandRefusal1
     [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
     public SimpleValueList<System.String> DispositionOfDocuments { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
@@ -207,7 +206,6 @@ public partial record DemandRefusal1
     [IsoSimpleType(IsoSimpleType.Max2000Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    [StringLength(maximumLength: 2000 ,MinimumLength = 1)]
     public SimpleValueList<System.String> AdditionalInformation { get; init; } = new SimpleValueList<System.String>(){};
     
     

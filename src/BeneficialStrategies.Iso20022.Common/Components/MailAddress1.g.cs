@@ -64,7 +64,6 @@ public partial record MailAddress1
     [IsoSimpleType(IsoSimpleType.Max256Text)]
     [MinLength(0)]
     [MaxLength(5)]
-    [StringLength(maximumLength: 256 ,MinimumLength = 1)]
     public SimpleValueList<System.String> EmailAddress { get; init; } = new SimpleValueList<System.String>(){};
     
     

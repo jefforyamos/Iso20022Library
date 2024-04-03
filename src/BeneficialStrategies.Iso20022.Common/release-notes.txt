@@ -24,4 +24,5 @@
 0.2.5-alpha
     Added JsonDerivedType attributes on abstract choice values to enable JSON serialization.
 
-    
+0.2.6-alpha
+    Removed StringLengthAttribute from collections, causing JSON serialization problems.

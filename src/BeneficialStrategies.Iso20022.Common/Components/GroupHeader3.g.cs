@@ -102,7 +102,6 @@ public partial record GroupHeader3
     [IsoSimpleType(IsoSimpleType.Max128Text)]
     [MinLength(0)]
     [MaxLength(2)]
-    [StringLength(maximumLength: 128 ,MinimumLength = 1)]
     public SimpleValueList<System.String> Authorisation { get; init; } = new SimpleValueList<System.String>(){};
     
     /// <summary>
