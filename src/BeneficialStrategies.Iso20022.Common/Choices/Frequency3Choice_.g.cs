@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Frequency3Choice.Code))]
     [KnownType(typeof(Frequency3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Frequency3Choice.Code),nameof(Frequency3Choice.Code))]
-    [JsonDerivedType(typeof(Frequency3Choice.Proprietary),nameof(Frequency3Choice.Proprietary))]
+    [JsonDerivedType(typeof(Frequency3Choice.Code),"Frequency3Choice.Code")]
+    [JsonDerivedType(typeof(Frequency3Choice.Proprietary),"Frequency3Choice.Proprietary")]
     #endif
     [IsoId("_QvHt09p-Ed-ak6NoX_4Aeg_-1581052955")]
     [DisplayName("Frequency 3 Choice")]

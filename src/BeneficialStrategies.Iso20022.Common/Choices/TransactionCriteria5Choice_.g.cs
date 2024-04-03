@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionCriteria5Choice.QueryName))]
     [KnownType(typeof(TransactionCriteria5Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionCriteria5Choice.QueryName),nameof(TransactionCriteria5Choice.QueryName))]
-    [JsonDerivedType(typeof(TransactionCriteria5Choice.NewCriteria),nameof(TransactionCriteria5Choice.NewCriteria))]
+    [JsonDerivedType(typeof(TransactionCriteria5Choice.QueryName),"TransactionCriteria5Choice.QueryName")]
+    [JsonDerivedType(typeof(TransactionCriteria5Choice.NewCriteria),"TransactionCriteria5Choice.NewCriteria")]
     #endif
     [IsoId("_OV995249EeiU9cctagi5ow")]
     [DisplayName("Transaction Criteria 5 Choice")]

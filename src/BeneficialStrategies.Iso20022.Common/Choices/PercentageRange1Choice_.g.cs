@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PercentageRange1Choice.Equal))]
     [KnownType(typeof(PercentageRange1Choice.NotEqual))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PercentageRange1Choice.From),nameof(PercentageRange1Choice.From))]
-    [JsonDerivedType(typeof(PercentageRange1Choice.To),nameof(PercentageRange1Choice.To))]
-    [JsonDerivedType(typeof(PercentageRange1Choice.FromTo),nameof(PercentageRange1Choice.FromTo))]
-    [JsonDerivedType(typeof(PercentageRange1Choice.Equal),nameof(PercentageRange1Choice.Equal))]
-    [JsonDerivedType(typeof(PercentageRange1Choice.NotEqual),nameof(PercentageRange1Choice.NotEqual))]
+    [JsonDerivedType(typeof(PercentageRange1Choice.From),"PercentageRange1Choice.From")]
+    [JsonDerivedType(typeof(PercentageRange1Choice.To),"PercentageRange1Choice.To")]
+    [JsonDerivedType(typeof(PercentageRange1Choice.FromTo),"PercentageRange1Choice.FromTo")]
+    [JsonDerivedType(typeof(PercentageRange1Choice.Equal),"PercentageRange1Choice.Equal")]
+    [JsonDerivedType(typeof(PercentageRange1Choice.NotEqual),"PercentageRange1Choice.NotEqual")]
     #endif
     [IsoId("_7_BRqKMgEeCJ6YNENx4h-w_249022340")]
     [DisplayName("Percentage Range 1 Choice")]

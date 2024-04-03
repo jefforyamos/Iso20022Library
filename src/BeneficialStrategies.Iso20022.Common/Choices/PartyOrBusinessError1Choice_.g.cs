@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyOrBusinessError1Choice.BusinessError))]
     [KnownType(typeof(PartyOrBusinessError1Choice.SystemParty))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyOrBusinessError1Choice.BusinessError),nameof(PartyOrBusinessError1Choice.BusinessError))]
-    [JsonDerivedType(typeof(PartyOrBusinessError1Choice.SystemParty),nameof(PartyOrBusinessError1Choice.SystemParty))]
+    [JsonDerivedType(typeof(PartyOrBusinessError1Choice.BusinessError),"PartyOrBusinessError1Choice.BusinessError")]
+    [JsonDerivedType(typeof(PartyOrBusinessError1Choice.SystemParty),"PartyOrBusinessError1Choice.SystemParty")]
     #endif
     [IsoId("_knr44-5NEeCisYr99QEiWA_102228919")]
     [DisplayName("Party Or Business Error 1 Choice")]

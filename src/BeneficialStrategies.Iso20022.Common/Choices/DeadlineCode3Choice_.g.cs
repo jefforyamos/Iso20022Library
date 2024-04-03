@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeadlineCode3Choice.Code))]
     [KnownType(typeof(DeadlineCode3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeadlineCode3Choice.Code),nameof(DeadlineCode3Choice.Code))]
-    [JsonDerivedType(typeof(DeadlineCode3Choice.Proprietary),nameof(DeadlineCode3Choice.Proprietary))]
+    [JsonDerivedType(typeof(DeadlineCode3Choice.Code),"DeadlineCode3Choice.Code")]
+    [JsonDerivedType(typeof(DeadlineCode3Choice.Proprietary),"DeadlineCode3Choice.Proprietary")]
     #endif
     [IsoId("_W4fbIUGZEeWqy4niLuXETA")]
     [DisplayName("Deadline Code 3 Choice")]

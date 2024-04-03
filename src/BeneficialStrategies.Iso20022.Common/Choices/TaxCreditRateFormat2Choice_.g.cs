@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxCreditRateFormat2Choice.Amount))]
     [KnownType(typeof(TaxCreditRateFormat2Choice.RateTypeAndAmountAndRateStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.Rate),nameof(TaxCreditRateFormat2Choice.Rate))]
-    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.Amount),nameof(TaxCreditRateFormat2Choice.Amount))]
-    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.RateTypeAndAmountAndRateStatus),nameof(TaxCreditRateFormat2Choice.RateTypeAndAmountAndRateStatus))]
+    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.Rate),"TaxCreditRateFormat2Choice.Rate")]
+    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.Amount),"TaxCreditRateFormat2Choice.Amount")]
+    [JsonDerivedType(typeof(TaxCreditRateFormat2Choice.RateTypeAndAmountAndRateStatus),"TaxCreditRateFormat2Choice.RateTypeAndAmountAndRateStatus")]
     #endif
     [IsoId("_UMtPDtp-Ed-ak6NoX_4Aeg_-1830345508")]
     [DisplayName("Tax Credit Rate Format 2 Choice")]

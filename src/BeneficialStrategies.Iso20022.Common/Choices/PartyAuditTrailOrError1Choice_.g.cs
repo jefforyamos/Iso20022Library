@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport))]
     [KnownType(typeof(PartyAuditTrailOrError1Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport),nameof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport))]
-    [JsonDerivedType(typeof(PartyAuditTrailOrError1Choice.OperationalError),nameof(PartyAuditTrailOrError1Choice.OperationalError))]
+    [JsonDerivedType(typeof(PartyAuditTrailOrError1Choice.PartyAuditTrailReport),"PartyAuditTrailOrError1Choice.PartyAuditTrailReport")]
+    [JsonDerivedType(typeof(PartyAuditTrailOrError1Choice.OperationalError),"PartyAuditTrailOrError1Choice.OperationalError")]
     #endif
     [IsoId("_QgdAwZ9uEee7Qpz45yWJJw")]
     [DisplayName("Party Audit Trail Or Error 1 Choice")]

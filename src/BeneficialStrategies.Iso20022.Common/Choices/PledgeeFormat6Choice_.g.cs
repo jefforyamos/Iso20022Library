@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PledgeeFormat6Choice.Identification))]
     [KnownType(typeof(PledgeeFormat6Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PledgeeFormat6Choice.TypeAndIdentification),nameof(PledgeeFormat6Choice.TypeAndIdentification))]
-    [JsonDerivedType(typeof(PledgeeFormat6Choice.Identification),nameof(PledgeeFormat6Choice.Identification))]
-    [JsonDerivedType(typeof(PledgeeFormat6Choice.Proprietary),nameof(PledgeeFormat6Choice.Proprietary))]
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.TypeAndIdentification),"PledgeeFormat6Choice.TypeAndIdentification")]
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.Identification),"PledgeeFormat6Choice.Identification")]
+    [JsonDerivedType(typeof(PledgeeFormat6Choice.Proprietary),"PledgeeFormat6Choice.Proprietary")]
     #endif
     [IsoId("_Z07smffVEeiNZp_PtLohLw")]
     [DisplayName("Pledgee Format 6 Choice")]

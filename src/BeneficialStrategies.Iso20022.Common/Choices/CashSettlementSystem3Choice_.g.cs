@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashSettlementSystem3Choice.Code))]
     [KnownType(typeof(CashSettlementSystem3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CashSettlementSystem3Choice.Code),nameof(CashSettlementSystem3Choice.Code))]
-    [JsonDerivedType(typeof(CashSettlementSystem3Choice.Proprietary),nameof(CashSettlementSystem3Choice.Proprietary))]
+    [JsonDerivedType(typeof(CashSettlementSystem3Choice.Code),"CashSettlementSystem3Choice.Code")]
+    [JsonDerivedType(typeof(CashSettlementSystem3Choice.Proprietary),"CashSettlementSystem3Choice.Proprietary")]
     #endif
     [IsoId("_Aav3xNokEeC60axPepSq7g_1739194464")]
     [DisplayName("Cash Settlement System 3 Choice")]

@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountModification1Choice.SystemRestriction))]
     [KnownType(typeof(SecuritiesAccountModification1Choice.MarketSpecificAttribute))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.SystemSecuritiesAccount),nameof(SecuritiesAccountModification1Choice.SystemSecuritiesAccount))]
-    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.SystemRestriction),nameof(SecuritiesAccountModification1Choice.SystemRestriction))]
-    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.MarketSpecificAttribute),nameof(SecuritiesAccountModification1Choice.MarketSpecificAttribute))]
+    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.SystemSecuritiesAccount),"SecuritiesAccountModification1Choice.SystemSecuritiesAccount")]
+    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.SystemRestriction),"SecuritiesAccountModification1Choice.SystemRestriction")]
+    [JsonDerivedType(typeof(SecuritiesAccountModification1Choice.MarketSpecificAttribute),"SecuritiesAccountModification1Choice.MarketSpecificAttribute")]
     #endif
     [IsoId("_hjLnamliEeGaMcKyqKNRfQ_-966924713")]
     [DisplayName("Securities Account Modification 1 Choice")]

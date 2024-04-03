@@ -21,7 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(RestrictedProprietaryChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RestrictedProprietaryChoice.Proprietary),nameof(RestrictedProprietaryChoice.Proprietary))]
+    [JsonDerivedType(typeof(RestrictedProprietaryChoice.Proprietary),"RestrictedProprietaryChoice.Proprietary")]
     #endif
     [IsoId("_QJa_z9p-Ed-ak6NoX_4Aeg_1495589549")]
     [DisplayName("Restricted Proprietary Choice")]

@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentIdentification3Choice.ShortBusinessIdentification))]
     [KnownType(typeof(PaymentIdentification3Choice.ProprietaryReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentIdentification3Choice.PaymentInstructionReference),nameof(PaymentIdentification3Choice.PaymentInstructionReference))]
-    [JsonDerivedType(typeof(PaymentIdentification3Choice.QueueIdentification),nameof(PaymentIdentification3Choice.QueueIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification3Choice.LongBusinessIdentification),nameof(PaymentIdentification3Choice.LongBusinessIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification3Choice.ShortBusinessIdentification),nameof(PaymentIdentification3Choice.ShortBusinessIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification3Choice.ProprietaryReference),nameof(PaymentIdentification3Choice.ProprietaryReference))]
+    [JsonDerivedType(typeof(PaymentIdentification3Choice.PaymentInstructionReference),"PaymentIdentification3Choice.PaymentInstructionReference")]
+    [JsonDerivedType(typeof(PaymentIdentification3Choice.QueueIdentification),"PaymentIdentification3Choice.QueueIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification3Choice.LongBusinessIdentification),"PaymentIdentification3Choice.LongBusinessIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification3Choice.ShortBusinessIdentification),"PaymentIdentification3Choice.ShortBusinessIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification3Choice.ProprietaryReference),"PaymentIdentification3Choice.ProprietaryReference")]
     #endif
     [IsoId("_RbYW59p-Ed-ak6NoX_4Aeg_-1132471784")]
     [DisplayName("Payment Identification 3 Choice")]

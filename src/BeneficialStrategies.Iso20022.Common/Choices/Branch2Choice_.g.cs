@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Branch2Choice.Identification))]
     [KnownType(typeof(Branch2Choice.Country))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Branch2Choice.Identification),nameof(Branch2Choice.Identification))]
-    [JsonDerivedType(typeof(Branch2Choice.Country),nameof(Branch2Choice.Country))]
+    [JsonDerivedType(typeof(Branch2Choice.Identification),"Branch2Choice.Identification")]
+    [JsonDerivedType(typeof(Branch2Choice.Country),"Branch2Choice.Country")]
     #endif
     [IsoId("_6O2VwUqQEeeLKviVB0vAnA")]
     [DisplayName("Branch 2 Choice")]

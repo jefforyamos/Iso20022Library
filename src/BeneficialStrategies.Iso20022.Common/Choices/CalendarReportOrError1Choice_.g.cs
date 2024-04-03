@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CalendarReportOrError1Choice.CalendarReport))]
     [KnownType(typeof(CalendarReportOrError1Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CalendarReportOrError1Choice.CalendarReport),nameof(CalendarReportOrError1Choice.CalendarReport))]
-    [JsonDerivedType(typeof(CalendarReportOrError1Choice.OperationalError),nameof(CalendarReportOrError1Choice.OperationalError))]
+    [JsonDerivedType(typeof(CalendarReportOrError1Choice.CalendarReport),"CalendarReportOrError1Choice.CalendarReport")]
+    [JsonDerivedType(typeof(CalendarReportOrError1Choice.OperationalError),"CalendarReportOrError1Choice.OperationalError")]
     #endif
     [IsoId("_dVcQ4Ym7Eeipw6hHPgB4Sw")]
     [DisplayName("Calendar Report Or Error 1 Choice")]

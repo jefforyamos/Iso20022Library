@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedCancellationStatusReason1Choice.ExtendedReason))]
     [KnownType(typeof(RejectedCancellationStatusReason1Choice.DataSourceScheme))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.Reason),nameof(RejectedCancellationStatusReason1Choice.Reason))]
-    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.ExtendedReason),nameof(RejectedCancellationStatusReason1Choice.ExtendedReason))]
-    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.DataSourceScheme),nameof(RejectedCancellationStatusReason1Choice.DataSourceScheme))]
+    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.Reason),"RejectedCancellationStatusReason1Choice.Reason")]
+    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.ExtendedReason),"RejectedCancellationStatusReason1Choice.ExtendedReason")]
+    [JsonDerivedType(typeof(RejectedCancellationStatusReason1Choice.DataSourceScheme),"RejectedCancellationStatusReason1Choice.DataSourceScheme")]
     #endif
     [IsoId("_RXptdNp-Ed-ak6NoX_4Aeg_890850288")]
     [DisplayName("Rejected Cancellation Status Reason 1 Choice")]

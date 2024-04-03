@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassAttributes1Choice.ForeignExchange))]
     [KnownType(typeof(AssetClassAttributes1Choice.Both))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassAttributes1Choice.Interest),nameof(AssetClassAttributes1Choice.Interest))]
-    [JsonDerivedType(typeof(AssetClassAttributes1Choice.ForeignExchange),nameof(AssetClassAttributes1Choice.ForeignExchange))]
-    [JsonDerivedType(typeof(AssetClassAttributes1Choice.Both),nameof(AssetClassAttributes1Choice.Both))]
+    [JsonDerivedType(typeof(AssetClassAttributes1Choice.Interest),"AssetClassAttributes1Choice.Interest")]
+    [JsonDerivedType(typeof(AssetClassAttributes1Choice.ForeignExchange),"AssetClassAttributes1Choice.ForeignExchange")]
+    [JsonDerivedType(typeof(AssetClassAttributes1Choice.Both),"AssetClassAttributes1Choice.Both")]
     #endif
     [IsoId("_id4oJO94EeW7gabYEJmWIA")]
     [DisplayName("Asset Class Attributes 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NonEligibleProceedsIndicator4Choice.Code))]
     [KnownType(typeof(NonEligibleProceedsIndicator4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NonEligibleProceedsIndicator4Choice.Code),nameof(NonEligibleProceedsIndicator4Choice.Code))]
-    [JsonDerivedType(typeof(NonEligibleProceedsIndicator4Choice.Proprietary),nameof(NonEligibleProceedsIndicator4Choice.Proprietary))]
+    [JsonDerivedType(typeof(NonEligibleProceedsIndicator4Choice.Code),"NonEligibleProceedsIndicator4Choice.Code")]
+    [JsonDerivedType(typeof(NonEligibleProceedsIndicator4Choice.Proprietary),"NonEligibleProceedsIndicator4Choice.Proprietary")]
     #endif
     [IsoId("_cthE85KQEeWHWpTQn1FFVg")]
     [DisplayName("Non Eligible Proceeds Indicator 4 Choice")]

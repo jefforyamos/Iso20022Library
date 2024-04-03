@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClassificationType33Choice.ClassificationFinancialInstrument))]
     [KnownType(typeof(ClassificationType33Choice.AlternateClassification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClassificationType33Choice.ClassificationFinancialInstrument),nameof(ClassificationType33Choice.ClassificationFinancialInstrument))]
-    [JsonDerivedType(typeof(ClassificationType33Choice.AlternateClassification),nameof(ClassificationType33Choice.AlternateClassification))]
+    [JsonDerivedType(typeof(ClassificationType33Choice.ClassificationFinancialInstrument),"ClassificationType33Choice.ClassificationFinancialInstrument")]
+    [JsonDerivedType(typeof(ClassificationType33Choice.AlternateClassification),"ClassificationType33Choice.AlternateClassification")]
     #endif
     [IsoId("_chVpw5KQEeWHWpTQn1FFVg")]
     [DisplayName("Classification Type 33 Choice")]

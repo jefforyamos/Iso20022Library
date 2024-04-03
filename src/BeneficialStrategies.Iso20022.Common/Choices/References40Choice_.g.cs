@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References40Choice.RelatedReference))]
     [KnownType(typeof(References40Choice.OtherReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References40Choice.RelatedReference),nameof(References40Choice.RelatedReference))]
-    [JsonDerivedType(typeof(References40Choice.OtherReference),nameof(References40Choice.OtherReference))]
+    [JsonDerivedType(typeof(References40Choice.RelatedReference),"References40Choice.RelatedReference")]
+    [JsonDerivedType(typeof(References40Choice.OtherReference),"References40Choice.OtherReference")]
     #endif
     [IsoId("_SRMKUSGiEeONGJioFgcMDw")]
     [DisplayName("References 40 Choice")]

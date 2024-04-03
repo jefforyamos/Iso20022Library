@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateTypeChoice.PercentageRate))]
     [KnownType(typeof(RateTypeChoice.TextualRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RateTypeChoice.PercentageRate),nameof(RateTypeChoice.PercentageRate))]
-    [JsonDerivedType(typeof(RateTypeChoice.TextualRate),nameof(RateTypeChoice.TextualRate))]
+    [JsonDerivedType(typeof(RateTypeChoice.PercentageRate),"RateTypeChoice.PercentageRate")]
+    [JsonDerivedType(typeof(RateTypeChoice.TextualRate),"RateTypeChoice.TextualRate")]
     #endif
     [IsoId("_RIwV0dp-Ed-ak6NoX_4Aeg_-1267403783")]
     [DisplayName("Rate Type Choice")]

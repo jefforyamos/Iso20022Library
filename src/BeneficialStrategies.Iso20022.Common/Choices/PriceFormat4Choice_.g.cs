@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat4Choice.NotSpecified))]
     [KnownType(typeof(PriceFormat4Choice.IndexPoints))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceFormat4Choice.Amount),nameof(PriceFormat4Choice.Amount))]
-    [JsonDerivedType(typeof(PriceFormat4Choice.Rate),nameof(PriceFormat4Choice.Rate))]
-    [JsonDerivedType(typeof(PriceFormat4Choice.NotSpecified),nameof(PriceFormat4Choice.NotSpecified))]
-    [JsonDerivedType(typeof(PriceFormat4Choice.IndexPoints),nameof(PriceFormat4Choice.IndexPoints))]
+    [JsonDerivedType(typeof(PriceFormat4Choice.Amount),"PriceFormat4Choice.Amount")]
+    [JsonDerivedType(typeof(PriceFormat4Choice.Rate),"PriceFormat4Choice.Rate")]
+    [JsonDerivedType(typeof(PriceFormat4Choice.NotSpecified),"PriceFormat4Choice.NotSpecified")]
+    [JsonDerivedType(typeof(PriceFormat4Choice.IndexPoints),"PriceFormat4Choice.IndexPoints")]
     #endif
     [IsoId("_QbJo8tp-Ed-ak6NoX_4Aeg_-733600915")]
     [DisplayName("Price Format 4 Choice")]

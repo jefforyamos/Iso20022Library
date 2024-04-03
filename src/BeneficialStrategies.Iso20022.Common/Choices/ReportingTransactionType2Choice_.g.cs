@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportingTransactionType2Choice.Cancellation))]
     [KnownType(typeof(ReportingTransactionType2Choice.SupplementaryData))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReportingTransactionType2Choice.New),nameof(ReportingTransactionType2Choice.New))]
-    [JsonDerivedType(typeof(ReportingTransactionType2Choice.Cancellation),nameof(ReportingTransactionType2Choice.Cancellation))]
-    [JsonDerivedType(typeof(ReportingTransactionType2Choice.SupplementaryData),nameof(ReportingTransactionType2Choice.SupplementaryData))]
+    [JsonDerivedType(typeof(ReportingTransactionType2Choice.New),"ReportingTransactionType2Choice.New")]
+    [JsonDerivedType(typeof(ReportingTransactionType2Choice.Cancellation),"ReportingTransactionType2Choice.Cancellation")]
+    [JsonDerivedType(typeof(ReportingTransactionType2Choice.SupplementaryData),"ReportingTransactionType2Choice.SupplementaryData")]
     #endif
     [IsoId("_W2U3kZ26Eeuwmdq0KtnICg")]
     [DisplayName("Reporting Transaction Type 2 Choice")]

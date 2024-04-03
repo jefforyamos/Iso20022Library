@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification))]
     [KnownType(typeof(OriginalActivation2Choice.OriginalActivationData))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification),nameof(OriginalActivation2Choice.OriginalDebtorIdentification))]
-    [JsonDerivedType(typeof(OriginalActivation2Choice.OriginalActivationData),nameof(OriginalActivation2Choice.OriginalActivationData))]
+    [JsonDerivedType(typeof(OriginalActivation2Choice.OriginalDebtorIdentification),"OriginalActivation2Choice.OriginalDebtorIdentification")]
+    [JsonDerivedType(typeof(OriginalActivation2Choice.OriginalActivationData),"OriginalActivation2Choice.OriginalActivationData")]
     #endif
     [IsoId("_UNr4PeH7Eeqbls7Gk4-ckA")]
     [DisplayName("Original Activation 2 Choice")]

@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustification3Choice.MissingOrIncorrectInformation))]
     [KnownType(typeof(UnableToApplyJustification3Choice.PossibleDuplicateInstruction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.AnyInformation),nameof(UnableToApplyJustification3Choice.AnyInformation))]
-    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.MissingOrIncorrectInformation),nameof(UnableToApplyJustification3Choice.MissingOrIncorrectInformation))]
-    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.PossibleDuplicateInstruction),nameof(UnableToApplyJustification3Choice.PossibleDuplicateInstruction))]
+    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.AnyInformation),"UnableToApplyJustification3Choice.AnyInformation")]
+    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.MissingOrIncorrectInformation),"UnableToApplyJustification3Choice.MissingOrIncorrectInformation")]
+    [JsonDerivedType(typeof(UnableToApplyJustification3Choice.PossibleDuplicateInstruction),"UnableToApplyJustification3Choice.PossibleDuplicateInstruction")]
     #endif
     [IsoId("_SzxmAUgoEeaGKYpLDboHPQ")]
     [DisplayName("Unable To Apply Justification 3 Choice")]

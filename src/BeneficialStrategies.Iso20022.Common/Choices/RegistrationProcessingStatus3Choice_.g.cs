@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RegistrationProcessingStatus3Choice.Code))]
     [KnownType(typeof(RegistrationProcessingStatus3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RegistrationProcessingStatus3Choice.Code),nameof(RegistrationProcessingStatus3Choice.Code))]
-    [JsonDerivedType(typeof(RegistrationProcessingStatus3Choice.Proprietary),nameof(RegistrationProcessingStatus3Choice.Proprietary))]
+    [JsonDerivedType(typeof(RegistrationProcessingStatus3Choice.Code),"RegistrationProcessingStatus3Choice.Code")]
+    [JsonDerivedType(typeof(RegistrationProcessingStatus3Choice.Proprietary),"RegistrationProcessingStatus3Choice.Proprietary")]
     #endif
     [IsoId("_gC8aETqqEeWyoP0PbocV1Q")]
     [DisplayName("Registration Processing Status 3 Choice")]

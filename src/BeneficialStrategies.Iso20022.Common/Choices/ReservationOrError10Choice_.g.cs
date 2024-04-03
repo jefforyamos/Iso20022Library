@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReservationOrError10Choice.BusinessReport))]
     [KnownType(typeof(ReservationOrError10Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReservationOrError10Choice.BusinessReport),nameof(ReservationOrError10Choice.BusinessReport))]
-    [JsonDerivedType(typeof(ReservationOrError10Choice.OperationalError),nameof(ReservationOrError10Choice.OperationalError))]
+    [JsonDerivedType(typeof(ReservationOrError10Choice.BusinessReport),"ReservationOrError10Choice.BusinessReport")]
+    [JsonDerivedType(typeof(ReservationOrError10Choice.OperationalError),"ReservationOrError10Choice.OperationalError")]
     #endif
     [IsoId("_eGwpEdcZEeqRFcf2R4bPBw")]
     [DisplayName("Reservation Or Error 10 Choice")]

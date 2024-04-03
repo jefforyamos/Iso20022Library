@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeConfirmation1Choice.Confirmed))]
     [KnownType(typeof(TradeConfirmation1Choice.NonConfirmed))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeConfirmation1Choice.Confirmed),nameof(TradeConfirmation1Choice.Confirmed))]
-    [JsonDerivedType(typeof(TradeConfirmation1Choice.NonConfirmed),nameof(TradeConfirmation1Choice.NonConfirmed))]
+    [JsonDerivedType(typeof(TradeConfirmation1Choice.Confirmed),"TradeConfirmation1Choice.Confirmed")]
+    [JsonDerivedType(typeof(TradeConfirmation1Choice.NonConfirmed),"TradeConfirmation1Choice.NonConfirmed")]
     #endif
     [IsoId("_L6EzwQ26EeWmAKKPnqYEVQ")]
     [DisplayName("Trade Confirmation 1 Choice")]

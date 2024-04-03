@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TechnicalError1Choice.Code))]
     [KnownType(typeof(TechnicalError1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TechnicalError1Choice.Code),nameof(TechnicalError1Choice.Code))]
-    [JsonDerivedType(typeof(TechnicalError1Choice.Proprietary),nameof(TechnicalError1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TechnicalError1Choice.Code),"TechnicalError1Choice.Code")]
+    [JsonDerivedType(typeof(TechnicalError1Choice.Proprietary),"TechnicalError1Choice.Proprietary")]
     #endif
     [IsoId("_pDbrZA3BEeWH49U6bkyMaA")]
     [DisplayName("Technical Error 1 Choice")]

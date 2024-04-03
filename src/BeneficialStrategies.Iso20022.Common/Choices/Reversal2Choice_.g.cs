@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reversal2Choice.Reference))]
     [KnownType(typeof(Reversal2Choice.TransferInConfirmationDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Reversal2Choice.Reference),nameof(Reversal2Choice.Reference))]
-    [JsonDerivedType(typeof(Reversal2Choice.TransferInConfirmationDetails),nameof(Reversal2Choice.TransferInConfirmationDetails))]
+    [JsonDerivedType(typeof(Reversal2Choice.Reference),"Reversal2Choice.Reference")]
+    [JsonDerivedType(typeof(Reversal2Choice.TransferInConfirmationDetails),"Reversal2Choice.TransferInConfirmationDetails")]
     #endif
     [IsoId("_PsjTARg4EeK-_89we2b-bA")]
     [DisplayName("Reversal 2 Choice")]

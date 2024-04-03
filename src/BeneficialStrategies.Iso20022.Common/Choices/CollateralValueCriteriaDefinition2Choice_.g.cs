@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralValueCriteriaDefinition2Choice.QueryName))]
     [KnownType(typeof(CollateralValueCriteriaDefinition2Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralValueCriteriaDefinition2Choice.QueryName),nameof(CollateralValueCriteriaDefinition2Choice.QueryName))]
-    [JsonDerivedType(typeof(CollateralValueCriteriaDefinition2Choice.NewCriteria),nameof(CollateralValueCriteriaDefinition2Choice.NewCriteria))]
+    [JsonDerivedType(typeof(CollateralValueCriteriaDefinition2Choice.QueryName),"CollateralValueCriteriaDefinition2Choice.QueryName")]
+    [JsonDerivedType(typeof(CollateralValueCriteriaDefinition2Choice.NewCriteria),"CollateralValueCriteriaDefinition2Choice.NewCriteria")]
     #endif
     [IsoId("_zV1FIeFgEeWIA4E9cYSxxQ")]
     [DisplayName("Collateral Value Criteria Definition 2 Choice")]

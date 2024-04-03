@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Number24Choice.NumberIdentification))]
     [KnownType(typeof(Number24Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Number24Choice.NumberIdentification),nameof(Number24Choice.NumberIdentification))]
-    [JsonDerivedType(typeof(Number24Choice.Proprietary),nameof(Number24Choice.Proprietary))]
+    [JsonDerivedType(typeof(Number24Choice.NumberIdentification),"Number24Choice.NumberIdentification")]
+    [JsonDerivedType(typeof(Number24Choice.Proprietary),"Number24Choice.Proprietary")]
     #endif
     [IsoId("_6OTyMZBfEeakHoV5BVecAQ")]
     [DisplayName("Number 24 Choice")]

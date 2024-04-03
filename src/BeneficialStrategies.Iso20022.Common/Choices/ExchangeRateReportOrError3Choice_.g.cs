@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExchangeRateReportOrError3Choice.CurrencyExchangeReport))]
     [KnownType(typeof(ExchangeRateReportOrError3Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExchangeRateReportOrError3Choice.CurrencyExchangeReport),nameof(ExchangeRateReportOrError3Choice.CurrencyExchangeReport))]
-    [JsonDerivedType(typeof(ExchangeRateReportOrError3Choice.OperationalError),nameof(ExchangeRateReportOrError3Choice.OperationalError))]
+    [JsonDerivedType(typeof(ExchangeRateReportOrError3Choice.CurrencyExchangeReport),"ExchangeRateReportOrError3Choice.CurrencyExchangeReport")]
+    [JsonDerivedType(typeof(ExchangeRateReportOrError3Choice.OperationalError),"ExchangeRateReportOrError3Choice.OperationalError")]
     #endif
     [IsoId("_MkkyYNfiEeqoweZZxm4TPQ")]
     [DisplayName("Exchange Rate Report Or Error 3 Choice")]

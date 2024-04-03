@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(WarrantStyle3Choice.Code))]
     [KnownType(typeof(WarrantStyle3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(WarrantStyle3Choice.Code),nameof(WarrantStyle3Choice.Code))]
-    [JsonDerivedType(typeof(WarrantStyle3Choice.Proprietary),nameof(WarrantStyle3Choice.Proprietary))]
+    [JsonDerivedType(typeof(WarrantStyle3Choice.Code),"WarrantStyle3Choice.Code")]
+    [JsonDerivedType(typeof(WarrantStyle3Choice.Proprietary),"WarrantStyle3Choice.Proprietary")]
     #endif
     [IsoId("_qwaaSeLbEeWFtOV72FbX9w")]
     [DisplayName("Warrant Style 3 Choice")]

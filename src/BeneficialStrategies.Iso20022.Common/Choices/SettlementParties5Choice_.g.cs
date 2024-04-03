@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementParties5Choice.DeliveringSettlementParties))]
     [KnownType(typeof(SettlementParties5Choice.ReceivingSettlementParties))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementParties5Choice.DeliveringSettlementParties),nameof(SettlementParties5Choice.DeliveringSettlementParties))]
-    [JsonDerivedType(typeof(SettlementParties5Choice.ReceivingSettlementParties),nameof(SettlementParties5Choice.ReceivingSettlementParties))]
+    [JsonDerivedType(typeof(SettlementParties5Choice.DeliveringSettlementParties),"SettlementParties5Choice.DeliveringSettlementParties")]
+    [JsonDerivedType(typeof(SettlementParties5Choice.ReceivingSettlementParties),"SettlementParties5Choice.ReceivingSettlementParties")]
     #endif
     [IsoId("_uU7Ll4FvEeWtPe6Crjmeug")]
     [DisplayName("Settlement Parties 5 Choice")]

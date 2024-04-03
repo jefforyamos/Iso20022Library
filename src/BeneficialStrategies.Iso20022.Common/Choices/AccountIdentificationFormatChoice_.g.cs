@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
     [KnownType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.SimpleIdentification),nameof(AccountIdentificationFormatChoice.SimpleIdentification))]
-    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose),nameof(AccountIdentificationFormatChoice.IdentificationAndPurpose))]
-    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS),nameof(AccountIdentificationFormatChoice.IdentificationAsDSS))]
+    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.SimpleIdentification),"AccountIdentificationFormatChoice.SimpleIdentification")]
+    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.IdentificationAndPurpose),"AccountIdentificationFormatChoice.IdentificationAndPurpose")]
+    [JsonDerivedType(typeof(AccountIdentificationFormatChoice.IdentificationAsDSS),"AccountIdentificationFormatChoice.IdentificationAsDSS")]
     #endif
     [IsoId("_RBvu5dp-Ed-ak6NoX_4Aeg_1713990380")]
     [DisplayName("Account Identification Format Choice")]

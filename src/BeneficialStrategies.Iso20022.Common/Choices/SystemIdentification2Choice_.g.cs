@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemIdentification2Choice.MarketInfrastructureIdentification))]
     [KnownType(typeof(SystemIdentification2Choice.Country))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SystemIdentification2Choice.MarketInfrastructureIdentification),nameof(SystemIdentification2Choice.MarketInfrastructureIdentification))]
-    [JsonDerivedType(typeof(SystemIdentification2Choice.Country),nameof(SystemIdentification2Choice.Country))]
+    [JsonDerivedType(typeof(SystemIdentification2Choice.MarketInfrastructureIdentification),"SystemIdentification2Choice.MarketInfrastructureIdentification")]
+    [JsonDerivedType(typeof(SystemIdentification2Choice.Country),"SystemIdentification2Choice.Country")]
     #endif
     [IsoId("_8BZ3QaMgEeCJ6YNENx4h-w_-1347709917")]
     [DisplayName("System Identification 2 Choice")]

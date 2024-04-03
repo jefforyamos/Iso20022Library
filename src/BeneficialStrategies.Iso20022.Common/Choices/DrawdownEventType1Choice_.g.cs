@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DrawdownEventType1Choice.Code))]
     [KnownType(typeof(DrawdownEventType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DrawdownEventType1Choice.Code),nameof(DrawdownEventType1Choice.Code))]
-    [JsonDerivedType(typeof(DrawdownEventType1Choice.Proprietary),nameof(DrawdownEventType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(DrawdownEventType1Choice.Code),"DrawdownEventType1Choice.Code")]
+    [JsonDerivedType(typeof(DrawdownEventType1Choice.Proprietary),"DrawdownEventType1Choice.Proprietary")]
     #endif
     [IsoId("_DvIiEFNiEeijdq8ilaxyOA")]
     [DisplayName("Drawdown Event Type 1 Choice")]

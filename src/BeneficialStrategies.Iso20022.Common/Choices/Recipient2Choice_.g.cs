@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Recipient2Choice.KeyTransport))]
     [KnownType(typeof(Recipient2Choice.KEK))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Recipient2Choice.KeyTransport),nameof(Recipient2Choice.KeyTransport))]
-    [JsonDerivedType(typeof(Recipient2Choice.KEK),nameof(Recipient2Choice.KEK))]
+    [JsonDerivedType(typeof(Recipient2Choice.KeyTransport),"Recipient2Choice.KeyTransport")]
+    [JsonDerivedType(typeof(Recipient2Choice.KEK),"Recipient2Choice.KEK")]
     #endif
     [IsoId("_EvioMQioEeKn9O5oyej_zw")]
     [DisplayName("Recipient 2 Choice")]

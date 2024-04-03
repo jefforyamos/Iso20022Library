@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentType2Choice.PaymentType))]
     [KnownType(typeof(PaymentType2Choice.ProprietaryPaymentType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentType2Choice.PaymentType),nameof(PaymentType2Choice.PaymentType))]
-    [JsonDerivedType(typeof(PaymentType2Choice.ProprietaryPaymentType),nameof(PaymentType2Choice.ProprietaryPaymentType))]
+    [JsonDerivedType(typeof(PaymentType2Choice.PaymentType),"PaymentType2Choice.PaymentType")]
+    [JsonDerivedType(typeof(PaymentType2Choice.ProprietaryPaymentType),"PaymentType2Choice.ProprietaryPaymentType")]
     #endif
     [IsoId("_RKPjk9p-Ed-ak6NoX_4Aeg_880263732")]
     [DisplayName("Payment Type 2 Choice")]

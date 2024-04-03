@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CustomerConductClassification1Choice.Code))]
     [KnownType(typeof(CustomerConductClassification1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CustomerConductClassification1Choice.Code),nameof(CustomerConductClassification1Choice.Code))]
-    [JsonDerivedType(typeof(CustomerConductClassification1Choice.Proprietary),nameof(CustomerConductClassification1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CustomerConductClassification1Choice.Code),"CustomerConductClassification1Choice.Code")]
+    [JsonDerivedType(typeof(CustomerConductClassification1Choice.Proprietary),"CustomerConductClassification1Choice.Proprietary")]
     #endif
     [IsoId("_E0HGsxdwEeKYM7Bc71nDlA")]
     [DisplayName("Customer Conduct Classification 1 Choice")]

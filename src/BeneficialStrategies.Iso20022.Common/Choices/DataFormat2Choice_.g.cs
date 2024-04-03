@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DataFormat2Choice.Structured))]
     [KnownType(typeof(DataFormat2Choice.Unstructured))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DataFormat2Choice.Structured),nameof(DataFormat2Choice.Structured))]
-    [JsonDerivedType(typeof(DataFormat2Choice.Unstructured),nameof(DataFormat2Choice.Unstructured))]
+    [JsonDerivedType(typeof(DataFormat2Choice.Structured),"DataFormat2Choice.Structured")]
+    [JsonDerivedType(typeof(DataFormat2Choice.Unstructured),"DataFormat2Choice.Unstructured")]
     #endif
     [IsoId("_Q6vvBdp-Ed-ak6NoX_4Aeg_-2133276556")]
     [DisplayName("Data Format 2 Choice")]

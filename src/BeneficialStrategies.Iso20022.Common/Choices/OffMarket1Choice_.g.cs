@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OffMarket1Choice.OffMarketIndicator))]
     [KnownType(typeof(OffMarket1Choice.SystematicInternaliser))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OffMarket1Choice.OffMarketIndicator),nameof(OffMarket1Choice.OffMarketIndicator))]
-    [JsonDerivedType(typeof(OffMarket1Choice.SystematicInternaliser),nameof(OffMarket1Choice.SystematicInternaliser))]
+    [JsonDerivedType(typeof(OffMarket1Choice.OffMarketIndicator),"OffMarket1Choice.OffMarketIndicator")]
+    [JsonDerivedType(typeof(OffMarket1Choice.SystematicInternaliser),"OffMarket1Choice.SystematicInternaliser")]
     #endif
     [IsoId("_TCpPoNp-Ed-ak6NoX_4Aeg_2009784706")]
     [DisplayName("Off Market 1 Choice")]

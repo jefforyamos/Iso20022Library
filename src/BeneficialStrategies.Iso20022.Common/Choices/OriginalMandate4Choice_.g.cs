@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalMandate4Choice.OriginalMandateIdentification))]
     [KnownType(typeof(OriginalMandate4Choice.OriginalMandate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OriginalMandate4Choice.OriginalMandateIdentification),nameof(OriginalMandate4Choice.OriginalMandateIdentification))]
-    [JsonDerivedType(typeof(OriginalMandate4Choice.OriginalMandate),nameof(OriginalMandate4Choice.OriginalMandate))]
+    [JsonDerivedType(typeof(OriginalMandate4Choice.OriginalMandateIdentification),"OriginalMandate4Choice.OriginalMandateIdentification")]
+    [JsonDerivedType(typeof(OriginalMandate4Choice.OriginalMandate),"OriginalMandate4Choice.OriginalMandate")]
     #endif
     [IsoId("_cvK7RUjwEeaVLL5QKJ4f-A")]
     [DisplayName("Original Mandate 4 Choice")]

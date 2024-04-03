@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LevelOfControl1Choice.Code))]
     [KnownType(typeof(LevelOfControl1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LevelOfControl1Choice.Code),nameof(LevelOfControl1Choice.Code))]
-    [JsonDerivedType(typeof(LevelOfControl1Choice.Proprietary),nameof(LevelOfControl1Choice.Proprietary))]
+    [JsonDerivedType(typeof(LevelOfControl1Choice.Code),"LevelOfControl1Choice.Code")]
+    [JsonDerivedType(typeof(LevelOfControl1Choice.Proprietary),"LevelOfControl1Choice.Proprietary")]
     #endif
     [IsoId("_KcNhUCDDEeWPMvNwVtiMsA")]
     [DisplayName("Level Of Control 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
     [KnownType(typeof(MatchingSystemReference1Choice.RelatedReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference),nameof(MatchingSystemReference1Choice.MatchingSystemUniqueReference))]
-    [JsonDerivedType(typeof(MatchingSystemReference1Choice.RelatedReference),nameof(MatchingSystemReference1Choice.RelatedReference))]
+    [JsonDerivedType(typeof(MatchingSystemReference1Choice.MatchingSystemUniqueReference),"MatchingSystemReference1Choice.MatchingSystemUniqueReference")]
+    [JsonDerivedType(typeof(MatchingSystemReference1Choice.RelatedReference),"MatchingSystemReference1Choice.RelatedReference")]
     #endif
     [IsoId("_i-a184ufEeKYr_965Eh8aQ")]
     [DisplayName("Matching System Reference 1 Choice")]

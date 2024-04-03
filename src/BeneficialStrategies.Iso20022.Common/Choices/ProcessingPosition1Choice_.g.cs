@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingPosition1Choice.Code))]
     [KnownType(typeof(ProcessingPosition1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingPosition1Choice.Code),nameof(ProcessingPosition1Choice.Code))]
-    [JsonDerivedType(typeof(ProcessingPosition1Choice.Proprietary),nameof(ProcessingPosition1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingPosition1Choice.Code),"ProcessingPosition1Choice.Code")]
+    [JsonDerivedType(typeof(ProcessingPosition1Choice.Proprietary),"ProcessingPosition1Choice.Proprietary")]
     #endif
     [IsoId("_QzcNINp-Ed-ak6NoX_4Aeg_135502517")]
     [DisplayName("Processing Position 1 Choice")]

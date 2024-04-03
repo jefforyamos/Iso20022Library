@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References6Choice.CommonIdentification))]
     [KnownType(typeof(References6Choice.TradeIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References6Choice.AccountServicerTransactionIdentification),nameof(References6Choice.AccountServicerTransactionIdentification))]
-    [JsonDerivedType(typeof(References6Choice.AccountOwnerTransactionIdentification),nameof(References6Choice.AccountOwnerTransactionIdentification))]
-    [JsonDerivedType(typeof(References6Choice.MarketInfrastructureTransactionIdentification),nameof(References6Choice.MarketInfrastructureTransactionIdentification))]
-    [JsonDerivedType(typeof(References6Choice.PoolIdentification),nameof(References6Choice.PoolIdentification))]
-    [JsonDerivedType(typeof(References6Choice.CommonIdentification),nameof(References6Choice.CommonIdentification))]
-    [JsonDerivedType(typeof(References6Choice.TradeIdentification),nameof(References6Choice.TradeIdentification))]
+    [JsonDerivedType(typeof(References6Choice.AccountServicerTransactionIdentification),"References6Choice.AccountServicerTransactionIdentification")]
+    [JsonDerivedType(typeof(References6Choice.AccountOwnerTransactionIdentification),"References6Choice.AccountOwnerTransactionIdentification")]
+    [JsonDerivedType(typeof(References6Choice.MarketInfrastructureTransactionIdentification),"References6Choice.MarketInfrastructureTransactionIdentification")]
+    [JsonDerivedType(typeof(References6Choice.PoolIdentification),"References6Choice.PoolIdentification")]
+    [JsonDerivedType(typeof(References6Choice.CommonIdentification),"References6Choice.CommonIdentification")]
+    [JsonDerivedType(typeof(References6Choice.TradeIdentification),"References6Choice.TradeIdentification")]
     #endif
     [IsoId("_UTGx8Np-Ed-ak6NoX_4Aeg_1758264340")]
     [DisplayName("References 6 Choice")]

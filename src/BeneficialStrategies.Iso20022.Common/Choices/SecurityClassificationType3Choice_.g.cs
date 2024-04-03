@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityClassificationType3Choice.CFI))]
     [KnownType(typeof(SecurityClassificationType3Choice.AlternateClassification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityClassificationType3Choice.CFI),nameof(SecurityClassificationType3Choice.CFI))]
-    [JsonDerivedType(typeof(SecurityClassificationType3Choice.AlternateClassification),nameof(SecurityClassificationType3Choice.AlternateClassification))]
+    [JsonDerivedType(typeof(SecurityClassificationType3Choice.CFI),"SecurityClassificationType3Choice.CFI")]
+    [JsonDerivedType(typeof(SecurityClassificationType3Choice.AlternateClassification),"SecurityClassificationType3Choice.AlternateClassification")]
     #endif
     [IsoId("_R_yWIf35EeimOuZbLgw0bg")]
     [DisplayName("Security Classification Type 3 Choice")]

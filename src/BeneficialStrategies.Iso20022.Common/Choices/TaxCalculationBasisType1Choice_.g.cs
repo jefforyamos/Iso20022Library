@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxCalculationBasisType1Choice.Basis))]
     [KnownType(typeof(TaxCalculationBasisType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxCalculationBasisType1Choice.Basis),nameof(TaxCalculationBasisType1Choice.Basis))]
-    [JsonDerivedType(typeof(TaxCalculationBasisType1Choice.Proprietary),nameof(TaxCalculationBasisType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TaxCalculationBasisType1Choice.Basis),"TaxCalculationBasisType1Choice.Basis")]
+    [JsonDerivedType(typeof(TaxCalculationBasisType1Choice.Proprietary),"TaxCalculationBasisType1Choice.Proprietary")]
     #endif
     [IsoId("_RfQKRdp-Ed-ak6NoX_4Aeg_-1842013319")]
     [DisplayName("Tax Calculation Basis Type 1 Choice")]

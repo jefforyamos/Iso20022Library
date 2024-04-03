@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status24Choice.IndividualOrderDetailsReport))]
     [KnownType(typeof(Status24Choice.SwitchOrderDetailsReport))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Status24Choice.OrderDetailsReport),nameof(Status24Choice.OrderDetailsReport))]
-    [JsonDerivedType(typeof(Status24Choice.IndividualOrderDetailsReport),nameof(Status24Choice.IndividualOrderDetailsReport))]
-    [JsonDerivedType(typeof(Status24Choice.SwitchOrderDetailsReport),nameof(Status24Choice.SwitchOrderDetailsReport))]
+    [JsonDerivedType(typeof(Status24Choice.OrderDetailsReport),"Status24Choice.OrderDetailsReport")]
+    [JsonDerivedType(typeof(Status24Choice.IndividualOrderDetailsReport),"Status24Choice.IndividualOrderDetailsReport")]
+    [JsonDerivedType(typeof(Status24Choice.SwitchOrderDetailsReport),"Status24Choice.SwitchOrderDetailsReport")]
     #endif
     [IsoId("_N37HcEHPEeazV4RAqPV71g")]
     [DisplayName("Status 24 Choice")]

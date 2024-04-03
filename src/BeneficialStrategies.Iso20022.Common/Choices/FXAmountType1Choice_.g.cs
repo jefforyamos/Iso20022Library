@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FXAmountType1Choice.Code))]
     [KnownType(typeof(FXAmountType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FXAmountType1Choice.Code),nameof(FXAmountType1Choice.Code))]
-    [JsonDerivedType(typeof(FXAmountType1Choice.Proprietary),nameof(FXAmountType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(FXAmountType1Choice.Code),"FXAmountType1Choice.Code")]
+    [JsonDerivedType(typeof(FXAmountType1Choice.Proprietary),"FXAmountType1Choice.Proprietary")]
     #endif
     [IsoId("_Z-9lgwN2Ee2-vqzwMUAewg")]
     [DisplayName("FX Amount Type 1 Choice")]

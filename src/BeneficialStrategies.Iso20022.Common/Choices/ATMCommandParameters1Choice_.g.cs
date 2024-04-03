@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
     [KnownType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus),nameof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus))]
-    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction),nameof(ATMCommandParameters1Choice.ExpectedMessageFunction))]
-    [JsonDerivedType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter),nameof(ATMCommandParameters1Choice.RequiredConfigurationParameter))]
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ATMRequiredGlobalStatus),"ATMCommandParameters1Choice.ATMRequiredGlobalStatus")]
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.ExpectedMessageFunction),"ATMCommandParameters1Choice.ExpectedMessageFunction")]
+    [JsonDerivedType(typeof(ATMCommandParameters1Choice.RequiredConfigurationParameter),"ATMCommandParameters1Choice.RequiredConfigurationParameter")]
     #endif
     [IsoId("_JTG3oIqLEeSRT5rEzcAHEw")]
     [DisplayName("ATM Command Parameters 1 Choice")]

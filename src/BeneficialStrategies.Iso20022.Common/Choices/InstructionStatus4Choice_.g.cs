@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionStatus4Choice.ProcessingStatus))]
     [KnownType(typeof(InstructionStatus4Choice.RejectionStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructionStatus4Choice.ProcessingStatus),nameof(InstructionStatus4Choice.ProcessingStatus))]
-    [JsonDerivedType(typeof(InstructionStatus4Choice.RejectionStatus),nameof(InstructionStatus4Choice.RejectionStatus))]
+    [JsonDerivedType(typeof(InstructionStatus4Choice.ProcessingStatus),"InstructionStatus4Choice.ProcessingStatus")]
+    [JsonDerivedType(typeof(InstructionStatus4Choice.RejectionStatus),"InstructionStatus4Choice.RejectionStatus")]
     #endif
     [IsoId("_RCpGxdp-Ed-ak6NoX_4Aeg_-1718693015")]
     [DisplayName("Instruction Status 4 Choice")]

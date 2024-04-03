@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport))]
     [KnownType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport),nameof(SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport))]
-    [JsonDerivedType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError),nameof(SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError))]
+    [JsonDerivedType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport),"SecuritiesAccountAuditTrailOrOperationalError3Choice.SecuritiesAccountAuditTrailReport")]
+    [JsonDerivedType(typeof(SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError),"SecuritiesAccountAuditTrailOrOperationalError3Choice.OperationalError")]
     #endif
     [IsoId("_AvnmYTp0Eemk2e6qGBk8IQ")]
     [DisplayName("Securities Account Audit Trail Or Operational Error 3 Choice")]

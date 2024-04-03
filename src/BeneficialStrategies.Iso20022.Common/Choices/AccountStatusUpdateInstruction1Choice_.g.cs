@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountStatusUpdateInstruction1Choice.Code))]
     [KnownType(typeof(AccountStatusUpdateInstruction1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountStatusUpdateInstruction1Choice.Code),nameof(AccountStatusUpdateInstruction1Choice.Code))]
-    [JsonDerivedType(typeof(AccountStatusUpdateInstruction1Choice.Proprietary),nameof(AccountStatusUpdateInstruction1Choice.Proprietary))]
+    [JsonDerivedType(typeof(AccountStatusUpdateInstruction1Choice.Code),"AccountStatusUpdateInstruction1Choice.Code")]
+    [JsonDerivedType(typeof(AccountStatusUpdateInstruction1Choice.Proprietary),"AccountStatusUpdateInstruction1Choice.Proprietary")]
     #endif
     [IsoId("_rZMYAHi5EeaRm5xIK6nGuQ")]
     [DisplayName("Account Status Update Instruction 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateValueType2FormatChoice.Code))]
     [KnownType(typeof(RateValueType2FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RateValueType2FormatChoice.Code),nameof(RateValueType2FormatChoice.Code))]
-    [JsonDerivedType(typeof(RateValueType2FormatChoice.Proprietary),nameof(RateValueType2FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(RateValueType2FormatChoice.Code),"RateValueType2FormatChoice.Code")]
+    [JsonDerivedType(typeof(RateValueType2FormatChoice.Proprietary),"RateValueType2FormatChoice.Proprietary")]
     #endif
     [IsoId("_Rn5I5Np-Ed-ak6NoX_4Aeg_-1085531011")]
     [DisplayName("Rate Value Type 2 Format Choice")]

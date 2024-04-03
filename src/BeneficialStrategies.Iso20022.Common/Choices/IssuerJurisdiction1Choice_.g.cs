@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerJurisdiction1Choice.CountryCode))]
     [KnownType(typeof(IssuerJurisdiction1Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IssuerJurisdiction1Choice.CountryCode),nameof(IssuerJurisdiction1Choice.CountryCode))]
-    [JsonDerivedType(typeof(IssuerJurisdiction1Choice.Other),nameof(IssuerJurisdiction1Choice.Other))]
+    [JsonDerivedType(typeof(IssuerJurisdiction1Choice.CountryCode),"IssuerJurisdiction1Choice.CountryCode")]
+    [JsonDerivedType(typeof(IssuerJurisdiction1Choice.Other),"IssuerJurisdiction1Choice.Other")]
     #endif
     [IsoId("_qFVoIIfXEeu9_PKSQNOmdg")]
     [DisplayName("Issuer Jurisdiction 1 Choice")]

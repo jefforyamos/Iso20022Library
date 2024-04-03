@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceFormat7Choice.EligibleBalance))]
     [KnownType(typeof(BalanceFormat7Choice.NotEligibleBalance))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BalanceFormat7Choice.Balance),nameof(BalanceFormat7Choice.Balance))]
-    [JsonDerivedType(typeof(BalanceFormat7Choice.EligibleBalance),nameof(BalanceFormat7Choice.EligibleBalance))]
-    [JsonDerivedType(typeof(BalanceFormat7Choice.NotEligibleBalance),nameof(BalanceFormat7Choice.NotEligibleBalance))]
+    [JsonDerivedType(typeof(BalanceFormat7Choice.Balance),"BalanceFormat7Choice.Balance")]
+    [JsonDerivedType(typeof(BalanceFormat7Choice.EligibleBalance),"BalanceFormat7Choice.EligibleBalance")]
+    [JsonDerivedType(typeof(BalanceFormat7Choice.NotEligibleBalance),"BalanceFormat7Choice.NotEligibleBalance")]
     #endif
     [IsoId("_cfsErZKQEeWHWpTQn1FFVg")]
     [DisplayName("Balance Format 7 Choice")]

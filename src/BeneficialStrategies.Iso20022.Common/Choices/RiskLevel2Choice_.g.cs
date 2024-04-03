@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RiskLevel2Choice.Code))]
     [KnownType(typeof(RiskLevel2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RiskLevel2Choice.Code),nameof(RiskLevel2Choice.Code))]
-    [JsonDerivedType(typeof(RiskLevel2Choice.Proprietary),nameof(RiskLevel2Choice.Proprietary))]
+    [JsonDerivedType(typeof(RiskLevel2Choice.Code),"RiskLevel2Choice.Code")]
+    [JsonDerivedType(typeof(RiskLevel2Choice.Proprietary),"RiskLevel2Choice.Proprietary")]
     #endif
     [IsoId("_BQa7kSGREeWO8_xZKx-MFg")]
     [DisplayName("Risk Level 2 Choice")]

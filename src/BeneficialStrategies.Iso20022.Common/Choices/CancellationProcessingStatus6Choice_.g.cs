@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationProcessingStatus6Choice.CancellationCompleted))]
     [KnownType(typeof(CancellationProcessingStatus6Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationPending),nameof(CancellationProcessingStatus6Choice.CancellationPending))]
-    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationRequested),nameof(CancellationProcessingStatus6Choice.CancellationRequested))]
-    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationCompleted),nameof(CancellationProcessingStatus6Choice.CancellationCompleted))]
-    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.ProprietaryStatus),nameof(CancellationProcessingStatus6Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationPending),"CancellationProcessingStatus6Choice.CancellationPending")]
+    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationRequested),"CancellationProcessingStatus6Choice.CancellationRequested")]
+    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.CancellationCompleted),"CancellationProcessingStatus6Choice.CancellationCompleted")]
+    [JsonDerivedType(typeof(CancellationProcessingStatus6Choice.ProprietaryStatus),"CancellationProcessingStatus6Choice.ProprietaryStatus")]
     #endif
     [IsoId("_A4HJMtokEeC60axPepSq7g_1947058911")]
     [DisplayName("Cancellation Processing Status 6 Choice")]

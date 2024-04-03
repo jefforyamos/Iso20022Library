@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionProcessingStatus1Choice.EventStatus))]
     [KnownType(typeof(CorporateActionProcessingStatus1Choice.ForInformationOnlyIndicator))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus1Choice.EventStatus),nameof(CorporateActionProcessingStatus1Choice.EventStatus))]
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus1Choice.ForInformationOnlyIndicator),nameof(CorporateActionProcessingStatus1Choice.ForInformationOnlyIndicator))]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus1Choice.EventStatus),"CorporateActionProcessingStatus1Choice.EventStatus")]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus1Choice.ForInformationOnlyIndicator),"CorporateActionProcessingStatus1Choice.ForInformationOnlyIndicator")]
     #endif
     [IsoId("_Q1O85Np-Ed-ak6NoX_4Aeg_-1142477030")]
     [DisplayName("Corporate Action Processing Status 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentDirection2Choice.Indicator))]
     [KnownType(typeof(PaymentDirection2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentDirection2Choice.Indicator),nameof(PaymentDirection2Choice.Indicator))]
-    [JsonDerivedType(typeof(PaymentDirection2Choice.Proprietary),nameof(PaymentDirection2Choice.Proprietary))]
+    [JsonDerivedType(typeof(PaymentDirection2Choice.Indicator),"PaymentDirection2Choice.Indicator")]
+    [JsonDerivedType(typeof(PaymentDirection2Choice.Proprietary),"PaymentDirection2Choice.Proprietary")]
     #endif
     [IsoId("_Qu-j5tp-Ed-ak6NoX_4Aeg_1993902591")]
     [DisplayName("Payment Direction 2 Choice")]

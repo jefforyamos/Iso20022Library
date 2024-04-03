@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateType83Choice.Code))]
     [KnownType(typeof(RateType83Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RateType83Choice.Code),nameof(RateType83Choice.Code))]
-    [JsonDerivedType(typeof(RateType83Choice.Proprietary),nameof(RateType83Choice.Proprietary))]
+    [JsonDerivedType(typeof(RateType83Choice.Code),"RateType83Choice.Code")]
+    [JsonDerivedType(typeof(RateType83Choice.Proprietary),"RateType83Choice.Proprietary")]
     #endif
     [IsoId("_-lxHTQVSEeqjd8n6wD9JVw")]
     [DisplayName("Rate Type 83 Choice")]

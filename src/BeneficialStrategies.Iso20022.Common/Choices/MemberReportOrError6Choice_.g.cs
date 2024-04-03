@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MemberReportOrError6Choice.Member))]
     [KnownType(typeof(MemberReportOrError6Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MemberReportOrError6Choice.Member),nameof(MemberReportOrError6Choice.Member))]
-    [JsonDerivedType(typeof(MemberReportOrError6Choice.BusinessError),nameof(MemberReportOrError6Choice.BusinessError))]
+    [JsonDerivedType(typeof(MemberReportOrError6Choice.Member),"MemberReportOrError6Choice.Member")]
+    [JsonDerivedType(typeof(MemberReportOrError6Choice.BusinessError),"MemberReportOrError6Choice.BusinessError")]
     #endif
     [IsoId("_j3hRJXSbEeiH1ZOt2UD8vQ")]
     [DisplayName("Member Report Or Error 6 Choice")]

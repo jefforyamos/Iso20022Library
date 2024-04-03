@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(AccountStatusUpdateInstructionReason1Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason),nameof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(AccountStatusUpdateInstructionReason1Choice.Reason),nameof(AccountStatusUpdateInstructionReason1Choice.Reason))]
+    [JsonDerivedType(typeof(AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason),"AccountStatusUpdateInstructionReason1Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(AccountStatusUpdateInstructionReason1Choice.Reason),"AccountStatusUpdateInstructionReason1Choice.Reason")]
     #endif
     [IsoId("_MizyUXi8EeaRm5xIK6nGuQ")]
     [DisplayName("Account Status Update Instruction Reason 1 Choice")]

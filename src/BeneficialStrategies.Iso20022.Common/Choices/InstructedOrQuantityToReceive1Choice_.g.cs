@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructedOrQuantityToReceive1Choice.InstructedQuantity))]
     [KnownType(typeof(InstructedOrQuantityToReceive1Choice.QuantityToReceive))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructedOrQuantityToReceive1Choice.InstructedQuantity),nameof(InstructedOrQuantityToReceive1Choice.InstructedQuantity))]
-    [JsonDerivedType(typeof(InstructedOrQuantityToReceive1Choice.QuantityToReceive),nameof(InstructedOrQuantityToReceive1Choice.QuantityToReceive))]
+    [JsonDerivedType(typeof(InstructedOrQuantityToReceive1Choice.InstructedQuantity),"InstructedOrQuantityToReceive1Choice.InstructedQuantity")]
+    [JsonDerivedType(typeof(InstructedOrQuantityToReceive1Choice.QuantityToReceive),"InstructedOrQuantityToReceive1Choice.QuantityToReceive")]
     #endif
     [IsoId("_UHCr6dp-Ed-ak6NoX_4Aeg_-1969996831")]
     [DisplayName("Instructed Or Quantity To Receive 1 Choice")]

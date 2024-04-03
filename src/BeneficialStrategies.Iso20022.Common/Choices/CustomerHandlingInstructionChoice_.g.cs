@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CustomerHandlingInstructionChoice.Code))]
     [KnownType(typeof(CustomerHandlingInstructionChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CustomerHandlingInstructionChoice.Code),nameof(CustomerHandlingInstructionChoice.Code))]
-    [JsonDerivedType(typeof(CustomerHandlingInstructionChoice.Proprietary),nameof(CustomerHandlingInstructionChoice.Proprietary))]
+    [JsonDerivedType(typeof(CustomerHandlingInstructionChoice.Code),"CustomerHandlingInstructionChoice.Code")]
+    [JsonDerivedType(typeof(CustomerHandlingInstructionChoice.Proprietary),"CustomerHandlingInstructionChoice.Proprietary")]
     #endif
     [IsoId("_Q-K2c9p-Ed-ak6NoX_4Aeg_-1612999730")]
     [DisplayName("Customer Handling Instruction Choice")]

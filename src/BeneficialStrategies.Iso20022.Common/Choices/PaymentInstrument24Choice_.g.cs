@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument24Choice.Cheque))]
     [KnownType(typeof(PaymentInstrument24Choice.BankersDraft))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentInstrument24Choice.PaymentCardDetails),nameof(PaymentInstrument24Choice.PaymentCardDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument24Choice.DirectDebitDetails),nameof(PaymentInstrument24Choice.DirectDebitDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument24Choice.Cheque),nameof(PaymentInstrument24Choice.Cheque))]
-    [JsonDerivedType(typeof(PaymentInstrument24Choice.BankersDraft),nameof(PaymentInstrument24Choice.BankersDraft))]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.PaymentCardDetails),"PaymentInstrument24Choice.PaymentCardDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.DirectDebitDetails),"PaymentInstrument24Choice.DirectDebitDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.Cheque),"PaymentInstrument24Choice.Cheque")]
+    [JsonDerivedType(typeof(PaymentInstrument24Choice.BankersDraft),"PaymentInstrument24Choice.BankersDraft")]
     #endif
     [IsoId("_JSXkMZTBEemqYPWMBuVawg")]
     [DisplayName("Payment Instrument 24 Choice")]

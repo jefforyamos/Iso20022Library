@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardTransaction3Choice.Aggregated))]
     [KnownType(typeof(CardTransaction3Choice.Individual))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CardTransaction3Choice.Aggregated),nameof(CardTransaction3Choice.Aggregated))]
-    [JsonDerivedType(typeof(CardTransaction3Choice.Individual),nameof(CardTransaction3Choice.Individual))]
+    [JsonDerivedType(typeof(CardTransaction3Choice.Aggregated),"CardTransaction3Choice.Aggregated")]
+    [JsonDerivedType(typeof(CardTransaction3Choice.Individual),"CardTransaction3Choice.Individual")]
     #endif
     [IsoId("_S1q3Ka6BEeexrtTFgmVD3Q")]
     [DisplayName("Card Transaction 3 Choice")]

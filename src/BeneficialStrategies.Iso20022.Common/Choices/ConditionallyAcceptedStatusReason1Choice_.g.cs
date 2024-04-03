@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.Proprietary))]
     [KnownType(typeof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.Reason),nameof(ConditionallyAcceptedStatusReason1Choice.Reason))]
-    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.Proprietary),nameof(ConditionallyAcceptedStatusReason1Choice.Proprietary))]
-    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason),nameof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.Reason),"ConditionallyAcceptedStatusReason1Choice.Reason")]
+    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.Proprietary),"ConditionallyAcceptedStatusReason1Choice.Proprietary")]
+    [JsonDerivedType(typeof(ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason),"ConditionallyAcceptedStatusReason1Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_RgmOENp-Ed-ak6NoX_4Aeg_-317806410")]
     [DisplayName("Conditionally Accepted Status Reason 1 Choice")]

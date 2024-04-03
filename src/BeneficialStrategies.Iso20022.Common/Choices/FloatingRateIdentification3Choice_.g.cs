@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FloatingRateIdentification3Choice.Code))]
     [KnownType(typeof(FloatingRateIdentification3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FloatingRateIdentification3Choice.Code),nameof(FloatingRateIdentification3Choice.Code))]
-    [JsonDerivedType(typeof(FloatingRateIdentification3Choice.Proprietary),nameof(FloatingRateIdentification3Choice.Proprietary))]
+    [JsonDerivedType(typeof(FloatingRateIdentification3Choice.Code),"FloatingRateIdentification3Choice.Code")]
+    [JsonDerivedType(typeof(FloatingRateIdentification3Choice.Proprietary),"FloatingRateIdentification3Choice.Proprietary")]
     #endif
     [IsoId("_GQZvjQ1IEeqV4s5SpzR1dQ")]
     [DisplayName("Floating Rate Identification 3 Choice")]

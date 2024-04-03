@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RequestType4Choice.Enquiry))]
     [KnownType(typeof(RequestType4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RequestType4Choice.PaymentControl),nameof(RequestType4Choice.PaymentControl))]
-    [JsonDerivedType(typeof(RequestType4Choice.Enquiry),nameof(RequestType4Choice.Enquiry))]
-    [JsonDerivedType(typeof(RequestType4Choice.Proprietary),nameof(RequestType4Choice.Proprietary))]
+    [JsonDerivedType(typeof(RequestType4Choice.PaymentControl),"RequestType4Choice.PaymentControl")]
+    [JsonDerivedType(typeof(RequestType4Choice.Enquiry),"RequestType4Choice.Enquiry")]
+    [JsonDerivedType(typeof(RequestType4Choice.Proprietary),"RequestType4Choice.Proprietary")]
     #endif
     [IsoId("_ivV-XZIhEeect698_YsnIA")]
     [DisplayName("Request Type 4 Choice")]

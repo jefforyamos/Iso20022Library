@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountParties3Choice.Nominee))]
     [KnownType(typeof(AccountParties3Choice.JointOwner))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountParties3Choice.PrimaryOwner),nameof(AccountParties3Choice.PrimaryOwner))]
-    [JsonDerivedType(typeof(AccountParties3Choice.Trustee),nameof(AccountParties3Choice.Trustee))]
-    [JsonDerivedType(typeof(AccountParties3Choice.CustodianForMinor),nameof(AccountParties3Choice.CustodianForMinor))]
-    [JsonDerivedType(typeof(AccountParties3Choice.Nominee),nameof(AccountParties3Choice.Nominee))]
-    [JsonDerivedType(typeof(AccountParties3Choice.JointOwner),nameof(AccountParties3Choice.JointOwner))]
+    [JsonDerivedType(typeof(AccountParties3Choice.PrimaryOwner),"AccountParties3Choice.PrimaryOwner")]
+    [JsonDerivedType(typeof(AccountParties3Choice.Trustee),"AccountParties3Choice.Trustee")]
+    [JsonDerivedType(typeof(AccountParties3Choice.CustodianForMinor),"AccountParties3Choice.CustodianForMinor")]
+    [JsonDerivedType(typeof(AccountParties3Choice.Nominee),"AccountParties3Choice.Nominee")]
+    [JsonDerivedType(typeof(AccountParties3Choice.JointOwner),"AccountParties3Choice.JointOwner")]
     #endif
     [IsoId("_36UzsRRNEeOKWo1NF21OVw")]
     [DisplayName("Account Parties 3 Choice")]

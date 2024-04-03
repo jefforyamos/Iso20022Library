@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FiscalYear1Choice.StartDate))]
     [KnownType(typeof(FiscalYear1Choice.EndDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FiscalYear1Choice.StartDate),nameof(FiscalYear1Choice.StartDate))]
-    [JsonDerivedType(typeof(FiscalYear1Choice.EndDate),nameof(FiscalYear1Choice.EndDate))]
+    [JsonDerivedType(typeof(FiscalYear1Choice.StartDate),"FiscalYear1Choice.StartDate")]
+    [JsonDerivedType(typeof(FiscalYear1Choice.EndDate),"FiscalYear1Choice.EndDate")]
     #endif
     [IsoId("_534EEFxREeW8MLuBzR10cg")]
     [DisplayName("Fiscal Year 1 Choice")]

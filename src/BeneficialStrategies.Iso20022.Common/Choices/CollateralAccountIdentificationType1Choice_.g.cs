@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralAccountIdentificationType1Choice.Type))]
     [KnownType(typeof(CollateralAccountIdentificationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralAccountIdentificationType1Choice.Type),nameof(CollateralAccountIdentificationType1Choice.Type))]
-    [JsonDerivedType(typeof(CollateralAccountIdentificationType1Choice.Proprietary),nameof(CollateralAccountIdentificationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CollateralAccountIdentificationType1Choice.Type),"CollateralAccountIdentificationType1Choice.Type")]
+    [JsonDerivedType(typeof(CollateralAccountIdentificationType1Choice.Proprietary),"CollateralAccountIdentificationType1Choice.Proprietary")]
     #endif
     [IsoId("_vW0gN6MOEeCojJW5vEuTEQ_2023002417")]
     [DisplayName("Collateral Account Identification Type 1 Choice")]

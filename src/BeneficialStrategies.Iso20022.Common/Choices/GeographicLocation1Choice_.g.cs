@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeographicLocation1Choice.GeographicCoordinates))]
     [KnownType(typeof(GeographicLocation1Choice.UTMCoordinates))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GeographicLocation1Choice.GeographicCoordinates),nameof(GeographicLocation1Choice.GeographicCoordinates))]
-    [JsonDerivedType(typeof(GeographicLocation1Choice.UTMCoordinates),nameof(GeographicLocation1Choice.UTMCoordinates))]
+    [JsonDerivedType(typeof(GeographicLocation1Choice.GeographicCoordinates),"GeographicLocation1Choice.GeographicCoordinates")]
+    [JsonDerivedType(typeof(GeographicLocation1Choice.UTMCoordinates),"GeographicLocation1Choice.UTMCoordinates")]
     #endif
     [IsoId("_4klZMIn4EeShMpas3885ww")]
     [DisplayName("Geographic Location 1 Choice")]

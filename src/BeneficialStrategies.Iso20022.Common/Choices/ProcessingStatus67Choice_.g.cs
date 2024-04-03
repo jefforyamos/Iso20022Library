@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus67Choice.AcknowledgedAccepted))]
     [KnownType(typeof(ProcessingStatus67Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus67Choice.Rejected),nameof(ProcessingStatus67Choice.Rejected))]
-    [JsonDerivedType(typeof(ProcessingStatus67Choice.Repair),nameof(ProcessingStatus67Choice.Repair))]
-    [JsonDerivedType(typeof(ProcessingStatus67Choice.Cancelled),nameof(ProcessingStatus67Choice.Cancelled))]
-    [JsonDerivedType(typeof(ProcessingStatus67Choice.AcknowledgedAccepted),nameof(ProcessingStatus67Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus67Choice.Proprietary),nameof(ProcessingStatus67Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus67Choice.Rejected),"ProcessingStatus67Choice.Rejected")]
+    [JsonDerivedType(typeof(ProcessingStatus67Choice.Repair),"ProcessingStatus67Choice.Repair")]
+    [JsonDerivedType(typeof(ProcessingStatus67Choice.Cancelled),"ProcessingStatus67Choice.Cancelled")]
+    [JsonDerivedType(typeof(ProcessingStatus67Choice.AcknowledgedAccepted),"ProcessingStatus67Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus67Choice.Proprietary),"ProcessingStatus67Choice.Proprietary")]
     #endif
     [IsoId("_W7Icl-FUEeWIA4E9cYSxxQ")]
     [DisplayName("Processing Status 67 Choice")]

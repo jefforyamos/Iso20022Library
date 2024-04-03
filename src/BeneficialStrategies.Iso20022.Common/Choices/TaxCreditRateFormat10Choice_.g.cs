@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxCreditRateFormat10Choice.RateTypeAndAmountAndRateStatus))]
     [KnownType(typeof(TaxCreditRateFormat10Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.Rate),nameof(TaxCreditRateFormat10Choice.Rate))]
-    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.Amount),nameof(TaxCreditRateFormat10Choice.Amount))]
-    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.RateTypeAndAmountAndRateStatus),nameof(TaxCreditRateFormat10Choice.RateTypeAndAmountAndRateStatus))]
-    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.NotSpecifiedRate),nameof(TaxCreditRateFormat10Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.Rate),"TaxCreditRateFormat10Choice.Rate")]
+    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.Amount),"TaxCreditRateFormat10Choice.Amount")]
+    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.RateTypeAndAmountAndRateStatus),"TaxCreditRateFormat10Choice.RateTypeAndAmountAndRateStatus")]
+    [JsonDerivedType(typeof(TaxCreditRateFormat10Choice.NotSpecifiedRate),"TaxCreditRateFormat10Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_ctjhL5KQEeWHWpTQn1FFVg")]
     [DisplayName("Tax Credit Rate Format 10 Choice")]

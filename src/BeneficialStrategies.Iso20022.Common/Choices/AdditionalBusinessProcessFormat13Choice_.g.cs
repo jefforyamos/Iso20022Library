@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalBusinessProcessFormat13Choice.Code))]
     [KnownType(typeof(AdditionalBusinessProcessFormat13Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat13Choice.Code),nameof(AdditionalBusinessProcessFormat13Choice.Code))]
-    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat13Choice.Proprietary),nameof(AdditionalBusinessProcessFormat13Choice.Proprietary))]
+    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat13Choice.Code),"AdditionalBusinessProcessFormat13Choice.Code")]
+    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat13Choice.Proprietary),"AdditionalBusinessProcessFormat13Choice.Proprietary")]
     #endif
     [IsoId("_5k0TyZqPEeWNO_b7eN4F_w")]
     [DisplayName("Additional Business Process Format 13 Choice")]

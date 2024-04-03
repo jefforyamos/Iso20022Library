@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionAndRepairReason32Choice.Code))]
     [KnownType(typeof(RejectionAndRepairReason32Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectionAndRepairReason32Choice.Code),nameof(RejectionAndRepairReason32Choice.Code))]
-    [JsonDerivedType(typeof(RejectionAndRepairReason32Choice.Proprietary),nameof(RejectionAndRepairReason32Choice.Proprietary))]
+    [JsonDerivedType(typeof(RejectionAndRepairReason32Choice.Code),"RejectionAndRepairReason32Choice.Code")]
+    [JsonDerivedType(typeof(RejectionAndRepairReason32Choice.Proprietary),"RejectionAndRepairReason32Choice.Proprietary")]
     #endif
     [IsoId("_WplZoeFUEeWIA4E9cYSxxQ")]
     [DisplayName("Rejection And Repair Reason 32 Choice")]

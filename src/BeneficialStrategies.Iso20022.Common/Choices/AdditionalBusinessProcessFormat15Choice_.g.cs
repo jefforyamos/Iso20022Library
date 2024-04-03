@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalBusinessProcessFormat15Choice.Code))]
     [KnownType(typeof(AdditionalBusinessProcessFormat15Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat15Choice.Code),nameof(AdditionalBusinessProcessFormat15Choice.Code))]
-    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat15Choice.Proprietary),nameof(AdditionalBusinessProcessFormat15Choice.Proprietary))]
+    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat15Choice.Code),"AdditionalBusinessProcessFormat15Choice.Code")]
+    [JsonDerivedType(typeof(AdditionalBusinessProcessFormat15Choice.Proprietary),"AdditionalBusinessProcessFormat15Choice.Proprietary")]
     #endif
     [IsoId("_0bgBkZcEEee8S7xwGG7Veg")]
     [DisplayName("Additional Business Process Format 15 Choice")]

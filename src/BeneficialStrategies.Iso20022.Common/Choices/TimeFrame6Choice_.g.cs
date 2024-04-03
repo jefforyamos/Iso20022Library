@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame6Choice.Code))]
     [KnownType(typeof(TimeFrame6Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeFrame6Choice.Code),nameof(TimeFrame6Choice.Code))]
-    [JsonDerivedType(typeof(TimeFrame6Choice.Proprietary),nameof(TimeFrame6Choice.Proprietary))]
+    [JsonDerivedType(typeof(TimeFrame6Choice.Code),"TimeFrame6Choice.Code")]
+    [JsonDerivedType(typeof(TimeFrame6Choice.Proprietary),"TimeFrame6Choice.Proprietary")]
     #endif
     [IsoId("_yjGN0DcbEeidBoT_PugKiA")]
     [DisplayName("Time Frame 6 Choice")]

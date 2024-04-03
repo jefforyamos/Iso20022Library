@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitOfMeasure3Choice.UnitOfMeasureCode))]
     [KnownType(typeof(UnitOfMeasure3Choice.OtherUnitOfMeasure))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnitOfMeasure3Choice.UnitOfMeasureCode),nameof(UnitOfMeasure3Choice.UnitOfMeasureCode))]
-    [JsonDerivedType(typeof(UnitOfMeasure3Choice.OtherUnitOfMeasure),nameof(UnitOfMeasure3Choice.OtherUnitOfMeasure))]
+    [JsonDerivedType(typeof(UnitOfMeasure3Choice.UnitOfMeasureCode),"UnitOfMeasure3Choice.UnitOfMeasureCode")]
+    [JsonDerivedType(typeof(UnitOfMeasure3Choice.OtherUnitOfMeasure),"UnitOfMeasure3Choice.OtherUnitOfMeasure")]
     #endif
     [IsoId("__YQFQBrZEeOVR9VN6fAMUg")]
     [DisplayName("Unit Of Measure 3 Choice")]

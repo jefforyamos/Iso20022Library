@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountCriteria2Choice.QueryName))]
     [KnownType(typeof(AccountCriteria2Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountCriteria2Choice.QueryName),nameof(AccountCriteria2Choice.QueryName))]
-    [JsonDerivedType(typeof(AccountCriteria2Choice.NewCriteria),nameof(AccountCriteria2Choice.NewCriteria))]
+    [JsonDerivedType(typeof(AccountCriteria2Choice.QueryName),"AccountCriteria2Choice.QueryName")]
+    [JsonDerivedType(typeof(AccountCriteria2Choice.NewCriteria),"AccountCriteria2Choice.NewCriteria")]
     #endif
     [IsoId("_39sKN5laEeeE1Ya-LgRsuQ")]
     [DisplayName("Account Criteria 2 Choice")]

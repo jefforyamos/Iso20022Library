@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRate20Choice.Fixed))]
     [KnownType(typeof(InterestRate20Choice.Floating))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestRate20Choice.Fixed),nameof(InterestRate20Choice.Fixed))]
-    [JsonDerivedType(typeof(InterestRate20Choice.Floating),nameof(InterestRate20Choice.Floating))]
+    [JsonDerivedType(typeof(InterestRate20Choice.Fixed),"InterestRate20Choice.Fixed")]
+    [JsonDerivedType(typeof(InterestRate20Choice.Floating),"InterestRate20Choice.Floating")]
     #endif
     [IsoId("_hBu-xax2Eem81-uIvTF5rQ")]
     [DisplayName("Interest Rate 20 Choice")]

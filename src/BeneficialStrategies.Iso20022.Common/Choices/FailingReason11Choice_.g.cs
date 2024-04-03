@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailingReason11Choice.Code))]
     [KnownType(typeof(FailingReason11Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FailingReason11Choice.Code),nameof(FailingReason11Choice.Code))]
-    [JsonDerivedType(typeof(FailingReason11Choice.Proprietary),nameof(FailingReason11Choice.Proprietary))]
+    [JsonDerivedType(typeof(FailingReason11Choice.Code),"FailingReason11Choice.Code")]
+    [JsonDerivedType(typeof(FailingReason11Choice.Proprietary),"FailingReason11Choice.Proprietary")]
     #endif
     [IsoId("_6BKUI5NLEeWGlc8L7oPDIg")]
     [DisplayName("Failing Reason 11 Choice")]

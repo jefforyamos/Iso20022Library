@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace))]
     [KnownType(typeof(PriceSourceFormatChoice.PlaceAsDSS))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceSourceFormatChoice.LocalMarketPlace),nameof(PriceSourceFormatChoice.LocalMarketPlace))]
-    [JsonDerivedType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace),nameof(PriceSourceFormatChoice.NonLocalMarketPlace))]
-    [JsonDerivedType(typeof(PriceSourceFormatChoice.PlaceAsDSS),nameof(PriceSourceFormatChoice.PlaceAsDSS))]
+    [JsonDerivedType(typeof(PriceSourceFormatChoice.LocalMarketPlace),"PriceSourceFormatChoice.LocalMarketPlace")]
+    [JsonDerivedType(typeof(PriceSourceFormatChoice.NonLocalMarketPlace),"PriceSourceFormatChoice.NonLocalMarketPlace")]
+    [JsonDerivedType(typeof(PriceSourceFormatChoice.PlaceAsDSS),"PriceSourceFormatChoice.PlaceAsDSS")]
     #endif
     [IsoId("_RCDQ49p-Ed-ak6NoX_4Aeg_2134054867")]
     [DisplayName("Price Source Format Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeniedStatus16Choice.NoSpecifiedReason))]
     [KnownType(typeof(DeniedStatus16Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeniedStatus16Choice.NoSpecifiedReason),nameof(DeniedStatus16Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(DeniedStatus16Choice.Reason),nameof(DeniedStatus16Choice.Reason))]
+    [JsonDerivedType(typeof(DeniedStatus16Choice.NoSpecifiedReason),"DeniedStatus16Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(DeniedStatus16Choice.Reason),"DeniedStatus16Choice.Reason")]
     #endif
     [IsoId("_tSPYkTs8EeWRTLSN0i0tng")]
     [DisplayName("Denied Status 16 Choice")]

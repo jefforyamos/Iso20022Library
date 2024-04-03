@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailedSettlementReason1FormatChoice.Code))]
     [KnownType(typeof(FailedSettlementReason1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FailedSettlementReason1FormatChoice.Code),nameof(FailedSettlementReason1FormatChoice.Code))]
-    [JsonDerivedType(typeof(FailedSettlementReason1FormatChoice.Proprietary),nameof(FailedSettlementReason1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(FailedSettlementReason1FormatChoice.Code),"FailedSettlementReason1FormatChoice.Code")]
+    [JsonDerivedType(typeof(FailedSettlementReason1FormatChoice.Proprietary),"FailedSettlementReason1FormatChoice.Proprietary")]
     #endif
     [IsoId("_RmjsItp-Ed-ak6NoX_4Aeg_220367712")]
     [DisplayName("Failed Settlement Reason 1 Format Choice")]

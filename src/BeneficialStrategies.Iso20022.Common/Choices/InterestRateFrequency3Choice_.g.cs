@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateFrequency3Choice.Term))]
     [KnownType(typeof(InterestRateFrequency3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestRateFrequency3Choice.Term),nameof(InterestRateFrequency3Choice.Term))]
-    [JsonDerivedType(typeof(InterestRateFrequency3Choice.Proprietary),nameof(InterestRateFrequency3Choice.Proprietary))]
+    [JsonDerivedType(typeof(InterestRateFrequency3Choice.Term),"InterestRateFrequency3Choice.Term")]
+    [JsonDerivedType(typeof(InterestRateFrequency3Choice.Proprietary),"InterestRateFrequency3Choice.Proprietary")]
     #endif
     [IsoId("_61uTH1fREeqqKf65rDYWYw")]
     [DisplayName("Interest Rate Frequency 3 Choice")]

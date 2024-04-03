@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NettingEligibility4Choice.Indicator))]
     [KnownType(typeof(NettingEligibility4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NettingEligibility4Choice.Indicator),nameof(NettingEligibility4Choice.Indicator))]
-    [JsonDerivedType(typeof(NettingEligibility4Choice.Proprietary),nameof(NettingEligibility4Choice.Proprietary))]
+    [JsonDerivedType(typeof(NettingEligibility4Choice.Indicator),"NettingEligibility4Choice.Indicator")]
+    [JsonDerivedType(typeof(NettingEligibility4Choice.Proprietary),"NettingEligibility4Choice.Proprietary")]
     #endif
     [IsoId("_0h_JkTqIEeWVrPy0StzzSg")]
     [DisplayName("Netting Eligibility 4 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IndicativeOrMarketPrice5Choice.IndicativePrice))]
     [KnownType(typeof(IndicativeOrMarketPrice5Choice.MarketPrice))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IndicativeOrMarketPrice5Choice.IndicativePrice),nameof(IndicativeOrMarketPrice5Choice.IndicativePrice))]
-    [JsonDerivedType(typeof(IndicativeOrMarketPrice5Choice.MarketPrice),nameof(IndicativeOrMarketPrice5Choice.MarketPrice))]
+    [JsonDerivedType(typeof(IndicativeOrMarketPrice5Choice.IndicativePrice),"IndicativeOrMarketPrice5Choice.IndicativePrice")]
+    [JsonDerivedType(typeof(IndicativeOrMarketPrice5Choice.MarketPrice),"IndicativeOrMarketPrice5Choice.MarketPrice")]
     #endif
     [IsoId("_oc_1ceEJEd-udr336SN7mQ")]
     [DisplayName("Indicative Or Market Price 5 Choice")]

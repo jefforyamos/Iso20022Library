@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BPOApplicableRules1Choice.URBPOVersion))]
     [KnownType(typeof(BPOApplicableRules1Choice.OtherRulesAndVersion))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BPOApplicableRules1Choice.URBPOVersion),nameof(BPOApplicableRules1Choice.URBPOVersion))]
-    [JsonDerivedType(typeof(BPOApplicableRules1Choice.OtherRulesAndVersion),nameof(BPOApplicableRules1Choice.OtherRulesAndVersion))]
+    [JsonDerivedType(typeof(BPOApplicableRules1Choice.URBPOVersion),"BPOApplicableRules1Choice.URBPOVersion")]
+    [JsonDerivedType(typeof(BPOApplicableRules1Choice.OtherRulesAndVersion),"BPOApplicableRules1Choice.OtherRulesAndVersion")]
     #endif
     [IsoId("_jjfsgNNqEeKdOs2hjJ_3WQ")]
     [DisplayName("BPO Applicable Rules 1 Choice")]

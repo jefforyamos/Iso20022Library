@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToBuy))]
     [KnownType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToSell))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToBuy),nameof(CurrencyToBuyOrSell1Choice.CurrencyToBuy))]
-    [JsonDerivedType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToSell),nameof(CurrencyToBuyOrSell1Choice.CurrencyToSell))]
+    [JsonDerivedType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToBuy),"CurrencyToBuyOrSell1Choice.CurrencyToBuy")]
+    [JsonDerivedType(typeof(CurrencyToBuyOrSell1Choice.CurrencyToSell),"CurrencyToBuyOrSell1Choice.CurrencyToSell")]
     #endif
     [IsoId("_QsvIMdp-Ed-ak6NoX_4Aeg_-947619938")]
     [DisplayName("Currency To Buy Or Sell 1 Choice")]

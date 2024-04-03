@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ContractRegistrationReference1Choice.RegisteredContractIdentification))]
     [KnownType(typeof(ContractRegistrationReference1Choice.Contract))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ContractRegistrationReference1Choice.RegisteredContractIdentification),nameof(ContractRegistrationReference1Choice.RegisteredContractIdentification))]
-    [JsonDerivedType(typeof(ContractRegistrationReference1Choice.Contract),nameof(ContractRegistrationReference1Choice.Contract))]
+    [JsonDerivedType(typeof(ContractRegistrationReference1Choice.RegisteredContractIdentification),"ContractRegistrationReference1Choice.RegisteredContractIdentification")]
+    [JsonDerivedType(typeof(ContractRegistrationReference1Choice.Contract),"ContractRegistrationReference1Choice.Contract")]
     #endif
     [IsoId("_tyufgdM-EeSDLevdaFPXHw")]
     [DisplayName("Contract Registration Reference 1 Choice")]

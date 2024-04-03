@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestComputationMethodFormat5Choice.Code))]
     [KnownType(typeof(InterestComputationMethodFormat5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestComputationMethodFormat5Choice.Code),nameof(InterestComputationMethodFormat5Choice.Code))]
-    [JsonDerivedType(typeof(InterestComputationMethodFormat5Choice.Proprietary),nameof(InterestComputationMethodFormat5Choice.Proprietary))]
+    [JsonDerivedType(typeof(InterestComputationMethodFormat5Choice.Code),"InterestComputationMethodFormat5Choice.Code")]
+    [JsonDerivedType(typeof(InterestComputationMethodFormat5Choice.Proprietary),"InterestComputationMethodFormat5Choice.Proprietary")]
     #endif
     [IsoId("_chVpq5KQEeWHWpTQn1FFVg")]
     [DisplayName("Interest Computation Method Format 5 Choice")]

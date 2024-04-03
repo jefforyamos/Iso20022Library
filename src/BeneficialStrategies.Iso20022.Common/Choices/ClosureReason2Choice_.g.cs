@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosureReason2Choice.Code))]
     [KnownType(typeof(ClosureReason2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClosureReason2Choice.Code),nameof(ClosureReason2Choice.Code))]
-    [JsonDerivedType(typeof(ClosureReason2Choice.Proprietary),nameof(ClosureReason2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ClosureReason2Choice.Code),"ClosureReason2Choice.Code")]
+    [JsonDerivedType(typeof(ClosureReason2Choice.Proprietary),"ClosureReason2Choice.Proprietary")]
     #endif
     [IsoId("_72rN8KMgEeCJ6YNENx4h-w_-681649909")]
     [DisplayName("Closure Reason 2 Choice")]

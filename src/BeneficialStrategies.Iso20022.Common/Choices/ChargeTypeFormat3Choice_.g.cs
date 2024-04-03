@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeTypeFormat3Choice.Code))]
     [KnownType(typeof(ChargeTypeFormat3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ChargeTypeFormat3Choice.Code),nameof(ChargeTypeFormat3Choice.Code))]
-    [JsonDerivedType(typeof(ChargeTypeFormat3Choice.Proprietary),nameof(ChargeTypeFormat3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ChargeTypeFormat3Choice.Code),"ChargeTypeFormat3Choice.Code")]
+    [JsonDerivedType(typeof(ChargeTypeFormat3Choice.Proprietary),"ChargeTypeFormat3Choice.Proprietary")]
     #endif
     [IsoId("_SumZGAEcEeCQm6a_G2yO_w_-323624829")]
     [DisplayName("Charge Type Format 3 Choice")]

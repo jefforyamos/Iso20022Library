@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MeetingTypeClassification2Choice.Code))]
     [KnownType(typeof(MeetingTypeClassification2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MeetingTypeClassification2Choice.Code),nameof(MeetingTypeClassification2Choice.Code))]
-    [JsonDerivedType(typeof(MeetingTypeClassification2Choice.Proprietary),nameof(MeetingTypeClassification2Choice.Proprietary))]
+    [JsonDerivedType(typeof(MeetingTypeClassification2Choice.Code),"MeetingTypeClassification2Choice.Code")]
+    [JsonDerivedType(typeof(MeetingTypeClassification2Choice.Proprietary),"MeetingTypeClassification2Choice.Proprietary")]
     #endif
     [IsoId("_edv9767NEemG7MmivSuE5g")]
     [DisplayName("Meeting Type Classification 2 Choice")]

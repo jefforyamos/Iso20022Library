@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat47Choice.AmountPricePerAmount))]
     [KnownType(typeof(PriceFormat47Choice.IndexPoints))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceFormat47Choice.PercentagePrice),nameof(PriceFormat47Choice.PercentagePrice))]
-    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPrice),nameof(PriceFormat47Choice.AmountPrice))]
-    [JsonDerivedType(typeof(PriceFormat47Choice.NotSpecifiedPrice),nameof(PriceFormat47Choice.NotSpecifiedPrice))]
-    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPricePerFinancialInstrumentQuantity),nameof(PriceFormat47Choice.AmountPricePerFinancialInstrumentQuantity))]
-    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPricePerAmount),nameof(PriceFormat47Choice.AmountPricePerAmount))]
-    [JsonDerivedType(typeof(PriceFormat47Choice.IndexPoints),nameof(PriceFormat47Choice.IndexPoints))]
+    [JsonDerivedType(typeof(PriceFormat47Choice.PercentagePrice),"PriceFormat47Choice.PercentagePrice")]
+    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPrice),"PriceFormat47Choice.AmountPrice")]
+    [JsonDerivedType(typeof(PriceFormat47Choice.NotSpecifiedPrice),"PriceFormat47Choice.NotSpecifiedPrice")]
+    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPricePerFinancialInstrumentQuantity),"PriceFormat47Choice.AmountPricePerFinancialInstrumentQuantity")]
+    [JsonDerivedType(typeof(PriceFormat47Choice.AmountPricePerAmount),"PriceFormat47Choice.AmountPricePerAmount")]
+    [JsonDerivedType(typeof(PriceFormat47Choice.IndexPoints),"PriceFormat47Choice.IndexPoints")]
     #endif
     [IsoId("_pIFIkUELEeWVgfuHGaKtRQ")]
     [DisplayName("Price Format 47 Choice")]

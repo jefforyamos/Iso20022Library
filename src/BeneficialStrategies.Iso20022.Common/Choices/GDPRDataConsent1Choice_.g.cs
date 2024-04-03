@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GDPRDataConsent1Choice.Code))]
     [KnownType(typeof(GDPRDataConsent1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GDPRDataConsent1Choice.Code),nameof(GDPRDataConsent1Choice.Code))]
-    [JsonDerivedType(typeof(GDPRDataConsent1Choice.Proprietary),nameof(GDPRDataConsent1Choice.Proprietary))]
+    [JsonDerivedType(typeof(GDPRDataConsent1Choice.Code),"GDPRDataConsent1Choice.Code")]
+    [JsonDerivedType(typeof(GDPRDataConsent1Choice.Proprietary),"GDPRDataConsent1Choice.Proprietary")]
     #endif
     [IsoId("_His4MJTTEemC09f0MxYkRg")]
     [DisplayName("GDPR Data Consent 1 Choice")]

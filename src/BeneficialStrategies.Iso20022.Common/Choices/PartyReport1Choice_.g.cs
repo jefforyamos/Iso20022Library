@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyReport1Choice.Update))]
     [KnownType(typeof(PartyReport1Choice.Cancellation))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyReport1Choice.Update),nameof(PartyReport1Choice.Update))]
-    [JsonDerivedType(typeof(PartyReport1Choice.Cancellation),nameof(PartyReport1Choice.Cancellation))]
+    [JsonDerivedType(typeof(PartyReport1Choice.Update),"PartyReport1Choice.Update")]
+    [JsonDerivedType(typeof(PartyReport1Choice.Cancellation),"PartyReport1Choice.Cancellation")]
     #endif
     [IsoId("_77i8YDbtEeeYhaZ6bvG1Xg")]
     [DisplayName("Party Report 1 Choice")]

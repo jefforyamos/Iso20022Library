@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Counterparty1Choice.Seller))]
     [KnownType(typeof(Counterparty1Choice.Buyer))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Counterparty1Choice.Seller),nameof(Counterparty1Choice.Seller))]
-    [JsonDerivedType(typeof(Counterparty1Choice.Buyer),nameof(Counterparty1Choice.Buyer))]
+    [JsonDerivedType(typeof(Counterparty1Choice.Seller),"Counterparty1Choice.Seller")]
+    [JsonDerivedType(typeof(Counterparty1Choice.Buyer),"Counterparty1Choice.Buyer")]
     #endif
     [IsoId("_PYGQidp-Ed-ak6NoX_4Aeg_1620346563")]
     [DisplayName("Counterparty 1 Choice")]

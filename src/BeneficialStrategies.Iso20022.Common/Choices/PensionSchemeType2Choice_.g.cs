@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PensionSchemeType2Choice.Code))]
     [KnownType(typeof(PensionSchemeType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PensionSchemeType2Choice.Code),nameof(PensionSchemeType2Choice.Code))]
-    [JsonDerivedType(typeof(PensionSchemeType2Choice.Proprietary),nameof(PensionSchemeType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(PensionSchemeType2Choice.Code),"PensionSchemeType2Choice.Code")]
+    [JsonDerivedType(typeof(PensionSchemeType2Choice.Proprietary),"PensionSchemeType2Choice.Proprietary")]
     #endif
     [IsoId("_CELmwTOUEeqLMcD_sEa8Xw")]
     [DisplayName("Pension Scheme Type 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument23Choice.CreditTransferDetails))]
     [KnownType(typeof(PaymentInstrument23Choice.ChequeDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentInstrument23Choice.CreditTransferDetails),nameof(PaymentInstrument23Choice.CreditTransferDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument23Choice.ChequeDetails),nameof(PaymentInstrument23Choice.ChequeDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument23Choice.CreditTransferDetails),"PaymentInstrument23Choice.CreditTransferDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument23Choice.ChequeDetails),"PaymentInstrument23Choice.ChequeDetails")]
     #endif
     [IsoId("_Z55NsFNaEeijdq8ilaxyOA")]
     [DisplayName("Payment Instrument 23 Choice")]

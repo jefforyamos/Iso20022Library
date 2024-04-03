@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentOrigin1Choice.Proprietary))]
     [KnownType(typeof(PaymentOrigin1Choice.Instrument))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentOrigin1Choice.FINMessageType),nameof(PaymentOrigin1Choice.FINMessageType))]
-    [JsonDerivedType(typeof(PaymentOrigin1Choice.XMLMessageName),nameof(PaymentOrigin1Choice.XMLMessageName))]
-    [JsonDerivedType(typeof(PaymentOrigin1Choice.Proprietary),nameof(PaymentOrigin1Choice.Proprietary))]
-    [JsonDerivedType(typeof(PaymentOrigin1Choice.Instrument),nameof(PaymentOrigin1Choice.Instrument))]
+    [JsonDerivedType(typeof(PaymentOrigin1Choice.FINMessageType),"PaymentOrigin1Choice.FINMessageType")]
+    [JsonDerivedType(typeof(PaymentOrigin1Choice.XMLMessageName),"PaymentOrigin1Choice.XMLMessageName")]
+    [JsonDerivedType(typeof(PaymentOrigin1Choice.Proprietary),"PaymentOrigin1Choice.Proprietary")]
+    [JsonDerivedType(typeof(PaymentOrigin1Choice.Instrument),"PaymentOrigin1Choice.Instrument")]
     #endif
     [IsoId("_RIwV1Np-Ed-ak6NoX_4Aeg_1623377139")]
     [DisplayName("Payment Origin 1 Choice")]

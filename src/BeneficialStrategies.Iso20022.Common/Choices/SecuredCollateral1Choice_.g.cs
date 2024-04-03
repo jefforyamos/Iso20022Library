@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuredCollateral1Choice.PoolCollateral))]
     [KnownType(typeof(SecuredCollateral1Choice.OtherCollateral))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuredCollateral1Choice.SingleCollateral),nameof(SecuredCollateral1Choice.SingleCollateral))]
-    [JsonDerivedType(typeof(SecuredCollateral1Choice.MultipleCollateral),nameof(SecuredCollateral1Choice.MultipleCollateral))]
-    [JsonDerivedType(typeof(SecuredCollateral1Choice.PoolCollateral),nameof(SecuredCollateral1Choice.PoolCollateral))]
-    [JsonDerivedType(typeof(SecuredCollateral1Choice.OtherCollateral),nameof(SecuredCollateral1Choice.OtherCollateral))]
+    [JsonDerivedType(typeof(SecuredCollateral1Choice.SingleCollateral),"SecuredCollateral1Choice.SingleCollateral")]
+    [JsonDerivedType(typeof(SecuredCollateral1Choice.MultipleCollateral),"SecuredCollateral1Choice.MultipleCollateral")]
+    [JsonDerivedType(typeof(SecuredCollateral1Choice.PoolCollateral),"SecuredCollateral1Choice.PoolCollateral")]
+    [JsonDerivedType(typeof(SecuredCollateral1Choice.OtherCollateral),"SecuredCollateral1Choice.OtherCollateral")]
     #endif
     [IsoId("_wmCdQJf5EeSfnc-VXAEapg")]
     [DisplayName("Secured Collateral 1 Choice")]

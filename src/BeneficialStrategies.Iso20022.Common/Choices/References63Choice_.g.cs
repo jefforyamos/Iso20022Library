@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References63Choice.PreviousReference))]
     [KnownType(typeof(References63Choice.OtherReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References63Choice.PreviousReference),nameof(References63Choice.PreviousReference))]
-    [JsonDerivedType(typeof(References63Choice.OtherReference),nameof(References63Choice.OtherReference))]
+    [JsonDerivedType(typeof(References63Choice.PreviousReference),"References63Choice.PreviousReference")]
+    [JsonDerivedType(typeof(References63Choice.OtherReference),"References63Choice.OtherReference")]
     #endif
     [IsoId("_buTXIYiiEeefvMoXmllHqg")]
     [DisplayName("References 63 Choice")]

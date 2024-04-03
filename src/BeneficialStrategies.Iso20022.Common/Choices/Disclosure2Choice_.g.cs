@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Disclosure2Choice.NoDisclosure))]
     [KnownType(typeof(Disclosure2Choice.SafekeepingAccountAndHoldings))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Disclosure2Choice.NoDisclosure),nameof(Disclosure2Choice.NoDisclosure))]
-    [JsonDerivedType(typeof(Disclosure2Choice.SafekeepingAccountAndHoldings),nameof(Disclosure2Choice.SafekeepingAccountAndHoldings))]
+    [JsonDerivedType(typeof(Disclosure2Choice.NoDisclosure),"Disclosure2Choice.NoDisclosure")]
+    [JsonDerivedType(typeof(Disclosure2Choice.SafekeepingAccountAndHoldings),"Disclosure2Choice.SafekeepingAccountAndHoldings")]
     #endif
     [IsoId("_L3-v4fNyEeqRfth943bvEA")]
     [DisplayName("Disclosure 2 Choice")]

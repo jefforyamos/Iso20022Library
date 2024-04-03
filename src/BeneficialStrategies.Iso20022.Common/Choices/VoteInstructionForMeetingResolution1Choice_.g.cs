@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(VoteInstructionForMeetingResolution1Choice.VoteIndication))]
     [KnownType(typeof(VoteInstructionForMeetingResolution1Choice.Shareholder))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(VoteInstructionForMeetingResolution1Choice.VoteIndication),nameof(VoteInstructionForMeetingResolution1Choice.VoteIndication))]
-    [JsonDerivedType(typeof(VoteInstructionForMeetingResolution1Choice.Shareholder),nameof(VoteInstructionForMeetingResolution1Choice.Shareholder))]
+    [JsonDerivedType(typeof(VoteInstructionForMeetingResolution1Choice.VoteIndication),"VoteInstructionForMeetingResolution1Choice.VoteIndication")]
+    [JsonDerivedType(typeof(VoteInstructionForMeetingResolution1Choice.Shareholder),"VoteInstructionForMeetingResolution1Choice.Shareholder")]
     #endif
     [IsoId("_TK1iUNp-Ed-ak6NoX_4Aeg_853994638")]
     [DisplayName("Vote Instruction For Meeting Resolution 1 Choice")]

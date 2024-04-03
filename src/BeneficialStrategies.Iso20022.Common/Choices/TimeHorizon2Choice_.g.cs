@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeHorizon2Choice.NumberOfYears))]
     [KnownType(typeof(TimeHorizon2Choice.TimeFrame))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeHorizon2Choice.NumberOfYears),nameof(TimeHorizon2Choice.NumberOfYears))]
-    [JsonDerivedType(typeof(TimeHorizon2Choice.TimeFrame),nameof(TimeHorizon2Choice.TimeFrame))]
+    [JsonDerivedType(typeof(TimeHorizon2Choice.NumberOfYears),"TimeHorizon2Choice.NumberOfYears")]
+    [JsonDerivedType(typeof(TimeHorizon2Choice.TimeFrame),"TimeHorizon2Choice.TimeFrame")]
     #endif
     [IsoId("_U38AEbVOEeqkjqDuFVh1-A")]
     [DisplayName("Time Horizon 2 Choice")]

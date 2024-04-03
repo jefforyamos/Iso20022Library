@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EligibilityIdentification1Choice.FinancialInstrumentIdentification))]
     [KnownType(typeof(EligibilityIdentification1Choice.IssuerCSDIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EligibilityIdentification1Choice.Country),nameof(EligibilityIdentification1Choice.Country))]
-    [JsonDerivedType(typeof(EligibilityIdentification1Choice.FinancialInstrumentIdentification),nameof(EligibilityIdentification1Choice.FinancialInstrumentIdentification))]
-    [JsonDerivedType(typeof(EligibilityIdentification1Choice.IssuerCSDIdentification),nameof(EligibilityIdentification1Choice.IssuerCSDIdentification))]
+    [JsonDerivedType(typeof(EligibilityIdentification1Choice.Country),"EligibilityIdentification1Choice.Country")]
+    [JsonDerivedType(typeof(EligibilityIdentification1Choice.FinancialInstrumentIdentification),"EligibilityIdentification1Choice.FinancialInstrumentIdentification")]
+    [JsonDerivedType(typeof(EligibilityIdentification1Choice.IssuerCSDIdentification),"EligibilityIdentification1Choice.IssuerCSDIdentification")]
     #endif
     [IsoId("_jBJ_8u5NEeCisYr99QEiWA_59531621")]
     [DisplayName("Eligibility Identification 1 Choice")]

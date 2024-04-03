@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SolicitationFeeRateFormat9Choice.AmountToQuantity))]
     [KnownType(typeof(SolicitationFeeRateFormat9Choice.Amount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.Rate),nameof(SolicitationFeeRateFormat9Choice.Rate))]
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.AmountToQuantity),nameof(SolicitationFeeRateFormat9Choice.AmountToQuantity))]
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.Amount),nameof(SolicitationFeeRateFormat9Choice.Amount))]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.Rate),"SolicitationFeeRateFormat9Choice.Rate")]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.AmountToQuantity),"SolicitationFeeRateFormat9Choice.AmountToQuantity")]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat9Choice.Amount),"SolicitationFeeRateFormat9Choice.Amount")]
     #endif
     [IsoId("_ckNXm5KQEeWHWpTQn1FFVg")]
     [DisplayName("Solicitation Fee Rate Format 9 Choice")]

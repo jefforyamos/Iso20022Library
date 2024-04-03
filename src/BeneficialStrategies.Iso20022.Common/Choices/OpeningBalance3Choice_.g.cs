@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OpeningBalance3Choice.FirstOpeningBalance))]
     [KnownType(typeof(OpeningBalance3Choice.IntermediaryOpeningBalance))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OpeningBalance3Choice.FirstOpeningBalance),nameof(OpeningBalance3Choice.FirstOpeningBalance))]
-    [JsonDerivedType(typeof(OpeningBalance3Choice.IntermediaryOpeningBalance),nameof(OpeningBalance3Choice.IntermediaryOpeningBalance))]
+    [JsonDerivedType(typeof(OpeningBalance3Choice.FirstOpeningBalance),"OpeningBalance3Choice.FirstOpeningBalance")]
+    [JsonDerivedType(typeof(OpeningBalance3Choice.IntermediaryOpeningBalance),"OpeningBalance3Choice.IntermediaryOpeningBalance")]
     #endif
     [IsoId("_Lu4l8QgHEeSxsfb1OEDVsw")]
     [DisplayName("Opening Balance 3 Choice")]

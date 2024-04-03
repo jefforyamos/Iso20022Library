@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelInputSource1Choice.Code))]
     [KnownType(typeof(IsabelInputSource1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IsabelInputSource1Choice.Code),nameof(IsabelInputSource1Choice.Code))]
-    [JsonDerivedType(typeof(IsabelInputSource1Choice.Proprietary),nameof(IsabelInputSource1Choice.Proprietary))]
+    [JsonDerivedType(typeof(IsabelInputSource1Choice.Code),"IsabelInputSource1Choice.Code")]
+    [JsonDerivedType(typeof(IsabelInputSource1Choice.Proprietary),"IsabelInputSource1Choice.Proprietary")]
     #endif
     [IsoId("_OGcMMMmMEeWAGphE2LvqeA")]
     [DisplayName("Isabel Input Source 1 Choice")]

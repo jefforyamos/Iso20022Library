@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionReason9FormatChoice.Code))]
     [KnownType(typeof(RejectionReason9FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectionReason9FormatChoice.Code),nameof(RejectionReason9FormatChoice.Code))]
-    [JsonDerivedType(typeof(RejectionReason9FormatChoice.Proprietary),nameof(RejectionReason9FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(RejectionReason9FormatChoice.Code),"RejectionReason9FormatChoice.Code")]
+    [JsonDerivedType(typeof(RejectionReason9FormatChoice.Proprietary),"RejectionReason9FormatChoice.Proprietary")]
     #endif
     [IsoId("_Roovxdp-Ed-ak6NoX_4Aeg_-1408419853")]
     [DisplayName("Rejection Reason 9 Format Choice")]

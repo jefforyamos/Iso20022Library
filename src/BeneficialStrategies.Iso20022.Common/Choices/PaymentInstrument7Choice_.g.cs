@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument7Choice.ChequeDetails))]
     [KnownType(typeof(PaymentInstrument7Choice.AccountDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentInstrument7Choice.CreditTransferDetails),nameof(PaymentInstrument7Choice.CreditTransferDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument7Choice.ChequeDetails),nameof(PaymentInstrument7Choice.ChequeDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument7Choice.AccountDetails),nameof(PaymentInstrument7Choice.AccountDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument7Choice.CreditTransferDetails),"PaymentInstrument7Choice.CreditTransferDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument7Choice.ChequeDetails),"PaymentInstrument7Choice.ChequeDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument7Choice.AccountDetails),"PaymentInstrument7Choice.AccountDetails")]
     #endif
     [IsoId("_VKiwRtp-Ed-ak6NoX_4Aeg_-1553198103")]
     [DisplayName("Payment Instrument 7 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MemberCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(MemberCriteriaDefinition1Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MemberCriteriaDefinition1Choice.QueryName),nameof(MemberCriteriaDefinition1Choice.QueryName))]
-    [JsonDerivedType(typeof(MemberCriteriaDefinition1Choice.NewCriteria),nameof(MemberCriteriaDefinition1Choice.NewCriteria))]
+    [JsonDerivedType(typeof(MemberCriteriaDefinition1Choice.QueryName),"MemberCriteriaDefinition1Choice.QueryName")]
+    [JsonDerivedType(typeof(MemberCriteriaDefinition1Choice.NewCriteria),"MemberCriteriaDefinition1Choice.NewCriteria")]
     #endif
     [IsoId("_tLC5R5lVEeeE1Ya-LgRsuQ")]
     [DisplayName("Member Criteria Definition 1 Choice")]

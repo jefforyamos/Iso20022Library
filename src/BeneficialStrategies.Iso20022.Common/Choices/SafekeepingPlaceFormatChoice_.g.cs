@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS))]
     [KnownType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.Identification),nameof(SafekeepingPlaceFormatChoice.Identification))]
-    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS),nameof(SafekeepingPlaceFormatChoice.IdentificationAsDSS))]
-    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry),nameof(SafekeepingPlaceFormatChoice.IdentificationAsCountry))]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.Identification),"SafekeepingPlaceFormatChoice.Identification")]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsDSS),"SafekeepingPlaceFormatChoice.IdentificationAsDSS")]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormatChoice.IdentificationAsCountry),"SafekeepingPlaceFormatChoice.IdentificationAsCountry")]
     #endif
     [IsoId("_RB5f5Np-Ed-ak6NoX_4Aeg_-418949931")]
     [DisplayName("Safekeeping Place Format Choice")]

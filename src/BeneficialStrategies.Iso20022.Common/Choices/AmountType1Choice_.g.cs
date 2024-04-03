@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AmountType1Choice.InstructedAmount))]
     [KnownType(typeof(AmountType1Choice.EquivalentAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AmountType1Choice.InstructedAmount),nameof(AmountType1Choice.InstructedAmount))]
-    [JsonDerivedType(typeof(AmountType1Choice.EquivalentAmount),nameof(AmountType1Choice.EquivalentAmount))]
+    [JsonDerivedType(typeof(AmountType1Choice.InstructedAmount),"AmountType1Choice.InstructedAmount")]
+    [JsonDerivedType(typeof(AmountType1Choice.EquivalentAmount),"AmountType1Choice.EquivalentAmount")]
     #endif
     [IsoId("_PrUuhtp-Ed-ak6NoX_4Aeg_-1333132724")]
     [DisplayName("Amount Type 1 Choice")]

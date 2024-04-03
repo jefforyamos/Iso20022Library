@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OptionAvailabilityStatus4Choice.Code))]
     [KnownType(typeof(OptionAvailabilityStatus4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OptionAvailabilityStatus4Choice.Code),nameof(OptionAvailabilityStatus4Choice.Code))]
-    [JsonDerivedType(typeof(OptionAvailabilityStatus4Choice.Proprietary),nameof(OptionAvailabilityStatus4Choice.Proprietary))]
+    [JsonDerivedType(typeof(OptionAvailabilityStatus4Choice.Code),"OptionAvailabilityStatus4Choice.Code")]
+    [JsonDerivedType(typeof(OptionAvailabilityStatus4Choice.Proprietary),"OptionAvailabilityStatus4Choice.Proprietary")]
     #endif
     [IsoId("_cta-K5KQEeWHWpTQn1FFVg")]
     [DisplayName("Option Availability Status 4 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeMinimus1Choice.DeMinimusApplicable))]
     [KnownType(typeof(DeMinimus1Choice.DeMinimusNotApplicable))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeMinimus1Choice.DeMinimusApplicable),nameof(DeMinimus1Choice.DeMinimusApplicable))]
-    [JsonDerivedType(typeof(DeMinimus1Choice.DeMinimusNotApplicable),nameof(DeMinimus1Choice.DeMinimusNotApplicable))]
+    [JsonDerivedType(typeof(DeMinimus1Choice.DeMinimusApplicable),"DeMinimus1Choice.DeMinimusApplicable")]
+    [JsonDerivedType(typeof(DeMinimus1Choice.DeMinimusNotApplicable),"DeMinimus1Choice.DeMinimusNotApplicable")]
     #endif
     [IsoId("_8saXYAgpEeSUG-8hqXsVMQ")]
     [DisplayName("De Minimus 1 Choice")]

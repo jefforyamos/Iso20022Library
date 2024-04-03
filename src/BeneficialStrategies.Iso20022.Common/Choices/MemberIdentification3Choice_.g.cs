@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MemberIdentification3Choice.ClearingSystemMemberIdentification))]
     [KnownType(typeof(MemberIdentification3Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MemberIdentification3Choice.BICFI),nameof(MemberIdentification3Choice.BICFI))]
-    [JsonDerivedType(typeof(MemberIdentification3Choice.ClearingSystemMemberIdentification),nameof(MemberIdentification3Choice.ClearingSystemMemberIdentification))]
-    [JsonDerivedType(typeof(MemberIdentification3Choice.Other),nameof(MemberIdentification3Choice.Other))]
+    [JsonDerivedType(typeof(MemberIdentification3Choice.BICFI),"MemberIdentification3Choice.BICFI")]
+    [JsonDerivedType(typeof(MemberIdentification3Choice.ClearingSystemMemberIdentification),"MemberIdentification3Choice.ClearingSystemMemberIdentification")]
+    [JsonDerivedType(typeof(MemberIdentification3Choice.Other),"MemberIdentification3Choice.Other")]
     #endif
     [IsoId("_h_8rhXSbEeiH1ZOt2UD8vQ")]
     [DisplayName("Member Identification 3 Choice")]

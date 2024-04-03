@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementSystemMethod4Choice.Code))]
     [KnownType(typeof(SettlementSystemMethod4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementSystemMethod4Choice.Code),nameof(SettlementSystemMethod4Choice.Code))]
-    [JsonDerivedType(typeof(SettlementSystemMethod4Choice.Proprietary),nameof(SettlementSystemMethod4Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlementSystemMethod4Choice.Code),"SettlementSystemMethod4Choice.Code")]
+    [JsonDerivedType(typeof(SettlementSystemMethod4Choice.Proprietary),"SettlementSystemMethod4Choice.Proprietary")]
     #endif
     [IsoId("_R9Xe8TqIEeWVrPy0StzzSg")]
     [DisplayName("Settlement System Method 4 Choice")]

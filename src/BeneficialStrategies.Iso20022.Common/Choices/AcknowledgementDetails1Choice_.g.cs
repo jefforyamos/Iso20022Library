@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference))]
     [KnownType(typeof(AcknowledgementDetails1Choice.PayInCallReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference),nameof(AcknowledgementDetails1Choice.PayInScheduleReference))]
-    [JsonDerivedType(typeof(AcknowledgementDetails1Choice.PayInCallReference),nameof(AcknowledgementDetails1Choice.PayInCallReference))]
+    [JsonDerivedType(typeof(AcknowledgementDetails1Choice.PayInScheduleReference),"AcknowledgementDetails1Choice.PayInScheduleReference")]
+    [JsonDerivedType(typeof(AcknowledgementDetails1Choice.PayInCallReference),"AcknowledgementDetails1Choice.PayInCallReference")]
     #endif
     [IsoId("_oIaocSzSEeKZfox_pyYpTA")]
     [DisplayName("Acknowledgement Details 1 Choice")]

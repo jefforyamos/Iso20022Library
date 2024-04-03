@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingSystemMemberIdentification3Choice.Identification))]
     [KnownType(typeof(ClearingSystemMemberIdentification3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClearingSystemMemberIdentification3Choice.Identification),nameof(ClearingSystemMemberIdentification3Choice.Identification))]
-    [JsonDerivedType(typeof(ClearingSystemMemberIdentification3Choice.Proprietary),nameof(ClearingSystemMemberIdentification3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentification3Choice.Identification),"ClearingSystemMemberIdentification3Choice.Identification")]
+    [JsonDerivedType(typeof(ClearingSystemMemberIdentification3Choice.Proprietary),"ClearingSystemMemberIdentification3Choice.Proprietary")]
     #endif
     [IsoId("_TMehGdp-Ed-ak6NoX_4Aeg_-1564562098")]
     [DisplayName("Clearing System Member Identification 3 Choice")]

@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingStatus9Choice.Unmatched))]
     [KnownType(typeof(MatchingStatus9Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MatchingStatus9Choice.Matched),nameof(MatchingStatus9Choice.Matched))]
-    [JsonDerivedType(typeof(MatchingStatus9Choice.MatchedWithTolerance),nameof(MatchingStatus9Choice.MatchedWithTolerance))]
-    [JsonDerivedType(typeof(MatchingStatus9Choice.MatchingAlleged),nameof(MatchingStatus9Choice.MatchingAlleged))]
-    [JsonDerivedType(typeof(MatchingStatus9Choice.Unmatched),nameof(MatchingStatus9Choice.Unmatched))]
-    [JsonDerivedType(typeof(MatchingStatus9Choice.ProprietaryStatus),nameof(MatchingStatus9Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(MatchingStatus9Choice.Matched),"MatchingStatus9Choice.Matched")]
+    [JsonDerivedType(typeof(MatchingStatus9Choice.MatchedWithTolerance),"MatchingStatus9Choice.MatchedWithTolerance")]
+    [JsonDerivedType(typeof(MatchingStatus9Choice.MatchingAlleged),"MatchingStatus9Choice.MatchingAlleged")]
+    [JsonDerivedType(typeof(MatchingStatus9Choice.Unmatched),"MatchingStatus9Choice.Unmatched")]
+    [JsonDerivedType(typeof(MatchingStatus9Choice.ProprietaryStatus),"MatchingStatus9Choice.ProprietaryStatus")]
     #endif
     [IsoId("_A4aEItokEeC60axPepSq7g_-668898951")]
     [DisplayName("Matching Status 9 Choice")]

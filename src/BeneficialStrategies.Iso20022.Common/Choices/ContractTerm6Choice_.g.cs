@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ContractTerm6Choice.Open))]
     [KnownType(typeof(ContractTerm6Choice.Fixed))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ContractTerm6Choice.Open),nameof(ContractTerm6Choice.Open))]
-    [JsonDerivedType(typeof(ContractTerm6Choice.Fixed),nameof(ContractTerm6Choice.Fixed))]
+    [JsonDerivedType(typeof(ContractTerm6Choice.Open),"ContractTerm6Choice.Open")]
+    [JsonDerivedType(typeof(ContractTerm6Choice.Fixed),"ContractTerm6Choice.Fixed")]
     #endif
     [IsoId("_-9nQEa5OEeuo-IflVgGqiA")]
     [DisplayName("Contract Term 6 Choice")]

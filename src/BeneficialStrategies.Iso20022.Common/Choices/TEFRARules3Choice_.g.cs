@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TEFRARules3Choice.Code))]
     [KnownType(typeof(TEFRARules3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TEFRARules3Choice.Code),nameof(TEFRARules3Choice.Code))]
-    [JsonDerivedType(typeof(TEFRARules3Choice.Proprietary),nameof(TEFRARules3Choice.Proprietary))]
+    [JsonDerivedType(typeof(TEFRARules3Choice.Code),"TEFRARules3Choice.Code")]
+    [JsonDerivedType(typeof(TEFRARules3Choice.Proprietary),"TEFRARules3Choice.Proprietary")]
     #endif
     [IsoId("_ighyQeLcEeWFtOV72FbX9w")]
     [DisplayName("TEFRA Rules 3 Choice")]

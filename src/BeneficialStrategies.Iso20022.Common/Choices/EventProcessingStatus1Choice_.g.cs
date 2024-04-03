@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EventProcessingStatus1Choice.Pending))]
     [KnownType(typeof(EventProcessingStatus1Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Complete),nameof(EventProcessingStatus1Choice.Complete))]
-    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Reconciled),nameof(EventProcessingStatus1Choice.Reconciled))]
-    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Pending),nameof(EventProcessingStatus1Choice.Pending))]
-    [JsonDerivedType(typeof(EventProcessingStatus1Choice.ProprietaryStatus),nameof(EventProcessingStatus1Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Complete),"EventProcessingStatus1Choice.Complete")]
+    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Reconciled),"EventProcessingStatus1Choice.Reconciled")]
+    [JsonDerivedType(typeof(EventProcessingStatus1Choice.Pending),"EventProcessingStatus1Choice.Pending")]
+    [JsonDerivedType(typeof(EventProcessingStatus1Choice.ProprietaryStatus),"EventProcessingStatus1Choice.ProprietaryStatus")]
     #endif
     [IsoId("_QxzOZ9p-Ed-ak6NoX_4Aeg_-1514957759")]
     [DisplayName("Event Processing Status 1 Choice")]

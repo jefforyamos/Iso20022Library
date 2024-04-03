@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DocumentNumber6Choice.LongNumber))]
     [KnownType(typeof(DocumentNumber6Choice.ProprietaryNumber))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DocumentNumber6Choice.ShortNumber),nameof(DocumentNumber6Choice.ShortNumber))]
-    [JsonDerivedType(typeof(DocumentNumber6Choice.LongNumber),nameof(DocumentNumber6Choice.LongNumber))]
-    [JsonDerivedType(typeof(DocumentNumber6Choice.ProprietaryNumber),nameof(DocumentNumber6Choice.ProprietaryNumber))]
+    [JsonDerivedType(typeof(DocumentNumber6Choice.ShortNumber),"DocumentNumber6Choice.ShortNumber")]
+    [JsonDerivedType(typeof(DocumentNumber6Choice.LongNumber),"DocumentNumber6Choice.LongNumber")]
+    [JsonDerivedType(typeof(DocumentNumber6Choice.ProprietaryNumber),"DocumentNumber6Choice.ProprietaryNumber")]
     #endif
     [IsoId("_celQ0ZKQEeWHWpTQn1FFVg")]
     [DisplayName("Document Number 6 Choice")]

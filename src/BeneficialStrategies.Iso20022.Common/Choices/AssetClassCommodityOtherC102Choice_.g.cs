@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityOtherC102Choice.Deliverable))]
     [KnownType(typeof(AssetClassCommodityOtherC102Choice.NonDeliverable))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityOtherC102Choice.Deliverable),nameof(AssetClassCommodityOtherC102Choice.Deliverable))]
-    [JsonDerivedType(typeof(AssetClassCommodityOtherC102Choice.NonDeliverable),nameof(AssetClassCommodityOtherC102Choice.NonDeliverable))]
+    [JsonDerivedType(typeof(AssetClassCommodityOtherC102Choice.Deliverable),"AssetClassCommodityOtherC102Choice.Deliverable")]
+    [JsonDerivedType(typeof(AssetClassCommodityOtherC102Choice.NonDeliverable),"AssetClassCommodityOtherC102Choice.NonDeliverable")]
     #endif
     [IsoId("_lTiEcXvyEeanCNPcMT7sSg")]
     [DisplayName("Asset Class Commodity Other C 102 Choice")]

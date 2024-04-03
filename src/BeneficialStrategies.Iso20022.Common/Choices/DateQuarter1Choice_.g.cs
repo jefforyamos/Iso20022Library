@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateQuarter1Choice.Date))]
     [KnownType(typeof(DateQuarter1Choice.Period))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateQuarter1Choice.Date),nameof(DateQuarter1Choice.Date))]
-    [JsonDerivedType(typeof(DateQuarter1Choice.Period),nameof(DateQuarter1Choice.Period))]
+    [JsonDerivedType(typeof(DateQuarter1Choice.Date),"DateQuarter1Choice.Date")]
+    [JsonDerivedType(typeof(DateQuarter1Choice.Period),"DateQuarter1Choice.Period")]
     #endif
     [IsoId("_CUTHIKFTEei_VZq-6SQkuQ")]
     [DisplayName("Date Quarter 1 Choice")]

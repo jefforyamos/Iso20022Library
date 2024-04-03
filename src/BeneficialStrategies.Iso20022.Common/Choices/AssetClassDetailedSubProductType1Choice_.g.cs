@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassDetailedSubProductType1Choice.Code))]
     [KnownType(typeof(AssetClassDetailedSubProductType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassDetailedSubProductType1Choice.Code),nameof(AssetClassDetailedSubProductType1Choice.Code))]
-    [JsonDerivedType(typeof(AssetClassDetailedSubProductType1Choice.Proprietary),nameof(AssetClassDetailedSubProductType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(AssetClassDetailedSubProductType1Choice.Code),"AssetClassDetailedSubProductType1Choice.Code")]
+    [JsonDerivedType(typeof(AssetClassDetailedSubProductType1Choice.Proprietary),"AssetClassDetailedSubProductType1Choice.Proprietary")]
     #endif
     [IsoId("_KDl0cI16Eeet3cKIYK84nw")]
     [DisplayName("Asset Class Detailed Sub Product Type 1 Choice")]

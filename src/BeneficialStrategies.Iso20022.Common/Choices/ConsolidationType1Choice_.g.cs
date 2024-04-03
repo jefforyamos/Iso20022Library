@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsolidationType1Choice.Code))]
     [KnownType(typeof(ConsolidationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConsolidationType1Choice.Code),nameof(ConsolidationType1Choice.Code))]
-    [JsonDerivedType(typeof(ConsolidationType1Choice.Proprietary),nameof(ConsolidationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ConsolidationType1Choice.Code),"ConsolidationType1Choice.Code")]
+    [JsonDerivedType(typeof(ConsolidationType1Choice.Proprietary),"ConsolidationType1Choice.Proprietary")]
     #endif
     [IsoId("_NJKKkCDVEeWCLu74WLgP4w")]
     [DisplayName("Consolidation Type 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FractionDispositionType9Choice.Code))]
     [KnownType(typeof(FractionDispositionType9Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FractionDispositionType9Choice.Code),nameof(FractionDispositionType9Choice.Code))]
-    [JsonDerivedType(typeof(FractionDispositionType9Choice.Proprietary),nameof(FractionDispositionType9Choice.Proprietary))]
+    [JsonDerivedType(typeof(FractionDispositionType9Choice.Code),"FractionDispositionType9Choice.Code")]
+    [JsonDerivedType(typeof(FractionDispositionType9Choice.Proprietary),"FractionDispositionType9Choice.Proprietary")]
     #endif
     [IsoId("_zfe2weHDEd-1Ktb5rVaajw")]
     [DisplayName("Fraction Disposition Type 9 Choice")]

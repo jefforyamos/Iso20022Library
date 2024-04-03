@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier))]
     [KnownType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier),nameof(CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier))]
-    [JsonDerivedType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers),nameof(CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers))]
+    [JsonDerivedType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier),"CentralisedAndAuthorisedBranchIdentification1Choice.AuthorisedBranchIdentifier")]
+    [JsonDerivedType(typeof(CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers),"CentralisedAndAuthorisedBranchIdentification1Choice.CentralisedBranchIdentifiers")]
     #endif
     [IsoId("_4ju2EB9pEeapDZRA0Hb6ow")]
     [DisplayName("Centralised And Authorised Branch Identification 1 Choice")]

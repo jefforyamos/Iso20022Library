@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartiallySettled21Choice.Code))]
     [KnownType(typeof(PartiallySettled21Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartiallySettled21Choice.Code),nameof(PartiallySettled21Choice.Code))]
-    [JsonDerivedType(typeof(PartiallySettled21Choice.Proprietary),nameof(PartiallySettled21Choice.Proprietary))]
+    [JsonDerivedType(typeof(PartiallySettled21Choice.Code),"PartiallySettled21Choice.Code")]
+    [JsonDerivedType(typeof(PartiallySettled21Choice.Proprietary),"PartiallySettled21Choice.Proprietary")]
     #endif
     [IsoId("_R48xQUHtEeaNSo9he0Belg")]
     [DisplayName("Partially Settled 21 Choice")]

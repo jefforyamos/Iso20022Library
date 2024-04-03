@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LetterOfGuarantee5Choice.Indicator))]
     [KnownType(typeof(LetterOfGuarantee5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LetterOfGuarantee5Choice.Indicator),nameof(LetterOfGuarantee5Choice.Indicator))]
-    [JsonDerivedType(typeof(LetterOfGuarantee5Choice.Proprietary),nameof(LetterOfGuarantee5Choice.Proprietary))]
+    [JsonDerivedType(typeof(LetterOfGuarantee5Choice.Indicator),"LetterOfGuarantee5Choice.Indicator")]
+    [JsonDerivedType(typeof(LetterOfGuarantee5Choice.Proprietary),"LetterOfGuarantee5Choice.Proprietary")]
     #endif
     [IsoId("_6ScRhZNLEeWGlc8L7oPDIg")]
     [DisplayName("Letter Of Guarantee 5 Choice")]

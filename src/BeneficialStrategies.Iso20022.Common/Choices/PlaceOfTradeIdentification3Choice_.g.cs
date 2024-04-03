@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOfTradeIdentification3Choice.Exchange))]
     [KnownType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Country),nameof(PlaceOfTradeIdentification3Choice.Country))]
-    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Exchange),nameof(PlaceOfTradeIdentification3Choice.Exchange))]
-    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter),nameof(PlaceOfTradeIdentification3Choice.OverTheCounter))]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Country),"PlaceOfTradeIdentification3Choice.Country")]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.Exchange),"PlaceOfTradeIdentification3Choice.Exchange")]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification3Choice.OverTheCounter),"PlaceOfTradeIdentification3Choice.OverTheCounter")]
     #endif
     [IsoId("_WNc-0tp-Ed-ak6NoX_4Aeg_-1162943357")]
     [DisplayName("Place Of Trade Identification 3 Choice")]

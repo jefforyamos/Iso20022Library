@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsCode))]
     [KnownType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsDSS))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsCode),nameof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsCode))]
-    [JsonDerivedType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsDSS),nameof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsDSS))]
+    [JsonDerivedType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsCode),"StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsCode")]
+    [JsonDerivedType(typeof(StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsDSS),"StatementUpdateTypeCodeAndDSSCode1Choice.StatementUpdateTypeAsDSS")]
     #endif
     [IsoId("_sFNQkQaUEe2-DuDrUXkg2w")]
     [DisplayName("Statement Update Type Code And DSS Code 1 Choice")]

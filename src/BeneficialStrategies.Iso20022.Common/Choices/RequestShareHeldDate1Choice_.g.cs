@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationMethod))]
     [KnownType(typeof(RequestShareHeldDate1Choice.DateCalculationDescription))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RequestShareHeldDate1Choice.DateCalculationMethod),nameof(RequestShareHeldDate1Choice.DateCalculationMethod))]
-    [JsonDerivedType(typeof(RequestShareHeldDate1Choice.DateCalculationDescription),nameof(RequestShareHeldDate1Choice.DateCalculationDescription))]
+    [JsonDerivedType(typeof(RequestShareHeldDate1Choice.DateCalculationMethod),"RequestShareHeldDate1Choice.DateCalculationMethod")]
+    [JsonDerivedType(typeof(RequestShareHeldDate1Choice.DateCalculationDescription),"RequestShareHeldDate1Choice.DateCalculationDescription")]
     #endif
     [IsoId("_iOMVYFSTEempisJfoIfvvQ")]
     [DisplayName("Request Share Held Date 1 Choice")]

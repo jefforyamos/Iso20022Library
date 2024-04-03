@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SafekeepingPlaceFormat28Choice.TypeAndIdentification))]
     [KnownType(typeof(SafekeepingPlaceFormat28Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Identification),nameof(SafekeepingPlaceFormat28Choice.Identification))]
-    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Country),nameof(SafekeepingPlaceFormat28Choice.Country))]
-    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.TypeAndIdentification),nameof(SafekeepingPlaceFormat28Choice.TypeAndIdentification))]
-    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Proprietary),nameof(SafekeepingPlaceFormat28Choice.Proprietary))]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Identification),"SafekeepingPlaceFormat28Choice.Identification")]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Country),"SafekeepingPlaceFormat28Choice.Country")]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.TypeAndIdentification),"SafekeepingPlaceFormat28Choice.TypeAndIdentification")]
+    [JsonDerivedType(typeof(SafekeepingPlaceFormat28Choice.Proprietary),"SafekeepingPlaceFormat28Choice.Proprietary")]
     #endif
     [IsoId("_oTwbEWpXEeipaMTLlhaKMQ")]
     [DisplayName("Safekeeping Place Format 28 Choice")]

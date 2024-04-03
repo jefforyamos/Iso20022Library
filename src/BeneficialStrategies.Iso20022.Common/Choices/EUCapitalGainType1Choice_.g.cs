@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EUCapitalGainType1Choice.EUCapitalGain))]
     [KnownType(typeof(EUCapitalGainType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EUCapitalGainType1Choice.EUCapitalGain),nameof(EUCapitalGainType1Choice.EUCapitalGain))]
-    [JsonDerivedType(typeof(EUCapitalGainType1Choice.Proprietary),nameof(EUCapitalGainType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(EUCapitalGainType1Choice.EUCapitalGain),"EUCapitalGainType1Choice.EUCapitalGain")]
+    [JsonDerivedType(typeof(EUCapitalGainType1Choice.Proprietary),"EUCapitalGainType1Choice.Proprietary")]
     #endif
     [IsoId("_RgcdFdp-Ed-ak6NoX_4Aeg_-2050790406")]
     [DisplayName("EU Capital Gain Type 1 Choice")]

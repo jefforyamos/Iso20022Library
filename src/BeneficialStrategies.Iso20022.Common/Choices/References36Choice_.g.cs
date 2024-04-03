@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References36Choice.PoolIdentification))]
     [KnownType(typeof(References36Choice.CorporateActionEventIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References36Choice.AccountOwnerTransactionIdentification),nameof(References36Choice.AccountOwnerTransactionIdentification))]
-    [JsonDerivedType(typeof(References36Choice.AccountServicerTransactionIdentification),nameof(References36Choice.AccountServicerTransactionIdentification))]
-    [JsonDerivedType(typeof(References36Choice.MarketInfrastructureTransactionIdentification),nameof(References36Choice.MarketInfrastructureTransactionIdentification))]
-    [JsonDerivedType(typeof(References36Choice.ProcessorTransactionIdentification),nameof(References36Choice.ProcessorTransactionIdentification))]
-    [JsonDerivedType(typeof(References36Choice.PoolIdentification),nameof(References36Choice.PoolIdentification))]
-    [JsonDerivedType(typeof(References36Choice.CorporateActionEventIdentification),nameof(References36Choice.CorporateActionEventIdentification))]
+    [JsonDerivedType(typeof(References36Choice.AccountOwnerTransactionIdentification),"References36Choice.AccountOwnerTransactionIdentification")]
+    [JsonDerivedType(typeof(References36Choice.AccountServicerTransactionIdentification),"References36Choice.AccountServicerTransactionIdentification")]
+    [JsonDerivedType(typeof(References36Choice.MarketInfrastructureTransactionIdentification),"References36Choice.MarketInfrastructureTransactionIdentification")]
+    [JsonDerivedType(typeof(References36Choice.ProcessorTransactionIdentification),"References36Choice.ProcessorTransactionIdentification")]
+    [JsonDerivedType(typeof(References36Choice.PoolIdentification),"References36Choice.PoolIdentification")]
+    [JsonDerivedType(typeof(References36Choice.CorporateActionEventIdentification),"References36Choice.CorporateActionEventIdentification")]
     #endif
     [IsoId("_jx45V-5NEeCisYr99QEiWA_-1477565107")]
     [DisplayName("References 36 Choice")]

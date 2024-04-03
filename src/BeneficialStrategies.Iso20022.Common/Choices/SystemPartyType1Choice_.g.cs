@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemPartyType1Choice.Code))]
     [KnownType(typeof(SystemPartyType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SystemPartyType1Choice.Code),nameof(SystemPartyType1Choice.Code))]
-    [JsonDerivedType(typeof(SystemPartyType1Choice.Proprietary),nameof(SystemPartyType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(SystemPartyType1Choice.Code),"SystemPartyType1Choice.Code")]
+    [JsonDerivedType(typeof(SystemPartyType1Choice.Proprietary),"SystemPartyType1Choice.Proprietary")]
     #endif
     [IsoId("_DZrOc1hPEeih3fUfzR38Ig")]
     [DisplayName("System Party Type 1 Choice")]

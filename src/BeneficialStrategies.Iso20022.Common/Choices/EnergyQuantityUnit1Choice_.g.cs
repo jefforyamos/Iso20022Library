@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EnergyQuantityUnit1Choice.Code))]
     [KnownType(typeof(EnergyQuantityUnit1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EnergyQuantityUnit1Choice.Code),nameof(EnergyQuantityUnit1Choice.Code))]
-    [JsonDerivedType(typeof(EnergyQuantityUnit1Choice.Proprietary),nameof(EnergyQuantityUnit1Choice.Proprietary))]
+    [JsonDerivedType(typeof(EnergyQuantityUnit1Choice.Code),"EnergyQuantityUnit1Choice.Code")]
+    [JsonDerivedType(typeof(EnergyQuantityUnit1Choice.Proprietary),"EnergyQuantityUnit1Choice.Proprietary")]
     #endif
     [IsoId("_GCAHUKfwEeW_OId9wS8dsQ")]
     [DisplayName("Energy Quantity Unit 1 Choice")]

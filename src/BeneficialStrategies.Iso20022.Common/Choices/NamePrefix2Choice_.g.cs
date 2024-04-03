@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NamePrefix2Choice.NamePrefix))]
     [KnownType(typeof(NamePrefix2Choice.ExtendedNamePrefix))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NamePrefix2Choice.NamePrefix),nameof(NamePrefix2Choice.NamePrefix))]
-    [JsonDerivedType(typeof(NamePrefix2Choice.ExtendedNamePrefix),nameof(NamePrefix2Choice.ExtendedNamePrefix))]
+    [JsonDerivedType(typeof(NamePrefix2Choice.NamePrefix),"NamePrefix2Choice.NamePrefix")]
+    [JsonDerivedType(typeof(NamePrefix2Choice.ExtendedNamePrefix),"NamePrefix2Choice.ExtendedNamePrefix")]
     #endif
     [IsoId("_HMqgQQ2fEeSNWNtJlXOAhg")]
     [DisplayName("Name Prefix 2 Choice")]

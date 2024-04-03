@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConfirmationStatus1Choice.AmendmentRejected))]
     [KnownType(typeof(ConfirmationStatus1Choice.Status))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConfirmationStatus1Choice.ConfirmationRejected),nameof(ConfirmationStatus1Choice.ConfirmationRejected))]
-    [JsonDerivedType(typeof(ConfirmationStatus1Choice.AmendmentRejected),nameof(ConfirmationStatus1Choice.AmendmentRejected))]
-    [JsonDerivedType(typeof(ConfirmationStatus1Choice.Status),nameof(ConfirmationStatus1Choice.Status))]
+    [JsonDerivedType(typeof(ConfirmationStatus1Choice.ConfirmationRejected),"ConfirmationStatus1Choice.ConfirmationRejected")]
+    [JsonDerivedType(typeof(ConfirmationStatus1Choice.AmendmentRejected),"ConfirmationStatus1Choice.AmendmentRejected")]
+    [JsonDerivedType(typeof(ConfirmationStatus1Choice.Status),"ConfirmationStatus1Choice.Status")]
     #endif
     [IsoId("_wK4rIEhCEea8pJjypp-yMQ")]
     [DisplayName("Confirmation Status 1 Choice")]

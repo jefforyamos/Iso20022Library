@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OrderWaiverReason3Choice.Code))]
     [KnownType(typeof(OrderWaiverReason3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OrderWaiverReason3Choice.Code),nameof(OrderWaiverReason3Choice.Code))]
-    [JsonDerivedType(typeof(OrderWaiverReason3Choice.Proprietary),nameof(OrderWaiverReason3Choice.Proprietary))]
+    [JsonDerivedType(typeof(OrderWaiverReason3Choice.Code),"OrderWaiverReason3Choice.Code")]
+    [JsonDerivedType(typeof(OrderWaiverReason3Choice.Proprietary),"OrderWaiverReason3Choice.Proprietary")]
     #endif
     [IsoId("_PJanIToREeabspMEjqY5TQ")]
     [DisplayName("Order Waiver Reason 3 Choice")]

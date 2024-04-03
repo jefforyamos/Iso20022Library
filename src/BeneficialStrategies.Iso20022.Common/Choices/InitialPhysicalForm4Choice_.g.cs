@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InitialPhysicalForm4Choice.Code))]
     [KnownType(typeof(InitialPhysicalForm4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InitialPhysicalForm4Choice.Code),nameof(InitialPhysicalForm4Choice.Code))]
-    [JsonDerivedType(typeof(InitialPhysicalForm4Choice.Proprietary),nameof(InitialPhysicalForm4Choice.Proprietary))]
+    [JsonDerivedType(typeof(InitialPhysicalForm4Choice.Code),"InitialPhysicalForm4Choice.Code")]
+    [JsonDerivedType(typeof(InitialPhysicalForm4Choice.Proprietary),"InitialPhysicalForm4Choice.Proprietary")]
     #endif
     [IsoId("_UjitceLxEeWOD7aAy2fAcA")]
     [DisplayName("Initial Physical Form 4 Choice")]

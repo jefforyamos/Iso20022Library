@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationRequest))]
     [KnownType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationResponse))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.Completion),nameof(CardPaymentDataSetTransaction8Choice.Completion))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.Cancellation),nameof(CardPaymentDataSetTransaction8Choice.Cancellation))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationRequest),nameof(CardPaymentDataSetTransaction8Choice.AuthorisationRequest))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationResponse),nameof(CardPaymentDataSetTransaction8Choice.AuthorisationResponse))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.Completion),"CardPaymentDataSetTransaction8Choice.Completion")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.Cancellation),"CardPaymentDataSetTransaction8Choice.Cancellation")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationRequest),"CardPaymentDataSetTransaction8Choice.AuthorisationRequest")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction8Choice.AuthorisationResponse),"CardPaymentDataSetTransaction8Choice.AuthorisationResponse")]
     #endif
     [IsoId("_nVvkUQx6Eeqdx6buGpCCQw")]
     [DisplayName("Card Payment Data Set Transaction 8 Choice")]

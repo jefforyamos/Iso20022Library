@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GrossDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus))]
     [KnownType(typeof(GrossDividendRateFormat42Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.Amount),nameof(GrossDividendRateFormat42Choice.Amount))]
-    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.AmountAndRateStatus),nameof(GrossDividendRateFormat42Choice.AmountAndRateStatus))]
-    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus),nameof(GrossDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus))]
-    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.NotSpecifiedRate),nameof(GrossDividendRateFormat42Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.Amount),"GrossDividendRateFormat42Choice.Amount")]
+    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.AmountAndRateStatus),"GrossDividendRateFormat42Choice.AmountAndRateStatus")]
+    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus),"GrossDividendRateFormat42Choice.RateTypeAndAmountAndRateStatus")]
+    [JsonDerivedType(typeof(GrossDividendRateFormat42Choice.NotSpecifiedRate),"GrossDividendRateFormat42Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_bZ_lFwVTEeqjd8n6wD9JVw")]
     [DisplayName("Gross Dividend Rate Format 42 Choice")]

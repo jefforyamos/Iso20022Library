@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyOrOperationalError3Choice.PartyReport))]
     [KnownType(typeof(PartyOrOperationalError3Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyOrOperationalError3Choice.PartyReport),nameof(PartyOrOperationalError3Choice.PartyReport))]
-    [JsonDerivedType(typeof(PartyOrOperationalError3Choice.OperationalError),nameof(PartyOrOperationalError3Choice.OperationalError))]
+    [JsonDerivedType(typeof(PartyOrOperationalError3Choice.PartyReport),"PartyOrOperationalError3Choice.PartyReport")]
+    [JsonDerivedType(typeof(PartyOrOperationalError3Choice.OperationalError),"PartyOrOperationalError3Choice.OperationalError")]
     #endif
     [IsoId("_7VYvRVhLEeih3fUfzR38Ig")]
     [DisplayName("Party Or Operational Error 3 Choice")]

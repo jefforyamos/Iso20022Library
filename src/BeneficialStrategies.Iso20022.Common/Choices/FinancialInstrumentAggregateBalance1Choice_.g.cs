@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
     [KnownType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator),nameof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator))]
-    [JsonDerivedType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance),nameof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance))]
+    [JsonDerivedType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator),"FinancialInstrumentAggregateBalance1Choice.HoldingsIndicator")]
+    [JsonDerivedType(typeof(FinancialInstrumentAggregateBalance1Choice.HoldingBalance),"FinancialInstrumentAggregateBalance1Choice.HoldingBalance")]
     #endif
     [IsoId("_PW7ItqCCEeOEyO7fCl8lLA")]
     [DisplayName("Financial Instrument Aggregate Balance 1 Choice")]

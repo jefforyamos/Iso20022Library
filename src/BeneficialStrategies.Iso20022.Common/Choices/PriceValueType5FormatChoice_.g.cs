@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceValueType5FormatChoice.Code))]
     [KnownType(typeof(PriceValueType5FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceValueType5FormatChoice.Code),nameof(PriceValueType5FormatChoice.Code))]
-    [JsonDerivedType(typeof(PriceValueType5FormatChoice.Proprietary),nameof(PriceValueType5FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(PriceValueType5FormatChoice.Code),"PriceValueType5FormatChoice.Code")]
+    [JsonDerivedType(typeof(PriceValueType5FormatChoice.Proprietary),"PriceValueType5FormatChoice.Proprietary")]
     #endif
     [IsoId("_RnAYFtp-Ed-ak6NoX_4Aeg_-475448184")]
     [DisplayName("Price Value Type 5 Format Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestPaymentSchedule1Choice.DateRange))]
     [KnownType(typeof(InterestPaymentSchedule1Choice.SubSchedule))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestPaymentSchedule1Choice.DateRange),nameof(InterestPaymentSchedule1Choice.DateRange))]
-    [JsonDerivedType(typeof(InterestPaymentSchedule1Choice.SubSchedule),nameof(InterestPaymentSchedule1Choice.SubSchedule))]
+    [JsonDerivedType(typeof(InterestPaymentSchedule1Choice.DateRange),"InterestPaymentSchedule1Choice.DateRange")]
+    [JsonDerivedType(typeof(InterestPaymentSchedule1Choice.SubSchedule),"InterestPaymentSchedule1Choice.SubSchedule")]
     #endif
     [IsoId("_u7i5Q-FWEeSvv6t4Ka7B7A")]
     [DisplayName("Interest Payment Schedule 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CentralCounterPartyEligibility3Choice.Indicator))]
     [KnownType(typeof(CentralCounterPartyEligibility3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CentralCounterPartyEligibility3Choice.Indicator),nameof(CentralCounterPartyEligibility3Choice.Indicator))]
-    [JsonDerivedType(typeof(CentralCounterPartyEligibility3Choice.Proprietary),nameof(CentralCounterPartyEligibility3Choice.Proprietary))]
+    [JsonDerivedType(typeof(CentralCounterPartyEligibility3Choice.Indicator),"CentralCounterPartyEligibility3Choice.Indicator")]
+    [JsonDerivedType(typeof(CentralCounterPartyEligibility3Choice.Proprietary),"CentralCounterPartyEligibility3Choice.Proprietary")]
     #endif
     [IsoId("_Aa5owdokEeC60axPepSq7g_-259379707")]
     [DisplayName("Central Counter Party Eligibility 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status26Choice.CancellationStatusReport))]
     [KnownType(typeof(Status26Choice.IndividualCancellationStatusReport))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Status26Choice.CancellationStatusReport),nameof(Status26Choice.CancellationStatusReport))]
-    [JsonDerivedType(typeof(Status26Choice.IndividualCancellationStatusReport),nameof(Status26Choice.IndividualCancellationStatusReport))]
+    [JsonDerivedType(typeof(Status26Choice.CancellationStatusReport),"Status26Choice.CancellationStatusReport")]
+    [JsonDerivedType(typeof(Status26Choice.IndividualCancellationStatusReport),"Status26Choice.IndividualCancellationStatusReport")]
     #endif
     [IsoId("_ZdGjEEgrEeaD2L_hzZaE0w")]
     [DisplayName("Status 26 Choice")]

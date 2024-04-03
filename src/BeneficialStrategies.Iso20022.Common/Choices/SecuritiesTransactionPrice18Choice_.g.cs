@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice18Choice.Decimal))]
     [KnownType(typeof(SecuritiesTransactionPrice18Choice.BasisPoints))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.MonetaryValue),nameof(SecuritiesTransactionPrice18Choice.MonetaryValue))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.Percentage),nameof(SecuritiesTransactionPrice18Choice.Percentage))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.Decimal),nameof(SecuritiesTransactionPrice18Choice.Decimal))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.BasisPoints),nameof(SecuritiesTransactionPrice18Choice.BasisPoints))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.MonetaryValue),"SecuritiesTransactionPrice18Choice.MonetaryValue")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.Percentage),"SecuritiesTransactionPrice18Choice.Percentage")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.Decimal),"SecuritiesTransactionPrice18Choice.Decimal")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice18Choice.BasisPoints),"SecuritiesTransactionPrice18Choice.BasisPoints")]
     #endif
     [IsoId("_XQwXoMgpEeuGrNSsxk3B0A")]
     [DisplayName("Securities Transaction Price 18 Choice")]

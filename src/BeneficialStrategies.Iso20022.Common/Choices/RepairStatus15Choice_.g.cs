@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepairStatus15Choice.NoSpecifiedReason))]
     [KnownType(typeof(RepairStatus15Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepairStatus15Choice.NoSpecifiedReason),nameof(RepairStatus15Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(RepairStatus15Choice.Reason),nameof(RepairStatus15Choice.Reason))]
+    [JsonDerivedType(typeof(RepairStatus15Choice.NoSpecifiedReason),"RepairStatus15Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(RepairStatus15Choice.Reason),"RepairStatus15Choice.Reason")]
     #endif
     [IsoId("_6BGCeZNLEeWGlc8L7oPDIg")]
     [DisplayName("Repair Status 15 Choice")]

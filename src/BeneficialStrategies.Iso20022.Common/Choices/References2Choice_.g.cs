@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References2Choice.IntraPositionMovementIdentification))]
     [KnownType(typeof(References2Choice.OtherTransactionIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References2Choice.SecuritiesSettlementTransactionIdentification),nameof(References2Choice.SecuritiesSettlementTransactionIdentification))]
-    [JsonDerivedType(typeof(References2Choice.SecuritiesFinancingTransactionIdentification),nameof(References2Choice.SecuritiesFinancingTransactionIdentification))]
-    [JsonDerivedType(typeof(References2Choice.IntraPositionMovementIdentification),nameof(References2Choice.IntraPositionMovementIdentification))]
-    [JsonDerivedType(typeof(References2Choice.OtherTransactionIdentification),nameof(References2Choice.OtherTransactionIdentification))]
+    [JsonDerivedType(typeof(References2Choice.SecuritiesSettlementTransactionIdentification),"References2Choice.SecuritiesSettlementTransactionIdentification")]
+    [JsonDerivedType(typeof(References2Choice.SecuritiesFinancingTransactionIdentification),"References2Choice.SecuritiesFinancingTransactionIdentification")]
+    [JsonDerivedType(typeof(References2Choice.IntraPositionMovementIdentification),"References2Choice.IntraPositionMovementIdentification")]
+    [JsonDerivedType(typeof(References2Choice.OtherTransactionIdentification),"References2Choice.OtherTransactionIdentification")]
     #endif
     [IsoId("_US9oCdp-Ed-ak6NoX_4Aeg_1980096839")]
     [DisplayName("References 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundParameters4Choice.NoCriteria))]
     [KnownType(typeof(FundParameters4Choice.Parameters))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FundParameters4Choice.NoCriteria),nameof(FundParameters4Choice.NoCriteria))]
-    [JsonDerivedType(typeof(FundParameters4Choice.Parameters),nameof(FundParameters4Choice.Parameters))]
+    [JsonDerivedType(typeof(FundParameters4Choice.NoCriteria),"FundParameters4Choice.NoCriteria")]
+    [JsonDerivedType(typeof(FundParameters4Choice.Parameters),"FundParameters4Choice.Parameters")]
     #endif
     [IsoId("_J-otAWomEeipaMTLlhaKMQ")]
     [DisplayName("Fund Parameters 4 Choice")]

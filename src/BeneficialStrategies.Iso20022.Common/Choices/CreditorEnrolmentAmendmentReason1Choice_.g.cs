@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CreditorEnrolmentAmendmentReason1Choice.Code))]
     [KnownType(typeof(CreditorEnrolmentAmendmentReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CreditorEnrolmentAmendmentReason1Choice.Code),nameof(CreditorEnrolmentAmendmentReason1Choice.Code))]
-    [JsonDerivedType(typeof(CreditorEnrolmentAmendmentReason1Choice.Proprietary),nameof(CreditorEnrolmentAmendmentReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CreditorEnrolmentAmendmentReason1Choice.Code),"CreditorEnrolmentAmendmentReason1Choice.Code")]
+    [JsonDerivedType(typeof(CreditorEnrolmentAmendmentReason1Choice.Proprietary),"CreditorEnrolmentAmendmentReason1Choice.Proprietary")]
     #endif
     [IsoId("_yRMkLfDBEemsS_0xy2XRug")]
     [DisplayName("Creditor Enrolment Amendment Reason 1 Choice")]

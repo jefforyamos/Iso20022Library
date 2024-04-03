@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RatioFormat21Choice.QuantityToQuantity))]
     [KnownType(typeof(RatioFormat21Choice.AmountToAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RatioFormat21Choice.QuantityToQuantity),nameof(RatioFormat21Choice.QuantityToQuantity))]
-    [JsonDerivedType(typeof(RatioFormat21Choice.AmountToAmount),nameof(RatioFormat21Choice.AmountToAmount))]
+    [JsonDerivedType(typeof(RatioFormat21Choice.QuantityToQuantity),"RatioFormat21Choice.QuantityToQuantity")]
+    [JsonDerivedType(typeof(RatioFormat21Choice.AmountToAmount),"RatioFormat21Choice.AmountToAmount")]
     #endif
     [IsoId("_ckBxt5KQEeWHWpTQn1FFVg")]
     [DisplayName("Ratio Format 21 Choice")]

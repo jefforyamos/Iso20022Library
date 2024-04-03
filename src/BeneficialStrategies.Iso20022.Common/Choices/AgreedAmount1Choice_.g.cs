@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AgreedAmount1Choice.AgreedAmountDetails))]
     [KnownType(typeof(AgreedAmount1Choice.SegregatedIndependentAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AgreedAmount1Choice.AgreedAmountDetails),nameof(AgreedAmount1Choice.AgreedAmountDetails))]
-    [JsonDerivedType(typeof(AgreedAmount1Choice.SegregatedIndependentAmount),nameof(AgreedAmount1Choice.SegregatedIndependentAmount))]
+    [JsonDerivedType(typeof(AgreedAmount1Choice.AgreedAmountDetails),"AgreedAmount1Choice.AgreedAmountDetails")]
+    [JsonDerivedType(typeof(AgreedAmount1Choice.SegregatedIndependentAmount),"AgreedAmount1Choice.SegregatedIndependentAmount")]
     #endif
     [IsoId("_Qm7bJdp-Ed-ak6NoX_4Aeg_926398968")]
     [DisplayName("Agreed Amount 1 Choice")]

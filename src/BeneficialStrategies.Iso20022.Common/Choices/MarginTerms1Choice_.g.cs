@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginTerms1Choice.MarginDetails))]
     [KnownType(typeof(MarginTerms1Choice.SegregatedIndependentAmountMargin))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarginTerms1Choice.MarginDetails),nameof(MarginTerms1Choice.MarginDetails))]
-    [JsonDerivedType(typeof(MarginTerms1Choice.SegregatedIndependentAmountMargin),nameof(MarginTerms1Choice.SegregatedIndependentAmountMargin))]
+    [JsonDerivedType(typeof(MarginTerms1Choice.MarginDetails),"MarginTerms1Choice.MarginDetails")]
+    [JsonDerivedType(typeof(MarginTerms1Choice.SegregatedIndependentAmountMargin),"MarginTerms1Choice.SegregatedIndependentAmountMargin")]
     #endif
     [IsoId("_QmogMtp-Ed-ak6NoX_4Aeg_86732419")]
     [DisplayName("Margin Terms 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GarnishmentType1Choice.Code))]
     [KnownType(typeof(GarnishmentType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GarnishmentType1Choice.Code),nameof(GarnishmentType1Choice.Code))]
-    [JsonDerivedType(typeof(GarnishmentType1Choice.Proprietary),nameof(GarnishmentType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(GarnishmentType1Choice.Code),"GarnishmentType1Choice.Code")]
+    [JsonDerivedType(typeof(GarnishmentType1Choice.Proprietary),"GarnishmentType1Choice.Proprietary")]
     #endif
     [IsoId("_k8MIkYnnEeOORMXOfBk1Bw")]
     [DisplayName("Garnishment Type 1 Choice")]

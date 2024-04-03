@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LinkedMessage1Choice.OtherReference))]
     [KnownType(typeof(LinkedMessage1Choice.RelatedReference))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LinkedMessage1Choice.PreviousReference),nameof(LinkedMessage1Choice.PreviousReference))]
-    [JsonDerivedType(typeof(LinkedMessage1Choice.OtherReference),nameof(LinkedMessage1Choice.OtherReference))]
-    [JsonDerivedType(typeof(LinkedMessage1Choice.RelatedReference),nameof(LinkedMessage1Choice.RelatedReference))]
+    [JsonDerivedType(typeof(LinkedMessage1Choice.PreviousReference),"LinkedMessage1Choice.PreviousReference")]
+    [JsonDerivedType(typeof(LinkedMessage1Choice.OtherReference),"LinkedMessage1Choice.OtherReference")]
+    [JsonDerivedType(typeof(LinkedMessage1Choice.RelatedReference),"LinkedMessage1Choice.RelatedReference")]
     #endif
     [IsoId("_7Q8FcQgJEeSFYfyUKDXKaw")]
     [DisplayName("Linked Message 1 Choice")]

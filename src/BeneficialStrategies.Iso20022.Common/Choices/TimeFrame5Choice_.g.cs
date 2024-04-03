@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame5Choice.TradePlus))]
     [KnownType(typeof(TimeFrame5Choice.Prepayment))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeFrame5Choice.TradePlus),nameof(TimeFrame5Choice.TradePlus))]
-    [JsonDerivedType(typeof(TimeFrame5Choice.Prepayment),nameof(TimeFrame5Choice.Prepayment))]
+    [JsonDerivedType(typeof(TimeFrame5Choice.TradePlus),"TimeFrame5Choice.TradePlus")]
+    [JsonDerivedType(typeof(TimeFrame5Choice.Prepayment),"TimeFrame5Choice.Prepayment")]
     #endif
     [IsoId("_UAew7Np-Ed-ak6NoX_4Aeg_1119548920")]
     [DisplayName("Time Frame 5 Choice")]

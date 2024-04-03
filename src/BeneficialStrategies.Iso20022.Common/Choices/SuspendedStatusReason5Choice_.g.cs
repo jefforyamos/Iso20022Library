@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SuspendedStatusReason5Choice.Code))]
     [KnownType(typeof(SuspendedStatusReason5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SuspendedStatusReason5Choice.Code),nameof(SuspendedStatusReason5Choice.Code))]
-    [JsonDerivedType(typeof(SuspendedStatusReason5Choice.Proprietary),nameof(SuspendedStatusReason5Choice.Proprietary))]
+    [JsonDerivedType(typeof(SuspendedStatusReason5Choice.Code),"SuspendedStatusReason5Choice.Code")]
+    [JsonDerivedType(typeof(SuspendedStatusReason5Choice.Proprietary),"SuspendedStatusReason5Choice.Proprietary")]
     #endif
     [IsoId("_ocV_UUHlEea8I67lh6qdSQ")]
     [DisplayName("Suspended Status Reason 5 Choice")]

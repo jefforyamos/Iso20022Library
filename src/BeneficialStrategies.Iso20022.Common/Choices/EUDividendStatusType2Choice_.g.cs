@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EUDividendStatusType2Choice.Code))]
     [KnownType(typeof(EUDividendStatusType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EUDividendStatusType2Choice.Code),nameof(EUDividendStatusType2Choice.Code))]
-    [JsonDerivedType(typeof(EUDividendStatusType2Choice.Proprietary),nameof(EUDividendStatusType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(EUDividendStatusType2Choice.Code),"EUDividendStatusType2Choice.Code")]
+    [JsonDerivedType(typeof(EUDividendStatusType2Choice.Proprietary),"EUDividendStatusType2Choice.Proprietary")]
     #endif
     [IsoId("_PfdboTh8EeaH-93K5JKmzw")]
     [DisplayName("EU Dividend Status Type 2 Choice")]

@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification36Choice.Index))]
     [KnownType(typeof(SecurityIdentification36Choice.IdentificationNotAvailable))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.ISIN),nameof(SecurityIdentification36Choice.ISIN))]
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.AlternativeInstrumentIdentification),nameof(SecurityIdentification36Choice.AlternativeInstrumentIdentification))]
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.UniqueProductIdentifier),nameof(SecurityIdentification36Choice.UniqueProductIdentifier))]
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.Basket),nameof(SecurityIdentification36Choice.Basket))]
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.Index),nameof(SecurityIdentification36Choice.Index))]
-    [JsonDerivedType(typeof(SecurityIdentification36Choice.IdentificationNotAvailable),nameof(SecurityIdentification36Choice.IdentificationNotAvailable))]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.ISIN),"SecurityIdentification36Choice.ISIN")]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.AlternativeInstrumentIdentification),"SecurityIdentification36Choice.AlternativeInstrumentIdentification")]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.UniqueProductIdentifier),"SecurityIdentification36Choice.UniqueProductIdentifier")]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.Basket),"SecurityIdentification36Choice.Basket")]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.Index),"SecurityIdentification36Choice.Index")]
+    [JsonDerivedType(typeof(SecurityIdentification36Choice.IdentificationNotAvailable),"SecurityIdentification36Choice.IdentificationNotAvailable")]
     #endif
     [IsoId("_PNQi0YrpEeq91phomTRDDA")]
     [DisplayName("Security Identification 36 Choice")]

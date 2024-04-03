@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CardPaymentDataSetTransaction10Choice.TokenRequest))]
     [KnownType(typeof(CardPaymentDataSetTransaction10Choice.TokenResponse))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Completion),nameof(CardPaymentDataSetTransaction10Choice.Completion))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Cancellation),nameof(CardPaymentDataSetTransaction10Choice.Cancellation))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationRequest),nameof(CardPaymentDataSetTransaction10Choice.AuthorisationRequest))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse),nameof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenRequest),nameof(CardPaymentDataSetTransaction10Choice.TokenRequest))]
-    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenResponse),nameof(CardPaymentDataSetTransaction10Choice.TokenResponse))]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Completion),"CardPaymentDataSetTransaction10Choice.Completion")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.Cancellation),"CardPaymentDataSetTransaction10Choice.Cancellation")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationRequest),"CardPaymentDataSetTransaction10Choice.AuthorisationRequest")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.AuthorisationResponse),"CardPaymentDataSetTransaction10Choice.AuthorisationResponse")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenRequest),"CardPaymentDataSetTransaction10Choice.TokenRequest")]
+    [JsonDerivedType(typeof(CardPaymentDataSetTransaction10Choice.TokenResponse),"CardPaymentDataSetTransaction10Choice.TokenResponse")]
     #endif
     [IsoId("_bZ5hIU0ZEeybj420QgWBkA")]
     [DisplayName("Card Payment Data Set Transaction 10 Choice")]

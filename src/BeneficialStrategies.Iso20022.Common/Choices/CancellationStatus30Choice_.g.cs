@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationStatus30Choice.Rejected))]
     [KnownType(typeof(CancellationStatus30Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationStatus30Choice.Cancelled),nameof(CancellationStatus30Choice.Cancelled))]
-    [JsonDerivedType(typeof(CancellationStatus30Choice.Processed),nameof(CancellationStatus30Choice.Processed))]
-    [JsonDerivedType(typeof(CancellationStatus30Choice.Pending),nameof(CancellationStatus30Choice.Pending))]
-    [JsonDerivedType(typeof(CancellationStatus30Choice.Rejected),nameof(CancellationStatus30Choice.Rejected))]
-    [JsonDerivedType(typeof(CancellationStatus30Choice.Proprietary),nameof(CancellationStatus30Choice.Proprietary))]
+    [JsonDerivedType(typeof(CancellationStatus30Choice.Cancelled),"CancellationStatus30Choice.Cancelled")]
+    [JsonDerivedType(typeof(CancellationStatus30Choice.Processed),"CancellationStatus30Choice.Processed")]
+    [JsonDerivedType(typeof(CancellationStatus30Choice.Pending),"CancellationStatus30Choice.Pending")]
+    [JsonDerivedType(typeof(CancellationStatus30Choice.Rejected),"CancellationStatus30Choice.Rejected")]
+    [JsonDerivedType(typeof(CancellationStatus30Choice.Proprietary),"CancellationStatus30Choice.Proprietary")]
     #endif
     [IsoId("_TpwpcRIwEeydmIVkS03esw")]
     [DisplayName("Cancellation Status 30 Choice")]

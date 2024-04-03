@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ParticipationMethod1Choice.Code))]
     [KnownType(typeof(ParticipationMethod1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ParticipationMethod1Choice.Code),nameof(ParticipationMethod1Choice.Code))]
-    [JsonDerivedType(typeof(ParticipationMethod1Choice.Proprietary),nameof(ParticipationMethod1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ParticipationMethod1Choice.Code),"ParticipationMethod1Choice.Code")]
+    [JsonDerivedType(typeof(ParticipationMethod1Choice.Proprietary),"ParticipationMethod1Choice.Proprietary")]
     #endif
     [IsoId("_X1CUoK31EemG7MmivSuE5g")]
     [DisplayName("Participation Method 1 Choice")]

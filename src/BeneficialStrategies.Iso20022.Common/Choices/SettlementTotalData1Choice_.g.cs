@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementTotalData1Choice.DataSetAction))]
     [KnownType(typeof(SettlementTotalData1Choice.Data))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementTotalData1Choice.DataSetAction),nameof(SettlementTotalData1Choice.DataSetAction))]
-    [JsonDerivedType(typeof(SettlementTotalData1Choice.Data),nameof(SettlementTotalData1Choice.Data))]
+    [JsonDerivedType(typeof(SettlementTotalData1Choice.DataSetAction),"SettlementTotalData1Choice.DataSetAction")]
+    [JsonDerivedType(typeof(SettlementTotalData1Choice.Data),"SettlementTotalData1Choice.Data")]
     #endif
     [IsoId("_allUdx2lEeqF2P5v-Rtejg")]
     [DisplayName("Settlement Total Data 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionEventType36Choice.Code))]
     [KnownType(typeof(CorporateActionEventType36Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionEventType36Choice.Code),nameof(CorporateActionEventType36Choice.Code))]
-    [JsonDerivedType(typeof(CorporateActionEventType36Choice.Proprietary),nameof(CorporateActionEventType36Choice.Proprietary))]
+    [JsonDerivedType(typeof(CorporateActionEventType36Choice.Code),"CorporateActionEventType36Choice.Code")]
+    [JsonDerivedType(typeof(CorporateActionEventType36Choice.Proprietary),"CorporateActionEventType36Choice.Proprietary")]
     #endif
     [IsoId("_cel30ZKQEeWHWpTQn1FFVg")]
     [DisplayName("Corporate Action Event Type 36 Choice")]

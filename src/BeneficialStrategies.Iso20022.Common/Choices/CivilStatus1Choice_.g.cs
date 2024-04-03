@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CivilStatus1Choice.Code))]
     [KnownType(typeof(CivilStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CivilStatus1Choice.Code),nameof(CivilStatus1Choice.Code))]
-    [JsonDerivedType(typeof(CivilStatus1Choice.Proprietary),nameof(CivilStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CivilStatus1Choice.Code),"CivilStatus1Choice.Code")]
+    [JsonDerivedType(typeof(CivilStatus1Choice.Proprietary),"CivilStatus1Choice.Proprietary")]
     #endif
     [IsoId("_zKj4MCCgEeWJd9HF2tO7BA")]
     [DisplayName("Civil Status 1 Choice")]

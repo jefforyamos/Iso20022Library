@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentScheduleType1Choice.Code))]
     [KnownType(typeof(PaymentScheduleType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentScheduleType1Choice.Code),nameof(PaymentScheduleType1Choice.Code))]
-    [JsonDerivedType(typeof(PaymentScheduleType1Choice.Proprietary),nameof(PaymentScheduleType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(PaymentScheduleType1Choice.Code),"PaymentScheduleType1Choice.Code")]
+    [JsonDerivedType(typeof(PaymentScheduleType1Choice.Proprietary),"PaymentScheduleType1Choice.Proprietary")]
     #endif
     [IsoId("_1ggIwAqPEeWqX7rjSIiMuQ")]
     [DisplayName("Payment Schedule Type 1 Choice")]

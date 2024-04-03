@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReservationCriteria3Choice.QueryName))]
     [KnownType(typeof(ReservationCriteria3Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReservationCriteria3Choice.QueryName),nameof(ReservationCriteria3Choice.QueryName))]
-    [JsonDerivedType(typeof(ReservationCriteria3Choice.NewCriteria),nameof(ReservationCriteria3Choice.NewCriteria))]
+    [JsonDerivedType(typeof(ReservationCriteria3Choice.QueryName),"ReservationCriteria3Choice.QueryName")]
+    [JsonDerivedType(typeof(ReservationCriteria3Choice.NewCriteria),"ReservationCriteria3Choice.NewCriteria")]
     #endif
     [IsoId("_D2D0B24-EeiU9cctagi5ow")]
     [DisplayName("Reservation Criteria 3 Choice")]

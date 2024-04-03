@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrancheIndicator2Choice.Tranched))]
     [KnownType(typeof(TrancheIndicator2Choice.Untranched))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TrancheIndicator2Choice.Tranched),nameof(TrancheIndicator2Choice.Tranched))]
-    [JsonDerivedType(typeof(TrancheIndicator2Choice.Untranched),nameof(TrancheIndicator2Choice.Untranched))]
+    [JsonDerivedType(typeof(TrancheIndicator2Choice.Tranched),"TrancheIndicator2Choice.Tranched")]
+    [JsonDerivedType(typeof(TrancheIndicator2Choice.Untranched),"TrancheIndicator2Choice.Untranched")]
     #endif
     [IsoId("_5tB9YbyOEeaUov4jN5X9Qw")]
     [DisplayName("Tranche Indicator 2 Choice")]

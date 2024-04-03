@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderOrError8Choice.StandingOrder))]
     [KnownType(typeof(StandingOrderOrError8Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StandingOrderOrError8Choice.StandingOrder),nameof(StandingOrderOrError8Choice.StandingOrder))]
-    [JsonDerivedType(typeof(StandingOrderOrError8Choice.BusinessError),nameof(StandingOrderOrError8Choice.BusinessError))]
+    [JsonDerivedType(typeof(StandingOrderOrError8Choice.StandingOrder),"StandingOrderOrError8Choice.StandingOrder")]
+    [JsonDerivedType(typeof(StandingOrderOrError8Choice.BusinessError),"StandingOrderOrError8Choice.BusinessError")]
     #endif
     [IsoId("_eb5ypdcZEeqRFcf2R4bPBw")]
     [DisplayName("Standing Order Or Error 8 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PortfolioTransferStatus1Choice.Code))]
     [KnownType(typeof(PortfolioTransferStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PortfolioTransferStatus1Choice.Code),nameof(PortfolioTransferStatus1Choice.Code))]
-    [JsonDerivedType(typeof(PortfolioTransferStatus1Choice.Proprietary),nameof(PortfolioTransferStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(PortfolioTransferStatus1Choice.Code),"PortfolioTransferStatus1Choice.Code")]
+    [JsonDerivedType(typeof(PortfolioTransferStatus1Choice.Proprietary),"PortfolioTransferStatus1Choice.Proprietary")]
     #endif
     [IsoId("_A91Owa3EEeeBVbuVcoH9Nw")]
     [DisplayName("Portfolio Transfer Status 1 Choice")]

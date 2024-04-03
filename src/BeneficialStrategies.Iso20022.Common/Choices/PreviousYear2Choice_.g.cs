@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PreviousYear2Choice.AllPreviousYears))]
     [KnownType(typeof(PreviousYear2Choice.SpecificPreviousYears))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PreviousYear2Choice.AllPreviousYears),nameof(PreviousYear2Choice.AllPreviousYears))]
-    [JsonDerivedType(typeof(PreviousYear2Choice.SpecificPreviousYears),nameof(PreviousYear2Choice.SpecificPreviousYears))]
+    [JsonDerivedType(typeof(PreviousYear2Choice.AllPreviousYears),"PreviousYear2Choice.AllPreviousYears")]
+    [JsonDerivedType(typeof(PreviousYear2Choice.SpecificPreviousYears),"PreviousYear2Choice.SpecificPreviousYears")]
     #endif
     [IsoId("_dNZ_cbNBEeex65jrLOfSTw")]
     [DisplayName("Previous Year 2 Choice")]

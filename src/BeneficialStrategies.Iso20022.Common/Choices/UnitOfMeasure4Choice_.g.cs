@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitOfMeasure4Choice.Code))]
     [KnownType(typeof(UnitOfMeasure4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnitOfMeasure4Choice.Code),nameof(UnitOfMeasure4Choice.Code))]
-    [JsonDerivedType(typeof(UnitOfMeasure4Choice.Proprietary),nameof(UnitOfMeasure4Choice.Proprietary))]
+    [JsonDerivedType(typeof(UnitOfMeasure4Choice.Code),"UnitOfMeasure4Choice.Code")]
+    [JsonDerivedType(typeof(UnitOfMeasure4Choice.Proprietary),"UnitOfMeasure4Choice.Proprietary")]
     #endif
     [IsoId("_eda0K-LaEeWFtOV72FbX9w")]
     [DisplayName("Unit Of Measure 4 Choice")]

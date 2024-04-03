@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReversedStatus2Choice.DataSourceScheme))]
     [KnownType(typeof(ReversedStatus2Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReversedStatus2Choice.Reason),nameof(ReversedStatus2Choice.Reason))]
-    [JsonDerivedType(typeof(ReversedStatus2Choice.DataSourceScheme),nameof(ReversedStatus2Choice.DataSourceScheme))]
-    [JsonDerivedType(typeof(ReversedStatus2Choice.NoSpecifiedReason),nameof(ReversedStatus2Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(ReversedStatus2Choice.Reason),"ReversedStatus2Choice.Reason")]
+    [JsonDerivedType(typeof(ReversedStatus2Choice.DataSourceScheme),"ReversedStatus2Choice.DataSourceScheme")]
+    [JsonDerivedType(typeof(ReversedStatus2Choice.NoSpecifiedReason),"ReversedStatus2Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_a4QdwSY5EeW_ZNn8gbfY7Q")]
     [DisplayName("Reversed Status 2 Choice")]

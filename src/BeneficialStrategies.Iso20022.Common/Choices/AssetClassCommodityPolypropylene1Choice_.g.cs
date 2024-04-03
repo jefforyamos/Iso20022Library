@@ -21,7 +21,7 @@ namespace BeneficialStrategies.Iso20022.Choices
     /// </summary>
     [KnownType(typeof(AssetClassCommodityPolypropylene1Choice.Plastic))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityPolypropylene1Choice.Plastic),nameof(AssetClassCommodityPolypropylene1Choice.Plastic))]
+    [JsonDerivedType(typeof(AssetClassCommodityPolypropylene1Choice.Plastic),"AssetClassCommodityPolypropylene1Choice.Plastic")]
     #endif
     [IsoId("_tIe6UGs5EeW9oI9ZdgWHPQ")]
     [DisplayName("Asset Class Commodity Polypropylene 1 Choice")]

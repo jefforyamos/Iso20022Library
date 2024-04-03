@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Code))]
     [KnownType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Code),nameof(RenounceableEntitlementStatusTypeFormat4Choice.Code))]
-    [JsonDerivedType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Proprietary),nameof(RenounceableEntitlementStatusTypeFormat4Choice.Proprietary))]
+    [JsonDerivedType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Code),"RenounceableEntitlementStatusTypeFormat4Choice.Code")]
+    [JsonDerivedType(typeof(RenounceableEntitlementStatusTypeFormat4Choice.Proprietary),"RenounceableEntitlementStatusTypeFormat4Choice.Proprietary")]
     #endif
     [IsoId("_c5Lh45KQEeWHWpTQn1FFVg")]
     [DisplayName("Renounceable Entitlement Status Type Format 4 Choice")]

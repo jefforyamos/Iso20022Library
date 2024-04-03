@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsentOrRejectionReason5Choice.Code))]
     [KnownType(typeof(ConsentOrRejectionReason5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConsentOrRejectionReason5Choice.Code),nameof(ConsentOrRejectionReason5Choice.Code))]
-    [JsonDerivedType(typeof(ConsentOrRejectionReason5Choice.Proprietary),nameof(ConsentOrRejectionReason5Choice.Proprietary))]
+    [JsonDerivedType(typeof(ConsentOrRejectionReason5Choice.Code),"ConsentOrRejectionReason5Choice.Code")]
+    [JsonDerivedType(typeof(ConsentOrRejectionReason5Choice.Proprietary),"ConsentOrRejectionReason5Choice.Proprietary")]
     #endif
     [IsoId("_Vl2wTZNSEeWGlc8L7oPDIg")]
     [DisplayName("Consent Or Rejection Reason 5 Choice")]

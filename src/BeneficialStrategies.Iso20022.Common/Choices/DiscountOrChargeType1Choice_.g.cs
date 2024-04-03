@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DiscountOrChargeType1Choice.ChargeType))]
     [KnownType(typeof(DiscountOrChargeType1Choice.DiscountType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DiscountOrChargeType1Choice.ChargeType),nameof(DiscountOrChargeType1Choice.ChargeType))]
-    [JsonDerivedType(typeof(DiscountOrChargeType1Choice.DiscountType),nameof(DiscountOrChargeType1Choice.DiscountType))]
+    [JsonDerivedType(typeof(DiscountOrChargeType1Choice.ChargeType),"DiscountOrChargeType1Choice.ChargeType")]
+    [JsonDerivedType(typeof(DiscountOrChargeType1Choice.DiscountType),"DiscountOrChargeType1Choice.DiscountType")]
     #endif
     [IsoId("_St2yMAEcEeCQm6a_G2yO_w_-1902647807")]
     [DisplayName("Discount Or Charge Type 1 Choice")]

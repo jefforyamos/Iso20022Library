@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OvernightIndexSwap4Choice.DataSetAction))]
     [KnownType(typeof(OvernightIndexSwap4Choice.Transaction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OvernightIndexSwap4Choice.DataSetAction),nameof(OvernightIndexSwap4Choice.DataSetAction))]
-    [JsonDerivedType(typeof(OvernightIndexSwap4Choice.Transaction),nameof(OvernightIndexSwap4Choice.Transaction))]
+    [JsonDerivedType(typeof(OvernightIndexSwap4Choice.DataSetAction),"OvernightIndexSwap4Choice.DataSetAction")]
+    [JsonDerivedType(typeof(OvernightIndexSwap4Choice.Transaction),"OvernightIndexSwap4Choice.Transaction")]
     #endif
     [IsoId("_GsPnd8EREea7jLfvGi1PDw")]
     [DisplayName("Overnight Index Swap 4 Choice")]

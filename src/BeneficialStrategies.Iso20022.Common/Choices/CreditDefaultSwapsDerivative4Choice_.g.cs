@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative))]
     [KnownType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap),nameof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap))]
-    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex),nameof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex))]
-    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative),nameof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative))]
-    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative),nameof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative))]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap),"CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwap")]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex),"CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndex")]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative),"CreditDefaultSwapsDerivative4Choice.SingleNameCreditDefaultSwapDerivative")]
+    [JsonDerivedType(typeof(CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative),"CreditDefaultSwapsDerivative4Choice.CreditDefaultSwapIndexDerivative")]
     #endif
     [IsoId("_xH_acSe0Eei12pGEsJIAeQ")]
     [DisplayName("Credit Default Swaps Derivative 4 Choice")]

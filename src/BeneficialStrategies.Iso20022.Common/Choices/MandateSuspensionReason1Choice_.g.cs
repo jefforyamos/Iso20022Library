@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateSuspensionReason1Choice.Code))]
     [KnownType(typeof(MandateSuspensionReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MandateSuspensionReason1Choice.Code),nameof(MandateSuspensionReason1Choice.Code))]
-    [JsonDerivedType(typeof(MandateSuspensionReason1Choice.Proprietary),nameof(MandateSuspensionReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MandateSuspensionReason1Choice.Code),"MandateSuspensionReason1Choice.Code")]
+    [JsonDerivedType(typeof(MandateSuspensionReason1Choice.Proprietary),"MandateSuspensionReason1Choice.Proprietary")]
     #endif
     [IsoId("_gW_7w4PDEeahmOIR_zFG6A")]
     [DisplayName("Mandate Suspension Reason 1 Choice")]

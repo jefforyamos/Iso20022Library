@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Recipient5Choice.IssuerAndSerialNumber))]
     [KnownType(typeof(Recipient5Choice.KeyIdentifier))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Recipient5Choice.IssuerAndSerialNumber),nameof(Recipient5Choice.IssuerAndSerialNumber))]
-    [JsonDerivedType(typeof(Recipient5Choice.KeyIdentifier),nameof(Recipient5Choice.KeyIdentifier))]
+    [JsonDerivedType(typeof(Recipient5Choice.IssuerAndSerialNumber),"Recipient5Choice.IssuerAndSerialNumber")]
+    [JsonDerivedType(typeof(Recipient5Choice.KeyIdentifier),"Recipient5Choice.KeyIdentifier")]
     #endif
     [IsoId("_0DRU0Wi0EeS87LmvcA55sg")]
     [DisplayName("Recipient 5 Choice")]

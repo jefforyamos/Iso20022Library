@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity30Choice.NominalValue))]
     [KnownType(typeof(FinancialInstrumentQuantity30Choice.MonetaryValue))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.Unit),nameof(FinancialInstrumentQuantity30Choice.Unit))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.NominalValue),nameof(FinancialInstrumentQuantity30Choice.NominalValue))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.MonetaryValue),nameof(FinancialInstrumentQuantity30Choice.MonetaryValue))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.Unit),"FinancialInstrumentQuantity30Choice.Unit")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.NominalValue),"FinancialInstrumentQuantity30Choice.NominalValue")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity30Choice.MonetaryValue),"FinancialInstrumentQuantity30Choice.MonetaryValue")]
     #endif
     [IsoId("_zI00Mf9jEea3W_f2lS_aiw")]
     [DisplayName("Financial Instrument Quantity 30 Choice")]

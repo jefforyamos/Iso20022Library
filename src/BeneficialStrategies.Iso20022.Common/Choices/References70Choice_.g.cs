@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References70Choice.ClientCollateralInstructionIdentification))]
     [KnownType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References70Choice.ClientCollateralInstructionIdentification),nameof(References70Choice.ClientCollateralInstructionIdentification))]
-    [JsonDerivedType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification),nameof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification))]
+    [JsonDerivedType(typeof(References70Choice.ClientCollateralInstructionIdentification),"References70Choice.ClientCollateralInstructionIdentification")]
+    [JsonDerivedType(typeof(References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification),"References70Choice.TripartyAgentServiceProviderCollateralInstructionIdentification")]
     #endif
     [IsoId("_21pbMFSLEemTt7251YwCKw")]
     [DisplayName("References 70 Choice")]

@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentIdentification7Choice.ShortBusinessIdentification))]
     [KnownType(typeof(PaymentIdentification7Choice.ProprietaryIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.TransactionIdentification),nameof(PaymentIdentification7Choice.TransactionIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.UETR),nameof(PaymentIdentification7Choice.UETR))]
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.QueueIdentification),nameof(PaymentIdentification7Choice.QueueIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.LongBusinessIdentification),nameof(PaymentIdentification7Choice.LongBusinessIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.ShortBusinessIdentification),nameof(PaymentIdentification7Choice.ShortBusinessIdentification))]
-    [JsonDerivedType(typeof(PaymentIdentification7Choice.ProprietaryIdentification),nameof(PaymentIdentification7Choice.ProprietaryIdentification))]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.TransactionIdentification),"PaymentIdentification7Choice.TransactionIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.UETR),"PaymentIdentification7Choice.UETR")]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.QueueIdentification),"PaymentIdentification7Choice.QueueIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.LongBusinessIdentification),"PaymentIdentification7Choice.LongBusinessIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.ShortBusinessIdentification),"PaymentIdentification7Choice.ShortBusinessIdentification")]
+    [JsonDerivedType(typeof(PaymentIdentification7Choice.ProprietaryIdentification),"PaymentIdentification7Choice.ProprietaryIdentification")]
     #endif
     [IsoId("_5F42wAKxEe2rHs6fbn9-0A")]
     [DisplayName("Payment Identification 7 Choice")]

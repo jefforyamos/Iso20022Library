@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SolicitationFeeRateFormat10Choice.Amount))]
     [KnownType(typeof(SolicitationFeeRateFormat10Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.Rate),nameof(SolicitationFeeRateFormat10Choice.Rate))]
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.AmountToQuantity),nameof(SolicitationFeeRateFormat10Choice.AmountToQuantity))]
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.Amount),nameof(SolicitationFeeRateFormat10Choice.Amount))]
-    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.NotSpecifiedRate),nameof(SolicitationFeeRateFormat10Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.Rate),"SolicitationFeeRateFormat10Choice.Rate")]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.AmountToQuantity),"SolicitationFeeRateFormat10Choice.AmountToQuantity")]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.Amount),"SolicitationFeeRateFormat10Choice.Amount")]
+    [JsonDerivedType(typeof(SolicitationFeeRateFormat10Choice.NotSpecifiedRate),"SolicitationFeeRateFormat10Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_ctoZN5KQEeWHWpTQn1FFVg")]
     [DisplayName("Solicitation Fee Rate Format 10 Choice")]

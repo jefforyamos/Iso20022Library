@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnderlyingContract3Choice.Loan))]
     [KnownType(typeof(UnderlyingContract3Choice.Trade))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnderlyingContract3Choice.Loan),nameof(UnderlyingContract3Choice.Loan))]
-    [JsonDerivedType(typeof(UnderlyingContract3Choice.Trade),nameof(UnderlyingContract3Choice.Trade))]
+    [JsonDerivedType(typeof(UnderlyingContract3Choice.Loan),"UnderlyingContract3Choice.Loan")]
+    [JsonDerivedType(typeof(UnderlyingContract3Choice.Trade),"UnderlyingContract3Choice.Trade")]
     #endif
     [IsoId("_0NEsUbGIEeuSTr8k0UEM8A")]
     [DisplayName("Underlying Contract 3 Choice")]

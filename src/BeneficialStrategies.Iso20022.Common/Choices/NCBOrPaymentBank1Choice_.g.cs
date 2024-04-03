@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NCBOrPaymentBank1Choice.NCBIdentification))]
     [KnownType(typeof(NCBOrPaymentBank1Choice.PaymentBankIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NCBOrPaymentBank1Choice.NCBIdentification),nameof(NCBOrPaymentBank1Choice.NCBIdentification))]
-    [JsonDerivedType(typeof(NCBOrPaymentBank1Choice.PaymentBankIdentification),nameof(NCBOrPaymentBank1Choice.PaymentBankIdentification))]
+    [JsonDerivedType(typeof(NCBOrPaymentBank1Choice.NCBIdentification),"NCBOrPaymentBank1Choice.NCBIdentification")]
+    [JsonDerivedType(typeof(NCBOrPaymentBank1Choice.PaymentBankIdentification),"NCBOrPaymentBank1Choice.PaymentBankIdentification")]
     #endif
     [IsoId("_jAtUBO5NEeCisYr99QEiWA_-1552282383")]
     [DisplayName("NCB Or Payment Bank 1 Choice")]

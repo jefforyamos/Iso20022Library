@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeliveryReturn4Choice.Code))]
     [KnownType(typeof(DeliveryReturn4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeliveryReturn4Choice.Code),nameof(DeliveryReturn4Choice.Code))]
-    [JsonDerivedType(typeof(DeliveryReturn4Choice.Proprietary),nameof(DeliveryReturn4Choice.Proprietary))]
+    [JsonDerivedType(typeof(DeliveryReturn4Choice.Code),"DeliveryReturn4Choice.Code")]
+    [JsonDerivedType(typeof(DeliveryReturn4Choice.Proprietary),"DeliveryReturn4Choice.Proprietary")]
     #endif
     [IsoId("_6dqqNZNLEeWGlc8L7oPDIg")]
     [DisplayName("Delivery Return 4 Choice")]

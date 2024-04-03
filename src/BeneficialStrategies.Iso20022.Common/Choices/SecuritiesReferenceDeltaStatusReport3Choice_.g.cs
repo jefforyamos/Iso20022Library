@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.NewRecord))]
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.TerminatedRecord))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.ModifiedRecord),nameof(SecuritiesReferenceDeltaStatusReport3Choice.ModifiedRecord))]
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.NewRecord),nameof(SecuritiesReferenceDeltaStatusReport3Choice.NewRecord))]
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.TerminatedRecord),nameof(SecuritiesReferenceDeltaStatusReport3Choice.TerminatedRecord))]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.ModifiedRecord),"SecuritiesReferenceDeltaStatusReport3Choice.ModifiedRecord")]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.NewRecord),"SecuritiesReferenceDeltaStatusReport3Choice.NewRecord")]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport3Choice.TerminatedRecord),"SecuritiesReferenceDeltaStatusReport3Choice.TerminatedRecord")]
     #endif
     [IsoId("_PXSKkSdoEei12pGEsJIAeQ")]
     [DisplayName("Securities Reference Delta Status Report 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DistributionTypeFormat7Choice.Code))]
     [KnownType(typeof(DistributionTypeFormat7Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DistributionTypeFormat7Choice.Code),nameof(DistributionTypeFormat7Choice.Code))]
-    [JsonDerivedType(typeof(DistributionTypeFormat7Choice.Proprietary),nameof(DistributionTypeFormat7Choice.Proprietary))]
+    [JsonDerivedType(typeof(DistributionTypeFormat7Choice.Code),"DistributionTypeFormat7Choice.Code")]
+    [JsonDerivedType(typeof(DistributionTypeFormat7Choice.Proprietary),"DistributionTypeFormat7Choice.Proprietary")]
     #endif
     [IsoId("_4kYtQUEFEeWVgfuHGaKtRQ")]
     [DisplayName("Distribution Type Format 7 Choice")]

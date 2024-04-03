@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketIdentification1Choice.MarketIdentifierCode))]
     [KnownType(typeof(MarketIdentification1Choice.Description))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarketIdentification1Choice.MarketIdentifierCode),nameof(MarketIdentification1Choice.MarketIdentifierCode))]
-    [JsonDerivedType(typeof(MarketIdentification1Choice.Description),nameof(MarketIdentification1Choice.Description))]
+    [JsonDerivedType(typeof(MarketIdentification1Choice.MarketIdentifierCode),"MarketIdentification1Choice.MarketIdentifierCode")]
+    [JsonDerivedType(typeof(MarketIdentification1Choice.Description),"MarketIdentification1Choice.Description")]
     #endif
     [IsoId("_Rctzptp-Ed-ak6NoX_4Aeg_-309699993")]
     [DisplayName("Market Identification 1 Choice")]

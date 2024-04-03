@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorrectiveTransaction3Choice.Initiation))]
     [KnownType(typeof(CorrectiveTransaction3Choice.Interbank))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorrectiveTransaction3Choice.Initiation),nameof(CorrectiveTransaction3Choice.Initiation))]
-    [JsonDerivedType(typeof(CorrectiveTransaction3Choice.Interbank),nameof(CorrectiveTransaction3Choice.Interbank))]
+    [JsonDerivedType(typeof(CorrectiveTransaction3Choice.Initiation),"CorrectiveTransaction3Choice.Initiation")]
+    [JsonDerivedType(typeof(CorrectiveTransaction3Choice.Interbank),"CorrectiveTransaction3Choice.Interbank")]
     #endif
     [IsoId("_88-Vca6UEeexrtTFgmVD3Q")]
     [DisplayName("Corrective Transaction 3 Choice")]

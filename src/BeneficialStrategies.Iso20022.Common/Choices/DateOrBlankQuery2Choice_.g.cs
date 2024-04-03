@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateOrBlankQuery2Choice.Range))]
     [KnownType(typeof(DateOrBlankQuery2Choice.NotReported))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateOrBlankQuery2Choice.Range),nameof(DateOrBlankQuery2Choice.Range))]
-    [JsonDerivedType(typeof(DateOrBlankQuery2Choice.NotReported),nameof(DateOrBlankQuery2Choice.NotReported))]
+    [JsonDerivedType(typeof(DateOrBlankQuery2Choice.Range),"DateOrBlankQuery2Choice.Range")]
+    [JsonDerivedType(typeof(DateOrBlankQuery2Choice.NotReported),"DateOrBlankQuery2Choice.NotReported")]
     #endif
     [IsoId("_cc1HsdGgEeaQk737TH1Fzw")]
     [DisplayName("Date Or Blank Query 2 Choice")]

@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity22Choice.AmortisedValue))]
     [KnownType(typeof(FinancialInstrumentQuantity22Choice.Code))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.Unit),nameof(FinancialInstrumentQuantity22Choice.Unit))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.FaceAmount),nameof(FinancialInstrumentQuantity22Choice.FaceAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.AmortisedValue),nameof(FinancialInstrumentQuantity22Choice.AmortisedValue))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.Code),nameof(FinancialInstrumentQuantity22Choice.Code))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.Unit),"FinancialInstrumentQuantity22Choice.Unit")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.FaceAmount),"FinancialInstrumentQuantity22Choice.FaceAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.AmortisedValue),"FinancialInstrumentQuantity22Choice.AmortisedValue")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity22Choice.Code),"FinancialInstrumentQuantity22Choice.Code")]
     #endif
     [IsoId("_N-fhSQU-EeGZxNLgzisRtw")]
     [DisplayName("Financial Instrument Quantity 22 Choice")]

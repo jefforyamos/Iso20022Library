@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneralInvestmentAccountType1Choice.Code))]
     [KnownType(typeof(GeneralInvestmentAccountType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GeneralInvestmentAccountType1Choice.Code),nameof(GeneralInvestmentAccountType1Choice.Code))]
-    [JsonDerivedType(typeof(GeneralInvestmentAccountType1Choice.Proprietary),nameof(GeneralInvestmentAccountType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(GeneralInvestmentAccountType1Choice.Code),"GeneralInvestmentAccountType1Choice.Code")]
+    [JsonDerivedType(typeof(GeneralInvestmentAccountType1Choice.Proprietary),"GeneralInvestmentAccountType1Choice.Proprietary")]
     #endif
     [IsoId("_b9WV8F2cEeiFXdiLi_Nf4A")]
     [DisplayName("General Investment Account Type 1 Choice")]

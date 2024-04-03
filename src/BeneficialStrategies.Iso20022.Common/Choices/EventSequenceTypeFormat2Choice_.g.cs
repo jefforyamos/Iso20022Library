@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EventSequenceTypeFormat2Choice.Code))]
     [KnownType(typeof(EventSequenceTypeFormat2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EventSequenceTypeFormat2Choice.Code),nameof(EventSequenceTypeFormat2Choice.Code))]
-    [JsonDerivedType(typeof(EventSequenceTypeFormat2Choice.Proprietary),nameof(EventSequenceTypeFormat2Choice.Proprietary))]
+    [JsonDerivedType(typeof(EventSequenceTypeFormat2Choice.Code),"EventSequenceTypeFormat2Choice.Code")]
+    [JsonDerivedType(typeof(EventSequenceTypeFormat2Choice.Proprietary),"EventSequenceTypeFormat2Choice.Proprietary")]
     #endif
     [IsoId("_5yK74fyVEeiKOe8GCUL1Lg")]
     [DisplayName("Event Sequence Type Format 2 Choice")]

@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityFertilizer1Choice.Urea))]
     [KnownType(typeof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Ammonia),nameof(AssetClassCommodityFertilizer1Choice.Ammonia))]
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate),nameof(AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate))]
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Potash),nameof(AssetClassCommodityFertilizer1Choice.Potash))]
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Sulphur),nameof(AssetClassCommodityFertilizer1Choice.Sulphur))]
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Urea),nameof(AssetClassCommodityFertilizer1Choice.Urea))]
-    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate),nameof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate))]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Ammonia),"AssetClassCommodityFertilizer1Choice.Ammonia")]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate),"AssetClassCommodityFertilizer1Choice.DiammoniumPhosphate")]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Potash),"AssetClassCommodityFertilizer1Choice.Potash")]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Sulphur),"AssetClassCommodityFertilizer1Choice.Sulphur")]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.Urea),"AssetClassCommodityFertilizer1Choice.Urea")]
+    [JsonDerivedType(typeof(AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate),"AssetClassCommodityFertilizer1Choice.UreaAndAmmoniumNitrate")]
     #endif
     [IsoId("_J_XoMFr2EeWN79Bl6BUd3g")]
     [DisplayName("Asset Class Commodity Fertilizer 1 Choice")]

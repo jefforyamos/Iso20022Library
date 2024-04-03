@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateFormat42Choice.YearMonth))]
     [KnownType(typeof(DateFormat42Choice.YearMonthDay))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateFormat42Choice.YearMonth),nameof(DateFormat42Choice.YearMonth))]
-    [JsonDerivedType(typeof(DateFormat42Choice.YearMonthDay),nameof(DateFormat42Choice.YearMonthDay))]
+    [JsonDerivedType(typeof(DateFormat42Choice.YearMonth),"DateFormat42Choice.YearMonth")]
+    [JsonDerivedType(typeof(DateFormat42Choice.YearMonthDay),"DateFormat42Choice.YearMonthDay")]
     #endif
     [IsoId("_rQn0cJBrEeaGiLsfv6g8MA")]
     [DisplayName("Date Format 42 Choice")]

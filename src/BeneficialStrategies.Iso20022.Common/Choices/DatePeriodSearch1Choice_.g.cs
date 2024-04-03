@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DatePeriodSearch1Choice.EqualDate))]
     [KnownType(typeof(DatePeriodSearch1Choice.NotEqualDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DatePeriodSearch1Choice.FromDate),nameof(DatePeriodSearch1Choice.FromDate))]
-    [JsonDerivedType(typeof(DatePeriodSearch1Choice.ToDate),nameof(DatePeriodSearch1Choice.ToDate))]
-    [JsonDerivedType(typeof(DatePeriodSearch1Choice.FromToDate),nameof(DatePeriodSearch1Choice.FromToDate))]
-    [JsonDerivedType(typeof(DatePeriodSearch1Choice.EqualDate),nameof(DatePeriodSearch1Choice.EqualDate))]
-    [JsonDerivedType(typeof(DatePeriodSearch1Choice.NotEqualDate),nameof(DatePeriodSearch1Choice.NotEqualDate))]
+    [JsonDerivedType(typeof(DatePeriodSearch1Choice.FromDate),"DatePeriodSearch1Choice.FromDate")]
+    [JsonDerivedType(typeof(DatePeriodSearch1Choice.ToDate),"DatePeriodSearch1Choice.ToDate")]
+    [JsonDerivedType(typeof(DatePeriodSearch1Choice.FromToDate),"DatePeriodSearch1Choice.FromToDate")]
+    [JsonDerivedType(typeof(DatePeriodSearch1Choice.EqualDate),"DatePeriodSearch1Choice.EqualDate")]
+    [JsonDerivedType(typeof(DatePeriodSearch1Choice.NotEqualDate),"DatePeriodSearch1Choice.NotEqualDate")]
     #endif
     [IsoId("_aIDZIYaAEee8r9VKRbnJSg")]
     [DisplayName("Date Period Search 1 Choice")]

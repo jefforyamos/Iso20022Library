@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingProcessingStatus11Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingProcessingStatus11Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingProcessingStatus11Choice.NoSpecifiedReason),nameof(PendingProcessingStatus11Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(PendingProcessingStatus11Choice.Reason),nameof(PendingProcessingStatus11Choice.Reason))]
+    [JsonDerivedType(typeof(PendingProcessingStatus11Choice.NoSpecifiedReason),"PendingProcessingStatus11Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(PendingProcessingStatus11Choice.Reason),"PendingProcessingStatus11Choice.Reason")]
     #endif
     [IsoId("_LqPHcTqdEeWyoP0PbocV1Q")]
     [DisplayName("Pending Processing Status 11 Choice")]

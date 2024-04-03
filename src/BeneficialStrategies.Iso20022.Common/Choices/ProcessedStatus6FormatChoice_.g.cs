@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessedStatus6FormatChoice.Code))]
     [KnownType(typeof(ProcessedStatus6FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessedStatus6FormatChoice.Code),nameof(ProcessedStatus6FormatChoice.Code))]
-    [JsonDerivedType(typeof(ProcessedStatus6FormatChoice.Proprietary),nameof(ProcessedStatus6FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessedStatus6FormatChoice.Code),"ProcessedStatus6FormatChoice.Code")]
+    [JsonDerivedType(typeof(ProcessedStatus6FormatChoice.Proprietary),"ProcessedStatus6FormatChoice.Proprietary")]
     #endif
     [IsoId("_RnmN9dp-Ed-ak6NoX_4Aeg_-344158716")]
     [DisplayName("Processed Status 6 Format Choice")]

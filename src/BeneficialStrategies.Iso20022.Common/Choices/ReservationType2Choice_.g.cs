@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReservationType2Choice.Code))]
     [KnownType(typeof(ReservationType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReservationType2Choice.Code),nameof(ReservationType2Choice.Code))]
-    [JsonDerivedType(typeof(ReservationType2Choice.Proprietary),nameof(ReservationType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ReservationType2Choice.Code),"ReservationType2Choice.Code")]
+    [JsonDerivedType(typeof(ReservationType2Choice.Proprietary),"ReservationType2Choice.Proprietary")]
     #endif
     [IsoId("_5v7SsRUNEeusI4XK3oQSyg")]
     [DisplayName("Reservation Type 2 Choice")]

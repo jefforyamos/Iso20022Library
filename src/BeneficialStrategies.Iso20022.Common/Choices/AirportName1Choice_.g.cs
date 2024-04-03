@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AirportName1Choice.AirportCode))]
     [KnownType(typeof(AirportName1Choice.OtherAirportDescription))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AirportName1Choice.AirportCode),nameof(AirportName1Choice.AirportCode))]
-    [JsonDerivedType(typeof(AirportName1Choice.OtherAirportDescription),nameof(AirportName1Choice.OtherAirportDescription))]
+    [JsonDerivedType(typeof(AirportName1Choice.AirportCode),"AirportName1Choice.AirportCode")]
+    [JsonDerivedType(typeof(AirportName1Choice.OtherAirportDescription),"AirportName1Choice.OtherAirportDescription")]
     #endif
     [IsoId("_SsSlI9p-Ed-ak6NoX_4Aeg_-992731401")]
     [DisplayName("Airport Name 1 Choice")]

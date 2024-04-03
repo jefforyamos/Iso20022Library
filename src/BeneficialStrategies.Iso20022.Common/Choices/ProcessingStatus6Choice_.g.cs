@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus6Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus6Choice.CancellationRequested))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.AcknowledgedAccepted),nameof(ProcessingStatus6Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.PendingProcessing),nameof(ProcessingStatus6Choice.PendingProcessing))]
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.Repair),nameof(ProcessingStatus6Choice.Repair))]
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.PendingCancellation),nameof(ProcessingStatus6Choice.PendingCancellation))]
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.Proprietary),nameof(ProcessingStatus6Choice.Proprietary))]
-    [JsonDerivedType(typeof(ProcessingStatus6Choice.CancellationRequested),nameof(ProcessingStatus6Choice.CancellationRequested))]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.AcknowledgedAccepted),"ProcessingStatus6Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.PendingProcessing),"ProcessingStatus6Choice.PendingProcessing")]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.Repair),"ProcessingStatus6Choice.Repair")]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.PendingCancellation),"ProcessingStatus6Choice.PendingCancellation")]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.Proprietary),"ProcessingStatus6Choice.Proprietary")]
+    [JsonDerivedType(typeof(ProcessingStatus6Choice.CancellationRequested),"ProcessingStatus6Choice.CancellationRequested")]
     #endif
     [IsoId("_UVMcpNp-Ed-ak6NoX_4Aeg_-399020300")]
     [DisplayName("Processing Status 6 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Reversible1Choice.Code))]
     [KnownType(typeof(Reversible1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Reversible1Choice.Code),nameof(Reversible1Choice.Code))]
-    [JsonDerivedType(typeof(Reversible1Choice.Proprietary),nameof(Reversible1Choice.Proprietary))]
+    [JsonDerivedType(typeof(Reversible1Choice.Code),"Reversible1Choice.Code")]
+    [JsonDerivedType(typeof(Reversible1Choice.Proprietary),"Reversible1Choice.Proprietary")]
     #endif
     [IsoId("_AYOIONokEeC60axPepSq7g_-1179089003")]
     [DisplayName("Reversible 1 Choice")]

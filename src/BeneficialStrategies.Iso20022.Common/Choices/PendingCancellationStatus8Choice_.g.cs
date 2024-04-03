@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingCancellationStatus8Choice.NotSpecifiedReason))]
     [KnownType(typeof(PendingCancellationStatus8Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingCancellationStatus8Choice.NotSpecifiedReason),nameof(PendingCancellationStatus8Choice.NotSpecifiedReason))]
-    [JsonDerivedType(typeof(PendingCancellationStatus8Choice.Reason),nameof(PendingCancellationStatus8Choice.Reason))]
+    [JsonDerivedType(typeof(PendingCancellationStatus8Choice.NotSpecifiedReason),"PendingCancellationStatus8Choice.NotSpecifiedReason")]
+    [JsonDerivedType(typeof(PendingCancellationStatus8Choice.Reason),"PendingCancellationStatus8Choice.Reason")]
     #endif
     [IsoId("_86aTcZwtEeazcsnODTksnQ")]
     [DisplayName("Pending Cancellation Status 8 Choice")]

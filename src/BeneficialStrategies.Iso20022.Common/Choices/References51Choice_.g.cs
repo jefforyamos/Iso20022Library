@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References51Choice.MarketInfrastructureTransactionIdentification))]
     [KnownType(typeof(References51Choice.ProcessorTransactionIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References51Choice.AccountOwnerTransactionIdentification),nameof(References51Choice.AccountOwnerTransactionIdentification))]
-    [JsonDerivedType(typeof(References51Choice.AccountServicerTransactionIdentification),nameof(References51Choice.AccountServicerTransactionIdentification))]
-    [JsonDerivedType(typeof(References51Choice.PoolIdentification),nameof(References51Choice.PoolIdentification))]
-    [JsonDerivedType(typeof(References51Choice.MarketInfrastructureTransactionIdentification),nameof(References51Choice.MarketInfrastructureTransactionIdentification))]
-    [JsonDerivedType(typeof(References51Choice.ProcessorTransactionIdentification),nameof(References51Choice.ProcessorTransactionIdentification))]
+    [JsonDerivedType(typeof(References51Choice.AccountOwnerTransactionIdentification),"References51Choice.AccountOwnerTransactionIdentification")]
+    [JsonDerivedType(typeof(References51Choice.AccountServicerTransactionIdentification),"References51Choice.AccountServicerTransactionIdentification")]
+    [JsonDerivedType(typeof(References51Choice.PoolIdentification),"References51Choice.PoolIdentification")]
+    [JsonDerivedType(typeof(References51Choice.MarketInfrastructureTransactionIdentification),"References51Choice.MarketInfrastructureTransactionIdentification")]
+    [JsonDerivedType(typeof(References51Choice.ProcessorTransactionIdentification),"References51Choice.ProcessorTransactionIdentification")]
     #endif
     [IsoId("_5Qz08ZNLEeWGlc8L7oPDIg")]
     [DisplayName("References 51 Choice")]

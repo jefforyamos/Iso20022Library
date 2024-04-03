@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CRSStatus3Choice.Code))]
     [KnownType(typeof(CRSStatus3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CRSStatus3Choice.Code),nameof(CRSStatus3Choice.Code))]
-    [JsonDerivedType(typeof(CRSStatus3Choice.Proprietary),nameof(CRSStatus3Choice.Proprietary))]
+    [JsonDerivedType(typeof(CRSStatus3Choice.Code),"CRSStatus3Choice.Code")]
+    [JsonDerivedType(typeof(CRSStatus3Choice.Proprietary),"CRSStatus3Choice.Proprietary")]
     #endif
     [IsoId("_--TuEUNeEeamLdeYEZm56w")]
     [DisplayName("CRS Status 3 Choice")]

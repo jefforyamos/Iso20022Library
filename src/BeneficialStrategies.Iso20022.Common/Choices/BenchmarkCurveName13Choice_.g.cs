@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BenchmarkCurveName13Choice.Code))]
     [KnownType(typeof(BenchmarkCurveName13Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BenchmarkCurveName13Choice.Code),nameof(BenchmarkCurveName13Choice.Code))]
-    [JsonDerivedType(typeof(BenchmarkCurveName13Choice.Proprietary),nameof(BenchmarkCurveName13Choice.Proprietary))]
+    [JsonDerivedType(typeof(BenchmarkCurveName13Choice.Code),"BenchmarkCurveName13Choice.Code")]
+    [JsonDerivedType(typeof(BenchmarkCurveName13Choice.Proprietary),"BenchmarkCurveName13Choice.Proprietary")]
     #endif
     [IsoId("_g9r0ERIkEeyLzJfz3xPQNA")]
     [DisplayName("Benchmark Curve Name 13 Choice")]

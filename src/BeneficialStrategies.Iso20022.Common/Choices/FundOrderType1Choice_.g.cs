@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundOrderType1Choice.Type))]
     [KnownType(typeof(FundOrderType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FundOrderType1Choice.Type),nameof(FundOrderType1Choice.Type))]
-    [JsonDerivedType(typeof(FundOrderType1Choice.Proprietary),nameof(FundOrderType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(FundOrderType1Choice.Type),"FundOrderType1Choice.Type")]
+    [JsonDerivedType(typeof(FundOrderType1Choice.Proprietary),"FundOrderType1Choice.Proprietary")]
     #endif
     [IsoId("_RC8V8RHcEeKVqeHljBM1MQ")]
     [DisplayName("Fund Order Type 1 Choice")]

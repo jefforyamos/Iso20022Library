@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketClientSide4Choice.Code))]
     [KnownType(typeof(MarketClientSide4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarketClientSide4Choice.Code),nameof(MarketClientSide4Choice.Code))]
-    [JsonDerivedType(typeof(MarketClientSide4Choice.Proprietary),nameof(MarketClientSide4Choice.Proprietary))]
+    [JsonDerivedType(typeof(MarketClientSide4Choice.Code),"MarketClientSide4Choice.Code")]
+    [JsonDerivedType(typeof(MarketClientSide4Choice.Proprietary),"MarketClientSide4Choice.Proprietary")]
     #endif
     [IsoId("_rqc9oTqHEeWVrPy0StzzSg")]
     [DisplayName("Market Client Side 4 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GovernanceProcess1Choice.Code))]
     [KnownType(typeof(GovernanceProcess1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GovernanceProcess1Choice.Code),nameof(GovernanceProcess1Choice.Code))]
-    [JsonDerivedType(typeof(GovernanceProcess1Choice.Proprietary),nameof(GovernanceProcess1Choice.Proprietary))]
+    [JsonDerivedType(typeof(GovernanceProcess1Choice.Code),"GovernanceProcess1Choice.Code")]
+    [JsonDerivedType(typeof(GovernanceProcess1Choice.Proprietary),"GovernanceProcess1Choice.Proprietary")]
     #endif
     [IsoId("_f3PLYID4Eeiw-daIkkmMqQ")]
     [DisplayName("Governance Process 1 Choice")]

@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingStatus29Choice.Unmatched))]
     [KnownType(typeof(MatchingStatus29Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MatchingStatus29Choice.Matched),nameof(MatchingStatus29Choice.Matched))]
-    [JsonDerivedType(typeof(MatchingStatus29Choice.Unmatched),nameof(MatchingStatus29Choice.Unmatched))]
-    [JsonDerivedType(typeof(MatchingStatus29Choice.Proprietary),nameof(MatchingStatus29Choice.Proprietary))]
+    [JsonDerivedType(typeof(MatchingStatus29Choice.Matched),"MatchingStatus29Choice.Matched")]
+    [JsonDerivedType(typeof(MatchingStatus29Choice.Unmatched),"MatchingStatus29Choice.Unmatched")]
+    [JsonDerivedType(typeof(MatchingStatus29Choice.Proprietary),"MatchingStatus29Choice.Proprietary")]
     #endif
     [IsoId("_6BH3wZNLEeWGlc8L7oPDIg")]
     [DisplayName("Matching Status 29 Choice")]

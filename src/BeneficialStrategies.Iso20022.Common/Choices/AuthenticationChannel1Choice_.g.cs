@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AuthenticationChannel1Choice.Code))]
     [KnownType(typeof(AuthenticationChannel1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AuthenticationChannel1Choice.Code),nameof(AuthenticationChannel1Choice.Code))]
-    [JsonDerivedType(typeof(AuthenticationChannel1Choice.Proprietary),nameof(AuthenticationChannel1Choice.Proprietary))]
+    [JsonDerivedType(typeof(AuthenticationChannel1Choice.Code),"AuthenticationChannel1Choice.Code")]
+    [JsonDerivedType(typeof(AuthenticationChannel1Choice.Proprietary),"AuthenticationChannel1Choice.Proprietary")]
     #endif
     [IsoId("_U4Y945dgEea1K6JAcAwoVg")]
     [DisplayName("Authentication Channel 1 Choice")]

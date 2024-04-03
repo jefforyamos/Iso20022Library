@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus56Choice.Cancelled))]
     [KnownType(typeof(ProcessingStatus56Choice.Accepted))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus56Choice.Rejected),nameof(ProcessingStatus56Choice.Rejected))]
-    [JsonDerivedType(typeof(ProcessingStatus56Choice.Cancelled),nameof(ProcessingStatus56Choice.Cancelled))]
-    [JsonDerivedType(typeof(ProcessingStatus56Choice.Accepted),nameof(ProcessingStatus56Choice.Accepted))]
+    [JsonDerivedType(typeof(ProcessingStatus56Choice.Rejected),"ProcessingStatus56Choice.Rejected")]
+    [JsonDerivedType(typeof(ProcessingStatus56Choice.Cancelled),"ProcessingStatus56Choice.Cancelled")]
+    [JsonDerivedType(typeof(ProcessingStatus56Choice.Accepted),"ProcessingStatus56Choice.Accepted")]
     #endif
     [IsoId("_c72FMTt5EeW638lNyHKv7A")]
     [DisplayName("Processing Status 56 Choice")]

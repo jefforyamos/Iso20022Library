@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BlockTrade5Choice.Code))]
     [KnownType(typeof(BlockTrade5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BlockTrade5Choice.Code),nameof(BlockTrade5Choice.Code))]
-    [JsonDerivedType(typeof(BlockTrade5Choice.Proprietary),nameof(BlockTrade5Choice.Proprietary))]
+    [JsonDerivedType(typeof(BlockTrade5Choice.Code),"BlockTrade5Choice.Code")]
+    [JsonDerivedType(typeof(BlockTrade5Choice.Proprietary),"BlockTrade5Choice.Proprietary")]
     #endif
     [IsoId("_5m6BcZNLEeWGlc8L7oPDIg")]
     [DisplayName("Block Trade 5 Choice")]

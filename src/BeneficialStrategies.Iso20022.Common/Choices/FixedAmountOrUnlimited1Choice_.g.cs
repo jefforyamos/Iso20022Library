@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FixedAmountOrUnlimited1Choice.Amount))]
     [KnownType(typeof(FixedAmountOrUnlimited1Choice.NotLimited))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FixedAmountOrUnlimited1Choice.Amount),nameof(FixedAmountOrUnlimited1Choice.Amount))]
-    [JsonDerivedType(typeof(FixedAmountOrUnlimited1Choice.NotLimited),nameof(FixedAmountOrUnlimited1Choice.NotLimited))]
+    [JsonDerivedType(typeof(FixedAmountOrUnlimited1Choice.Amount),"FixedAmountOrUnlimited1Choice.Amount")]
+    [JsonDerivedType(typeof(FixedAmountOrUnlimited1Choice.NotLimited),"FixedAmountOrUnlimited1Choice.NotLimited")]
     #endif
     [IsoId("_9m4ooEqAEeKw5sECfP82rg")]
     [DisplayName("Fixed Amount Or Unlimited 1 Choice")]

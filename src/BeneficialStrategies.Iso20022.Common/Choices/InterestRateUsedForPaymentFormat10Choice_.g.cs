@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus))]
     [KnownType(typeof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.Rate),nameof(InterestRateUsedForPaymentFormat10Choice.Rate))]
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.Amount),nameof(InterestRateUsedForPaymentFormat10Choice.Amount))]
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus),nameof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus))]
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate),nameof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.Rate),"InterestRateUsedForPaymentFormat10Choice.Rate")]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.Amount),"InterestRateUsedForPaymentFormat10Choice.Amount")]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus),"InterestRateUsedForPaymentFormat10Choice.RateTypeAndAmountAndRateStatus")]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate),"InterestRateUsedForPaymentFormat10Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_cteBw5KQEeWHWpTQn1FFVg")]
     [DisplayName("Interest Rate Used For Payment Format 10 Choice")]

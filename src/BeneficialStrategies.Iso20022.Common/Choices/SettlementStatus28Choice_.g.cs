@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementStatus28Choice.Failing))]
     [KnownType(typeof(SettlementStatus28Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementStatus28Choice.Pending),nameof(SettlementStatus28Choice.Pending))]
-    [JsonDerivedType(typeof(SettlementStatus28Choice.Failing),nameof(SettlementStatus28Choice.Failing))]
-    [JsonDerivedType(typeof(SettlementStatus28Choice.Proprietary),nameof(SettlementStatus28Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlementStatus28Choice.Pending),"SettlementStatus28Choice.Pending")]
+    [JsonDerivedType(typeof(SettlementStatus28Choice.Failing),"SettlementStatus28Choice.Failing")]
+    [JsonDerivedType(typeof(SettlementStatus28Choice.Proprietary),"SettlementStatus28Choice.Proprietary")]
     #endif
     [IsoId("_BH0PmQpIEeup4r-PFG2T5Q")]
     [DisplayName("Settlement Status 28 Choice")]

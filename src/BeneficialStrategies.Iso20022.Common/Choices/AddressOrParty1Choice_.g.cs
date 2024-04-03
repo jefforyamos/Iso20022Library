@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AddressOrParty1Choice.NewAddress))]
     [KnownType(typeof(AddressOrParty1Choice.NewBeneficiary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AddressOrParty1Choice.NewAddress),nameof(AddressOrParty1Choice.NewAddress))]
-    [JsonDerivedType(typeof(AddressOrParty1Choice.NewBeneficiary),nameof(AddressOrParty1Choice.NewBeneficiary))]
+    [JsonDerivedType(typeof(AddressOrParty1Choice.NewAddress),"AddressOrParty1Choice.NewAddress")]
+    [JsonDerivedType(typeof(AddressOrParty1Choice.NewBeneficiary),"AddressOrParty1Choice.NewBeneficiary")]
     #endif
     [IsoId("_-EhOtHltEeG7BsjMvd1mEw_136442454")]
     [DisplayName("Address Or Party 1 Choice")]

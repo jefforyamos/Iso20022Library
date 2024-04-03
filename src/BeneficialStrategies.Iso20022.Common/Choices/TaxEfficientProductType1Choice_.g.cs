@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxEfficientProductType1Choice.Code))]
     [KnownType(typeof(TaxEfficientProductType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxEfficientProductType1Choice.Code),nameof(TaxEfficientProductType1Choice.Code))]
-    [JsonDerivedType(typeof(TaxEfficientProductType1Choice.Proprietary),nameof(TaxEfficientProductType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TaxEfficientProductType1Choice.Code),"TaxEfficientProductType1Choice.Code")]
+    [JsonDerivedType(typeof(TaxEfficientProductType1Choice.Proprietary),"TaxEfficientProductType1Choice.Proprietary")]
     #endif
     [IsoId("_FKf7AE4LEeiQHa-q1Uephw")]
     [DisplayName("Tax Efficient Product Type 1 Choice")]

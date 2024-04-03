@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UndertakingType1Choice.Code))]
     [KnownType(typeof(UndertakingType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UndertakingType1Choice.Code),nameof(UndertakingType1Choice.Code))]
-    [JsonDerivedType(typeof(UndertakingType1Choice.Proprietary),nameof(UndertakingType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(UndertakingType1Choice.Code),"UndertakingType1Choice.Code")]
+    [JsonDerivedType(typeof(UndertakingType1Choice.Proprietary),"UndertakingType1Choice.Proprietary")]
     #endif
     [IsoId("_92qY6HltEeG7BsjMvd1mEw_72990354")]
     [DisplayName("Undertaking Type 1 Choice")]

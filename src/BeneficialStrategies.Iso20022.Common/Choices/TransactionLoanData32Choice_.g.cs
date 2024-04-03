@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionLoanData32Choice.BuySellBack))]
     [KnownType(typeof(TransactionLoanData32Choice.SecuritiesLending))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionLoanData32Choice.RepurchaseTrade),nameof(TransactionLoanData32Choice.RepurchaseTrade))]
-    [JsonDerivedType(typeof(TransactionLoanData32Choice.BuySellBack),nameof(TransactionLoanData32Choice.BuySellBack))]
-    [JsonDerivedType(typeof(TransactionLoanData32Choice.SecuritiesLending),nameof(TransactionLoanData32Choice.SecuritiesLending))]
+    [JsonDerivedType(typeof(TransactionLoanData32Choice.RepurchaseTrade),"TransactionLoanData32Choice.RepurchaseTrade")]
+    [JsonDerivedType(typeof(TransactionLoanData32Choice.BuySellBack),"TransactionLoanData32Choice.BuySellBack")]
+    [JsonDerivedType(typeof(TransactionLoanData32Choice.SecuritiesLending),"TransactionLoanData32Choice.SecuritiesLending")]
     #endif
     [IsoId("_J_G2Acz4EeufhKfUxzsnrQ")]
     [DisplayName("Transaction Loan Data 32 Choice")]

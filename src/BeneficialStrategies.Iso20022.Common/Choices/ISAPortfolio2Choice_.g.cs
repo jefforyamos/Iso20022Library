@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ISAPortfolio2Choice.ISA))]
     [KnownType(typeof(ISAPortfolio2Choice.Portfolio))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ISAPortfolio2Choice.ISA),nameof(ISAPortfolio2Choice.ISA))]
-    [JsonDerivedType(typeof(ISAPortfolio2Choice.Portfolio),nameof(ISAPortfolio2Choice.Portfolio))]
+    [JsonDerivedType(typeof(ISAPortfolio2Choice.ISA),"ISAPortfolio2Choice.ISA")]
+    [JsonDerivedType(typeof(ISAPortfolio2Choice.Portfolio),"ISAPortfolio2Choice.Portfolio")]
     #endif
     [IsoId("_3fnhckXfEeGY6MkiuzuPOA_858119227")]
     [DisplayName("ISA Portfolio 2 Choice")]

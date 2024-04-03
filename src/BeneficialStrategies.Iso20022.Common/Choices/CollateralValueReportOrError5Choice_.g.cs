@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralValueReportOrError5Choice.BusinessReport))]
     [KnownType(typeof(CollateralValueReportOrError5Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralValueReportOrError5Choice.BusinessReport),nameof(CollateralValueReportOrError5Choice.BusinessReport))]
-    [JsonDerivedType(typeof(CollateralValueReportOrError5Choice.OperationalError),nameof(CollateralValueReportOrError5Choice.OperationalError))]
+    [JsonDerivedType(typeof(CollateralValueReportOrError5Choice.BusinessReport),"CollateralValueReportOrError5Choice.BusinessReport")]
+    [JsonDerivedType(typeof(CollateralValueReportOrError5Choice.OperationalError),"CollateralValueReportOrError5Choice.OperationalError")]
     #endif
     [IsoId("_95GpHzpvEemk2e6qGBk8IQ")]
     [DisplayName("Collateral Value Report Or Error 5 Choice")]

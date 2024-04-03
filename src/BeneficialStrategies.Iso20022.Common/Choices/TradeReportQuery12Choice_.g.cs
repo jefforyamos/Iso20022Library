@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReportQuery12Choice.AdHocQuery))]
     [KnownType(typeof(TradeReportQuery12Choice.RecurrentQuery))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeReportQuery12Choice.AdHocQuery),nameof(TradeReportQuery12Choice.AdHocQuery))]
-    [JsonDerivedType(typeof(TradeReportQuery12Choice.RecurrentQuery),nameof(TradeReportQuery12Choice.RecurrentQuery))]
+    [JsonDerivedType(typeof(TradeReportQuery12Choice.AdHocQuery),"TradeReportQuery12Choice.AdHocQuery")]
+    [JsonDerivedType(typeof(TradeReportQuery12Choice.RecurrentQuery),"TradeReportQuery12Choice.RecurrentQuery")]
     #endif
     [IsoId("_P2sHMa5pEeuo-IflVgGqiA")]
     [DisplayName("Trade Report Query 12 Choice")]

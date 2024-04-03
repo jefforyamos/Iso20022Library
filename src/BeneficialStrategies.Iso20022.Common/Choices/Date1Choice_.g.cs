@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Date1Choice.Code))]
     [KnownType(typeof(Date1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Date1Choice.Code),nameof(Date1Choice.Code))]
-    [JsonDerivedType(typeof(Date1Choice.Proprietary),nameof(Date1Choice.Proprietary))]
+    [JsonDerivedType(typeof(Date1Choice.Code),"Date1Choice.Code")]
+    [JsonDerivedType(typeof(Date1Choice.Proprietary),"Date1Choice.Proprietary")]
     #endif
     [IsoId("_Q-eYd9p-Ed-ak6NoX_4Aeg_-1377076499")]
     [DisplayName("Date 1 Choice")]

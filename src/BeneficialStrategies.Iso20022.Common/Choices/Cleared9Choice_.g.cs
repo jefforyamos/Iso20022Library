@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Cleared9Choice.Cleared))]
     [KnownType(typeof(Cleared9Choice.NonCleared))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Cleared9Choice.Cleared),nameof(Cleared9Choice.Cleared))]
-    [JsonDerivedType(typeof(Cleared9Choice.NonCleared),nameof(Cleared9Choice.NonCleared))]
+    [JsonDerivedType(typeof(Cleared9Choice.Cleared),"Cleared9Choice.Cleared")]
+    [JsonDerivedType(typeof(Cleared9Choice.NonCleared),"Cleared9Choice.NonCleared")]
     #endif
     [IsoId("_4fWa8ZQPEeiok48Eh9lW9Q")]
     [DisplayName("Cleared 9 Choice")]

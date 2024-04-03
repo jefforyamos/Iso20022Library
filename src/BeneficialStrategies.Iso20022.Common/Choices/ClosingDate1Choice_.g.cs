@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosingDate1Choice.Date))]
     [KnownType(typeof(ClosingDate1Choice.Code))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClosingDate1Choice.Date),nameof(ClosingDate1Choice.Date))]
-    [JsonDerivedType(typeof(ClosingDate1Choice.Code),nameof(ClosingDate1Choice.Code))]
+    [JsonDerivedType(typeof(ClosingDate1Choice.Date),"ClosingDate1Choice.Date")]
+    [JsonDerivedType(typeof(ClosingDate1Choice.Code),"ClosingDate1Choice.Code")]
     #endif
     [IsoId("_j2-tkNopEeCWg-hsBVGrDA_1110999750")]
     [DisplayName("Closing Date 1 Choice")]

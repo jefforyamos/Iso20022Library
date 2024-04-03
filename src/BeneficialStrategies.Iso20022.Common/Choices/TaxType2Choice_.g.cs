@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxType2Choice.Type))]
     [KnownType(typeof(TaxType2Choice.OtherTaxType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxType2Choice.Type),nameof(TaxType2Choice.Type))]
-    [JsonDerivedType(typeof(TaxType2Choice.OtherTaxType),nameof(TaxType2Choice.OtherTaxType))]
+    [JsonDerivedType(typeof(TaxType2Choice.Type),"TaxType2Choice.Type")]
+    [JsonDerivedType(typeof(TaxType2Choice.OtherTaxType),"TaxType2Choice.OtherTaxType")]
     #endif
     [IsoId("_Xf3zQBrfEeOVR9VN6fAMUg")]
     [DisplayName("Tax Type 2 Choice")]

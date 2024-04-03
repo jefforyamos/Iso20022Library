@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SystemEventType1Choice.Code))]
     [KnownType(typeof(SystemEventType1Choice.ProprietaryEvent))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SystemEventType1Choice.Code),nameof(SystemEventType1Choice.Code))]
-    [JsonDerivedType(typeof(SystemEventType1Choice.ProprietaryEvent),nameof(SystemEventType1Choice.ProprietaryEvent))]
+    [JsonDerivedType(typeof(SystemEventType1Choice.Code),"SystemEventType1Choice.Code")]
+    [JsonDerivedType(typeof(SystemEventType1Choice.ProprietaryEvent),"SystemEventType1Choice.ProprietaryEvent")]
     #endif
     [IsoId("_RD_Kkdp-Ed-ak6NoX_4Aeg_544789964")]
     [DisplayName("System Event Type 1 Choice")]

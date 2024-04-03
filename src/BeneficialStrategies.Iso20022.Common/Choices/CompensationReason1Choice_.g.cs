@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CompensationReason1Choice.Code))]
     [KnownType(typeof(CompensationReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CompensationReason1Choice.Code),nameof(CompensationReason1Choice.Code))]
-    [JsonDerivedType(typeof(CompensationReason1Choice.Proprietary),nameof(CompensationReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CompensationReason1Choice.Code),"CompensationReason1Choice.Code")]
+    [JsonDerivedType(typeof(CompensationReason1Choice.Proprietary),"CompensationReason1Choice.Proprietary")]
     #endif
     [IsoId("_UyHYkIjYEeeDW7_wB-eK_g")]
     [DisplayName("Compensation Reason 1 Choice")]

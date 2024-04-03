@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DiscountTypeFormat1Choice.Code))]
     [KnownType(typeof(DiscountTypeFormat1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DiscountTypeFormat1Choice.Code),nameof(DiscountTypeFormat1Choice.Code))]
-    [JsonDerivedType(typeof(DiscountTypeFormat1Choice.Proprietary),nameof(DiscountTypeFormat1Choice.Proprietary))]
+    [JsonDerivedType(typeof(DiscountTypeFormat1Choice.Code),"DiscountTypeFormat1Choice.Code")]
+    [JsonDerivedType(typeof(DiscountTypeFormat1Choice.Proprietary),"DiscountTypeFormat1Choice.Proprietary")]
     #endif
     [IsoId("_SumZFQEcEeCQm6a_G2yO_w_1636227092")]
     [DisplayName("Discount Type Format 1 Choice")]

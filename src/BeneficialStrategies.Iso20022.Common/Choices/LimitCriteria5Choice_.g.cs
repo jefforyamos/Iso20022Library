@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitCriteria5Choice.QueryName))]
     [KnownType(typeof(LimitCriteria5Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LimitCriteria5Choice.QueryName),nameof(LimitCriteria5Choice.QueryName))]
-    [JsonDerivedType(typeof(LimitCriteria5Choice.NewCriteria),nameof(LimitCriteria5Choice.NewCriteria))]
+    [JsonDerivedType(typeof(LimitCriteria5Choice.QueryName),"LimitCriteria5Choice.QueryName")]
+    [JsonDerivedType(typeof(LimitCriteria5Choice.NewCriteria),"LimitCriteria5Choice.NewCriteria")]
     #endif
     [IsoId("_PgIEV5lcEeeE1Ya-LgRsuQ")]
     [DisplayName("Limit Criteria 5 Choice")]

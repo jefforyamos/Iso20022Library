@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationReason24Choice.Code))]
     [KnownType(typeof(CancellationReason24Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationReason24Choice.Code),nameof(CancellationReason24Choice.Code))]
-    [JsonDerivedType(typeof(CancellationReason24Choice.Proprietary),nameof(CancellationReason24Choice.Proprietary))]
+    [JsonDerivedType(typeof(CancellationReason24Choice.Code),"CancellationReason24Choice.Code")]
+    [JsonDerivedType(typeof(CancellationReason24Choice.Proprietary),"CancellationReason24Choice.Proprietary")]
     #endif
     [IsoId("_5SFnXZNLEeWGlc8L7oPDIg")]
     [DisplayName("Cancellation Reason 24 Choice")]

@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RatioFormat23Choice.NotSpecifiedRate))]
     [KnownType(typeof(RatioFormat23Choice.AmountToAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RatioFormat23Choice.QuantityToQuantity),nameof(RatioFormat23Choice.QuantityToQuantity))]
-    [JsonDerivedType(typeof(RatioFormat23Choice.NotSpecifiedRate),nameof(RatioFormat23Choice.NotSpecifiedRate))]
-    [JsonDerivedType(typeof(RatioFormat23Choice.AmountToAmount),nameof(RatioFormat23Choice.AmountToAmount))]
+    [JsonDerivedType(typeof(RatioFormat23Choice.QuantityToQuantity),"RatioFormat23Choice.QuantityToQuantity")]
+    [JsonDerivedType(typeof(RatioFormat23Choice.NotSpecifiedRate),"RatioFormat23Choice.NotSpecifiedRate")]
+    [JsonDerivedType(typeof(RatioFormat23Choice.AmountToAmount),"RatioFormat23Choice.AmountToAmount")]
     #endif
     [IsoId("_cti6FpKQEeWHWpTQn1FFVg")]
     [DisplayName("Ratio Format 23 Choice")]

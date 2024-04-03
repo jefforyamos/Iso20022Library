@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMCommandParameters3Choice.SecurityDevice))]
     [KnownType(typeof(ATMCommandParameters3Choice.Key))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.ATMRequiredGlobalStatus),nameof(ATMCommandParameters3Choice.ATMRequiredGlobalStatus))]
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.ExpectedMessageFunction),nameof(ATMCommandParameters3Choice.ExpectedMessageFunction))]
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.RequiredConfigurationParameter),nameof(ATMCommandParameters3Choice.RequiredConfigurationParameter))]
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.RequiredSecurityScheme),nameof(ATMCommandParameters3Choice.RequiredSecurityScheme))]
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.SecurityDevice),nameof(ATMCommandParameters3Choice.SecurityDevice))]
-    [JsonDerivedType(typeof(ATMCommandParameters3Choice.Key),nameof(ATMCommandParameters3Choice.Key))]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.ATMRequiredGlobalStatus),"ATMCommandParameters3Choice.ATMRequiredGlobalStatus")]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.ExpectedMessageFunction),"ATMCommandParameters3Choice.ExpectedMessageFunction")]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.RequiredConfigurationParameter),"ATMCommandParameters3Choice.RequiredConfigurationParameter")]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.RequiredSecurityScheme),"ATMCommandParameters3Choice.RequiredSecurityScheme")]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.SecurityDevice),"ATMCommandParameters3Choice.SecurityDevice")]
+    [JsonDerivedType(typeof(ATMCommandParameters3Choice.Key),"ATMCommandParameters3Choice.Key")]
     #endif
     [IsoId("_hk_BUV2aEeekzJIz1JxYSQ")]
     [DisplayName("ATM Command Parameters 3 Choice")]

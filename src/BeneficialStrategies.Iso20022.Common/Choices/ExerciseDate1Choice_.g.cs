@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExerciseDate1Choice.FirstExerciseDate))]
     [KnownType(typeof(ExerciseDate1Choice.PendingDateApplicable))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExerciseDate1Choice.FirstExerciseDate),nameof(ExerciseDate1Choice.FirstExerciseDate))]
-    [JsonDerivedType(typeof(ExerciseDate1Choice.PendingDateApplicable),nameof(ExerciseDate1Choice.PendingDateApplicable))]
+    [JsonDerivedType(typeof(ExerciseDate1Choice.FirstExerciseDate),"ExerciseDate1Choice.FirstExerciseDate")]
+    [JsonDerivedType(typeof(ExerciseDate1Choice.PendingDateApplicable),"ExerciseDate1Choice.PendingDateApplicable")]
     #endif
     [IsoId("_UR6owAbBEeqrW7Meu5r3kQ")]
     [DisplayName("Exercise Date 1 Choice")]

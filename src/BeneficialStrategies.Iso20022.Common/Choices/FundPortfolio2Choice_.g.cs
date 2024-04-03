@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FundPortfolio2Choice.GeneralInvestment))]
     [KnownType(typeof(FundPortfolio2Choice.Pension))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FundPortfolio2Choice.TaxEfficientProduct),nameof(FundPortfolio2Choice.TaxEfficientProduct))]
-    [JsonDerivedType(typeof(FundPortfolio2Choice.GeneralInvestment),nameof(FundPortfolio2Choice.GeneralInvestment))]
-    [JsonDerivedType(typeof(FundPortfolio2Choice.Pension),nameof(FundPortfolio2Choice.Pension))]
+    [JsonDerivedType(typeof(FundPortfolio2Choice.TaxEfficientProduct),"FundPortfolio2Choice.TaxEfficientProduct")]
+    [JsonDerivedType(typeof(FundPortfolio2Choice.GeneralInvestment),"FundPortfolio2Choice.GeneralInvestment")]
+    [JsonDerivedType(typeof(FundPortfolio2Choice.Pension),"FundPortfolio2Choice.Pension")]
     #endif
     [IsoId("_ozJ3sU4aEeiQHa-q1Uephw")]
     [DisplayName("Fund Portfolio 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
     [KnownType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction),nameof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction))]
-    [JsonDerivedType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report),nameof(DetailedMissingMarginInformationStatistics4Choice.Report))]
+    [JsonDerivedType(typeof(DetailedMissingMarginInformationStatistics4Choice.DataSetAction),"DetailedMissingMarginInformationStatistics4Choice.DataSetAction")]
+    [JsonDerivedType(typeof(DetailedMissingMarginInformationStatistics4Choice.Report),"DetailedMissingMarginInformationStatistics4Choice.Report")]
     #endif
     [IsoId("_rqy-iVowEe23K4GXSpBSeg")]
     [DisplayName("Detailed Missing Margin Information Statistics 4 Choice")]

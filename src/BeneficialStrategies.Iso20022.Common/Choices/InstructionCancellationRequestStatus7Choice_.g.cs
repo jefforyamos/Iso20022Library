@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionCancellationRequestStatus7Choice.PendingCancellation))]
     [KnownType(typeof(InstructionCancellationRequestStatus7Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.CancellationCompleted),nameof(InstructionCancellationRequestStatus7Choice.CancellationCompleted))]
-    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.Accepted),nameof(InstructionCancellationRequestStatus7Choice.Accepted))]
-    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.Rejected),nameof(InstructionCancellationRequestStatus7Choice.Rejected))]
-    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.PendingCancellation),nameof(InstructionCancellationRequestStatus7Choice.PendingCancellation))]
-    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.ProprietaryStatus),nameof(InstructionCancellationRequestStatus7Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.CancellationCompleted),"InstructionCancellationRequestStatus7Choice.CancellationCompleted")]
+    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.Accepted),"InstructionCancellationRequestStatus7Choice.Accepted")]
+    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.Rejected),"InstructionCancellationRequestStatus7Choice.Rejected")]
+    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.PendingCancellation),"InstructionCancellationRequestStatus7Choice.PendingCancellation")]
+    [JsonDerivedType(typeof(InstructionCancellationRequestStatus7Choice.ProprietaryStatus),"InstructionCancellationRequestStatus7Choice.ProprietaryStatus")]
     #endif
     [IsoId("_NBsPQVhkEeSsH9MSoogb7Q")]
     [DisplayName("Instruction Cancellation Request Status 7 Choice")]

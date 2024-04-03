@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateFormat4Choice.NotSpecifiedDate))]
     [KnownType(typeof(DateFormat4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateFormat4Choice.Date),nameof(DateFormat4Choice.Date))]
-    [JsonDerivedType(typeof(DateFormat4Choice.NotSpecifiedDate),nameof(DateFormat4Choice.NotSpecifiedDate))]
-    [JsonDerivedType(typeof(DateFormat4Choice.Proprietary),nameof(DateFormat4Choice.Proprietary))]
+    [JsonDerivedType(typeof(DateFormat4Choice.Date),"DateFormat4Choice.Date")]
+    [JsonDerivedType(typeof(DateFormat4Choice.NotSpecifiedDate),"DateFormat4Choice.NotSpecifiedDate")]
+    [JsonDerivedType(typeof(DateFormat4Choice.Proprietary),"DateFormat4Choice.Proprietary")]
     #endif
     [IsoId("_RlgjQ9p-Ed-ak6NoX_4Aeg_-1364711561")]
     [DisplayName("Date Format 4 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommunicationMethod1Choice.Code))]
     [KnownType(typeof(CommunicationMethod1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CommunicationMethod1Choice.Code),nameof(CommunicationMethod1Choice.Code))]
-    [JsonDerivedType(typeof(CommunicationMethod1Choice.Proprietary),nameof(CommunicationMethod1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CommunicationMethod1Choice.Code),"CommunicationMethod1Choice.Code")]
+    [JsonDerivedType(typeof(CommunicationMethod1Choice.Proprietary),"CommunicationMethod1Choice.Proprietary")]
     #endif
     [IsoId("_93Z_w3ltEeG7BsjMvd1mEw_1540700249")]
     [DisplayName("Communication Method 1 Choice")]

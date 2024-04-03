@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateAndDateTime2Choice.Date))]
     [KnownType(typeof(DateAndDateTime2Choice.DateTime))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateAndDateTime2Choice.Date),nameof(DateAndDateTime2Choice.Date))]
-    [JsonDerivedType(typeof(DateAndDateTime2Choice.DateTime),nameof(DateAndDateTime2Choice.DateTime))]
+    [JsonDerivedType(typeof(DateAndDateTime2Choice.Date),"DateAndDateTime2Choice.Date")]
+    [JsonDerivedType(typeof(DateAndDateTime2Choice.DateTime),"DateAndDateTime2Choice.DateTime")]
     #endif
     [IsoId("_fGuzgZlhEeeE1Ya-LgRsuQ")]
     [DisplayName("Date And Date Time 2 Choice")]

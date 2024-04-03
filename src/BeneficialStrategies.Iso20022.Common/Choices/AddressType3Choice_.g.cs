@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AddressType3Choice.Code))]
     [KnownType(typeof(AddressType3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AddressType3Choice.Code),nameof(AddressType3Choice.Code))]
-    [JsonDerivedType(typeof(AddressType3Choice.Proprietary),nameof(AddressType3Choice.Proprietary))]
+    [JsonDerivedType(typeof(AddressType3Choice.Code),"AddressType3Choice.Code")]
+    [JsonDerivedType(typeof(AddressType3Choice.Proprietary),"AddressType3Choice.Proprietary")]
     #endif
     [IsoId("_CneugRb-EeiyVv5j1vf1VQ")]
     [DisplayName("Address Type 3 Choice")]

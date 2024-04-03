@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradingVenueType1Choice.OnVenue))]
     [KnownType(typeof(TradingVenueType1Choice.OffVenue))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradingVenueType1Choice.OnVenue),nameof(TradingVenueType1Choice.OnVenue))]
-    [JsonDerivedType(typeof(TradingVenueType1Choice.OffVenue),nameof(TradingVenueType1Choice.OffVenue))]
+    [JsonDerivedType(typeof(TradingVenueType1Choice.OnVenue),"TradingVenueType1Choice.OnVenue")]
+    [JsonDerivedType(typeof(TradingVenueType1Choice.OffVenue),"TradingVenueType1Choice.OffVenue")]
     #endif
     [IsoId("_MXZ-8Hy7Eeu1BeE84IrnAQ")]
     [DisplayName("Trading Venue Type 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Proxy1Choice.Proxy))]
     [KnownType(typeof(Proxy1Choice.ProxyNotAllowed))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Proxy1Choice.Proxy),nameof(Proxy1Choice.Proxy))]
-    [JsonDerivedType(typeof(Proxy1Choice.ProxyNotAllowed),nameof(Proxy1Choice.ProxyNotAllowed))]
+    [JsonDerivedType(typeof(Proxy1Choice.Proxy),"Proxy1Choice.Proxy")]
+    [JsonDerivedType(typeof(Proxy1Choice.ProxyNotAllowed),"Proxy1Choice.ProxyNotAllowed")]
     #endif
     [IsoId("_RD1ZkNp-Ed-ak6NoX_4Aeg_754984045")]
     [DisplayName("Proxy 1 Choice")]

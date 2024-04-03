@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DebtorActivationCancellationReason1Choice.Code))]
     [KnownType(typeof(DebtorActivationCancellationReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DebtorActivationCancellationReason1Choice.Code),nameof(DebtorActivationCancellationReason1Choice.Code))]
-    [JsonDerivedType(typeof(DebtorActivationCancellationReason1Choice.Proprietary),nameof(DebtorActivationCancellationReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(DebtorActivationCancellationReason1Choice.Code),"DebtorActivationCancellationReason1Choice.Code")]
+    [JsonDerivedType(typeof(DebtorActivationCancellationReason1Choice.Proprietary),"DebtorActivationCancellationReason1Choice.Proprietary")]
     #endif
     [IsoId("_bjMUfPGAEemQ7oqCO5NTQw")]
     [DisplayName("Debtor Activation Cancellation Reason 1 Choice")]

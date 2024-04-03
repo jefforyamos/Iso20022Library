@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BlockedReason1Choice.Reason))]
     [KnownType(typeof(BlockedReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BlockedReason1Choice.Reason),nameof(BlockedReason1Choice.Reason))]
-    [JsonDerivedType(typeof(BlockedReason1Choice.Proprietary),nameof(BlockedReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(BlockedReason1Choice.Reason),"BlockedReason1Choice.Reason")]
+    [JsonDerivedType(typeof(BlockedReason1Choice.Proprietary),"BlockedReason1Choice.Proprietary")]
     #endif
     [IsoId("_WFqMcxHdEeKVqeHljBM1MQ")]
     [DisplayName("Blocked Reason 1 Choice")]

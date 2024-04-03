@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode3Choice.PendingStatus))]
     [KnownType(typeof(PaymentStatusCode3Choice.FinalStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentStatusCode3Choice.PendingStatus),nameof(PaymentStatusCode3Choice.PendingStatus))]
-    [JsonDerivedType(typeof(PaymentStatusCode3Choice.FinalStatus),nameof(PaymentStatusCode3Choice.FinalStatus))]
+    [JsonDerivedType(typeof(PaymentStatusCode3Choice.PendingStatus),"PaymentStatusCode3Choice.PendingStatus")]
+    [JsonDerivedType(typeof(PaymentStatusCode3Choice.FinalStatus),"PaymentStatusCode3Choice.FinalStatus")]
     #endif
     [IsoId("_RF7ER9p-Ed-ak6NoX_4Aeg_2006585714")]
     [DisplayName("Payment Status Code 3 Choice")]

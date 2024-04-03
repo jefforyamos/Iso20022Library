@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneratedStatus8Choice.NoSpecifiedReason))]
     [KnownType(typeof(GeneratedStatus8Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GeneratedStatus8Choice.NoSpecifiedReason),nameof(GeneratedStatus8Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(GeneratedStatus8Choice.Reason),nameof(GeneratedStatus8Choice.Reason))]
+    [JsonDerivedType(typeof(GeneratedStatus8Choice.NoSpecifiedReason),"GeneratedStatus8Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(GeneratedStatus8Choice.Reason),"GeneratedStatus8Choice.Reason")]
     #endif
     [IsoId("_8VJvzZNLEeWGlc8L7oPDIg")]
     [DisplayName("Generated Status 8 Choice")]

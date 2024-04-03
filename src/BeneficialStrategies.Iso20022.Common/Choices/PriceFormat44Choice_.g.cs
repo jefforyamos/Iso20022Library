@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormat44Choice.NotSpecifiedPrice))]
     [KnownType(typeof(PriceFormat44Choice.IndexPoints))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceFormat44Choice.PercentagePrice),nameof(PriceFormat44Choice.PercentagePrice))]
-    [JsonDerivedType(typeof(PriceFormat44Choice.AmountPrice),nameof(PriceFormat44Choice.AmountPrice))]
-    [JsonDerivedType(typeof(PriceFormat44Choice.NotSpecifiedPrice),nameof(PriceFormat44Choice.NotSpecifiedPrice))]
-    [JsonDerivedType(typeof(PriceFormat44Choice.IndexPoints),nameof(PriceFormat44Choice.IndexPoints))]
+    [JsonDerivedType(typeof(PriceFormat44Choice.PercentagePrice),"PriceFormat44Choice.PercentagePrice")]
+    [JsonDerivedType(typeof(PriceFormat44Choice.AmountPrice),"PriceFormat44Choice.AmountPrice")]
+    [JsonDerivedType(typeof(PriceFormat44Choice.NotSpecifiedPrice),"PriceFormat44Choice.NotSpecifiedPrice")]
+    [JsonDerivedType(typeof(PriceFormat44Choice.IndexPoints),"PriceFormat44Choice.IndexPoints")]
     #endif
     [IsoId("_J1Q0u0EFEeWVgfuHGaKtRQ")]
     [DisplayName("Price Format 44 Choice")]

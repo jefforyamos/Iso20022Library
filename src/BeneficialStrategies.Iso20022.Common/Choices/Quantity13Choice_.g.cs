@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity13Choice.TotalUnitsNumber))]
     [KnownType(typeof(Quantity13Choice.PortfolioTransferOutRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Quantity13Choice.TotalUnitsNumber),nameof(Quantity13Choice.TotalUnitsNumber))]
-    [JsonDerivedType(typeof(Quantity13Choice.PortfolioTransferOutRate),nameof(Quantity13Choice.PortfolioTransferOutRate))]
+    [JsonDerivedType(typeof(Quantity13Choice.TotalUnitsNumber),"Quantity13Choice.TotalUnitsNumber")]
+    [JsonDerivedType(typeof(Quantity13Choice.PortfolioTransferOutRate),"Quantity13Choice.PortfolioTransferOutRate")]
     #endif
     [IsoId("__UhkwEZ6EeGxeZmLCxTaOw_-2052413231")]
     [DisplayName("Quantity 13 Choice")]

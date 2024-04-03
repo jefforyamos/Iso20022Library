@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(WithdrawalReason1Choice.Code))]
     [KnownType(typeof(WithdrawalReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(WithdrawalReason1Choice.Code),nameof(WithdrawalReason1Choice.Code))]
-    [JsonDerivedType(typeof(WithdrawalReason1Choice.Proprietary),nameof(WithdrawalReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(WithdrawalReason1Choice.Code),"WithdrawalReason1Choice.Code")]
+    [JsonDerivedType(typeof(WithdrawalReason1Choice.Proprietary),"WithdrawalReason1Choice.Proprietary")]
     #endif
     [IsoId("_NMNN8E7XEeifNrXGwadPmg")]
     [DisplayName("Withdrawal Reason 1 Choice")]

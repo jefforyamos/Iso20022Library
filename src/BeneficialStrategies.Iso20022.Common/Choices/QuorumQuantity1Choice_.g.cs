@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantity))]
     [KnownType(typeof(QuorumQuantity1Choice.QuorumQuantityPercentage))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(QuorumQuantity1Choice.QuorumQuantity),nameof(QuorumQuantity1Choice.QuorumQuantity))]
-    [JsonDerivedType(typeof(QuorumQuantity1Choice.QuorumQuantityPercentage),nameof(QuorumQuantity1Choice.QuorumQuantityPercentage))]
+    [JsonDerivedType(typeof(QuorumQuantity1Choice.QuorumQuantity),"QuorumQuantity1Choice.QuorumQuantity")]
+    [JsonDerivedType(typeof(QuorumQuantity1Choice.QuorumQuantityPercentage),"QuorumQuantity1Choice.QuorumQuantityPercentage")]
     #endif
     [IsoId("_RDiepdp-Ed-ak6NoX_4Aeg_1841562834")]
     [DisplayName("Quorum Quantity 1 Choice")]

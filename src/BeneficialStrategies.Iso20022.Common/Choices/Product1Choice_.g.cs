@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Product1Choice.SecuritiesFinancingTransaction))]
     [KnownType(typeof(Product1Choice.Security))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Product1Choice.Derivative),nameof(Product1Choice.Derivative))]
-    [JsonDerivedType(typeof(Product1Choice.SecuritiesFinancingTransaction),nameof(Product1Choice.SecuritiesFinancingTransaction))]
-    [JsonDerivedType(typeof(Product1Choice.Security),nameof(Product1Choice.Security))]
+    [JsonDerivedType(typeof(Product1Choice.Derivative),"Product1Choice.Derivative")]
+    [JsonDerivedType(typeof(Product1Choice.SecuritiesFinancingTransaction),"Product1Choice.SecuritiesFinancingTransaction")]
+    [JsonDerivedType(typeof(Product1Choice.Security),"Product1Choice.Security")]
     #endif
     [IsoId("_AS4VYLVPEeadLcJesEbkTQ")]
     [DisplayName("Product 1 Choice")]

@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification198Choice.ClientIdentification))]
     [KnownType(typeof(PartyIdentification198Choice.ProprietaryIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyIdentification198Choice.NationalRegistrationNumber),nameof(PartyIdentification198Choice.NationalRegistrationNumber))]
-    [JsonDerivedType(typeof(PartyIdentification198Choice.LEI),nameof(PartyIdentification198Choice.LEI))]
-    [JsonDerivedType(typeof(PartyIdentification198Choice.AnyBIC),nameof(PartyIdentification198Choice.AnyBIC))]
-    [JsonDerivedType(typeof(PartyIdentification198Choice.ClientIdentification),nameof(PartyIdentification198Choice.ClientIdentification))]
-    [JsonDerivedType(typeof(PartyIdentification198Choice.ProprietaryIdentification),nameof(PartyIdentification198Choice.ProprietaryIdentification))]
+    [JsonDerivedType(typeof(PartyIdentification198Choice.NationalRegistrationNumber),"PartyIdentification198Choice.NationalRegistrationNumber")]
+    [JsonDerivedType(typeof(PartyIdentification198Choice.LEI),"PartyIdentification198Choice.LEI")]
+    [JsonDerivedType(typeof(PartyIdentification198Choice.AnyBIC),"PartyIdentification198Choice.AnyBIC")]
+    [JsonDerivedType(typeof(PartyIdentification198Choice.ClientIdentification),"PartyIdentification198Choice.ClientIdentification")]
+    [JsonDerivedType(typeof(PartyIdentification198Choice.ProprietaryIdentification),"PartyIdentification198Choice.ProprietaryIdentification")]
     #endif
     [IsoId("_vHuP0DtpEemIf7eyjCwinw")]
     [DisplayName("Party Identification 198 Choice")]

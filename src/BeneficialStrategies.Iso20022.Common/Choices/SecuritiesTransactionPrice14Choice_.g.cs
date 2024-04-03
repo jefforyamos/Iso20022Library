@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice14Choice.Rate))]
     [KnownType(typeof(SecuritiesTransactionPrice14Choice.Decimal))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice14Choice.Rate),nameof(SecuritiesTransactionPrice14Choice.Rate))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice14Choice.Decimal),nameof(SecuritiesTransactionPrice14Choice.Decimal))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice14Choice.Rate),"SecuritiesTransactionPrice14Choice.Rate")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice14Choice.Decimal),"SecuritiesTransactionPrice14Choice.Decimal")]
     #endif
     [IsoId("_MwrRwQVJEequL9Y8-ASIxA")]
     [DisplayName("Securities Transaction Price 14 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReuseValue1Choice.Actual))]
     [KnownType(typeof(ReuseValue1Choice.Estimated))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReuseValue1Choice.Actual),nameof(ReuseValue1Choice.Actual))]
-    [JsonDerivedType(typeof(ReuseValue1Choice.Estimated),nameof(ReuseValue1Choice.Estimated))]
+    [JsonDerivedType(typeof(ReuseValue1Choice.Actual),"ReuseValue1Choice.Actual")]
+    [JsonDerivedType(typeof(ReuseValue1Choice.Estimated),"ReuseValue1Choice.Estimated")]
     #endif
     [IsoId("_MSGu8IxnEeap1-whlAlpOw")]
     [DisplayName("Reuse Value 1 Choice")]

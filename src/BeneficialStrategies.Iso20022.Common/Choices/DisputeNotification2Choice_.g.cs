@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DisputeNotification2Choice.DisputeNotificationDetails))]
     [KnownType(typeof(DisputeNotification2Choice.SegregatedIndependentAmountDisputeDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DisputeNotification2Choice.DisputeNotificationDetails),nameof(DisputeNotification2Choice.DisputeNotificationDetails))]
-    [JsonDerivedType(typeof(DisputeNotification2Choice.SegregatedIndependentAmountDisputeDetails),nameof(DisputeNotification2Choice.SegregatedIndependentAmountDisputeDetails))]
+    [JsonDerivedType(typeof(DisputeNotification2Choice.DisputeNotificationDetails),"DisputeNotification2Choice.DisputeNotificationDetails")]
+    [JsonDerivedType(typeof(DisputeNotification2Choice.SegregatedIndependentAmountDisputeDetails),"DisputeNotification2Choice.SegregatedIndependentAmountDisputeDetails")]
     #endif
     [IsoId("_KLqxkStOEeyOa655cLd-DQ")]
     [DisplayName("Dispute Notification 2 Choice")]

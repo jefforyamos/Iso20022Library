@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BillingMethod1Choice.MethodB))]
     [KnownType(typeof(BillingMethod1Choice.MethodD))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BillingMethod1Choice.MethodA),nameof(BillingMethod1Choice.MethodA))]
-    [JsonDerivedType(typeof(BillingMethod1Choice.MethodB),nameof(BillingMethod1Choice.MethodB))]
-    [JsonDerivedType(typeof(BillingMethod1Choice.MethodD),nameof(BillingMethod1Choice.MethodD))]
+    [JsonDerivedType(typeof(BillingMethod1Choice.MethodA),"BillingMethod1Choice.MethodA")]
+    [JsonDerivedType(typeof(BillingMethod1Choice.MethodB),"BillingMethod1Choice.MethodB")]
+    [JsonDerivedType(typeof(BillingMethod1Choice.MethodD),"BillingMethod1Choice.MethodD")]
     #endif
     [IsoId("_6P9DsZqlEeGSON8vddiWzQ_-904396180")]
     [DisplayName("Billing Method 1 Choice")]

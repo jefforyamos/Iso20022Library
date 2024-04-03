@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProxyAccountType1Choice.Code))]
     [KnownType(typeof(ProxyAccountType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProxyAccountType1Choice.Code),nameof(ProxyAccountType1Choice.Code))]
-    [JsonDerivedType(typeof(ProxyAccountType1Choice.Proprietary),nameof(ProxyAccountType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProxyAccountType1Choice.Code),"ProxyAccountType1Choice.Code")]
+    [JsonDerivedType(typeof(ProxyAccountType1Choice.Proprietary),"ProxyAccountType1Choice.Proprietary")]
     #endif
     [IsoId("_dyock3h3EeidzqjNEfehPg")]
     [DisplayName("Proxy Account Type 1 Choice")]

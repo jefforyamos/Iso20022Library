@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DisputeResolutionType1Choice.Code))]
     [KnownType(typeof(DisputeResolutionType1Choice.ProprietaryIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DisputeResolutionType1Choice.Code),nameof(DisputeResolutionType1Choice.Code))]
-    [JsonDerivedType(typeof(DisputeResolutionType1Choice.ProprietaryIdentification),nameof(DisputeResolutionType1Choice.ProprietaryIdentification))]
+    [JsonDerivedType(typeof(DisputeResolutionType1Choice.Code),"DisputeResolutionType1Choice.Code")]
+    [JsonDerivedType(typeof(DisputeResolutionType1Choice.ProprietaryIdentification),"DisputeResolutionType1Choice.ProprietaryIdentification")]
     #endif
     [IsoId("_QmogNdp-Ed-ak6NoX_4Aeg_1282948020")]
     [DisplayName("Dispute Resolution Type 1 Choice")]

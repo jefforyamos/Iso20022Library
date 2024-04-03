@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountOwner2Choice.IndividualOwnerIdentification))]
     [KnownType(typeof(AccountOwner2Choice.OrganisationOwnerIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountOwner2Choice.IndividualOwnerIdentification),nameof(AccountOwner2Choice.IndividualOwnerIdentification))]
-    [JsonDerivedType(typeof(AccountOwner2Choice.OrganisationOwnerIdentification),nameof(AccountOwner2Choice.OrganisationOwnerIdentification))]
+    [JsonDerivedType(typeof(AccountOwner2Choice.IndividualOwnerIdentification),"AccountOwner2Choice.IndividualOwnerIdentification")]
+    [JsonDerivedType(typeof(AccountOwner2Choice.OrganisationOwnerIdentification),"AccountOwner2Choice.OrganisationOwnerIdentification")]
     #endif
     [IsoId("_9wrfUYoVEeahcZ3Nzs1Qag")]
     [DisplayName("Account Owner 2 Choice")]

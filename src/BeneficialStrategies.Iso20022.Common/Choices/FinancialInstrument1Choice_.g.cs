@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrument1Choice.CashAsset))]
     [KnownType(typeof(FinancialInstrument1Choice.OtherAsset))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrument1Choice.Security),nameof(FinancialInstrument1Choice.Security))]
-    [JsonDerivedType(typeof(FinancialInstrument1Choice.CashAsset),nameof(FinancialInstrument1Choice.CashAsset))]
-    [JsonDerivedType(typeof(FinancialInstrument1Choice.OtherAsset),nameof(FinancialInstrument1Choice.OtherAsset))]
+    [JsonDerivedType(typeof(FinancialInstrument1Choice.Security),"FinancialInstrument1Choice.Security")]
+    [JsonDerivedType(typeof(FinancialInstrument1Choice.CashAsset),"FinancialInstrument1Choice.CashAsset")]
+    [JsonDerivedType(typeof(FinancialInstrument1Choice.OtherAsset),"FinancialInstrument1Choice.OtherAsset")]
     #endif
     [IsoId("_pCApoEyGEeir2sRRVd9XhA")]
     [DisplayName("Financial Instrument 1 Choice")]

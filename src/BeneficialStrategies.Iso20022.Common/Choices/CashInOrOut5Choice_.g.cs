@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashInOrOut5Choice.CashInPaymentInstrument))]
     [KnownType(typeof(CashInOrOut5Choice.CashOutPaymentInstrument))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CashInOrOut5Choice.CashInPaymentInstrument),nameof(CashInOrOut5Choice.CashInPaymentInstrument))]
-    [JsonDerivedType(typeof(CashInOrOut5Choice.CashOutPaymentInstrument),nameof(CashInOrOut5Choice.CashOutPaymentInstrument))]
+    [JsonDerivedType(typeof(CashInOrOut5Choice.CashInPaymentInstrument),"CashInOrOut5Choice.CashInPaymentInstrument")]
+    [JsonDerivedType(typeof(CashInOrOut5Choice.CashOutPaymentInstrument),"CashInOrOut5Choice.CashOutPaymentInstrument")]
     #endif
     [IsoId("_SBq60tp-Ed-ak6NoX_4Aeg_1170439952")]
     [DisplayName("Cash In Or Out 5 Choice")]

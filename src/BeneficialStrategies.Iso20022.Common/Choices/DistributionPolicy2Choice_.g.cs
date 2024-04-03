@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DistributionPolicy2Choice.Code))]
     [KnownType(typeof(DistributionPolicy2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DistributionPolicy2Choice.Code),nameof(DistributionPolicy2Choice.Code))]
-    [JsonDerivedType(typeof(DistributionPolicy2Choice.Proprietary),nameof(DistributionPolicy2Choice.Proprietary))]
+    [JsonDerivedType(typeof(DistributionPolicy2Choice.Code),"DistributionPolicy2Choice.Code")]
+    [JsonDerivedType(typeof(DistributionPolicy2Choice.Proprietary),"DistributionPolicy2Choice.Proprietary")]
     #endif
     [IsoId("_HolxYeLaEeWFtOV72FbX9w")]
     [DisplayName("Distribution Policy 2 Choice")]

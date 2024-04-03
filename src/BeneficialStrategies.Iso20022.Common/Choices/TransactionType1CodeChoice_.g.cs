@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionType1CodeChoice.Structured))]
     [KnownType(typeof(TransactionType1CodeChoice.Unstructured))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionType1CodeChoice.Structured),nameof(TransactionType1CodeChoice.Structured))]
-    [JsonDerivedType(typeof(TransactionType1CodeChoice.Unstructured),nameof(TransactionType1CodeChoice.Unstructured))]
+    [JsonDerivedType(typeof(TransactionType1CodeChoice.Structured),"TransactionType1CodeChoice.Structured")]
+    [JsonDerivedType(typeof(TransactionType1CodeChoice.Unstructured),"TransactionType1CodeChoice.Unstructured")]
     #endif
     [IsoId("_U0V2wdp-Ed-ak6NoX_4Aeg_1816953757")]
     [DisplayName("Transaction Type 1 Code Choice")]

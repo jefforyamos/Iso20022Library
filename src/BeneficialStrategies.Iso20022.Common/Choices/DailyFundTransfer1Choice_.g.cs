@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DailyFundTransfer1Choice.TransferTime))]
     [KnownType(typeof(DailyFundTransfer1Choice.TransferEvent))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferTime),nameof(DailyFundTransfer1Choice.TransferTime))]
-    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferEvent),nameof(DailyFundTransfer1Choice.TransferEvent))]
+    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferTime),"DailyFundTransfer1Choice.TransferTime")]
+    [JsonDerivedType(typeof(DailyFundTransfer1Choice.TransferEvent),"DailyFundTransfer1Choice.TransferEvent")]
     #endif
     [IsoId("_mJGJgCc6Eea7avjfd7yDAA")]
     [DisplayName("Daily Fund Transfer 1 Choice")]

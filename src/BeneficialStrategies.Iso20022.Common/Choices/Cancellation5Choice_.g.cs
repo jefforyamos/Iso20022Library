@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Cancellation5Choice.References))]
     [KnownType(typeof(Cancellation5Choice.TransferInDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Cancellation5Choice.References),nameof(Cancellation5Choice.References))]
-    [JsonDerivedType(typeof(Cancellation5Choice.TransferInDetails),nameof(Cancellation5Choice.TransferInDetails))]
+    [JsonDerivedType(typeof(Cancellation5Choice.References),"Cancellation5Choice.References")]
+    [JsonDerivedType(typeof(Cancellation5Choice.TransferInDetails),"Cancellation5Choice.TransferInDetails")]
     #endif
     [IsoId("_GO-y4RYAEeOBE-jZfcm4KQ")]
     [DisplayName("Cancellation 5 Choice")]

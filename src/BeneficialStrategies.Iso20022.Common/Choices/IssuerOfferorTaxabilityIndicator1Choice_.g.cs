@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Code))]
     [KnownType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Code),nameof(IssuerOfferorTaxabilityIndicator1Choice.Code))]
-    [JsonDerivedType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Proprietary),nameof(IssuerOfferorTaxabilityIndicator1Choice.Proprietary))]
+    [JsonDerivedType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Code),"IssuerOfferorTaxabilityIndicator1Choice.Code")]
+    [JsonDerivedType(typeof(IssuerOfferorTaxabilityIndicator1Choice.Proprietary),"IssuerOfferorTaxabilityIndicator1Choice.Proprietary")]
     #endif
     [IsoId("_DUEMcIlzEeavwKddCbm3hg")]
     [DisplayName("Issuer Offeror Taxability Indicator 1 Choice")]

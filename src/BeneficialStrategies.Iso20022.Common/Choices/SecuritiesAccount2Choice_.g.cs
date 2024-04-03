@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccount2Choice.Range))]
     [KnownType(typeof(SecuritiesAccount2Choice.Account))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesAccount2Choice.Range),nameof(SecuritiesAccount2Choice.Range))]
-    [JsonDerivedType(typeof(SecuritiesAccount2Choice.Account),nameof(SecuritiesAccount2Choice.Account))]
+    [JsonDerivedType(typeof(SecuritiesAccount2Choice.Range),"SecuritiesAccount2Choice.Range")]
+    [JsonDerivedType(typeof(SecuritiesAccount2Choice.Account),"SecuritiesAccount2Choice.Account")]
     #endif
     [IsoId("_38iun-GBEeWCAvUNsZ5u6g")]
     [DisplayName("Securities Account 2 Choice")]

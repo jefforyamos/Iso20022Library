@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity8Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity8Choice.HoldingsRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.UnitsNumber),nameof(FinancialInstrumentQuantity8Choice.UnitsNumber))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.OrderedAmount),nameof(FinancialInstrumentQuantity8Choice.OrderedAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.NetAmount),nameof(FinancialInstrumentQuantity8Choice.NetAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.GrossAmount),nameof(FinancialInstrumentQuantity8Choice.GrossAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.HoldingsRate),nameof(FinancialInstrumentQuantity8Choice.HoldingsRate))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.UnitsNumber),"FinancialInstrumentQuantity8Choice.UnitsNumber")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.OrderedAmount),"FinancialInstrumentQuantity8Choice.OrderedAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.NetAmount),"FinancialInstrumentQuantity8Choice.NetAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.GrossAmount),"FinancialInstrumentQuantity8Choice.GrossAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity8Choice.HoldingsRate),"FinancialInstrumentQuantity8Choice.HoldingsRate")]
     #endif
     [IsoId("_Rg5JBtp-Ed-ak6NoX_4Aeg_1589726171")]
     [DisplayName("Financial Instrument Quantity 8 Choice")]

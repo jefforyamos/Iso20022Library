@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity4Choice.NetAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity4Choice.GrossAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.UnitsNumber),nameof(FinancialInstrumentQuantity4Choice.UnitsNumber))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.PercentageOfTotalRedemptionAmount),nameof(FinancialInstrumentQuantity4Choice.PercentageOfTotalRedemptionAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.NetAmount),nameof(FinancialInstrumentQuantity4Choice.NetAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.GrossAmount),nameof(FinancialInstrumentQuantity4Choice.GrossAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.UnitsNumber),"FinancialInstrumentQuantity4Choice.UnitsNumber")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.PercentageOfTotalRedemptionAmount),"FinancialInstrumentQuantity4Choice.PercentageOfTotalRedemptionAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.NetAmount),"FinancialInstrumentQuantity4Choice.NetAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity4Choice.GrossAmount),"FinancialInstrumentQuantity4Choice.GrossAmount")]
     #endif
     [IsoId("_VO3PlNp-Ed-ak6NoX_4Aeg_-1046400121")]
     [DisplayName("Financial Instrument Quantity 4 Choice")]

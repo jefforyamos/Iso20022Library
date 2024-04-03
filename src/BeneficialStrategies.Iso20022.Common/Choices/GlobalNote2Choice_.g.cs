@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GlobalNote2Choice.Code))]
     [KnownType(typeof(GlobalNote2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GlobalNote2Choice.Code),nameof(GlobalNote2Choice.Code))]
-    [JsonDerivedType(typeof(GlobalNote2Choice.Proprietary),nameof(GlobalNote2Choice.Proprietary))]
+    [JsonDerivedType(typeof(GlobalNote2Choice.Code),"GlobalNote2Choice.Code")]
+    [JsonDerivedType(typeof(GlobalNote2Choice.Proprietary),"GlobalNote2Choice.Proprietary")]
     #endif
     [IsoId("_TiBdgeLaEeWFtOV72FbX9w")]
     [DisplayName("Global Note 2 Choice")]

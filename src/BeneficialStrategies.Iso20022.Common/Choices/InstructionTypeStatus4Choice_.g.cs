@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionTypeStatus4Choice.InstructionStatus))]
     [KnownType(typeof(InstructionTypeStatus4Choice.CancellationStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructionTypeStatus4Choice.InstructionStatus),nameof(InstructionTypeStatus4Choice.InstructionStatus))]
-    [JsonDerivedType(typeof(InstructionTypeStatus4Choice.CancellationStatus),nameof(InstructionTypeStatus4Choice.CancellationStatus))]
+    [JsonDerivedType(typeof(InstructionTypeStatus4Choice.InstructionStatus),"InstructionTypeStatus4Choice.InstructionStatus")]
+    [JsonDerivedType(typeof(InstructionTypeStatus4Choice.CancellationStatus),"InstructionTypeStatus4Choice.CancellationStatus")]
     #endif
     [IsoId("_ay2uYfNfEeqRfth943bvEA")]
     [DisplayName("Instruction Type Status 4 Choice")]

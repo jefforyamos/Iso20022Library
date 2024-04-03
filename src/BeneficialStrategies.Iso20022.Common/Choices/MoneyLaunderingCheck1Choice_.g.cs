@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MoneyLaunderingCheck1Choice.Code))]
     [KnownType(typeof(MoneyLaunderingCheck1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Code),nameof(MoneyLaunderingCheck1Choice.Code))]
-    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Proprietary),nameof(MoneyLaunderingCheck1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Code),"MoneyLaunderingCheck1Choice.Code")]
+    [JsonDerivedType(typeof(MoneyLaunderingCheck1Choice.Proprietary),"MoneyLaunderingCheck1Choice.Proprietary")]
     #endif
     [IsoId("_GExWwxdDEeK5g-3oYI0_9Q")]
     [DisplayName("Money Laundering Check 1 Choice")]

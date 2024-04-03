@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrentOrDefaultReservation1Choice.Current))]
     [KnownType(typeof(CurrentOrDefaultReservation1Choice.Default))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CurrentOrDefaultReservation1Choice.Current),nameof(CurrentOrDefaultReservation1Choice.Current))]
-    [JsonDerivedType(typeof(CurrentOrDefaultReservation1Choice.Default),nameof(CurrentOrDefaultReservation1Choice.Default))]
+    [JsonDerivedType(typeof(CurrentOrDefaultReservation1Choice.Current),"CurrentOrDefaultReservation1Choice.Current")]
+    [JsonDerivedType(typeof(CurrentOrDefaultReservation1Choice.Default),"CurrentOrDefaultReservation1Choice.Default")]
     #endif
     [IsoId("_8IjoJKMgEeCJ6YNENx4h-w_-1597699286")]
     [DisplayName("Current Or Default Reservation 1 Choice")]

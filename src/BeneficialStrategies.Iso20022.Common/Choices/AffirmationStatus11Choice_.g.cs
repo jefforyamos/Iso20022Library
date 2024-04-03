@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AffirmationStatus11Choice.Unaffirmed))]
     [KnownType(typeof(AffirmationStatus11Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AffirmationStatus11Choice.Affirmed),nameof(AffirmationStatus11Choice.Affirmed))]
-    [JsonDerivedType(typeof(AffirmationStatus11Choice.Unaffirmed),nameof(AffirmationStatus11Choice.Unaffirmed))]
-    [JsonDerivedType(typeof(AffirmationStatus11Choice.ProprietaryStatus),nameof(AffirmationStatus11Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(AffirmationStatus11Choice.Affirmed),"AffirmationStatus11Choice.Affirmed")]
+    [JsonDerivedType(typeof(AffirmationStatus11Choice.Unaffirmed),"AffirmationStatus11Choice.Unaffirmed")]
+    [JsonDerivedType(typeof(AffirmationStatus11Choice.ProprietaryStatus),"AffirmationStatus11Choice.ProprietaryStatus")]
     #endif
     [IsoId("_XiELhQd3Ee2fOITqoTnSLQ")]
     [DisplayName("Affirmation Status 11 Choice")]

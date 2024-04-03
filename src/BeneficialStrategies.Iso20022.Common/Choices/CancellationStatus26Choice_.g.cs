@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationStatus26Choice.Rejected))]
     [KnownType(typeof(CancellationStatus26Choice.PendingCancellation))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationStatus26Choice.ProcessingStatus),nameof(CancellationStatus26Choice.ProcessingStatus))]
-    [JsonDerivedType(typeof(CancellationStatus26Choice.Rejected),nameof(CancellationStatus26Choice.Rejected))]
-    [JsonDerivedType(typeof(CancellationStatus26Choice.PendingCancellation),nameof(CancellationStatus26Choice.PendingCancellation))]
+    [JsonDerivedType(typeof(CancellationStatus26Choice.ProcessingStatus),"CancellationStatus26Choice.ProcessingStatus")]
+    [JsonDerivedType(typeof(CancellationStatus26Choice.Rejected),"CancellationStatus26Choice.Rejected")]
+    [JsonDerivedType(typeof(CancellationStatus26Choice.PendingCancellation),"CancellationStatus26Choice.PendingCancellation")]
     #endif
     [IsoId("_iKIapLKfEemux5trsZcCpw")]
     [DisplayName("Cancellation Status 26 Choice")]

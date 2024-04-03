@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity5Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity5Choice.HoldingsRedemptionRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.UnitsNumber),nameof(FinancialInstrumentQuantity5Choice.UnitsNumber))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.PercentageOfTotalSubscriptionAmount),nameof(FinancialInstrumentQuantity5Choice.PercentageOfTotalSubscriptionAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.NetAmount),nameof(FinancialInstrumentQuantity5Choice.NetAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.GrossAmount),nameof(FinancialInstrumentQuantity5Choice.GrossAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.HoldingsRedemptionRate),nameof(FinancialInstrumentQuantity5Choice.HoldingsRedemptionRate))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.UnitsNumber),"FinancialInstrumentQuantity5Choice.UnitsNumber")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.PercentageOfTotalSubscriptionAmount),"FinancialInstrumentQuantity5Choice.PercentageOfTotalSubscriptionAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.NetAmount),"FinancialInstrumentQuantity5Choice.NetAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.GrossAmount),"FinancialInstrumentQuantity5Choice.GrossAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity5Choice.HoldingsRedemptionRate),"FinancialInstrumentQuantity5Choice.HoldingsRedemptionRate")]
     #endif
     [IsoId("_Soaxwdp-Ed-ak6NoX_4Aeg_1036643949")]
     [DisplayName("Financial Instrument Quantity 5 Choice")]

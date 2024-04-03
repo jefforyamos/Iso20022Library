@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TonsOrCurrency2Choice.Number))]
     [KnownType(typeof(TonsOrCurrency2Choice.Amount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TonsOrCurrency2Choice.Number),nameof(TonsOrCurrency2Choice.Number))]
-    [JsonDerivedType(typeof(TonsOrCurrency2Choice.Amount),nameof(TonsOrCurrency2Choice.Amount))]
+    [JsonDerivedType(typeof(TonsOrCurrency2Choice.Number),"TonsOrCurrency2Choice.Number")]
+    [JsonDerivedType(typeof(TonsOrCurrency2Choice.Amount),"TonsOrCurrency2Choice.Amount")]
     #endif
     [IsoId("_Z5jxEWlSEeaLAKoEUNsD9g")]
     [DisplayName("Tons Or Currency 2 Choice")]

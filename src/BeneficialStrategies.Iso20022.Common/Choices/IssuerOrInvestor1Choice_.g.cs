@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IssuerOrInvestor1Choice.IssuerCSD))]
     [KnownType(typeof(IssuerOrInvestor1Choice.InvestorCSD))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IssuerOrInvestor1Choice.IssuerCSD),nameof(IssuerOrInvestor1Choice.IssuerCSD))]
-    [JsonDerivedType(typeof(IssuerOrInvestor1Choice.InvestorCSD),nameof(IssuerOrInvestor1Choice.InvestorCSD))]
+    [JsonDerivedType(typeof(IssuerOrInvestor1Choice.IssuerCSD),"IssuerOrInvestor1Choice.IssuerCSD")]
+    [JsonDerivedType(typeof(IssuerOrInvestor1Choice.InvestorCSD),"IssuerOrInvestor1Choice.InvestorCSD")]
     #endif
     [IsoId("_hh_UoWliEeGaMcKyqKNRfQ_1655812261")]
     [DisplayName("Issuer Or Investor 1 Choice")]

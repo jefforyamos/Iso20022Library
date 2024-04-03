@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AllocationStatus1Choice.PartiallyAllocated))]
     [KnownType(typeof(AllocationStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AllocationStatus1Choice.FullyAllocated),nameof(AllocationStatus1Choice.FullyAllocated))]
-    [JsonDerivedType(typeof(AllocationStatus1Choice.PartiallyAllocated),nameof(AllocationStatus1Choice.PartiallyAllocated))]
-    [JsonDerivedType(typeof(AllocationStatus1Choice.Proprietary),nameof(AllocationStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(AllocationStatus1Choice.FullyAllocated),"AllocationStatus1Choice.FullyAllocated")]
+    [JsonDerivedType(typeof(AllocationStatus1Choice.PartiallyAllocated),"AllocationStatus1Choice.PartiallyAllocated")]
+    [JsonDerivedType(typeof(AllocationStatus1Choice.Proprietary),"AllocationStatus1Choice.Proprietary")]
     #endif
     [IsoId("_D01G0N_-EeiVRbNQx5-Vhg")]
     [DisplayName("Allocation Status 1 Choice")]

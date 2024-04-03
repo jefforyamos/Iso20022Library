@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Number22Choice.Short))]
     [KnownType(typeof(Number22Choice.Long))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Number22Choice.Short),nameof(Number22Choice.Short))]
-    [JsonDerivedType(typeof(Number22Choice.Long),nameof(Number22Choice.Long))]
+    [JsonDerivedType(typeof(Number22Choice.Short),"Number22Choice.Short")]
+    [JsonDerivedType(typeof(Number22Choice.Long),"Number22Choice.Long")]
     #endif
     [IsoId("_GgDHITnEEeWV5sr121Fc8A")]
     [DisplayName("Number 22 Choice")]

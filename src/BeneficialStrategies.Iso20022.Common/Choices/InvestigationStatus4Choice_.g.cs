@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestigationStatus4Choice.DuplicateOf))]
     [KnownType(typeof(InvestigationStatus4Choice.AssignmentCancellationConfirmation))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InvestigationStatus4Choice.Confirmation),nameof(InvestigationStatus4Choice.Confirmation))]
-    [JsonDerivedType(typeof(InvestigationStatus4Choice.RejectedModification),nameof(InvestigationStatus4Choice.RejectedModification))]
-    [JsonDerivedType(typeof(InvestigationStatus4Choice.DuplicateOf),nameof(InvestigationStatus4Choice.DuplicateOf))]
-    [JsonDerivedType(typeof(InvestigationStatus4Choice.AssignmentCancellationConfirmation),nameof(InvestigationStatus4Choice.AssignmentCancellationConfirmation))]
+    [JsonDerivedType(typeof(InvestigationStatus4Choice.Confirmation),"InvestigationStatus4Choice.Confirmation")]
+    [JsonDerivedType(typeof(InvestigationStatus4Choice.RejectedModification),"InvestigationStatus4Choice.RejectedModification")]
+    [JsonDerivedType(typeof(InvestigationStatus4Choice.DuplicateOf),"InvestigationStatus4Choice.DuplicateOf")]
+    [JsonDerivedType(typeof(InvestigationStatus4Choice.AssignmentCancellationConfirmation),"InvestigationStatus4Choice.AssignmentCancellationConfirmation")]
     #endif
     [IsoId("_nTQy8YmxEeeKR__nUfxjwA")]
     [DisplayName("Investigation Status 4 Choice")]

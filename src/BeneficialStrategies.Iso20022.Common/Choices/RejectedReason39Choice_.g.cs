@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedReason39Choice.Code))]
     [KnownType(typeof(RejectedReason39Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectedReason39Choice.Code),nameof(RejectedReason39Choice.Code))]
-    [JsonDerivedType(typeof(RejectedReason39Choice.Proprietary),nameof(RejectedReason39Choice.Proprietary))]
+    [JsonDerivedType(typeof(RejectedReason39Choice.Code),"RejectedReason39Choice.Code")]
+    [JsonDerivedType(typeof(RejectedReason39Choice.Proprietary),"RejectedReason39Choice.Proprietary")]
     #endif
     [IsoId("_pUIcRR9QEeuFz_FaCzCLgQ")]
     [DisplayName("Rejected Reason 39 Choice")]

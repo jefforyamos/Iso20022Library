@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Period1Choice.Period))]
     [KnownType(typeof(Period1Choice.PeriodCode))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Period1Choice.Period),nameof(Period1Choice.Period))]
-    [JsonDerivedType(typeof(Period1Choice.PeriodCode),nameof(Period1Choice.PeriodCode))]
+    [JsonDerivedType(typeof(Period1Choice.Period),"Period1Choice.Period")]
+    [JsonDerivedType(typeof(Period1Choice.PeriodCode),"Period1Choice.PeriodCode")]
     #endif
     [IsoId("_T5oiBtp-Ed-ak6NoX_4Aeg_-201480059")]
     [DisplayName("Period 1 Choice")]

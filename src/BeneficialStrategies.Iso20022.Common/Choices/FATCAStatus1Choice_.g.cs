@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FATCAStatus1Choice.Code))]
     [KnownType(typeof(FATCAStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FATCAStatus1Choice.Code),nameof(FATCAStatus1Choice.Code))]
-    [JsonDerivedType(typeof(FATCAStatus1Choice.Proprietary),nameof(FATCAStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(FATCAStatus1Choice.Code),"FATCAStatus1Choice.Code")]
+    [JsonDerivedType(typeof(FATCAStatus1Choice.Proprietary),"FATCAStatus1Choice.Proprietary")]
     #endif
     [IsoId("_1dp7UQjREeS5F6qHcKOrew")]
     [DisplayName("FATCA Status 1 Choice")]

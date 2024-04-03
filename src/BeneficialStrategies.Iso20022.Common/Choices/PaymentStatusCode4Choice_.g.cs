@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode4Choice.FinalStatus))]
     [KnownType(typeof(PaymentStatusCode4Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentStatusCode4Choice.PendingStatus),nameof(PaymentStatusCode4Choice.PendingStatus))]
-    [JsonDerivedType(typeof(PaymentStatusCode4Choice.FinalStatus),nameof(PaymentStatusCode4Choice.FinalStatus))]
-    [JsonDerivedType(typeof(PaymentStatusCode4Choice.ProprietaryStatus),nameof(PaymentStatusCode4Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(PaymentStatusCode4Choice.PendingStatus),"PaymentStatusCode4Choice.PendingStatus")]
+    [JsonDerivedType(typeof(PaymentStatusCode4Choice.FinalStatus),"PaymentStatusCode4Choice.FinalStatus")]
+    [JsonDerivedType(typeof(PaymentStatusCode4Choice.ProprietaryStatus),"PaymentStatusCode4Choice.ProprietaryStatus")]
     #endif
     [IsoId("_RZcdOtp-Ed-ak6NoX_4Aeg_1463454824")]
     [DisplayName("Payment Status Code 4 Choice")]

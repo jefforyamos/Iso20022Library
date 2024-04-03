@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ErrorHandling3Choice.Code))]
     [KnownType(typeof(ErrorHandling3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ErrorHandling3Choice.Code),nameof(ErrorHandling3Choice.Code))]
-    [JsonDerivedType(typeof(ErrorHandling3Choice.Proprietary),nameof(ErrorHandling3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ErrorHandling3Choice.Code),"ErrorHandling3Choice.Code")]
+    [JsonDerivedType(typeof(ErrorHandling3Choice.Proprietary),"ErrorHandling3Choice.Proprietary")]
     #endif
     [IsoId("_RA_79XhdEeidzqjNEfehPg")]
     [DisplayName("Error Handling 3 Choice")]

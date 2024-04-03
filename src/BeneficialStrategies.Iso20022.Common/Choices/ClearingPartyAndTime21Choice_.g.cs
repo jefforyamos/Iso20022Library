@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingPartyAndTime21Choice.Reason))]
     [KnownType(typeof(ClearingPartyAndTime21Choice.Details))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClearingPartyAndTime21Choice.Reason),nameof(ClearingPartyAndTime21Choice.Reason))]
-    [JsonDerivedType(typeof(ClearingPartyAndTime21Choice.Details),nameof(ClearingPartyAndTime21Choice.Details))]
+    [JsonDerivedType(typeof(ClearingPartyAndTime21Choice.Reason),"ClearingPartyAndTime21Choice.Reason")]
+    [JsonDerivedType(typeof(ClearingPartyAndTime21Choice.Details),"ClearingPartyAndTime21Choice.Details")]
     #endif
     [IsoId("_9znFoQtuEe2eQ-C-GTDpFA")]
     [DisplayName("Clearing Party And Time 21 Choice")]

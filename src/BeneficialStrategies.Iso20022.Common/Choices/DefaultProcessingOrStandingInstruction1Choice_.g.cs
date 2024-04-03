@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator))]
     [KnownType(typeof(DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator),nameof(DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator))]
-    [JsonDerivedType(typeof(DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator),nameof(DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator))]
+    [JsonDerivedType(typeof(DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator),"DefaultProcessingOrStandingInstruction1Choice.DefaultOptionIndicator")]
+    [JsonDerivedType(typeof(DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator),"DefaultProcessingOrStandingInstruction1Choice.StandingInstructionIndicator")]
     #endif
     [IsoId("_Q0VlAtp-Ed-ak6NoX_4Aeg_-931844170")]
     [DisplayName("Default Processing Or Standing Instruction 1 Choice")]

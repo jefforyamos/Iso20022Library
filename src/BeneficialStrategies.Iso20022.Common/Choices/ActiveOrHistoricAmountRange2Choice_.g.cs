@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange))]
     [KnownType(typeof(ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange),nameof(ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange))]
-    [JsonDerivedType(typeof(ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange),nameof(ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange))]
+    [JsonDerivedType(typeof(ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange),"ActiveOrHistoricAmountRange2Choice.ImpliedCurrencyAndAmountRange")]
+    [JsonDerivedType(typeof(ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange),"ActiveOrHistoricAmountRange2Choice.CurrencyAndAmountRange")]
     #endif
     [IsoId("_PHbQeZlcEeeE1Ya-LgRsuQ")]
     [DisplayName("Active Or Historic Amount Range 2 Choice")]

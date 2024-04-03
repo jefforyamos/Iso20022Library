@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrackerAlertStatusReason1Choice.Code))]
     [KnownType(typeof(TrackerAlertStatusReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TrackerAlertStatusReason1Choice.Code),nameof(TrackerAlertStatusReason1Choice.Code))]
-    [JsonDerivedType(typeof(TrackerAlertStatusReason1Choice.Proprietary),nameof(TrackerAlertStatusReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TrackerAlertStatusReason1Choice.Code),"TrackerAlertStatusReason1Choice.Code")]
+    [JsonDerivedType(typeof(TrackerAlertStatusReason1Choice.Proprietary),"TrackerAlertStatusReason1Choice.Proprietary")]
     #endif
     [IsoId("_mtb_6c79EemEIuVuDudp4g")]
     [DisplayName("Tracker Alert Status Reason 1 Choice")]

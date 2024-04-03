@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateReason1Choice.Code))]
     [KnownType(typeof(MandateReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MandateReason1Choice.Code),nameof(MandateReason1Choice.Code))]
-    [JsonDerivedType(typeof(MandateReason1Choice.Proprietary),nameof(MandateReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MandateReason1Choice.Code),"MandateReason1Choice.Code")]
+    [JsonDerivedType(typeof(MandateReason1Choice.Proprietary),"MandateReason1Choice.Proprietary")]
     #endif
     [IsoId("_TOt8xdp-Ed-ak6NoX_4Aeg_-162041513")]
     [DisplayName("Mandate Reason 1 Choice")]

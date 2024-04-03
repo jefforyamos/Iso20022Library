@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StampDutyType1FormatChoice.Code))]
     [KnownType(typeof(StampDutyType1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StampDutyType1FormatChoice.Code),nameof(StampDutyType1FormatChoice.Code))]
-    [JsonDerivedType(typeof(StampDutyType1FormatChoice.Proprietary),nameof(StampDutyType1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(StampDutyType1FormatChoice.Code),"StampDutyType1FormatChoice.Code")]
+    [JsonDerivedType(typeof(StampDutyType1FormatChoice.Proprietary),"StampDutyType1FormatChoice.Proprietary")]
     #endif
     [IsoId("_Ro8Rxtp-Ed-ak6NoX_4Aeg_-891645005")]
     [DisplayName("Stamp Duty Type 1 Format Choice")]

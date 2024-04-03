@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SequenceRange1Choice.EqualSequence))]
     [KnownType(typeof(SequenceRange1Choice.NotEqualSequence))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SequenceRange1Choice.FromSequence),nameof(SequenceRange1Choice.FromSequence))]
-    [JsonDerivedType(typeof(SequenceRange1Choice.ToSequence),nameof(SequenceRange1Choice.ToSequence))]
-    [JsonDerivedType(typeof(SequenceRange1Choice.FromToSequence),nameof(SequenceRange1Choice.FromToSequence))]
-    [JsonDerivedType(typeof(SequenceRange1Choice.EqualSequence),nameof(SequenceRange1Choice.EqualSequence))]
-    [JsonDerivedType(typeof(SequenceRange1Choice.NotEqualSequence),nameof(SequenceRange1Choice.NotEqualSequence))]
+    [JsonDerivedType(typeof(SequenceRange1Choice.FromSequence),"SequenceRange1Choice.FromSequence")]
+    [JsonDerivedType(typeof(SequenceRange1Choice.ToSequence),"SequenceRange1Choice.ToSequence")]
+    [JsonDerivedType(typeof(SequenceRange1Choice.FromToSequence),"SequenceRange1Choice.FromToSequence")]
+    [JsonDerivedType(typeof(SequenceRange1Choice.EqualSequence),"SequenceRange1Choice.EqualSequence")]
+    [JsonDerivedType(typeof(SequenceRange1Choice.NotEqualSequence),"SequenceRange1Choice.NotEqualSequence")]
     #endif
     [IsoId("_rsIb84y3EeeGkvZr3jtnCQ")]
     [DisplayName("Sequence Range 1 Choice")]

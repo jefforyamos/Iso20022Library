@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReconciliationMatchedStatus6Choice.Matched))]
     [KnownType(typeof(ReconciliationMatchedStatus6Choice.NotMatched))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReconciliationMatchedStatus6Choice.Matched),nameof(ReconciliationMatchedStatus6Choice.Matched))]
-    [JsonDerivedType(typeof(ReconciliationMatchedStatus6Choice.NotMatched),nameof(ReconciliationMatchedStatus6Choice.NotMatched))]
+    [JsonDerivedType(typeof(ReconciliationMatchedStatus6Choice.Matched),"ReconciliationMatchedStatus6Choice.Matched")]
+    [JsonDerivedType(typeof(ReconciliationMatchedStatus6Choice.NotMatched),"ReconciliationMatchedStatus6Choice.NotMatched")]
     #endif
     [IsoId("_C1J2hf_oEemm3skPVSMJQg")]
     [DisplayName("Reconciliation Matched Status 6 Choice")]

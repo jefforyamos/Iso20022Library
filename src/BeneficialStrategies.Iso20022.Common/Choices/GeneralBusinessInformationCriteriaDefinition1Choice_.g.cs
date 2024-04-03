@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.QueryName),nameof(GeneralBusinessInformationCriteriaDefinition1Choice.QueryName))]
-    [JsonDerivedType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria),nameof(GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria))]
+    [JsonDerivedType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.QueryName),"GeneralBusinessInformationCriteriaDefinition1Choice.QueryName")]
+    [JsonDerivedType(typeof(GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria),"GeneralBusinessInformationCriteriaDefinition1Choice.NewCriteria")]
     #endif
     [IsoId("_1VwUF5lZEeeE1Ya-LgRsuQ")]
     [DisplayName("General Business Information Criteria Definition 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestorCapacity5Choice.Code))]
     [KnownType(typeof(InvestorCapacity5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InvestorCapacity5Choice.Code),nameof(InvestorCapacity5Choice.Code))]
-    [JsonDerivedType(typeof(InvestorCapacity5Choice.Proprietary),nameof(InvestorCapacity5Choice.Proprietary))]
+    [JsonDerivedType(typeof(InvestorCapacity5Choice.Code),"InvestorCapacity5Choice.Code")]
+    [JsonDerivedType(typeof(InvestorCapacity5Choice.Proprietary),"InvestorCapacity5Choice.Proprietary")]
     #endif
     [IsoId("_5mtMY5NLEeWGlc8L7oPDIg")]
     [DisplayName("Investor Capacity 5 Choice")]

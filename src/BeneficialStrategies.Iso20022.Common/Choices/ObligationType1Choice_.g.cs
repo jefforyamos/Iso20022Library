@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ObligationType1Choice.Code))]
     [KnownType(typeof(ObligationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ObligationType1Choice.Code),nameof(ObligationType1Choice.Code))]
-    [JsonDerivedType(typeof(ObligationType1Choice.Proprietary),nameof(ObligationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ObligationType1Choice.Code),"ObligationType1Choice.Code")]
+    [JsonDerivedType(typeof(ObligationType1Choice.Proprietary),"ObligationType1Choice.Proprietary")]
     #endif
     [IsoId("_Ql4SSNp-Ed-ak6NoX_4Aeg_-44053834")]
     [DisplayName("Obligation Type 1 Choice")]

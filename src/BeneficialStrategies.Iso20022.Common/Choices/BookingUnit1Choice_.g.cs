@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BookingUnit1Choice.Code))]
     [KnownType(typeof(BookingUnit1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BookingUnit1Choice.Code),nameof(BookingUnit1Choice.Code))]
-    [JsonDerivedType(typeof(BookingUnit1Choice.Proprietary),nameof(BookingUnit1Choice.Proprietary))]
+    [JsonDerivedType(typeof(BookingUnit1Choice.Code),"BookingUnit1Choice.Code")]
+    [JsonDerivedType(typeof(BookingUnit1Choice.Proprietary),"BookingUnit1Choice.Proprietary")]
     #endif
     [IsoId("_Q-6dVtp-Ed-ak6NoX_4Aeg_1716011738")]
     [DisplayName("Booking Unit 1 Choice")]

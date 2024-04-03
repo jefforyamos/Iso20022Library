@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRateFormat7Choice.Amount))]
     [KnownType(typeof(NetDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NetDividendRateFormat7Choice.Amount),nameof(NetDividendRateFormat7Choice.Amount))]
-    [JsonDerivedType(typeof(NetDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus),nameof(NetDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus))]
+    [JsonDerivedType(typeof(NetDividendRateFormat7Choice.Amount),"NetDividendRateFormat7Choice.Amount")]
+    [JsonDerivedType(typeof(NetDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus),"NetDividendRateFormat7Choice.RateTypeAndAmountAndRateStatus")]
     #endif
     [IsoId("_0kyc8QFgEeGUnupuEvvOAg")]
     [DisplayName("Net Dividend Rate Format 7 Choice")]

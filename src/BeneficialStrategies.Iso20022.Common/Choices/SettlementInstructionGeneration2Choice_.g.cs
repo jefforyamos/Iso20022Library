@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementInstructionGeneration2Choice.Code))]
     [KnownType(typeof(SettlementInstructionGeneration2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementInstructionGeneration2Choice.Code),nameof(SettlementInstructionGeneration2Choice.Code))]
-    [JsonDerivedType(typeof(SettlementInstructionGeneration2Choice.Proprietary),nameof(SettlementInstructionGeneration2Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlementInstructionGeneration2Choice.Code),"SettlementInstructionGeneration2Choice.Code")]
+    [JsonDerivedType(typeof(SettlementInstructionGeneration2Choice.Proprietary),"SettlementInstructionGeneration2Choice.Proprietary")]
     #endif
     [IsoId("_gb_yQZCBEeakHoV5BVecAQ")]
     [DisplayName("Settlement Instruction Generation 2 Choice")]

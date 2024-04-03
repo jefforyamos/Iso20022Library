@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommunicationChannel1Choice.ChannelMode))]
     [KnownType(typeof(CommunicationChannel1Choice.TerminalIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CommunicationChannel1Choice.ChannelMode),nameof(CommunicationChannel1Choice.ChannelMode))]
-    [JsonDerivedType(typeof(CommunicationChannel1Choice.TerminalIdentification),nameof(CommunicationChannel1Choice.TerminalIdentification))]
+    [JsonDerivedType(typeof(CommunicationChannel1Choice.ChannelMode),"CommunicationChannel1Choice.ChannelMode")]
+    [JsonDerivedType(typeof(CommunicationChannel1Choice.TerminalIdentification),"CommunicationChannel1Choice.TerminalIdentification")]
     #endif
     [IsoId("_MfH4EA1DEeazkbJaoKTIIw")]
     [DisplayName("Communication Channel 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesRTGS4Choice.Indicator))]
     [KnownType(typeof(SecuritiesRTGS4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesRTGS4Choice.Indicator),nameof(SecuritiesRTGS4Choice.Indicator))]
-    [JsonDerivedType(typeof(SecuritiesRTGS4Choice.Proprietary),nameof(SecuritiesRTGS4Choice.Proprietary))]
+    [JsonDerivedType(typeof(SecuritiesRTGS4Choice.Indicator),"SecuritiesRTGS4Choice.Indicator")]
+    [JsonDerivedType(typeof(SecuritiesRTGS4Choice.Proprietary),"SecuritiesRTGS4Choice.Proprietary")]
     #endif
     [IsoId("_90cwnzqEEeWVrPy0StzzSg")]
     [DisplayName("Securities RTGS 4 Choice")]

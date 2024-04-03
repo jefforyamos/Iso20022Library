@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitOrFaceAmountChoice.Unit))]
     [KnownType(typeof(UnitOrFaceAmountChoice.FaceAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnitOrFaceAmountChoice.Unit),nameof(UnitOrFaceAmountChoice.Unit))]
-    [JsonDerivedType(typeof(UnitOrFaceAmountChoice.FaceAmount),nameof(UnitOrFaceAmountChoice.FaceAmount))]
+    [JsonDerivedType(typeof(UnitOrFaceAmountChoice.Unit),"UnitOrFaceAmountChoice.Unit")]
+    [JsonDerivedType(typeof(UnitOrFaceAmountChoice.FaceAmount),"UnitOrFaceAmountChoice.FaceAmount")]
     #endif
     [IsoId("_SoH20dp-Ed-ak6NoX_4Aeg_144255606")]
     [DisplayName("Unit Or Face Amount Choice")]

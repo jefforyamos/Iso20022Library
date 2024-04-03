@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ATMSignature2Choice.DigitalSignature))]
     [KnownType(typeof(ATMSignature2Choice.TRRelatedData))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ATMSignature2Choice.DigitalSignature),nameof(ATMSignature2Choice.DigitalSignature))]
-    [JsonDerivedType(typeof(ATMSignature2Choice.TRRelatedData),nameof(ATMSignature2Choice.TRRelatedData))]
+    [JsonDerivedType(typeof(ATMSignature2Choice.DigitalSignature),"ATMSignature2Choice.DigitalSignature")]
+    [JsonDerivedType(typeof(ATMSignature2Choice.TRRelatedData),"ATMSignature2Choice.TRRelatedData")]
     #endif
     [IsoId("_h8fS4bTwEeeQy4o2AayYHg")]
     [DisplayName("ATM Signature 2 Choice")]

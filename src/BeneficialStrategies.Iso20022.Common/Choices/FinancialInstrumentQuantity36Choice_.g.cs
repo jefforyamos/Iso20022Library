@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity36Choice.AmortisedValue))]
     [KnownType(typeof(FinancialInstrumentQuantity36Choice.DigitalTokenUnit))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.Unit),nameof(FinancialInstrumentQuantity36Choice.Unit))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.FaceAmount),nameof(FinancialInstrumentQuantity36Choice.FaceAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.AmortisedValue),nameof(FinancialInstrumentQuantity36Choice.AmortisedValue))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.DigitalTokenUnit),nameof(FinancialInstrumentQuantity36Choice.DigitalTokenUnit))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.Unit),"FinancialInstrumentQuantity36Choice.Unit")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.FaceAmount),"FinancialInstrumentQuantity36Choice.FaceAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.AmortisedValue),"FinancialInstrumentQuantity36Choice.AmortisedValue")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity36Choice.DigitalTokenUnit),"FinancialInstrumentQuantity36Choice.DigitalTokenUnit")]
     #endif
     [IsoId("_peY03Ti7Eeydid5dcNPKvg")]
     [DisplayName("Financial Instrument Quantity 36 Choice")]

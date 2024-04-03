@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepurchaseType15Choice.Code))]
     [KnownType(typeof(RepurchaseType15Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepurchaseType15Choice.Code),nameof(RepurchaseType15Choice.Code))]
-    [JsonDerivedType(typeof(RepurchaseType15Choice.Proprietary),nameof(RepurchaseType15Choice.Proprietary))]
+    [JsonDerivedType(typeof(RepurchaseType15Choice.Code),"RepurchaseType15Choice.Code")]
+    [JsonDerivedType(typeof(RepurchaseType15Choice.Proprietary),"RepurchaseType15Choice.Proprietary")]
     #endif
     [IsoId("_ZzmhwT0BEeWjqIDN7tjEjQ")]
     [DisplayName("Repurchase Type 15 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosedStatusReason2Choice.Code))]
     [KnownType(typeof(ClosedStatusReason2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClosedStatusReason2Choice.Code),nameof(ClosedStatusReason2Choice.Code))]
-    [JsonDerivedType(typeof(ClosedStatusReason2Choice.Proprietary),nameof(ClosedStatusReason2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ClosedStatusReason2Choice.Code),"ClosedStatusReason2Choice.Code")]
+    [JsonDerivedType(typeof(ClosedStatusReason2Choice.Proprietary),"ClosedStatusReason2Choice.Proprietary")]
     #endif
     [IsoId("_k4eZ0UzDEeafiMTDrtSnyw")]
     [DisplayName("Closed Status Reason 2 Choice")]

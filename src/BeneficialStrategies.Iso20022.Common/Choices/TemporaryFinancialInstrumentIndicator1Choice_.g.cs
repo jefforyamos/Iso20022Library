@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator))]
     [KnownType(typeof(TemporaryFinancialInstrumentIndicator1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator),nameof(TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator))]
-    [JsonDerivedType(typeof(TemporaryFinancialInstrumentIndicator1Choice.Proprietary),nameof(TemporaryFinancialInstrumentIndicator1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator),"TemporaryFinancialInstrumentIndicator1Choice.TemporaryIndicator")]
+    [JsonDerivedType(typeof(TemporaryFinancialInstrumentIndicator1Choice.Proprietary),"TemporaryFinancialInstrumentIndicator1Choice.Proprietary")]
     #endif
     [IsoId("_Q08B89p-Ed-ak6NoX_4Aeg_-1040584730")]
     [DisplayName("Temporary Financial Instrument Indicator 1 Choice")]

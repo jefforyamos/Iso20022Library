@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashSettlementSystem4Choice.Code))]
     [KnownType(typeof(CashSettlementSystem4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CashSettlementSystem4Choice.Code),nameof(CashSettlementSystem4Choice.Code))]
-    [JsonDerivedType(typeof(CashSettlementSystem4Choice.Proprietary),nameof(CashSettlementSystem4Choice.Proprietary))]
+    [JsonDerivedType(typeof(CashSettlementSystem4Choice.Code),"CashSettlementSystem4Choice.Code")]
+    [JsonDerivedType(typeof(CashSettlementSystem4Choice.Proprietary),"CashSettlementSystem4Choice.Proprietary")]
     #endif
     [IsoId("_AF_qMTqHEeWVrPy0StzzSg")]
     [DisplayName("Cash Settlement System 4 Choice")]

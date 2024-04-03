@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedStatus8Choice.ExtendedReason))]
     [KnownType(typeof(RejectedStatus8Choice.DataSourceScheme))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectedStatus8Choice.Reason),nameof(RejectedStatus8Choice.Reason))]
-    [JsonDerivedType(typeof(RejectedStatus8Choice.ExtendedReason),nameof(RejectedStatus8Choice.ExtendedReason))]
-    [JsonDerivedType(typeof(RejectedStatus8Choice.DataSourceScheme),nameof(RejectedStatus8Choice.DataSourceScheme))]
+    [JsonDerivedType(typeof(RejectedStatus8Choice.Reason),"RejectedStatus8Choice.Reason")]
+    [JsonDerivedType(typeof(RejectedStatus8Choice.ExtendedReason),"RejectedStatus8Choice.ExtendedReason")]
+    [JsonDerivedType(typeof(RejectedStatus8Choice.DataSourceScheme),"RejectedStatus8Choice.DataSourceScheme")]
     #endif
     [IsoId("_RQy3gdp-Ed-ak6NoX_4Aeg_-368514445")]
     [DisplayName("Rejected Status 8 Choice")]

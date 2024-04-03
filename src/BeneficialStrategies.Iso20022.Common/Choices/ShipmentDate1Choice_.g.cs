@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ShipmentDate1Choice.ProposedShipmentDate))]
     [KnownType(typeof(ShipmentDate1Choice.ActualShipmentDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ShipmentDate1Choice.ProposedShipmentDate),nameof(ShipmentDate1Choice.ProposedShipmentDate))]
-    [JsonDerivedType(typeof(ShipmentDate1Choice.ActualShipmentDate),nameof(ShipmentDate1Choice.ActualShipmentDate))]
+    [JsonDerivedType(typeof(ShipmentDate1Choice.ProposedShipmentDate),"ShipmentDate1Choice.ProposedShipmentDate")]
+    [JsonDerivedType(typeof(ShipmentDate1Choice.ActualShipmentDate),"ShipmentDate1Choice.ActualShipmentDate")]
     #endif
     [IsoId("_qi4msDATEeOKib24wnHaFg")]
     [DisplayName("Shipment Date 1 Choice")]

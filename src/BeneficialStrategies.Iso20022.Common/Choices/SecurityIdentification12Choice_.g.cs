@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification12Choice.ISIN))]
     [KnownType(typeof(SecurityIdentification12Choice.OtherIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityIdentification12Choice.ISIN),nameof(SecurityIdentification12Choice.ISIN))]
-    [JsonDerivedType(typeof(SecurityIdentification12Choice.OtherIdentification),nameof(SecurityIdentification12Choice.OtherIdentification))]
+    [JsonDerivedType(typeof(SecurityIdentification12Choice.ISIN),"SecurityIdentification12Choice.ISIN")]
+    [JsonDerivedType(typeof(SecurityIdentification12Choice.OtherIdentification),"SecurityIdentification12Choice.OtherIdentification")]
     #endif
     [IsoId("_XMCG4tp-Ed-ak6NoX_4Aeg_1099227898")]
     [DisplayName("Security Identification 12 Choice")]

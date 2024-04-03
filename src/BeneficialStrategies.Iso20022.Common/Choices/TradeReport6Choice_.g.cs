@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReport6Choice.Correction))]
     [KnownType(typeof(TradeReport6Choice.TradeUpdate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeReport6Choice.New),nameof(TradeReport6Choice.New))]
-    [JsonDerivedType(typeof(TradeReport6Choice.Error),nameof(TradeReport6Choice.Error))]
-    [JsonDerivedType(typeof(TradeReport6Choice.Correction),nameof(TradeReport6Choice.Correction))]
-    [JsonDerivedType(typeof(TradeReport6Choice.TradeUpdate),nameof(TradeReport6Choice.TradeUpdate))]
+    [JsonDerivedType(typeof(TradeReport6Choice.New),"TradeReport6Choice.New")]
+    [JsonDerivedType(typeof(TradeReport6Choice.Error),"TradeReport6Choice.Error")]
+    [JsonDerivedType(typeof(TradeReport6Choice.Correction),"TradeReport6Choice.Correction")]
+    [JsonDerivedType(typeof(TradeReport6Choice.TradeUpdate),"TradeReport6Choice.TradeUpdate")]
     #endif
     [IsoId("_QNfwAa07EemojPqsRBB5Lg")]
     [DisplayName("Trade Report 6 Choice")]

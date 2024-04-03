@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedTransactionStatistics6Choice.DataSetAction))]
     [KnownType(typeof(DetailedTransactionStatistics6Choice.DetailedStatistics))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DetailedTransactionStatistics6Choice.DataSetAction),nameof(DetailedTransactionStatistics6Choice.DataSetAction))]
-    [JsonDerivedType(typeof(DetailedTransactionStatistics6Choice.DetailedStatistics),nameof(DetailedTransactionStatistics6Choice.DetailedStatistics))]
+    [JsonDerivedType(typeof(DetailedTransactionStatistics6Choice.DataSetAction),"DetailedTransactionStatistics6Choice.DataSetAction")]
+    [JsonDerivedType(typeof(DetailedTransactionStatistics6Choice.DetailedStatistics),"DetailedTransactionStatistics6Choice.DetailedStatistics")]
     #endif
     [IsoId("_x-ovZ1yGEe24CqbZJK5XxA")]
     [DisplayName("Detailed Transaction Statistics 6 Choice")]

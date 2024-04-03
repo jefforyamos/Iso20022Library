@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnsecuredMarketReport3Choice.DataSetAction))]
     [KnownType(typeof(UnsecuredMarketReport3Choice.Transaction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnsecuredMarketReport3Choice.DataSetAction),nameof(UnsecuredMarketReport3Choice.DataSetAction))]
-    [JsonDerivedType(typeof(UnsecuredMarketReport3Choice.Transaction),nameof(UnsecuredMarketReport3Choice.Transaction))]
+    [JsonDerivedType(typeof(UnsecuredMarketReport3Choice.DataSetAction),"UnsecuredMarketReport3Choice.DataSetAction")]
+    [JsonDerivedType(typeof(UnsecuredMarketReport3Choice.Transaction),"UnsecuredMarketReport3Choice.Transaction")]
     #endif
     [IsoId("_Gm8z9aifEeWHO_l3hf2rlA")]
     [DisplayName("Unsecured Market Report 3 Choice")]

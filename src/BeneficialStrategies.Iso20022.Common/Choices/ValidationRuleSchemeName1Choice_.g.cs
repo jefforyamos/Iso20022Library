@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ValidationRuleSchemeName1Choice.Code))]
     [KnownType(typeof(ValidationRuleSchemeName1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ValidationRuleSchemeName1Choice.Code),nameof(ValidationRuleSchemeName1Choice.Code))]
-    [JsonDerivedType(typeof(ValidationRuleSchemeName1Choice.Proprietary),nameof(ValidationRuleSchemeName1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ValidationRuleSchemeName1Choice.Code),"ValidationRuleSchemeName1Choice.Code")]
+    [JsonDerivedType(typeof(ValidationRuleSchemeName1Choice.Proprietary),"ValidationRuleSchemeName1Choice.Proprietary")]
     #endif
     [IsoId("_kAjWY9jGEeSD0e0ybx5L5Q")]
     [DisplayName("Validation Rule Scheme Name 1 Choice")]

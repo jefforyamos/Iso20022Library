@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DisabledStatusReason2Choice.Code))]
     [KnownType(typeof(DisabledStatusReason2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DisabledStatusReason2Choice.Code),nameof(DisabledStatusReason2Choice.Code))]
-    [JsonDerivedType(typeof(DisabledStatusReason2Choice.Proprietary),nameof(DisabledStatusReason2Choice.Proprietary))]
+    [JsonDerivedType(typeof(DisabledStatusReason2Choice.Code),"DisabledStatusReason2Choice.Code")]
+    [JsonDerivedType(typeof(DisabledStatusReason2Choice.Proprietary),"DisabledStatusReason2Choice.Proprietary")]
     #endif
     [IsoId("_hNiggUzAEeafiMTDrtSnyw")]
     [DisplayName("Disabled Status Reason 2 Choice")]

@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RatioFormat12Choice.AmountToQuantity))]
     [KnownType(typeof(RatioFormat12Choice.QuantityToAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RatioFormat12Choice.QuantityToQuantity),nameof(RatioFormat12Choice.QuantityToQuantity))]
-    [JsonDerivedType(typeof(RatioFormat12Choice.NotSpecifiedRate),nameof(RatioFormat12Choice.NotSpecifiedRate))]
-    [JsonDerivedType(typeof(RatioFormat12Choice.AmountToAmount),nameof(RatioFormat12Choice.AmountToAmount))]
-    [JsonDerivedType(typeof(RatioFormat12Choice.AmountToQuantity),nameof(RatioFormat12Choice.AmountToQuantity))]
-    [JsonDerivedType(typeof(RatioFormat12Choice.QuantityToAmount),nameof(RatioFormat12Choice.QuantityToAmount))]
+    [JsonDerivedType(typeof(RatioFormat12Choice.QuantityToQuantity),"RatioFormat12Choice.QuantityToQuantity")]
+    [JsonDerivedType(typeof(RatioFormat12Choice.NotSpecifiedRate),"RatioFormat12Choice.NotSpecifiedRate")]
+    [JsonDerivedType(typeof(RatioFormat12Choice.AmountToAmount),"RatioFormat12Choice.AmountToAmount")]
+    [JsonDerivedType(typeof(RatioFormat12Choice.AmountToQuantity),"RatioFormat12Choice.AmountToQuantity")]
+    [JsonDerivedType(typeof(RatioFormat12Choice.QuantityToAmount),"RatioFormat12Choice.QuantityToAmount")]
     #endif
     [IsoId("_g3oegOwOEd-sn-FiNtktcA")]
     [DisplayName("Ratio Format 12 Choice")]

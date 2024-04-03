@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementMethod4Choice.Credit))]
     [KnownType(typeof(SettlementMethod4Choice.Debit))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementMethod4Choice.Credit),nameof(SettlementMethod4Choice.Credit))]
-    [JsonDerivedType(typeof(SettlementMethod4Choice.Debit),nameof(SettlementMethod4Choice.Debit))]
+    [JsonDerivedType(typeof(SettlementMethod4Choice.Credit),"SettlementMethod4Choice.Credit")]
+    [JsonDerivedType(typeof(SettlementMethod4Choice.Debit),"SettlementMethod4Choice.Debit")]
     #endif
     [IsoId("_dWm-h9cZEeqRFcf2R4bPBw")]
     [DisplayName("Settlement Method 4 Choice")]

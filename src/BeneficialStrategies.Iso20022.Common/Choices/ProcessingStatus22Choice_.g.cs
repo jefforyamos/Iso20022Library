@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus22Choice.Rejected))]
     [KnownType(typeof(ProcessingStatus22Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus22Choice.AcknowledgedAccepted),nameof(ProcessingStatus22Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus22Choice.Rejected),nameof(ProcessingStatus22Choice.Rejected))]
-    [JsonDerivedType(typeof(ProcessingStatus22Choice.Proprietary),nameof(ProcessingStatus22Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus22Choice.AcknowledgedAccepted),"ProcessingStatus22Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus22Choice.Rejected),"ProcessingStatus22Choice.Rejected")]
+    [JsonDerivedType(typeof(ProcessingStatus22Choice.Proprietary),"ProcessingStatus22Choice.Proprietary")]
     #endif
     [IsoId("_2zEPMf7rEeCvPoRGOxRobQ")]
     [DisplayName("Processing Status 22 Choice")]

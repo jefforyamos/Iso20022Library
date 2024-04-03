@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CalendarOrBusinessError1Choice.CalendarData))]
     [KnownType(typeof(CalendarOrBusinessError1Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CalendarOrBusinessError1Choice.CalendarData),nameof(CalendarOrBusinessError1Choice.CalendarData))]
-    [JsonDerivedType(typeof(CalendarOrBusinessError1Choice.BusinessError),nameof(CalendarOrBusinessError1Choice.BusinessError))]
+    [JsonDerivedType(typeof(CalendarOrBusinessError1Choice.CalendarData),"CalendarOrBusinessError1Choice.CalendarData")]
+    [JsonDerivedType(typeof(CalendarOrBusinessError1Choice.BusinessError),"CalendarOrBusinessError1Choice.BusinessError")]
     #endif
     [IsoId("_dVcQ2Im7Eeipw6hHPgB4Sw")]
     [DisplayName("Calendar Or Business Error 1 Choice")]

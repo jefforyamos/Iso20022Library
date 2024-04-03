@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BillingCompensationType1Choice.Code))]
     [KnownType(typeof(BillingCompensationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BillingCompensationType1Choice.Code),nameof(BillingCompensationType1Choice.Code))]
-    [JsonDerivedType(typeof(BillingCompensationType1Choice.Proprietary),nameof(BillingCompensationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(BillingCompensationType1Choice.Code),"BillingCompensationType1Choice.Code")]
+    [JsonDerivedType(typeof(BillingCompensationType1Choice.Proprietary),"BillingCompensationType1Choice.Proprietary")]
     #endif
     [IsoId("_6Q_lgZqlEeGSON8vddiWzQ_2012916180")]
     [DisplayName("Billing Compensation Type 1 Choice")]

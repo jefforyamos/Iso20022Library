@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(YieldedOrValueType1Choice.Yielded))]
     [KnownType(typeof(YieldedOrValueType1Choice.ValueType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(YieldedOrValueType1Choice.Yielded),nameof(YieldedOrValueType1Choice.Yielded))]
-    [JsonDerivedType(typeof(YieldedOrValueType1Choice.ValueType),nameof(YieldedOrValueType1Choice.ValueType))]
+    [JsonDerivedType(typeof(YieldedOrValueType1Choice.Yielded),"YieldedOrValueType1Choice.Yielded")]
+    [JsonDerivedType(typeof(YieldedOrValueType1Choice.ValueType),"YieldedOrValueType1Choice.ValueType")]
     #endif
     [IsoId("_RdBVptp-Ed-ak6NoX_4Aeg_510883553")]
     [DisplayName("Yielded Or Value Type 1 Choice")]

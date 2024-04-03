@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceType5Choice.Market))]
     [KnownType(typeof(PriceType5Choice.Indicative))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceType5Choice.Market),nameof(PriceType5Choice.Market))]
-    [JsonDerivedType(typeof(PriceType5Choice.Indicative),nameof(PriceType5Choice.Indicative))]
+    [JsonDerivedType(typeof(PriceType5Choice.Market),"PriceType5Choice.Market")]
+    [JsonDerivedType(typeof(PriceType5Choice.Indicative),"PriceType5Choice.Indicative")]
     #endif
     [IsoId("_SKL8C83yEee5nJBZsW8MFQ")]
     [DisplayName("Price Type 5 Choice")]

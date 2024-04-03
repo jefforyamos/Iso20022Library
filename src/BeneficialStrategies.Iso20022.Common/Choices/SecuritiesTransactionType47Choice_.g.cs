@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionType47Choice.Code))]
     [KnownType(typeof(SecuritiesTransactionType47Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionType47Choice.Code),nameof(SecuritiesTransactionType47Choice.Code))]
-    [JsonDerivedType(typeof(SecuritiesTransactionType47Choice.Proprietary),nameof(SecuritiesTransactionType47Choice.Proprietary))]
+    [JsonDerivedType(typeof(SecuritiesTransactionType47Choice.Code),"SecuritiesTransactionType47Choice.Code")]
+    [JsonDerivedType(typeof(SecuritiesTransactionType47Choice.Proprietary),"SecuritiesTransactionType47Choice.Proprietary")]
     #endif
     [IsoId("_qeGLEdYYEeiHVOfMzoKxnA")]
     [DisplayName("Securities Transaction Type 47 Choice")]

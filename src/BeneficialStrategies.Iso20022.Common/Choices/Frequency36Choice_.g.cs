@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Frequency36Choice.Period))]
     [KnownType(typeof(Frequency36Choice.PointInTime))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Frequency36Choice.Type),nameof(Frequency36Choice.Type))]
-    [JsonDerivedType(typeof(Frequency36Choice.Period),nameof(Frequency36Choice.Period))]
-    [JsonDerivedType(typeof(Frequency36Choice.PointInTime),nameof(Frequency36Choice.PointInTime))]
+    [JsonDerivedType(typeof(Frequency36Choice.Type),"Frequency36Choice.Type")]
+    [JsonDerivedType(typeof(Frequency36Choice.Period),"Frequency36Choice.Period")]
+    [JsonDerivedType(typeof(Frequency36Choice.PointInTime),"Frequency36Choice.PointInTime")]
     #endif
     [IsoId("_sVM2vWk2Eeanu6HLe77Rkg")]
     [DisplayName("Frequency 36 Choice")]

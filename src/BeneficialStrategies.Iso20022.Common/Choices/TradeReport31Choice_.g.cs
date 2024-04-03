@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeReport31Choice.Error))]
     [KnownType(typeof(TradeReport31Choice.Correction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeReport31Choice.New),nameof(TradeReport31Choice.New))]
-    [JsonDerivedType(typeof(TradeReport31Choice.MarginUpdate),nameof(TradeReport31Choice.MarginUpdate))]
-    [JsonDerivedType(typeof(TradeReport31Choice.Error),nameof(TradeReport31Choice.Error))]
-    [JsonDerivedType(typeof(TradeReport31Choice.Correction),nameof(TradeReport31Choice.Correction))]
+    [JsonDerivedType(typeof(TradeReport31Choice.New),"TradeReport31Choice.New")]
+    [JsonDerivedType(typeof(TradeReport31Choice.MarginUpdate),"TradeReport31Choice.MarginUpdate")]
+    [JsonDerivedType(typeof(TradeReport31Choice.Error),"TradeReport31Choice.Error")]
+    [JsonDerivedType(typeof(TradeReport31Choice.Correction),"TradeReport31Choice.Correction")]
     #endif
     [IsoId("_oyOyxVosEe23K4GXSpBSeg")]
     [DisplayName("Trade Report 31 Choice")]

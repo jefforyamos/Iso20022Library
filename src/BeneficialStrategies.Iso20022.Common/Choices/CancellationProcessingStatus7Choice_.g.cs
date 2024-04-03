@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationProcessingStatus7Choice.Code))]
     [KnownType(typeof(CancellationProcessingStatus7Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationProcessingStatus7Choice.Code),nameof(CancellationProcessingStatus7Choice.Code))]
-    [JsonDerivedType(typeof(CancellationProcessingStatus7Choice.Proprietary),nameof(CancellationProcessingStatus7Choice.Proprietary))]
+    [JsonDerivedType(typeof(CancellationProcessingStatus7Choice.Code),"CancellationProcessingStatus7Choice.Code")]
+    [JsonDerivedType(typeof(CancellationProcessingStatus7Choice.Proprietary),"CancellationProcessingStatus7Choice.Proprietary")]
     #endif
     [IsoId("_26ahETqqEeWyoP0PbocV1Q")]
     [DisplayName("Cancellation Processing Status 7 Choice")]

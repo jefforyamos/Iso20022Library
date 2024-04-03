@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BusinessProcessType2Choice.Code))]
     [KnownType(typeof(BusinessProcessType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BusinessProcessType2Choice.Code),nameof(BusinessProcessType2Choice.Code))]
-    [JsonDerivedType(typeof(BusinessProcessType2Choice.Proprietary),nameof(BusinessProcessType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(BusinessProcessType2Choice.Code),"BusinessProcessType2Choice.Code")]
+    [JsonDerivedType(typeof(BusinessProcessType2Choice.Proprietary),"BusinessProcessType2Choice.Proprietary")]
     #endif
     [IsoId("_0hNQAZBgEeakHoV5BVecAQ")]
     [DisplayName("Business Process Type 2 Choice")]

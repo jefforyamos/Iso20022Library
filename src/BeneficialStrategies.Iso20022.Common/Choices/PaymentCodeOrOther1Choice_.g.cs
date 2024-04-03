@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentCodeOrOther1Choice.PaymentDueDate))]
     [KnownType(typeof(PaymentCodeOrOther1Choice.OtherPaymentTerms))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.PaymentCode),nameof(PaymentCodeOrOther1Choice.PaymentCode))]
-    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.PaymentDueDate),nameof(PaymentCodeOrOther1Choice.PaymentDueDate))]
-    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.OtherPaymentTerms),nameof(PaymentCodeOrOther1Choice.OtherPaymentTerms))]
+    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.PaymentCode),"PaymentCodeOrOther1Choice.PaymentCode")]
+    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.PaymentDueDate),"PaymentCodeOrOther1Choice.PaymentDueDate")]
+    [JsonDerivedType(typeof(PaymentCodeOrOther1Choice.OtherPaymentTerms),"PaymentCodeOrOther1Choice.OtherPaymentTerms")]
     #endif
     [IsoId("_ogNJwNP8EeK0PPbKncCqzA")]
     [DisplayName("Payment Code Or Other 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AmountOrCoefficientPrice1Choice.Amount))]
     [KnownType(typeof(AmountOrCoefficientPrice1Choice.Coefficient))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AmountOrCoefficientPrice1Choice.Amount),nameof(AmountOrCoefficientPrice1Choice.Amount))]
-    [JsonDerivedType(typeof(AmountOrCoefficientPrice1Choice.Coefficient),nameof(AmountOrCoefficientPrice1Choice.Coefficient))]
+    [JsonDerivedType(typeof(AmountOrCoefficientPrice1Choice.Amount),"AmountOrCoefficientPrice1Choice.Amount")]
+    [JsonDerivedType(typeof(AmountOrCoefficientPrice1Choice.Coefficient),"AmountOrCoefficientPrice1Choice.Coefficient")]
     #endif
     [IsoId("_jBTw9O5NEeCisYr99QEiWA_-2039620670")]
     [DisplayName("Amount Or Coefficient Price 1 Choice")]

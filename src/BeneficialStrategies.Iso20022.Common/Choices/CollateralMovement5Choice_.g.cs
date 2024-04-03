@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralMovement5Choice.CollateralMovementDirection))]
     [KnownType(typeof(CollateralMovement5Choice.Return))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralMovement5Choice.CollateralMovementDirection),nameof(CollateralMovement5Choice.CollateralMovementDirection))]
-    [JsonDerivedType(typeof(CollateralMovement5Choice.Return),nameof(CollateralMovement5Choice.Return))]
+    [JsonDerivedType(typeof(CollateralMovement5Choice.CollateralMovementDirection),"CollateralMovement5Choice.CollateralMovementDirection")]
+    [JsonDerivedType(typeof(CollateralMovement5Choice.Return),"CollateralMovement5Choice.Return")]
     #endif
     [IsoId("_sHMX9YpIEeaNTaanBSMWmg")]
     [DisplayName("Collateral Movement 5 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntermediaryRoleChoice1.Role))]
     [KnownType(typeof(IntermediaryRoleChoice1.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IntermediaryRoleChoice1.Role),nameof(IntermediaryRoleChoice1.Role))]
-    [JsonDerivedType(typeof(IntermediaryRoleChoice1.Proprietary),nameof(IntermediaryRoleChoice1.Proprietary))]
+    [JsonDerivedType(typeof(IntermediaryRoleChoice1.Role),"IntermediaryRoleChoice1.Role")]
+    [JsonDerivedType(typeof(IntermediaryRoleChoice1.Proprietary),"IntermediaryRoleChoice1.Proprietary")]
     #endif
     [IsoId("_RhC6Btp-Ed-ak6NoX_4Aeg_991190006")]
     [DisplayName("Intermediary Role Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InflationIndex1Choice.ISIN))]
     [KnownType(typeof(InflationIndex1Choice.Name))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InflationIndex1Choice.ISIN),nameof(InflationIndex1Choice.ISIN))]
-    [JsonDerivedType(typeof(InflationIndex1Choice.Name),nameof(InflationIndex1Choice.Name))]
+    [JsonDerivedType(typeof(InflationIndex1Choice.ISIN),"InflationIndex1Choice.ISIN")]
+    [JsonDerivedType(typeof(InflationIndex1Choice.Name),"InflationIndex1Choice.Name")]
     #endif
     [IsoId("_ZyZ21CS2EeWsI5Sp3-B3zg")]
     [DisplayName("Inflation Index 1 Choice")]

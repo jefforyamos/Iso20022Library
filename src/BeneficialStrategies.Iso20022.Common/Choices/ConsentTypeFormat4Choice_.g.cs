@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConsentTypeFormat4Choice.Code))]
     [KnownType(typeof(ConsentTypeFormat4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConsentTypeFormat4Choice.Code),nameof(ConsentTypeFormat4Choice.Code))]
-    [JsonDerivedType(typeof(ConsentTypeFormat4Choice.Proprietary),nameof(ConsentTypeFormat4Choice.Proprietary))]
+    [JsonDerivedType(typeof(ConsentTypeFormat4Choice.Code),"ConsentTypeFormat4Choice.Code")]
+    [JsonDerivedType(typeof(ConsentTypeFormat4Choice.Proprietary),"ConsentTypeFormat4Choice.Proprietary")]
     #endif
     [IsoId("_dyRgMUEGEeWVgfuHGaKtRQ")]
     [DisplayName("Consent Type Format 4 Choice")]

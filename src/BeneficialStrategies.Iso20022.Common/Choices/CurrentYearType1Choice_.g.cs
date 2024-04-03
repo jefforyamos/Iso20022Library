@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrentYearType1Choice.CurrentYearType))]
     [KnownType(typeof(CurrentYearType1Choice.ExtendedCurrentYearType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CurrentYearType1Choice.CurrentYearType),nameof(CurrentYearType1Choice.CurrentYearType))]
-    [JsonDerivedType(typeof(CurrentYearType1Choice.ExtendedCurrentYearType),nameof(CurrentYearType1Choice.ExtendedCurrentYearType))]
+    [JsonDerivedType(typeof(CurrentYearType1Choice.CurrentYearType),"CurrentYearType1Choice.CurrentYearType")]
+    [JsonDerivedType(typeof(CurrentYearType1Choice.ExtendedCurrentYearType),"CurrentYearType1Choice.ExtendedCurrentYearType")]
     #endif
     [IsoId("_3f6cYEXfEeGY6MkiuzuPOA_1308013300")]
     [DisplayName("Current Year Type 1 Choice")]

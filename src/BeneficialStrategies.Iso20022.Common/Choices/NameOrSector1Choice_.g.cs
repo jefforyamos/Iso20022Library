@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NameOrSector1Choice.Name))]
     [KnownType(typeof(NameOrSector1Choice.Sector))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NameOrSector1Choice.Name),nameof(NameOrSector1Choice.Name))]
-    [JsonDerivedType(typeof(NameOrSector1Choice.Sector),nameof(NameOrSector1Choice.Sector))]
+    [JsonDerivedType(typeof(NameOrSector1Choice.Name),"NameOrSector1Choice.Name")]
+    [JsonDerivedType(typeof(NameOrSector1Choice.Sector),"NameOrSector1Choice.Sector")]
     #endif
     [IsoId("_6MuWYYInEeWA9fc11zJf1Q")]
     [DisplayName("Name Or Sector 1 Choice")]

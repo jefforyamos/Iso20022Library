@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitOrError3Choice.Limit))]
     [KnownType(typeof(LimitOrError3Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LimitOrError3Choice.Limit),nameof(LimitOrError3Choice.Limit))]
-    [JsonDerivedType(typeof(LimitOrError3Choice.BusinessError),nameof(LimitOrError3Choice.BusinessError))]
+    [JsonDerivedType(typeof(LimitOrError3Choice.Limit),"LimitOrError3Choice.Limit")]
+    [JsonDerivedType(typeof(LimitOrError3Choice.BusinessError),"LimitOrError3Choice.BusinessError")]
     #endif
     [IsoId("_RRErR5lhEeeE1Ya-LgRsuQ")]
     [DisplayName("Limit Or Error 3 Choice")]

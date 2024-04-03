@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitIdentification2Choice.AllCurrent))]
     [KnownType(typeof(LimitIdentification2Choice.AllDefault))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LimitIdentification2Choice.Current),nameof(LimitIdentification2Choice.Current))]
-    [JsonDerivedType(typeof(LimitIdentification2Choice.Default),nameof(LimitIdentification2Choice.Default))]
-    [JsonDerivedType(typeof(LimitIdentification2Choice.AllCurrent),nameof(LimitIdentification2Choice.AllCurrent))]
-    [JsonDerivedType(typeof(LimitIdentification2Choice.AllDefault),nameof(LimitIdentification2Choice.AllDefault))]
+    [JsonDerivedType(typeof(LimitIdentification2Choice.Current),"LimitIdentification2Choice.Current")]
+    [JsonDerivedType(typeof(LimitIdentification2Choice.Default),"LimitIdentification2Choice.Default")]
+    [JsonDerivedType(typeof(LimitIdentification2Choice.AllCurrent),"LimitIdentification2Choice.AllCurrent")]
+    [JsonDerivedType(typeof(LimitIdentification2Choice.AllDefault),"LimitIdentification2Choice.AllDefault")]
     #endif
     [IsoId("_A_hEt24-EeiU9cctagi5ow")]
     [DisplayName("Limit Identification 2 Choice")]

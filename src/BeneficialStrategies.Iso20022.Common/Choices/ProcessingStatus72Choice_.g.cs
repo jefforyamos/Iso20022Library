@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus72Choice.Completed))]
     [KnownType(typeof(ProcessingStatus72Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus72Choice.AcknowledgedAccepted),nameof(ProcessingStatus72Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus72Choice.PendingProcessing),nameof(ProcessingStatus72Choice.PendingProcessing))]
-    [JsonDerivedType(typeof(ProcessingStatus72Choice.Rejected),nameof(ProcessingStatus72Choice.Rejected))]
-    [JsonDerivedType(typeof(ProcessingStatus72Choice.Completed),nameof(ProcessingStatus72Choice.Completed))]
-    [JsonDerivedType(typeof(ProcessingStatus72Choice.Proprietary),nameof(ProcessingStatus72Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProcessingStatus72Choice.AcknowledgedAccepted),"ProcessingStatus72Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus72Choice.PendingProcessing),"ProcessingStatus72Choice.PendingProcessing")]
+    [JsonDerivedType(typeof(ProcessingStatus72Choice.Rejected),"ProcessingStatus72Choice.Rejected")]
+    [JsonDerivedType(typeof(ProcessingStatus72Choice.Completed),"ProcessingStatus72Choice.Completed")]
+    [JsonDerivedType(typeof(ProcessingStatus72Choice.Proprietary),"ProcessingStatus72Choice.Proprietary")]
     #endif
     [IsoId("_atiHUeLtEeWOD7aAy2fAcA")]
     [DisplayName("Processing Status 72 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdjustedBalanceTypeSD4Choice.StockLoan))]
     [KnownType(typeof(AdjustedBalanceTypeSD4Choice.Repo))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdjustedBalanceTypeSD4Choice.StockLoan),nameof(AdjustedBalanceTypeSD4Choice.StockLoan))]
-    [JsonDerivedType(typeof(AdjustedBalanceTypeSD4Choice.Repo),nameof(AdjustedBalanceTypeSD4Choice.Repo))]
+    [JsonDerivedType(typeof(AdjustedBalanceTypeSD4Choice.StockLoan),"AdjustedBalanceTypeSD4Choice.StockLoan")]
+    [JsonDerivedType(typeof(AdjustedBalanceTypeSD4Choice.Repo),"AdjustedBalanceTypeSD4Choice.Repo")]
     #endif
     [IsoId("_RWpyEcSTEeeRJJtE9TSlkw")]
     [DisplayName("Adjusted Balance Type SD 4 Choice")]

@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraPositionProcessingStatus8Choice.AcknowledgedAccepted))]
     [KnownType(typeof(IntraPositionProcessingStatus8Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Rejected),nameof(IntraPositionProcessingStatus8Choice.Rejected))]
-    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Repair),nameof(IntraPositionProcessingStatus8Choice.Repair))]
-    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Cancelled),nameof(IntraPositionProcessingStatus8Choice.Cancelled))]
-    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.AcknowledgedAccepted),nameof(IntraPositionProcessingStatus8Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Proprietary),nameof(IntraPositionProcessingStatus8Choice.Proprietary))]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Rejected),"IntraPositionProcessingStatus8Choice.Rejected")]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Repair),"IntraPositionProcessingStatus8Choice.Repair")]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Cancelled),"IntraPositionProcessingStatus8Choice.Cancelled")]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.AcknowledgedAccepted),"IntraPositionProcessingStatus8Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(IntraPositionProcessingStatus8Choice.Proprietary),"IntraPositionProcessingStatus8Choice.Proprietary")]
     #endif
     [IsoId("_65NaH_fUEeiNZp_PtLohLw")]
     [DisplayName("Intra Position Processing Status 8 Choice")]

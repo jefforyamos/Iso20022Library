@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument12Choice.BankersDraftDetails))]
     [KnownType(typeof(PaymentInstrument12Choice.CashAccountDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.PaymentCardDetails),nameof(PaymentInstrument12Choice.PaymentCardDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.CreditTransferDetails),nameof(PaymentInstrument12Choice.CreditTransferDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.DirectDebitDetails),nameof(PaymentInstrument12Choice.DirectDebitDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.ChequeDetails),nameof(PaymentInstrument12Choice.ChequeDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.BankersDraftDetails),nameof(PaymentInstrument12Choice.BankersDraftDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument12Choice.CashAccountDetails),nameof(PaymentInstrument12Choice.CashAccountDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.PaymentCardDetails),"PaymentInstrument12Choice.PaymentCardDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.CreditTransferDetails),"PaymentInstrument12Choice.CreditTransferDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.DirectDebitDetails),"PaymentInstrument12Choice.DirectDebitDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.ChequeDetails),"PaymentInstrument12Choice.ChequeDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.BankersDraftDetails),"PaymentInstrument12Choice.BankersDraftDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument12Choice.CashAccountDetails),"PaymentInstrument12Choice.CashAccountDetails")]
     #endif
     [IsoId("_SBX_6Np-Ed-ak6NoX_4Aeg_1545982824")]
     [DisplayName("Payment Instrument 12 Choice")]

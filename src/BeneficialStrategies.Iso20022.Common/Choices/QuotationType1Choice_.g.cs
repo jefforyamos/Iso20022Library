@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuotationType1Choice.Code))]
     [KnownType(typeof(QuotationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(QuotationType1Choice.Code),nameof(QuotationType1Choice.Code))]
-    [JsonDerivedType(typeof(QuotationType1Choice.Proprietary),nameof(QuotationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(QuotationType1Choice.Code),"QuotationType1Choice.Code")]
+    [JsonDerivedType(typeof(QuotationType1Choice.Proprietary),"QuotationType1Choice.Proprietary")]
     #endif
     [IsoId("_QPU_sNK4EeihtcVwfFPNlg")]
     [DisplayName("Quotation Type 1 Choice")]

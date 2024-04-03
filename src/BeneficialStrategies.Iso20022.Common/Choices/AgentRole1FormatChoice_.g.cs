@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AgentRole1FormatChoice.Code))]
     [KnownType(typeof(AgentRole1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AgentRole1FormatChoice.Code),nameof(AgentRole1FormatChoice.Code))]
-    [JsonDerivedType(typeof(AgentRole1FormatChoice.Proprietary),nameof(AgentRole1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(AgentRole1FormatChoice.Code),"AgentRole1FormatChoice.Code")]
+    [JsonDerivedType(typeof(AgentRole1FormatChoice.Proprietary),"AgentRole1FormatChoice.Proprietary")]
     #endif
     [IsoId("_RlgjR9p-Ed-ak6NoX_4Aeg_1472150836")]
     [DisplayName("Agent Role 1 Format Choice")]

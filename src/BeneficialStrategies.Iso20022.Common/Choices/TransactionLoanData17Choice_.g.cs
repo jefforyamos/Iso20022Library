@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionLoanData17Choice.SecuritiesLending))]
     [KnownType(typeof(TransactionLoanData17Choice.MarginLending))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionLoanData17Choice.RepurchaseTrade),nameof(TransactionLoanData17Choice.RepurchaseTrade))]
-    [JsonDerivedType(typeof(TransactionLoanData17Choice.BuySellBack),nameof(TransactionLoanData17Choice.BuySellBack))]
-    [JsonDerivedType(typeof(TransactionLoanData17Choice.SecuritiesLending),nameof(TransactionLoanData17Choice.SecuritiesLending))]
-    [JsonDerivedType(typeof(TransactionLoanData17Choice.MarginLending),nameof(TransactionLoanData17Choice.MarginLending))]
+    [JsonDerivedType(typeof(TransactionLoanData17Choice.RepurchaseTrade),"TransactionLoanData17Choice.RepurchaseTrade")]
+    [JsonDerivedType(typeof(TransactionLoanData17Choice.BuySellBack),"TransactionLoanData17Choice.BuySellBack")]
+    [JsonDerivedType(typeof(TransactionLoanData17Choice.SecuritiesLending),"TransactionLoanData17Choice.SecuritiesLending")]
+    [JsonDerivedType(typeof(TransactionLoanData17Choice.MarginLending),"TransactionLoanData17Choice.MarginLending")]
     #endif
     [IsoId("_1xq-Pa1KEemojPqsRBB5Lg")]
     [DisplayName("Transaction Loan Data 17 Choice")]

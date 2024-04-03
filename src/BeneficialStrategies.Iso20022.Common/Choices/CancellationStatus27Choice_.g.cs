@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CancellationStatus27Choice.GlobalCancellationStatus))]
     [KnownType(typeof(CancellationStatus27Choice.DetailedCancellationStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CancellationStatus27Choice.GlobalCancellationStatus),nameof(CancellationStatus27Choice.GlobalCancellationStatus))]
-    [JsonDerivedType(typeof(CancellationStatus27Choice.DetailedCancellationStatus),nameof(CancellationStatus27Choice.DetailedCancellationStatus))]
+    [JsonDerivedType(typeof(CancellationStatus27Choice.GlobalCancellationStatus),"CancellationStatus27Choice.GlobalCancellationStatus")]
+    [JsonDerivedType(typeof(CancellationStatus27Choice.DetailedCancellationStatus),"CancellationStatus27Choice.DetailedCancellationStatus")]
     #endif
     [IsoId("_xTJyQMT1Eem9aZlimxVUIw")]
     [DisplayName("Cancellation Status 27 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeToMaturity1Choice.Period))]
     [KnownType(typeof(TimeToMaturity1Choice.Special))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeToMaturity1Choice.Period),nameof(TimeToMaturity1Choice.Period))]
-    [JsonDerivedType(typeof(TimeToMaturity1Choice.Special),nameof(TimeToMaturity1Choice.Special))]
+    [JsonDerivedType(typeof(TimeToMaturity1Choice.Period),"TimeToMaturity1Choice.Period")]
+    [JsonDerivedType(typeof(TimeToMaturity1Choice.Special),"TimeToMaturity1Choice.Special")]
     #endif
     [IsoId("_r8FOkMVaEeiYpLQka876sg")]
     [DisplayName("Time To Maturity 1 Choice")]

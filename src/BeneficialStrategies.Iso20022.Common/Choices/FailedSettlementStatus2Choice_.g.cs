@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailedSettlementStatus2Choice.DataSourceScheme))]
     [KnownType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.Reason),nameof(FailedSettlementStatus2Choice.Reason))]
-    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.DataSourceScheme),nameof(FailedSettlementStatus2Choice.DataSourceScheme))]
-    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason),nameof(FailedSettlementStatus2Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.Reason),"FailedSettlementStatus2Choice.Reason")]
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.DataSourceScheme),"FailedSettlementStatus2Choice.DataSourceScheme")]
+    [JsonDerivedType(typeof(FailedSettlementStatus2Choice.NoSpecifiedReason),"FailedSettlementStatus2Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_DOTJ4SY5EeW_ZNn8gbfY7Q")]
     [DisplayName("Failed Settlement Status 2 Choice")]

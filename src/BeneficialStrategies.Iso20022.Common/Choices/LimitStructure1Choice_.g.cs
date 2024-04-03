@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LimitStructure1Choice.CurrentLimitIdentification))]
     [KnownType(typeof(LimitStructure1Choice.AllCurrentLimits))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LimitStructure1Choice.CurrentLimitIdentification),nameof(LimitStructure1Choice.CurrentLimitIdentification))]
-    [JsonDerivedType(typeof(LimitStructure1Choice.AllCurrentLimits),nameof(LimitStructure1Choice.AllCurrentLimits))]
+    [JsonDerivedType(typeof(LimitStructure1Choice.CurrentLimitIdentification),"LimitStructure1Choice.CurrentLimitIdentification")]
+    [JsonDerivedType(typeof(LimitStructure1Choice.AllCurrentLimits),"LimitStructure1Choice.AllCurrentLimits")]
     #endif
     [IsoId("_72iECKMgEeCJ6YNENx4h-w_-879339844")]
     [DisplayName("Limit Structure 1 Choice")]

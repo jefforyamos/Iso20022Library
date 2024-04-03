@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IdentificationSource2Choice.Domestic))]
     [KnownType(typeof(IdentificationSource2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IdentificationSource2Choice.Domestic),nameof(IdentificationSource2Choice.Domestic))]
-    [JsonDerivedType(typeof(IdentificationSource2Choice.Proprietary),nameof(IdentificationSource2Choice.Proprietary))]
+    [JsonDerivedType(typeof(IdentificationSource2Choice.Domestic),"IdentificationSource2Choice.Domestic")]
+    [JsonDerivedType(typeof(IdentificationSource2Choice.Proprietary),"IdentificationSource2Choice.Proprietary")]
     #endif
     [IsoId("_XKZIItp-Ed-ak6NoX_4Aeg_-2009895273")]
     [DisplayName("Identification Source 2 Choice")]

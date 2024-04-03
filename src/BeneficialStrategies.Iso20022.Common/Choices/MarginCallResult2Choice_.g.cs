@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginCallResult2Choice.MarginCallAmount))]
     [KnownType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarginCallResult2Choice.MarginCallResultDetails),nameof(MarginCallResult2Choice.MarginCallResultDetails))]
-    [JsonDerivedType(typeof(MarginCallResult2Choice.MarginCallAmount),nameof(MarginCallResult2Choice.MarginCallAmount))]
-    [JsonDerivedType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount),nameof(MarginCallResult2Choice.SegregatedIndependentAmount))]
+    [JsonDerivedType(typeof(MarginCallResult2Choice.MarginCallResultDetails),"MarginCallResult2Choice.MarginCallResultDetails")]
+    [JsonDerivedType(typeof(MarginCallResult2Choice.MarginCallAmount),"MarginCallResult2Choice.MarginCallAmount")]
+    [JsonDerivedType(typeof(MarginCallResult2Choice.SegregatedIndependentAmount),"MarginCallResult2Choice.SegregatedIndependentAmount")]
     #endif
     [IsoId("_9beRS6MPEeCojJW5vEuTEQ_-1338603652")]
     [DisplayName("Margin Call Result 2 Choice")]

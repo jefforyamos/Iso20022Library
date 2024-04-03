@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateFormat7Choice.Rate))]
     [KnownType(typeof(RateFormat7Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RateFormat7Choice.Rate),nameof(RateFormat7Choice.Rate))]
-    [JsonDerivedType(typeof(RateFormat7Choice.NotSpecifiedRate),nameof(RateFormat7Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(RateFormat7Choice.Rate),"RateFormat7Choice.Rate")]
+    [JsonDerivedType(typeof(RateFormat7Choice.NotSpecifiedRate),"RateFormat7Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_8_swAfmaEeCgTOP8zvX1cw")]
     [DisplayName("Rate Format 7 Choice")]

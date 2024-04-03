@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PoliticallyExposedPersonStatus1Choice.Code))]
     [KnownType(typeof(PoliticallyExposedPersonStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PoliticallyExposedPersonStatus1Choice.Code),nameof(PoliticallyExposedPersonStatus1Choice.Code))]
-    [JsonDerivedType(typeof(PoliticallyExposedPersonStatus1Choice.Proprietary),nameof(PoliticallyExposedPersonStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(PoliticallyExposedPersonStatus1Choice.Code),"PoliticallyExposedPersonStatus1Choice.Code")]
+    [JsonDerivedType(typeof(PoliticallyExposedPersonStatus1Choice.Proprietary),"PoliticallyExposedPersonStatus1Choice.Proprietary")]
     #endif
     [IsoId("_Y1YIAJUiEemC09f0MxYkRg")]
     [DisplayName("Politically Exposed Person Status 1 Choice")]

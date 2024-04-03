@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FailingStatus10Choice.NoSpecifiedReason))]
     [KnownType(typeof(FailingStatus10Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FailingStatus10Choice.NoSpecifiedReason),nameof(FailingStatus10Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(FailingStatus10Choice.Reason),nameof(FailingStatus10Choice.Reason))]
+    [JsonDerivedType(typeof(FailingStatus10Choice.NoSpecifiedReason),"FailingStatus10Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(FailingStatus10Choice.Reason),"FailingStatus10Choice.Reason")]
     #endif
     [IsoId("_3CuZQTqOEeWyoP0PbocV1Q")]
     [DisplayName("Failing Status 10 Choice")]

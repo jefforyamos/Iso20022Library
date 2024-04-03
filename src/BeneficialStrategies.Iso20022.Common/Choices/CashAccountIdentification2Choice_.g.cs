@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashAccountIdentification2Choice.IBAN))]
     [KnownType(typeof(CashAccountIdentification2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CashAccountIdentification2Choice.IBAN),nameof(CashAccountIdentification2Choice.IBAN))]
-    [JsonDerivedType(typeof(CashAccountIdentification2Choice.Proprietary),nameof(CashAccountIdentification2Choice.Proprietary))]
+    [JsonDerivedType(typeof(CashAccountIdentification2Choice.IBAN),"CashAccountIdentification2Choice.IBAN")]
+    [JsonDerivedType(typeof(CashAccountIdentification2Choice.Proprietary),"CashAccountIdentification2Choice.Proprietary")]
     #endif
     [IsoId("_Pd6koNp-Ed-ak6NoX_4Aeg_252858102")]
     [DisplayName("Cash Account Identification 2 Choice")]

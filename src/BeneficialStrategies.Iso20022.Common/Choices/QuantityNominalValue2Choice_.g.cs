@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuantityNominalValue2Choice.Quantity))]
     [KnownType(typeof(QuantityNominalValue2Choice.NominalValue))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(QuantityNominalValue2Choice.Quantity),nameof(QuantityNominalValue2Choice.Quantity))]
-    [JsonDerivedType(typeof(QuantityNominalValue2Choice.NominalValue),nameof(QuantityNominalValue2Choice.NominalValue))]
+    [JsonDerivedType(typeof(QuantityNominalValue2Choice.Quantity),"QuantityNominalValue2Choice.Quantity")]
+    [JsonDerivedType(typeof(QuantityNominalValue2Choice.NominalValue),"QuantityNominalValue2Choice.NominalValue")]
     #endif
     [IsoId("_byObccpbEem6kd3Y9uIDqg")]
     [DisplayName("Quantity Nominal Value 2 Choice")]

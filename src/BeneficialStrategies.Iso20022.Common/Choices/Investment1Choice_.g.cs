@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Investment1Choice.OtherInvestments))]
     [KnownType(typeof(Investment1Choice.OutrightInvestment))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Investment1Choice.UnsecuredCashDeposit),nameof(Investment1Choice.UnsecuredCashDeposit))]
-    [JsonDerivedType(typeof(Investment1Choice.CentralBankDeposit),nameof(Investment1Choice.CentralBankDeposit))]
-    [JsonDerivedType(typeof(Investment1Choice.RepurchaseAgreement),nameof(Investment1Choice.RepurchaseAgreement))]
-    [JsonDerivedType(typeof(Investment1Choice.OtherInvestments),nameof(Investment1Choice.OtherInvestments))]
-    [JsonDerivedType(typeof(Investment1Choice.OutrightInvestment),nameof(Investment1Choice.OutrightInvestment))]
+    [JsonDerivedType(typeof(Investment1Choice.UnsecuredCashDeposit),"Investment1Choice.UnsecuredCashDeposit")]
+    [JsonDerivedType(typeof(Investment1Choice.CentralBankDeposit),"Investment1Choice.CentralBankDeposit")]
+    [JsonDerivedType(typeof(Investment1Choice.RepurchaseAgreement),"Investment1Choice.RepurchaseAgreement")]
+    [JsonDerivedType(typeof(Investment1Choice.OtherInvestments),"Investment1Choice.OtherInvestments")]
+    [JsonDerivedType(typeof(Investment1Choice.OutrightInvestment),"Investment1Choice.OutrightInvestment")]
     #endif
     [IsoId("_nrsigLJUEeaYqc4G3TTwhA")]
     [DisplayName("Investment 1 Choice")]

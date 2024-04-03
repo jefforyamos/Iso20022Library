@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LocalInstrument1Choice.Code))]
     [KnownType(typeof(LocalInstrument1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LocalInstrument1Choice.Code),nameof(LocalInstrument1Choice.Code))]
-    [JsonDerivedType(typeof(LocalInstrument1Choice.Proprietary),nameof(LocalInstrument1Choice.Proprietary))]
+    [JsonDerivedType(typeof(LocalInstrument1Choice.Code),"LocalInstrument1Choice.Code")]
+    [JsonDerivedType(typeof(LocalInstrument1Choice.Proprietary),"LocalInstrument1Choice.Proprietary")]
     #endif
     [IsoId("_TGhDB9p-Ed-ak6NoX_4Aeg_-2017969290")]
     [DisplayName("Local Instrument 1 Choice")]

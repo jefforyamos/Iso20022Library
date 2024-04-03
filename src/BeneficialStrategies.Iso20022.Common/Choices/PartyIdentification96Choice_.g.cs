@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification96Choice.TaxIdentificationNumber))]
     [KnownType(typeof(PartyIdentification96Choice.NationalRegistrationNumber))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyIdentification96Choice.AnyBIC),nameof(PartyIdentification96Choice.AnyBIC))]
-    [JsonDerivedType(typeof(PartyIdentification96Choice.ProprietaryIdentification),nameof(PartyIdentification96Choice.ProprietaryIdentification))]
-    [JsonDerivedType(typeof(PartyIdentification96Choice.NameAndAddress),nameof(PartyIdentification96Choice.NameAndAddress))]
-    [JsonDerivedType(typeof(PartyIdentification96Choice.TaxIdentificationNumber),nameof(PartyIdentification96Choice.TaxIdentificationNumber))]
-    [JsonDerivedType(typeof(PartyIdentification96Choice.NationalRegistrationNumber),nameof(PartyIdentification96Choice.NationalRegistrationNumber))]
+    [JsonDerivedType(typeof(PartyIdentification96Choice.AnyBIC),"PartyIdentification96Choice.AnyBIC")]
+    [JsonDerivedType(typeof(PartyIdentification96Choice.ProprietaryIdentification),"PartyIdentification96Choice.ProprietaryIdentification")]
+    [JsonDerivedType(typeof(PartyIdentification96Choice.NameAndAddress),"PartyIdentification96Choice.NameAndAddress")]
+    [JsonDerivedType(typeof(PartyIdentification96Choice.TaxIdentificationNumber),"PartyIdentification96Choice.TaxIdentificationNumber")]
+    [JsonDerivedType(typeof(PartyIdentification96Choice.NationalRegistrationNumber),"PartyIdentification96Choice.NationalRegistrationNumber")]
     #endif
     [IsoId("_vsuhsSGYEeWKAaDJcYGKLw")]
     [DisplayName("Party Identification 96 Choice")]

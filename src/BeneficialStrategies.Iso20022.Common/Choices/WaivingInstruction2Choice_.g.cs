@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(WaivingInstruction2Choice.Code))]
     [KnownType(typeof(WaivingInstruction2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(WaivingInstruction2Choice.Code),nameof(WaivingInstruction2Choice.Code))]
-    [JsonDerivedType(typeof(WaivingInstruction2Choice.Proprietary),nameof(WaivingInstruction2Choice.Proprietary))]
+    [JsonDerivedType(typeof(WaivingInstruction2Choice.Code),"WaivingInstruction2Choice.Code")]
+    [JsonDerivedType(typeof(WaivingInstruction2Choice.Proprietary),"WaivingInstruction2Choice.Proprietary")]
     #endif
     [IsoId("_Ox8_UViPEeaMNZxYNthMeA")]
     [DisplayName("Waiving Instruction 2 Choice")]

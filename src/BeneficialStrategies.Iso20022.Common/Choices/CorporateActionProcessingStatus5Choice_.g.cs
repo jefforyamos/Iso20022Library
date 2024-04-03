@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionProcessingStatus5Choice.Code))]
     [KnownType(typeof(CorporateActionProcessingStatus5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus5Choice.Code),nameof(CorporateActionProcessingStatus5Choice.Code))]
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus5Choice.Proprietary),nameof(CorporateActionProcessingStatus5Choice.Proprietary))]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus5Choice.Code),"CorporateActionProcessingStatus5Choice.Code")]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus5Choice.Proprietary),"CorporateActionProcessingStatus5Choice.Proprietary")]
     #endif
     [IsoId("_JZXjFTnXEeWLJsP1cO-amg")]
     [DisplayName("Corporate Action Processing Status 5 Choice")]

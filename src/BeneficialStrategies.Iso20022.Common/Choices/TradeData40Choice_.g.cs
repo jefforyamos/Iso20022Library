@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeData40Choice.DataSetAction))]
     [KnownType(typeof(TradeData40Choice.Report))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeData40Choice.DataSetAction),nameof(TradeData40Choice.DataSetAction))]
-    [JsonDerivedType(typeof(TradeData40Choice.Report),nameof(TradeData40Choice.Report))]
+    [JsonDerivedType(typeof(TradeData40Choice.DataSetAction),"TradeData40Choice.DataSetAction")]
+    [JsonDerivedType(typeof(TradeData40Choice.Report),"TradeData40Choice.Report")]
     #endif
     [IsoId("_zryFccg3EeuGrNSsxk3B0A")]
     [DisplayName("Trade Data 40 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PutType3Choice.Code))]
     [KnownType(typeof(PutType3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PutType3Choice.Code),nameof(PutType3Choice.Code))]
-    [JsonDerivedType(typeof(PutType3Choice.Proprietary),nameof(PutType3Choice.Proprietary))]
+    [JsonDerivedType(typeof(PutType3Choice.Code),"PutType3Choice.Code")]
+    [JsonDerivedType(typeof(PutType3Choice.Proprietary),"PutType3Choice.Proprietary")]
     #endif
     [IsoId("_bj1s8eLcEeWFtOV72FbX9w")]
     [DisplayName("Put Type 3 Choice")]

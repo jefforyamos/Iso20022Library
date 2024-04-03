@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Vote15Choice.VotePerAgendaResolution))]
     [KnownType(typeof(Vote15Choice.VoteForAllAgendaResolutions))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Vote15Choice.VotePerAgendaResolution),nameof(Vote15Choice.VotePerAgendaResolution))]
-    [JsonDerivedType(typeof(Vote15Choice.VoteForAllAgendaResolutions),nameof(Vote15Choice.VoteForAllAgendaResolutions))]
+    [JsonDerivedType(typeof(Vote15Choice.VotePerAgendaResolution),"Vote15Choice.VotePerAgendaResolution")]
+    [JsonDerivedType(typeof(Vote15Choice.VoteForAllAgendaResolutions),"Vote15Choice.VoteForAllAgendaResolutions")]
     #endif
     [IsoId("_9DJBZ_NXEeqRfth943bvEA")]
     [DisplayName("Vote 15 Choice")]

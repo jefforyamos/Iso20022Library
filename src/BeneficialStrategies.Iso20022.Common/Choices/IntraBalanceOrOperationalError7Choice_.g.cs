@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntraBalanceOrOperationalError7Choice.Movements))]
     [KnownType(typeof(IntraBalanceOrOperationalError7Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.Movements),nameof(IntraBalanceOrOperationalError7Choice.Movements))]
-    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.OperationalError),nameof(IntraBalanceOrOperationalError7Choice.OperationalError))]
+    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.Movements),"IntraBalanceOrOperationalError7Choice.Movements")]
+    [JsonDerivedType(typeof(IntraBalanceOrOperationalError7Choice.OperationalError),"IntraBalanceOrOperationalError7Choice.OperationalError")]
     #endif
     [IsoId("_X3ej8TneEem7JZMuWtwtsg")]
     [DisplayName("Intra Balance Or Operational Error 7 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Vote1Choice.VoteInstruction))]
     [KnownType(typeof(Vote1Choice.GlobalVoteInstruction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Vote1Choice.VoteInstruction),nameof(Vote1Choice.VoteInstruction))]
-    [JsonDerivedType(typeof(Vote1Choice.GlobalVoteInstruction),nameof(Vote1Choice.GlobalVoteInstruction))]
+    [JsonDerivedType(typeof(Vote1Choice.VoteInstruction),"Vote1Choice.VoteInstruction")]
+    [JsonDerivedType(typeof(Vote1Choice.GlobalVoteInstruction),"Vote1Choice.GlobalVoteInstruction")]
     #endif
     [IsoId("_Rb-Mx9p-Ed-ak6NoX_4Aeg_4445857")]
     [DisplayName("Vote 1 Choice")]

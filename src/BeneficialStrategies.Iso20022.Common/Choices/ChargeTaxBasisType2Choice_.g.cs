@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeTaxBasisType2Choice.Code))]
     [KnownType(typeof(ChargeTaxBasisType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ChargeTaxBasisType2Choice.Code),nameof(ChargeTaxBasisType2Choice.Code))]
-    [JsonDerivedType(typeof(ChargeTaxBasisType2Choice.Proprietary),nameof(ChargeTaxBasisType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ChargeTaxBasisType2Choice.Code),"ChargeTaxBasisType2Choice.Code")]
+    [JsonDerivedType(typeof(ChargeTaxBasisType2Choice.Proprietary),"ChargeTaxBasisType2Choice.Proprietary")]
     #endif
     [IsoId("_VKcMAZBhEeakHoV5BVecAQ")]
     [DisplayName("Charge Tax Basis Type 2 Choice")]

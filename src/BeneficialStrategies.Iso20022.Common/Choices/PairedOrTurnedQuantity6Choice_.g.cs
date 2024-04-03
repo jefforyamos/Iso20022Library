@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PairedOrTurnedQuantity6Choice.PairedOffQuantity))]
     [KnownType(typeof(PairedOrTurnedQuantity6Choice.TurnedQuantity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PairedOrTurnedQuantity6Choice.PairedOffQuantity),nameof(PairedOrTurnedQuantity6Choice.PairedOffQuantity))]
-    [JsonDerivedType(typeof(PairedOrTurnedQuantity6Choice.TurnedQuantity),nameof(PairedOrTurnedQuantity6Choice.TurnedQuantity))]
+    [JsonDerivedType(typeof(PairedOrTurnedQuantity6Choice.PairedOffQuantity),"PairedOrTurnedQuantity6Choice.PairedOffQuantity")]
+    [JsonDerivedType(typeof(PairedOrTurnedQuantity6Choice.TurnedQuantity),"PairedOrTurnedQuantity6Choice.TurnedQuantity")]
     #endif
     [IsoId("_dJccjTi8Eeydid5dcNPKvg")]
     [DisplayName("Paired Or Turned Quantity 6 Choice")]

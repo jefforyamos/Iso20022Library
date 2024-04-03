@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CommodityDerivate2Choice.Freight))]
     [KnownType(typeof(CommodityDerivate2Choice.Energy))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CommodityDerivate2Choice.Freight),nameof(CommodityDerivate2Choice.Freight))]
-    [JsonDerivedType(typeof(CommodityDerivate2Choice.Energy),nameof(CommodityDerivate2Choice.Energy))]
+    [JsonDerivedType(typeof(CommodityDerivate2Choice.Freight),"CommodityDerivate2Choice.Freight")]
+    [JsonDerivedType(typeof(CommodityDerivate2Choice.Energy),"CommodityDerivate2Choice.Energy")]
     #endif
     [IsoId("_znH8cWlHEeaLAKoEUNsD9g")]
     [DisplayName("Commodity Derivate 2 Choice")]

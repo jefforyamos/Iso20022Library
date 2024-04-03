@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RemovalProcessing2Choice.IndexIdentification))]
     [KnownType(typeof(RemovalProcessing2Choice.IssuerCountry))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RemovalProcessing2Choice.FinancialInstrumentIdentification),nameof(RemovalProcessing2Choice.FinancialInstrumentIdentification))]
-    [JsonDerivedType(typeof(RemovalProcessing2Choice.IndexIdentification),nameof(RemovalProcessing2Choice.IndexIdentification))]
-    [JsonDerivedType(typeof(RemovalProcessing2Choice.IssuerCountry),nameof(RemovalProcessing2Choice.IssuerCountry))]
+    [JsonDerivedType(typeof(RemovalProcessing2Choice.FinancialInstrumentIdentification),"RemovalProcessing2Choice.FinancialInstrumentIdentification")]
+    [JsonDerivedType(typeof(RemovalProcessing2Choice.IndexIdentification),"RemovalProcessing2Choice.IndexIdentification")]
+    [JsonDerivedType(typeof(RemovalProcessing2Choice.IssuerCountry),"RemovalProcessing2Choice.IssuerCountry")]
     #endif
     [IsoId("__MbGwRIoEeyZaPkaPAzTvQ")]
     [DisplayName("Removal Processing 2 Choice")]

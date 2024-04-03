@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC))]
     [KnownType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC),nameof(SecuritiesTradeVenueCriteria1Choice.MIC))]
-    [JsonDerivedType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC),nameof(SecuritiesTradeVenueCriteria1Choice.AnyMIC))]
+    [JsonDerivedType(typeof(SecuritiesTradeVenueCriteria1Choice.MIC),"SecuritiesTradeVenueCriteria1Choice.MIC")]
+    [JsonDerivedType(typeof(SecuritiesTradeVenueCriteria1Choice.AnyMIC),"SecuritiesTradeVenueCriteria1Choice.AnyMIC")]
     #endif
     [IsoId("_a5LOAx3ZEeWNp95x0ENf8w")]
     [DisplayName("Securities Trade Venue Criteria 1 Choice")]

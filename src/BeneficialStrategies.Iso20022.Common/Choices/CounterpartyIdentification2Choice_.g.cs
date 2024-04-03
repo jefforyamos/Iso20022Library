@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CounterpartyIdentification2Choice.LEI))]
     [KnownType(typeof(CounterpartyIdentification2Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CounterpartyIdentification2Choice.LEI),nameof(CounterpartyIdentification2Choice.LEI))]
-    [JsonDerivedType(typeof(CounterpartyIdentification2Choice.Other),nameof(CounterpartyIdentification2Choice.Other))]
+    [JsonDerivedType(typeof(CounterpartyIdentification2Choice.LEI),"CounterpartyIdentification2Choice.LEI")]
+    [JsonDerivedType(typeof(CounterpartyIdentification2Choice.Other),"CounterpartyIdentification2Choice.Other")]
     #endif
     [IsoId("_QmCKwXvSEeWrWYBng3OpVw")]
     [DisplayName("Counterparty Identification 2 Choice")]

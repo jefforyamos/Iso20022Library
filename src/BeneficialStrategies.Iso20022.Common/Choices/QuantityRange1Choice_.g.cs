@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(QuantityRange1Choice.EqualQuantity))]
     [KnownType(typeof(QuantityRange1Choice.NotEqualQuantity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(QuantityRange1Choice.FromQuantity),nameof(QuantityRange1Choice.FromQuantity))]
-    [JsonDerivedType(typeof(QuantityRange1Choice.ToQuantity),nameof(QuantityRange1Choice.ToQuantity))]
-    [JsonDerivedType(typeof(QuantityRange1Choice.FromToQuantity),nameof(QuantityRange1Choice.FromToQuantity))]
-    [JsonDerivedType(typeof(QuantityRange1Choice.EqualQuantity),nameof(QuantityRange1Choice.EqualQuantity))]
-    [JsonDerivedType(typeof(QuantityRange1Choice.NotEqualQuantity),nameof(QuantityRange1Choice.NotEqualQuantity))]
+    [JsonDerivedType(typeof(QuantityRange1Choice.FromQuantity),"QuantityRange1Choice.FromQuantity")]
+    [JsonDerivedType(typeof(QuantityRange1Choice.ToQuantity),"QuantityRange1Choice.ToQuantity")]
+    [JsonDerivedType(typeof(QuantityRange1Choice.FromToQuantity),"QuantityRange1Choice.FromToQuantity")]
+    [JsonDerivedType(typeof(QuantityRange1Choice.EqualQuantity),"QuantityRange1Choice.EqualQuantity")]
+    [JsonDerivedType(typeof(QuantityRange1Choice.NotEqualQuantity),"QuantityRange1Choice.NotEqualQuantity")]
     #endif
     [IsoId("_jtHuFO5NEeCisYr99QEiWA_-1373711231")]
     [DisplayName("Quantity Range 1 Choice")]

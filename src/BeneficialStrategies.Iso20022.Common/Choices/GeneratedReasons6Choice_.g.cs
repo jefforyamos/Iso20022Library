@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GeneratedReasons6Choice.Code))]
     [KnownType(typeof(GeneratedReasons6Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GeneratedReasons6Choice.Code),nameof(GeneratedReasons6Choice.Code))]
-    [JsonDerivedType(typeof(GeneratedReasons6Choice.Proprietary),nameof(GeneratedReasons6Choice.Proprietary))]
+    [JsonDerivedType(typeof(GeneratedReasons6Choice.Code),"GeneratedReasons6Choice.Code")]
+    [JsonDerivedType(typeof(GeneratedReasons6Choice.Proprietary),"GeneratedReasons6Choice.Proprietary")]
     #endif
     [IsoId("_6d7vVZNLEeWGlc8L7oPDIg")]
     [DisplayName("Generated Reasons 6 Choice")]

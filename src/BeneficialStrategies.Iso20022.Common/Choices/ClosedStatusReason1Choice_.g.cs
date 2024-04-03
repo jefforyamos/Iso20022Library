@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosedStatusReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(ClosedStatusReason1Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClosedStatusReason1Choice.NoSpecifiedReason),nameof(ClosedStatusReason1Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(ClosedStatusReason1Choice.Reason),nameof(ClosedStatusReason1Choice.Reason))]
+    [JsonDerivedType(typeof(ClosedStatusReason1Choice.NoSpecifiedReason),"ClosedStatusReason1Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(ClosedStatusReason1Choice.Reason),"ClosedStatusReason1Choice.Reason")]
     #endif
     [IsoId("_UcK_cUzDEeafiMTDrtSnyw")]
     [DisplayName("Closed Status Reason 1 Choice")]

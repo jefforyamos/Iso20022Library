@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentification5Choice.DomesticAccount))]
     [KnownType(typeof(AccountIdentification5Choice.DepositoryAccount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountIdentification5Choice.IBAN),nameof(AccountIdentification5Choice.IBAN))]
-    [JsonDerivedType(typeof(AccountIdentification5Choice.BBAN),nameof(AccountIdentification5Choice.BBAN))]
-    [JsonDerivedType(typeof(AccountIdentification5Choice.DomesticAccount),nameof(AccountIdentification5Choice.DomesticAccount))]
-    [JsonDerivedType(typeof(AccountIdentification5Choice.DepositoryAccount),nameof(AccountIdentification5Choice.DepositoryAccount))]
+    [JsonDerivedType(typeof(AccountIdentification5Choice.IBAN),"AccountIdentification5Choice.IBAN")]
+    [JsonDerivedType(typeof(AccountIdentification5Choice.BBAN),"AccountIdentification5Choice.BBAN")]
+    [JsonDerivedType(typeof(AccountIdentification5Choice.DomesticAccount),"AccountIdentification5Choice.DomesticAccount")]
+    [JsonDerivedType(typeof(AccountIdentification5Choice.DepositoryAccount),"AccountIdentification5Choice.DepositoryAccount")]
     #endif
     [IsoId("_Pdd4stp-Ed-ak6NoX_4Aeg_-1989600356")]
     [DisplayName("Account Identification 5 Choice")]

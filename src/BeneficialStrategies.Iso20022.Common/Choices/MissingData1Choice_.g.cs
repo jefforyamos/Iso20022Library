@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MissingData1Choice.Code))]
     [KnownType(typeof(MissingData1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MissingData1Choice.Code),nameof(MissingData1Choice.Code))]
-    [JsonDerivedType(typeof(MissingData1Choice.Proprietary),nameof(MissingData1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MissingData1Choice.Code),"MissingData1Choice.Code")]
+    [JsonDerivedType(typeof(MissingData1Choice.Proprietary),"MissingData1Choice.Proprietary")]
     #endif
     [IsoId("_MN6wk9jMEeq5MfBBxQig1Q")]
     [DisplayName("Missing Data 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClosingBalance7Choice.Final))]
     [KnownType(typeof(ClosingBalance7Choice.Intermediary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClosingBalance7Choice.Final),nameof(ClosingBalance7Choice.Final))]
-    [JsonDerivedType(typeof(ClosingBalance7Choice.Intermediary),nameof(ClosingBalance7Choice.Intermediary))]
+    [JsonDerivedType(typeof(ClosingBalance7Choice.Final),"ClosingBalance7Choice.Final")]
+    [JsonDerivedType(typeof(ClosingBalance7Choice.Intermediary),"ClosingBalance7Choice.Intermediary")]
     #endif
     [IsoId("_gJxaizi8Eeydid5dcNPKvg")]
     [DisplayName("Closing Balance 7 Choice")]

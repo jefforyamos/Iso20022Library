@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMandatoryVoluntary4Choice.Code))]
     [KnownType(typeof(CorporateActionMandatoryVoluntary4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionMandatoryVoluntary4Choice.Code),nameof(CorporateActionMandatoryVoluntary4Choice.Code))]
-    [JsonDerivedType(typeof(CorporateActionMandatoryVoluntary4Choice.Proprietary),nameof(CorporateActionMandatoryVoluntary4Choice.Proprietary))]
+    [JsonDerivedType(typeof(CorporateActionMandatoryVoluntary4Choice.Code),"CorporateActionMandatoryVoluntary4Choice.Code")]
+    [JsonDerivedType(typeof(CorporateActionMandatoryVoluntary4Choice.Proprietary),"CorporateActionMandatoryVoluntary4Choice.Proprietary")]
     #endif
     [IsoId("_cdRCF5KQEeWHWpTQn1FFVg")]
     [DisplayName("Corporate Action Mandatory Voluntary 4 Choice")]

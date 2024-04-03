@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LongPostalAddress2Choice.Unstructured))]
     [KnownType(typeof(LongPostalAddress2Choice.Structured))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LongPostalAddress2Choice.Unstructured),nameof(LongPostalAddress2Choice.Unstructured))]
-    [JsonDerivedType(typeof(LongPostalAddress2Choice.Structured),nameof(LongPostalAddress2Choice.Structured))]
+    [JsonDerivedType(typeof(LongPostalAddress2Choice.Unstructured),"LongPostalAddress2Choice.Unstructured")]
+    [JsonDerivedType(typeof(LongPostalAddress2Choice.Structured),"LongPostalAddress2Choice.Structured")]
     #endif
     [IsoId("_RVRH19p-Ed-ak6NoX_4Aeg_-1296060125")]
     [DisplayName("Long Postal Address 2 Choice")]

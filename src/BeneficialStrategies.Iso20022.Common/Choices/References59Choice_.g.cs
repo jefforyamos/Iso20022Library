@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(References59Choice.SecuritiesSettlementTransactionIdentification))]
     [KnownType(typeof(References59Choice.IntraPositionMovementIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(References59Choice.OtherTransactionIdentification),nameof(References59Choice.OtherTransactionIdentification))]
-    [JsonDerivedType(typeof(References59Choice.SecuritiesFinancingTransactionIdentification),nameof(References59Choice.SecuritiesFinancingTransactionIdentification))]
-    [JsonDerivedType(typeof(References59Choice.SecuritiesSettlementTransactionIdentification),nameof(References59Choice.SecuritiesSettlementTransactionIdentification))]
-    [JsonDerivedType(typeof(References59Choice.IntraPositionMovementIdentification),nameof(References59Choice.IntraPositionMovementIdentification))]
+    [JsonDerivedType(typeof(References59Choice.OtherTransactionIdentification),"References59Choice.OtherTransactionIdentification")]
+    [JsonDerivedType(typeof(References59Choice.SecuritiesFinancingTransactionIdentification),"References59Choice.SecuritiesFinancingTransactionIdentification")]
+    [JsonDerivedType(typeof(References59Choice.SecuritiesSettlementTransactionIdentification),"References59Choice.SecuritiesSettlementTransactionIdentification")]
+    [JsonDerivedType(typeof(References59Choice.IntraPositionMovementIdentification),"References59Choice.IntraPositionMovementIdentification")]
     #endif
     [IsoId("_8ScaD5NLEeWGlc8L7oPDIg")]
     [DisplayName("References 59 Choice")]

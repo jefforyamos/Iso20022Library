@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Code))]
     [KnownType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Code),nameof(TaxableIncomePerShareCalculatedFormat4Choice.Code))]
-    [JsonDerivedType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Proprietary),nameof(TaxableIncomePerShareCalculatedFormat4Choice.Proprietary))]
+    [JsonDerivedType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Code),"TaxableIncomePerShareCalculatedFormat4Choice.Code")]
+    [JsonDerivedType(typeof(TaxableIncomePerShareCalculatedFormat4Choice.Proprietary),"TaxableIncomePerShareCalculatedFormat4Choice.Proprietary")]
     #endif
     [IsoId("_c5WhE5KQEeWHWpTQn1FFVg")]
     [DisplayName("Taxable Income Per Share Calculated Format 4 Choice")]

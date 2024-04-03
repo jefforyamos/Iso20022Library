@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FXCancellation1Choice.Indicator))]
     [KnownType(typeof(FXCancellation1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FXCancellation1Choice.Indicator),nameof(FXCancellation1Choice.Indicator))]
-    [JsonDerivedType(typeof(FXCancellation1Choice.Proprietary),nameof(FXCancellation1Choice.Proprietary))]
+    [JsonDerivedType(typeof(FXCancellation1Choice.Indicator),"FXCancellation1Choice.Indicator")]
+    [JsonDerivedType(typeof(FXCancellation1Choice.Proprietary),"FXCancellation1Choice.Proprietary")]
     #endif
     [IsoId("_QtVlIdp-Ed-ak6NoX_4Aeg_615585032")]
     [DisplayName("FX Cancellation 1 Choice")]

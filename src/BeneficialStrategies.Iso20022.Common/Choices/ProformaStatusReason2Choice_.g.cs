@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProformaStatusReason2Choice.Code))]
     [KnownType(typeof(ProformaStatusReason2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProformaStatusReason2Choice.Code),nameof(ProformaStatusReason2Choice.Code))]
-    [JsonDerivedType(typeof(ProformaStatusReason2Choice.Proprietary),nameof(ProformaStatusReason2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ProformaStatusReason2Choice.Code),"ProformaStatusReason2Choice.Code")]
+    [JsonDerivedType(typeof(ProformaStatusReason2Choice.Proprietary),"ProformaStatusReason2Choice.Proprietary")]
     #endif
     [IsoId("_MFm9IUzDEeafiMTDrtSnyw")]
     [DisplayName("Proforma Status Reason 2 Choice")]

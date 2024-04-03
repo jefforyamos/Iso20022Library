@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestorCapacity3Choice.Code))]
     [KnownType(typeof(InvestorCapacity3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InvestorCapacity3Choice.Code),nameof(InvestorCapacity3Choice.Code))]
-    [JsonDerivedType(typeof(InvestorCapacity3Choice.Proprietary),nameof(InvestorCapacity3Choice.Proprietary))]
+    [JsonDerivedType(typeof(InvestorCapacity3Choice.Code),"InvestorCapacity3Choice.Code")]
+    [JsonDerivedType(typeof(InvestorCapacity3Choice.Proprietary),"InvestorCapacity3Choice.Proprietary")]
     #endif
     [IsoId("_AeB1QdokEeC60axPepSq7g_986173971")]
     [DisplayName("Investor Capacity 3 Choice")]

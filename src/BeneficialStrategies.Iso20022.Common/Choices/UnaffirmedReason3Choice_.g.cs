@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnaffirmedReason3Choice.Code))]
     [KnownType(typeof(UnaffirmedReason3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnaffirmedReason3Choice.Code),nameof(UnaffirmedReason3Choice.Code))]
-    [JsonDerivedType(typeof(UnaffirmedReason3Choice.Proprietary),nameof(UnaffirmedReason3Choice.Proprietary))]
+    [JsonDerivedType(typeof(UnaffirmedReason3Choice.Code),"UnaffirmedReason3Choice.Code")]
+    [JsonDerivedType(typeof(UnaffirmedReason3Choice.Proprietary),"UnaffirmedReason3Choice.Proprietary")]
     #endif
     [IsoId("_XQesQQd3Ee2fOITqoTnSLQ")]
     [DisplayName("Unaffirmed Reason 3 Choice")]

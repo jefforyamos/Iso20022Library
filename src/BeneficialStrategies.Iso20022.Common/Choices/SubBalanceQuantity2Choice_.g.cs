@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SubBalanceQuantity2Choice.Proprietary))]
     [KnownType(typeof(SubBalanceQuantity2Choice.QuantityAndAvailability))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.Quantity),nameof(SubBalanceQuantity2Choice.Quantity))]
-    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.Proprietary),nameof(SubBalanceQuantity2Choice.Proprietary))]
-    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.QuantityAndAvailability),nameof(SubBalanceQuantity2Choice.QuantityAndAvailability))]
+    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.Quantity),"SubBalanceQuantity2Choice.Quantity")]
+    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.Proprietary),"SubBalanceQuantity2Choice.Proprietary")]
+    [JsonDerivedType(typeof(SubBalanceQuantity2Choice.QuantityAndAvailability),"SubBalanceQuantity2Choice.QuantityAndAvailability")]
     #endif
     [IsoId("_QZhRQ9p-Ed-ak6NoX_4Aeg_-1518979215")]
     [DisplayName("Sub Balance Quantity 2 Choice")]

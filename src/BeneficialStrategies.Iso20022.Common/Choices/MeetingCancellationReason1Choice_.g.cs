@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MeetingCancellationReason1Choice.Code))]
     [KnownType(typeof(MeetingCancellationReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MeetingCancellationReason1Choice.Code),nameof(MeetingCancellationReason1Choice.Code))]
-    [JsonDerivedType(typeof(MeetingCancellationReason1Choice.Proprietary),nameof(MeetingCancellationReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MeetingCancellationReason1Choice.Code),"MeetingCancellationReason1Choice.Code")]
+    [JsonDerivedType(typeof(MeetingCancellationReason1Choice.Proprietary),"MeetingCancellationReason1Choice.Proprietary")]
     #endif
     [IsoId("_RCWL0dp-Ed-ak6NoX_4Aeg_1417276542")]
     [DisplayName("Meeting Cancellation Reason 1 Choice")]

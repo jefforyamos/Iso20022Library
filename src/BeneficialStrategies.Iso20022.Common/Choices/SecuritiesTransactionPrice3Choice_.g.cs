@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice3Choice.Yield))]
     [KnownType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.MonetaryValue),nameof(SecuritiesTransactionPrice3Choice.MonetaryValue))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Unit),nameof(SecuritiesTransactionPrice3Choice.Unit))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Percentage),nameof(SecuritiesTransactionPrice3Choice.Percentage))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Yield),nameof(SecuritiesTransactionPrice3Choice.Yield))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice),nameof(SecuritiesTransactionPrice3Choice.PendingPrice))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.MonetaryValue),"SecuritiesTransactionPrice3Choice.MonetaryValue")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Unit),"SecuritiesTransactionPrice3Choice.Unit")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Percentage),"SecuritiesTransactionPrice3Choice.Percentage")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.Yield),"SecuritiesTransactionPrice3Choice.Yield")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice3Choice.PendingPrice),"SecuritiesTransactionPrice3Choice.PendingPrice")]
     #endif
     [IsoId("_rS83x0DWEeWOL-OsSq2h6w")]
     [DisplayName("Securities Transaction Price 3 Choice")]

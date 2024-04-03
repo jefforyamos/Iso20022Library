@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DataRecord1Choice.Binary))]
     [KnownType(typeof(DataRecord1Choice.Text))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DataRecord1Choice.Binary),nameof(DataRecord1Choice.Binary))]
-    [JsonDerivedType(typeof(DataRecord1Choice.Text),nameof(DataRecord1Choice.Text))]
+    [JsonDerivedType(typeof(DataRecord1Choice.Binary),"DataRecord1Choice.Binary")]
+    [JsonDerivedType(typeof(DataRecord1Choice.Text),"DataRecord1Choice.Text")]
     #endif
     [IsoId("_Gl7WgJb8Eeuc6pwKtqbEVQ")]
     [DisplayName("Data Record 1 Choice")]

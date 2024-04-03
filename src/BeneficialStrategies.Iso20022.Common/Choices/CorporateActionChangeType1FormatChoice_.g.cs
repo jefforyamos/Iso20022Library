@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionChangeType1FormatChoice.Code))]
     [KnownType(typeof(CorporateActionChangeType1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionChangeType1FormatChoice.Code),nameof(CorporateActionChangeType1FormatChoice.Code))]
-    [JsonDerivedType(typeof(CorporateActionChangeType1FormatChoice.Proprietary),nameof(CorporateActionChangeType1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(CorporateActionChangeType1FormatChoice.Code),"CorporateActionChangeType1FormatChoice.Code")]
+    [JsonDerivedType(typeof(CorporateActionChangeType1FormatChoice.Proprietary),"CorporateActionChangeType1FormatChoice.Proprietary")]
     #endif
     [IsoId("_Rl9PNtp-Ed-ak6NoX_4Aeg_-146388602")]
     [DisplayName("Corporate Action Change Type 1 Format Choice")]

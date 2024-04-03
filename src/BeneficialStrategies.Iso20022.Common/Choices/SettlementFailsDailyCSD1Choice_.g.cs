@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementFailsDailyCSD1Choice.DataSetAction))]
     [KnownType(typeof(SettlementFailsDailyCSD1Choice.Data))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementFailsDailyCSD1Choice.DataSetAction),nameof(SettlementFailsDailyCSD1Choice.DataSetAction))]
-    [JsonDerivedType(typeof(SettlementFailsDailyCSD1Choice.Data),nameof(SettlementFailsDailyCSD1Choice.Data))]
+    [JsonDerivedType(typeof(SettlementFailsDailyCSD1Choice.DataSetAction),"SettlementFailsDailyCSD1Choice.DataSetAction")]
+    [JsonDerivedType(typeof(SettlementFailsDailyCSD1Choice.Data),"SettlementFailsDailyCSD1Choice.Data")]
     #endif
     [IsoId("_OxcU0zOaEeqBfed1bmSPqg")]
     [DisplayName("Settlement Fails Daily CSD 1 Choice")]

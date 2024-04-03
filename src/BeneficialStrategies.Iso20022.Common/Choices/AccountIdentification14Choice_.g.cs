@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentification14Choice.ForAllAccounts))]
     [KnownType(typeof(AccountIdentification14Choice.AccountsListAndBalanceDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountIdentification14Choice.ForAllAccounts),nameof(AccountIdentification14Choice.ForAllAccounts))]
-    [JsonDerivedType(typeof(AccountIdentification14Choice.AccountsListAndBalanceDetails),nameof(AccountIdentification14Choice.AccountsListAndBalanceDetails))]
+    [JsonDerivedType(typeof(AccountIdentification14Choice.ForAllAccounts),"AccountIdentification14Choice.ForAllAccounts")]
+    [JsonDerivedType(typeof(AccountIdentification14Choice.AccountsListAndBalanceDetails),"AccountIdentification14Choice.AccountsListAndBalanceDetails")]
     #endif
     [IsoId("_qVQlKeaPEd-q8fx_Zl_34A")]
     [DisplayName("Account Identification 14 Choice")]

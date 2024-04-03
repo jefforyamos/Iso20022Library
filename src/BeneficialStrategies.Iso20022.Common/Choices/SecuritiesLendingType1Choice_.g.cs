@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesLendingType1Choice.Code))]
     [KnownType(typeof(SecuritiesLendingType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesLendingType1Choice.Code),nameof(SecuritiesLendingType1Choice.Code))]
-    [JsonDerivedType(typeof(SecuritiesLendingType1Choice.Proprietary),nameof(SecuritiesLendingType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(SecuritiesLendingType1Choice.Code),"SecuritiesLendingType1Choice.Code")]
+    [JsonDerivedType(typeof(SecuritiesLendingType1Choice.Proprietary),"SecuritiesLendingType1Choice.Proprietary")]
     #endif
     [IsoId("_AYXSItokEeC60axPepSq7g_-214940639")]
     [DisplayName("Securities Lending Type 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OptionDateOrPeriod1Choice.EarliestExerciseDate))]
     [KnownType(typeof(OptionDateOrPeriod1Choice.NoticePeriod))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OptionDateOrPeriod1Choice.EarliestExerciseDate),nameof(OptionDateOrPeriod1Choice.EarliestExerciseDate))]
-    [JsonDerivedType(typeof(OptionDateOrPeriod1Choice.NoticePeriod),nameof(OptionDateOrPeriod1Choice.NoticePeriod))]
+    [JsonDerivedType(typeof(OptionDateOrPeriod1Choice.EarliestExerciseDate),"OptionDateOrPeriod1Choice.EarliestExerciseDate")]
+    [JsonDerivedType(typeof(OptionDateOrPeriod1Choice.NoticePeriod),"OptionDateOrPeriod1Choice.NoticePeriod")]
     #endif
     [IsoId("_FBT61jU7EeWITbq5W8H-2w")]
     [DisplayName("Option Date Or Period 1 Choice")]

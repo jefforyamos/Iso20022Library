@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText))]
     [KnownType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.Equal),nameof(AccountIdentificationSearchCriteria2Choice.Equal))]
-    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText),nameof(AccountIdentificationSearchCriteria2Choice.ContainText))]
-    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText),nameof(AccountIdentificationSearchCriteria2Choice.NotContainText))]
+    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.Equal),"AccountIdentificationSearchCriteria2Choice.Equal")]
+    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.ContainText),"AccountIdentificationSearchCriteria2Choice.ContainText")]
+    [JsonDerivedType(typeof(AccountIdentificationSearchCriteria2Choice.NotContainText),"AccountIdentificationSearchCriteria2Choice.NotContainText")]
     #endif
     [IsoId("_g7QEuGliEeGaMcKyqKNRfQ_-836272256")]
     [DisplayName("Account Identification Search Criteria 2 Choice")]

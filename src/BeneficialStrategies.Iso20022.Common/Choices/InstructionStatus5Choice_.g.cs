@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionStatus5Choice.GlobalInstructionStatus))]
     [KnownType(typeof(InstructionStatus5Choice.DetailedInstructionStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructionStatus5Choice.GlobalInstructionStatus),nameof(InstructionStatus5Choice.GlobalInstructionStatus))]
-    [JsonDerivedType(typeof(InstructionStatus5Choice.DetailedInstructionStatus),nameof(InstructionStatus5Choice.DetailedInstructionStatus))]
+    [JsonDerivedType(typeof(InstructionStatus5Choice.GlobalInstructionStatus),"InstructionStatus5Choice.GlobalInstructionStatus")]
+    [JsonDerivedType(typeof(InstructionStatus5Choice.DetailedInstructionStatus),"InstructionStatus5Choice.DetailedInstructionStatus")]
     #endif
     [IsoId("_rZPC4V6uEeSyc4g_pm5hbw")]
     [DisplayName("Instruction Status 5 Choice")]

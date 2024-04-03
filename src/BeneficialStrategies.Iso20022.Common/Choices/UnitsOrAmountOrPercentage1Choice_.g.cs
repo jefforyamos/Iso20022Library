@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnitsOrAmountOrPercentage1Choice.Unit))]
     [KnownType(typeof(UnitsOrAmountOrPercentage1Choice.Percentage))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Amount),nameof(UnitsOrAmountOrPercentage1Choice.Amount))]
-    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Unit),nameof(UnitsOrAmountOrPercentage1Choice.Unit))]
-    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Percentage),nameof(UnitsOrAmountOrPercentage1Choice.Percentage))]
+    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Amount),"UnitsOrAmountOrPercentage1Choice.Amount")]
+    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Unit),"UnitsOrAmountOrPercentage1Choice.Unit")]
+    [JsonDerivedType(typeof(UnitsOrAmountOrPercentage1Choice.Percentage),"UnitsOrAmountOrPercentage1Choice.Percentage")]
     #endif
     [IsoId("_-TmAQQjcEeS5F6qHcKOrew")]
     [DisplayName("Units Or Amount Or Percentage 1 Choice")]

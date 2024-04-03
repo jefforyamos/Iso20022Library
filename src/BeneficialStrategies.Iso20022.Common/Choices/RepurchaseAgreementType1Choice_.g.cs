@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral))]
     [KnownType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral),nameof(RepurchaseAgreementType1Choice.SpecificCollateral))]
-    [JsonDerivedType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral),nameof(RepurchaseAgreementType1Choice.GeneralCollateral))]
+    [JsonDerivedType(typeof(RepurchaseAgreementType1Choice.SpecificCollateral),"RepurchaseAgreementType1Choice.SpecificCollateral")]
+    [JsonDerivedType(typeof(RepurchaseAgreementType1Choice.GeneralCollateral),"RepurchaseAgreementType1Choice.GeneralCollateral")]
     #endif
     [IsoId("_3-Tf4LbqEeaqL_M7XFD7PQ")]
     [DisplayName("Repurchase Agreement Type 1 Choice")]

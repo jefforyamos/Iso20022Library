@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StressItem1Choice.Strategy))]
     [KnownType(typeof(StressItem1Choice.RiskFactor))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StressItem1Choice.Product),nameof(StressItem1Choice.Product))]
-    [JsonDerivedType(typeof(StressItem1Choice.Strategy),nameof(StressItem1Choice.Strategy))]
-    [JsonDerivedType(typeof(StressItem1Choice.RiskFactor),nameof(StressItem1Choice.RiskFactor))]
+    [JsonDerivedType(typeof(StressItem1Choice.Product),"StressItem1Choice.Product")]
+    [JsonDerivedType(typeof(StressItem1Choice.Strategy),"StressItem1Choice.Strategy")]
+    [JsonDerivedType(typeof(StressItem1Choice.RiskFactor),"StressItem1Choice.RiskFactor")]
     #endif
     [IsoId("_fCpTIKsvEeayv9XxdmMwKQ")]
     [DisplayName("Stress Item 1 Choice")]

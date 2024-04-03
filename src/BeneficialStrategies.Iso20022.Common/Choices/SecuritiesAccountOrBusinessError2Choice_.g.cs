@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesAccountOrBusinessError2Choice.SecuritiesAccount))]
     [KnownType(typeof(SecuritiesAccountOrBusinessError2Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesAccountOrBusinessError2Choice.SecuritiesAccount),nameof(SecuritiesAccountOrBusinessError2Choice.SecuritiesAccount))]
-    [JsonDerivedType(typeof(SecuritiesAccountOrBusinessError2Choice.BusinessError),nameof(SecuritiesAccountOrBusinessError2Choice.BusinessError))]
+    [JsonDerivedType(typeof(SecuritiesAccountOrBusinessError2Choice.SecuritiesAccount),"SecuritiesAccountOrBusinessError2Choice.SecuritiesAccount")]
+    [JsonDerivedType(typeof(SecuritiesAccountOrBusinessError2Choice.BusinessError),"SecuritiesAccountOrBusinessError2Choice.BusinessError")]
     #endif
     [IsoId("_ABHykfA0EeWPfa2xBhBfLQ")]
     [DisplayName("Securities Account Or Business Error 2 Choice")]

@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord))]
     [KnownType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.ModifiedRecord),nameof(SecuritiesReferenceDeltaStatusReport5Choice.ModifiedRecord))]
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.NewRecord),nameof(SecuritiesReferenceDeltaStatusReport5Choice.NewRecord))]
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord),nameof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord))]
-    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord),nameof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord))]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.ModifiedRecord),"SecuritiesReferenceDeltaStatusReport5Choice.ModifiedRecord")]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.NewRecord),"SecuritiesReferenceDeltaStatusReport5Choice.NewRecord")]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord),"SecuritiesReferenceDeltaStatusReport5Choice.TerminatedRecord")]
+    [JsonDerivedType(typeof(SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord),"SecuritiesReferenceDeltaStatusReport5Choice.CancelledRecord")]
     #endif
     [IsoId("_ozgJwaWvEeqZmriXpMtonA")]
     [DisplayName("Securities Reference Delta Status Report 5 Choice")]

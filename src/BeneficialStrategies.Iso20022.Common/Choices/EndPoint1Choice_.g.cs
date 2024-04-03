@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EndPoint1Choice.NumberOfPayments))]
     [KnownType(typeof(EndPoint1Choice.LastPaymentDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EndPoint1Choice.NumberOfPayments),nameof(EndPoint1Choice.NumberOfPayments))]
-    [JsonDerivedType(typeof(EndPoint1Choice.LastPaymentDate),nameof(EndPoint1Choice.LastPaymentDate))]
+    [JsonDerivedType(typeof(EndPoint1Choice.NumberOfPayments),"EndPoint1Choice.NumberOfPayments")]
+    [JsonDerivedType(typeof(EndPoint1Choice.LastPaymentDate),"EndPoint1Choice.LastPaymentDate")]
     #endif
     [IsoId("__b7DoQ2lEeSNWNtJlXOAhg")]
     [DisplayName("End Point 1 Choice")]

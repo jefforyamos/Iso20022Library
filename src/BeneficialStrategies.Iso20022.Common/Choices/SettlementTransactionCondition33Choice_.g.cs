@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementTransactionCondition33Choice.Code))]
     [KnownType(typeof(SettlementTransactionCondition33Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementTransactionCondition33Choice.Code),nameof(SettlementTransactionCondition33Choice.Code))]
-    [JsonDerivedType(typeof(SettlementTransactionCondition33Choice.Proprietary),nameof(SettlementTransactionCondition33Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlementTransactionCondition33Choice.Code),"SettlementTransactionCondition33Choice.Code")]
+    [JsonDerivedType(typeof(SettlementTransactionCondition33Choice.Proprietary),"SettlementTransactionCondition33Choice.Proprietary")]
     #endif
     [IsoId("_N_w2sQzXEeuUZuaHWzkTew")]
     [DisplayName("Settlement Transaction Condition 33 Choice")]

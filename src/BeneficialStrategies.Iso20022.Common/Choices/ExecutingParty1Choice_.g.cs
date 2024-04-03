@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExecutingParty1Choice.Algorithm))]
     [KnownType(typeof(ExecutingParty1Choice.Client))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExecutingParty1Choice.Person),nameof(ExecutingParty1Choice.Person))]
-    [JsonDerivedType(typeof(ExecutingParty1Choice.Algorithm),nameof(ExecutingParty1Choice.Algorithm))]
-    [JsonDerivedType(typeof(ExecutingParty1Choice.Client),nameof(ExecutingParty1Choice.Client))]
+    [JsonDerivedType(typeof(ExecutingParty1Choice.Person),"ExecutingParty1Choice.Person")]
+    [JsonDerivedType(typeof(ExecutingParty1Choice.Algorithm),"ExecutingParty1Choice.Algorithm")]
+    [JsonDerivedType(typeof(ExecutingParty1Choice.Client),"ExecutingParty1Choice.Client")]
     #endif
     [IsoId("_FVhI0ViJEea-d4CsgzjlAw")]
     [DisplayName("Executing Party 1 Choice")]

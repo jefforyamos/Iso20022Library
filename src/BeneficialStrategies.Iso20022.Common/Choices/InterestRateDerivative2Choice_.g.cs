@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateDerivative2Choice.SwapRelated))]
     [KnownType(typeof(InterestRateDerivative2Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestRateDerivative2Choice.SwapRelated),nameof(InterestRateDerivative2Choice.SwapRelated))]
-    [JsonDerivedType(typeof(InterestRateDerivative2Choice.Other),nameof(InterestRateDerivative2Choice.Other))]
+    [JsonDerivedType(typeof(InterestRateDerivative2Choice.SwapRelated),"InterestRateDerivative2Choice.SwapRelated")]
+    [JsonDerivedType(typeof(InterestRateDerivative2Choice.Other),"InterestRateDerivative2Choice.Other")]
     #endif
     [IsoId("_xSfx_WlIEeaLAKoEUNsD9g")]
     [DisplayName("Interest Rate Derivative 2 Choice")]

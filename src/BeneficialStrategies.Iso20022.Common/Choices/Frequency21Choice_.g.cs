@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Frequency21Choice.Type))]
     [KnownType(typeof(Frequency21Choice.Period))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Frequency21Choice.Type),nameof(Frequency21Choice.Type))]
-    [JsonDerivedType(typeof(Frequency21Choice.Period),nameof(Frequency21Choice.Period))]
+    [JsonDerivedType(typeof(Frequency21Choice.Type),"Frequency21Choice.Type")]
+    [JsonDerivedType(typeof(Frequency21Choice.Period),"Frequency21Choice.Period")]
     #endif
     [IsoId("_51BdAR7yEeSxevWRRWxNAg")]
     [DisplayName("Frequency 21 Choice")]

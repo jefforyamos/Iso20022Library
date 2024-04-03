@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BenchmarkCurveName4Choice.Index))]
     [KnownType(typeof(BenchmarkCurveName4Choice.Name))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.ISIN),nameof(BenchmarkCurveName4Choice.ISIN))]
-    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.Index),nameof(BenchmarkCurveName4Choice.Index))]
-    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.Name),nameof(BenchmarkCurveName4Choice.Name))]
+    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.ISIN),"BenchmarkCurveName4Choice.ISIN")]
+    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.Index),"BenchmarkCurveName4Choice.Index")]
+    [JsonDerivedType(typeof(BenchmarkCurveName4Choice.Name),"BenchmarkCurveName4Choice.Name")]
     #endif
     [IsoId("_1oxvgQnVEeWa7rBfPECYsw")]
     [DisplayName("Benchmark Curve Name 4 Choice")]

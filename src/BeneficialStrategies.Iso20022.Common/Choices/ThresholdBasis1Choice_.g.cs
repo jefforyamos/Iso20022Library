@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ThresholdBasis1Choice.Code))]
     [KnownType(typeof(ThresholdBasis1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ThresholdBasis1Choice.Code),nameof(ThresholdBasis1Choice.Code))]
-    [JsonDerivedType(typeof(ThresholdBasis1Choice.Proprietary),nameof(ThresholdBasis1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ThresholdBasis1Choice.Code),"ThresholdBasis1Choice.Code")]
+    [JsonDerivedType(typeof(ThresholdBasis1Choice.Proprietary),"ThresholdBasis1Choice.Proprietary")]
     #endif
     [IsoId("_wlX_cBuMEeyhRdHRjakS2w")]
     [DisplayName("Threshold Basis 1 Choice")]

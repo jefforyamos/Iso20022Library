@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementStandingInstructionDatabase5Choice.Code))]
     [KnownType(typeof(SettlementStandingInstructionDatabase5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementStandingInstructionDatabase5Choice.Code),nameof(SettlementStandingInstructionDatabase5Choice.Code))]
-    [JsonDerivedType(typeof(SettlementStandingInstructionDatabase5Choice.Proprietary),nameof(SettlementStandingInstructionDatabase5Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlementStandingInstructionDatabase5Choice.Code),"SettlementStandingInstructionDatabase5Choice.Code")]
+    [JsonDerivedType(typeof(SettlementStandingInstructionDatabase5Choice.Proprietary),"SettlementStandingInstructionDatabase5Choice.Proprietary")]
     #endif
     [IsoId("_5myE3JNLEeWGlc8L7oPDIg")]
     [DisplayName("Settlement Standing Instruction Database 5 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestmentFundTransactionInType1Choice.Code))]
     [KnownType(typeof(InvestmentFundTransactionInType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InvestmentFundTransactionInType1Choice.Code),nameof(InvestmentFundTransactionInType1Choice.Code))]
-    [JsonDerivedType(typeof(InvestmentFundTransactionInType1Choice.Proprietary),nameof(InvestmentFundTransactionInType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(InvestmentFundTransactionInType1Choice.Code),"InvestmentFundTransactionInType1Choice.Code")]
+    [JsonDerivedType(typeof(InvestmentFundTransactionInType1Choice.Proprietary),"InvestmentFundTransactionInType1Choice.Proprietary")]
     #endif
     [IsoId("_SMsrUQaxEeS3lpTattq7hg")]
     [DisplayName("Investment Fund Transaction In Type 1 Choice")]

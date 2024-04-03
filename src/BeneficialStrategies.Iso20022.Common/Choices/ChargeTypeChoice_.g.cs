@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChargeTypeChoice.Code))]
     [KnownType(typeof(ChargeTypeChoice.ProprietaryCode))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ChargeTypeChoice.Code),nameof(ChargeTypeChoice.Code))]
-    [JsonDerivedType(typeof(ChargeTypeChoice.ProprietaryCode),nameof(ChargeTypeChoice.ProprietaryCode))]
+    [JsonDerivedType(typeof(ChargeTypeChoice.Code),"ChargeTypeChoice.Code")]
+    [JsonDerivedType(typeof(ChargeTypeChoice.ProprietaryCode),"ChargeTypeChoice.ProprietaryCode")]
     #endif
     [IsoId("_RIcz1Np-Ed-ak6NoX_4Aeg_-1267403817")]
     [DisplayName("Charge Type Choice")]

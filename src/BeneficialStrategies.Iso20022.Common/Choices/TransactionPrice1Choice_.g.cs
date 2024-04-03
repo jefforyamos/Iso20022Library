@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionPrice1Choice.DealPrice))]
     [KnownType(typeof(TransactionPrice1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionPrice1Choice.DealPrice),nameof(TransactionPrice1Choice.DealPrice))]
-    [JsonDerivedType(typeof(TransactionPrice1Choice.Proprietary),nameof(TransactionPrice1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TransactionPrice1Choice.DealPrice),"TransactionPrice1Choice.DealPrice")]
+    [JsonDerivedType(typeof(TransactionPrice1Choice.Proprietary),"TransactionPrice1Choice.Proprietary")]
     #endif
     [IsoId("_RUrR9Np-Ed-ak6NoX_4Aeg_1516952051")]
     [DisplayName("Transaction Price 1 Choice")]

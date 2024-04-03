@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RateAndAmountFormat54Choice.RateTypeAndAmountAndRateStatus))]
     [KnownType(typeof(RateAndAmountFormat54Choice.RateTypeAndRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.Rate),nameof(RateAndAmountFormat54Choice.Rate))]
-    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.Amount),nameof(RateAndAmountFormat54Choice.Amount))]
-    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.RateTypeAndAmountAndRateStatus),nameof(RateAndAmountFormat54Choice.RateTypeAndAmountAndRateStatus))]
-    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.RateTypeAndRate),nameof(RateAndAmountFormat54Choice.RateTypeAndRate))]
+    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.Rate),"RateAndAmountFormat54Choice.Rate")]
+    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.Amount),"RateAndAmountFormat54Choice.Amount")]
+    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.RateTypeAndAmountAndRateStatus),"RateAndAmountFormat54Choice.RateTypeAndAmountAndRateStatus")]
+    [JsonDerivedType(typeof(RateAndAmountFormat54Choice.RateTypeAndRate),"RateAndAmountFormat54Choice.RateTypeAndRate")]
     #endif
     [IsoId("_TTFAsdEDEeetfps_dpxRmg")]
     [DisplayName("Rate And Amount Format 54 Choice")]

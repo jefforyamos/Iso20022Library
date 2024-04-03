@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NettingIdentification1Choice.TradeParty))]
     [KnownType(typeof(NettingIdentification1Choice.NettingGroupIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NettingIdentification1Choice.TradeParty),nameof(NettingIdentification1Choice.TradeParty))]
-    [JsonDerivedType(typeof(NettingIdentification1Choice.NettingGroupIdentification),nameof(NettingIdentification1Choice.NettingGroupIdentification))]
+    [JsonDerivedType(typeof(NettingIdentification1Choice.TradeParty),"NettingIdentification1Choice.TradeParty")]
+    [JsonDerivedType(typeof(NettingIdentification1Choice.NettingGroupIdentification),"NettingIdentification1Choice.NettingGroupIdentification")]
     #endif
     [IsoId("_mzHC8JUvEeaYkf5FCqYMeA")]
     [DisplayName("Netting Identification 1 Choice")]

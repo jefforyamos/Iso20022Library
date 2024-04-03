@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingReason47Choice.Code))]
     [KnownType(typeof(PendingReason47Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingReason47Choice.Code),nameof(PendingReason47Choice.Code))]
-    [JsonDerivedType(typeof(PendingReason47Choice.Proprietary),nameof(PendingReason47Choice.Proprietary))]
+    [JsonDerivedType(typeof(PendingReason47Choice.Code),"PendingReason47Choice.Code")]
+    [JsonDerivedType(typeof(PendingReason47Choice.Proprietary),"PendingReason47Choice.Proprietary")]
     #endif
     [IsoId("_8Qc2s5NLEeWGlc8L7oPDIg")]
     [DisplayName("Pending Reason 47 Choice")]

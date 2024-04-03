@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeUnit3Choice.Code))]
     [KnownType(typeof(TimeUnit3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeUnit3Choice.Code),nameof(TimeUnit3Choice.Code))]
-    [JsonDerivedType(typeof(TimeUnit3Choice.Proprietary),nameof(TimeUnit3Choice.Proprietary))]
+    [JsonDerivedType(typeof(TimeUnit3Choice.Code),"TimeUnit3Choice.Code")]
+    [JsonDerivedType(typeof(TimeUnit3Choice.Proprietary),"TimeUnit3Choice.Proprietary")]
     #endif
     [IsoId("_oIB4MeLaEeWFtOV72FbX9w")]
     [DisplayName("Time Unit 3 Choice")]

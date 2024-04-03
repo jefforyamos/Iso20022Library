@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Period7Choice.FromDateTimeToDateTime))]
     [KnownType(typeof(Period7Choice.FromDateToDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Period7Choice.FromDateTimeToDateTime),nameof(Period7Choice.FromDateTimeToDateTime))]
-    [JsonDerivedType(typeof(Period7Choice.FromDateToDate),nameof(Period7Choice.FromDateToDate))]
+    [JsonDerivedType(typeof(Period7Choice.FromDateTimeToDateTime),"Period7Choice.FromDateTimeToDateTime")]
+    [JsonDerivedType(typeof(Period7Choice.FromDateToDate),"Period7Choice.FromDateToDate")]
     #endif
     [IsoId("_VEuSoTwGEemGDJYTly2NCA")]
     [DisplayName("Period 7 Choice")]

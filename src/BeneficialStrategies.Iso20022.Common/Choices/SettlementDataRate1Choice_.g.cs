@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementDataRate1Choice.NumberOfInstructions))]
     [KnownType(typeof(SettlementDataRate1Choice.ValueOfInstructions))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementDataRate1Choice.NumberOfInstructions),nameof(SettlementDataRate1Choice.NumberOfInstructions))]
-    [JsonDerivedType(typeof(SettlementDataRate1Choice.ValueOfInstructions),nameof(SettlementDataRate1Choice.ValueOfInstructions))]
+    [JsonDerivedType(typeof(SettlementDataRate1Choice.NumberOfInstructions),"SettlementDataRate1Choice.NumberOfInstructions")]
+    [JsonDerivedType(typeof(SettlementDataRate1Choice.ValueOfInstructions),"SettlementDataRate1Choice.ValueOfInstructions")]
     #endif
     [IsoId("_yFQMA8s0EemSav3hRKzWyg")]
     [DisplayName("Settlement Data Rate 1 Choice")]

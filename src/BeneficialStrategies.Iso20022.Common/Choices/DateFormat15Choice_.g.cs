@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DateFormat15Choice.Date))]
     [KnownType(typeof(DateFormat15Choice.DateCode))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DateFormat15Choice.Date),nameof(DateFormat15Choice.Date))]
-    [JsonDerivedType(typeof(DateFormat15Choice.DateCode),nameof(DateFormat15Choice.DateCode))]
+    [JsonDerivedType(typeof(DateFormat15Choice.Date),"DateFormat15Choice.Date")]
+    [JsonDerivedType(typeof(DateFormat15Choice.DateCode),"DateFormat15Choice.DateCode")]
     #endif
     [IsoId("_QmL0QNp-Ed-ak6NoX_4Aeg_838705942")]
     [DisplayName("Date Format 15 Choice")]

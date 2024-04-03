@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AccountIdentification3Choice.UPIC))]
     [KnownType(typeof(AccountIdentification3Choice.ProprietaryAccount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AccountIdentification3Choice.IBAN),nameof(AccountIdentification3Choice.IBAN))]
-    [JsonDerivedType(typeof(AccountIdentification3Choice.BBAN),nameof(AccountIdentification3Choice.BBAN))]
-    [JsonDerivedType(typeof(AccountIdentification3Choice.UPIC),nameof(AccountIdentification3Choice.UPIC))]
-    [JsonDerivedType(typeof(AccountIdentification3Choice.ProprietaryAccount),nameof(AccountIdentification3Choice.ProprietaryAccount))]
+    [JsonDerivedType(typeof(AccountIdentification3Choice.IBAN),"AccountIdentification3Choice.IBAN")]
+    [JsonDerivedType(typeof(AccountIdentification3Choice.BBAN),"AccountIdentification3Choice.BBAN")]
+    [JsonDerivedType(typeof(AccountIdentification3Choice.UPIC),"AccountIdentification3Choice.UPIC")]
+    [JsonDerivedType(typeof(AccountIdentification3Choice.ProprietaryAccount),"AccountIdentification3Choice.ProprietaryAccount")]
     #endif
     [IsoId("_PdnCpdp-Ed-ak6NoX_4Aeg_637192562")]
     [DisplayName("Account Identification 3 Choice")]

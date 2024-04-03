@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepoCallRequestStatus5Choice.Denied))]
     [KnownType(typeof(RepoCallRequestStatus5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.AcknowledgedAccepted),nameof(RepoCallRequestStatus5Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.Denied),nameof(RepoCallRequestStatus5Choice.Denied))]
-    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.Proprietary),nameof(RepoCallRequestStatus5Choice.Proprietary))]
+    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.AcknowledgedAccepted),"RepoCallRequestStatus5Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.Denied),"RepoCallRequestStatus5Choice.Denied")]
+    [JsonDerivedType(typeof(RepoCallRequestStatus5Choice.Proprietary),"RepoCallRequestStatus5Choice.Proprietary")]
     #endif
     [IsoId("_fHQhMf7rEeCvPoRGOxRobQ")]
     [DisplayName("Repo Call Request Status 5 Choice")]

@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionPrice2Choice.Yield))]
     [KnownType(typeof(SecuritiesTransactionPrice2Choice.BasisPoints))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.MonetaryValue),nameof(SecuritiesTransactionPrice2Choice.MonetaryValue))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.Percentage),nameof(SecuritiesTransactionPrice2Choice.Percentage))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.Yield),nameof(SecuritiesTransactionPrice2Choice.Yield))]
-    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.BasisPoints),nameof(SecuritiesTransactionPrice2Choice.BasisPoints))]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.MonetaryValue),"SecuritiesTransactionPrice2Choice.MonetaryValue")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.Percentage),"SecuritiesTransactionPrice2Choice.Percentage")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.Yield),"SecuritiesTransactionPrice2Choice.Yield")]
+    [JsonDerivedType(typeof(SecuritiesTransactionPrice2Choice.BasisPoints),"SecuritiesTransactionPrice2Choice.BasisPoints")]
     #endif
     [IsoId("_xZe0tiZJEeWbypuCUIOnzw")]
     [DisplayName("Securities Transaction Price 2 Choice")]

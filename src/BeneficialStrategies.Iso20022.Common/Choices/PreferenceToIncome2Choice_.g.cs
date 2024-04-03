@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PreferenceToIncome2Choice.Code))]
     [KnownType(typeof(PreferenceToIncome2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PreferenceToIncome2Choice.Code),nameof(PreferenceToIncome2Choice.Code))]
-    [JsonDerivedType(typeof(PreferenceToIncome2Choice.Proprietary),nameof(PreferenceToIncome2Choice.Proprietary))]
+    [JsonDerivedType(typeof(PreferenceToIncome2Choice.Code),"PreferenceToIncome2Choice.Code")]
+    [JsonDerivedType(typeof(PreferenceToIncome2Choice.Proprietary),"PreferenceToIncome2Choice.Proprietary")]
     #endif
     [IsoId("_Qu-j49p-Ed-ak6NoX_4Aeg_306435769")]
     [DisplayName("Preference To Income 2 Choice")]

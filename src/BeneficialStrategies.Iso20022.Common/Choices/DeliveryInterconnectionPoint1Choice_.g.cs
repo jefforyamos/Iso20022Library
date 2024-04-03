@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Code))]
     [KnownType(typeof(DeliveryInterconnectionPoint1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeliveryInterconnectionPoint1Choice.Code),nameof(DeliveryInterconnectionPoint1Choice.Code))]
-    [JsonDerivedType(typeof(DeliveryInterconnectionPoint1Choice.Proprietary),nameof(DeliveryInterconnectionPoint1Choice.Proprietary))]
+    [JsonDerivedType(typeof(DeliveryInterconnectionPoint1Choice.Code),"DeliveryInterconnectionPoint1Choice.Code")]
+    [JsonDerivedType(typeof(DeliveryInterconnectionPoint1Choice.Proprietary),"DeliveryInterconnectionPoint1Choice.Proprietary")]
     #endif
     [IsoId("_pRKJ0IOrEeWqmeP8QNJBew")]
     [DisplayName("Delivery Interconnection Point 1 Choice")]

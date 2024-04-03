@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PresentationDocumentFormat1Choice.Code))]
     [KnownType(typeof(PresentationDocumentFormat1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PresentationDocumentFormat1Choice.Code),nameof(PresentationDocumentFormat1Choice.Code))]
-    [JsonDerivedType(typeof(PresentationDocumentFormat1Choice.Proprietary),nameof(PresentationDocumentFormat1Choice.Proprietary))]
+    [JsonDerivedType(typeof(PresentationDocumentFormat1Choice.Code),"PresentationDocumentFormat1Choice.Code")]
+    [JsonDerivedType(typeof(PresentationDocumentFormat1Choice.Proprietary),"PresentationDocumentFormat1Choice.Proprietary")]
     #endif
     [IsoId("_94JmoHltEeG7BsjMvd1mEw_1618190567")]
     [DisplayName("Presentation Document Format 1 Choice")]

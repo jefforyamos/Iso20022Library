@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementFailsDailyTransactionType1Choice.DataSetAction))]
     [KnownType(typeof(SettlementFailsDailyTransactionType1Choice.Data))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementFailsDailyTransactionType1Choice.DataSetAction),nameof(SettlementFailsDailyTransactionType1Choice.DataSetAction))]
-    [JsonDerivedType(typeof(SettlementFailsDailyTransactionType1Choice.Data),nameof(SettlementFailsDailyTransactionType1Choice.Data))]
+    [JsonDerivedType(typeof(SettlementFailsDailyTransactionType1Choice.DataSetAction),"SettlementFailsDailyTransactionType1Choice.DataSetAction")]
+    [JsonDerivedType(typeof(SettlementFailsDailyTransactionType1Choice.Data),"SettlementFailsDailyTransactionType1Choice.Data")]
     #endif
     [IsoId("_9tfhEzOYEeqBfed1bmSPqg")]
     [DisplayName("Settlement Fails Daily Transaction Type 1 Choice")]

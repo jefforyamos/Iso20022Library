@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReversalReason3Choice.Code))]
     [KnownType(typeof(ReversalReason3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReversalReason3Choice.Code),nameof(ReversalReason3Choice.Code))]
-    [JsonDerivedType(typeof(ReversalReason3Choice.Proprietary),nameof(ReversalReason3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ReversalReason3Choice.Code),"ReversalReason3Choice.Code")]
+    [JsonDerivedType(typeof(ReversalReason3Choice.Proprietary),"ReversalReason3Choice.Proprietary")]
     #endif
     [IsoId("_V8nGZdp-Ed-ak6NoX_4Aeg_-801418464")]
     [DisplayName("Reversal Reason 3 Choice")]

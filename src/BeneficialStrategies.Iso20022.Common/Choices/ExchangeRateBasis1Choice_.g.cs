@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExchangeRateBasis1Choice.CurrencyPair))]
     [KnownType(typeof(ExchangeRateBasis1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExchangeRateBasis1Choice.CurrencyPair),nameof(ExchangeRateBasis1Choice.CurrencyPair))]
-    [JsonDerivedType(typeof(ExchangeRateBasis1Choice.Proprietary),nameof(ExchangeRateBasis1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ExchangeRateBasis1Choice.CurrencyPair),"ExchangeRateBasis1Choice.CurrencyPair")]
+    [JsonDerivedType(typeof(ExchangeRateBasis1Choice.Proprietary),"ExchangeRateBasis1Choice.Proprietary")]
     #endif
     [IsoId("_n2_eYLppEea_jI1vMH_RbA")]
     [DisplayName("Exchange Rate Basis 1 Choice")]

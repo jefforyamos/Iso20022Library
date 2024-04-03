@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionOrRepairStatus4Choice.NoSpecifiedReason))]
     [KnownType(typeof(RejectionOrRepairStatus4Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectionOrRepairStatus4Choice.NoSpecifiedReason),nameof(RejectionOrRepairStatus4Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(RejectionOrRepairStatus4Choice.Reason),nameof(RejectionOrRepairStatus4Choice.Reason))]
+    [JsonDerivedType(typeof(RejectionOrRepairStatus4Choice.NoSpecifiedReason),"RejectionOrRepairStatus4Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(RejectionOrRepairStatus4Choice.Reason),"RejectionOrRepairStatus4Choice.Reason")]
     #endif
     [IsoId("_UUmmwtp-Ed-ak6NoX_4Aeg_2139855666")]
     [DisplayName("Rejection Or Repair Status 4 Choice")]

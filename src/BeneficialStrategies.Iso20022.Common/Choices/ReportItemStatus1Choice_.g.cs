@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportItemStatus1Choice.AcceptedWithException))]
     [KnownType(typeof(ReportItemStatus1Choice.Rejected))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReportItemStatus1Choice.Accepted),nameof(ReportItemStatus1Choice.Accepted))]
-    [JsonDerivedType(typeof(ReportItemStatus1Choice.AcceptedWithException),nameof(ReportItemStatus1Choice.AcceptedWithException))]
-    [JsonDerivedType(typeof(ReportItemStatus1Choice.Rejected),nameof(ReportItemStatus1Choice.Rejected))]
+    [JsonDerivedType(typeof(ReportItemStatus1Choice.Accepted),"ReportItemStatus1Choice.Accepted")]
+    [JsonDerivedType(typeof(ReportItemStatus1Choice.AcceptedWithException),"ReportItemStatus1Choice.AcceptedWithException")]
+    [JsonDerivedType(typeof(ReportItemStatus1Choice.Rejected),"ReportItemStatus1Choice.Rejected")]
     #endif
     [IsoId("_0w3vwb3QEeO2FLWuu_JIqg")]
     [DisplayName("Report Item Status 1 Choice")]

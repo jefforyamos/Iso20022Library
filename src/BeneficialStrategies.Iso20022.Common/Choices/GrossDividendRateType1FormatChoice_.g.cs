@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(GrossDividendRateType1FormatChoice.Code))]
     [KnownType(typeof(GrossDividendRateType1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(GrossDividendRateType1FormatChoice.Code),nameof(GrossDividendRateType1FormatChoice.Code))]
-    [JsonDerivedType(typeof(GrossDividendRateType1FormatChoice.Proprietary),nameof(GrossDividendRateType1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(GrossDividendRateType1FormatChoice.Code),"GrossDividendRateType1FormatChoice.Code")]
+    [JsonDerivedType(typeof(GrossDividendRateType1FormatChoice.Proprietary),"GrossDividendRateType1FormatChoice.Proprietary")]
     #endif
     [IsoId("_RmjsKNp-Ed-ak6NoX_4Aeg_546925647")]
     [DisplayName("Gross Dividend Rate Type 1 Format Choice")]

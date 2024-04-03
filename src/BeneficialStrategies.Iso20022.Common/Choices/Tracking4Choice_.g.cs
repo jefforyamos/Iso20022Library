@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Tracking4Choice.Indicator))]
     [KnownType(typeof(Tracking4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Tracking4Choice.Indicator),nameof(Tracking4Choice.Indicator))]
-    [JsonDerivedType(typeof(Tracking4Choice.Proprietary),nameof(Tracking4Choice.Proprietary))]
+    [JsonDerivedType(typeof(Tracking4Choice.Indicator),"Tracking4Choice.Indicator")]
+    [JsonDerivedType(typeof(Tracking4Choice.Proprietary),"Tracking4Choice.Proprietary")]
     #endif
     [IsoId("_YKnvgTtFEeWRTLSN0i0tng")]
     [DisplayName("Tracking 4 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstrumentSubStructureType2Choice.Code))]
     [KnownType(typeof(InstrumentSubStructureType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstrumentSubStructureType2Choice.Code),nameof(InstrumentSubStructureType2Choice.Code))]
-    [JsonDerivedType(typeof(InstrumentSubStructureType2Choice.Proprietary),nameof(InstrumentSubStructureType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(InstrumentSubStructureType2Choice.Code),"InstrumentSubStructureType2Choice.Code")]
+    [JsonDerivedType(typeof(InstrumentSubStructureType2Choice.Proprietary),"InstrumentSubStructureType2Choice.Proprietary")]
     #endif
     [IsoId("_QYb2YeLaEeWFtOV72FbX9w")]
     [DisplayName("Instrument Sub Structure Type 2 Choice")]

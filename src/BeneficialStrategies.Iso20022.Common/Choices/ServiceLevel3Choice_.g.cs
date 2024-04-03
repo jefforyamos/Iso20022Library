@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ServiceLevel3Choice.Code))]
     [KnownType(typeof(ServiceLevel3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ServiceLevel3Choice.Code),nameof(ServiceLevel3Choice.Code))]
-    [JsonDerivedType(typeof(ServiceLevel3Choice.Proprietary),nameof(ServiceLevel3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ServiceLevel3Choice.Code),"ServiceLevel3Choice.Code")]
+    [JsonDerivedType(typeof(ServiceLevel3Choice.Proprietary),"ServiceLevel3Choice.Proprietary")]
     #endif
     [IsoId("_QJkwxNp-Ed-ak6NoX_4Aeg_1187501352")]
     [DisplayName("Service Level 3 Choice")]

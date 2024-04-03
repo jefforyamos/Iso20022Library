@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceFormat10Choice.FullPeriodUnits))]
     [KnownType(typeof(BalanceFormat10Choice.PartWayPeriodUnits))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BalanceFormat10Choice.Balance),nameof(BalanceFormat10Choice.Balance))]
-    [JsonDerivedType(typeof(BalanceFormat10Choice.EligibleBalance),nameof(BalanceFormat10Choice.EligibleBalance))]
-    [JsonDerivedType(typeof(BalanceFormat10Choice.NotEligibleBalance),nameof(BalanceFormat10Choice.NotEligibleBalance))]
-    [JsonDerivedType(typeof(BalanceFormat10Choice.FullPeriodUnits),nameof(BalanceFormat10Choice.FullPeriodUnits))]
-    [JsonDerivedType(typeof(BalanceFormat10Choice.PartWayPeriodUnits),nameof(BalanceFormat10Choice.PartWayPeriodUnits))]
+    [JsonDerivedType(typeof(BalanceFormat10Choice.Balance),"BalanceFormat10Choice.Balance")]
+    [JsonDerivedType(typeof(BalanceFormat10Choice.EligibleBalance),"BalanceFormat10Choice.EligibleBalance")]
+    [JsonDerivedType(typeof(BalanceFormat10Choice.NotEligibleBalance),"BalanceFormat10Choice.NotEligibleBalance")]
+    [JsonDerivedType(typeof(BalanceFormat10Choice.FullPeriodUnits),"BalanceFormat10Choice.FullPeriodUnits")]
+    [JsonDerivedType(typeof(BalanceFormat10Choice.PartWayPeriodUnits),"BalanceFormat10Choice.PartWayPeriodUnits")]
     #endif
     [IsoId("_cjzu3ZKQEeWHWpTQn1FFVg")]
     [DisplayName("Balance Format 10 Choice")]

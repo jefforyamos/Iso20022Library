@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame3Choice.TradeMinus))]
     [KnownType(typeof(TimeFrame3Choice.RenunciationMinus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeFrame3Choice.TradeMinus),nameof(TimeFrame3Choice.TradeMinus))]
-    [JsonDerivedType(typeof(TimeFrame3Choice.RenunciationMinus),nameof(TimeFrame3Choice.RenunciationMinus))]
+    [JsonDerivedType(typeof(TimeFrame3Choice.TradeMinus),"TimeFrame3Choice.TradeMinus")]
+    [JsonDerivedType(typeof(TimeFrame3Choice.RenunciationMinus),"TimeFrame3Choice.RenunciationMinus")]
     #endif
     [IsoId("_UAyS4tp-Ed-ak6NoX_4Aeg_606871558")]
     [DisplayName("Time Frame 3 Choice")]

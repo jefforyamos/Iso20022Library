@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectionReason1Choice.GlobalRejectionReason))]
     [KnownType(typeof(RejectionReason1Choice.RejectedElement))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectionReason1Choice.GlobalRejectionReason),nameof(RejectionReason1Choice.GlobalRejectionReason))]
-    [JsonDerivedType(typeof(RejectionReason1Choice.RejectedElement),nameof(RejectionReason1Choice.RejectedElement))]
+    [JsonDerivedType(typeof(RejectionReason1Choice.GlobalRejectionReason),"RejectionReason1Choice.GlobalRejectionReason")]
+    [JsonDerivedType(typeof(RejectionReason1Choice.RejectedElement),"RejectionReason1Choice.RejectedElement")]
     #endif
     [IsoId("_RJ8ooNp-Ed-ak6NoX_4Aeg_891683676")]
     [DisplayName("Rejection Reason 1 Choice")]

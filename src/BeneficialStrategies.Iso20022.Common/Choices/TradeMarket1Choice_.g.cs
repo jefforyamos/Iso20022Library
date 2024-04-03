@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeMarket1Choice.Code))]
     [KnownType(typeof(TradeMarket1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeMarket1Choice.Code),nameof(TradeMarket1Choice.Code))]
-    [JsonDerivedType(typeof(TradeMarket1Choice.Proprietary),nameof(TradeMarket1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TradeMarket1Choice.Code),"TradeMarket1Choice.Code")]
+    [JsonDerivedType(typeof(TradeMarket1Choice.Proprietary),"TradeMarket1Choice.Proprietary")]
     #endif
     [IsoId("_OTgzMzEx-AOSNFX-8224498")]
     [DisplayName("Trade Market 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TwoLegTransactionType1Choice.FutureOrOptionDetails))]
     [KnownType(typeof(TwoLegTransactionType1Choice.SecuritiesFinancingDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TwoLegTransactionType1Choice.FutureOrOptionDetails),nameof(TwoLegTransactionType1Choice.FutureOrOptionDetails))]
-    [JsonDerivedType(typeof(TwoLegTransactionType1Choice.SecuritiesFinancingDetails),nameof(TwoLegTransactionType1Choice.SecuritiesFinancingDetails))]
+    [JsonDerivedType(typeof(TwoLegTransactionType1Choice.FutureOrOptionDetails),"TwoLegTransactionType1Choice.FutureOrOptionDetails")]
+    [JsonDerivedType(typeof(TwoLegTransactionType1Choice.SecuritiesFinancingDetails),"TwoLegTransactionType1Choice.SecuritiesFinancingDetails")]
     #endif
     [IsoId("_AYOINdokEeC60axPepSq7g_1757509328")]
     [DisplayName("Two Leg Transaction Type 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProformaStatusReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(ProformaStatusReason1Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProformaStatusReason1Choice.NoSpecifiedReason),nameof(ProformaStatusReason1Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(ProformaStatusReason1Choice.Reason),nameof(ProformaStatusReason1Choice.Reason))]
+    [JsonDerivedType(typeof(ProformaStatusReason1Choice.NoSpecifiedReason),"ProformaStatusReason1Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(ProformaStatusReason1Choice.Reason),"ProformaStatusReason1Choice.Reason")]
     #endif
     [IsoId("_4nJZUUzCEeafiMTDrtSnyw")]
     [DisplayName("Proforma Status Reason 1 Choice")]

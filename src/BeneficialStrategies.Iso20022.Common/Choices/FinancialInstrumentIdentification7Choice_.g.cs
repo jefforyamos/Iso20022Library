@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentIdentification7Choice.Single))]
     [KnownType(typeof(FinancialInstrumentIdentification7Choice.Basket))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentIdentification7Choice.Single),nameof(FinancialInstrumentIdentification7Choice.Single))]
-    [JsonDerivedType(typeof(FinancialInstrumentIdentification7Choice.Basket),nameof(FinancialInstrumentIdentification7Choice.Basket))]
+    [JsonDerivedType(typeof(FinancialInstrumentIdentification7Choice.Single),"FinancialInstrumentIdentification7Choice.Single")]
+    [JsonDerivedType(typeof(FinancialInstrumentIdentification7Choice.Basket),"FinancialInstrumentIdentification7Choice.Basket")]
     #endif
     [IsoId("_K9o5cYG-EeaalK9UbuVGFw")]
     [DisplayName("Financial Instrument Identification 7 Choice")]

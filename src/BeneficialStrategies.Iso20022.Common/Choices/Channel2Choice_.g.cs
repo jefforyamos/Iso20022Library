@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Channel2Choice.Code))]
     [KnownType(typeof(Channel2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Channel2Choice.Code),nameof(Channel2Choice.Code))]
-    [JsonDerivedType(typeof(Channel2Choice.Proprietary),nameof(Channel2Choice.Proprietary))]
+    [JsonDerivedType(typeof(Channel2Choice.Code),"Channel2Choice.Code")]
+    [JsonDerivedType(typeof(Channel2Choice.Proprietary),"Channel2Choice.Proprietary")]
     #endif
     [IsoId("_1zp30Bg2EeKnW4lR85q-0A")]
     [DisplayName("Channel 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ConfirmationType1Choice.Code))]
     [KnownType(typeof(ConfirmationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ConfirmationType1Choice.Code),nameof(ConfirmationType1Choice.Code))]
-    [JsonDerivedType(typeof(ConfirmationType1Choice.Proprietary),nameof(ConfirmationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ConfirmationType1Choice.Code),"ConfirmationType1Choice.Code")]
+    [JsonDerivedType(typeof(ConfirmationType1Choice.Proprietary),"ConfirmationType1Choice.Proprietary")]
     #endif
     [IsoId("_kY3MAEzLEeafiMTDrtSnyw")]
     [DisplayName("Confirmation Type 1 Choice")]

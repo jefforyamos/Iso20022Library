@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AutomaticBorrowing2Choice.Code))]
     [KnownType(typeof(AutomaticBorrowing2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AutomaticBorrowing2Choice.Code),nameof(AutomaticBorrowing2Choice.Code))]
-    [JsonDerivedType(typeof(AutomaticBorrowing2Choice.Proprietary),nameof(AutomaticBorrowing2Choice.Proprietary))]
+    [JsonDerivedType(typeof(AutomaticBorrowing2Choice.Code),"AutomaticBorrowing2Choice.Code")]
+    [JsonDerivedType(typeof(AutomaticBorrowing2Choice.Proprietary),"AutomaticBorrowing2Choice.Proprietary")]
     #endif
     [IsoId("_QtyRFNp-Ed-ak6NoX_4Aeg_-1043359290")]
     [DisplayName("Automatic Borrowing 2 Choice")]

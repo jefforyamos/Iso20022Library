@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralFlag13Choice.Collateralised))]
     [KnownType(typeof(CollateralFlag13Choice.Uncollateralised))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralFlag13Choice.Collateralised),nameof(CollateralFlag13Choice.Collateralised))]
-    [JsonDerivedType(typeof(CollateralFlag13Choice.Uncollateralised),nameof(CollateralFlag13Choice.Uncollateralised))]
+    [JsonDerivedType(typeof(CollateralFlag13Choice.Collateralised),"CollateralFlag13Choice.Collateralised")]
+    [JsonDerivedType(typeof(CollateralFlag13Choice.Uncollateralised),"CollateralFlag13Choice.Uncollateralised")]
     #endif
     [IsoId("_J9q9scg5Eeu4ecZgAYuz5w")]
     [DisplayName("Collateral Flag 13 Choice")]

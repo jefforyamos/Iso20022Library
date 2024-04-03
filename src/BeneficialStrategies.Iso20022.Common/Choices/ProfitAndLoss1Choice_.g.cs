@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProfitAndLoss1Choice.Profit))]
     [KnownType(typeof(ProfitAndLoss1Choice.Loss))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProfitAndLoss1Choice.Profit),nameof(ProfitAndLoss1Choice.Profit))]
-    [JsonDerivedType(typeof(ProfitAndLoss1Choice.Loss),nameof(ProfitAndLoss1Choice.Loss))]
+    [JsonDerivedType(typeof(ProfitAndLoss1Choice.Profit),"ProfitAndLoss1Choice.Profit")]
+    [JsonDerivedType(typeof(ProfitAndLoss1Choice.Loss),"ProfitAndLoss1Choice.Loss")]
     #endif
     [IsoId("_Q65gCNp-Ed-ak6NoX_4Aeg_-931034423")]
     [DisplayName("Profit And Loss 1 Choice")]

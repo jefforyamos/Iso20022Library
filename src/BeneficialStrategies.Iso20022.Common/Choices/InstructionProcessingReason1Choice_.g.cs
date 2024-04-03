@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InstructionProcessingReason1Choice.Reason))]
     [KnownType(typeof(InstructionProcessingReason1Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InstructionProcessingReason1Choice.Reason),nameof(InstructionProcessingReason1Choice.Reason))]
-    [JsonDerivedType(typeof(InstructionProcessingReason1Choice.NoSpecifiedReason),nameof(InstructionProcessingReason1Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(InstructionProcessingReason1Choice.Reason),"InstructionProcessingReason1Choice.Reason")]
+    [JsonDerivedType(typeof(InstructionProcessingReason1Choice.NoSpecifiedReason),"InstructionProcessingReason1Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_Azyp49okEeC60axPepSq7g_-773750122")]
     [DisplayName("Instruction Processing Reason 1 Choice")]

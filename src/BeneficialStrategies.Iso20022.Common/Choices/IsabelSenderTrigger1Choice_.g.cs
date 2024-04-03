@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelSenderTrigger1Choice.Code))]
     [KnownType(typeof(IsabelSenderTrigger1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IsabelSenderTrigger1Choice.Code),nameof(IsabelSenderTrigger1Choice.Code))]
-    [JsonDerivedType(typeof(IsabelSenderTrigger1Choice.Proprietary),nameof(IsabelSenderTrigger1Choice.Proprietary))]
+    [JsonDerivedType(typeof(IsabelSenderTrigger1Choice.Code),"IsabelSenderTrigger1Choice.Code")]
+    [JsonDerivedType(typeof(IsabelSenderTrigger1Choice.Proprietary),"IsabelSenderTrigger1Choice.Proprietary")]
     #endif
     [IsoId("_Xmro0MmLEeWAGphE2LvqeA")]
     [DisplayName("Isabel Sender Trigger 1 Choice")]

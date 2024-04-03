@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus14Choice.Proprietary))]
     [KnownType(typeof(ProcessingStatus14Choice.Pending))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.AcknowledgedAccepted),nameof(ProcessingStatus14Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.Rejected),nameof(ProcessingStatus14Choice.Rejected))]
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.Completed),nameof(ProcessingStatus14Choice.Completed))]
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.Denied),nameof(ProcessingStatus14Choice.Denied))]
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.Proprietary),nameof(ProcessingStatus14Choice.Proprietary))]
-    [JsonDerivedType(typeof(ProcessingStatus14Choice.Pending),nameof(ProcessingStatus14Choice.Pending))]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.AcknowledgedAccepted),"ProcessingStatus14Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.Rejected),"ProcessingStatus14Choice.Rejected")]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.Completed),"ProcessingStatus14Choice.Completed")]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.Denied),"ProcessingStatus14Choice.Denied")]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.Proprietary),"ProcessingStatus14Choice.Proprietary")]
+    [JsonDerivedType(typeof(ProcessingStatus14Choice.Pending),"ProcessingStatus14Choice.Pending")]
     #endif
     [IsoId("_KXLkUfI4Ed-dOvqmSLSz5g")]
     [DisplayName("Processing Status 14 Choice")]

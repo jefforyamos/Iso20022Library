@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TrackerParty2Choice.PrivateIdentification))]
     [KnownType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TrackerParty2Choice.OrganisationIdentification),nameof(TrackerParty2Choice.OrganisationIdentification))]
-    [JsonDerivedType(typeof(TrackerParty2Choice.PrivateIdentification),nameof(TrackerParty2Choice.PrivateIdentification))]
-    [JsonDerivedType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification),nameof(TrackerParty2Choice.FinancialInstitutionIdentification))]
+    [JsonDerivedType(typeof(TrackerParty2Choice.OrganisationIdentification),"TrackerParty2Choice.OrganisationIdentification")]
+    [JsonDerivedType(typeof(TrackerParty2Choice.PrivateIdentification),"TrackerParty2Choice.PrivateIdentification")]
+    [JsonDerivedType(typeof(TrackerParty2Choice.FinancialInstitutionIdentification),"TrackerParty2Choice.FinancialInstitutionIdentification")]
     #endif
     [IsoId("_dWHWv2OTEeq5Ar_w98FvsA")]
     [DisplayName("Tracker Party 2 Choice")]

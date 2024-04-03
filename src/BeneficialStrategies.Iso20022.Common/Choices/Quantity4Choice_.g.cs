@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity4Choice.OriginalAndCurrentFaceAmount))]
     [KnownType(typeof(Quantity4Choice.SignedQuantity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Quantity4Choice.OriginalAndCurrentFaceAmount),nameof(Quantity4Choice.OriginalAndCurrentFaceAmount))]
-    [JsonDerivedType(typeof(Quantity4Choice.SignedQuantity),nameof(Quantity4Choice.SignedQuantity))]
+    [JsonDerivedType(typeof(Quantity4Choice.OriginalAndCurrentFaceAmount),"Quantity4Choice.OriginalAndCurrentFaceAmount")]
+    [JsonDerivedType(typeof(Quantity4Choice.SignedQuantity),"Quantity4Choice.SignedQuantity")]
     #endif
     [IsoId("_Qz45Etp-Ed-ak6NoX_4Aeg_-1944007584")]
     [DisplayName("Quantity 4 Choice")]

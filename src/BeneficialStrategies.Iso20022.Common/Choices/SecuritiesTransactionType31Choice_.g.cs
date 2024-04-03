@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecuritiesTransactionType31Choice.Code))]
     [KnownType(typeof(SecuritiesTransactionType31Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecuritiesTransactionType31Choice.Code),nameof(SecuritiesTransactionType31Choice.Code))]
-    [JsonDerivedType(typeof(SecuritiesTransactionType31Choice.Proprietary),nameof(SecuritiesTransactionType31Choice.Proprietary))]
+    [JsonDerivedType(typeof(SecuritiesTransactionType31Choice.Code),"SecuritiesTransactionType31Choice.Code")]
+    [JsonDerivedType(typeof(SecuritiesTransactionType31Choice.Proprietary),"SecuritiesTransactionType31Choice.Proprietary")]
     #endif
     [IsoId("_SALlkeLcEeWFtOV72FbX9w")]
     [DisplayName("Securities Transaction Type 31 Choice")]

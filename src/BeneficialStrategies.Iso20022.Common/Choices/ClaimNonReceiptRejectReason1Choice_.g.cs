@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Code))]
     [KnownType(typeof(ClaimNonReceiptRejectReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClaimNonReceiptRejectReason1Choice.Code),nameof(ClaimNonReceiptRejectReason1Choice.Code))]
-    [JsonDerivedType(typeof(ClaimNonReceiptRejectReason1Choice.Proprietary),nameof(ClaimNonReceiptRejectReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ClaimNonReceiptRejectReason1Choice.Code),"ClaimNonReceiptRejectReason1Choice.Code")]
+    [JsonDerivedType(typeof(ClaimNonReceiptRejectReason1Choice.Proprietary),"ClaimNonReceiptRejectReason1Choice.Proprietary")]
     #endif
     [IsoId("_LafiE4tuEee-OJ-wXSj3YQ")]
     [DisplayName("Claim Non Receipt Reject Reason 1 Choice")]

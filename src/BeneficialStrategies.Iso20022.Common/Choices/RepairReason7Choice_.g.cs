@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepairReason7Choice.Code))]
     [KnownType(typeof(RepairReason7Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepairReason7Choice.Code),nameof(RepairReason7Choice.Code))]
-    [JsonDerivedType(typeof(RepairReason7Choice.Proprietary),nameof(RepairReason7Choice.Proprietary))]
+    [JsonDerivedType(typeof(RepairReason7Choice.Code),"RepairReason7Choice.Code")]
+    [JsonDerivedType(typeof(RepairReason7Choice.Proprietary),"RepairReason7Choice.Proprietary")]
     #endif
     [IsoId("_zFHJdj9qEeCY7potQsO_IA")]
     [DisplayName("Repair Reason 7 Choice")]

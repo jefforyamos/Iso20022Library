@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DividendTypeFormat10Choice.Code))]
     [KnownType(typeof(DividendTypeFormat10Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DividendTypeFormat10Choice.Code),nameof(DividendTypeFormat10Choice.Code))]
-    [JsonDerivedType(typeof(DividendTypeFormat10Choice.Proprietary),nameof(DividendTypeFormat10Choice.Proprietary))]
+    [JsonDerivedType(typeof(DividendTypeFormat10Choice.Code),"DividendTypeFormat10Choice.Code")]
+    [JsonDerivedType(typeof(DividendTypeFormat10Choice.Proprietary),"DividendTypeFormat10Choice.Proprietary")]
     #endif
     [IsoId("_c5VTV5KQEeWHWpTQn1FFVg")]
     [DisplayName("Dividend Type Format 10 Choice")]

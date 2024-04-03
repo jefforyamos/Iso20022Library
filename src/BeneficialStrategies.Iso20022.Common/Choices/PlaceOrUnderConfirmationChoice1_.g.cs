@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
     [KnownType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation),nameof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation))]
-    [JsonDerivedType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation),nameof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation))]
+    [JsonDerivedType(typeof(PlaceOrUnderConfirmationChoice1.PlaceOfPresentation),"PlaceOrUnderConfirmationChoice1.PlaceOfPresentation")]
+    [JsonDerivedType(typeof(PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation),"PlaceOrUnderConfirmationChoice1.PresentationUnderConfirmation")]
     #endif
     [IsoId("_97kuEnltEeG7BsjMvd1mEw_-1026438563")]
     [DisplayName("Place Or Under Confirmation Choice")]

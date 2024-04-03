@@ -30,3 +30,6 @@
 0.2.7-alpha
     Attribute JsonConverter to serialize enums as string values for .NET 8 and greater.
 
+0.2.8-alpha
+    Abstract choice schemaId on abstract choice values must be unique to avoid error when using certain Swashbuckle options.
+    

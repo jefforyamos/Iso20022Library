@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity13Choice.GrossAmount))]
     [KnownType(typeof(FinancialInstrumentQuantity13Choice.PercentageOfTotalRedemptionAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.UnitsNumber),nameof(FinancialInstrumentQuantity13Choice.UnitsNumber))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.OrderedAmount),nameof(FinancialInstrumentQuantity13Choice.OrderedAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.NetAmount),nameof(FinancialInstrumentQuantity13Choice.NetAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.GrossAmount),nameof(FinancialInstrumentQuantity13Choice.GrossAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.PercentageOfTotalRedemptionAmount),nameof(FinancialInstrumentQuantity13Choice.PercentageOfTotalRedemptionAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.UnitsNumber),"FinancialInstrumentQuantity13Choice.UnitsNumber")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.OrderedAmount),"FinancialInstrumentQuantity13Choice.OrderedAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.NetAmount),"FinancialInstrumentQuantity13Choice.NetAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.GrossAmount),"FinancialInstrumentQuantity13Choice.GrossAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity13Choice.PercentageOfTotalRedemptionAmount),"FinancialInstrumentQuantity13Choice.PercentageOfTotalRedemptionAmount")]
     #endif
     [IsoId("_RgJiKtp-Ed-ak6NoX_4Aeg_446864518")]
     [DisplayName("Financial Instrument Quantity 13 Choice")]

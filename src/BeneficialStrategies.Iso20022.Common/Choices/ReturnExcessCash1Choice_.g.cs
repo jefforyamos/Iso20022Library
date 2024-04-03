@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReturnExcessCash1Choice.Code))]
     [KnownType(typeof(ReturnExcessCash1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReturnExcessCash1Choice.Code),nameof(ReturnExcessCash1Choice.Code))]
-    [JsonDerivedType(typeof(ReturnExcessCash1Choice.Proprietary),nameof(ReturnExcessCash1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ReturnExcessCash1Choice.Code),"ReturnExcessCash1Choice.Code")]
+    [JsonDerivedType(typeof(ReturnExcessCash1Choice.Proprietary),"ReturnExcessCash1Choice.Proprietary")]
     #endif
     [IsoId("_BGt5wALpEeutW5-TpeYJhA")]
     [DisplayName("Return Excess Cash 1 Choice")]

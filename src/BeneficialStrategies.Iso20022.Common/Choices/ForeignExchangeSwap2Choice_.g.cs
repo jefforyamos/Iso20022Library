@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ForeignExchangeSwap2Choice.DataSetAction))]
     [KnownType(typeof(ForeignExchangeSwap2Choice.Transaction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ForeignExchangeSwap2Choice.DataSetAction),nameof(ForeignExchangeSwap2Choice.DataSetAction))]
-    [JsonDerivedType(typeof(ForeignExchangeSwap2Choice.Transaction),nameof(ForeignExchangeSwap2Choice.Transaction))]
+    [JsonDerivedType(typeof(ForeignExchangeSwap2Choice.DataSetAction),"ForeignExchangeSwap2Choice.DataSetAction")]
+    [JsonDerivedType(typeof(ForeignExchangeSwap2Choice.Transaction),"ForeignExchangeSwap2Choice.Transaction")]
     #endif
     [IsoId("_qc3MAZ2WEeW_58xcYxhewg")]
     [DisplayName("Foreign Exchange Swap 2 Choice")]

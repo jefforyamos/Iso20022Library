@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProductCategory1Choice.StructuredProductCategory))]
     [KnownType(typeof(ProductCategory1Choice.OtherProductCategory))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProductCategory1Choice.StructuredProductCategory),nameof(ProductCategory1Choice.StructuredProductCategory))]
-    [JsonDerivedType(typeof(ProductCategory1Choice.OtherProductCategory),nameof(ProductCategory1Choice.OtherProductCategory))]
+    [JsonDerivedType(typeof(ProductCategory1Choice.StructuredProductCategory),"ProductCategory1Choice.StructuredProductCategory")]
+    [JsonDerivedType(typeof(ProductCategory1Choice.OtherProductCategory),"ProductCategory1Choice.OtherProductCategory")]
     #endif
     [IsoId("_RbrR1tp-Ed-ak6NoX_4Aeg_-1773751928")]
     [DisplayName("Product Category 1 Choice")]

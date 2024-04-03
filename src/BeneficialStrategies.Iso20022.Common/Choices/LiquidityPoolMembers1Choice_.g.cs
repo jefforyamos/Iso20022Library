@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LiquidityPoolMembers1Choice.HeadMemberDetails))]
     [KnownType(typeof(LiquidityPoolMembers1Choice.SubordinateMemberDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LiquidityPoolMembers1Choice.HeadMemberDetails),nameof(LiquidityPoolMembers1Choice.HeadMemberDetails))]
-    [JsonDerivedType(typeof(LiquidityPoolMembers1Choice.SubordinateMemberDetails),nameof(LiquidityPoolMembers1Choice.SubordinateMemberDetails))]
+    [JsonDerivedType(typeof(LiquidityPoolMembers1Choice.HeadMemberDetails),"LiquidityPoolMembers1Choice.HeadMemberDetails")]
+    [JsonDerivedType(typeof(LiquidityPoolMembers1Choice.SubordinateMemberDetails),"LiquidityPoolMembers1Choice.SubordinateMemberDetails")]
     #endif
     [IsoId("_lgRlYCDsEeav65mEytrgaA")]
     [DisplayName("Liquidity Pool Members 1 Choice")]

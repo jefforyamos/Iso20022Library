@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PurposeCode5Choice.Code))]
     [KnownType(typeof(PurposeCode5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PurposeCode5Choice.Code),nameof(PurposeCode5Choice.Code))]
-    [JsonDerivedType(typeof(PurposeCode5Choice.Proprietary),nameof(PurposeCode5Choice.Proprietary))]
+    [JsonDerivedType(typeof(PurposeCode5Choice.Code),"PurposeCode5Choice.Code")]
+    [JsonDerivedType(typeof(PurposeCode5Choice.Proprietary),"PurposeCode5Choice.Proprietary")]
     #endif
     [IsoId("_AeehNtokEeC60axPepSq7g_1734090960")]
     [DisplayName("Purpose Code 5 Choice")]

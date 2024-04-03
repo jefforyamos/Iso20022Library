@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ErrorHandling2Choice.Code))]
     [KnownType(typeof(ErrorHandling2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ErrorHandling2Choice.Code),nameof(ErrorHandling2Choice.Code))]
-    [JsonDerivedType(typeof(ErrorHandling2Choice.Proprietary),nameof(ErrorHandling2Choice.Proprietary))]
+    [JsonDerivedType(typeof(ErrorHandling2Choice.Code),"ErrorHandling2Choice.Code")]
+    [JsonDerivedType(typeof(ErrorHandling2Choice.Proprietary),"ErrorHandling2Choice.Proprietary")]
     #endif
     [IsoId("_jXcINxbvEeOy-PlRuFSUzQ")]
     [DisplayName("Error Handling 2 Choice")]

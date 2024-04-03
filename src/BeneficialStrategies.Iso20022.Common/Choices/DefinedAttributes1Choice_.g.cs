@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes))]
     [KnownType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes),nameof(DefinedAttributes1Choice.QuantityDefinedAttributes))]
-    [JsonDerivedType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes),nameof(DefinedAttributes1Choice.ValueDefinedAttributes))]
+    [JsonDerivedType(typeof(DefinedAttributes1Choice.QuantityDefinedAttributes),"DefinedAttributes1Choice.QuantityDefinedAttributes")]
+    [JsonDerivedType(typeof(DefinedAttributes1Choice.ValueDefinedAttributes),"DefinedAttributes1Choice.ValueDefinedAttributes")]
     #endif
     [IsoId("_wa3m8OPJEea7_eMQH225xA")]
     [DisplayName("Defined Attributes 1 Choice")]

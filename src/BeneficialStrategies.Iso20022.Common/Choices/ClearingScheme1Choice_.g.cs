@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingScheme1Choice.Code))]
     [KnownType(typeof(ClearingScheme1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClearingScheme1Choice.Code),nameof(ClearingScheme1Choice.Code))]
-    [JsonDerivedType(typeof(ClearingScheme1Choice.Proprietary),nameof(ClearingScheme1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ClearingScheme1Choice.Code),"ClearingScheme1Choice.Code")]
+    [JsonDerivedType(typeof(ClearingScheme1Choice.Proprietary),"ClearingScheme1Choice.Proprietary")]
     #endif
     [IsoId("_NDocIAVoEeaubbxOHT6aDQ")]
     [DisplayName("Clearing Scheme 1 Choice")]

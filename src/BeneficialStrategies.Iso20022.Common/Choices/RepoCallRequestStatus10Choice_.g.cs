@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RepoCallRequestStatus10Choice.Code))]
     [KnownType(typeof(RepoCallRequestStatus10Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RepoCallRequestStatus10Choice.Code),nameof(RepoCallRequestStatus10Choice.Code))]
-    [JsonDerivedType(typeof(RepoCallRequestStatus10Choice.Proprietary),nameof(RepoCallRequestStatus10Choice.Proprietary))]
+    [JsonDerivedType(typeof(RepoCallRequestStatus10Choice.Code),"RepoCallRequestStatus10Choice.Code")]
+    [JsonDerivedType(typeof(RepoCallRequestStatus10Choice.Proprietary),"RepoCallRequestStatus10Choice.Proprietary")]
     #endif
     [IsoId("_8QboiZNLEeWGlc8L7oPDIg")]
     [DisplayName("Repo Call Request Status 10 Choice")]

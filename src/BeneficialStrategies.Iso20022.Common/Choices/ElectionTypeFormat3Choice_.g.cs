@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionTypeFormat3Choice.Code))]
     [KnownType(typeof(ElectionTypeFormat3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ElectionTypeFormat3Choice.Code),nameof(ElectionTypeFormat3Choice.Code))]
-    [JsonDerivedType(typeof(ElectionTypeFormat3Choice.Proprietary),nameof(ElectionTypeFormat3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ElectionTypeFormat3Choice.Code),"ElectionTypeFormat3Choice.Code")]
+    [JsonDerivedType(typeof(ElectionTypeFormat3Choice.Proprietary),"ElectionTypeFormat3Choice.Proprietary")]
     #endif
     [IsoId("_TnPPkUEGEeWVgfuHGaKtRQ")]
     [DisplayName("Election Type Format 3 Choice")]

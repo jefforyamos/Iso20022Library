@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstitutionIdentification8Choice.ClearingSystemMemberIdentification))]
     [KnownType(typeof(FinancialInstitutionIdentification8Choice.ProprietaryIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.NameAndAddress),nameof(FinancialInstitutionIdentification8Choice.NameAndAddress))]
-    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.BICFI),nameof(FinancialInstitutionIdentification8Choice.BICFI))]
-    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.ClearingSystemMemberIdentification),nameof(FinancialInstitutionIdentification8Choice.ClearingSystemMemberIdentification))]
-    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.ProprietaryIdentification),nameof(FinancialInstitutionIdentification8Choice.ProprietaryIdentification))]
+    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.NameAndAddress),"FinancialInstitutionIdentification8Choice.NameAndAddress")]
+    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.BICFI),"FinancialInstitutionIdentification8Choice.BICFI")]
+    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.ClearingSystemMemberIdentification),"FinancialInstitutionIdentification8Choice.ClearingSystemMemberIdentification")]
+    [JsonDerivedType(typeof(FinancialInstitutionIdentification8Choice.ProprietaryIdentification),"FinancialInstitutionIdentification8Choice.ProprietaryIdentification")]
     #endif
     [IsoId("_M0nFYTfAEeaijYcl4fyXoQ")]
     [DisplayName("Financial Institution Identification 8 Choice")]

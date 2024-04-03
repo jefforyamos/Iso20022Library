@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnmatchedStatus2Choice.NoSpecifiedReason))]
     [KnownType(typeof(UnmatchedStatus2Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnmatchedStatus2Choice.NoSpecifiedReason),nameof(UnmatchedStatus2Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(UnmatchedStatus2Choice.Reason),nameof(UnmatchedStatus2Choice.Reason))]
+    [JsonDerivedType(typeof(UnmatchedStatus2Choice.NoSpecifiedReason),"UnmatchedStatus2Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(UnmatchedStatus2Choice.Reason),"UnmatchedStatus2Choice.Reason")]
     #endif
     [IsoId("_UWF0gdp-Ed-ak6NoX_4Aeg_-621975158")]
     [DisplayName("Unmatched Status 2 Choice")]

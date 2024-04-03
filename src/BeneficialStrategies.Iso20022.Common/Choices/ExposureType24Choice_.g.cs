@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExposureType24Choice.Code))]
     [KnownType(typeof(ExposureType24Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExposureType24Choice.Code),nameof(ExposureType24Choice.Code))]
-    [JsonDerivedType(typeof(ExposureType24Choice.Proprietary),nameof(ExposureType24Choice.Proprietary))]
+    [JsonDerivedType(typeof(ExposureType24Choice.Code),"ExposureType24Choice.Code")]
+    [JsonDerivedType(typeof(ExposureType24Choice.Proprietary),"ExposureType24Choice.Proprietary")]
     #endif
     [IsoId("_ciETATi8Eeydid5dcNPKvg")]
     [DisplayName("Exposure Type 24 Choice")]

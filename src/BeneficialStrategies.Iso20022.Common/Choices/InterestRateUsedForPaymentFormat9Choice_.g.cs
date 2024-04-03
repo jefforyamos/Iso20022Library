@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.Amount))]
     [KnownType(typeof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.Rate),nameof(InterestRateUsedForPaymentFormat9Choice.Rate))]
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.Amount),nameof(InterestRateUsedForPaymentFormat9Choice.Amount))]
-    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus),nameof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus))]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.Rate),"InterestRateUsedForPaymentFormat9Choice.Rate")]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.Amount),"InterestRateUsedForPaymentFormat9Choice.Amount")]
+    [JsonDerivedType(typeof(InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus),"InterestRateUsedForPaymentFormat9Choice.RateTypeAndAmountAndRateStatus")]
     #endif
     [IsoId("_cj-G-ZKQEeWHWpTQn1FFVg")]
     [DisplayName("Interest Rate Used For Payment Format 9 Choice")]

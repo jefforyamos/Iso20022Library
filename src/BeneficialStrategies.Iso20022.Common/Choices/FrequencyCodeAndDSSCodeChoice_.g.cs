@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
     [KnownType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode),nameof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode))]
-    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS),nameof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS))]
+    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsCode),"FrequencyCodeAndDSSCodeChoice.FrequencyAsCode")]
+    [JsonDerivedType(typeof(FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS),"FrequencyCodeAndDSSCodeChoice.FrequencyAsDSS")]
     #endif
     [IsoId("_UuhioNp-Ed-ak6NoX_4Aeg_400175868")]
     [DisplayName("Frequency Code And DSS Code Choice")]

@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NetDividendRateFormat38Choice.RateTypeAndAmountAndRateStatus))]
     [KnownType(typeof(NetDividendRateFormat38Choice.NotSpecifiedRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.Amount),nameof(NetDividendRateFormat38Choice.Amount))]
-    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.AmountAndRateStatus),nameof(NetDividendRateFormat38Choice.AmountAndRateStatus))]
-    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.RateTypeAndAmountAndRateStatus),nameof(NetDividendRateFormat38Choice.RateTypeAndAmountAndRateStatus))]
-    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.NotSpecifiedRate),nameof(NetDividendRateFormat38Choice.NotSpecifiedRate))]
+    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.Amount),"NetDividendRateFormat38Choice.Amount")]
+    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.AmountAndRateStatus),"NetDividendRateFormat38Choice.AmountAndRateStatus")]
+    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.RateTypeAndAmountAndRateStatus),"NetDividendRateFormat38Choice.RateTypeAndAmountAndRateStatus")]
+    [JsonDerivedType(typeof(NetDividendRateFormat38Choice.NotSpecifiedRate),"NetDividendRateFormat38Choice.NotSpecifiedRate")]
     #endif
     [IsoId("_PDp_ZeXsEemEj48jhmlA0Q")]
     [DisplayName("Net Dividend Rate Format 38 Choice")]

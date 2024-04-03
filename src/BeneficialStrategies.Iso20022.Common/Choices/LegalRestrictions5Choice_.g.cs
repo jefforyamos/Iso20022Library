@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LegalRestrictions5Choice.Code))]
     [KnownType(typeof(LegalRestrictions5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LegalRestrictions5Choice.Code),nameof(LegalRestrictions5Choice.Code))]
-    [JsonDerivedType(typeof(LegalRestrictions5Choice.Proprietary),nameof(LegalRestrictions5Choice.Proprietary))]
+    [JsonDerivedType(typeof(LegalRestrictions5Choice.Code),"LegalRestrictions5Choice.Code")]
+    [JsonDerivedType(typeof(LegalRestrictions5Choice.Proprietary),"LegalRestrictions5Choice.Proprietary")]
     #endif
     [IsoId("_cg8o6-LxEeWOD7aAy2fAcA")]
     [DisplayName("Legal Restrictions 5 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderOrAll2Choice.StandingOrder))]
     [KnownType(typeof(StandingOrderOrAll2Choice.AllStandingOrders))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StandingOrderOrAll2Choice.StandingOrder),nameof(StandingOrderOrAll2Choice.StandingOrder))]
-    [JsonDerivedType(typeof(StandingOrderOrAll2Choice.AllStandingOrders),nameof(StandingOrderOrAll2Choice.AllStandingOrders))]
+    [JsonDerivedType(typeof(StandingOrderOrAll2Choice.StandingOrder),"StandingOrderOrAll2Choice.StandingOrder")]
+    [JsonDerivedType(typeof(StandingOrderOrAll2Choice.AllStandingOrders),"StandingOrderOrAll2Choice.AllStandingOrders")]
     #endif
     [IsoId("_HmQvMW4-EeiU9cctagi5ow")]
     [DisplayName("Standing Order Or All 2 Choice")]

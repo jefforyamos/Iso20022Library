@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BalanceQuantity14Choice.Quantity))]
     [KnownType(typeof(BalanceQuantity14Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BalanceQuantity14Choice.Quantity),nameof(BalanceQuantity14Choice.Quantity))]
-    [JsonDerivedType(typeof(BalanceQuantity14Choice.Proprietary),nameof(BalanceQuantity14Choice.Proprietary))]
+    [JsonDerivedType(typeof(BalanceQuantity14Choice.Quantity),"BalanceQuantity14Choice.Quantity")]
+    [JsonDerivedType(typeof(BalanceQuantity14Choice.Proprietary),"BalanceQuantity14Choice.Proprietary")]
     #endif
     [IsoId("__AeM4Sp7EeyR9JrVGfaMKw")]
     [DisplayName("Balance Quantity 14 Choice")]

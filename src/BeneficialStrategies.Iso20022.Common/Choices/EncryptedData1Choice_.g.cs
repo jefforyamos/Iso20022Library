@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EncryptedData1Choice.BinaryData))]
     [KnownType(typeof(EncryptedData1Choice.HexadecimalBinaryValue))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EncryptedData1Choice.BinaryData),nameof(EncryptedData1Choice.BinaryData))]
-    [JsonDerivedType(typeof(EncryptedData1Choice.HexadecimalBinaryValue),nameof(EncryptedData1Choice.HexadecimalBinaryValue))]
+    [JsonDerivedType(typeof(EncryptedData1Choice.BinaryData),"EncryptedData1Choice.BinaryData")]
+    [JsonDerivedType(typeof(EncryptedData1Choice.HexadecimalBinaryValue),"EncryptedData1Choice.HexadecimalBinaryValue")]
     #endif
     [IsoId("_-on80-kLEemeDPHh-U9b6w")]
     [DisplayName("Encrypted Data 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModalityOfCounting1Choice.Code))]
     [KnownType(typeof(ModalityOfCounting1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ModalityOfCounting1Choice.Code),nameof(ModalityOfCounting1Choice.Code))]
-    [JsonDerivedType(typeof(ModalityOfCounting1Choice.Proprietary),nameof(ModalityOfCounting1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ModalityOfCounting1Choice.Code),"ModalityOfCounting1Choice.Code")]
+    [JsonDerivedType(typeof(ModalityOfCounting1Choice.Proprietary),"ModalityOfCounting1Choice.Proprietary")]
     #endif
     [IsoId("_ZBJPkK-vEemJ1NnLPsTFaw")]
     [DisplayName("Modality Of Counting 1 Choice")]

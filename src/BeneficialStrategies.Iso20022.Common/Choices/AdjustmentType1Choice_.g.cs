@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdjustmentType1Choice.Type))]
     [KnownType(typeof(AdjustmentType1Choice.OtherAdjustmentType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdjustmentType1Choice.Type),nameof(AdjustmentType1Choice.Type))]
-    [JsonDerivedType(typeof(AdjustmentType1Choice.OtherAdjustmentType),nameof(AdjustmentType1Choice.OtherAdjustmentType))]
+    [JsonDerivedType(typeof(AdjustmentType1Choice.Type),"AdjustmentType1Choice.Type")]
+    [JsonDerivedType(typeof(AdjustmentType1Choice.OtherAdjustmentType),"AdjustmentType1Choice.OtherAdjustmentType")]
     #endif
     [IsoId("_HQHgwBrXEeOVR9VN6fAMUg")]
     [DisplayName("Adjustment Type 1 Choice")]

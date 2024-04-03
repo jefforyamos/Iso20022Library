@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification))]
     [KnownType(typeof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification),nameof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification))]
-    [JsonDerivedType(typeof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose),nameof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose))]
+    [JsonDerivedType(typeof(MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification),"MarketIdentificationOrCashPurpose1Choice.SettlementInstructionMarketIdentification")]
+    [JsonDerivedType(typeof(MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose),"MarketIdentificationOrCashPurpose1Choice.CashSSIPurpose")]
     #endif
     [IsoId("_Lc9dQEiNEeOdL6nMHefDgg")]
     [DisplayName("Market Identification Or Cash Purpose 1 Choice")]

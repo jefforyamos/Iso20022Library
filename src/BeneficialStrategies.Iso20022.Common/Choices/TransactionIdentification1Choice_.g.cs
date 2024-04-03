@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionIdentification1Choice.MarginReporting))]
     [KnownType(typeof(TransactionIdentification1Choice.CollateralReuse))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionIdentification1Choice.Transaction),nameof(TransactionIdentification1Choice.Transaction))]
-    [JsonDerivedType(typeof(TransactionIdentification1Choice.MarginReporting),nameof(TransactionIdentification1Choice.MarginReporting))]
-    [JsonDerivedType(typeof(TransactionIdentification1Choice.CollateralReuse),nameof(TransactionIdentification1Choice.CollateralReuse))]
+    [JsonDerivedType(typeof(TransactionIdentification1Choice.Transaction),"TransactionIdentification1Choice.Transaction")]
+    [JsonDerivedType(typeof(TransactionIdentification1Choice.MarginReporting),"TransactionIdentification1Choice.MarginReporting")]
+    [JsonDerivedType(typeof(TransactionIdentification1Choice.CollateralReuse),"TransactionIdentification1Choice.CollateralReuse")]
     #endif
     [IsoId("_DD0DMK7LEemZxoEFHjN-AQ")]
     [DisplayName("Transaction Identification 1 Choice")]

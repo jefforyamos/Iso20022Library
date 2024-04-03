@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CollateralCancellationType1Choice.Code))]
     [KnownType(typeof(CollateralCancellationType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CollateralCancellationType1Choice.Code),nameof(CollateralCancellationType1Choice.Code))]
-    [JsonDerivedType(typeof(CollateralCancellationType1Choice.Proprietary),nameof(CollateralCancellationType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(CollateralCancellationType1Choice.Code),"CollateralCancellationType1Choice.Code")]
+    [JsonDerivedType(typeof(CollateralCancellationType1Choice.Proprietary),"CollateralCancellationType1Choice.Proprietary")]
     #endif
     [IsoId("_QmogONp-Ed-ak6NoX_4Aeg_-847110751")]
     [DisplayName("Collateral Cancellation Type 1 Choice")]

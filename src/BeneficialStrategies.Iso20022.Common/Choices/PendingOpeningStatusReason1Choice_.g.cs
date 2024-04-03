@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingOpeningStatusReason1Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingOpeningStatusReason1Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingOpeningStatusReason1Choice.NoSpecifiedReason),nameof(PendingOpeningStatusReason1Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(PendingOpeningStatusReason1Choice.Reason),nameof(PendingOpeningStatusReason1Choice.Reason))]
+    [JsonDerivedType(typeof(PendingOpeningStatusReason1Choice.NoSpecifiedReason),"PendingOpeningStatusReason1Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(PendingOpeningStatusReason1Choice.Reason),"PendingOpeningStatusReason1Choice.Reason")]
     #endif
     [IsoId("_gh55AWCJEeabZtzjEVWYCQ")]
     [DisplayName("Pending Opening Status Reason 1 Choice")]

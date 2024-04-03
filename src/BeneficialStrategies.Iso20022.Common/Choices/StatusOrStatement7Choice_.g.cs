@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatusOrStatement7Choice.StatusAdvice))]
     [KnownType(typeof(StatusOrStatement7Choice.Statement))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StatusOrStatement7Choice.StatusAdvice),nameof(StatusOrStatement7Choice.StatusAdvice))]
-    [JsonDerivedType(typeof(StatusOrStatement7Choice.Statement),nameof(StatusOrStatement7Choice.Statement))]
+    [JsonDerivedType(typeof(StatusOrStatement7Choice.StatusAdvice),"StatusOrStatement7Choice.StatusAdvice")]
+    [JsonDerivedType(typeof(StatusOrStatement7Choice.Statement),"StatusOrStatement7Choice.Statement")]
     #endif
     [IsoId("_Qrz5Jzs-EeWRTLSN0i0tng")]
     [DisplayName("Status Or Statement 7 Choice")]

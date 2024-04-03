@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RevaluationIndicator1Choice.Indicator))]
     [KnownType(typeof(RevaluationIndicator1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RevaluationIndicator1Choice.Indicator),nameof(RevaluationIndicator1Choice.Indicator))]
-    [JsonDerivedType(typeof(RevaluationIndicator1Choice.Proprietary),nameof(RevaluationIndicator1Choice.Proprietary))]
+    [JsonDerivedType(typeof(RevaluationIndicator1Choice.Indicator),"RevaluationIndicator1Choice.Indicator")]
+    [JsonDerivedType(typeof(RevaluationIndicator1Choice.Proprietary),"RevaluationIndicator1Choice.Proprietary")]
     #endif
     [IsoId("_Quh38dp-Ed-ak6NoX_4Aeg_1541845195")]
     [DisplayName("Revaluation Indicator 1 Choice")]

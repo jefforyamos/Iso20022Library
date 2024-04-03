@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PartyIdentification44Choice.NameAndAddress))]
     [KnownType(typeof(PartyIdentification44Choice.Country))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PartyIdentification44Choice.AnyBIC),nameof(PartyIdentification44Choice.AnyBIC))]
-    [JsonDerivedType(typeof(PartyIdentification44Choice.NameAndAddress),nameof(PartyIdentification44Choice.NameAndAddress))]
-    [JsonDerivedType(typeof(PartyIdentification44Choice.Country),nameof(PartyIdentification44Choice.Country))]
+    [JsonDerivedType(typeof(PartyIdentification44Choice.AnyBIC),"PartyIdentification44Choice.AnyBIC")]
+    [JsonDerivedType(typeof(PartyIdentification44Choice.NameAndAddress),"PartyIdentification44Choice.NameAndAddress")]
+    [JsonDerivedType(typeof(PartyIdentification44Choice.Country),"PartyIdentification44Choice.Country")]
     #endif
     [IsoId("_Rpl8aeaPEd-q8fx_Zl_34A")]
     [DisplayName("Party Identification 44 Choice")]

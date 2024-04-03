@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CSDOrNCB1Choice.CSDIdentification))]
     [KnownType(typeof(CSDOrNCB1Choice.NCBIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CSDOrNCB1Choice.CSDIdentification),nameof(CSDOrNCB1Choice.CSDIdentification))]
-    [JsonDerivedType(typeof(CSDOrNCB1Choice.NCBIdentification),nameof(CSDOrNCB1Choice.NCBIdentification))]
+    [JsonDerivedType(typeof(CSDOrNCB1Choice.CSDIdentification),"CSDOrNCB1Choice.CSDIdentification")]
+    [JsonDerivedType(typeof(CSDOrNCB1Choice.NCBIdentification),"CSDOrNCB1Choice.NCBIdentification")]
     #endif
     [IsoId("_knY98O5NEeCisYr99QEiWA_761515761")]
     [DisplayName("CSD Or NCB 1 Choice")]

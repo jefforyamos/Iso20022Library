@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StandingOrderCriteria3Choice.QueryName))]
     [KnownType(typeof(StandingOrderCriteria3Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StandingOrderCriteria3Choice.QueryName),nameof(StandingOrderCriteria3Choice.QueryName))]
-    [JsonDerivedType(typeof(StandingOrderCriteria3Choice.NewCriteria),nameof(StandingOrderCriteria3Choice.NewCriteria))]
+    [JsonDerivedType(typeof(StandingOrderCriteria3Choice.QueryName),"StandingOrderCriteria3Choice.QueryName")]
+    [JsonDerivedType(typeof(StandingOrderCriteria3Choice.NewCriteria),"StandingOrderCriteria3Choice.NewCriteria")]
     #endif
     [IsoId("_GBYcFW4-EeiU9cctagi5ow")]
     [DisplayName("Standing Order Criteria 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingDenied3Choice.Code))]
     [KnownType(typeof(MatchingDenied3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MatchingDenied3Choice.Code),nameof(MatchingDenied3Choice.Code))]
-    [JsonDerivedType(typeof(MatchingDenied3Choice.Proprietary),nameof(MatchingDenied3Choice.Proprietary))]
+    [JsonDerivedType(typeof(MatchingDenied3Choice.Code),"MatchingDenied3Choice.Code")]
+    [JsonDerivedType(typeof(MatchingDenied3Choice.Proprietary),"MatchingDenied3Choice.Proprietary")]
     #endif
     [IsoId("_ZYK_kTt4EeW638lNyHKv7A")]
     [DisplayName("Matching Denied 3 Choice")]

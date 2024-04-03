@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionCollateralData14Choice.SecuritiesLending))]
     [KnownType(typeof(TransactionCollateralData14Choice.MarginLending))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionCollateralData14Choice.RepurchaseTrade),nameof(TransactionCollateralData14Choice.RepurchaseTrade))]
-    [JsonDerivedType(typeof(TransactionCollateralData14Choice.BuySellBack),nameof(TransactionCollateralData14Choice.BuySellBack))]
-    [JsonDerivedType(typeof(TransactionCollateralData14Choice.SecuritiesLending),nameof(TransactionCollateralData14Choice.SecuritiesLending))]
-    [JsonDerivedType(typeof(TransactionCollateralData14Choice.MarginLending),nameof(TransactionCollateralData14Choice.MarginLending))]
+    [JsonDerivedType(typeof(TransactionCollateralData14Choice.RepurchaseTrade),"TransactionCollateralData14Choice.RepurchaseTrade")]
+    [JsonDerivedType(typeof(TransactionCollateralData14Choice.BuySellBack),"TransactionCollateralData14Choice.BuySellBack")]
+    [JsonDerivedType(typeof(TransactionCollateralData14Choice.SecuritiesLending),"TransactionCollateralData14Choice.SecuritiesLending")]
+    [JsonDerivedType(typeof(TransactionCollateralData14Choice.MarginLending),"TransactionCollateralData14Choice.MarginLending")]
     #endif
     [IsoId("_ksszMf_9Eemefbt-QjTNnA")]
     [DisplayName("Transaction Collateral Data 14 Choice")]

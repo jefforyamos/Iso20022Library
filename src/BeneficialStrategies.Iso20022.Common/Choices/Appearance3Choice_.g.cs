@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Appearance3Choice.Code))]
     [KnownType(typeof(Appearance3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Appearance3Choice.Code),nameof(Appearance3Choice.Code))]
-    [JsonDerivedType(typeof(Appearance3Choice.Proprietary),nameof(Appearance3Choice.Proprietary))]
+    [JsonDerivedType(typeof(Appearance3Choice.Code),"Appearance3Choice.Code")]
+    [JsonDerivedType(typeof(Appearance3Choice.Proprietary),"Appearance3Choice.Proprietary")]
     #endif
     [IsoId("_dYSgleLxEeWOD7aAy2fAcA")]
     [DisplayName("Appearance 3 Choice")]

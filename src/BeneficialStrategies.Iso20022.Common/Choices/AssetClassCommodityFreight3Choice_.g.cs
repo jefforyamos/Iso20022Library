@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityFreight3Choice.ContainerShip))]
     [KnownType(typeof(AssetClassCommodityFreight3Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Dry),nameof(AssetClassCommodityFreight3Choice.Dry))]
-    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Wet),nameof(AssetClassCommodityFreight3Choice.Wet))]
-    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.ContainerShip),nameof(AssetClassCommodityFreight3Choice.ContainerShip))]
-    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Other),nameof(AssetClassCommodityFreight3Choice.Other))]
+    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Dry),"AssetClassCommodityFreight3Choice.Dry")]
+    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Wet),"AssetClassCommodityFreight3Choice.Wet")]
+    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.ContainerShip),"AssetClassCommodityFreight3Choice.ContainerShip")]
+    [JsonDerivedType(typeof(AssetClassCommodityFreight3Choice.Other),"AssetClassCommodityFreight3Choice.Other")]
     #endif
     [IsoId("_VSOj0bv5EeiLRYqS-r-R-A")]
     [DisplayName("Asset Class Commodity Freight 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityMetal2Choice.NonPrecious))]
     [KnownType(typeof(AssetClassCommodityMetal2Choice.Precious))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityMetal2Choice.NonPrecious),nameof(AssetClassCommodityMetal2Choice.NonPrecious))]
-    [JsonDerivedType(typeof(AssetClassCommodityMetal2Choice.Precious),nameof(AssetClassCommodityMetal2Choice.Precious))]
+    [JsonDerivedType(typeof(AssetClassCommodityMetal2Choice.NonPrecious),"AssetClassCommodityMetal2Choice.NonPrecious")]
+    [JsonDerivedType(typeof(AssetClassCommodityMetal2Choice.Precious),"AssetClassCommodityMetal2Choice.Precious")]
     #endif
     [IsoId("_DnKNIU8REe2PGo0mhYCh1g")]
     [DisplayName("Asset Class Commodity Metal 2 Choice")]

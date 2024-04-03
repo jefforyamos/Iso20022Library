@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TechnicalInputChannel1Choice.Code))]
     [KnownType(typeof(TechnicalInputChannel1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TechnicalInputChannel1Choice.Code),nameof(TechnicalInputChannel1Choice.Code))]
-    [JsonDerivedType(typeof(TechnicalInputChannel1Choice.Proprietary),nameof(TechnicalInputChannel1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TechnicalInputChannel1Choice.Code),"TechnicalInputChannel1Choice.Code")]
+    [JsonDerivedType(typeof(TechnicalInputChannel1Choice.Proprietary),"TechnicalInputChannel1Choice.Proprietary")]
     #endif
     [IsoId("_Rpr4odp-Ed-ak6NoX_4Aeg_-1373581543")]
     [DisplayName("Technical Input Channel 1 Choice")]

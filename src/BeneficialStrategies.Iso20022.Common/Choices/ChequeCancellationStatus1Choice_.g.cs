@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ChequeCancellationStatus1Choice.Code))]
     [KnownType(typeof(ChequeCancellationStatus1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ChequeCancellationStatus1Choice.Code),nameof(ChequeCancellationStatus1Choice.Code))]
-    [JsonDerivedType(typeof(ChequeCancellationStatus1Choice.Proprietary),nameof(ChequeCancellationStatus1Choice.Proprietary))]
+    [JsonDerivedType(typeof(ChequeCancellationStatus1Choice.Code),"ChequeCancellationStatus1Choice.Code")]
+    [JsonDerivedType(typeof(ChequeCancellationStatus1Choice.Proprietary),"ChequeCancellationStatus1Choice.Proprietary")]
     #endif
     [IsoId("_PJJT-7tyEeq_cfXrH83Rcw")]
     [DisplayName("Cheque Cancellation Status 1 Choice")]

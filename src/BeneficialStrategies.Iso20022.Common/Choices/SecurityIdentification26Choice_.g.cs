@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityIdentification26Choice.Identification))]
     [KnownType(typeof(SecurityIdentification26Choice.NotAvailable))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityIdentification26Choice.Identification),nameof(SecurityIdentification26Choice.Identification))]
-    [JsonDerivedType(typeof(SecurityIdentification26Choice.NotAvailable),nameof(SecurityIdentification26Choice.NotAvailable))]
+    [JsonDerivedType(typeof(SecurityIdentification26Choice.Identification),"SecurityIdentification26Choice.Identification")]
+    [JsonDerivedType(typeof(SecurityIdentification26Choice.NotAvailable),"SecurityIdentification26Choice.NotAvailable")]
     #endif
     [IsoId("_OG6hAY7DEeaxxtxaoOwzAg")]
     [DisplayName("Security Identification 26 Choice")]

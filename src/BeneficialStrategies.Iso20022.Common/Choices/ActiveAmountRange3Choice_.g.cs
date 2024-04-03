@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange))]
     [KnownType(typeof(ActiveAmountRange3Choice.CurrencyAndAmountRange))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange),nameof(ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange))]
-    [JsonDerivedType(typeof(ActiveAmountRange3Choice.CurrencyAndAmountRange),nameof(ActiveAmountRange3Choice.CurrencyAndAmountRange))]
+    [JsonDerivedType(typeof(ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange),"ActiveAmountRange3Choice.ImpliedCurrencyAndAmountRange")]
+    [JsonDerivedType(typeof(ActiveAmountRange3Choice.CurrencyAndAmountRange),"ActiveAmountRange3Choice.CurrencyAndAmountRange")]
     #endif
     [IsoId("_OnGKkZlcEeeE1Ya-LgRsuQ")]
     [DisplayName("Active Amount Range 3 Choice")]

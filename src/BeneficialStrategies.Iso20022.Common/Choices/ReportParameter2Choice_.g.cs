@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReportParameter2Choice.Currency))]
     [KnownType(typeof(ReportParameter2Choice.UserDefined))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReportParameter2Choice.Party),nameof(ReportParameter2Choice.Party))]
-    [JsonDerivedType(typeof(ReportParameter2Choice.Country),nameof(ReportParameter2Choice.Country))]
-    [JsonDerivedType(typeof(ReportParameter2Choice.Currency),nameof(ReportParameter2Choice.Currency))]
-    [JsonDerivedType(typeof(ReportParameter2Choice.UserDefined),nameof(ReportParameter2Choice.UserDefined))]
+    [JsonDerivedType(typeof(ReportParameter2Choice.Party),"ReportParameter2Choice.Party")]
+    [JsonDerivedType(typeof(ReportParameter2Choice.Country),"ReportParameter2Choice.Country")]
+    [JsonDerivedType(typeof(ReportParameter2Choice.Currency),"ReportParameter2Choice.Currency")]
+    [JsonDerivedType(typeof(ReportParameter2Choice.UserDefined),"ReportParameter2Choice.UserDefined")]
     #endif
     [IsoId("_U11EiNp-Ed-ak6NoX_4Aeg_-922147524")]
     [DisplayName("Report Parameter 2 Choice")]

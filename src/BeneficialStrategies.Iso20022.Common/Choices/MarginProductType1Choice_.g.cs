@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarginProductType1Choice.Code))]
     [KnownType(typeof(MarginProductType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarginProductType1Choice.Code),nameof(MarginProductType1Choice.Code))]
-    [JsonDerivedType(typeof(MarginProductType1Choice.Proprietary),nameof(MarginProductType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(MarginProductType1Choice.Code),"MarginProductType1Choice.Code")]
+    [JsonDerivedType(typeof(MarginProductType1Choice.Proprietary),"MarginProductType1Choice.Proprietary")]
     #endif
     [IsoId("_Qk_hdNp-Ed-ak6NoX_4Aeg_1848984262")]
     [DisplayName("Margin Product Type 1 Choice")]

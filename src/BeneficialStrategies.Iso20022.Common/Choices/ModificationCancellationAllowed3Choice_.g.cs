@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ModificationCancellationAllowed3Choice.Indicator))]
     [KnownType(typeof(ModificationCancellationAllowed3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ModificationCancellationAllowed3Choice.Indicator),nameof(ModificationCancellationAllowed3Choice.Indicator))]
-    [JsonDerivedType(typeof(ModificationCancellationAllowed3Choice.Proprietary),nameof(ModificationCancellationAllowed3Choice.Proprietary))]
+    [JsonDerivedType(typeof(ModificationCancellationAllowed3Choice.Indicator),"ModificationCancellationAllowed3Choice.Indicator")]
+    [JsonDerivedType(typeof(ModificationCancellationAllowed3Choice.Proprietary),"ModificationCancellationAllowed3Choice.Proprietary")]
     #endif
     [IsoId("_AYz-E9okEeC60axPepSq7g_1104436379")]
     [DisplayName("Modification Cancellation Allowed 3 Choice")]

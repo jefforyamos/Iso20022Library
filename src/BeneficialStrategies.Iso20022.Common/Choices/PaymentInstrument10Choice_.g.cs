@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentInstrument10Choice.ChequeDetails))]
     [KnownType(typeof(PaymentInstrument10Choice.AccountDetails))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentInstrument10Choice.PaymentCardDetails),nameof(PaymentInstrument10Choice.PaymentCardDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument10Choice.CreditTransferDetails),nameof(PaymentInstrument10Choice.CreditTransferDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument10Choice.DirectDebitDetails),nameof(PaymentInstrument10Choice.DirectDebitDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument10Choice.ChequeDetails),nameof(PaymentInstrument10Choice.ChequeDetails))]
-    [JsonDerivedType(typeof(PaymentInstrument10Choice.AccountDetails),nameof(PaymentInstrument10Choice.AccountDetails))]
+    [JsonDerivedType(typeof(PaymentInstrument10Choice.PaymentCardDetails),"PaymentInstrument10Choice.PaymentCardDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument10Choice.CreditTransferDetails),"PaymentInstrument10Choice.CreditTransferDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument10Choice.DirectDebitDetails),"PaymentInstrument10Choice.DirectDebitDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument10Choice.ChequeDetails),"PaymentInstrument10Choice.ChequeDetails")]
+    [JsonDerivedType(typeof(PaymentInstrument10Choice.AccountDetails),"PaymentInstrument10Choice.AccountDetails")]
     #endif
     [IsoId("_VKY_Rtp-Ed-ak6NoX_4Aeg_734057873")]
     [DisplayName("Payment Instrument 10 Choice")]

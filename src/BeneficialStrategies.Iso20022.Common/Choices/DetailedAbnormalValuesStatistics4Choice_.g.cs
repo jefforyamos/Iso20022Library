@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DetailedAbnormalValuesStatistics4Choice.DataSetAction))]
     [KnownType(typeof(DetailedAbnormalValuesStatistics4Choice.Report))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DetailedAbnormalValuesStatistics4Choice.DataSetAction),nameof(DetailedAbnormalValuesStatistics4Choice.DataSetAction))]
-    [JsonDerivedType(typeof(DetailedAbnormalValuesStatistics4Choice.Report),nameof(DetailedAbnormalValuesStatistics4Choice.Report))]
+    [JsonDerivedType(typeof(DetailedAbnormalValuesStatistics4Choice.DataSetAction),"DetailedAbnormalValuesStatistics4Choice.DataSetAction")]
+    [JsonDerivedType(typeof(DetailedAbnormalValuesStatistics4Choice.Report),"DetailedAbnormalValuesStatistics4Choice.Report")]
     #endif
     [IsoId("_x32K4VyGEe24CqbZJK5XxA")]
     [DisplayName("Detailed Abnormal Values Statistics 4 Choice")]

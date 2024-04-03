@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UniqueProductIdentifier1Choice.Identification))]
     [KnownType(typeof(UniqueProductIdentifier1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UniqueProductIdentifier1Choice.Identification),nameof(UniqueProductIdentifier1Choice.Identification))]
-    [JsonDerivedType(typeof(UniqueProductIdentifier1Choice.Proprietary),nameof(UniqueProductIdentifier1Choice.Proprietary))]
+    [JsonDerivedType(typeof(UniqueProductIdentifier1Choice.Identification),"UniqueProductIdentifier1Choice.Identification")]
+    [JsonDerivedType(typeof(UniqueProductIdentifier1Choice.Proprietary),"UniqueProductIdentifier1Choice.Proprietary")]
     #endif
     [IsoId("_rTVXISyFEe2xAdY9t5fB3g")]
     [DisplayName("Unique Product Identifier 1 Choice")]

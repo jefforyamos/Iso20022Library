@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalAmount1Choice.AdditionalCashIn))]
     [KnownType(typeof(AdditionalAmount1Choice.ResultingCashOut))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdditionalAmount1Choice.AdditionalCashIn),nameof(AdditionalAmount1Choice.AdditionalCashIn))]
-    [JsonDerivedType(typeof(AdditionalAmount1Choice.ResultingCashOut),nameof(AdditionalAmount1Choice.ResultingCashOut))]
+    [JsonDerivedType(typeof(AdditionalAmount1Choice.AdditionalCashIn),"AdditionalAmount1Choice.AdditionalCashIn")]
+    [JsonDerivedType(typeof(AdditionalAmount1Choice.ResultingCashOut),"AdditionalAmount1Choice.ResultingCashOut")]
     #endif
     [IsoId("_hlWuoEG_EeaNEqIb_fgRZg")]
     [DisplayName("Additional Amount 1 Choice")]

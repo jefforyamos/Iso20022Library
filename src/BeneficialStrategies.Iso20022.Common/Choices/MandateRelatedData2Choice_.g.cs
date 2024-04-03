@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MandateRelatedData2Choice.DirectDebitMandate))]
     [KnownType(typeof(MandateRelatedData2Choice.CreditTransferMandate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MandateRelatedData2Choice.DirectDebitMandate),nameof(MandateRelatedData2Choice.DirectDebitMandate))]
-    [JsonDerivedType(typeof(MandateRelatedData2Choice.CreditTransferMandate),nameof(MandateRelatedData2Choice.CreditTransferMandate))]
+    [JsonDerivedType(typeof(MandateRelatedData2Choice.DirectDebitMandate),"MandateRelatedData2Choice.DirectDebitMandate")]
+    [JsonDerivedType(typeof(MandateRelatedData2Choice.CreditTransferMandate),"MandateRelatedData2Choice.CreditTransferMandate")]
     #endif
     [IsoId("_a24zwdcZEeqRFcf2R4bPBw")]
     [DisplayName("Mandate Related Data 2 Choice")]

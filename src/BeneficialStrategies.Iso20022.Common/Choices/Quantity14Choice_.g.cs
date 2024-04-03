@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Quantity14Choice.Unit))]
     [KnownType(typeof(Quantity14Choice.PercentageRate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Quantity14Choice.Unit),nameof(Quantity14Choice.Unit))]
-    [JsonDerivedType(typeof(Quantity14Choice.PercentageRate),nameof(Quantity14Choice.PercentageRate))]
+    [JsonDerivedType(typeof(Quantity14Choice.Unit),"Quantity14Choice.Unit")]
+    [JsonDerivedType(typeof(Quantity14Choice.PercentageRate),"Quantity14Choice.PercentageRate")]
     #endif
     [IsoId("_QC990RgKEeKqWJINzXcn5g")]
     [DisplayName("Quantity 14 Choice")]

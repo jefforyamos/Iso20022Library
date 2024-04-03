@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InvestmentFundRole2Choice.Code))]
     [KnownType(typeof(InvestmentFundRole2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InvestmentFundRole2Choice.Code),nameof(InvestmentFundRole2Choice.Code))]
-    [JsonDerivedType(typeof(InvestmentFundRole2Choice.Proprietary),nameof(InvestmentFundRole2Choice.Proprietary))]
+    [JsonDerivedType(typeof(InvestmentFundRole2Choice.Code),"InvestmentFundRole2Choice.Code")]
+    [JsonDerivedType(typeof(InvestmentFundRole2Choice.Proprietary),"InvestmentFundRole2Choice.Proprietary")]
     #endif
     [IsoId("_cdaGUDhcEeaRwdGFv45qTQ")]
     [DisplayName("Investment Fund Role 2 Choice")]

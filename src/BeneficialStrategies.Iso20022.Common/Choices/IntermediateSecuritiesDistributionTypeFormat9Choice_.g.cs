@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Code))]
     [KnownType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Code),nameof(IntermediateSecuritiesDistributionTypeFormat9Choice.Code))]
-    [JsonDerivedType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Proprietary),nameof(IntermediateSecuritiesDistributionTypeFormat9Choice.Proprietary))]
+    [JsonDerivedType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Code),"IntermediateSecuritiesDistributionTypeFormat9Choice.Code")]
+    [JsonDerivedType(typeof(IntermediateSecuritiesDistributionTypeFormat9Choice.Proprietary),"IntermediateSecuritiesDistributionTypeFormat9Choice.Proprietary")]
     #endif
     [IsoId("_9m7PcfmXEeCobuMakDuHLg")]
     [DisplayName("Intermediate Securities Distribution Type Format 9 Choice")]

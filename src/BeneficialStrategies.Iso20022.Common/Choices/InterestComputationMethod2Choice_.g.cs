@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(InterestComputationMethod2Choice.Code))]
     [KnownType(typeof(InterestComputationMethod2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(InterestComputationMethod2Choice.Code),nameof(InterestComputationMethod2Choice.Code))]
-    [JsonDerivedType(typeof(InterestComputationMethod2Choice.Proprietary),nameof(InterestComputationMethod2Choice.Proprietary))]
+    [JsonDerivedType(typeof(InterestComputationMethod2Choice.Code),"InterestComputationMethod2Choice.Code")]
+    [JsonDerivedType(typeof(InterestComputationMethod2Choice.Proprietary),"InterestComputationMethod2Choice.Proprietary")]
     #endif
     [IsoId("_4-mnkNopEeCWg-hsBVGrDA_-378245373")]
     [DisplayName("Interest Computation Method 2 Choice")]

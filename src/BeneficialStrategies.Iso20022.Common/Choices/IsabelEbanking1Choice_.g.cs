@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(IsabelEbanking1Choice.UserIdentification))]
     [KnownType(typeof(IsabelEbanking1Choice.ContractIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(IsabelEbanking1Choice.UserIdentification),nameof(IsabelEbanking1Choice.UserIdentification))]
-    [JsonDerivedType(typeof(IsabelEbanking1Choice.ContractIdentification),nameof(IsabelEbanking1Choice.ContractIdentification))]
+    [JsonDerivedType(typeof(IsabelEbanking1Choice.UserIdentification),"IsabelEbanking1Choice.UserIdentification")]
+    [JsonDerivedType(typeof(IsabelEbanking1Choice.ContractIdentification),"IsabelEbanking1Choice.ContractIdentification")]
     #endif
     [IsoId("_F5NoEKA3EeWiJt5KdX5iuQ")]
     [DisplayName("Isabel Ebanking 1 Choice")]

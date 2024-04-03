@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssignmentMethod2Choice.Code))]
     [KnownType(typeof(AssignmentMethod2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssignmentMethod2Choice.Code),nameof(AssignmentMethod2Choice.Code))]
-    [JsonDerivedType(typeof(AssignmentMethod2Choice.Proprietary),nameof(AssignmentMethod2Choice.Proprietary))]
+    [JsonDerivedType(typeof(AssignmentMethod2Choice.Code),"AssignmentMethod2Choice.Code")]
+    [JsonDerivedType(typeof(AssignmentMethod2Choice.Proprietary),"AssignmentMethod2Choice.Proprietary")]
     #endif
     [IsoId("_hJG-heLaEeWFtOV72FbX9w")]
     [DisplayName("Assignment Method 2 Choice")]

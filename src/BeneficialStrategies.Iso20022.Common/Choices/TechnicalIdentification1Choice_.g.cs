@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TechnicalIdentification1Choice.BICFI))]
     [KnownType(typeof(TechnicalIdentification1Choice.TechnicalAddress))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TechnicalIdentification1Choice.BICFI),nameof(TechnicalIdentification1Choice.BICFI))]
-    [JsonDerivedType(typeof(TechnicalIdentification1Choice.TechnicalAddress),nameof(TechnicalIdentification1Choice.TechnicalAddress))]
+    [JsonDerivedType(typeof(TechnicalIdentification1Choice.BICFI),"TechnicalIdentification1Choice.BICFI")]
+    [JsonDerivedType(typeof(TechnicalIdentification1Choice.TechnicalAddress),"TechnicalIdentification1Choice.TechnicalAddress")]
     #endif
     [IsoId("_kpB8s-5NEeCisYr99QEiWA_856915283")]
     [DisplayName("Technical Identification 1 Choice")]

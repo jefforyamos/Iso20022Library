@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClearingExceptionOrExemption3Choice.Reason))]
     [KnownType(typeof(ClearingExceptionOrExemption3Choice.Counterparties))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClearingExceptionOrExemption3Choice.Reason),nameof(ClearingExceptionOrExemption3Choice.Reason))]
-    [JsonDerivedType(typeof(ClearingExceptionOrExemption3Choice.Counterparties),nameof(ClearingExceptionOrExemption3Choice.Counterparties))]
+    [JsonDerivedType(typeof(ClearingExceptionOrExemption3Choice.Reason),"ClearingExceptionOrExemption3Choice.Reason")]
+    [JsonDerivedType(typeof(ClearingExceptionOrExemption3Choice.Counterparties),"ClearingExceptionOrExemption3Choice.Counterparties")]
     #endif
     [IsoId("_Ah8Gl5PuEey0rJ3Gl6WZVA")]
     [DisplayName("Clearing Exception Or Exemption 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FXStandingInstruction5Choice.Indicator))]
     [KnownType(typeof(FXStandingInstruction5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FXStandingInstruction5Choice.Indicator),nameof(FXStandingInstruction5Choice.Indicator))]
-    [JsonDerivedType(typeof(FXStandingInstruction5Choice.Proprietary),nameof(FXStandingInstruction5Choice.Proprietary))]
+    [JsonDerivedType(typeof(FXStandingInstruction5Choice.Indicator),"FXStandingInstruction5Choice.Indicator")]
+    [JsonDerivedType(typeof(FXStandingInstruction5Choice.Proprietary),"FXStandingInstruction5Choice.Proprietary")]
     #endif
     [IsoId("_5xrHDZNLEeWGlc8L7oPDIg")]
     [DisplayName("FX Standing Instruction 5 Choice")]

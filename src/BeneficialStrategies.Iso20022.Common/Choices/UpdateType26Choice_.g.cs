@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UpdateType26Choice.Deletion))]
     [KnownType(typeof(UpdateType26Choice.Modification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UpdateType26Choice.Addition),nameof(UpdateType26Choice.Addition))]
-    [JsonDerivedType(typeof(UpdateType26Choice.Deletion),nameof(UpdateType26Choice.Deletion))]
-    [JsonDerivedType(typeof(UpdateType26Choice.Modification),nameof(UpdateType26Choice.Modification))]
+    [JsonDerivedType(typeof(UpdateType26Choice.Addition),"UpdateType26Choice.Addition")]
+    [JsonDerivedType(typeof(UpdateType26Choice.Deletion),"UpdateType26Choice.Deletion")]
+    [JsonDerivedType(typeof(UpdateType26Choice.Modification),"UpdateType26Choice.Modification")]
     #endif
     [IsoId("_JfG62Zw3EeazcsnODTksnQ")]
     [DisplayName("Update Type 26 Choice")]

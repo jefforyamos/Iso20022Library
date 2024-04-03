@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Status29Choice.SettlementStatus))]
     [KnownType(typeof(Status29Choice.InstructionProcessingStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Status29Choice.Proprietary),nameof(Status29Choice.Proprietary))]
-    [JsonDerivedType(typeof(Status29Choice.MatchingStatus),nameof(Status29Choice.MatchingStatus))]
-    [JsonDerivedType(typeof(Status29Choice.InferredMatchingStatus),nameof(Status29Choice.InferredMatchingStatus))]
-    [JsonDerivedType(typeof(Status29Choice.SettlementStatus),nameof(Status29Choice.SettlementStatus))]
-    [JsonDerivedType(typeof(Status29Choice.InstructionProcessingStatus),nameof(Status29Choice.InstructionProcessingStatus))]
+    [JsonDerivedType(typeof(Status29Choice.Proprietary),"Status29Choice.Proprietary")]
+    [JsonDerivedType(typeof(Status29Choice.MatchingStatus),"Status29Choice.MatchingStatus")]
+    [JsonDerivedType(typeof(Status29Choice.InferredMatchingStatus),"Status29Choice.InferredMatchingStatus")]
+    [JsonDerivedType(typeof(Status29Choice.SettlementStatus),"Status29Choice.SettlementStatus")]
+    [JsonDerivedType(typeof(Status29Choice.InstructionProcessingStatus),"Status29Choice.InstructionProcessingStatus")]
     #endif
     [IsoId("_IYQ_QdB7EeihG9bKfarOOA")]
     [DisplayName("Status 29 Choice")]

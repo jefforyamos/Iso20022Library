@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BeneficiaryCertificationType2Choice.Code))]
     [KnownType(typeof(BeneficiaryCertificationType2Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BeneficiaryCertificationType2Choice.Code),nameof(BeneficiaryCertificationType2Choice.Code))]
-    [JsonDerivedType(typeof(BeneficiaryCertificationType2Choice.Proprietary),nameof(BeneficiaryCertificationType2Choice.Proprietary))]
+    [JsonDerivedType(typeof(BeneficiaryCertificationType2Choice.Code),"BeneficiaryCertificationType2Choice.Code")]
+    [JsonDerivedType(typeof(BeneficiaryCertificationType2Choice.Proprietary),"BeneficiaryCertificationType2Choice.Proprietary")]
     #endif
     [IsoId("_QzTDNdp-Ed-ak6NoX_4Aeg_-1272152318")]
     [DisplayName("Beneficiary Certification Type 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExpectedCollateral2Choice.ExpectedCollateralDetails))]
     [KnownType(typeof(ExpectedCollateral2Choice.SegregatedIndependentAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExpectedCollateral2Choice.ExpectedCollateralDetails),nameof(ExpectedCollateral2Choice.ExpectedCollateralDetails))]
-    [JsonDerivedType(typeof(ExpectedCollateral2Choice.SegregatedIndependentAmount),nameof(ExpectedCollateral2Choice.SegregatedIndependentAmount))]
+    [JsonDerivedType(typeof(ExpectedCollateral2Choice.ExpectedCollateralDetails),"ExpectedCollateral2Choice.ExpectedCollateralDetails")]
+    [JsonDerivedType(typeof(ExpectedCollateral2Choice.SegregatedIndependentAmount),"ExpectedCollateral2Choice.SegregatedIndependentAmount")]
     #endif
     [IsoId("_-UW_QYLZEeWrrO9HojbPQA")]
     [DisplayName("Expected Collateral 2 Choice")]

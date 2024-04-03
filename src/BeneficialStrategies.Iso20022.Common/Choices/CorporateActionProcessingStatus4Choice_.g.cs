@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionProcessingStatus4Choice.Code))]
     [KnownType(typeof(CorporateActionProcessingStatus4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus4Choice.Code),nameof(CorporateActionProcessingStatus4Choice.Code))]
-    [JsonDerivedType(typeof(CorporateActionProcessingStatus4Choice.Proprietary),nameof(CorporateActionProcessingStatus4Choice.Proprietary))]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus4Choice.Code),"CorporateActionProcessingStatus4Choice.Code")]
+    [JsonDerivedType(typeof(CorporateActionProcessingStatus4Choice.Proprietary),"CorporateActionProcessingStatus4Choice.Proprietary")]
     #endif
     [IsoId("_s2r48SXZEeOFIcNWlDEvdQ")]
     [DisplayName("Corporate Action Processing Status 4 Choice")]

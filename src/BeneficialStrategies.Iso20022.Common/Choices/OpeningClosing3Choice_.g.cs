@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OpeningClosing3Choice.Code))]
     [KnownType(typeof(OpeningClosing3Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OpeningClosing3Choice.Code),nameof(OpeningClosing3Choice.Code))]
-    [JsonDerivedType(typeof(OpeningClosing3Choice.Proprietary),nameof(OpeningClosing3Choice.Proprietary))]
+    [JsonDerivedType(typeof(OpeningClosing3Choice.Code),"OpeningClosing3Choice.Code")]
+    [JsonDerivedType(typeof(OpeningClosing3Choice.Proprietary),"OpeningClosing3Choice.Proprietary")]
     #endif
     [IsoId("_gj_VkTtCEeWRTLSN0i0tng")]
     [DisplayName("Opening Closing 3 Choice")]

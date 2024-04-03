@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriceFormatSD2Choice.NotSpecifiedPrice))]
     [KnownType(typeof(PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriceFormatSD2Choice.NotSpecifiedPrice),nameof(PriceFormatSD2Choice.NotSpecifiedPrice))]
-    [JsonDerivedType(typeof(PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity),nameof(PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity))]
+    [JsonDerivedType(typeof(PriceFormatSD2Choice.NotSpecifiedPrice),"PriceFormatSD2Choice.NotSpecifiedPrice")]
+    [JsonDerivedType(typeof(PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity),"PriceFormatSD2Choice.AmountPricePerFinancialInstrumentQuantity")]
     #endif
     [IsoId("_siRLoaFWEeSK_vfd3NHBGg")]
     [DisplayName("Price Format SD 2 Choice")]

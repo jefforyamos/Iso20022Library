@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BillingRateIdentification1Choice.Code))]
     [KnownType(typeof(BillingRateIdentification1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BillingRateIdentification1Choice.Code),nameof(BillingRateIdentification1Choice.Code))]
-    [JsonDerivedType(typeof(BillingRateIdentification1Choice.Proprietary),nameof(BillingRateIdentification1Choice.Proprietary))]
+    [JsonDerivedType(typeof(BillingRateIdentification1Choice.Code),"BillingRateIdentification1Choice.Code")]
+    [JsonDerivedType(typeof(BillingRateIdentification1Choice.Proprietary),"BillingRateIdentification1Choice.Proprietary")]
     #endif
     [IsoId("_6Q10hpqlEeGSON8vddiWzQ_1451899054")]
     [DisplayName("Billing Rate Identification 1 Choice")]

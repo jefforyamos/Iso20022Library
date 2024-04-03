@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(DeniedReason18Choice.Code))]
     [KnownType(typeof(DeniedReason18Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(DeniedReason18Choice.Code),nameof(DeniedReason18Choice.Code))]
-    [JsonDerivedType(typeof(DeniedReason18Choice.Proprietary),nameof(DeniedReason18Choice.Proprietary))]
+    [JsonDerivedType(typeof(DeniedReason18Choice.Code),"DeniedReason18Choice.Code")]
+    [JsonDerivedType(typeof(DeniedReason18Choice.Proprietary),"DeniedReason18Choice.Proprietary")]
     #endif
     [IsoId("_6BLiL5NLEeWGlc8L7oPDIg")]
     [DisplayName("Denied Reason 18 Choice")]

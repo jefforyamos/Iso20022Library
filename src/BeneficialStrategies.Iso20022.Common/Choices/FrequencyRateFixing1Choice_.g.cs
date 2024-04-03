@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FrequencyRateFixing1Choice.Code))]
     [KnownType(typeof(FrequencyRateFixing1Choice.NumberOfDays))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FrequencyRateFixing1Choice.Code),nameof(FrequencyRateFixing1Choice.Code))]
-    [JsonDerivedType(typeof(FrequencyRateFixing1Choice.NumberOfDays),nameof(FrequencyRateFixing1Choice.NumberOfDays))]
+    [JsonDerivedType(typeof(FrequencyRateFixing1Choice.Code),"FrequencyRateFixing1Choice.Code")]
+    [JsonDerivedType(typeof(FrequencyRateFixing1Choice.NumberOfDays),"FrequencyRateFixing1Choice.NumberOfDays")]
     #endif
     [IsoId("_OPAdMI9PEeqMo4JxiuZGSw")]
     [DisplayName("Frequency Rate Fixing 1 Choice")]

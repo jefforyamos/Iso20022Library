@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation))]
     [KnownType(typeof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.CancellationCompleted),nameof(MarketClaimCancellationRequestStatus1Choice.CancellationCompleted))]
-    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.Accepted),nameof(MarketClaimCancellationRequestStatus1Choice.Accepted))]
-    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.Rejected),nameof(MarketClaimCancellationRequestStatus1Choice.Rejected))]
-    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation),nameof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation))]
-    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus),nameof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.CancellationCompleted),"MarketClaimCancellationRequestStatus1Choice.CancellationCompleted")]
+    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.Accepted),"MarketClaimCancellationRequestStatus1Choice.Accepted")]
+    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.Rejected),"MarketClaimCancellationRequestStatus1Choice.Rejected")]
+    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.PendingCancellation),"MarketClaimCancellationRequestStatus1Choice.PendingCancellation")]
+    [JsonDerivedType(typeof(MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus),"MarketClaimCancellationRequestStatus1Choice.ProprietaryStatus")]
     #endif
     [IsoId("_1TcqZtx4EeqESbVR5AloZQ")]
     [DisplayName("Market Claim Cancellation Request Status 1 Choice")]

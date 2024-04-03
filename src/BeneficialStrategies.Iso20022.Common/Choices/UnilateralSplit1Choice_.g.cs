@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnilateralSplit1Choice.Code))]
     [KnownType(typeof(UnilateralSplit1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnilateralSplit1Choice.Code),nameof(UnilateralSplit1Choice.Code))]
-    [JsonDerivedType(typeof(UnilateralSplit1Choice.Proprietary),nameof(UnilateralSplit1Choice.Proprietary))]
+    [JsonDerivedType(typeof(UnilateralSplit1Choice.Code),"UnilateralSplit1Choice.Code")]
+    [JsonDerivedType(typeof(UnilateralSplit1Choice.Proprietary),"UnilateralSplit1Choice.Proprietary")]
     #endif
     [IsoId("_QtogGdp-Ed-ak6NoX_4Aeg_510702003")]
     [DisplayName("Unilateral Split 1 Choice")]

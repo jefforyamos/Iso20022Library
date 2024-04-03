@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(NumberCount1Choice.CurrentInstructionNumber))]
     [KnownType(typeof(NumberCount1Choice.TotalNumber))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(NumberCount1Choice.CurrentInstructionNumber),nameof(NumberCount1Choice.CurrentInstructionNumber))]
-    [JsonDerivedType(typeof(NumberCount1Choice.TotalNumber),nameof(NumberCount1Choice.TotalNumber))]
+    [JsonDerivedType(typeof(NumberCount1Choice.CurrentInstructionNumber),"NumberCount1Choice.CurrentInstructionNumber")]
+    [JsonDerivedType(typeof(NumberCount1Choice.TotalNumber),"NumberCount1Choice.TotalNumber")]
     #endif
     [IsoId("_QrsmZ9p-Ed-ak6NoX_4Aeg_994582654")]
     [DisplayName("Number Count 1 Choice")]

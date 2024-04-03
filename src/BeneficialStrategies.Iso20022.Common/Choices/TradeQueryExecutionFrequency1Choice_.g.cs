@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Weekly))]
     [KnownType(typeof(TradeQueryExecutionFrequency1Choice.Monthly))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Daily),nameof(TradeQueryExecutionFrequency1Choice.Daily))]
-    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Weekly),nameof(TradeQueryExecutionFrequency1Choice.Weekly))]
-    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Monthly),nameof(TradeQueryExecutionFrequency1Choice.Monthly))]
+    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Daily),"TradeQueryExecutionFrequency1Choice.Daily")]
+    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Weekly),"TradeQueryExecutionFrequency1Choice.Weekly")]
+    [JsonDerivedType(typeof(TradeQueryExecutionFrequency1Choice.Monthly),"TradeQueryExecutionFrequency1Choice.Monthly")]
     #endif
     [IsoId("_ZjhR4NGYEeaQk737TH1Fzw")]
     [DisplayName("Trade Query Execution Frequency 1 Choice")]

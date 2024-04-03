@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ReconciliationStatus8Choice.NoReconciliationRequired))]
     [KnownType(typeof(ReconciliationStatus8Choice.ReportingData))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ReconciliationStatus8Choice.NoReconciliationRequired),nameof(ReconciliationStatus8Choice.NoReconciliationRequired))]
-    [JsonDerivedType(typeof(ReconciliationStatus8Choice.ReportingData),nameof(ReconciliationStatus8Choice.ReportingData))]
+    [JsonDerivedType(typeof(ReconciliationStatus8Choice.NoReconciliationRequired),"ReconciliationStatus8Choice.NoReconciliationRequired")]
+    [JsonDerivedType(typeof(ReconciliationStatus8Choice.ReportingData),"ReconciliationStatus8Choice.ReportingData")]
     #endif
     [IsoId("_AuXyScK3EeuFNp8LZAnorg")]
     [DisplayName("Reconciliation Status 8 Choice")]

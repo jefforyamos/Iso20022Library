@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingProcessingReason5Choice.Code))]
     [KnownType(typeof(PendingProcessingReason5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingProcessingReason5Choice.Code),nameof(PendingProcessingReason5Choice.Code))]
-    [JsonDerivedType(typeof(PendingProcessingReason5Choice.Proprietary),nameof(PendingProcessingReason5Choice.Proprietary))]
+    [JsonDerivedType(typeof(PendingProcessingReason5Choice.Code),"PendingProcessingReason5Choice.Code")]
+    [JsonDerivedType(typeof(PendingProcessingReason5Choice.Proprietary),"PendingProcessingReason5Choice.Proprietary")]
     #endif
     [IsoId("_0jExAAlIEeGATtfOBToyew_-1834452611")]
     [DisplayName("Pending Processing Reason 5 Choice")]

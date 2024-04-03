@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ElectionCancellationStatus1Choice.ProcessedStatus))]
     [KnownType(typeof(ElectionCancellationStatus1Choice.RejectedStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ElectionCancellationStatus1Choice.ProcessedStatus),nameof(ElectionCancellationStatus1Choice.ProcessedStatus))]
-    [JsonDerivedType(typeof(ElectionCancellationStatus1Choice.RejectedStatus),nameof(ElectionCancellationStatus1Choice.RejectedStatus))]
+    [JsonDerivedType(typeof(ElectionCancellationStatus1Choice.ProcessedStatus),"ElectionCancellationStatus1Choice.ProcessedStatus")]
+    [JsonDerivedType(typeof(ElectionCancellationStatus1Choice.RejectedStatus),"ElectionCancellationStatus1Choice.RejectedStatus")]
     #endif
     [IsoId("_RiiHwtp-Ed-ak6NoX_4Aeg_1698122957")]
     [DisplayName("Election Cancellation Status 1 Choice")]

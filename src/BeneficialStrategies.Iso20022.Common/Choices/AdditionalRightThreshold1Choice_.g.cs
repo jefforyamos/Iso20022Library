@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThreshold))]
     [KnownType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThreshold),nameof(AdditionalRightThreshold1Choice.AdditionalRightThreshold))]
-    [JsonDerivedType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage),nameof(AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage))]
+    [JsonDerivedType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThreshold),"AdditionalRightThreshold1Choice.AdditionalRightThreshold")]
+    [JsonDerivedType(typeof(AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage),"AdditionalRightThreshold1Choice.AdditionalRightThresholdPercentage")]
     #endif
     [IsoId("_RDrok9p-Ed-ak6NoX_4Aeg_1316358552")]
     [DisplayName("Additional Right Threshold 1 Choice")]

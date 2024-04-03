@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ExchangeRateOrPercentage1Choice.Rate))]
     [KnownType(typeof(ExchangeRateOrPercentage1Choice.Percentage))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ExchangeRateOrPercentage1Choice.Rate),nameof(ExchangeRateOrPercentage1Choice.Rate))]
-    [JsonDerivedType(typeof(ExchangeRateOrPercentage1Choice.Percentage),nameof(ExchangeRateOrPercentage1Choice.Percentage))]
+    [JsonDerivedType(typeof(ExchangeRateOrPercentage1Choice.Rate),"ExchangeRateOrPercentage1Choice.Rate")]
+    [JsonDerivedType(typeof(ExchangeRateOrPercentage1Choice.Percentage),"ExchangeRateOrPercentage1Choice.Percentage")]
     #endif
     [IsoId("_lW_QMNfvEeqoweZZxm4TPQ")]
     [DisplayName("Exchange Rate Or Percentage 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(BusinessDayReportOrError10Choice.BusinessDayInformation))]
     [KnownType(typeof(BusinessDayReportOrError10Choice.BusinessError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(BusinessDayReportOrError10Choice.BusinessDayInformation),nameof(BusinessDayReportOrError10Choice.BusinessDayInformation))]
-    [JsonDerivedType(typeof(BusinessDayReportOrError10Choice.BusinessError),nameof(BusinessDayReportOrError10Choice.BusinessError))]
+    [JsonDerivedType(typeof(BusinessDayReportOrError10Choice.BusinessDayInformation),"BusinessDayReportOrError10Choice.BusinessDayInformation")]
+    [JsonDerivedType(typeof(BusinessDayReportOrError10Choice.BusinessError),"BusinessDayReportOrError10Choice.BusinessError")]
     #endif
     [IsoId("_ONBJt3XyEei3jO6riKEVXg")]
     [DisplayName("Business Day Report Or Error 10 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification))]
     [KnownType(typeof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification),nameof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification))]
-    [JsonDerivedType(typeof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification),nameof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification))]
+    [JsonDerivedType(typeof(CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification),"CorporateActionEventReference3Choice.LinkedOfficialCorporateActionEventIdentification")]
+    [JsonDerivedType(typeof(CorporateActionEventReference3Choice.LinkedCorporateActionIdentification),"CorporateActionEventReference3Choice.LinkedCorporateActionIdentification")]
     #endif
     [IsoId("_4VgxsTncEeWLJsP1cO-amg")]
     [DisplayName("Corporate Action Event Reference 3 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CashAvailabilityDate1Choice.NumberOfDays))]
     [KnownType(typeof(CashAvailabilityDate1Choice.ActualDate))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CashAvailabilityDate1Choice.NumberOfDays),nameof(CashAvailabilityDate1Choice.NumberOfDays))]
-    [JsonDerivedType(typeof(CashAvailabilityDate1Choice.ActualDate),nameof(CashAvailabilityDate1Choice.ActualDate))]
+    [JsonDerivedType(typeof(CashAvailabilityDate1Choice.NumberOfDays),"CashAvailabilityDate1Choice.NumberOfDays")]
+    [JsonDerivedType(typeof(CashAvailabilityDate1Choice.ActualDate),"CashAvailabilityDate1Choice.ActualDate")]
     #endif
     [IsoId("_Vf2nGTqwEeWZFYSPlduMhw")]
     [DisplayName("Cash Availability Date 1 Choice")]

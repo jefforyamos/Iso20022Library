@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransportMeans2Choice.IndividualTransport))]
     [KnownType(typeof(TransportMeans2Choice.MultimodalTransport))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransportMeans2Choice.IndividualTransport),nameof(TransportMeans2Choice.IndividualTransport))]
-    [JsonDerivedType(typeof(TransportMeans2Choice.MultimodalTransport),nameof(TransportMeans2Choice.MultimodalTransport))]
+    [JsonDerivedType(typeof(TransportMeans2Choice.IndividualTransport),"TransportMeans2Choice.IndividualTransport")]
+    [JsonDerivedType(typeof(TransportMeans2Choice.MultimodalTransport),"TransportMeans2Choice.MultimodalTransport")]
     #endif
     [IsoId("_U7oxkdp-Ed-ak6NoX_4Aeg_-761772709")]
     [DisplayName("Transport Means 2 Choice")]

@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityPaper1Choice.Pulp))]
     [KnownType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.ContainerBoard),nameof(AssetClassCommodityPaper1Choice.ContainerBoard))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Newsprint),nameof(AssetClassCommodityPaper1Choice.Newsprint))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Pulp),nameof(AssetClassCommodityPaper1Choice.Pulp))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper),nameof(AssetClassCommodityPaper1Choice.RecoveredPaper))]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.ContainerBoard),"AssetClassCommodityPaper1Choice.ContainerBoard")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Newsprint),"AssetClassCommodityPaper1Choice.Newsprint")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.Pulp),"AssetClassCommodityPaper1Choice.Pulp")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper1Choice.RecoveredPaper),"AssetClassCommodityPaper1Choice.RecoveredPaper")]
     #endif
     [IsoId("_0bsBIFrxEeWN79Bl6BUd3g")]
     [DisplayName("Asset Class Commodity Paper 1 Choice")]

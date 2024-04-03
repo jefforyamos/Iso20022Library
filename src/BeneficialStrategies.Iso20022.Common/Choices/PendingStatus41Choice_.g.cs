@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingStatus41Choice.NoSpecifiedReason))]
     [KnownType(typeof(PendingStatus41Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingStatus41Choice.NoSpecifiedReason),nameof(PendingStatus41Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(PendingStatus41Choice.Reason),nameof(PendingStatus41Choice.Reason))]
+    [JsonDerivedType(typeof(PendingStatus41Choice.NoSpecifiedReason),"PendingStatus41Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(PendingStatus41Choice.Reason),"PendingStatus41Choice.Reason")]
     #endif
     [IsoId("_tDTUwUGSEeWqy4niLuXETA")]
     [DisplayName("Pending Status 41 Choice")]

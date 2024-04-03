@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxTypeFormat1Choice.Code))]
     [KnownType(typeof(TaxTypeFormat1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxTypeFormat1Choice.Code),nameof(TaxTypeFormat1Choice.Code))]
-    [JsonDerivedType(typeof(TaxTypeFormat1Choice.Proprietary),nameof(TaxTypeFormat1Choice.Proprietary))]
+    [JsonDerivedType(typeof(TaxTypeFormat1Choice.Code),"TaxTypeFormat1Choice.Code")]
+    [JsonDerivedType(typeof(TaxTypeFormat1Choice.Proprietary),"TaxTypeFormat1Choice.Proprietary")]
     #endif
     [IsoId("_SumZEgEcEeCQm6a_G2yO_w_1045052724")]
     [DisplayName("Tax Type Format 1 Choice")]

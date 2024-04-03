@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LinkageType1Choice.Code))]
     [KnownType(typeof(LinkageType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LinkageType1Choice.Code),nameof(LinkageType1Choice.Code))]
-    [JsonDerivedType(typeof(LinkageType1Choice.Proprietary),nameof(LinkageType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(LinkageType1Choice.Code),"LinkageType1Choice.Code")]
+    [JsonDerivedType(typeof(LinkageType1Choice.Proprietary),"LinkageType1Choice.Proprietary")]
     #endif
     [IsoId("_QtyREdp-Ed-ak6NoX_4Aeg_-1874530301")]
     [DisplayName("Linkage Type 1 Choice")]

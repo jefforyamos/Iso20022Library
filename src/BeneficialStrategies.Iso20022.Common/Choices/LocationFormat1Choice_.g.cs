@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LocationFormat1Choice.Address))]
     [KnownType(typeof(LocationFormat1Choice.LocationCode))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LocationFormat1Choice.Address),nameof(LocationFormat1Choice.Address))]
-    [JsonDerivedType(typeof(LocationFormat1Choice.LocationCode),nameof(LocationFormat1Choice.LocationCode))]
+    [JsonDerivedType(typeof(LocationFormat1Choice.Address),"LocationFormat1Choice.Address")]
+    [JsonDerivedType(typeof(LocationFormat1Choice.LocationCode),"LocationFormat1Choice.LocationCode")]
     #endif
     [IsoId("_RXD3l9p-Ed-ak6NoX_4Aeg_-341096000")]
     [DisplayName("Location Format 1 Choice")]

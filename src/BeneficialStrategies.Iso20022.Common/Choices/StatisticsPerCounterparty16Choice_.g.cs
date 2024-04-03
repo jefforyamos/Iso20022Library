@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StatisticsPerCounterparty16Choice.DataSetAction))]
     [KnownType(typeof(StatisticsPerCounterparty16Choice.Report))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StatisticsPerCounterparty16Choice.DataSetAction),nameof(StatisticsPerCounterparty16Choice.DataSetAction))]
-    [JsonDerivedType(typeof(StatisticsPerCounterparty16Choice.Report),nameof(StatisticsPerCounterparty16Choice.Report))]
+    [JsonDerivedType(typeof(StatisticsPerCounterparty16Choice.DataSetAction),"StatisticsPerCounterparty16Choice.DataSetAction")]
+    [JsonDerivedType(typeof(StatisticsPerCounterparty16Choice.Report),"StatisticsPerCounterparty16Choice.Report")]
     #endif
     [IsoId("_robnAVowEe23K4GXSpBSeg")]
     [DisplayName("Statistics Per Counterparty 16 Choice")]

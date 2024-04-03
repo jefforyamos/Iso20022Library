@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LotteryTypeFormat4Choice.Code))]
     [KnownType(typeof(LotteryTypeFormat4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LotteryTypeFormat4Choice.Code),nameof(LotteryTypeFormat4Choice.Code))]
-    [JsonDerivedType(typeof(LotteryTypeFormat4Choice.Proprietary),nameof(LotteryTypeFormat4Choice.Proprietary))]
+    [JsonDerivedType(typeof(LotteryTypeFormat4Choice.Code),"LotteryTypeFormat4Choice.Code")]
+    [JsonDerivedType(typeof(LotteryTypeFormat4Choice.Proprietary),"LotteryTypeFormat4Choice.Proprietary")]
     #endif
     [IsoId("_YSkWQUEGEeWVgfuHGaKtRQ")]
     [DisplayName("Lottery Type Format 4 Choice")]

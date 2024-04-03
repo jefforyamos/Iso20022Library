@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetHolding1Choice.Guarantee))]
     [KnownType(typeof(AssetHolding1Choice.Commodity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetHolding1Choice.Gold),nameof(AssetHolding1Choice.Gold))]
-    [JsonDerivedType(typeof(AssetHolding1Choice.Triparty),nameof(AssetHolding1Choice.Triparty))]
-    [JsonDerivedType(typeof(AssetHolding1Choice.Cash),nameof(AssetHolding1Choice.Cash))]
-    [JsonDerivedType(typeof(AssetHolding1Choice.Security),nameof(AssetHolding1Choice.Security))]
-    [JsonDerivedType(typeof(AssetHolding1Choice.Guarantee),nameof(AssetHolding1Choice.Guarantee))]
-    [JsonDerivedType(typeof(AssetHolding1Choice.Commodity),nameof(AssetHolding1Choice.Commodity))]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Gold),"AssetHolding1Choice.Gold")]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Triparty),"AssetHolding1Choice.Triparty")]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Cash),"AssetHolding1Choice.Cash")]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Security),"AssetHolding1Choice.Security")]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Guarantee),"AssetHolding1Choice.Guarantee")]
+    [JsonDerivedType(typeof(AssetHolding1Choice.Commodity),"AssetHolding1Choice.Commodity")]
     #endif
     [IsoId("_A8xYoK_5EeaE9YROwd69hA")]
     [DisplayName("Asset Holding 1 Choice")]

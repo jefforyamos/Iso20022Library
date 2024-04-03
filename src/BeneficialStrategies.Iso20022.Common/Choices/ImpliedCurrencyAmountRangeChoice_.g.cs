@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
     [KnownType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromAmount),nameof(ImpliedCurrencyAmountRangeChoice.FromAmount))]
-    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.ToAmount),nameof(ImpliedCurrencyAmountRangeChoice.ToAmount))]
-    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromToAmount),nameof(ImpliedCurrencyAmountRangeChoice.FromToAmount))]
-    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount),nameof(ImpliedCurrencyAmountRangeChoice.EqualAmount))]
-    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount),nameof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount))]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromAmount),"ImpliedCurrencyAmountRangeChoice.FromAmount")]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.ToAmount),"ImpliedCurrencyAmountRangeChoice.ToAmount")]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.FromToAmount),"ImpliedCurrencyAmountRangeChoice.FromToAmount")]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.EqualAmount),"ImpliedCurrencyAmountRangeChoice.EqualAmount")]
+    [JsonDerivedType(typeof(ImpliedCurrencyAmountRangeChoice.NotEqualAmount),"ImpliedCurrencyAmountRangeChoice.NotEqualAmount")]
     #endif
     [IsoId("_PU-ECtp-Ed-ak6NoX_4Aeg_847262836")]
     [DisplayName("Implied Currency Amount Range Choice")]

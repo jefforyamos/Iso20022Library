@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(StressSize1Choice.Relative))]
     [KnownType(typeof(StressSize1Choice.Absolute))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(StressSize1Choice.Relative),nameof(StressSize1Choice.Relative))]
-    [JsonDerivedType(typeof(StressSize1Choice.Absolute),nameof(StressSize1Choice.Absolute))]
+    [JsonDerivedType(typeof(StressSize1Choice.Relative),"StressSize1Choice.Relative")]
+    [JsonDerivedType(typeof(StressSize1Choice.Absolute),"StressSize1Choice.Absolute")]
     #endif
     [IsoId("_itPG0Ks1Eeayv9XxdmMwKQ")]
     [DisplayName("Stress Size 1 Choice")]

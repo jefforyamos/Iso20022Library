@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LegalFramework4Choice.Code))]
     [KnownType(typeof(LegalFramework4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LegalFramework4Choice.Code),nameof(LegalFramework4Choice.Code))]
-    [JsonDerivedType(typeof(LegalFramework4Choice.Proprietary),nameof(LegalFramework4Choice.Proprietary))]
+    [JsonDerivedType(typeof(LegalFramework4Choice.Code),"LegalFramework4Choice.Code")]
+    [JsonDerivedType(typeof(LegalFramework4Choice.Proprietary),"LegalFramework4Choice.Proprietary")]
     #endif
     [IsoId("_5mw4H5NLEeWGlc8L7oPDIg")]
     [DisplayName("Legal Framework 4 Choice")]

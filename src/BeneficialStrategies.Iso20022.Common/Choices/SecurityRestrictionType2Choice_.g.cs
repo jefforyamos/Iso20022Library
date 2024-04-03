@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityRestrictionType2Choice.RestrictionType))]
     [KnownType(typeof(SecurityRestrictionType2Choice.ProprietaryRestriction))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityRestrictionType2Choice.RestrictionType),nameof(SecurityRestrictionType2Choice.RestrictionType))]
-    [JsonDerivedType(typeof(SecurityRestrictionType2Choice.ProprietaryRestriction),nameof(SecurityRestrictionType2Choice.ProprietaryRestriction))]
+    [JsonDerivedType(typeof(SecurityRestrictionType2Choice.RestrictionType),"SecurityRestrictionType2Choice.RestrictionType")]
+    [JsonDerivedType(typeof(SecurityRestrictionType2Choice.ProprietaryRestriction),"SecurityRestrictionType2Choice.ProprietaryRestriction")]
     #endif
     [IsoId("_c8LMVeLxEeWOD7aAy2fAcA")]
     [DisplayName("Security Restriction Type 2 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(KYCCheckType1Choice.Code))]
     [KnownType(typeof(KYCCheckType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(KYCCheckType1Choice.Code),nameof(KYCCheckType1Choice.Code))]
-    [JsonDerivedType(typeof(KYCCheckType1Choice.Proprietary),nameof(KYCCheckType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(KYCCheckType1Choice.Code),"KYCCheckType1Choice.Code")]
+    [JsonDerivedType(typeof(KYCCheckType1Choice.Proprietary),"KYCCheckType1Choice.Proprietary")]
     #endif
     [IsoId("_HadL0RRxEeOKWo1NF21OVw")]
     [DisplayName("KYC Check Type 1 Choice")]

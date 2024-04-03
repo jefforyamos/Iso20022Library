@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus))]
     [KnownType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Cancelled),nameof(MarketClaimProcessingStatus1Choice.Cancelled))]
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing),nameof(MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing))]
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Rejected),nameof(MarketClaimProcessingStatus1Choice.Rejected))]
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Pending),nameof(MarketClaimProcessingStatus1Choice.Pending))]
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus),nameof(MarketClaimProcessingStatus1Choice.MatchingStatus))]
-    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus),nameof(MarketClaimProcessingStatus1Choice.ProprietaryStatus))]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Cancelled),"MarketClaimProcessingStatus1Choice.Cancelled")]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing),"MarketClaimProcessingStatus1Choice.AcceptedForFurtherProcessing")]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Rejected),"MarketClaimProcessingStatus1Choice.Rejected")]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.Pending),"MarketClaimProcessingStatus1Choice.Pending")]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.MatchingStatus),"MarketClaimProcessingStatus1Choice.MatchingStatus")]
+    [JsonDerivedType(typeof(MarketClaimProcessingStatus1Choice.ProprietaryStatus),"MarketClaimProcessingStatus1Choice.ProprietaryStatus")]
     #endif
     [IsoId("_YGaIftx4EeqESbVR5AloZQ")]
     [DisplayName("Market Claim Processing Status 1 Choice")]

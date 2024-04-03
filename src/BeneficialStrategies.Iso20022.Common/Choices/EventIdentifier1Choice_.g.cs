@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(EventIdentifier1Choice.EventIdentifier))]
     [KnownType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(EventIdentifier1Choice.EventIdentifier),nameof(EventIdentifier1Choice.EventIdentifier))]
-    [JsonDerivedType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier),nameof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier))]
+    [JsonDerivedType(typeof(EventIdentifier1Choice.EventIdentifier),"EventIdentifier1Choice.EventIdentifier")]
+    [JsonDerivedType(typeof(EventIdentifier1Choice.PostTradeRiskReductionIdentifier),"EventIdentifier1Choice.PostTradeRiskReductionIdentifier")]
     #endif
     [IsoId("_nfQOQPbfEeyInphUKJZxtQ")]
     [DisplayName("Event Identifier 1 Choice")]

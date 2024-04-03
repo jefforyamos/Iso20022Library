@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LegIdentification1Choice.RedemptionLegIdentification))]
     [KnownType(typeof(LegIdentification1Choice.SubscriptionLegIdentification))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LegIdentification1Choice.RedemptionLegIdentification),nameof(LegIdentification1Choice.RedemptionLegIdentification))]
-    [JsonDerivedType(typeof(LegIdentification1Choice.SubscriptionLegIdentification),nameof(LegIdentification1Choice.SubscriptionLegIdentification))]
+    [JsonDerivedType(typeof(LegIdentification1Choice.RedemptionLegIdentification),"LegIdentification1Choice.RedemptionLegIdentification")]
+    [JsonDerivedType(typeof(LegIdentification1Choice.SubscriptionLegIdentification),"LegIdentification1Choice.SubscriptionLegIdentification")]
     #endif
     [IsoId("_r7QIIEglEea9YuSvQGoi-w")]
     [DisplayName("Leg Identification 1 Choice")]

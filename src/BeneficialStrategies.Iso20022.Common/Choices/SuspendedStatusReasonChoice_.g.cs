@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SuspendedStatusReasonChoice.Proprietary))]
     [KnownType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Reason),nameof(SuspendedStatusReasonChoice.Reason))]
-    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Proprietary),nameof(SuspendedStatusReasonChoice.Proprietary))]
-    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason),nameof(SuspendedStatusReasonChoice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Reason),"SuspendedStatusReasonChoice.Reason")]
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.Proprietary),"SuspendedStatusReasonChoice.Proprietary")]
+    [JsonDerivedType(typeof(SuspendedStatusReasonChoice.NoSpecifiedReason),"SuspendedStatusReasonChoice.NoSpecifiedReason")]
     #endif
     [IsoId("_RfGZSdp-Ed-ak6NoX_4Aeg_1537280901")]
     [DisplayName("Suspended Status Reason Choice")]

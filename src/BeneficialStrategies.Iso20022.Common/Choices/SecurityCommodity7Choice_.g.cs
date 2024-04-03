@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SecurityCommodity7Choice.Security))]
     [KnownType(typeof(SecurityCommodity7Choice.Commodity))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SecurityCommodity7Choice.Security),nameof(SecurityCommodity7Choice.Security))]
-    [JsonDerivedType(typeof(SecurityCommodity7Choice.Commodity),nameof(SecurityCommodity7Choice.Commodity))]
+    [JsonDerivedType(typeof(SecurityCommodity7Choice.Security),"SecurityCommodity7Choice.Security")]
+    [JsonDerivedType(typeof(SecurityCommodity7Choice.Commodity),"SecurityCommodity7Choice.Commodity")]
     #endif
     [IsoId("_UkKfccgyEeuGrNSsxk3B0A")]
     [DisplayName("Security Commodity 7 Choice")]

@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionToPerform5Choice.LoyaltyRequest))]
     [KnownType(typeof(TransactionToPerform5Choice.ReversalRequest))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionToPerform5Choice.PaymentRequest),nameof(TransactionToPerform5Choice.PaymentRequest))]
-    [JsonDerivedType(typeof(TransactionToPerform5Choice.LoyaltyRequest),nameof(TransactionToPerform5Choice.LoyaltyRequest))]
-    [JsonDerivedType(typeof(TransactionToPerform5Choice.ReversalRequest),nameof(TransactionToPerform5Choice.ReversalRequest))]
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.PaymentRequest),"TransactionToPerform5Choice.PaymentRequest")]
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.LoyaltyRequest),"TransactionToPerform5Choice.LoyaltyRequest")]
+    [JsonDerivedType(typeof(TransactionToPerform5Choice.ReversalRequest),"TransactionToPerform5Choice.ReversalRequest")]
     #endif
     [IsoId("_XnUecXGwEe2TbaNWBpRZpQ")]
     [DisplayName("Transaction To Perform 5 Choice")]

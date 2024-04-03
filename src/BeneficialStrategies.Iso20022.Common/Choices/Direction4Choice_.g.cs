@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Direction4Choice.Direction))]
     [KnownType(typeof(Direction4Choice.CounterpartySide))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Direction4Choice.Direction),nameof(Direction4Choice.Direction))]
-    [JsonDerivedType(typeof(Direction4Choice.CounterpartySide),nameof(Direction4Choice.CounterpartySide))]
+    [JsonDerivedType(typeof(Direction4Choice.Direction),"Direction4Choice.Direction")]
+    [JsonDerivedType(typeof(Direction4Choice.CounterpartySide),"Direction4Choice.CounterpartySide")]
     #endif
     [IsoId("_ZdjwgS0WEe2ZUuvBHegNNg")]
     [DisplayName("Direction 4 Choice")]

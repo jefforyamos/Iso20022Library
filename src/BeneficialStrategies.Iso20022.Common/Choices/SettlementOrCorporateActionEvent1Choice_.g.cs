@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlementOrCorporateActionEvent1Choice.SecuritiesTransactionType))]
     [KnownType(typeof(SettlementOrCorporateActionEvent1Choice.CorporateActionEventType))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent1Choice.SecuritiesTransactionType),nameof(SettlementOrCorporateActionEvent1Choice.SecuritiesTransactionType))]
-    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent1Choice.CorporateActionEventType),nameof(SettlementOrCorporateActionEvent1Choice.CorporateActionEventType))]
+    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent1Choice.SecuritiesTransactionType),"SettlementOrCorporateActionEvent1Choice.SecuritiesTransactionType")]
+    [JsonDerivedType(typeof(SettlementOrCorporateActionEvent1Choice.CorporateActionEventType),"SettlementOrCorporateActionEvent1Choice.CorporateActionEventType")]
     #endif
     [IsoId("_QwUApdp-Ed-ak6NoX_4Aeg_1179810715")]
     [DisplayName("Settlement Or Corporate Action Event 1 Choice")]

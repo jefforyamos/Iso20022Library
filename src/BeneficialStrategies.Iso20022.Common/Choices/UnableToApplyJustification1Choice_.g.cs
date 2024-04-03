@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnableToApplyJustification1Choice.AnyInformation))]
     [KnownType(typeof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnableToApplyJustification1Choice.AnyInformation),nameof(UnableToApplyJustification1Choice.AnyInformation))]
-    [JsonDerivedType(typeof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation),nameof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation))]
+    [JsonDerivedType(typeof(UnableToApplyJustification1Choice.AnyInformation),"UnableToApplyJustification1Choice.AnyInformation")]
+    [JsonDerivedType(typeof(UnableToApplyJustification1Choice.MissingOrIncorrectInformation),"UnableToApplyJustification1Choice.MissingOrIncorrectInformation")]
     #endif
     [IsoId("_T-i3MNp-Ed-ak6NoX_4Aeg_-1347537926")]
     [DisplayName("Unable To Apply Justification 1 Choice")]

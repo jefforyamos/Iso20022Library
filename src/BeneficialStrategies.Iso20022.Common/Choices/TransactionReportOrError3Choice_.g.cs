@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionReportOrError3Choice.BusinessReport))]
     [KnownType(typeof(TransactionReportOrError3Choice.OperationalError))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionReportOrError3Choice.BusinessReport),nameof(TransactionReportOrError3Choice.BusinessReport))]
-    [JsonDerivedType(typeof(TransactionReportOrError3Choice.OperationalError),nameof(TransactionReportOrError3Choice.OperationalError))]
+    [JsonDerivedType(typeof(TransactionReportOrError3Choice.BusinessReport),"TransactionReportOrError3Choice.BusinessReport")]
+    [JsonDerivedType(typeof(TransactionReportOrError3Choice.OperationalError),"TransactionReportOrError3Choice.OperationalError")]
     #endif
     [IsoId("_MwAZAZlPEee-Zps0fZQaFQ")]
     [DisplayName("Transaction Report Or Error 3 Choice")]

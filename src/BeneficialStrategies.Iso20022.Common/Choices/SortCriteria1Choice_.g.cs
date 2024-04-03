@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SortCriteria1Choice.Predefined))]
     [KnownType(typeof(SortCriteria1Choice.UserDefined))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SortCriteria1Choice.Predefined),nameof(SortCriteria1Choice.Predefined))]
-    [JsonDerivedType(typeof(SortCriteria1Choice.UserDefined),nameof(SortCriteria1Choice.UserDefined))]
+    [JsonDerivedType(typeof(SortCriteria1Choice.Predefined),"SortCriteria1Choice.Predefined")]
+    [JsonDerivedType(typeof(SortCriteria1Choice.UserDefined),"SortCriteria1Choice.UserDefined")]
     #endif
     [IsoId("_U1-1hNp-Ed-ak6NoX_4Aeg_1941564546")]
     [DisplayName("Sort Criteria 1 Choice")]

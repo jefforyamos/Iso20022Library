@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TimeFrame4Choice.TradePlus))]
     [KnownType(typeof(TimeFrame4Choice.RenunciationPlus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TimeFrame4Choice.TradePlus),nameof(TimeFrame4Choice.TradePlus))]
-    [JsonDerivedType(typeof(TimeFrame4Choice.RenunciationPlus),nameof(TimeFrame4Choice.RenunciationPlus))]
+    [JsonDerivedType(typeof(TimeFrame4Choice.TradePlus),"TimeFrame4Choice.TradePlus")]
+    [JsonDerivedType(typeof(TimeFrame4Choice.RenunciationPlus),"TimeFrame4Choice.RenunciationPlus")]
     #endif
     [IsoId("_UAew6dp-Ed-ak6NoX_4Aeg_1996622705")]
     [DisplayName("Time Frame 4 Choice")]

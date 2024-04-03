@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
     [KnownType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification),nameof(OriginalEnrolment2Choice.OriginalCreditorIdentification))]
-    [JsonDerivedType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData),nameof(OriginalEnrolment2Choice.OriginalEnrolmentData))]
+    [JsonDerivedType(typeof(OriginalEnrolment2Choice.OriginalCreditorIdentification),"OriginalEnrolment2Choice.OriginalCreditorIdentification")]
+    [JsonDerivedType(typeof(OriginalEnrolment2Choice.OriginalEnrolmentData),"OriginalEnrolment2Choice.OriginalEnrolmentData")]
     #endif
     [IsoId("_UX7ZV-H7Eeqbls7Gk4-ckA")]
     [DisplayName("Original Enrolment 2 Choice")]

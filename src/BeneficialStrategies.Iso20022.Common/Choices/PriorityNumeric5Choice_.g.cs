@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PriorityNumeric5Choice.Numeric))]
     [KnownType(typeof(PriorityNumeric5Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PriorityNumeric5Choice.Numeric),nameof(PriorityNumeric5Choice.Numeric))]
-    [JsonDerivedType(typeof(PriorityNumeric5Choice.Proprietary),nameof(PriorityNumeric5Choice.Proprietary))]
+    [JsonDerivedType(typeof(PriorityNumeric5Choice.Numeric),"PriorityNumeric5Choice.Numeric")]
+    [JsonDerivedType(typeof(PriorityNumeric5Choice.Proprietary),"PriorityNumeric5Choice.Proprietary")]
     #endif
     [IsoId("_5Pg0WJNLEeWGlc8L7oPDIg")]
     [DisplayName("Priority Numeric 5 Choice")]

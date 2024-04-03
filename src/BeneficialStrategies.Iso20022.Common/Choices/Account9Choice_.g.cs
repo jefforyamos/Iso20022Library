@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(Account9Choice.ChargesAccount))]
     [KnownType(typeof(Account9Choice.TaxAccount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(Account9Choice.CashAccount),nameof(Account9Choice.CashAccount))]
-    [JsonDerivedType(typeof(Account9Choice.ChargesAccount),nameof(Account9Choice.ChargesAccount))]
-    [JsonDerivedType(typeof(Account9Choice.TaxAccount),nameof(Account9Choice.TaxAccount))]
+    [JsonDerivedType(typeof(Account9Choice.CashAccount),"Account9Choice.CashAccount")]
+    [JsonDerivedType(typeof(Account9Choice.ChargesAccount),"Account9Choice.ChargesAccount")]
+    [JsonDerivedType(typeof(Account9Choice.TaxAccount),"Account9Choice.TaxAccount")]
     #endif
     [IsoId("_XY2a49p-Ed-ak6NoX_4Aeg_-2005416600")]
     [DisplayName("Account 9 Choice")]

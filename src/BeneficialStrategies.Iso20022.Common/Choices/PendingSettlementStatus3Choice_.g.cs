@@ -24,10 +24,10 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PendingSettlementStatus3Choice.DataSourceScheme))]
     [KnownType(typeof(PendingSettlementStatus3Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.Reason),nameof(PendingSettlementStatus3Choice.Reason))]
-    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.ExtendedReason),nameof(PendingSettlementStatus3Choice.ExtendedReason))]
-    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.DataSourceScheme),nameof(PendingSettlementStatus3Choice.DataSourceScheme))]
-    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.NoSpecifiedReason),nameof(PendingSettlementStatus3Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.Reason),"PendingSettlementStatus3Choice.Reason")]
+    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.ExtendedReason),"PendingSettlementStatus3Choice.ExtendedReason")]
+    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.DataSourceScheme),"PendingSettlementStatus3Choice.DataSourceScheme")]
+    [JsonDerivedType(typeof(PendingSettlementStatus3Choice.NoSpecifiedReason),"PendingSettlementStatus3Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_LPufISY4EeW_ZNn8gbfY7Q")]
     [DisplayName("Pending Settlement Status 3 Choice")]

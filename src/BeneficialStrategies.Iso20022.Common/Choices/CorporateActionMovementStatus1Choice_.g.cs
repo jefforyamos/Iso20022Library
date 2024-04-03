@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CorporateActionMovementStatus1Choice.FailedStatus))]
     [KnownType(typeof(CorporateActionMovementStatus1Choice.RejectedStatus))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.ProcessedStatus),nameof(CorporateActionMovementStatus1Choice.ProcessedStatus))]
-    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.FailedStatus),nameof(CorporateActionMovementStatus1Choice.FailedStatus))]
-    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.RejectedStatus),nameof(CorporateActionMovementStatus1Choice.RejectedStatus))]
+    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.ProcessedStatus),"CorporateActionMovementStatus1Choice.ProcessedStatus")]
+    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.FailedStatus),"CorporateActionMovementStatus1Choice.FailedStatus")]
+    [JsonDerivedType(typeof(CorporateActionMovementStatus1Choice.RejectedStatus),"CorporateActionMovementStatus1Choice.RejectedStatus")]
     #endif
     [IsoId("_RiPM1dp-Ed-ak6NoX_4Aeg_-2034263409")]
     [DisplayName("Corporate Action Movement Status 1 Choice")]

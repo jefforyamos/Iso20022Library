@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PensionTransferScope1Choice.Code))]
     [KnownType(typeof(PensionTransferScope1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PensionTransferScope1Choice.Code),nameof(PensionTransferScope1Choice.Code))]
-    [JsonDerivedType(typeof(PensionTransferScope1Choice.Proprietary),nameof(PensionTransferScope1Choice.Proprietary))]
+    [JsonDerivedType(typeof(PensionTransferScope1Choice.Code),"PensionTransferScope1Choice.Code")]
+    [JsonDerivedType(typeof(PensionTransferScope1Choice.Proprietary),"PensionTransferScope1Choice.Proprietary")]
     #endif
     [IsoId("_REBa0E4YEeiQHa-q1Uephw")]
     [DisplayName("Pension Transfer Scope 1 Choice")]

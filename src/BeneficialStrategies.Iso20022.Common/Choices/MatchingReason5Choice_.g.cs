@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(MatchingReason5Choice.Reason))]
     [KnownType(typeof(MatchingReason5Choice.NoSpecifiedReason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(MatchingReason5Choice.Reason),nameof(MatchingReason5Choice.Reason))]
-    [JsonDerivedType(typeof(MatchingReason5Choice.NoSpecifiedReason),nameof(MatchingReason5Choice.NoSpecifiedReason))]
+    [JsonDerivedType(typeof(MatchingReason5Choice.Reason),"MatchingReason5Choice.Reason")]
+    [JsonDerivedType(typeof(MatchingReason5Choice.NoSpecifiedReason),"MatchingReason5Choice.NoSpecifiedReason")]
     #endif
     [IsoId("_2sTZ-wd3Ee2fOITqoTnSLQ")]
     [DisplayName("Matching Reason 5 Choice")]

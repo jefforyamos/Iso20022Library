@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Unstructured))]
     [KnownType(typeof(TaxExemptionReasonFormatChoice.Structured))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Unstructured),nameof(TaxExemptionReasonFormatChoice.Unstructured))]
-    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Structured),nameof(TaxExemptionReasonFormatChoice.Structured))]
+    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Unstructured),"TaxExemptionReasonFormatChoice.Unstructured")]
+    [JsonDerivedType(typeof(TaxExemptionReasonFormatChoice.Structured),"TaxExemptionReasonFormatChoice.Structured")]
     #endif
     [IsoId("_UzJj8tp-Ed-ak6NoX_4Aeg_-1748201270")]
     [DisplayName("Tax Exemption Reason Format Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PlaceOfTradeIdentification2Choice.MarketIdentification))]
     [KnownType(typeof(PlaceOfTradeIdentification2Choice.OffMarket))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PlaceOfTradeIdentification2Choice.MarketIdentification),nameof(PlaceOfTradeIdentification2Choice.MarketIdentification))]
-    [JsonDerivedType(typeof(PlaceOfTradeIdentification2Choice.OffMarket),nameof(PlaceOfTradeIdentification2Choice.OffMarket))]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification2Choice.MarketIdentification),"PlaceOfTradeIdentification2Choice.MarketIdentification")]
+    [JsonDerivedType(typeof(PlaceOfTradeIdentification2Choice.OffMarket),"PlaceOfTradeIdentification2Choice.OffMarket")]
     #endif
     [IsoId("_TCfepNp-Ed-ak6NoX_4Aeg_2102299149")]
     [DisplayName("Place Of Trade Identification 2 Choice")]

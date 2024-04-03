@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PaymentStatusCode6Choice.Settlement))]
     [KnownType(typeof(PaymentStatusCode6Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Pending),nameof(PaymentStatusCode6Choice.Pending))]
-    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Final),nameof(PaymentStatusCode6Choice.Final))]
-    [JsonDerivedType(typeof(PaymentStatusCode6Choice.RTGS),nameof(PaymentStatusCode6Choice.RTGS))]
-    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Settlement),nameof(PaymentStatusCode6Choice.Settlement))]
-    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Proprietary),nameof(PaymentStatusCode6Choice.Proprietary))]
+    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Pending),"PaymentStatusCode6Choice.Pending")]
+    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Final),"PaymentStatusCode6Choice.Final")]
+    [JsonDerivedType(typeof(PaymentStatusCode6Choice.RTGS),"PaymentStatusCode6Choice.RTGS")]
+    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Settlement),"PaymentStatusCode6Choice.Settlement")]
+    [JsonDerivedType(typeof(PaymentStatusCode6Choice.Proprietary),"PaymentStatusCode6Choice.Proprietary")]
     #endif
     [IsoId("_pIXBKRbzEeOy-PlRuFSUzQ")]
     [DisplayName("Payment Status Code 6 Choice")]

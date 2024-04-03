@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ProcessingStatus79Choice.AcknowledgedAccepted))]
     [KnownType(typeof(ProcessingStatus79Choice.Rejected))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ProcessingStatus79Choice.AcknowledgedAccepted),nameof(ProcessingStatus79Choice.AcknowledgedAccepted))]
-    [JsonDerivedType(typeof(ProcessingStatus79Choice.Rejected),nameof(ProcessingStatus79Choice.Rejected))]
+    [JsonDerivedType(typeof(ProcessingStatus79Choice.AcknowledgedAccepted),"ProcessingStatus79Choice.AcknowledgedAccepted")]
+    [JsonDerivedType(typeof(ProcessingStatus79Choice.Rejected),"ProcessingStatus79Choice.Rejected")]
     #endif
     [IsoId("_Hk0BYZwZEeqtp-LOti013g")]
     [DisplayName("Processing Status 79 Choice")]

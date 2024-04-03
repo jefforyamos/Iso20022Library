@@ -25,11 +25,11 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(AssetClassCommodityPaper3Choice.RecoveredPaper))]
     [KnownType(typeof(AssetClassCommodityPaper3Choice.Other))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.ContainerBoard),nameof(AssetClassCommodityPaper3Choice.ContainerBoard))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Newsprint),nameof(AssetClassCommodityPaper3Choice.Newsprint))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Pulp),nameof(AssetClassCommodityPaper3Choice.Pulp))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.RecoveredPaper),nameof(AssetClassCommodityPaper3Choice.RecoveredPaper))]
-    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Other),nameof(AssetClassCommodityPaper3Choice.Other))]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.ContainerBoard),"AssetClassCommodityPaper3Choice.ContainerBoard")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Newsprint),"AssetClassCommodityPaper3Choice.Newsprint")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Pulp),"AssetClassCommodityPaper3Choice.Pulp")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.RecoveredPaper),"AssetClassCommodityPaper3Choice.RecoveredPaper")]
+    [JsonDerivedType(typeof(AssetClassCommodityPaper3Choice.Other),"AssetClassCommodityPaper3Choice.Other")]
     #endif
     [IsoId("__d2KIbv7EeiLRYqS-r-R-A")]
     [DisplayName("Asset Class Commodity Paper 3 Choice")]

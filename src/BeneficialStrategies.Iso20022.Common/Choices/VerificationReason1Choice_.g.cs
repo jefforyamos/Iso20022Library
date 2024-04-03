@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(VerificationReason1Choice.Code))]
     [KnownType(typeof(VerificationReason1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(VerificationReason1Choice.Code),nameof(VerificationReason1Choice.Code))]
-    [JsonDerivedType(typeof(VerificationReason1Choice.Proprietary),nameof(VerificationReason1Choice.Proprietary))]
+    [JsonDerivedType(typeof(VerificationReason1Choice.Code),"VerificationReason1Choice.Code")]
+    [JsonDerivedType(typeof(VerificationReason1Choice.Proprietary),"VerificationReason1Choice.Proprietary")]
     #endif
     [IsoId("_Qo3U1Np-Ed-ak6NoX_4Aeg_-449981895")]
     [DisplayName("Verification Reason 1 Choice")]

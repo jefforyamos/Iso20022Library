@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(PositionSetAggregated1Choice.DataSetAction))]
     [KnownType(typeof(PositionSetAggregated1Choice.Report))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(PositionSetAggregated1Choice.DataSetAction),nameof(PositionSetAggregated1Choice.DataSetAction))]
-    [JsonDerivedType(typeof(PositionSetAggregated1Choice.Report),nameof(PositionSetAggregated1Choice.Report))]
+    [JsonDerivedType(typeof(PositionSetAggregated1Choice.DataSetAction),"PositionSetAggregated1Choice.DataSetAction")]
+    [JsonDerivedType(typeof(PositionSetAggregated1Choice.Report),"PositionSetAggregated1Choice.Report")]
     #endif
     [IsoId("_CHENw0whEeqwfMIOLcNxbw")]
     [DisplayName("Position Set Aggregated 1 Choice")]

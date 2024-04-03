@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LegalStructure1Choice.Code))]
     [KnownType(typeof(LegalStructure1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LegalStructure1Choice.Code),nameof(LegalStructure1Choice.Code))]
-    [JsonDerivedType(typeof(LegalStructure1Choice.Proprietary),nameof(LegalStructure1Choice.Proprietary))]
+    [JsonDerivedType(typeof(LegalStructure1Choice.Code),"LegalStructure1Choice.Code")]
+    [JsonDerivedType(typeof(LegalStructure1Choice.Proprietary),"LegalStructure1Choice.Proprietary")]
     #endif
     [IsoId("_kfzX0DQeEeifw8iDiyZLmQ")]
     [DisplayName("Legal Structure 1 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ClaimNonReceipt2Choice.Accepted))]
     [KnownType(typeof(ClaimNonReceipt2Choice.Rejected))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ClaimNonReceipt2Choice.Accepted),nameof(ClaimNonReceipt2Choice.Accepted))]
-    [JsonDerivedType(typeof(ClaimNonReceipt2Choice.Rejected),nameof(ClaimNonReceipt2Choice.Rejected))]
+    [JsonDerivedType(typeof(ClaimNonReceipt2Choice.Accepted),"ClaimNonReceipt2Choice.Accepted")]
+    [JsonDerivedType(typeof(ClaimNonReceipt2Choice.Rejected),"ClaimNonReceipt2Choice.Rejected")]
     #endif
     [IsoId("_EVNOIW4-EeiU9cctagi5ow")]
     [DisplayName("Claim Non Receipt 2 Choice")]

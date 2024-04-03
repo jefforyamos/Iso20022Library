@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(CurrencyCriteriaDefinition1Choice.QueryName))]
     [KnownType(typeof(CurrencyCriteriaDefinition1Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(CurrencyCriteriaDefinition1Choice.QueryName),nameof(CurrencyCriteriaDefinition1Choice.QueryName))]
-    [JsonDerivedType(typeof(CurrencyCriteriaDefinition1Choice.NewCriteria),nameof(CurrencyCriteriaDefinition1Choice.NewCriteria))]
+    [JsonDerivedType(typeof(CurrencyCriteriaDefinition1Choice.QueryName),"CurrencyCriteriaDefinition1Choice.QueryName")]
+    [JsonDerivedType(typeof(CurrencyCriteriaDefinition1Choice.NewCriteria),"CurrencyCriteriaDefinition1Choice.NewCriteria")]
     #endif
     [IsoId("_HxiIV5lZEeeE1Ya-LgRsuQ")]
     [DisplayName("Currency Criteria Definition 1 Choice")]

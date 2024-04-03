@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(TransactionCriteria7Choice.QueryName))]
     [KnownType(typeof(TransactionCriteria7Choice.NewCriteria))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(TransactionCriteria7Choice.QueryName),nameof(TransactionCriteria7Choice.QueryName))]
-    [JsonDerivedType(typeof(TransactionCriteria7Choice.NewCriteria),nameof(TransactionCriteria7Choice.NewCriteria))]
+    [JsonDerivedType(typeof(TransactionCriteria7Choice.QueryName),"TransactionCriteria7Choice.QueryName")]
+    [JsonDerivedType(typeof(TransactionCriteria7Choice.NewCriteria),"TransactionCriteria7Choice.NewCriteria")]
     #endif
     [IsoId("_9lnxdQKxEe2rHs6fbn9-0A")]
     [DisplayName("Transaction Criteria 7 Choice")]

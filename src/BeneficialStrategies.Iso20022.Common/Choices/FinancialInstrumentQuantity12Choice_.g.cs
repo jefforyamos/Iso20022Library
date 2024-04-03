@@ -26,12 +26,12 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FinancialInstrumentQuantity12Choice.HoldingsRate))]
     [KnownType(typeof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.UnitsNumber),nameof(FinancialInstrumentQuantity12Choice.UnitsNumber))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.OrderedAmount),nameof(FinancialInstrumentQuantity12Choice.OrderedAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.NetAmount),nameof(FinancialInstrumentQuantity12Choice.NetAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.GrossAmount),nameof(FinancialInstrumentQuantity12Choice.GrossAmount))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.HoldingsRate),nameof(FinancialInstrumentQuantity12Choice.HoldingsRate))]
-    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount),nameof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount))]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.UnitsNumber),"FinancialInstrumentQuantity12Choice.UnitsNumber")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.OrderedAmount),"FinancialInstrumentQuantity12Choice.OrderedAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.NetAmount),"FinancialInstrumentQuantity12Choice.NetAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.GrossAmount),"FinancialInstrumentQuantity12Choice.GrossAmount")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.HoldingsRate),"FinancialInstrumentQuantity12Choice.HoldingsRate")]
+    [JsonDerivedType(typeof(FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount),"FinancialInstrumentQuantity12Choice.PercentageOfTotalSubscriptionAmount")]
     #endif
     [IsoId("_RgvYAtp-Ed-ak6NoX_4Aeg_426549080")]
     [DisplayName("Financial Instrument Quantity 12 Choice")]

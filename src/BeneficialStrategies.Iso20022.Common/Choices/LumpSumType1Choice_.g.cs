@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(LumpSumType1Choice.Code))]
     [KnownType(typeof(LumpSumType1Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(LumpSumType1Choice.Code),nameof(LumpSumType1Choice.Code))]
-    [JsonDerivedType(typeof(LumpSumType1Choice.Proprietary),nameof(LumpSumType1Choice.Proprietary))]
+    [JsonDerivedType(typeof(LumpSumType1Choice.Code),"LumpSumType1Choice.Code")]
+    [JsonDerivedType(typeof(LumpSumType1Choice.Proprietary),"LumpSumType1Choice.Proprietary")]
     #endif
     [IsoId("_AB4QYLKdEeiXL6Ccd-oU8g")]
     [DisplayName("Lump Sum Type 1 Choice")]

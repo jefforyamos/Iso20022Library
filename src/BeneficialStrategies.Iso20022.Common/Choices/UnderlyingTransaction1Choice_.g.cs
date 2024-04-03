@@ -23,9 +23,9 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(UnderlyingTransaction1Choice.Interbank))]
     [KnownType(typeof(UnderlyingTransaction1Choice.StatementEntry))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.Initiation),nameof(UnderlyingTransaction1Choice.Initiation))]
-    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.Interbank),nameof(UnderlyingTransaction1Choice.Interbank))]
-    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.StatementEntry),nameof(UnderlyingTransaction1Choice.StatementEntry))]
+    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.Initiation),"UnderlyingTransaction1Choice.Initiation")]
+    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.Interbank),"UnderlyingTransaction1Choice.Interbank")]
+    [JsonDerivedType(typeof(UnderlyingTransaction1Choice.StatementEntry),"UnderlyingTransaction1Choice.StatementEntry")]
     #endif
     [IsoId("_P9DXuNp-Ed-ak6NoX_4Aeg_-2030379979")]
     [DisplayName("Underlying Transaction 1 Choice")]

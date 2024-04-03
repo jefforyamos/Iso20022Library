@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(RejectedStatus27Choice.NoSpecifiedReason))]
     [KnownType(typeof(RejectedStatus27Choice.Reason))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(RejectedStatus27Choice.NoSpecifiedReason),nameof(RejectedStatus27Choice.NoSpecifiedReason))]
-    [JsonDerivedType(typeof(RejectedStatus27Choice.Reason),nameof(RejectedStatus27Choice.Reason))]
+    [JsonDerivedType(typeof(RejectedStatus27Choice.NoSpecifiedReason),"RejectedStatus27Choice.NoSpecifiedReason")]
+    [JsonDerivedType(typeof(RejectedStatus27Choice.Reason),"RejectedStatus27Choice.Reason")]
     #endif
     [IsoId("_bzV1YffREeiNZp_PtLohLw")]
     [DisplayName("Rejected Status 27 Choice")]

@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(FormOfSecurity4Choice.Code))]
     [KnownType(typeof(FormOfSecurity4Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(FormOfSecurity4Choice.Code),nameof(FormOfSecurity4Choice.Code))]
-    [JsonDerivedType(typeof(FormOfSecurity4Choice.Proprietary),nameof(FormOfSecurity4Choice.Proprietary))]
+    [JsonDerivedType(typeof(FormOfSecurity4Choice.Code),"FormOfSecurity4Choice.Code")]
+    [JsonDerivedType(typeof(FormOfSecurity4Choice.Proprietary),"FormOfSecurity4Choice.Proprietary")]
     #endif
     [IsoId("_AbzAotokEeC60axPepSq7g_-664085466")]
     [DisplayName("Form Of Security 4 Choice")]

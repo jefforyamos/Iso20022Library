@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(ShareRanking1FormatChoice.Code))]
     [KnownType(typeof(ShareRanking1FormatChoice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(ShareRanking1FormatChoice.Code),nameof(ShareRanking1FormatChoice.Code))]
-    [JsonDerivedType(typeof(ShareRanking1FormatChoice.Proprietary),nameof(ShareRanking1FormatChoice.Proprietary))]
+    [JsonDerivedType(typeof(ShareRanking1FormatChoice.Code),"ShareRanking1FormatChoice.Code")]
+    [JsonDerivedType(typeof(ShareRanking1FormatChoice.Proprietary),"ShareRanking1FormatChoice.Proprietary")]
     #endif
     [IsoId("_Ro8Rw9p-Ed-ak6NoX_4Aeg_1933759381")]
     [DisplayName("Share Ranking 1 Format Choice")]

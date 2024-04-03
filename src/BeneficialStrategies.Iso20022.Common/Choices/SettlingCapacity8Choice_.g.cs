@@ -22,8 +22,8 @@ namespace BeneficialStrategies.Iso20022.Choices
     [KnownType(typeof(SettlingCapacity8Choice.Code))]
     [KnownType(typeof(SettlingCapacity8Choice.Proprietary))]
     #if NET7_0_OR_GREATER // C# 11 Records, required members
-    [JsonDerivedType(typeof(SettlingCapacity8Choice.Code),nameof(SettlingCapacity8Choice.Code))]
-    [JsonDerivedType(typeof(SettlingCapacity8Choice.Proprietary),nameof(SettlingCapacity8Choice.Proprietary))]
+    [JsonDerivedType(typeof(SettlingCapacity8Choice.Code),"SettlingCapacity8Choice.Code")]
+    [JsonDerivedType(typeof(SettlingCapacity8Choice.Proprietary),"SettlingCapacity8Choice.Proprietary")]
     #endif
     [IsoId("_5m5aiZNLEeWGlc8L7oPDIg")]
     [DisplayName("Settling Capacity 8 Choice")]
