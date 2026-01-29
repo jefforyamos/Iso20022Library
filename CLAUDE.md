@@ -4,9 +4,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the **Iso20022Library** - a generated .NET library containing 2,665 ISO20022 financial message types as immutable C# records. The code is auto-generated from the ISO20022 specification by the parent project (Iso20022MasterControl).
+This is the **Iso20022Library** - a .NET library containing 2,665 ISO20022 financial message types as immutable C# records.
 
 **NuGet Package**: `BeneficialStrategies.Iso20022`
+
+### Transition Notice
+
+This library was originally auto-generated from the ISO20022 specification by the Iso20022MasterControl project. **The code generation approach is being discontinued.** Going forward:
+
+- This repository will become independent (no longer a submodule of Iso20022MasterControl)
+- The `.g.cs` files will be maintained directly with assistance from Claude and the ISO20022 MCP server
+- The original generators in Iso20022MasterControl will be abandoned
 
 ## Build Commands
 
@@ -22,9 +30,9 @@ cd src && dotnet build BeneficialStrategies.Iso20022.Common -c Release
 
 ## Architecture
 
-### This is Generated Code
+### Code Maintenance
 
-All `.g.cs` files are auto-generated. Do not edit them directly. To modify generated code, changes must be made in the parent generator project (Iso20022MasterControl).
+The `.g.cs` files were originally auto-generated but are now maintained directly. Claude may edit these files as needed to fix bugs, add features, or align with ISO20022 specification updates. The MCP server provides access to ISO20022 specification data to assist with maintenance.
 
 ### Directory Structure
 
